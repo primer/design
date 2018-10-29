@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Heading, Text} from '@primer/components'
+import {Box, Heading} from '@primer/components'
 
 const IndexHero = () => (
   <Box bg="black">
@@ -8,9 +8,6 @@ const IndexHero = () => (
         <Heading color="blue.4" fontSize={7} pb={3}>
           Primer Design
         </Heading>
-        <Text color="blue.2" fontSize={2} className="text-mono">
-          v{version}
-        </Text>
       </Box>
       <Box mb={6}>
         <Heading fontFamily="mono">FPO</Heading>

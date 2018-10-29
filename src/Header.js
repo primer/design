@@ -4,7 +4,6 @@ import Octicon, {MarkGithub} from '@githubprimer/octicons-react'
 import NextLink from 'next/link'
 import {Text, Flex, Link, Sticky, BorderBox, Box} from '@primer/components'
 import BoxShadow from './BoxShadow'
-import {pageMap} from './utils'
 
 const Header = ({router}) => (
   <Sticky zIndex={100}>

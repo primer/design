@@ -1,9 +1,9 @@
 import React from 'react'
 import App, {Container} from 'next/app'
 import {MDXProvider} from '@mdx-js/tag'
-import {BaseStyles, Box, Flex, Heading, Link} from '@primer/components'
+import {BaseStyles, Box, Flex, Link} from '@primer/components'
 import {SideNav, Header, IndexHero} from '../src'
-import {pageMap} from '../src'
+import Index from './index.mdx'
 
 const components = {
   a: Link
@@ -33,9 +33,7 @@ export default class MyApp extends App {
             <Box width="100%">
               {isIndex && <IndexHero />}
               <Box color="gray.9" maxWidth={1012} width={'100%'} my={6} mx={'auto'} px={6} className="markdown-body">
-                <MDXProvider components={components}>
-                  {isIndex ? <Index /> : <Component {...page} />}
-                </MDXProvider>
+                <MDXProvider components={components}>{isIndex ? <Index /> : <Component {...page} />}</MDXProvider>
               </Box>
             </Box>
             <SideNav />
