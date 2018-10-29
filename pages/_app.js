@@ -36,7 +36,7 @@ export default class MyApp extends App {
                 <MDXProvider components={components}>{isIndex ? <Index /> : <Component {...page} />}</MDXProvider>
               </Box>
             </Box>
-            <SideNav />
+            <SideNav minHeight={['auto', 'auto', '100vh']} />
           </Flex>
         </Container>
       </BaseStyles>
