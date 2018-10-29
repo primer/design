@@ -18,31 +18,12 @@ const Header = ({router}) => (
           </Link>
         </NextLink>
         <Box display={['none', 'none', 'block']}>
-          <NextLink href="/components">
-            <Link
-              color="white"
-              href="/components"
-              px={4}
-              fontWeight={router.pathname === '/components' ? 'bold' : null}
-            >
-              Docs
-            </Link>
-          </NextLink>
-          <NextLink href="/components/sandbox">
-            <Link
-              color="white"
-              href="/components/sandbox"
-              mr={0}
-              px={4}
-              fontWeight={router.pathname === '/components/sandbox' ? 'bold' : null}
-            >
-              Sandbox
-            </Link>
-          </NextLink>
+          <Links router={router} />
         </Box>
         <Box display={['block', 'block', 'none']}>
           <Link href="#sidenav">
             <BorderBox
+              bg="black"
               color="white"
               py="6px"
               px="12px"
@@ -60,6 +41,26 @@ const Header = ({router}) => (
       </Flex>
     </BoxShadow>
   </Sticky>
+)
+
+const links = [
+  {text: 'Docs', href: '/components'},
+  {text: 'Sandbox', href: '/components/sandbox'}
+]
+
+const Links = ({router}) => (
+  links.map(({href, text}) => (
+    <NextLink href={href} key={href}>
+      <Link
+        color="white"
+        href={href}
+        px={4}
+        fontWeight={router.pathname === href ? 'bold' : null}
+      >
+        {text}
+      </Link>
+    </NextLink>
+  ))
 )
 
 export default withRouter(Header)
