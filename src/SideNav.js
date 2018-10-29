@@ -55,7 +55,7 @@ const SideNav = props => (
 const SectionLink = withRouter(({href, router, ...rest}) => (
   <Box mb={3}>
     <NextLink href={href}>
-      <Link href={href} m={0} color="gray.9" fontWeight={router.pathname === href ? 'bold' : null} {...rest} />
+      <Link href={href} color="gray.9" fontWeight={router.pathname === href ? 'bold' : null} {...rest} />
     </NextLink>
   </Box>
 ))
