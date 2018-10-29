@@ -9,12 +9,18 @@
     "watch": "jest --watch"
   },
   "dependencies": {
+    "@mdx-js/tag": "0.15.0",
     "@primer/components": "5.0.0-beta",
     "@svgr/webpack": "3.1.0",
     "@zeit/next-mdx": "1.2.0",
+    "emotion-server": "9.2.12",
+    "mdx-docs": "2.0.0-alpha.2",
     "next": "7.0.2",
     "next-compose-plugins": "2.1.1",
+    "next-page-map": "0.1.0",
     "react": "16.6.0",
-    "react-dom": "16.6.0"
+    "react-dom": "16.6.0",
+    "react-emotion": "9.2.12",
+    "styled-components": "4.0.2"
   }
 }

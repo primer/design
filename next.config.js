@@ -1,16 +1,20 @@
+const getPageMap = require('next-page-map')
 const withPlugins = require('next-compose-plugins')
 const mdx = require('@zeit/next-mdx')
 
 const assetPrefix = process.env.NOW_URL
+const pageExtensions = ['js', 'jsx', 'md', 'mdx']
+const pageMap = getPageMap(null, pageExtensions)
 
 module.exports = withPlugins([
   mdx({extension: /\.mdx?$/})
 ], {
   assetPrefix,
-  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  pageExtensions,
 
   publicRuntimeConfig: {
-    assetPrefix
+    assetPrefix,
+    pageMap
   },
 
   webpack(config, {dev}) {
