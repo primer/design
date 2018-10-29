@@ -1,9 +1,19 @@
 {
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build",
+    "lint": "eslint src pages",
+    "test": "jest",
+    "watch": "jest --watch"
+  },
   "dependencies": {
     "@primer/components": "5.0.0-beta",
+    "@svgr/webpack": "3.1.0",
+    "@zeit/next-mdx": "1.2.0",
     "next": "7.0.2",
+    "next-compose-plugins": "2.1.1",
     "react": "16.6.0",
     "react-dom": "16.6.0"
   }
