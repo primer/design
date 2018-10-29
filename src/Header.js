@@ -43,24 +43,15 @@ const Header = ({router}) => (
   </Sticky>
 )
 
-const links = [
-  {text: 'Docs', href: '/components'},
-  {text: 'Sandbox', href: '/components/sandbox'}
-]
+const links = [{text: 'Docs', href: '/components'}, {text: 'Sandbox', href: '/components/sandbox'}]
 
-const Links = ({router}) => (
+const Links = ({router}) =>
   links.map(({href, text}) => (
     <NextLink href={href} key={href}>
-      <Link
-        color="white"
-        href={href}
-        px={4}
-        fontWeight={router.pathname === href ? 'bold' : null}
-      >
+      <Link color="white" href={href} px={4} fontWeight={router.pathname === href ? 'bold' : null}>
         {text}
       </Link>
     </NextLink>
   ))
-)
 
 export default withRouter(Header)

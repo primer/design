@@ -1,7 +1,7 @@
 import React from 'react'
 import {withRouter} from 'next/router'
 import {default as NextLink} from 'next/link'
-import {Text, BorderBox, Box, Link, Flex, Relative} from '@primer/components'
+import {BorderBox, Box, Link, Flex, Relative} from '@primer/components'
 import {pageMap} from './utils'
 
 const Section = ({children, ...rest}) => (
@@ -22,8 +22,8 @@ Section.defaultProps = {
   bg: null
 }
 
-const SideNav = ({router, ...rest}) => (
-  <Relative {...rest}>
+const SideNav = props => (
+  <Relative {...props}>
     <BorderBox
       id="sidenav"
       width={['100%', '100%', 256, 256]}
@@ -43,7 +43,9 @@ const SideNav = ({router, ...rest}) => (
       <Section>
         <SectionLink href="/components/docs/Avatar">Components</SectionLink>
         {[...Object.entries(pageMap)].map(([path, file]) => (
-          <SideLink href={path} key={path}>{file}</SideLink>
+          <SideLink href={path} key={path}>
+            {file}
+          </SideLink>
         ))}
       </Section>
     </BorderBox>
@@ -66,4 +68,4 @@ const SideLink = withRouter(({href, router, ...rest}) => (
   </Box>
 ))
 
-export default withRouter(SideNav)
+export default SideNav
