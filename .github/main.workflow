@@ -29,4 +29,7 @@ action "preview" {
   needs = ["deploy"]
   uses = "shawnbot/now-branch-preview@ed0d3a9"
   secrets = ["ZEIT_TOKEN", "GITHUB_TOKEN"]
+  env = {
+    PREVIEW_URL_TEMPLATE = "{name}-{branch}"
+  }
 }
