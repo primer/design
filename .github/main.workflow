@@ -2,7 +2,7 @@ workflow "Lint and test" {
   on = "push"
   resolves = [
     "lint",
-    "deploy",
+    "shawnbot/now-branch-preview@ed0d3a9",
   ]
 }
 
@@ -23,4 +23,10 @@ action "deploy" {
   secrets = [
     "ZEIT_TOKEN",
   ]
+}
+
+action "shawnbot/now-branch-preview@ed0d3a9" {
+  needs = ["deploy"]
+  uses = "shawnbot/now-branch-preview@ed0d3a9"
+  secrets = ["ZEIT_TOKEN", "GITHUB_TOKEN"]
 }
