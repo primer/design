@@ -20,5 +20,7 @@ action "lint" {
 action "deploy" {
   needs = ["install"]
   uses = "actions/zeit-now@d9a6263"
-  secrets = ["NOW_TOKEN"]
+  secrets = [
+    "ZEIT_TOKEN",
+  ]
 }
