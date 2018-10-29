@@ -1,9 +1,5 @@
+*.log
 .*.swp
 .DS_Store
-*.log
-*.tgz
 .next/
-.test/
-coverage/
-dist/
 node_modules
