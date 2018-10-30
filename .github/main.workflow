@@ -27,9 +27,9 @@ action "deploy" {
 
 action "preview" {
   needs = ["deploy"]
-  uses = "shawnbot/now-branch-preview@2682ea0"
+  uses = "shawnbot/now-branch-preview@2ea3e41"
   secrets = ["ZEIT_TOKEN", "GITHUB_TOKEN"]
   env = {
-    PREVIEW_URL_TEMPLATE = "{app}-{branch}",
+    PREVIEW_URL_TEMPLATE = "primer-design-{branch}.now.sh",
   }
 }
