@@ -4,7 +4,6 @@ const mdx = require('@zeit/next-mdx')
 
 const assetPrefix = process.env.NOW_URL
 const pageExtensions = ['js', 'jsx', 'md', 'mdx']
-const pageMap = getPageMap(null, pageExtensions)
 
 module.exports = withPlugins([
   mdx({extension: /\.mdx?$/})
@@ -14,7 +13,8 @@ module.exports = withPlugins([
 
   publicRuntimeConfig: {
     assetPrefix,
-    pageMap
+    pageMap: getPageMap({pageExtensions}),
+    pageTree: getPageMap({pageExtensions, nested: true})
   },
 
   webpack(config, {dev}) {
