@@ -19,7 +19,7 @@ action "lint" {
 
 action "deploy" {
   needs = ["install"]
-  uses = "shawnbot/zeit-now@c9b3d30"
+  uses = "shawnbot/zeit-now@9f28e66"
   secrets = [
     "ZEIT_TOKEN",
   ]
