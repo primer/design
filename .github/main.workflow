@@ -2,7 +2,7 @@ workflow "Lint and test" {
   on = "push"
   resolves = [
     "lint",
-    "preview",
+    "preview/alias",
   ]
 }
 
@@ -25,11 +25,11 @@ action "deploy" {
   ]
 }
 
-action "preview" {
+action "preview/alias" {
   needs = ["deploy"]
   uses = "shawnbot/now-branch-preview@9f674f6"
   secrets = ["ZEIT_TOKEN", "GITHUB_TOKEN"]
   env = {
-    PREVIEW_URL_TEMPLATE = "primer-design-{branch}.now.sh",
+    PREVIEW_URL_TEMPLATE = "primer-design-{branch}.now.sh"
   }
 }
