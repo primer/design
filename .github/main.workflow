@@ -19,7 +19,7 @@ action "lint" {
 
 action "deploy" {
   needs = ["install"]
-  uses = "actions/zeit-now@d9a6263"
+  uses = "shawnbot/zeit-now@c9b3d30"
   secrets = [
     "ZEIT_TOKEN",
   ]
@@ -27,9 +27,9 @@ action "deploy" {
 
 action "preview" {
   needs = ["deploy"]
-  uses = "shawnbot/now-branch-preview@fb92390"
+  uses = "shawnbot/now-branch-preview@78b9959"
   secrets = ["ZEIT_TOKEN", "GITHUB_TOKEN"]
   env = {
-    PREVIEW_URL_TEMPLATE = "{name}-{branch}"
+    PREVIEW_URL_TEMPLATE = "{name}-{branch}",
   }
 }
