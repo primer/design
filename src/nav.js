@@ -3,6 +3,15 @@ import {config} from './utils'
 export const pageMap = config.pageMap || {}
 export const pageTree = config.pageTree || {}
 
+// augment the page tree with a function that can find
+// a node recursively given a test function
+pageTree.find = test => {
+  function findIn(node) {
+    return test(node) || node.children.find(findIn)
+  }
+  return findIn(pageTree)
+}
+
 export const ROOT_URL = pageTree.path || '/'
 
 const requirePage = require.context('../pages', true, /\.(js|md)x?$/)

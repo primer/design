@@ -4,13 +4,12 @@ import NextLink from 'next/link'
 import {BorderBox, Box, Link, Flex, Relative} from '@primer/components'
 import {getComponent, getNavName, pageTree} from './nav'
 
-const sections = pageTree.children.filter(({file}) => {
-  const Component = getComponent(file)
-  if (Component && Component.meta instanceof Object) {
-    const {meta} = Component
-    return !meta.nav || meta.nav === 'side'
-  }
+// the root section is the one called "Guidelines"
+const root = pageTree.find(child => {
+  return getNavName(child.file) === 'Guidelines'
 })
+
+const sections = root.children
 
 export default function SideNav(props) {
   return (
