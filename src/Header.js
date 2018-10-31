@@ -4,12 +4,12 @@ import {withRouter} from 'next/router'
 import Octicon, {MarkGithub} from '@githubprimer/octicons-react'
 import {Text, Flex, Link, Sticky, BorderBox, Box} from '@primer/components'
 import BoxShadow from './BoxShadow'
-import {getComponent, getNavName, pageTree, ROOT_URL} from './nav'
+import {getFileMeta, getNavName, pageTree, ROOT_URL} from './nav'
 import {SITE_TITLE} from './constants'
 
 const links = pageTree.children.filter(({file}) => {
-  const Component = getComponent(file)
-  return Component && Component.meta && Component.meta.nav === 'top'
+  const meta = getFileMeta(file)
+  return !meta.hidden && meta.nav === 'top'
 })
 
 const Header = props => (

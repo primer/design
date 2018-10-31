@@ -2,7 +2,7 @@ import React from 'react'
 import {withRouter} from 'next/router'
 import NextLink from 'next/link'
 import {BorderBox, Box, Link, Flex, Relative} from '@primer/components'
-import {getNavName, pageTree} from './nav'
+import {getFileMeta, getNavName, pageTree} from './nav'
 
 // the root section is the one called "Guidelines"
 const root = pageTree.find(child => {
@@ -35,16 +35,20 @@ export default function SideNav(props) {
 }
 
 function Section({node, ...rest}) {
-  const {path, file, children} = node
+  const {path, file} = node
+  if (getFileMeta(file, 'hidden') === true) {
+    return null
+  }
+  const children = node.children.filter(child => !getFileMeta(child.file, 'hidden')).map(child => (
+    <PageLink key={child.path} href={child.path}>
+      {getNavName(child.file)}
+    </PageLink>
+  ))
   return (
     <BorderBox px={5} py={2} border={0} borderBottom={1} borderColor="gray.2" borderRadius={0} bg={null} {...rest}>
       <Flex flexDirection="column" alignItems="start">
         <SectionLink href={path}>{getNavName(file)}</SectionLink>
-        {children.map(child => (
-          <PageLink key={child.path} href={child.path}>
-            {getNavName(child.file)}
-          </PageLink>
-        ))}
+        {children}
       </Flex>
     </BorderBox>
   )
