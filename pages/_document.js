@@ -2,7 +2,7 @@ import React from 'react'
 import Document, {Head, Main, NextScript} from 'next/document'
 import {ServerStyleSheet} from 'styled-components'
 import {extractCritical} from 'emotion-server'
-import {getAssetPath} from '../src'
+import {getAssetPath, SITE_TITLE} from '../src'
 
 export default class MyDocument extends Document {
   static getInitialProps({renderPage}) {
@@ -27,7 +27,7 @@ export default class MyDocument extends Document {
         <Head>
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126681523-1" />
           <script async href={getAssetPath('analytics.js')} />
-          <title>Primer Components</title>
+          <title>{SITE_TITLE}</title>
           <meta charSet="utf8" />
           <link rel="icon" href={getAssetPath('favicon.png')} />
           <link rel="apple-touch-icon" href={getAssetPath('apple-touch-icon.png')} />

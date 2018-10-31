@@ -5,6 +5,7 @@ import Octicon, {MarkGithub} from '@githubprimer/octicons-react'
 import {Text, Flex, Link, Sticky, BorderBox, Box} from '@primer/components'
 import BoxShadow from './BoxShadow'
 import {getComponent, getNavName, pageTree, ROOT_URL} from './nav'
+import {SITE_TITLE} from './constants'
 
 const links = pageTree.children.filter(({file}) => {
   const Component = getComponent(file)
@@ -19,7 +20,7 @@ const Header = props => (
           <Link color="white" href={ROOT_URL} ml={3}>
             <Flex alignItems="center" justifyContent="center">
               <Octicon icon={MarkGithub} size="medium" />
-              <Text ml={3}>Primer Design Guidelines</Text>
+              <Text ml={3}>{SITE_TITLE}</Text>
             </Flex>
           </Link>
         </NextLink>
