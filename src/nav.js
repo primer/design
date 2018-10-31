@@ -35,6 +35,27 @@ export function getNavName(file) {
   return name || file
 }
 
+export function isFileHidden(file) {
+  return getFileMeta(file, 'hidden') === true
+}
+
+export function isComponentHidden(Component) {
+  return getComponentMeta(Component, 'hidden') === true
+}
+
+export function getFileMeta(file, key = null) {
+  const Component = getComponent(file)
+  if (Component) {
+    return getComponentMeta(Component, key)
+  }
+  return undefined
+}
+
+export function getComponentMeta(Component, key = null) {
+  const meta = Component.meta || {}
+  return key ? meta[key] : meta
+}
+
 export function getDisplayName(obj) {
   return (obj.meta ? obj.meta.displayName : null) || obj.displayName || obj.name
 }
