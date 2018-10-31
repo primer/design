@@ -54,6 +54,6 @@ export default class MyDocument extends Document {
 }
 
 function Styles({css, ...rest}) {
+  // eslint-disable-next-line react/no-danger
   return <style {...rest} dangerouslySetInnerHTML={{__html: css}} />
 }
-
