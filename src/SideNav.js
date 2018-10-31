@@ -2,7 +2,7 @@ import React from 'react'
 import {withRouter} from 'next/router'
 import NextLink from 'next/link'
 import {BorderBox, Box, Link, Flex, Relative} from '@primer/components'
-import {getComponent, getNavName, pageTree} from './nav'
+import {getNavName, pageTree} from './nav'
 
 // the root section is the one called "Guidelines"
 const root = pageTree.find(child => {

@@ -5,9 +5,9 @@ export const pageTree = config.pageTree || {}
 
 // augment the page tree with a function that can find
 // a node recursively given a test function
-pageTree.find = test => {
+pageTree.find = check => {
   function findIn(node) {
-    return test(node) || node.children.find(findIn)
+    return check(node) || node.children.find(findIn)
   }
   return findIn(pageTree)
 }
