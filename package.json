@@ -4,9 +4,7 @@
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
-    "lint": "eslint src pages",
-    "test": "jest",
-    "watch": "jest --watch"
+    "lint": "eslint src pages"
   },
   "dependencies": {
     "@mdx-js/tag": "0.15.0",
