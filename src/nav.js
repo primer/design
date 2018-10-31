@@ -5,13 +5,14 @@ export const pageTree = config.pageTree || {}
 
 export const ROOT_URL = pageTree.path || '/'
 
-export const requirePage = require.context('../pages', true, /\.(js|md)x?$/)
+const requirePage = require.context('../pages', true, /\.(js|md)x?$/)
 
 export function getComponent(file) {
   const page = requirePage.keys().find(key => key === `.${file}`)
   if (page) {
     return requirePage(page)
   } else {
+    // eslint-disable-next-line no-console
     console.warn(`no file to require from file: ${file}`)
   }
 }

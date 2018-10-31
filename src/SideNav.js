@@ -2,7 +2,7 @@ import React from 'react'
 import {withRouter} from 'next/router'
 import NextLink from 'next/link'
 import {BorderBox, Box, Link, Flex, Relative} from '@primer/components'
-import {getComponent, getNavName, pageTree, requirePage} from './nav'
+import {getComponent, getNavName, pageTree} from './nav'
 
 const sections = pageTree.children.filter(({file}) => {
   const Component = getComponent(file)

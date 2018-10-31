@@ -53,7 +53,7 @@ function Links(props) {
   return links.map(link => <PageLink key={link.path} link={link} {...props} />)
 }
 
-const PageLink = withRouter(({link, router, ...rest}) => {
+const PageLink = withRouter(({link, router}) => {
   const {path, file} = link
   const current = router.pathname === path
   return (

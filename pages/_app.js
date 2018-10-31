@@ -3,7 +3,6 @@ import App, {Container} from 'next/app'
 import {MDXProvider} from '@mdx-js/tag'
 import {BaseStyles, Box, Flex, Link} from '@primer/components'
 import {SideNav, Header, IndexHero} from '../src'
-import Index from './index.mdx'
 
 const components = {
   a: Link
