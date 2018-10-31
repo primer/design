@@ -2,9 +2,15 @@ import React from 'react'
 import {withRouter} from 'next/router'
 import NextLink from 'next/link'
 import {BorderBox, Box, Link, Flex, Relative} from '@primer/components'
-import {getDisplayName, pageTree} from './utils'
+import {getComponent, getNavName, pageTree, requirePage} from './nav'
 
-const requirePage = require.context('../pages', true, /\.(js|md)x?$/)
+const sections = pageTree.children.filter(({file}) => {
+  const Component = getComponent(file)
+  if (Component && Component.meta instanceof Object) {
+    const {meta} = Component
+    return !meta.nav || meta.nav === 'side'
+  }
+})
 
 export default function SideNav(props) {
   return (
@@ -21,7 +27,7 @@ export default function SideNav(props) {
         borderColor="gray.2"
         borderRadius={0}
       >
-        {pageTree.children.map(node => (
+        {sections.map(node => (
           <Section key={node.path} node={node} />
         ))}
       </BorderBox>
@@ -60,16 +66,3 @@ const PageLink = withRouter(({href, router, ...rest}) => (
     </NextLink>
   </Box>
 ))
-
-function getNavName(file) {
-  const page = requirePage.keys().find(key => key === `.${file}`)
-  let name
-  if (page) {
-    const Component = requirePage(page)
-    if (!Component) {
-      throw new Error(`Nothing is exported by ${file}! Did you add "export const meta {displayName: 'Blah'}"?`)
-    }
-    name = getDisplayName(Component)
-  }
-  return name || file
-}
