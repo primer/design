@@ -21,7 +21,9 @@ export default function SideNav(props) {
         borderColor="gray.2"
         borderRadius={0}
       >
-        {pageTree.children.map(node => <Section key={node.path} node={node} />)}
+        {pageTree.children.map(node => (
+          <Section key={node.path} node={node} />
+        ))}
       </BorderBox>
     </Relative>
   )
@@ -30,16 +32,7 @@ export default function SideNav(props) {
 function Section({node, ...rest}) {
   const {path, file, children} = node
   return (
-    <BorderBox
-      px={5}
-      py={2}
-      border={0}
-      borderBottom={1}
-      borderColor="gray.2"
-      borderRadius={0}
-      bg={null}
-      {...rest}
-    >
+    <BorderBox px={5} py={2} border={0} borderBottom={1} borderColor="gray.2" borderRadius={0} bg={null} {...rest}>
       <Flex flexDirection="column" alignItems="start">
         <SectionLink href={path}>{getNavName(file)}</SectionLink>
         {children.map(child => (
