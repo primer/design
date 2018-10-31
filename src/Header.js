@@ -1,7 +1,7 @@
 import React from 'react'
+import NextLink from 'next/link'
 import {withRouter} from 'next/router'
 import Octicon, {MarkGithub} from '@githubprimer/octicons-react'
-import NextLink from 'next/link'
 import {Text, Flex, Link, Sticky, BorderBox, Box} from '@primer/components'
 import BoxShadow from './BoxShadow'
 

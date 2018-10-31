@@ -1,6 +1,6 @@
 import React from 'react'
 import {withRouter} from 'next/router'
-import {default as NextLink} from 'next/link'
+import NextLink from 'next/link'
 import {BorderBox, Box, Link, Flex, Relative} from '@primer/components'
 import {getDisplayName, pageTree} from './utils'
 
