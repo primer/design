@@ -53,7 +53,10 @@ export default class MyDocument extends Document {
   }
 }
 
+// XXX this tricks styled-jsx/babel out of detecting this as a <style> element
+const Style = 'style'
+
 function Styles({css, ...rest}) {
   // eslint-disable-next-line react/no-danger
-  return <style {...rest} dangerouslySetInnerHTML={{__html: css}} />
+  return <Style {...rest} dangerouslySetInnerHTML={{__html: css}} />
 }
