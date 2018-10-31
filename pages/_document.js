@@ -4,6 +4,8 @@ import {ServerStyleSheet} from 'styled-components'
 import {extractCritical} from 'emotion-server'
 import {getAssetPath, SITE_TITLE} from '../src'
 
+import {markdown} from '@primer/components/css'
+
 export default class MyDocument extends Document {
   static getInitialProps({renderPage}) {
     const sheet = new ServerStyleSheet()
@@ -12,7 +14,8 @@ export default class MyDocument extends Document {
       ...page,
       styles: (
         <>
-          <style id="emotion-static">{extractCritical(page.html).css}</style>
+          <Styles id="emotion-static" css={extractCritical(page.html).css} />
+          <Styles id="primer" css={markdown} />
           {sheet.getStyleElement()}
         </>
       )
@@ -49,3 +52,8 @@ export default class MyDocument extends Document {
     )
   }
 }
+
+function Styles({css, ...rest}) {
+  return <style {...rest} dangerouslySetInnerHTML={{__html: css}} />
+}
+
