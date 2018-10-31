@@ -30,7 +30,7 @@ export default class MyApp extends App {
           <Flex display={['block', 'block', 'flex', 'flex']} flexDirection="row-reverse">
             <Box width="100%">
               {pathname === '/' ? <IndexHero /> : null}
-              <Box color="gray.9" maxWidth={1012} width={'100%'} my={6} mx={'auto'} px={6} className="markdown-body">
+              <Box color="gray.9" maxWidth={1012} width="100%" my={6} mx="auto" px={6} className="markdown-body">
                 <MDXProvider components={components}>
                   <Component {...page} />
                 </MDXProvider>
