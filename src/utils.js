@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import getConfig from 'next/config'
 
 export const config = getConfig().publicRuntimeConfig || {}
@@ -7,4 +8,24 @@ export const assetPath = `${assetPrefix}/static/assets/`
 
 export function getAssetPath(path) {
   return `${assetPath}${path}`
+}
+
+export function redirect(uri) {
+  // XXX this doesn't need to extend React.Component because
+  // it doesn't "do" anything React-y
+  return class {
+    static getInitialProps({res}) {
+      // the "context" object passed to getInitialProps() will
+      // have a "res" (response) object if we're server-side
+      if (res) {
+        res.writeHead(303, {Location: uri})
+        res.end()
+      }
+    }
+
+    render() {
+      Router.replace(uri)
+      return null
+    }
+  }
 }
