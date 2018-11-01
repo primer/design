@@ -10,6 +10,15 @@ export function getAssetPath(path) {
   return `${assetPath}${path}`
 }
 
+/**
+ * Export this as your default from a page, and it'll redirect both server-
+ * and client-side:
+ *
+ * ```js
+ * import {redirect} from '../src/utils'
+ * export default redirect('/some/path')
+ * ```
+ */
 export function redirect(uri) {
   // XXX this doesn't need to extend React.Component because
   // it doesn't "do" anything React-y
