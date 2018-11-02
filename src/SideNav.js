@@ -65,7 +65,7 @@ function Section({node, ...rest}) {
 const SectionLink = withRouter(({href, router, ...rest}) => (
   <Box my={3}>
     <NextLink href={href}>
-      <Link href={href} color="gray.9" fontWeight={router.pathname === href ? 'bold' : null} {...rest} />
+      <Link href={href} color="gray.9" fontWeight={router.pathname.startsWith(href) ? 'bold' : null} {...rest} />
     </NextLink>
   </Box>
 ))
