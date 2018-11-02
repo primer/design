@@ -1,9 +1,14 @@
 import React from 'react'
 import App, {Container} from 'next/app'
 import {MDXProvider} from '@mdx-js/tag'
-import {BaseStyles, Box, Flex, Link} from '@primer/components'
+import Octicon, {Pencil} from '@githubprimer/octicons-react'
+import {repository} from '../package.json'
+import {BaseStyles, BorderBox, Box, Flex, Link, Text} from '@primer/components'
 import {SideNav, Header, IndexHero} from '../src'
-import {populateTree} from '../src/nav'
+import root, {populateTree} from '../src/nav'
+
+const DocLink = props => <Link nounderline {...props} />
+const editLinkBase = `https://github.com/${repository}/edit/master/pages`
 
 populateTree(require.context('.', true, /\/[^_]+\.(js|md)x?$/))
 
@@ -25,6 +30,9 @@ export default class MyApp extends App {
   render() {
     const {pathname} = this.props.router
     const {Component, page} = this.props
+    // look up the meta key in the nav tree
+    const node = root.first(node => node.path === pathname)
+    const meta = (node ? node.meta : null) || {}
 
     return (
       <BaseStyles>
@@ -32,11 +40,24 @@ export default class MyApp extends App {
           <Header />
           <Flex display={['block', 'block', 'flex', 'flex']} flexDirection="row-reverse">
             <Box width="100%">
-              {pathname === '/' ? <IndexHero /> : null}
+              {meta.hero ? <IndexHero /> : null}
               <Box color="gray.9" maxWidth={1012} width="100%" my={6} mx="auto" px={6} className="markdown-body">
                 <MDXProvider components={components}>
                   <Component {...page} />
                 </MDXProvider>
+                {node.model.file && (
+                  <BorderBox color="gray.5" border={0} borderTop={1} my={6} pt={1}>
+                    <Text fontSize={1}>
+                      <Text mr={2}>
+                        <Octicon icon={Pencil} />
+                      </Text>
+                      <DocLink muted href={`${editLinkBase}${node.model.file}`}>
+                        Edit this page
+                      </DocLink>{' '}
+                      on GitHub
+                    </Text>
+                  </BorderBox>
+                )}
               </Box>
             </Box>
             <SideNav minHeight={['auto', 'auto', '100vh']} />
