@@ -19,7 +19,7 @@ export function getAssetPath(path) {
  * export default redirect('/some/path')
  * ```
  */
-export function redirect(uri) {
+export function redirect(uri, status = 303) {
   // XXX this doesn't need to extend React.Component because
   // it doesn't "do" anything React-y
   return class {
@@ -27,7 +27,7 @@ export function redirect(uri) {
       // the "context" object passed to getInitialProps() will
       // have a "res" (response) object if we're server-side
       if (res) {
-        res.writeHead(303, {Location: uri})
+        res.writeHead(status, {Location: uri})
         res.end()
       }
     }
