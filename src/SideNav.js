@@ -2,18 +2,12 @@ import React from 'react'
 import {withRouter} from 'next/router'
 import NextLink from 'next/link'
 import {BorderBox, Box, Link, Flex, Relative} from '@primer/components'
-import {getFileMeta, getNavName, pageTree} from './nav'
+import root from './nav'
 
-// the root section is the one called "Guidelines"
-const root = pageTree.find(child => {
-  return getNavName(child.file) === 'Guidelines'
-})
-
-const sections = root.children
-
-export default function SideNav(props) {
+export default withRouter(({router, ...rest}) => {
+  const sections = getSectionsForPath(router.pathname, node => node.meta.nav === 'side')
   return (
-    <Relative {...props}>
+    <Relative {...rest}>
       <BorderBox
         id="sidenav"
         width={['100%', '100%', 256, 256]}
@@ -32,23 +26,37 @@ export default function SideNav(props) {
       </BorderBox>
     </Relative>
   )
+})
+
+function getSectionsForPath(path, check) {
+  const node = root.first(node => node.path === path)
+  if (check(node)) {
+    return node.parent.children.filter(check)
+  }
+  // find the first ancestor (going "up" from this node) with *children* that
+  // pass the check()
+  const parent = node
+    .getPath()
+    .reverse()
+    .find(ancestor => ancestor.children.some(check))
+  return parent ? parent.children.filter(check) : []
 }
 
 function Section({node, ...rest}) {
-  const {path, file} = node
-  if (getFileMeta(file, 'hidden') === true) {
+  if (node.meta.hidden === true) {
     return null
   }
-  const children = node.children.filter(child => !getFileMeta(child.file, 'hidden')).map(child => (
+  const {path = '', name} = node
+  const links = node.children.filter(child => !child.meta.hidden).map(child => (
     <PageLink key={child.path} href={child.path}>
-      {getNavName(child.file)}
+      {child.name}
     </PageLink>
   ))
   return (
     <BorderBox px={5} py={2} border={0} borderBottom={1} borderColor="gray.2" borderRadius={0} bg={null} {...rest}>
       <Flex flexDirection="column" alignItems="start">
-        <SectionLink href={path}>{getNavName(file)}</SectionLink>
-        {children}
+        <SectionLink href={path}>{name}</SectionLink>
+        {links}
       </Flex>
     </BorderBox>
   )
