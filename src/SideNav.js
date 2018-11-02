@@ -53,7 +53,7 @@ function Section({node, ...rest}) {
     </PageLink>
   ))
   return (
-    <BorderBox px={5} py={2} border={0} borderBottom={1} borderColor="gray.2" borderRadius={0} bg={null} {...rest}>
+    <BorderBox px={5} py={3} border={0} borderBottom={1} borderColor="gray.2" borderRadius={0} bg={null} {...rest}>
       <Flex flexDirection="column" alignItems="start">
         <SectionLink href={path}>{name}</SectionLink>
         {links}
