@@ -1,5 +1,6 @@
 {
   "private": true,
+  "repository": "primer/design",
   "scripts": {
     "predev": "rm -rf .next",
     "dev": "next dev",
