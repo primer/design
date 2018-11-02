@@ -3,6 +3,9 @@ import App, {Container} from 'next/app'
 import {MDXProvider} from '@mdx-js/tag'
 import {BaseStyles, Box, Flex, Link} from '@primer/components'
 import {SideNav, Header, IndexHero} from '../src'
+import {populateTree} from '../src/nav'
+
+populateTree(require.context('.', true, /\/[^_]+\.(js|md)x?$/))
 
 const components = {
   a: Link
