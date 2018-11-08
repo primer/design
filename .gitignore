@@ -1,0 +1,5 @@
+*.log
+.*.swp
+.DS_Store
+.next/
+node_modules
