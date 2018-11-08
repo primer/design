@@ -17,7 +17,7 @@ Please follow these conventions when naming new pages:
 1. Separate words with hyphens, not underscores: `color-system.md` rather than `color_system` or `colorsystem`
 
 ## Content types
-You can write page in any of the following formats:
+You can write pages in any of the following formats:
 
 | Format | Extension | Notes |
 | :--- | :--- | :--- |
