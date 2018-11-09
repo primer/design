@@ -2,10 +2,10 @@ import React from 'react'
 import {withRouter} from 'next/router'
 import NextLink from 'next/link'
 import {BorderBox, Box, Link, Flex, Relative} from '@primer/components'
-import root from './nav'
+import root, {isNav} from './nav'
 
 export default withRouter(({router, ...rest}) => {
-  const sections = getSectionsForPath(router.pathname, node => node.meta.nav === 'side')
+  const sections = getSectionsForPath(router.pathname)
   return (
     <Relative {...rest}>
       <BorderBox
@@ -20,7 +20,7 @@ export default withRouter(({router, ...rest}) => {
         borderColor="gray.2"
         borderRadius={0}
       >
-        {sections.map(node => (
+        {sections && sections.map(node => (
           <Section key={node.path} node={node} />
         ))}
       </BorderBox>
@@ -30,16 +30,13 @@ export default withRouter(({router, ...rest}) => {
 
 function getSectionsForPath(path, check) {
   const node = root.first(node => node.path === path)
-  if (check(node)) {
-    return node.parent.children.filter(check)
-  }
-  // find the first ancestor (going "up" from this node) with *children* that
-  // pass the check()
-  const parent = node
-    .getPath()
-    .reverse()
-    .find(ancestor => ancestor.children.some(check))
-  return parent ? parent.children.filter(check) : []
+  // search from bottom to top
+  const ancestors = node.getPath().reverse()
+  // find the first one with meta.nav === 'side',
+  // or fall back on the node itself
+  const side = ancestors.find(node => isNav(node, 'side'))
+  // filter out any children that should only show in the top nav
+  return side.children.filter(node => !isNav(node, 'top'))
 }
 
 function Section({node, ...rest}) {

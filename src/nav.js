@@ -28,3 +28,7 @@ export function populateTree(context) {
 
   return root
 }
+
+export function isNav(node, type) {
+  return node.meta.nav && (type ? node.meta.nav[type] === true : true)
+}
