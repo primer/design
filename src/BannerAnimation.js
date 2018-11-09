@@ -13,6 +13,6 @@ const bodymovinOptions = {
   animationData: animation
 }
 
-export default props => (
-  <ReactBodymovin options={bodymovinOptions} {...props} />
-)
+const BannerAnimation = props => <ReactBodymovin options={bodymovinOptions} {...props} />
+
+export default BannerAnimation
