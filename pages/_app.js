@@ -1,10 +1,11 @@
 import React from 'react'
+import Head from 'next/head'
 import App, {Container} from 'next/app'
 import {MDXProvider} from '@mdx-js/tag'
 import Octicon, {Pencil} from '@githubprimer/octicons-react'
 import {repository} from '../package.json'
 import * as primer from '@primer/components'
-import {SideNav, Header, IndexHero} from '../src'
+import {SideNav, Header, IndexHero, SITE_TITLE} from '../src'
 import root, {populateTree} from '../src/nav'
 
 const {BaseStyles, BorderBox, Box, Flex, Link, Text} = primer
@@ -33,11 +34,14 @@ export default class MyApp extends App {
     const {pathname} = this.props.router
     const {Component, page} = this.props
     // look up the meta key in the nav tree
-    const node = root.first(node => node.path === pathname)
-    const meta = (node ? node.meta : null) || {}
+    const node = root.first(node => node.path === pathname) || {meta: {}, model: {}}
+    const {meta, model} = node
 
     return (
       <BaseStyles>
+        <Head>
+          <title>{SITE_TITLE}{meta.displayName ? ` / ${meta.displayName}` : null}</title>
+        </Head>
         <Container>
           <Header />
           <Flex display={['block', 'block', 'flex', 'flex']} flexDirection="row-reverse">
