@@ -1,5 +1,6 @@
 import React from 'react'
 import {Box, Heading} from '@primer/components'
+import BannerAnimation from './BannerAnimation'
 
 const IndexHero = () => (
   <Box bg="black">
@@ -10,7 +11,7 @@ const IndexHero = () => (
         </Heading>
       </Box>
       <Box mb={6}>
-        <Heading fontFamily="mono">FPO</Heading>
+        <BannerAnimation />
       </Box>
     </Box>
   </Box>
