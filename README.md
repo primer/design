@@ -18,7 +18,7 @@ Documentation for UI patterns and interaction guidelines.
 
 ## Deployment
 
-Each pull request (actually, each push!) is linted, tested, then deployed to a unique [Now] URL. Code merged to the `master` branch will be automatically deployed to [primer-design.now.sh](https://primer-design.now.sh).
+Each pull request (actually, each push!) is linted, tested, then deployed to a unique [Now] URL. Code merged to the `master` branch will be automatically deployed to [primer-design-master.now.sh](https://primer-design-master.now.sh).
 
 ### Branch previews
 
