@@ -9,7 +9,6 @@ import {SideNav, Header, IndexHero, SITE_TITLE} from '../src'
 import root, {populateTree} from '../src/nav'
 
 const {BaseStyles, BorderBox, Box, Flex, Link, Text} = primer
-const DocLink = props => <Link nounderline {...props} />
 const editLinkBase = `https://github.com/${repository}/edit/master/pages`
 
 const components = {
@@ -57,9 +56,9 @@ export default class MyApp extends App {
                       <Text mr={2}>
                         <Octicon icon={Pencil} />
                       </Text>
-                      <DocLink muted href={`${editLinkBase}${node.model.file}`}>
+                      <Link color="inherit" href={`${editLinkBase}${node.model.file}`}>
                         Edit this page
-                      </DocLink>{' '}
+                      </Link>{' '}
                       on GitHub
                     </Text>
                   </BorderBox>
