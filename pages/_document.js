@@ -1,10 +1,9 @@
 import React from 'react'
-import Document, {Head, Main, NextScript} from 'next/document'
+import Document, {Main, NextScript} from 'next/document'
 import {ServerStyleSheet} from 'styled-components'
 import {extractCritical} from 'emotion-server'
-import {getAssetPath, SITE_TITLE} from '../src'
-
 import {markdown} from '@primer/components/css'
+import {getAssetPath, SITE_TITLE} from '../src'
 
 export default class MyDocument extends Document {
   static getInitialProps({renderPage}) {
@@ -27,7 +26,7 @@ export default class MyDocument extends Document {
 
     return (
       <html lang="en">
-        <Head>
+        <head>
           <title>{SITE_TITLE}</title>
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126681523-1" />
           <script async href={getAssetPath('analytics.js')} />
@@ -43,7 +42,7 @@ export default class MyDocument extends Document {
             content="https://user-images.githubusercontent.com/586552/46702062-ca82eb80-cbef-11e8-8c0b-4a9252dc04c6.png"
           />
           {styles}
-        </Head>
+        </head>
         <body>
           <Main />
           <NextScript />
