@@ -39,7 +39,10 @@ export default class MyApp extends App {
     return (
       <BaseStyles>
         <Head>
-          <title>{SITE_TITLE}{meta.displayName ? ` / ${meta.displayName}` : null}</title>
+          <title>
+            {SITE_TITLE}
+            {meta.displayName ? ` / ${meta.displayName}` : null}
+          </title>
         </Head>
         <Container>
           <Header />
@@ -50,13 +53,13 @@ export default class MyApp extends App {
                 <MDXProvider components={components}>
                   <Component {...page} />
                 </MDXProvider>
-                {node.model.file && (
+                {model.file && (
                   <BorderBox color="gray.5" border={0} borderTop={1} my={6} pt={1}>
                     <Text fontSize={1}>
                       <Text mr={2}>
                         <Octicon icon={Pencil} />
                       </Text>
-                      <Link color="inherit" href={`${editLinkBase}${node.model.file}`}>
+                      <Link color="inherit" href={`${editLinkBase}${model.file}`}>
                         Edit this page
                       </Link>{' '}
                       on GitHub

@@ -20,15 +20,13 @@ export default withRouter(({router, ...rest}) => {
         borderColor="gray.2"
         borderRadius={0}
       >
-        {sections && sections.map(node => (
-          <Section key={node.path} node={node} />
-        ))}
+        {sections && sections.map(node => <Section key={node.path} node={node} />)}
       </BorderBox>
     </Relative>
   )
 })
 
-function getSectionsForPath(path, check) {
+function getSectionsForPath(path) {
   const node = root.first(node => node.path === path)
   // search from bottom to top
   const ancestors = node.getPath().reverse()
