@@ -48,7 +48,7 @@ function Section({node, ...rest}) {
     </PageLink>
   ))
   return (
-    <BorderBox px={5} py={3} border={0} borderBottom={1} borderColor="gray.2" borderRadius={0} bg={null} {...rest}>
+    <BorderBox p={5} pb={2} border={0} borderBottom={1} borderColor="gray.2" borderRadius={0} bg={null} {...rest}>
       <Flex flexDirection="column" alignItems="start">
         <SectionLink href={path}>{name}</SectionLink>
         {links}
@@ -58,7 +58,7 @@ function Section({node, ...rest}) {
 }
 
 const SectionLink = withRouter(({href, router, ...rest}) => (
-  <Box my={3}>
+  <Box mb={4} {...rest}>
     <NextLink href={href}>
       <Link href={href} color="gray.9" fontWeight={router.pathname.startsWith(href) ? 'bold' : null} {...rest} />
     </NextLink>
@@ -66,7 +66,7 @@ const SectionLink = withRouter(({href, router, ...rest}) => (
 ))
 
 const PageLink = withRouter(({href, router, ...rest}) => (
-  <Box mb={3}>
+  <Box mb={4} mt={-2}>
     <NextLink href={href}>
       <Link href={href} color={router.pathname === href ? 'gray.9' : 'blue.5'} fontSize={1} {...rest} />
     </NextLink>
