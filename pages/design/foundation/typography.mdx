@@ -14,13 +14,13 @@ At Github, our teams utilize system-fonts, which allow for optimized performance
 - improved readability
 - operating system-agnostic design
 
+The most commonly used system fonts are listed below. However, this isn’t a finite list, so keep in mind that typographic implementations may vary between browser settings, operating systems, and font settings.
+
 [Segoe UI](https://developer.microsoft.com/en-us/fabric#/resources) for Windows
 
 [San Francisco](https://developer.apple.com/fonts/) for macOS and iOS
 
 [Ubuntu](https://design.ubuntu.com/font/) for Linux (most commonly used of Linux distros)
-
-_Please keep in mind users have a very wide variety of typographic implementations. Conduct case-by-case research as the typefaces listed above are only generally what users use._
 
 ## Font Stack
 
@@ -37,24 +37,9 @@ Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI S
 $mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !default;
 ```
 
-_For more information on how Github's font stack, check out Mark Otto’s article: [Shipping System fonts to Github.com](http://markdotto.com/2018/02/07/github-system-fonts/)_
+_For more information on how our stack, check out Mark Otto’s article: [Shipping System fonts to Github.com](http://markdotto.com/2018/02/07/github-system-fonts/)_
 
 ## Type Scale and Line-Height
-
-<!-- ![screen shot 2018-11-08 at 11 53 53 am](https://user-images.githubusercontent.com/24916540/48284439-469d6880-e414-11e8-990a-9195e03d73fc.png) -->
-
-<!-- | Scale | Font size: mobile | Font size: desktop | 1.25 line height | 1.5 line height |
-| ----- | ----------------- | ------------------ | ---------------- | --------------- |
-| 00    | 40px              | 48px               | 60               | 72              |
-| 0     | 32px              | 40px               | 50               | 60              |
-| 1     | 26px              | 32px               | 40               | 48              |
-| 2     | 22px              | 24px               | 30               | 36              |
-| 3     | 18px              | 20px               | 25               | 30              |
-| 4     | 16px              | 16px               | 20               | 24              |
-| 5     | 14px              | 14px               | 17.5             | 21              |
-| 6     | 12px              | 12px               | 15               | 18              | -->
-
-The following scale clarifies font-sizes and line heights for mobile and desktop displays:
 
 | Font size: mobile | Font size: desktop | 1.25 line height | 1.5 line height |
 | ----------------- | ------------------ | ---------------- | --------------- |
@@ -81,15 +66,15 @@ Primer has many typographic solutions that have been created for developers and 
 - [Subheads](https://styleguide.github.com/primer/components/subhead/)
 - [Navigation](https://styleguide.github.com/primer/components/navigation/)
 
-### Be aware of our usage of system-fonts:
+### Usage:
 
-Because Github's font-stack defaults to system-fonts, it is important for designers to be aware of this fact when making design decisions. It’s recommended designers become familiar with typefaces themselves, and understand their nuances.
+Do not tailor your designs specifically around a certain typeface, as across interfaces and platforms they are subject to change. Because our font-stack defaults to system-fonts, it is important for designers to be aware of this fact when making design decisions.
 
 Please refer to the [Typefaces](#Typefaces) section of this document to access our font-stack and resources.
 
 ### Best Practices:
 
-**_Line length:_** Line length is important to consider when designing with body text in mind. It's considered good practice to keep lines around 80 characters or less. _Source_: [W3 Page Strucutre Guidelines](https://www.w3.org/WAI/tutorials/page-structure/styling/).
+**_Line length:_** Line length is important to consider when designing with body text in mind. It's considered good practice to keep lines around 80 characters or less. _Source_: [W3 Page Structure Guidelines](https://www.w3.org/WAI/tutorials/page-structure/styling/).
 
 Cases vary depending on the situation, but this serves as a general rule of thumb for developing products at Github.
 
