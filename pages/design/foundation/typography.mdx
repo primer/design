@@ -1,9 +1,10 @@
 # Typography
 
 These guidelines summarize how we use typography at Github, and serve as guardrails for designers to design freely with best practices in mind.
-Good typography enhances the user’s experience by providing a well-structured vessel to hold a product’s content
 
-### Typefaces
+<!-- {:toc} -->
+
+## Typefaces
 
 At Github, our teams utilize system-fonts, which allow for optimized performance. This design decision takes advantage of:
 
@@ -11,13 +12,17 @@ At Github, our teams utilize system-fonts, which allow for optimized performance
 - dynamic kerning
 - additional font-weights
 - improved readability
-- Operating system-agnostic design
+- operating system-agnostic design
 
 [Segoe UI](https://developer.microsoft.com/en-us/fabric#/resources) for Windows
-[San Francisco](https://developer.apple.com/fonts/) for macOS and iOS
-[Ubuntu](https://design.ubuntu.com/font/) for Ubuntu Linux (most commonly used in Linux distros)
 
-### Font Stack
+[San Francisco](https://developer.apple.com/fonts/) for macOS and iOS
+
+[Ubuntu](https://design.ubuntu.com/font/) for Linux (most commonly used of Linux distros)
+
+_Please keep in mind users have a very wide variety of typographic implementations. Conduct case-by-case research as the typefaces listed above are only generally what users use._
+
+## Font Stack
 
 ```
 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -26,13 +31,14 @@ Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI S
 
 _For more information on how Github uses typography for product design, check out Mark Otto’s article: [Shipping System fonts to Github.com](http://markdotto.com/2018/02/07/github-system-fonts/)_
 
-### Type Scale and Line-Height
+## Type Scale and Line-Height
 
 ![screen shot 2018-11-08 at 11 53 53 am](https://user-images.githubusercontent.com/24916540/48284439-469d6880-e414-11e8-990a-9195e03d73fc.png)
 
-### Principles of Usage
+## Principles of Usage
 
-**Utilize components**
+### Utilize components
+
 Primer has many typographic solutions that have been created for developers and designers. Please refer to the docs to access them
 List of helpful components:
 
@@ -40,17 +46,25 @@ List of helpful components:
 - Label
 - etc.
 
-**Be aware of our usage of system-fonts:**
+### Be aware of our usage of system-fonts:
+
 Because Github font-stack defaults to system-fonts, it is important for designers to be aware of this fact when making design decisions. It’s recommended designers become familiar with typefaces themselves, and understand their nuances.
 
 Please refer to the Typefaces section of this document to access our font-stack and resources.
 
-**Layouts and Typographic Guidance:**
-**Line length:**
-Line length is important to consider when designing with body text in mind. Cases vary depending on the situation, but this serves as a general rule of thumb for developing products at Github
-**Type Consistency:**
+### Best Practices:
+
+#### _Line length:_
+
+Line length is important to consider when designing with body text in mind. It's considered good practice to keep lines around 80 characters or less. _Source_:
+[W3 Page Strucutre Guidelines](https://www.w3.org/WAI/tutorials/page-structure/styling/)
+
+Cases vary depending on the situation, but this serves as a general rule of thumb for developing products at Github
+
+#### _Type Consistency:_
+
 Don’t overuse different type sizes, weights, and styling. Try to keep this to a minimum in order to
 
-**etc.**
+<!-- **etc.** -->
 
-export const meta = { displayName: "Typography" };
+export const meta = {displayName: 'Typography'}
