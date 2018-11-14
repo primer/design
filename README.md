@@ -1,3 +1,5 @@
+![banneranimation](https://user-images.githubusercontent.com/24916540/48451594-eaae4900-e75f-11e8-84d3-3a3aedefc94c.gif)
+
 # Primer Design Guidelines
 
 Documentation for UI patterns and interaction guidelines.
