@@ -1,4 +1,9 @@
-![banneranimation](https://user-images.githubusercontent.com/24916540/48451594-eaae4900-e75f-11e8-84d3-3a3aedefc94c.gif)
+
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/24916540/48515588-f52b1a00-e815-11e8-9789-3234a13dd104.gif">
+
+
 
 # Primer Design Guidelines
 
