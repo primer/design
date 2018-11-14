@@ -1,9 +1,7 @@
 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/24916540/48515588-f52b1a00-e815-11e8-9789-3234a13dd104.gif">
-
-
+<img src="https://user-images.githubusercontent.com/24916540/48517129-332a3d00-e81a-11e8-812d-39a2cecd6474.gif">
 
 # Primer Design Guidelines
 
