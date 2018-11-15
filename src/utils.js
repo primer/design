@@ -5,10 +5,7 @@ export const config = getConfig().publicRuntimeConfig || {}
 
 export const assetPrefix = config.assetPrefix || ''
 export const assetPath = `${assetPrefix}/static/assets/`
-
-export function getAssetPath(path) {
-  return `${assetPath}${path}`
-}
+export const getAssetPath = path => `${assetPath}${path}`
 
 /**
  * Export this as your default from a page, and it'll redirect both server-
