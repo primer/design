@@ -56,7 +56,7 @@ export const meta = {nav: {side: true}, /* etc. */ }
 You can set both `top` and `side` nav keys; in fact, we do this in `pages/design/tools/index.mdx` so that it's listed in the top nav _and_ so that its children are listed whenever you're in that section. (We exclude pages with `meta.nav.top === true` from being side nav listings.)
 
 ### Link text
-The link text will always be either the page's `meta.displayName` export or the filename. So if you see a nav link with a filename as its text (e.g. `design/tools/sketch.mdx`), be sure to add a `meta` export by adding this line to the bottom of your [MDX] or JS file:
+The link text will be the page's `meta.displayName` export. If you see a nav link with a filename as its text (e.g. `design/tools/sketch.mdx`), it's probably missing the `meta` export, which you can add to the bottom of your [MDX] or JS file:
 
 ```js
 export const meta = {displayName: 'Link text'}
