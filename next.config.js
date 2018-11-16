@@ -2,7 +2,8 @@ const getPageMap = require('next-page-map')
 const withPlugins = require('next-compose-plugins')
 const mdx = require('@zeit/next-mdx')
 
-const assetPrefix = process.env.NOW_URL
+const {NOW_URL, GITHUB_REF} = process.env
+const assetPrefix = NOW_URL
 const pageExtensions = ['js', 'jsx', 'md', 'mdx']
 
 module.exports = withPlugins([
@@ -13,6 +14,7 @@ module.exports = withPlugins([
 
   publicRuntimeConfig: {
     assetPrefix,
+    branch: (GITHUB_REF || 'master').split('/').pop(),
     pageMap: getPageMap({pageExtensions}),
     pageTree: getPageMap({pageExtensions, nested: true})
   },

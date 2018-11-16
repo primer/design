@@ -6,10 +6,11 @@ import Octicon, {Pencil} from '@githubprimer/octicons-react'
 import {repository} from '../package.json'
 import * as primer from '@primer/components'
 import {SideNav, Header, IndexHero, SITE_TITLE} from '../src'
+import {config} from '../src/utils'
 import root, {populateTree} from '../src/nav'
 
 const {BaseStyles, BorderBox, Box, Flex, Link, Text} = primer
-const editLinkBase = `https://github.com/${repository}/edit/master/pages`
+const editLinkBase = `https://github.com/${repository}/edit/${config.branch}/pages`
 
 const components = {
   ...primer,
