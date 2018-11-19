@@ -17,27 +17,7 @@ Please follow these conventions when naming new pages:
 1. Separate words with hyphens, not underscores: `color-system.md` rather than `color_system` or `colorsystem`
 
 ## Navigation
-The top and side navigation is generated automatically from the `pages` directory structure and a [tree model](https://www.npmjs.com/package/tree-model) that can be programmatically walked and searched. To get a sense of what that structure looks like, run the `tree` command in `pages/design`:
-
-
-```
-~/primer/design/pages/design% tree
-.
-├── communication
-├── foundation
-│   ├── color.mdx
-│   └── index.mdx
-├── global
-│   ├── accessibility.mdx
-│   └── index.mdx
-├── index.mdx
-└── tools
-    ├── figma.mdx
-    ├── index.mdx
-    └── sketch.mdx
-
-4 directories, 8 files
-```
+The top and side navigation are generated automatically from the `pages` directory structure and a [tree model](https://www.npmjs.com/package/tree-model) that can be programmatically walked and searched.
 
 ### Top navigation
 The top nav is made from the list of pages that export `meta.nav.top === true`. Pages written in [MDX] or JS can be included in this list with:
