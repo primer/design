@@ -1,3 +1,7 @@
+import Segoe from './svg/segoe.svg'
+import SF from './svg/sf.svg'
+import Ubuntu from './svg/ubuntu.svg'
+
 # Typography
 
 These guidelines summarize how we use typography at GitHub, and serve as guardrails for designers to design freely with best typographic practices in mind.
@@ -12,15 +16,15 @@ Do not tailor your designs specifically around a certain typeface, as across int
 
 The most commonly used system-fonts are listed below. However, this isn’t a finite list, so keep in mind that typographic implementations may vary between browser settings and operating systems.
 
-![group2](https://user-images.githubusercontent.com/24916540/48572595-b604d380-e8be-11e8-8e33-58bd24e84dc1.png)
+<SF width="100%" />
 
 [San Francisco](https://developer.apple.com/fonts/) is a neo grotesque sans-serif typeface designed by Apple to replace Helvetica Neue for OSX and iOS
 
-![group](https://user-images.githubusercontent.com/24916540/48572525-8786f880-e8be-11e8-901d-f23ec5fe676f.png)
+<Segoe width="100%" />
 
 [Segoe UI](https://developer.microsoft.com/en-us/fabric#/resources) is a humanist sans-serif adopted by Microsoft as it's default operating system font since Windows Vista
 
-![group3](https://user-images.githubusercontent.com/24916540/48572594-b56c3d00-e8be-11e8-9514-eebebde3da2f.png)
+<Ubuntu width="100%" />
 
 [Ubuntu](https://design.ubuntu.com/font/) is an OpenType-based, humanist sans-serif typeface. It became the default system font for Ubuntu 10.10 and is commonly used on Linux distros.
 
@@ -43,7 +47,7 @@ $mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monos
 
 _For more information on why we made the change to system fonts, check out Mark Otto’s [@mdo](http://markdotto.com/) article: [Shipping System fonts to GitHub.com](http://markdotto.com/2018/02/07/github-system-fonts/)_
 
-## Type Scale and Line-height
+## Typography Scale and Line-height
 
 The typography scale is designed to work for GitHub's product UI and marketing sites. Font sizes are designed to work in combination with line-height values so as to result in more sensible numbers wherever possible.
 
@@ -71,7 +75,7 @@ _More information on [Marketing Typography](https://styleguide.github.com/primer
 
 ## Readability
 
-When incorporating different type sizes, weights, and styling in designs keep this to a minimum for an overall cleaner and efficient reading experience for users. Whenever possible, utilize type styling provided by Primer. Documentation for this can be found in Primer's [Typography Utilities](https://styleguide.github.com/primer/utilities/typography/).
+When incorporating different type sizes, weights, and styling in designs, it is best practice to keep this to a minimum for an overall cleaner and efficient reading experience for users. Whenever possible, utilize type styling provided by Primer's [Typography Utilities](https://styleguide.github.com/primer/utilities/typography/).
 
 - **Hierarchy**—Type hierarchies are established in our products using size, weight, and rules. Reserve color for more specialized use cases in defining a product’s hierarchy. It’s best practice to identify body and display content first, then utilize the appropriate type scale in order to make hierarchy-defining decisions. After this has been established, adjust font-weight and add rules when appropriate. Technical documentation for implementing designs can be found in Primer's [Typography Utilities](https://styleguide.github.com/primer/utilities/typography/).
 - **Line length**—It's considered good practice to keep lines around 80 characters or less—[W3 Page Structure Guidelines](https://www.w3.org/WAI/tutorials/page-structure/styling/). Cases vary depending on the situation, but this serves as a general rule of thumb for developing products at Github.
