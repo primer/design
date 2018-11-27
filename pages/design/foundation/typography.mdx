@@ -1,6 +1,7 @@
 import Segoe from './svg/segoe.svg'
 import SF from './svg/sf.svg'
 import Ubuntu from './svg/ubuntu.svg'
+import {Box} from '@primer/components'
 
 # Typography
 
@@ -16,15 +17,21 @@ Do not tailor your designs specifically around a certain typeface, as across int
 
 The most commonly used system-fonts are listed below. However, this isn’t a finite list, so keep in mind that typographic implementations may vary between browser settings and operating systems.
 
-<SF width="100%" />
+<Box maxWidth={450}>
+  <SF />
+</Box>
 
 [San Francisco](https://developer.apple.com/fonts/) is a neo grotesque sans-serif typeface designed by Apple to replace Helvetica Neue for OSX and iOS
 
-<Segoe width="100%" />
+<Box maxWidth={450}>
+  <Segoe />
+</Box>
 
 [Segoe UI](https://developer.microsoft.com/en-us/fabric#/resources) is a humanist sans-serif adopted by Microsoft as it's default operating system font since Windows Vista
 
-<Ubuntu width="100%" />
+<Box maxWidth={450}>
+  <Ubuntu />
+</Box>
 
 [Ubuntu](https://design.ubuntu.com/font/) is an OpenType-based, humanist sans-serif typeface. It became the default system font for Ubuntu 10.10 and is commonly used on Linux distros.
 
@@ -94,8 +101,6 @@ Type hierarchies are established in our products using size, weight, and rules. 
 
 - **Letter spacing**—Please refrain from altering letter-spacing on our products. There may be rare scenarios in which this is acceptable, but generally speaking this should be avoided altogether.
 
-_More information on implementing styling can be found in Primer's [Typography Utilities](https://styleguide.github.com/primer/utilities/typography/)_
-
 ## Support
 
 ### Iterate and Componentize
@@ -114,17 +119,11 @@ Primer includes many typographic solutions. Please utilize them when possible be
 ### Further Reading and Resources
 
 - [Mathematical Web Typography](http://jxnblk.com/writing/posts/mathematical-web-typography/)
-
 - [The Elements of Typographic Style](https://www.amazon.com/Elements-Typographic-Style-Robert-Bringhurst/dp/0881791326)
-
 - [A Type Primer](https://www.amazon.com/Type-Primer-2nd-John-Kane-ebook/dp/B006Y1X55G)
-
 - [Thinking with Type](http://thinkingwithtype.com/)
-
 - [WCAG Accessibility Tutorials](https://www.w3.org/WAI/tutorials/page-structure/)
-
 - [Browser Typography Scale](http://type-scale.com/)
-
 - [Typewolf Blog](https://www.typewolf.com)
 
 <!-- **etc.** -->
