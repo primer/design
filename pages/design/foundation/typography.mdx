@@ -1,3 +1,5 @@
+![segoe](svg/segoe.svg)
+
 # Typography
 
 These guidelines summarize how we use typography at GitHub, and serve as guardrails for designers to design freely with best typographic practices in mind.
@@ -7,6 +9,8 @@ These guidelines summarize how we use typography at GitHub, and serve as guardra
 ## Typefaces
 
 We utilize system fonts at GitHub, which allow for optimized performance. This design decision takes advantage of retina screens, dynamic kerning, additional font-weights, and improved readability.
+
+Do not tailor your designs specifically around a certain typeface, as across interfaces and platforms they are subject to change. Each font has slightly different letter spacing, baseline, cap-height, and x-height which means we can not rely on the exact display of a single font. For this reason we recommend avoiding apply specific widths that rely on the total height or width of a given text.
 
 The most commonly used system-fonts are listed below. However, this isn’t a finite list, so keep in mind that typographic implementations may vary between browser settings and operating systems.
 
@@ -22,7 +26,7 @@ The most commonly used system-fonts are listed below. However, this isn’t a fi
 
 [Ubuntu](https://design.ubuntu.com/font/) is an OpenType-based, humanist sans-serif typeface. It became the default system font for Ubuntu 10.10 and is commonly used on Linux distros.
 
-Download: [system-fonts.zip](https://github.com/primer/design/files/2583092/system-fonts.zip)
+<!-- Download: [system-fonts.zip](https://github.com/primer/design/files/2583092/system-fonts.zip) -->
 
 ## Font-stack
 
@@ -44,7 +48,6 @@ _For more information on why we made the change to system fonts, check out Mark 
 ## Type Scale and Line-height
 
 The typography scale is designed to work for GitHub's product UI and marketing sites. Font sizes are designed to work in combination with line-height values so as to result in more sensible numbers wherever possible.
-Font sizes are smaller on mobile and scale up at the md breakpoint to be larger on desktop.
 
 | Font size: desktop | 1.25 line-height | 1.5 line-height |
 | ------------------ | ---------------- | --------------- |
@@ -66,42 +69,30 @@ Our Marketing Typography Scale aligns with our core typography scale, except for
 | 48px              | 64px               | 80               | 96              |
 
 Marketing Typography also incorporates [Inter UI](https://rsms.me/inter/) as a display face, and other stylistic details are unique in building their products.
-_More information regarding Marketing Typography can be found [here](https://styleguide.github.com/primer/utilities/marketing-type/)_.
+_More information on [Marketing Typography](https://styleguide.github.com/primer/utilities/marketing-type/)_.
 
-## Principles of Usage
+## Readability
 
-### Best Practices:
+When incorporating different type sizes, weights, and styling in designs keep this to a minimum for an overall cleaner and efficient reading experience for users. Whenever possible, utilize type styling provided by Primer. Documentation for this can be found in Primer's [Typography Utilities](https://styleguide.github.com/primer/utilities/typography/).
 
-- **Alignment and Paragraph Styling** Our content is typically left-aligned and ragged right. Be sensible in deviating from this standard, as justifying, centering, and right-aligning text is atypical of Github products. Full documentation of our type utilities can be found [here](https://styleguide.github.com/primer/utilities/typography/).
+- **Hierarchy**—Type hierarchies are established in our products using size, weight, and rules. Reserve color for more specialized use cases in defining a product’s hierarchy. It’s best practice to identify body and display content first, then utilize the appropriate type scale in order to make hierarchy-defining decisions. After this has been established, adjust font-weight and add rules when appropriate. Technical documentation for implementing designs can be found in Primer's [Typography Utilities](https://styleguide.github.com/primer/utilities/typography/).
+- **Line length**—It's considered good practice to keep lines around 80 characters or less—[W3 Page Structure Guidelines](https://www.w3.org/WAI/tutorials/page-structure/styling/). Cases vary depending on the situation, but this serves as a general rule of thumb for developing products at Github.
+- **Line height**—Refer to our Typography Scale when structuring line height. Generally our products should follow this scale without issues.
+- **Letter spacing**—Please refrain from altering letter-spacing on our products. There may be rare scenarios in which this is acceptable, but generally speaking this should be avoided altogether.
+- **Type alignment**—Our content is typically left-aligned and ragged right. Be sensible in deviating from this standard, as justifying, centering, and right-aligning text is atypical of Github products. For more information, please refer to the documentation of our [type utilities](https://styleguide.github.com/primer/utilities/typography/).
 
-- **Establish Clear Hierarchy:** Type hierarchies are established in our products using size, weight, and rules. Reserve color for more specialized use cases in defining a product’s hierarchy. It’s best practice to identify body and display content first, then utilize the appropriate type scale in order to make hierarchy-defining decisions. After this has been established, adjust font-weight and add rules when appropriate. Technical documentation for implementing designs can be found [here](https://styleguide.github.com/primer/support/typography/).
-
-- **Keep Type Consistent** Be sensible when incorporating different type sizes, weights, and styling in designs. Try to keep this to a minimum for an overall cleaner and efficient reading experience for users. Whenever possible, utilize type styling provided by Primer. Documentation for this can be found in Primer's [Typography Utilities](https://styleguide.github.com/primer/utilities/typography/).
-
-- **Use Sensible Line lengths:** Line length is important to consider when designing with body text in mind. It's considered good practice to keep lines around 80 characters or less—[W3 Page Structure Guidelines](https://www.w3.org/WAI/tutorials/page-structure/styling/). Cases vary depending on the situation, but this serves as a general rule of thumb for developing products at Github.
-
-### Iterate and Componentize
+## Iterate and Componentize
 
 When certain typographic patterns in your design emerge, or you believe a certain solution should be made into a component, reach out to the [#design-systems](https://github.slack.com/messages/C0ZCGGGJ2) channel on Slack to find out more on submitting your code or idea. You may also reach out by opening an issue to the team the team directly on [Github](https://github.com/primer/primer).
 
-### Usage:
+## Related Typography Components:
 
-Do not tailor your designs specifically around a certain typeface, as across interfaces and platforms they are subject to change. Because our font-stack defaults to system-fonts, it is important for designers to be aware of this fact when making design decisions.
-
-Please refer to the [Typefaces](#Typefaces) section of this document to access our font-stack and additional resources.
-
-### Utilize Components:
-
-Primer includes many typographic solutions. Please utilize them when possible before creating a custom solution. Some include:
+Primer includes many typographic solutions. Please utilize them when possible before creating a custom component. Some include:
 
 - [Alerts](https://styleguide.github.com/primer/components/alerts/)
 - [Labels](https://styleguide.github.com/primer/components/labels/)
 - [Subheads](https://styleguide.github.com/primer/components/subhead/)
 - [Navigation](https://styleguide.github.com/primer/components/navigation/)
-
-## User Support
-
-Typography can be tricky to deal with when iterating on new designs, and certain projects may require extra support or guidance. If you have any typographic-related questions when developing products with Primer, please reach out to us via [#design-systems](https://github.slack.com/messages/C0ZCGGGJ2) on Slack, or on [Github](https://github.com/primer/primer).
 
 ## Further Reading and Resources
 
@@ -115,9 +106,9 @@ Typography can be tricky to deal with when iterating on new designs, and certain
 
 [WCAG Accessibility Tutorials](https://www.w3.org/WAI/tutorials/page-structure/)
 
-[http://type-scale.com/](http://type-scale.com/)
+[Browser Typography Scale](http://type-scale.com/)
 
-[https://www.typewolf.com](https://www.typewolf.com)
+[Typewolf Typography Blog](https://www.typewolf.com)
 
 <!-- **etc.** -->
 
