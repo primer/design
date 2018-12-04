@@ -13,11 +13,9 @@ These guidelines summarize how we use typography at GitHub, and serve as guardra
 
 ## Typefaces
 
-We utilize system fonts at GitHub, which allow for optimized performance. This design decision takes advantage of retina screens, dynamic kerning, additional font-weights, and improved readability.
+The first three typefaces listed below are the most commonly utilized system-fonts on GitHub products. However, this isn’t a finite list, so keep in mind that typographic implementations may vary between browser settings and operating systems.
 
-Do not tailor your designs specifically around a certain typeface, as across interfaces and platforms they are subject to change. Each font has slightly different letter spacing, baseline, cap-height, and x-height which means we can not rely on the exact display of a single font.
-
-The most commonly used typefaces are listed below. However, this isn’t a finite list, so keep in mind that typographic implementations may vary between browser settings and operating systems.
+[Inter UI](https://rsms.me/inter/) and [SF Mono](https://developer.apple.com/fonts/) are not system fonts, but are used in specialized scenarios to diffierentiate information and establish hierarchy.
 
 <Box maxWidth={256}>
   <SF />
@@ -47,28 +45,33 @@ The most commonly used typefaces are listed below. However, this isn’t a finit
   <SFMono />
 </Box>
 
-[SF Mono](https://developer.apple.com/fonts/) is a monospace typeface that is part of the San Francisco typeface family. SF Mono is monospaced across weights, so resetting SF Mono text into another font weight will not cause text to reflow.
+[SF Mono](https://developer.apple.com/fonts/) is a monospace typeface that is part of the San Francisco typeface family. SF Mono is monospaced across weights, so resetting SF Mono text into another font weight will not cause text to reflow
 
-<!-- Download: [system-fonts.zip](https://github.com/primer/design/files/2583092/system-fonts.zip) -->
+## Font stack
 
-## Font-stack
+We utilize system fonts at GitHub, which allow for optimized performance. This design decision takes advantage of retina screens, dynamic kerning, additional font-weights, and improved readability.
 
-**System Fonts**—default Github font-stack with ample fallbacks alongside emoji support
+**System Fonts**—default GitHub font-stack with ample fallbacks alongside emoji support
 
 ```
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 ```
 
-**Monospace**—commonly used at Github to display metadata or captions
+**Monospace**—commonly used at GitHub to display metadata or captions
 
 ```
 $mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !default;
 ```
 
+**Display face**—the font stack that implements Inter UI
+
+```
+font-family: InterUI, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+```
+
 _For more information on why we made the change to system fonts, check out [Mark Otto](http://markdotto.com/)'s article: [Shipping System fonts to GitHub.com](http://markdotto.com/2018/02/07/github-system-fonts/)_
 
-## Typography Scale and Line-height
+## Typography Scale and Line height
 
 The typography scale is designed to work for GitHub's product interfaces and marketing sites. Font sizes are designed to work in combination with line-height values so as to result in more sensible numbers wherever possible.
 
@@ -91,26 +94,26 @@ Our Marketing Typography Scale aligns with our core typography scale, except for
 | ------------------ | ---------------- | --------------- |
 | 64px               | 80               | 96              |
 
-Marketing Typography also incorporates [Inter UI](https://rsms.me/inter/) as a display face, and other stylistic details that are unique in building their products.
+Marketing Typography also incorporates [Inter UI](https://rsms.me/inter/) as a display face.
 _More information on [Marketing Typography](https://styleguide.github.com/primer/utilities/marketing-type/)_.
 
 ## Applying Typography
 
-It is best practice at Github to keep unique type styling to a minimum as to align stylistically with our other products.
+It is best practice at GitHub to keep unique type styling to a minimum as to align stylistically with our other products.
 
 ### Hierarchy
 
-When establishing hierarchy for Github products, designers should remember that we stress efficient, clean reading experiences for our users. Be sure to utilize Primer’s [Typography Scale](https://styleguide.github.com/primer/utilities/typography/) and [Typography Utilities](https://styleguide.github.com/primer/utilities/typography/) when doing so. Refrain from utilizing color as a primary method of emphasis.
+When establishing hierarchy for GitHub products, designers should remember that we stress efficient, clean reading experiences for our users. Be sure to utilize Primer’s [Typography Scale](https://styleguide.github.com/primer/utilities/typography/) and [Typography Utilities](https://styleguide.github.com/primer/utilities/typography/) when doing so. Refrain from utilizing color as a primary method of emphasis.
 
 ### Readability
 
 - **Line height**—Refer to our Typography Scale when structuring line height. Generally, our products should follow this scale without issues.
 
-- **Line length**—It's considered a good practice to keep lines around 80 characters or less—[W3 Page Structure Guidelines](https://www.w3.org/WAI/tutorials/page-structure/styling/). Cases vary depending on the situation, but this serves as a general rule of thumb for developing products at Github.
+- **Line length**—It's considered a good practice to keep lines around 80 characters or less—[W3 Page Structure Guidelines](https://www.w3.org/WAI/tutorials/page-structure/styling/). Cases vary depending on the situation, but this serves as a general rule of thumb for designing layouts.
 
-- **Type alignment**—Our content is typically left-aligned and ragged right. Be sensible in deviating from this standard, as justifying, centering, and right-aligning text is atypical of Github products.
+- **Type alignment**—Our content is typically left-aligned and ragged right. Be sensible in deviating from this standard, as justifying, centering, and right-aligning text is atypical of GitHub products.
 
-- **Font Weight**—Adjust font weight to add emphasis and differentiate content hierarchy. It's common practice for our buttons and headings to be bolded.
+- **Font weight**—Adjust font weight to add emphasis and differentiate content hierarchy.
 
 - **Letter spacing**—Please refrain from altering letter-spacing on our products. There may be rare scenarios in which this is acceptable, but generally speaking, this should be avoided altogether.
 
@@ -118,7 +121,7 @@ When establishing hierarchy for Github products, designers should remember that 
 
 ### Iterate and Componentize
 
-When certain typographic patterns in your design emerge, or you believe a certain solution should be made into a component, reach out to the [#design-systems](https://github.slack.com/messages/C0ZCGGGJ2) channel on Slack to find out more on submitting your code or idea. You may also reach out by opening an issue to the team the team directly on [Github](https://github.com/primer/primer).
+When certain typographic patterns in your design emerge, or you believe a certain solution should be made into a component, reach out to the [#design-systems](https://github.slack.com/messages/C0ZCGGGJ2) channel on Slack to find out more on submitting your code or idea. You may also reach out by opening an issue in [the Primer repo on GitHub](https://github.com/primer/primer).
 
 ### Related Typography Components
 
