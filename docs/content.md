@@ -2,14 +2,14 @@
 
 ## Guidelines
 
-###  Global:
+###  Global
 
 * Design Principles
 * Accessibility
 * Voice & tone (off link to Manual of Style?)
 * Designing for Safety
 
-### Foundation:
+### Foundation
 
 * Color: palette, use/brand (use more, use less), a11y (recommended combos)
 * Typography: scale, use (bold, normal, light, sans, mono) semantic markup/a11y,
@@ -50,7 +50,7 @@
 * Truncation
 * Writing
 
-### (Work)flows
+### Workflows
 
 * Onboarding
 * Invitations (new org, repo etc.)
