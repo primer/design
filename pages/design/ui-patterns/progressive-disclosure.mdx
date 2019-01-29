@@ -2,3 +2,79 @@ export const meta = {displayName: 'Progressive Disclosure'}
 
 # Progressive Disclosure
 
+These guidelines summarize how GitHub implements progressive disclosure—an interaction design pattern that hides/displays information. This article also contains information regarding guiding principles, best practices, and implementation support for designers looking to utilize progressive disclosure in their designs. 
+
+The following table outlines common progressive disclosure solutions in use at GitHub. For more in depth analysis and usage guidelines, please refer to Progressive Disclosure User Interface Patterns.
+
+<!-- Insert Table -->
+
+## Guiding Principles
+
+
+### Maintain Context for Users
+When designing interfaces that incorporate progressive disclosure, refrain from creating interactions that drastically displace the user’s point of focus. Always pursue design solutions that attempt to create the most seamless and intuitive experiences.
+
+### Progressive Disclosure vs Navigation
+It is imperative for designers to understand the differentiation from progressive disclosure and navigation patterns, as the two share “cousin” elements that can be confusing to designers that are deciding which one to implement. 
+
+Please refer to these guidelines as they detail in-use solutions, and outline best practices for implementation. If further clarity is required, refer to the Support section of this article for more information.
+
+### Pair Icons with Text When Possible
+Pairing progressive disclosure icons with text that gives contextual information is a preferred design solution. If possible and when appropriate, consider defaulting to this design practice. 
+
+### Implement as Necessary
+Progressive Disclosure design solutions should be used sparingly, when it’s necessary to truncate information for the readability of the general layout/design. 
+
+
+
+## Progressive Disclosure UI Patterns
+
+
+### Chevron Icon
+The Chevron Icon is used when elements of content are collapsed and can be toggled open. Typically this icon is positioned vertically, and alternates between “up” and “down” states. This icon is quite flexible, and can stand alone, or be paired with text. 
+
+<!-- Example of Cheveron In Use -->
+
+<!-- Example of Cheveron Do + Don't-->
+      
+#### Caution:
+* The chevron should not be used as a call-to-action for drop down menus
+* It should not be used for pagination, or indicate directional actions
+
+### Expansion Icon
+The Expand/Collapse Icon is used to signify that there is content that can be toggled open and closed. It is typically surrounded by text content above and below it. There are currently versions of this icon that expand the context in a singular direction, but are only used in GitHub’s code review editor.
+
+<!-- Example of Expansion Icon In Use -->
+
+<!-- Example of Expansion Icon Do + Don't-->
+
+#### Caution:
+* This icon should generally be used to signify the expansion of text content
+* Generally this icon does not displayed with accompanying text
+
+### Ellipses Icon
+The ellipses icon is used for toggling truncated inline text content. It’s primary purpose is to serve as a method that designers to use to curtail bodies of texts, but sometimes other types of information.
+
+<!-- Example of Ellipses Icon In Use -->
+
+<!-- Example of Ellipses Icon Do + Don't-->
+
+#### Caution:
+* While visually similar, the ellipses icon is different from the kebab icon, which is used for dropdown menus or general call-to-actions. Be careful not to confuse them for one another. 
+* This icon generally stands alone within inline bodies of text.
+
+## Support
+
+### Iterate and Componentize
+If or when certain progressive disclosure patterns in your design emerge, or you believe a certain solution should be made into a component, reach out to the #design-systems channel on Slack to find out more on submitting your code or idea. You may also reach out by opening an issue to the team the team directly on Github.
+
+### Requesting Feedback
+Progressive Disclosure can be tricky to implement, and certain designs may test the bounds of our design guidelines in unique scenarios. If you have further questions or require clarity on implementation, please reach out to the  #design-systems channel on Slack.
+
+
+
+
+
+
+
+
