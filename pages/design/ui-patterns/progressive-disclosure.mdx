@@ -2,12 +2,9 @@ export const meta = {displayName: 'Progressive Disclosure'}
 
 # Progressive Disclosure
 
-These guidelines summarize how GitHub implements progressive disclosure—an interaction design pattern that hides/displays information. This article also contains information regarding guiding principles, best practices, and implementation support for designers looking to utilize progressive disclosure in their designs. 
+These guidelines summarize how GitHub implements progressive disclosure—an interaction design pattern that hides/displays information. This article also contains information regarding guiding principles, best practices, and implementation support.
 
 The following table outlines common progressive disclosure solutions in use at GitHub. For more in depth analysis and usage guidelines, please refer to Progressive Disclosure User Interface Patterns.
-
-<!-- Insert Table -->
-
 
 | Component | Icon | Usage | Notes |
 | --- | --- | --- | --- |
@@ -19,33 +16,26 @@ Kebab | ![kebab](https://user-images.githubusercontent.com/24916540/51949077-f5c
 Caret | ![caret](https://user-images.githubusercontent.com/24916540/51949086-054ba200-23e0-11e9-8574-3c29ae4fa48f.png) | N/A | Refrain from using this icon as a progressive disclosure solution |
 
 
-
-
-
-
-
-
 ## Guiding Principles
 
-
 ### Maintain Context for Users
-When designing interfaces that incorporate progressive disclosure, refrain from creating interactions that drastically displace the user’s point of focus. Always pursue design solutions that attempt to create the most seamless and intuitive experiences.
+When designing interfaces that incorporate progressive disclosure, refrain from creating interactions that drastically disorient the user’s initial point of focus.
 
 ### Progressive Disclosure vs Navigation
-It is imperative for designers to understand the differentiation from progressive disclosure and navigation patterns, as the two share “cousin” elements that can be confusing to designers that are deciding which one to implement. 
+It's important to understand the differentiation from progressive disclosure and navigation patterns, as the two share “cousin” elements that can be confusing when deciding which one to implement. 
 
-Please refer to these guidelines as they detail in-use solutions, and outline best practices for implementation. If further clarity is required, refer to the Support section of this article for more information.
+Please refer to these guidelines as they detail in-use solutions, and outline best practices for implementation. For more clarity, refer to the Support section of this article for more information.
 
 ### Pair Icons with Text When Possible
-Pairing progressive disclosure icons with text that gives contextual information is a preferred design solution. If possible and when appropriate, consider defaulting to this design practice. 
+Pair progressive disclosure icons with descriptive text to provide context.
 
-### Implement as Necessary
-Progressive Disclosure design solutions should be used sparingly, when it’s necessary to truncate information for the readability of the general layout/design. 
+
+### Implement Only as Necessary
+Progressive disclosures should be used sparingly, when it’s necessary to truncate information for the general layout/design. 
 
 
 
 ## Progressive Disclosure UI Patterns
-
 
 ### Chevron Icon
 The Chevron Icon is used when elements of content are collapsed and can be toggled open. Typically this icon is positioned vertically, and alternates between “up” and “down” states. This icon is quite flexible, and can stand alone, or be paired with text. 
@@ -58,8 +48,8 @@ The Chevron Icon is used when elements of content are collapsed and can be toggl
 * The chevron should not be used as a call-to-action for drop down menus
 * It should not be used for pagination, or indicate directional actions
 
-### Expansion Icon
-The Expand/Collapse Icon is used to signify that there is content that can be toggled open and closed. It is typically surrounded by text content above and below it. There are currently versions of this icon that expand the context in a singular direction, but are only used in GitHub’s code review editor.
+### Fold/Unfold
+This icon is used to signify that there is content that can be toggled open and closed. It is typically surrounded by text content above and below it. There are currently versions of this icon that expand the context in a singular direction, but are only used in GitHub’s code review editor.
 
 <!-- Example of Expansion Icon In Use -->
 
@@ -71,8 +61,6 @@ The Expand/Collapse Icon is used to signify that there is content that can be to
 
 ### Ellipses Icon
 The ellipses icon is used for toggling truncated inline text content. It’s primary purpose is to serve as a method that designers to use to curtail bodies of texts, but sometimes other types of information.
-
-<!-- Example of Ellipses Icon In Use -->
 
 <!-- Example of Ellipses Icon Do + Don't-->
 
