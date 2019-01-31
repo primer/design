@@ -1,4 +1,8 @@
+import {Flex, Box, Text, BorderBox} from '@primer/components'
+
 export const meta = {displayName: 'Progressive Disclosure'}
+
+
 
 # Progressive Disclosure
 
@@ -8,12 +12,12 @@ The following table outlines common progressive disclosure solutions in use at G
 
 | Component | Icon | Usage | Notes |
 | --- | --- | --- | --- |
-| Chevron | ![chevron](https://user-images.githubusercontent.com/24916540/51948232-93258e00-23dc-11e9-95cb-bad4defd4f8c.png) | When elements of content are collapsed and can be toggled open | Do not use this icon to trigger a dropdown menus or navigation; the Caret icon is the more suitable for this. | 
-Expand/ Collapse Icon | ![expand](https://user-images.githubusercontent.com/24916540/51948320-e26bbe80-23dc-11e9-8735-ef2b8e251b1e.png) | Signify that there is content (typically text) to be revealed | Should generally stand alone, rather than being paired with text | 
-Ellipses Icon | ![ellipses](https://user-images.githubusercontent.com/24916540/51948358-0929f500-23dd-11e9-81e8-02360a2d46de.png) | For toggling truncated inline text content | Do not use this icon to trigger a dropdown menus or navigation; the Kebab icon is the more suitable for this. | 
+| Chevron | ![chevron](https://user-images.githubusercontent.com/24916540/52089727-1ae9d480-2564-11e9-8291-1ee9d3225427.png) | When elements of content are collapsed and can be toggled open | Do not use this icon to trigger a dropdown menus or navigation; the Caret icon is the more suitable for this. | 
+Expand/ Collapse Icon | ![expand](https://user-images.githubusercontent.com/24916540/52089724-1a513e00-2564-11e9-84f8-eba077f6abfc.png) | Signify that there is content (typically text) to be revealed | Should generally stand alone, rather than being paired with text | 
+Ellipses Icon | ![ellipses](https://user-images.githubusercontent.com/24916540/52089725-1ae9d480-2564-11e9-8d29-1dc28740924a.png) | For toggling truncated inline text content | Do not use this icon to trigger a dropdown menus or navigation; the Kebab icon is the more suitable for this. | 
 Text-only Toggles | | | Usage of this solution is discouraged, as generally icons or icon+text pairings provide better accessibility and more information |
-Kebab | ![kebab](https://user-images.githubusercontent.com/24916540/51949077-f5cc5900-23df-11e9-8fc0-a7e2a1bdd39c.png) | N/A | Refrain from using this icon as a progressive disclosure solution |
-Caret | ![caret](https://user-images.githubusercontent.com/24916540/51949086-054ba200-23e0-11e9-8574-3c29ae4fa48f.png) | N/A | Refrain from using this icon as a progressive disclosure solution |
+Kebab | ![kebab](https://user-images.githubusercontent.com/24916540/52089726-1ae9d480-2564-11e9-984b-2d304cc0d46e.png) | N/A | Refrain from using this icon as a progressive disclosure solution |
+Caret | ![caret](https://user-images.githubusercontent.com/24916540/52089723-1a513e00-2564-11e9-8179-420bba7922e7.png) | N/A | Refrain from using this icon as a progressive disclosure solution |
 
 
 ## Guiding Principles
@@ -40,20 +44,58 @@ Progressive disclosures should be used sparingly, when it’s necessary to trunc
 ### Chevron Icon
 The Chevron Icon is used when elements of content are collapsed and can be toggled open. Typically this icon is positioned vertically, and alternates between “up” and “down” states. This icon is quite flexible, and can stand alone, or be paired with text. 
 
-<!-- Example of Cheveron In Use -->
+<Text is='p' textAlign="center">
+  <img src="https://user-images.githubusercontent.com/24916540/52079947-8a9f9580-254b-11e9-9e64-72a2a38f5ebd.png" />
+  
+  <p>Chevron icon used to display more branches in mobile view</p>
+</Text>
 
-<!-- Example of Cheveron Do + Don't-->
-      
+<Flex>
+  <Box width='100%' mr='2'>
+    <BorderBox border='1px solid' borderColor='green.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52088379-892c9800-2560-11e9-9296-7981780e1987.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='green.5'>Do:</Text> utilize appropriate text in scenarios to provide clarity
+   </Box>
+
+ <Box width='100%' mr='2'>
+    <BorderBox border='1px solid' borderColor='red.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52088378-892c9800-2560-11e9-9e36-0e72599da28a.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='red.5'>Don't:</Text> use the chevron to trigger dropdowns
+
+  </Box>
+</Flex>
+
 #### Caution:
 * The chevron should not be used as a call-to-action for drop down menus
 * It should not be used for pagination, or indicate directional actions
 
+
 ### Fold/Unfold
 This icon is used to signify that there is content that can be toggled open and closed. It is typically surrounded by text content above and below it. There are currently versions of this icon that expand the context in a singular direction, but are only used in GitHub’s code review editor.
 
-<!-- Example of Expansion Icon In Use -->
 
-<!-- Example of Expansion Icon Do + Don't-->
+<Text is='p' textAlign="center">
+  <img src="https://user-images.githubusercontent.com/24916540/52089179-cdb93300-2562-11e9-846b-8f0b21b6b355.png" />
+  <p>Fold/Unfold Icon used in Profiles context</p>
+</Text>
+
+<Flex>
+  <Box width='100%' mr='2'>
+    <BorderBox border='1px solid' borderColor='green.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52089419-5afc8780-2563-11e9-9f9d-c06113e6ee9a.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='green.5'>Do:</Text> Use this icon to show content expansion in the code editor
+   </Box>
+
+ <Box width='100%' mr='2'>
+    <BorderBox border='1px solid' borderColor='red.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52089420-5afc8780-2563-11e9-9eb8-c0a90bd7a8ef.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='red.5'>Don't:</Text>  pair this icon with lengthy text
+  </Box>
+</Flex>
 
 #### Caution:
 * This icon should generally be used to signify the expansion of text content
@@ -62,7 +104,21 @@ This icon is used to signify that there is content that can be toggled open and 
 ### Ellipses Icon
 The ellipses icon is used for toggling truncated inline text content. It’s primary purpose is to serve as a method that designers to use to curtail bodies of texts, but sometimes other types of information.
 
-<!-- Example of Ellipses Icon Do + Don't-->
+<Flex>
+  <Box width='100%' mr='2'>
+    <BorderBox border='1px solid' borderColor='green.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52089513-8e3f1680-2563-11e9-8d5d-e7db7815ab96.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='green.5'>Do:</Text> use this icon to give users the option to toggle the amount of text being displayed
+   </Box>
+
+ <Box width='100%' mr='2'>
+    <BorderBox border='1px solid' borderColor='red.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52089514-8e3f1680-2563-11e9-9ca2-8b5f1c0f2a0b.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='red.5'>Don't:</Text> use this as a substitute for a Kebab icon
+  </Box>
+</Flex>
 
 #### Caution:
 * While visually similar, the ellipses icon is different from the kebab icon, which is used for dropdown menus or general call-to-actions. Be careful not to confuse them for one another. 
