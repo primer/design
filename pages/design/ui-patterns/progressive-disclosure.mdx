@@ -2,8 +2,6 @@ import {Flex, Box, Text, BorderBox} from '@primer/components'
 
 export const meta = {displayName: 'Progressive Disclosure'}
 
-
-
 # Progressive Disclosure
 
 These guidelines summarize how GitHub implements progressive disclosure—an interaction design pattern that hides/displays information. This article also contains information regarding guiding principles, best practices, and implementation support.
@@ -44,9 +42,10 @@ Progressive disclosures should be used sparingly, when it’s necessary to trunc
 ### Chevron Icon
 The Chevron Icon is used when elements of content are collapsed and can be toggled open. Typically this icon is positioned vertically, and alternates between “up” and “down” states. This icon is quite flexible, and can stand alone, or be paired with text. 
 
-<Text is='p' textAlign="center">
-  <img src="https://user-images.githubusercontent.com/24916540/52079947-8a9f9580-254b-11e9-9e64-72a2a38f5ebd.png" />
-  
+<Text textAlign="center">
+  <BorderBox>
+    <img src="https://user-images.githubusercontent.com/24916540/52079947-8a9f9580-254b-11e9-9e64-72a2a38f5ebd.png"/>
+  </BorderBox>
   <p>Chevron icon used to display more branches in mobile view</p>
 </Text>
 
@@ -56,15 +55,13 @@ The Chevron Icon is used when elements of content are collapsed and can be toggl
       <img src="https://user-images.githubusercontent.com/24916540/52094309-7b344280-2573-11e9-8f1a-d28cf78a0351.png"/>
     </BorderBox>
     <Text fontWeight='bold' color='green.5'>Do:</Text> utilize appropriate text in scenarios to provide clarity
-   </Box>
-
- <Box width='100%' mr='2'>
+  </Box>
+  <Box width='100%' mr='2'>
     <BorderBox border='1px solid' borderColor='red.5' mb="2">
       <img src="https://user-images.githubusercontent.com/24916540/52088378-892c9800-2560-11e9-9e36-0e72599da28a.png"/>
     </BorderBox>
     <Text fontWeight='bold' color='red.5'>Don't:</Text> use the chevron to trigger dropdowns
-
-  </Box>
+  </Box> 
 </Flex>
 
 #### Caution:
@@ -75,25 +72,25 @@ The Chevron Icon is used when elements of content are collapsed and can be toggl
 ### Fold/Unfold
 This icon is used to signify that there is content that can be toggled open and closed. It is typically surrounded by text content above and below it. There are currently versions of this icon that expand the context in a singular direction, but are only used in GitHub’s code review editor.
 
-
-<Text is='p' textAlign="center">
-  <img src="https://user-images.githubusercontent.com/24916540/52089179-cdb93300-2562-11e9-846b-8f0b21b6b355.png" />
+<Text textAlign="center">
+  <BorderBox border='1px solid' borderColor='gray.3' mb="2">
+    <img src="https://user-images.githubusercontent.com/24916540/52096167-c43bc500-257a-11e9-9e20-a0371eb83720.png"/>
+  </BorderBox>
   <p>Fold/Unfold Icon used in Profiles context</p>
 </Text>
 
 <Flex>
   <Box width='100%' mr='2'>
     <BorderBox border='1px solid' borderColor='green.5' mb="2">
-      <img src="https://user-images.githubusercontent.com/24916540/52094678-e7637600-2574-11e9-948c-25dc2b818caa.png"/>
+      <img src="https://user-images.githubusercontent.com/24916540/52096601-47114f80-257c-11e9-92fc-d5a12f980372.png"/>
     </BorderBox>
     <Text fontWeight='bold' color='green.5'>Do:</Text> Use this icon to show content expansion in the code editor
-   </Box>
-
- <Box width='100%' mr='2'>
+  </Box>
+  <Box width='100%' mr='2'>
     <BorderBox border='1px solid' borderColor='red.5' mb="2">
       <img src="https://user-images.githubusercontent.com/24916540/52090486-5b4a5200-2566-11e9-8f29-3c26f3787409.png"/>
     </BorderBox>
-    <Text fontWeight='bold' color='red.5'>Don't:</Text>  pair this icon with lengthy text
+    <Text fontWeight='bold' color='red.5'>Don't:</Text> pair this icon with lengthy text
   </Box>
 </Flex>
 
@@ -110,9 +107,8 @@ The ellipses icon is used for toggling truncated inline text content. It’s pri
       <img src="https://user-images.githubusercontent.com/24916540/52093713-14ae2500-2571-11e9-9893-819b563639b1.png"/>
     </BorderBox>
     <Text fontWeight='bold' color='green.5'>Do:</Text> use this icon to give users the option to toggle the amount of text being displayed
-   </Box>
-
- <Box width='100%' mr='2'>
+  </Box>
+  <Box width='100%' mr='2'>
     <BorderBox border='1px solid' borderColor='red.5' mb="2">
       <img src="https://user-images.githubusercontent.com/24916540/52093714-1546bb80-2571-11e9-8799-9260792e40f5.png"/>
     </BorderBox>
