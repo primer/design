@@ -1,37 +1,37 @@
 import React from 'react'
-import App, {Container} from 'next/app'
-import {MDXProvider} from '@mdx-js/tag'
-import Octicon, {Pencil} from '@githubprimer/octicons-react'
-import {repository} from '../package.json'
+import App, { Container } from 'next/app'
+import { MDXProvider } from '@mdx-js/tag'
+import Octicon, { Pencil } from '@githubprimer/octicons-react'
+import { repository } from '../package.json'
 import * as primer from '@primer/components'
-import {SideNav, Header, IndexHero} from '../src'
-import root, {populateTree} from '../src/nav'
+import { SideNav, Header, IndexHero } from '../src'
+import root, { populateTree } from '../src/nav'
 
-const {BaseStyles, BorderBox, Box, Flex, Link, Text} = primer
+const { BaseStyles, BorderBox, Box, Flex, Link, Text } = primer
 const DocLink = props => <Link nounderline {...props} />
 const editLinkBase = `https://github.com/${repository}/edit/master/pages`
 
 const components = {
-  // ...primer,
+  ...primer,
   a: Link
 }
 
 populateTree(require.context('.', true, /\/[^_]+\.(js|md)x?$/))
 
 export default class MyApp extends App {
-  static async getInitialProps({Component, ctx}) {
+  static async getInitialProps({ Component, ctx }) {
     let page = {}
 
     if (Component.getInitialProps) {
       page = await Component.getInitialProps(ctx)
     }
 
-    return {page}
+    return { page }
   }
 
   render() {
-    const {pathname} = this.props.router
-    const {Component, page} = this.props
+    const { pathname } = this.props.router
+    const { Component, page } = this.props
     // look up the meta key in the nav tree
     const node = root.first(node => node.path === pathname)
     const meta = (node ? node.meta : null) || {}
