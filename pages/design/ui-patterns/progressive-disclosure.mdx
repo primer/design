@@ -42,12 +42,17 @@ Progressive disclosures should be used sparingly, when it’s necessary to trunc
 ### Chevron Icon
 The Chevron Icon is used when elements of content are collapsed and can be toggled open. Typically this icon is positioned vertically, and alternates between “up” and “down” states. This icon is quite flexible, and can stand alone, or be paired with text. 
 
+
 <Text textAlign="center">
-  <BorderBox>
-    <img src="https://user-images.githubusercontent.com/24916540/52079947-8a9f9580-254b-11e9-9e64-72a2a38f5ebd.png"/>
-  </BorderBox>
-  <p>Chevron icon used to display more branches in mobile view</p>
+   <Flex alignItems='center' flexDirection='column'>
+    <BorderBox width={9/12}>
+      <img src="https://user-images.githubusercontent.com/24916540/52079947-8a9f9580-254b-11e9-9e64-72a2a38f5ebd.png"/>
+    </BorderBox>
+    <p>Chevron icon used to display more branches in mobile view</p>
+   </Flex>
 </Text>
+
+
 
 <Flex>
   <Box width='100%' mr='2'>
@@ -73,10 +78,12 @@ The Chevron Icon is used when elements of content are collapsed and can be toggl
 This icon is used to signify that there is content that can be toggled open and closed. It is typically surrounded by text content above and below it. There are currently versions of this icon that expand the context in a singular direction, but are only used in GitHub’s code review editor.
 
 <Text textAlign="center">
-  <BorderBox border='1px solid' borderColor='gray.3' mb="2">
-    <img src="https://user-images.githubusercontent.com/24916540/52096167-c43bc500-257a-11e9-9e20-a0371eb83720.png"/>
-  </BorderBox>
-  <p>Fold/Unfold Icon used in Profiles context</p>
+  <Flex alignItems='center' flexDirection='column'>
+    <BorderBox width={9/12} border='1px solid' borderColor='gray.3' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52096167-c43bc500-257a-11e9-9e20-a0371eb83720.png"/>
+    </BorderBox>
+    <p>Fold/Unfold Icon used in Profiles context</p>
+  </Flex>
 </Text>
 
 <Flex>
