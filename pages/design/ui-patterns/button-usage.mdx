@@ -1,3 +1,49 @@
 export const meta = {displayName: 'Button Usage'}
 
 # Button Usage
+These guidelines summarize how GitHub implements buttons across our products. We have standardized buttons documented on Primer CSS and Primer Components, and these docs serve as the source of truth for development implementation. This article serves to supplement our technical docs with proper guidance on design implementation.
+
+## Guiding Principles
+
+### Do Not Create More Buttons
+This principle is self-explanatory, but the Primer-CSS docs are well written and much easier to use than recreating the wheel. Our button styles and modifiers should be expansive enough to cover most use cases, but please refer to the Support section of this article if you have further concerns.
+
+### Limit Primary Button Usage
+Primary buttons call a large amount of attention to themselves, and are generally used to illustrate the main function of a product. It’s discouraged to use multiple primary buttons in a single view, as it limits their visual effectiveness of bringing attention to a significant action.
+
+### Do not place outlined buttons near other types of buttons
+While related, the outlined buttons and other button styles function quite differently. Be wary of their positioning and proximity from each other as they clash visually, which may confuse or disorient the user.
+
+
+
+## Modifiers
+
+### Counters
+The default button can be modified to use a counter in certain appropriate scenarios.
+
+### Dropdowns
+The caret icon is sometimes attached to buttons to create dropdowns for actions. Please refer to the dropdown usage guidelines for more information.
+
+### Octicons
+Icons provide context for button actions, and are commonly used across github products. This solution is generally encouraged, but please implement appropriately.
+
+### Size
+There are three standard sizes for our buttons, but in certain scenarios they can be modified further. Please refer to our Figma library alongside Primer CSS docs to learn more
+
+
+
+## Extensions and Helpers
+
+### Button Groups
+The outline and default buttons can be nestled together to form a button group. The default button groups are used to group similar actions, while the outline buttons are used for filtering/ sub-navigation.
+
+
+### Text Labels
+In certain scenarios, it makes sense to have accompanying text around buttons that perform very significant actions. Use this modifier sparingly, as buttons should be able to be understood on their own.
+
+## Support
+
+### Requesting Feedback
+Buttons can be tricky to implement, and certain designs may test the bounds of our design guidelines in unique scenarios. If you have further questions or require clarity on implementation, please reach out to the  #design-systems channel on Slack.
+
+
