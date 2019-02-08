@@ -1,3 +1,5 @@
+import {Flex, Box, Text, BorderBox} from '@primer/components'
+
 export const meta = {displayName: 'Button Usage'}
 
 # Button Usage
@@ -32,20 +34,57 @@ A button’s functionality can be extended or altered using modifiers. Use appro
 
 At GitHub, our buttons are all sentence-cased. Please refrain from deviating from this standard.
 
+<Flex>
+  <Box width='100%' mr='2'>
+    <BorderBox border='1px solid' borderColor='green.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52501276-d3330080-2b94-11e9-954e-38c0f09f8ca1.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='green.5'>Do:</Text> Use sentence case 
+  </Box>
+  <Box width='100%' mr='2'>
+    <BorderBox border='1px solid' borderColor='red.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52501272-d3330080-2b94-11e9-8829-7d12aae36ba1.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='red.5'>Don't:</Text> Use all-caps or other text formats
+  </Box> 
+</Flex>
 
 ### Keep Button Text Concise
 When designing buttons, keep the text as short but descriptive as possible. Buttons are to be understood by their type and text; if further clarity is required, consider adding an octicon or adding a text description. Never wrap text within buttons. 
-
-
 
 ### Adaptable Full-Width 
 In certain scenarios, it may be appropriate for a button’s width to be extended to fill their parent container. Use this style sparingly, but some general, appropriate use-cases include:
 - Modals with a singular call-to-action
 - Responsive behavior of buttons when scaled down
 
+<Flex>
+  <Box width='100%' mr='2'>
+    <BorderBox border='1px solid' borderColor='green.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52501273-d3330080-2b94-11e9-906c-27d9f745f0c5.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='green.5'>Do:</Text> Keep text brief, specific, and descriptive
+  </Box>
+  <Box width='100%' mr='2'>
+    <BorderBox border='1px solid' borderColor='red.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52501274-d3330080-2b94-11e9-823d-61964966cc7b.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='red.5'>Don't:</Text> Use lengthy, wordy text and/or wrap it within the button
+  </Box> 
+</Flex>
+
+
 
 ### Text Descriptions
 In certain scenarios, buttons that perform very significant actions require accompanying text around them to let the user fully understand its intent. Use text labels sparingly, as buttons should generally be able to be understood on their own.
+
+<Flex>
+  <Box width='50%' mr='2'>
+    <BorderBox border='1px solid' borderColor='green.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52501400-1b522300-2b95-11e9-8c47-71af68cfaeec.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='green.5'>Do:</Text> Keep text brief, specific, and descriptive
+  </Box> 
+</Flex>
 
 
 ## Hierarchy and Placement
@@ -56,6 +95,16 @@ Only use one primary button on the page, whenever possible, to indicate its emph
 
 ### Primary Button Placement
 When a secondary button is placed in conjunction with a primary button, the primary button should always be placed to the right of the secondary button, or on top if stacked.
+
+<Flex>
+  <Box width='100%' mr='2'>
+    <BorderBox border='1px solid' borderColor='green.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/52501537-6ff59e00-2b95-11e9-9bac-f105481b9e21.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='green.5'>Do:</Text> Follow this principle to align your buttons accordingly
+  </Box> 
+</Flex>
+
 
 
 ### Use Outline Buttons Independently
