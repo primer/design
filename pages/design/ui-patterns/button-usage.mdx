@@ -3,52 +3,64 @@ export const meta = {displayName: 'Button Usage'}
 # Button Usage
 These guidelines summarize how GitHub implements buttons across our products. We have standardized buttons documented on Primer CSS and Primer Components, and these docs serve as the source of truth for development implementation. This article serves to supplement our technical docs with proper guidance on design implementation.
 
+#### Buttons
 
-| Button | Visual | Usage | Notes |
+At GitHub, buttons are a fundamental building block of our products. The following table catalogues a quick glance at how we use buttons at GitHub: 
+
+| Button | Visual | Usage | Notes | Modifiers |
+| --- | --- | --- | --- | --- |
+| Secondary | ![btn](https://user-images.githubusercontent.com/24916540/52498774-86e4c200-2b8e-11e9-953b-e0e7a70493ea.png) | For secondary or less important actions | Should be considered as the go-to style when designing new buttons | Octicons, Size, Full-width, Button-Groups, Counter |
+| Outline | ![btn-outline](https://user-images.githubusercontent.com/24916540/52498769-864c2b80-2b8e-11e9-984a-d5b88c846b74.png) | For general actions, navigation, and filtering | Should be used independently and not in conjunction with other button styles | Octicons, Size, Full-width, Button-Groups, Counter |
+| Primary | ![btn-primary](https://user-images.githubusercontent.com/24916540/52498773-86e4c200-2b8e-11e9-804f-146d721d5191.png) | To indicate the primary action on a page or view | Do not use multiple primary buttons on a single page or view | Octicons(limited), Size, Full-width |
+| Danger | ![btn-danger](https://user-images.githubusercontent.com/24916540/52498772-864c2b80-2b8e-11e9-8eeb-bef8729c1fd1.png) | To indicate potentially dangerous, or destructive actions | Only use this button when necessary | Octicons(limited), Size, Full-width|
+
+
+#### Modifiers
+A button’s functionality can be extended or altered using modifiers. Use appropriate modifiers to buttons such as icons, size, and button grouping to help buttons become more prominent or less noticeable in a layout:
+
+| Type | Visual | Usage | Notes |
 | --- | --- | --- | --- |
-| | | |
-| | | |
-| | | |
+| Octicons | ![btn](https://user-images.githubusercontent.com/24916540/52499482-6158b800-2b90-11e9-920a-69c8b00c10f2.png) | Clarify an action if text alone is not enough Call attention to the button’s action | Do not use more than three octicons in one button as it would convolute its message |
+| Size |![btn](https://user-images.githubusercontent.com/24916540/52499481-6158b800-2b90-11e9-9db8-bf41eccfdf8d.png) | Increase size to bring prominence to buttons that have major impact Decrease size when space is limited and the action is of lesser significance | Use sparingly, as layouts should generally have only one large button |
+| Full-Width | ![btn](https://user-images.githubusercontent.com/24916540/52499480-6158b800-2b90-11e9-95b0-6cceca770e2f.png) | For adapting buttons responsively For visual coherence when applicable | Use sparingly, as this is not a default pattern |
+| Button Groups | ![btn](https://user-images.githubusercontent.com/24916540/52499479-6158b800-2b90-11e9-8b29-c2ba570e869a.png) | To organize similarly functioning buttons | This pattern can also be used as a filter |
+| Counter | ![btn](https://user-images.githubusercontent.com/24916540/52499478-6158b800-2b90-11e9-9985-fe679556dea9.png)| To add a numerical aid in appropriate scenarios Should generally only be used with “small” buttons | should only be used where a counter is providing valuable context |
+
+## Usage
+
+### Use Sentence Case
+
+At GitHub, our buttons are all sentence-cased. Please refrain from deviating from this standard.
+
+
+### Keep Button Text Concise
+When designing buttons, keep the text as short but descriptive as possible. Buttons are to be understood by their type and text; if further clarity is required, consider adding an octicon or adding a text description. Never wrap text within buttons. 
 
 
 
-## Guiding Principles
+### Adaptable Full-Width 
+In certain scenarios, it may be appropriate for a button’s width to be extended to fill their parent container. Use this style sparingly, but some general, appropriate use-cases include:
+- Modals with a singular call-to-action
+- Responsive behavior of buttons when scaled down
 
-### Do Not Create More Buttons
-This principle is self-explanatory, but the Primer-CSS docs are well written and much easier to use than recreating the wheel. Our button styles and modifiers should be expansive enough to cover most use cases, but please refer to the Support section of this article if you have further concerns.
+
+### Text Descriptions
+In certain scenarios, buttons that perform very significant actions require accompanying text around them to let the user fully understand its intent. Use text labels sparingly, as buttons should generally be able to be understood on their own.
+
+
+## Hierarchy and Placement
 
 ### Limit Primary Button Usage
-Primary buttons call a large amount of attention to themselves, and are generally used to illustrate the main function of a product. It’s discouraged to use multiple primary buttons in a single view, as it limits their visual effectiveness of bringing attention to a significant action.
-
-### Do not place outlined buttons near other types of buttons
-While related, the outlined buttons and other button styles function quite differently. Be wary of their positioning and proximity from each other as they clash visually, which may confuse or disorient the user.
+Only use one primary button on the page, whenever possible, to indicate its emphasis relative to other actions. Primary buttons have  top priority in visual hierarchy, and using too many of them on a single view dilutes their effectiveness.
 
 
-
-## Modifiers
-
-### Counters
-The default button can be modified to use a counter in certain appropriate scenarios.
-
-### Dropdowns
-The caret icon is sometimes attached to buttons to create dropdowns for actions. Please refer to the dropdown usage guidelines for more information.
-
-### Octicons
-Icons provide context for button actions, and are commonly used across github products. This solution is generally encouraged, but please implement appropriately.
-
-### Size
-There are three standard sizes for our buttons, but in certain scenarios they can be modified further. Please refer to our Figma library alongside Primer CSS docs to learn more
+### Primary Button Placement
+When a secondary button is placed in conjunction with a primary button, the primary button should always be placed to the right of the secondary button, or on top if stacked.
 
 
+### Use Outline Buttons Independently
+Outline buttons are mainly used for secondary actions such as filtering. Don't use in conjunction or place in close proximity of other button styles
 
-## Extensions and Helpers
-
-### Button Groups
-The outline and default buttons can be nestled together to form a button group. The default button groups are used to group similar actions, while the outline buttons are used for filtering/ sub-navigation.
-
-
-### Text Labels
-In certain scenarios, it makes sense to have accompanying text around buttons that perform very significant actions. Use this modifier sparingly, as buttons should be able to be understood on their own.
 
 ## Support
 
