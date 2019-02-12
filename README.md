@@ -2,6 +2,9 @@
 
 Documentation for UI patterns and interaction guidelines.
 
+## Status
+This is currently a work in progress! Follow along on our [project board](https://github.com/primer/design/projects/1).
+
 ## Local development
 
 1. Clone this repo, e.g. with:
