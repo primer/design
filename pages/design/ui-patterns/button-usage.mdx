@@ -16,18 +16,6 @@ At GitHub, buttons are a fundamental building block of our products. The followi
 | Primary | ![btn-primary](https://user-images.githubusercontent.com/24916540/52498773-86e4c200-2b8e-11e9-804f-146d721d5191.png) | To indicate the primary action on a page or view | Avoid using multiple primary buttons in a single view | Octicons(limited), Size, Full-width |
 | Danger | ![btn-danger](https://user-images.githubusercontent.com/24916540/52498772-864c2b80-2b8e-11e9-8eeb-bef8729c1fd1.png) | To indicate potentially dangerous, or destructive actions | Only use this button when necessary | Octicons(limited), Size, Full-width|
 
-
-#### Modifiers
-A button’s functionality can be extended or altered using modifiers. Use appropriate modifiers to buttons such as icons, size, and button grouping to help buttons become more prominent or less noticeable in a layout:
-
-| Type | Visual | Usage | Notes |
-| --- | --- | --- | --- |
-| Octicons | ![btn](https://user-images.githubusercontent.com/24916540/52499482-6158b800-2b90-11e9-920a-69c8b00c10f2.png) | <ul><li>Clarify an action if text alone is not enough</li> <li>Call attention to the button’s action</li></ul> | Do not use more than three octicons in one button as it would convolute its message |
-| Size |![btn](https://user-images.githubusercontent.com/24916540/52499481-6158b800-2b90-11e9-9db8-bf41eccfdf8d.png) | <ul><li>Increase size to bring prominence to buttons that have major impact </li> <li>Decrease size when space is limited and the action is of lesser significance</li></ul> | Use sparingly, as layouts should generally have only one large button |
-| Full-Width | ![btn](https://user-images.githubusercontent.com/24916540/52499480-6158b800-2b90-11e9-95b0-6cceca770e2f.png) | <ul><li>For adapting buttons responsively</li><li>For visual coherence when applicable</li></ul> | Use sparingly, as this is not a default pattern |
-| Button Groups | ![btn](https://user-images.githubusercontent.com/24916540/52499479-6158b800-2b90-11e9-8b29-c2ba570e869a.png) | <ul><li>To organize similarly functioning buttons</li></ul> | This pattern can also be used as a filter |
-| Counter | ![btn](https://user-images.githubusercontent.com/24916540/52499478-6158b800-2b90-11e9-9985-fe679556dea9.png)| <ul><li>To add a numerical aid in appropriate scenarios </li><li>Should generally only be used with “small” buttons</li></ul> | should only be used where a counter is providing valuable context |
-
 ## Usage
 
 ### Use Sentence Case
@@ -72,8 +60,6 @@ In certain scenarios, it may be appropriate for a button’s width to be extende
   </Box> 
 </Flex>
 
-
-
 ### Text Descriptions
 In certain scenarios, buttons that perform very significant actions require accompanying text around them to let the user fully understand its intent. Use text labels sparingly, as buttons should generally be able to be understood on their own.
 
@@ -86,8 +72,20 @@ In certain scenarios, buttons that perform very significant actions require acco
   </Box> 
 </Flex>
 
+### Use Octicons to Clarify Actions
+Use octicons in conjunction with buttons to clarify an action if text alone is not enough to explain its action. Octicons can also be used to call attention to the button’s action and make it stand out through consistent usage. For example, GitHub products use the repo icon in a button and then repeat its use throughout the "new repo" flow - this repetition and continuity is helps people learn our visual language.
+
+### Use Button Groups to Organize Similar Functionality  
+Organize buttons together in button groups to show their similar functionality. 
+
+### Using Social Proof
+
 
 ## Hierarchy and Placement
+
+### Use Size to Modify Button Hierarchy
+Increase button size to bring prominence to buttons that have major impact. Decrease button size when space is limited and the action is of lesser significance. Use this modifier sparingly, as layouts should generally have only one large button. 
+
 
 ### Limit Primary Button Usage
 Only use one primary button on the page, whenever possible, to indicate its emphasis relative to other actions. Primary buttons have  top priority in visual hierarchy, and using too many of them on a single view dilutes their effectiveness.
