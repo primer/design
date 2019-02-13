@@ -6,6 +6,7 @@ import {repository} from '../package.json'
 import * as primer from '@primer/components'
 import {SideNav, Header, IndexHero, Contributors} from '../src'
 import root, {populateTree} from '../src/nav'
+import {extraContributors} from '../src/constants'
 
 const {BaseStyles, BorderBox, Box, Flex, Link, Text} = primer
 const DocLink = props => <Link nounderline {...props} />
@@ -15,6 +16,9 @@ const components = {
   Contributors,
   a: Link
 }
+
+const getExtraContributors = (file) => extraContributors[file]
+
 
 populateTree(require.context('.', true, /\/[^_]+\.(js|md)x?$/))
 
@@ -49,7 +53,7 @@ export default class MyApp extends App {
                 </MDXProvider>
                 {node.model.file && (
                   <Flex is={BorderBox} justifyContent='space-between' color="gray.5" border={0} borderTop={1} my={6} pt={1}>
-                    <Contributors filePath={`pages${node.model.file}`} repoPath={repository}/>
+                    <Contributors filePath={`pages${node.model.file}`} repoPath={repository} contributors={getExtraContributors(node.model.file)}/>
                     <Text fontSize={1}>
                       <Text mr={2}>
                         <Octicon icon={Pencil} />

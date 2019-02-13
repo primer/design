@@ -1,23 +1,31 @@
 import React, {useEffect, useState} from 'react'
+import PropTypes from 'prop-types'
 import {Link, Text, Avatar, Box, Flex} from '@primer/components'
 
 function generateContributors(authors) {
-  return authors.map((author, i) =>
-    <div>
-      <Text fontWeight='bold' lineHeight={2}>Contributors: </Text>
-      <Link href={author.url}>
+  const logins = []
+  const uniqueAuthors = authors.filter((author, i) => {
+    if (logins.includes(author.login)) {
+      return false
+    } else {
+      logins.push(author.login)
+      return true
+    }
+  })
+  return uniqueAuthors.map((author, i) =>
+    <>
+      <Link href={`https://github.com/${author.login}`}>
         {author.login}
       </Link>
       {authors.length > 1 && (authors.length - 1 !== i) && ', '}
-    </div>
+    </>
   )
 }
 
-function generateLastEdited(authors) {
-  if (authors.length > 0) {
+function generateLastEdited(lastAuthor) {
+  if (lastAuthor) {
     const months = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"]
-    const lastAuthor = authors[0]
     const day = lastAuthor.time.getDate()
     const month = months[lastAuthor.time.getMonth()]
     const year = lastAuthor.time.getFullYear()
@@ -26,27 +34,26 @@ function generateLastEdited(authors) {
           <Text fontWeight='bold' lineHeight={2} mr={1}>Last edited by: </Text>
           <Avatar src={lastAuthor.avatar} mr={1}/>
           <Text>
-            <Link href={lastAuthor.url}> {lastAuthor.login}</Link> on <Link color='gray.5' href={lastAuthor.commit_url}>{`${month} ${day}, ${year}`}</Link>
+            <Link href={`https://github.com/${lastAuthor.login}`}> {lastAuthor.login}</Link> on <Link color='gray.5' href={lastAuthor.commit_url}>{`${month} ${day}, ${year}`}</Link>
           </Text>
         </Flex>
     )
   }
 }
 
-const Contributors = ({filePath, repoPath}) => {
+const Contributors = ({filePath, repoPath, contributors}) => {
   const [authors, setAuthors] = useState([])
   useEffect(() => {
     const url = `https://api.github.com/repos/${repoPath}/commits?path=${filePath}`
     fetch(url)
       .then(response => response.json())
       .then(commits => {
-        const commitData = [];
-        const ids = []
+        const commitData = []
+        const ids = [];
         for (var i = 0; i < commits.length; i++) {
           if (!ids.includes(commits[i].author.id)) {
             commitData.push({
               login: commits[i].author.login,
-              url: commits[i].author.html_url,
               avatar: commits[i].author.avatar_url,
               time: new Date(commits[i].commit.author.date),
               commit_url: commits[i].html_url
@@ -57,13 +64,23 @@ const Contributors = ({filePath, repoPath}) => {
         setAuthors(commitData)
       })
   }, [filePath])
-
+  console.log(contributors)
   return (
     <Text fontSize={1}>
-      {generateContributors(authors)}
-      {generateLastEdited(authors)}
+      <Text fontWeight='bold' lineHeight={2}>Contributors: </Text>
+      {generateContributors([...contributors, ...authors])}
+      {generateLastEdited(authors[0])}
     </Text>
   )
 }
 
+Contributors.defaultProps = {
+  contributors: []
+}
+
+Contributors.propTypes = {
+  filePath: PropTypes.string.isRequired,
+  repoPath: PropTypes.string.isRequired,
+  contributors: PropTypes.object.isRequired
+}
 export default Contributors
