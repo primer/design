@@ -1,28 +1,34 @@
 import React, {useEffect, useState} from 'react'
-import {Link, Text, Avatar, Box} from '@primer/components'
+import {Link, Text, Avatar, Box, Flex} from '@primer/components'
 
 function generateContributors(authors) {
   return authors.map((author, i) =>
-    <Text>
+    <div>
+      <Text fontWeight='bold' lineHeight={2}>Contributors: </Text>
       <Link href={author.url}>
         {author.login}
       </Link>
       {authors.length > 1 && (authors.length - 1 !== i) && ', '}
-    </Text>
+    </div>
   )
 }
 
 function generateLastEdited(authors) {
   if (authors.length > 0) {
+    const months = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"]
     const lastAuthor = authors[0]
     const day = lastAuthor.time.getDate()
-    const month = lastAuthor.time.getMonth()
+    const month = months[lastAuthor.time.getMonth()]
     const year = lastAuthor.time.getFullYear()
     return (
-      <span>
-        <Avatar src={lastAuthor.avatar}/>
-        <Link href={lastAuthor.url}> {lastAuthor.login}</Link> on <Link color='gray.5' href={lastAuthor.commit_url}>{`${month + 1}-${day}-${year}`}</Link>
-      </span>
+        <Flex alignItems='center'>
+          <Text fontWeight='bold' lineHeight={2} mr={1}>Last edited by: </Text>
+          <Avatar src={lastAuthor.avatar} mr={1}/>
+          <Text>
+            <Link href={lastAuthor.url}> {lastAuthor.login}</Link> on <Link color='gray.5' href={lastAuthor.commit_url}>{`${month} ${day}, ${year}`}</Link>
+          </Text>
+        </Flex>
     )
   }
 }
@@ -54,14 +60,8 @@ const Contributors = ({filePath, repoPath}) => {
 
   return (
     <Text fontSize={1}>
-      <Box>
-        <Text fontWeight='bold'>Contributors: </Text>
-        {generateContributors(authors)}
-      </Box>
-      <Box>
-        <Text fontWeight='bold'>Last edited by: </Text>
-        {generateLastEdited(authors)}
-      </Box>
+      {generateContributors(authors)}
+      {generateLastEdited(authors)}
     </Text>
   )
 }
