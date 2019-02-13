@@ -17,8 +17,7 @@ const components = {
   a: Link
 }
 
-const getExtraContributors = (file) => extraContributors[file]
-
+const getExtraContributors = file => extraContributors[file]
 
 populateTree(require.context('.', true, /\/[^_]+\.(js|md)x?$/))
 
@@ -52,8 +51,20 @@ export default class MyApp extends App {
                   <Component {...page} />
                 </MDXProvider>
                 {node.model.file && (
-                  <Flex is={BorderBox} justifyContent='space-between' color="gray.5" border={0} borderTop={1} my={6} pt={1}>
-                    <Contributors filePath={`pages${node.model.file}`} repoPath={repository} contributors={getExtraContributors(node.model.file)}/>
+                  <Flex
+                    is={BorderBox}
+                    justifyContent="space-between"
+                    color="gray.5"
+                    border={0}
+                    borderTop={1}
+                    my={6}
+                    pt={1}
+                  >
+                    <Contributors
+                      filePath={`pages${node.model.file}`}
+                      repoPath={repository}
+                      contributors={getExtraContributors(node.model.file)}
+                    />
                     <Text fontSize={1}>
                       <Text mr={2}>
                         <Octicon icon={Pencil} />
