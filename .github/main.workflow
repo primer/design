@@ -22,6 +22,6 @@ action "deploy" {
   uses = "primer/deploy@v2.0.0"
   secrets = [
     "GITHUB_TOKEN",
-    "ZEIT_TOKEN",
+    "NOW_TOKEN",
   ]
 }
