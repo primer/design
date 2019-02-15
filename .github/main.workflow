@@ -2,35 +2,26 @@ workflow "lint and deploy" {
   on = "push"
   resolves = [
     "lint",
-    "deploy/alias",
+    "deploy",
   ]
 }
 
 action "install" {
-  uses = "actions/npm@94e6933"
+  uses = "actions/npm@v2.0.0"
   args = "ci"
 }
 
 action "lint" {
   needs = ["install"]
-  uses = "actions/npm@94e6933"
+  uses = "actions/npm@v2.0.0"
   args = "run lint"
 }
 
 action "deploy" {
   needs = ["install"]
-  uses = "shawnbot/zeit-now@9f28e66"
+  uses = "primer/deploy@v2.0.0"
   secrets = [
-    "ZEIT_TOKEN",
+    "GITHUB_TOKEN",
+    "NOW_TOKEN",
   ]
-}
-
-action "deploy/alias" {
-  needs = ["deploy"]
-  uses = "shawnbot/now-branch-preview@9f674f6"
-  secrets = ["ZEIT_TOKEN", "GITHUB_TOKEN"]
-  env = {
-    PREVIEW_URL_TEMPLATE = "primer-design-{branch}.now.sh"
-    STATUS_CONTEXT = "deploy/preview"
-  }
 }
