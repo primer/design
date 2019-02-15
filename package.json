@@ -12,7 +12,6 @@
     "@primer/components": "5.0.0-beta",
     "@svgr/webpack": "3.1.0",
     "@zeit/next-mdx": "1.2.0",
-    "axios": "0.18.0",
     "emotion-server": "9.2.12",
     "eslint": "5.8.0",
     "eslint-plugin-github": "1.6.0",
