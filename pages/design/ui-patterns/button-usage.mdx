@@ -39,7 +39,7 @@ At GitHub, buttons are a fundamental building block of our products. The followi
 When designing buttons, keep the text as short but descriptive as possible. Buttons are to be understood by their type and text; if further clarity is required, consider adding an octicon or adding a text description. 
 
 ### Adaptable Full-Width 
-In certain scenarios, it may be appropriate for a button’s width to be extended to fill their parent container. Use this style sparingly, but some general, appropriate use-cases include:
+In certain scenarios, it may make sense to use full-width buttons that extend to the width of their container. Use this style sparingly, but some appropriate use-cases include:
 - Modals with a singular call-to-action
 - Responsive behavior of buttons when scaled down
 
@@ -58,17 +58,24 @@ In certain scenarios, it may be appropriate for a button’s width to be extende
   </Box> 
 </Flex>
 
-### Text Descriptions
+### Use Text Descriptions
 In certain scenarios, buttons require supporting text to give the user more context. Use text labels sparingly, as buttons should generally be able to be understood on their own.
 
 <Flex>
-  <Box width='50%' mr='2'>
+  <Box width='100%' mr='2'>
     <BorderBox border='1px solid' borderColor='green.5' mb="2">
       <img src="https://user-images.githubusercontent.com/24916540/52501400-1b522300-2b95-11e9-8c47-71af68cfaeec.png"/>
     </BorderBox>
     <Text fontWeight='bold' color='green.5'>Do:</Text> Keep text brief, specific, and descriptive
   </Box> 
+   <Box width='100%' mr='2'>
+    <BorderBox border='1px solid' borderColor='red.5' mb="2">
+      <img src="https://user-images.githubusercontent.com/24916540/53110379-cbfee180-3508-11e9-8762-04e3c8979afb.png"/>
+    </BorderBox>
+    <Text fontWeight='bold' color='red.5'>Don't:</Text> Use unnecesary, redundant text descriptions
+  </Box> 
 </Flex>
+
 
 ### Use Octicons to Clarify Actions
 Use octicons in conjunction with buttons to clarify an action if text alone is not enough to explain its functionality. Octicons can also be used to signal an interaction, for example, the `triangle-down` octicon to open a dropdown.
