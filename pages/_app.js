@@ -4,17 +4,20 @@ import {MDXProvider} from '@mdx-js/tag'
 import Octicon, {Pencil} from '@githubprimer/octicons-react'
 import {repository} from '../package.json'
 import * as primer from '@primer/components'
-import {SideNav, Header, IndexHero} from '../src'
+import {SideNav, Header, IndexHero, Contributors} from '../src'
 import root, {populateTree} from '../src/nav'
+import {extraContributors} from '../src/constants'
 
 const {BaseStyles, BorderBox, Box, Flex, Link, Text} = primer
 const DocLink = props => <Link nounderline {...props} />
-const editLinkBase = `https://github.com/${repository}/edit/master/pages`
 
 const components = {
   ...primer,
+  Contributors,
   a: Link
 }
+
+const getExtraContributors = file => extraContributors[file]
 
 populateTree(require.context('.', true, /\/[^_]+\.(js|md)x?$/))
 
@@ -48,17 +51,30 @@ export default class MyApp extends App {
                   <Component {...page} />
                 </MDXProvider>
                 {node.model.file && (
-                  <BorderBox color="gray.5" border={0} borderTop={1} my={6} pt={1}>
+                  <Flex
+                    is={BorderBox}
+                    justifyContent="space-between"
+                    color="gray.5"
+                    border={0}
+                    borderTop={1}
+                    my={6}
+                    pt={1}
+                  >
+                    <Contributors
+                      filePath={`pages${node.model.file}`}
+                      repoPath={repository}
+                      contributors={getExtraContributors(node.model.file)}
+                    />
                     <Text fontSize={1}>
                       <Text mr={2}>
                         <Octicon icon={Pencil} />
                       </Text>
-                      <DocLink muted href={`${editLinkBase}${node.model.file}`}>
+                      <DocLink muted href={`https://github.com/${repository}/edit/master/pages${node.model.file}`}>
                         Edit this page
                       </DocLink>{' '}
                       on GitHub
                     </Text>
-                  </BorderBox>
+                  </Flex>
                 )}
               </Box>
             </Box>

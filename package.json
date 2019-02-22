@@ -18,9 +18,9 @@
     "next": "7.0.2",
     "next-compose-plugins": "2.1.1",
     "next-page-map": "1.0.0",
-    "react": "16.6.0",
+    "react": "16.8.0",
     "react-bodymovin": "2.0.0",
-    "react-dom": "16.6.0",
+    "react-dom": "16.8.1",
     "react-emotion": "9.2.12",
     "styled-components": "4.0.2",
     "tree-model": "1.0.7"
