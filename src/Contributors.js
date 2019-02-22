@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import {Link, Text, Avatar, Flex} from '@primer/components'
 
 function generateContributors(authors) {
-  const logins = []
-
   const uniqueAuthors = authors.filter((author, i, list) => list.indexOf(author) === i)
   return uniqueAuthors.map((author, i) => (
     <>
