@@ -4,14 +4,8 @@ import {Link, Text, Avatar, Flex} from '@primer/components'
 
 function generateContributors(authors) {
   const logins = []
-  const uniqueAuthors = authors.filter(author => {
-    if (logins.includes(author.login)) {
-      return false
-    } else {
-      logins.push(author.login)
-      return true
-    }
-  })
+
+  const uniqueAuthors = authors.filter((author, i, list) => list.indexOf(author) === i)
   return uniqueAuthors.map((author, i) => (
     <>
       <Link href={`https://github.com/${author.login}`}>{author.login}</Link>
@@ -64,15 +58,15 @@ const Contributors = ({filePath, repoPath, contributors}) => {
         .then(commits => {
           const commitData = []
           const ids = []
-          for (let i = 0; i < commits.length; i++) {
-            if (!ids.includes(commits[i].author.id)) {
+          for (const commit of commits) {
+            if (!ids.includes(commit.author.id)) {
               commitData.push({
-                login: commits[i].author.login,
-                avatar: commits[i].author.avatar_url,
-                time: new Date(commits[i].commit.author.date),
-                commitUrl: commits[i].html_url
+                login: commit.author.login,
+                avatar: commit.author.avatar_url,
+                time: new Date(commit.commit.author.date),
+                commitUrl: commit.html_url
               })
-              ids.push(commits[i].author.id)
+              ids.push(commit.author.id)
             }
           }
           setAuthors(commitData)
