@@ -1,6 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import animation from './BannerAnimation-ash.json'
+import animation from './BannerAnimation.json'
 
 const ReactBodymovin = dynamic(() => import('react-bodymovin'), {
   ssr: false
