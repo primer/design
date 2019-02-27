@@ -53,9 +53,10 @@ const Contributors = ({filePath, repoPath, contributors}) => {
       const url = `https://api.github.com/repos/${repoPath}/commits?path=${filePath}`
       fetch(url)
         .then(response => response.json())
-        .then(commits => {
+        .then(data => {
           const commitData = []
           const ids = []
+          const commits = data.filter(commit => commit.author)
           for (const commit of commits) {
             if (!ids.includes(commit.author.id)) {
               commitData.push({
