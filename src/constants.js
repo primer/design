@@ -5,6 +5,5 @@ export const extraContributors = {
   '/design/global/accessibility.mdx': [{login: 'muan'}, {login: 'eanakashima'}],
   '/design/ui-patterns/button-usage.mdx': [{login: 'jhuashao'}],
   '/design/foundation/typography.mdx': [{login: 'jhuashao'}],
-  '/design/ui-patterns/progressive-disclosure.mdx': [{login: 'jhuashao'}],
-
+  '/design/ui-patterns/progressive-disclosure.mdx': [{login: 'jhuashao'}]
 }
