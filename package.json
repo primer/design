@@ -4,8 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "start": "next dev",
-    "next-start": "next start",
-    "next-build": "next build",
+    "now-start": "next start",
+    "now-build": "next build",
     "lint": "eslint src pages"
   },
   "dependencies": {
