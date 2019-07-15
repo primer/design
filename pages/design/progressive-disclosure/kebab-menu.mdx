@@ -1,0 +1,64 @@
+# Kebab menu
+The kebab menu provides more secondary options to a user in a dropdown. This guide aims to help you implement a kebab menu consistently and responsibly. 🍡
+
+* [A brief history](#a-brief-history)
+* [Should I use the kebab menu?](#should-i-use-the-kebab-menu)
+* [Implementing the kebab menu](#implementing-the-kebab-menu)
+  * [Group by type](#group-by-type)
+  * [Order from least to most destructive](#order-from-least-to-most-destructive)
+  * [Visual indicators](#visual-indicators)
+
+## A brief history
+Community & Safety introduced the kebab menu to dotcom in order to scale our comment header actions. We planned on building a suite of content moderation tools (hide, report, block) and needed a pattern that could support these secondary actions.
+
+In order to address this need, @katmeister kicked off an [audit of all “show more” instances](https://github.com/github/design-systems/issues/379) to see if there were opportunities to create consistency. After discussing with, `@github/product-design` and `@github/design-systems`, we agreed that the kebab was a universally-understood visual affordance for “more options.” @jglovier and @katmeister then began writing usage guidelines, which helped inform the implementation on comment headers. [View the final implementation details.](https://github.com/github/github/pull/77603)
+
+## Should I use the kebab menu?
+We have a few different patterns to "show more" content. The kebab menu is best suited for surfacing secondary actions. 
+
+### Use the kebab menu if you...
+- Have secondary actions or navigation items in a dropdown menu, that may detract from more frequently used options
+- Have limited visual space
+- Want to add some friction to dangerous actions
+- Anticipate more items will be added in the future
+
+### When shouldn’t I use the kebab menu?
+- If you’re collapsing or expanding a block of content or a UI component, use the  `chevron` octicon
+- If you’re toggling text inline, use the `ellipsis` octicon
+
+## Implementing the kebab menu
+The basic markup for a kebab menu utilizes the [Dropdown component](https://styleguide.github.com/primer/components/dropdown/).
+
+```html
+<details class="details-overlay details-reset position-relative d-inline-block">
+  <summary class="btn-link" aria-haspopup="true" aria-label="Show options">
+    <%= octicon("kebab-horizontal")
+  </summary>
+
+  <div class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" role="menu">
+    <button type="button" class="dropdown-item btn-link">Action 1</button>
+    <button type="button" class="dropdown-item btn-link">Action 2</button>
+    <button type="button" class="dropdown-item btn-link">Action 3</button>
+  </div>
+</details>
+```
+
+### Group by type
+Before adding items into your menu, group them by type of action. This is especially important for longer kebab menus with 5+ items.
+
+If you have 3 or more groups, try using visual indicators to make text scanning easier. For example, here are the groups of actions in the comment kebab menu, separated with dividers:
+
+![](https://user-images.githubusercontent.com/13490001/46439994-fba67c00-c716-11e8-964d-9e28fef04a8f.png)
+
+### Order from least to most destructive
+When adding items into your kebab menu, order them from least to most destructive actions. A **destructive** action is one that may have negative repercussions, such as removing or moderating content/behavior.
+
+In the large comment menu, the 3 groups are ordered from least to most destructive, as well as the items within each group:
+
+![](https://user-images.githubusercontent.com/13490001/46439995-fba67c00-c716-11e8-9142-d2772d4ff7e4.png)
+
+### Visual indicators
+- Use dividers to visually group action types. See the [Group by type](#group-by-type) section.
+- If you need to communicate a “dangerous” action (usually one that is irreversible), use the  `menu-item-danger` utility class:
+
+![](https://user-images.githubusercontent.com/13490001/46439993-fba67c00-c716-11e8-8579-b7cc66c920e2.png)
