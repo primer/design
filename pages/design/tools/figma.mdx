@@ -1,6 +1,45 @@
+import {Flex, Box, Text, BorderBox} from '@primer/components'
+
 # Figma
+Welcome to the Figma page of the Primer design system! Figma is used at GitHub as a single source of design, collaboration, and exploration. This page can help you learn how to use visual styles, library components, prototyping tools, and multiplayer collaboration.
+
+<Text textAlign="center">
+   <Flex alignItems='center' flexDirection='row' mt='4' mb='4'>
+    <Box width={12/12}>
+      <BorderBox height="250px" overflow='hidden'>
+       <img src="https://user-images.githubusercontent.com/6846673/61730055-6ddf6000-ad2d-11e9-92ce-cd14fccc6851.png"/>
+      </BorderBox>
+    </Box>
+   </Flex>
+</Text>
+
+## Styles
+GitHub’s Figma styles help give our products the same great feel across multiple products, sites, and places.
+
+Color styles are used to keep colors consistent across different products. Different type styles are used based on the importance and actionability of the text.
+
+<Text textAlign="center">
+   <Flex alignItems='center' flexDirection='row' mt='4' mb='4'>
+    <Box width={6/12} mr='4'>
+      <BorderBox height="250px" overflow='hidden'>
+       <img src="https://user-images.githubusercontent.com/6846673/61730793-ff9b9d00-ad2e-11e9-8f1b-dc52afce9bba.gif"/>
+      </BorderBox>
+      <Text textAlign='center' color='gray.6'>Each color has 10 variations, creating a spectrum of light and dark shades.</Text>
+    </Box>
+    <Box width={6/12} mr='4'>
+      <BorderBox height="250px" overflow='hidden'>
+       <img src="https://user-images.githubusercontent.com/6846673/61730796-01fdf700-ad2f-11e9-9208-065eabc8e806.gif"/>
+      </BorderBox>
+      <Text textAlign='center' color='gray.6'>The type system includes bold, uppercase, and small variations for body and header text.</Text>
+    </Box>
+   </Flex>
+</Text>
+
+Check out our [color guidelines](https://primer.style/design/foundation/color) and [typography guidelines](https://primer.style/design/foundation/typography) for more details.
 
 ## Components
+Components are elements that have a common visual style and purpose across GitHub products. While they may share the same basic design, some have hidden layers or groups for different states or colors. In Figma, you can access these components from the “Assets” tab at the top of the lefthand sidebar. Here's a list of our current components (and their Figma files):
+
 - [Alerts](https://www.figma.com/file/GTgkWXgIN2DzTY9nVLKkpzxe/primer-alerts)
 - [Avatars](https://www.figma.com/file/NRdQUqZUgJJ4grrIe0vfktEB/primer-avatars)
 - [Blankslate](https://www.figma.com/file/XscebjmfHCvUkUc3J9G4yEo5/primer-blankslate)
@@ -24,12 +63,42 @@
 - [Tooltips](https://www.figma.com/file/EmivQqEsAexN5eEclS78JTVH/primer-tooltips)
 
 
-## Utilities
-- [Colors](https://www.figma.com/file/IbJhpJJZRwGg4KlBE6TxhaQn/primer-colors)
-- [Cursors](https://www.figma.com/file/MbUdjMu8XZWBepwihiDFaFtT/Cursors)
-- [GitHub Templates](https://www.figma.com/file/VCkfDFhhJQz32TQSxGyLntrt/primer-buttons)
-- [Typography](https://www.figma.com/file/gHUvCi7ypiw9d2VzgqfhchNH/primer-typography)
+## Prototyping and Wireframing
+We’ve developed a set of page templates to help you get started with exploration and prototyping in Figma. These pages are “medium” fidelity and have flexible elements that can be hidden or shown to work in different complexities. You can use the “Prototype” tab in the righthand sidebar to get started with interactive prototype projects. When you’re ready to present, simply hit the play button in the top right.
 
+<Text textAlign="center" fontStyle='italic'>
+   <Flex alignItems='center' flexDirection='row' mt='4' mb='4'>
+    <Box width={12/12}>
+      <BorderBox overflow='hidden'>
+       <img src="https://user-images.githubusercontent.com/6846673/61732575-bfd6b480-ad32-11e9-8e77-5a8c28b9bd88.png"/>
+      </BorderBox>
+    </Box>
+   </Flex>
+</Text>
 
+Duplicate this [Figma file](https://www.figma.com/file/ex9hnSDJTr8fG24cTMyRJzHD/prototyping-pages?node-id=0%3A1) to your own project to use these templates for prototyping or exploration.
+
+## Collaboration
+Because of GitHub’s remote culture and workforce, we work asynchronously from around the world. We use [issues](https://help.github.com/en/articles/about-issues) to keep track of progress and get feedback outside of meetings. Using issues and GitHub.com to keep track of progress and iteration allows designers to better understand our users. Furthermore, we design on a process of incremental correctness – meaning designs should be shared early and shared often with continuous iteration in small steps. GitHub’s collaboration workflow is integral to design, development, and building a great culture for our company.
+
+## Team Library
+In Figma, styles and components can be reused across multiple files and projects with the [team library](https://help.figma.com/article/29-team-library) feature. With team libraries, you can enable and disable components styles within certain files. This makes it easy for designers to easily access Primer components from anywhere.
+
+<Text textAlign="center" fontStyle='italic'>
+   <Flex alignItems='center' flexDirection='row' mt='4' mb='4'>
+    <Box width={12/12}>
+      <BorderBox overflow='hidden'>
+       <img width="100%" src="https://user-images.githubusercontent.com/6846673/61732332-3f17b880-ad32-11e9-8e18-bfbfc0267d81.gif"/>
+      </BorderBox>
+      <Text textAlign='center' color='gray.6'>Enable and disable libraries of components from across your team.</Text>
+    </Box>
+   </Flex>
+</Text>
+
+## Resources
+Check out these places to learn more about Figma and GitHub:
+- [Figma Design Documentation](https://help.figma.com/)
+- [GitHub takes its collaborative culture to a new level](https://www.figma.com/blog/github-case-study/)
+- [GitHub Primer Design](https://primer.style/design)
 
 export const meta = {displayName: 'Figma', nav: 'side'}
