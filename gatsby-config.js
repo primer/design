@@ -4,6 +4,6 @@ module.exports = {
     shortName: 'Interface',
     description: 'Projects, standards, and usage guidelines for designing GitHub interfaces.'
   },
-  pathPrefix: '/doctocat',
+  pathPrefix: '/design',
   plugins: ['@primer/gatsby-theme-doctocat']
 }
