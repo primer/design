@@ -8,9 +8,9 @@ Messaging components are used to provide important and relevant information to t
 
 Primer includes three different messaging components:
 
+- [Toasts](https://primer.style/css/components/toasts)
 - [Flash Alerts](https://primer.style/css/components/alerts)
 - [Popovers](https://primer.style/css/components/popover)
-- [Toasts](https://primer.style/css/components/toasts)
 
 ## Messaging Types
 It's important to consider the context when selecting a component to convey your message. Does the message need to interrupt the user flow? Is this a global message that needs to be shown on every page? Does it require the user to take an action, or is it more of a notice? Most messaging on GitHub falls into one of the following categories:
@@ -43,13 +43,13 @@ Toasts are generally informative and should not receive focus when they appear. 
 
 
 ## Flash Alerts
-Flash alerts are used to display updates or alerts pertaining to any part of the system; this includes information regarding the user's account, the organization, the repo, and more. These updates are typically not user-initiated but rather alerts or updates that require the user's attention.
+Flash alerts are used to display updates or alerts pertaining to any part of the system; this includes information regarding the user's account, the organization, the repo, and more. These updates are typically not user-initiated but rather alerts that require the user's attention.
 
 Similarly to Toasts, Flash Alerts can convey a warning, error, success, or a neutral message.
 
-Though flash alerts don't need to be as concise as as a typical toast message, they should still be direct and not exceed two to three sentences. If additional context is needed, provide a link for the user to learn more. 
+Though flash alerts don't need to be as concise as a typical toast message, they should still be direct and not exceed two to three sentences. If additional context is needed, provide a link for the user to learn more. 
 
-Don't use headings or multiple type sizes in flash alerts, rely on our default paragraph size.
+Don't use headings or multiple type sizes in Flash Alerts, rely on our default paragraph size instead.
 
 ### Full-width
 
@@ -66,6 +66,6 @@ Popovers are used to call attention to a new feature, change to an existing feat
 **Use sparingly to avoid cognitive overload**
 Though they can be used for a variety of things, they should be used sparingly to avoid cognitive overload. It's important to consider the context in which the popover appears. Are there other popovers on the page? Does it appear on page load, or require the user to open the popover? 
 
-Unlike other messaging components, popovers should never include critical information (such as errors) and should be dismiss-able by default.
+Unlike other messaging components, popovers should never include critical information (such as errors) and should always include a dismiss action.
 
 
