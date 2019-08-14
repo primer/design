@@ -13,7 +13,7 @@ export default function Hero() {
     <Box bg="black" py={6}>
       <Container>
         <Heading color="blue.4" fontSize={7} lineHeight="condensed" pb={3} m={0}>
-          Interface Guidelines
+          Interface guidelines
         </Heading>
         <HeroAnimation />
       </Container>

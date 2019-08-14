@@ -1,8 +1,6 @@
 - title: Foundation
   url: /foundation
   children:
-    - title: Color
-      url: /foundation/color
     - title: Typography
       url: /foundation/typography
 - title: Global
