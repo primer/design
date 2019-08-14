@@ -17,6 +17,8 @@
       url: /ui-patterns/button-usage
     - title: Progressive disclosure
       url: /ui-patterns/progressive-disclosure
+    - title: Messaging
+      url: /ui-patterns/messaging
 - title: Design tools
   url: /tools
   children:
