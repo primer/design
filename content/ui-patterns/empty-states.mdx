@@ -1,0 +1,58 @@
+---
+title: Empty states
+---
+
+import {Flex, Box, Text, BorderBox} from '@primer/components'
+
+Empty states appear when there is no content on a page or feature. The blankslate component is used to represent large empty states across our products. These guidelines demonstrate best practices for using the blankslate component and designing empty states. If you're looking for guidelines on implementation, please refer to [Primer CSS](https://primer.style/css/components/blankslate).
+
+## The blankslate component
+The blankslate is made up of several elements that work together to inform the user about a feature and how to proceed forward. Below are the different elements of the component and how to modify them.
+
+![blankslate anatomy](https://user-images.githubusercontent.com/6846673/62806713-78795380-baa8-11e9-9cbd-1a56fef3247b.png)
+
+### Graphic
+The graphic can bring delight, preview an interface element, or represent the goal of the feature. Graphics should be placed intentionally and with thought about the intention of the content. Graphics also differ in meaning and appeal to the user, which is why the blankslate component has multiple variations. These variations are outlined later on this page.
+
+### Primary Text
+Primary text is the first piece of information in the empty state presented to the user. It can make a user feel much more comfortable to engage with the content or begin a feature flow. Primary text should sound welcoming, human, and convey the intention of the feature.
+
+### Secondary Text
+This optional text is used to inform the user about the feature in more detail. Secondary text should be brief and non-redundant if possible. From the text, users should  be able to understand the general purpose of the feature and how it may help them accomplish a goal.
+
+### Primary Action
+Blankslates can and are encouraged to use one primary action. This button should lead to a feature or component creation flow. Button copy should be keep brief and descriptive. If a button requires further specification, consider adding an Octicon.
+
+### Secondary Action
+Secondary actions are optional and are represented by a text link located below the primary action button. A secondary action is used to direct a user to additional content about the feature. This might look like "[Learn more about X](#)" or "[Check out the guide on X](#)" or simply "[Learn more](#)".
+
+### Border
+The border is visible by default and helps define the structure of the blankslate component within the context of the page.
+
+## Variations
+Empty states have multiple variations that can be used in different contexts.
+
+### Pictograms
+[Pictograms](https://ghicons.github.com/) present a great preview of what should be in place of the empty state. Blankslates should default to using a pictogram for graphic elements.
+
+![pictogram blankslate](https://user-images.githubusercontent.com/6846673/62806619-39e39900-baa8-11e9-9de0-5b2f511d63da.png)
+
+### Illustrations
+Illustrations should be used **sparingly** in blankslates - only in cases where it is necessary to evoke emotion from the user. For example, illustrations in a new user experience can help introduce octocats to the user and bring a more personalized experience.
+
+![illustration blankslate](https://user-images.githubusercontent.com/6846673/62806617-394b0280-baa8-11e9-9abc-ccbb76a9f63f.png)
+
+### Compact
+Compact states are a great way to engage and educate a user within Organizations, Settings, and other nested navigation pages. They should replace content that is left-aligned. While the border is optional for all empty states, the Compact variation requires it to better support page structure.
+
+![compact blankslate](https://user-images.githubusercontent.com/6846673/63041086-dbd5fd80-be7b-11e9-8929-3a9c72f53edc.png)
+
+## Content and Copy
+Voice and tone are important to making sure users are not only engaged, but also informed about features. Empty states should explain features _in addition_ to conveying intention. Below is a good example of conveying intention in the primary text and using the secondary text to inform.
+
+![code of conduct illustration blankslate](https://user-images.githubusercontent.com/6846673/62806616-394b0280-baa8-11e9-8a5e-45f0c51aaa22.png)
+
+## New User Experiences
+For new user experiences, use illustration blankslates to playfully engage the user and introduce the Octocat as a symbol of GitHub. Primary text should welcome the user to the platform and feature. Secondary text should seek to educate the user, but at a simpler, less-technical level.
+
+![new user blankslate](https://user-images.githubusercontent.com/6846673/62813307-efb9e200-babe-11e9-93e7-a6fd45d7f942.png)
