@@ -10,9 +10,9 @@ const HeroAnimation = loadable(() => import('../../../hero-animation'), {
 
 export default function Hero() {
   return (
-    <Box bg="black" p={5}>
+    <Box bg="black" py={6}>
       <Container>
-        <Heading color="blue.4" fontSize={7} pb={3} m={0}>
+        <Heading color="blue.4" fontSize={7} lineHeight="condensed" pb={3} m={0}>
           Interface Guidelines
         </Heading>
         <HeroAnimation />
