@@ -1,8 +1,7 @@
-workflow "lint and deploy" {
+workflow "lint" {
   on = "push"
   resolves = [
-    "lint",
-    "deploy",
+    "lint"
   ]
 }
 
@@ -15,13 +14,4 @@ action "lint" {
   needs = ["install"]
   uses = "actions/npm@v2.0.0"
   args = "run lint"
-}
-
-action "deploy" {
-  needs = ["install"]
-  uses = "primer/deploy@v3.0.0"
-  secrets = [
-    "GITHUB_TOKEN",
-    "NOW_TOKEN",
-  ]
 }
