@@ -1,30 +1,18 @@
 {
-  "private": true,
+  "name": "primer-design",
   "repository": "primer/design",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "next dev",
-    "start": "next dev",
-    "now-start": "next start",
-    "now-build": "next build",
-    "lint": "eslint src pages"
+    "develop": "gatsby develop",
+    "build": "gatsby build --prefix-paths",
+    "now-build": "npm run build"
   },
   "dependencies": {
-    "@mdx-js/tag": "0.15.0",
-    "@primer/components": "5.0.0-beta",
-    "@svgr/webpack": "3.1.0",
-    "@zeit/next-mdx": "1.2.0",
-    "emotion-server": "9.2.12",
-    "eslint": "5.8.0",
-    "eslint-plugin-github": "1.6.0",
-    "js-yaml": "3.13.1",
-    "next": "7.0.2",
-    "next-compose-plugins": "2.1.1",
-    "next-page-map": "1.0.0",
-    "react": "16.8.0",
-    "react-bodymovin": "2.0.0",
-    "react-dom": "16.8.1",
-    "react-emotion": "9.2.12",
-    "styled-components": "4.0.2",
-    "tree-model": "1.0.7"
+    "@loadable/component": "^5.10.2",
+    "@primer/gatsby-theme-doctocat": "^0.9.0",
+    "gatsby": "^2.13.25",
+    "react": "^16.8.6",
+    "react-bodymovin": "^2.0.0",
+    "react-dom": "^16.8.6"
   }
 }
