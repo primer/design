@@ -1,0 +1,24 @@
+- title: Foundation
+  url: /foundation
+  children:
+    - title: Color
+      url: /foundation/color
+    - title: Typography
+      url: /foundation/typography
+- title: Global
+  url: /global
+  children:
+    - title: Accessibility
+      url: /global/accessibility
+- title: UI patterns
+  url: /ui-patterns
+  children:
+    - title: Button usage
+      url: /ui-patterns/button-usage
+    - title: Progressive disclosure
+      url: /ui-patterns/progressive-disclosure
+- title: Design tools
+  url: /tools
+  children:
+    - title: Figma
+      url: /tools/figma
