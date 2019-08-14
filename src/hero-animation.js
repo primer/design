@@ -5,7 +5,7 @@ const bodymovinOptions = {
   loop: true,
   autoplay: true,
   prerender: true,
-  animationData: heroAnimation,
+  animationData: heroAnimation
 }
 function HeroAnimation() {
   return <ReactBodymovin options={bodymovinOptions} />
