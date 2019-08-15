@@ -27,7 +27,7 @@ It's important to consider the context when selecting a component to convey your
 - _Flash alerts are best suited for this type of messaging._
 
 ## Toasts
-<Box mb="2" mt="4">
+<Box mb="3" mt="4">
   <img width="453" src="https://user-images.githubusercontent.com/586552/63105014-f5477a00-bf4d-11e9-954e-f01582a39ef3.png"/>
 </Box>
 
@@ -40,7 +40,7 @@ It's important to consider the context when selecting a component to convey your
 
 Toasts are best used in context of the page they're referring to (rather than a global notification that can appear on any page) and should require minimal user interaction. For global notices and messaging, see the [Flash component](#flash-alerts).
 
-Toasts should be brief and not bog down the experience with superfluous copy. If multiple toasts appear on the page, they will stack naturally.
+Toasts should be brief and not bog down the experience with superfluous copy. If multiple Toasts appear on the page, they will stack naturally.
 
 <Flex flexDirection={['column', 'row', 'row']}>
   <Box mr="2"  mb="4">
@@ -74,23 +74,23 @@ Toasts should be brief and not bog down the experience with superfluous copy. If
 </Flex>
 
 ### Accessibility
-Toasts are non-modal components and should contain `role=log` , which implies the element has `aria-live="polite"`. This notifies the user of the toast via Assistance Technologies without having to change focus to the toast. You can read more about `role=log` [here](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23).
+Toasts are non-modal components and should contain `role=log` , which implies the element has `aria-live="polite"`. This notifies the user of the Toast via Assistance Technologies without having to change focus to the Toast. You can read more about `role=log` [here](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23).
 
-Toasts are generally informative and should not receive focus when they appear. For that reason, we suggest you **avoid using interactive elements** in the component (aside from a dismiss action). Keep in mind that, even without an explicit dismiss action, the user can always hit `esc` to dismiss the toast. For more information on how interactive children affect web accessibility, [check out this issue](https://github.com/jackbsteinberg/std-toast/issues/29).
+Toasts are generally informative and should not receive focus when they appear. For that reason, we suggest you **avoid using interactive elements** in the component (aside from a dismiss action). Keep in mind that, even without an explicit dismiss action, the user can always hit `esc` to dismiss the Toast. For more information on how interactive children affect web accessibility, [check out this issue](https://github.com/jackbsteinberg/std-toast/issues/29).
 
 
 ## Flash alerts
 <Box mb="2" mt="4">
   <img src="https://user-images.githubusercontent.com/586552/63052321-055b4d00-bead-11e9-95ba-1d4cdfb34dae.png" />
 </Box>
-Flash alerts are used to display updates or alerts pertaining to any part of the system; this includes information regarding the user's account, the organization, the repo, and more. These updates are typically not user-initiated but rather alerts that require the user's attention. Similarly to toasts, flash alerts can convey a warning, error, success, or a neutral message.
+Flash alerts are used to display updates or alerts pertaining to any part of the system; this includes information regarding the user's account, the organization, the repo, and more. These updates are typically not user-initiated but rather alerts that require the user's attention. Similarly to Toasts, Flash alerts can convey a warning, error, success, or a neutral message.
 
-Though flash alerts don't need to be as concise as a typical toast message, they should still be direct and not exceed two to three sentences. If additional context is needed, provide a link for the user to learn more. 
+Though Flash alerts don't need to be as concise as a typical Toast message, they should still be direct and not exceed two to three sentences. If additional context is needed, provide a link for the user to learn more. 
 
-Don't use headings or multiple type sizes in flash alerts, rely on our default paragraph size instead.
+Don't use headings or multiple type sizes in Flash alerts, rely on our default paragraph size instead.
 
 ### Full-width
-Flash alerts that affect every page (e.g. a global message) should use the [full-width style](https://primer.style/css/components/alerts), which spans the entire page and is intended to sit beneath the top-level navigation. When using a full-width flash alert, be sure to include the `container` class to append a max-width on the content and avoid long line-lengths, which can be difficult to read.
+Flash alerts that affect every page (e.g. a global message) should use the [full-width style](https://primer.style/css/components/alerts), which spans the entire page and is intended to sit beneath the top-level navigation. When using a full-width Flash alert, be sure to include the `container` class to append a max-width on the content and avoid long line-lengths, which can be difficult to read.
 
 <Flex flexDirection="column">
   <Box width="100%" mr="2"  mb="4">
@@ -142,8 +142,8 @@ They typically do not timeout on their own, but can include a dismiss action for
 Popovers are used to call attention to a new feature, change to an existing feature, or to provide additional context. Popovers can be helpful for flows that require light onboarding or instruction.
 
 **Use sparingly to avoid cognitive overload**
-Though they can be used for a variety of things, they should be used sparingly to avoid cognitive overload. It's important to consider the context in which the popover appears. Are there other popovers on the page? Does it appear on page load, or require the user to open the popover? 
+Though they can be used for a variety of things, they should be used sparingly to avoid cognitive overload. It's important to consider the context in which the Popover appears. Are there other Popovers on the page? Does it appear on page load, or require the user to open the Popover? 
 
-Unlike other messaging components, popovers should never include critical information (such as errors) and should always include a dismiss action.
+Unlike other messaging components, Popovers should never include critical information (such as errors) and should always include a dismiss action.
 
 
