@@ -42,6 +42,37 @@ Toasts are best used in context of the page they're referring to (rather than a 
 
 Toasts should be brief and not bog down the experience with superfluous copy. If multiple toasts appear on the page, they will stack naturally.
 
+<Flex flexDirection={['column', 'row', 'row']}>
+  <Box mr="2"  mb="4">
+    <Flex flexDirection="row" alignItems="center" mb="2">
+      <CircleOcticon icon={Check} size={16} bg="green.5" color="white" mr="2" p="1"/>
+      <Text fontWeight="bold" color="gray.9" ml="1">
+        Do
+      </Text> 
+    </Flex>
+    <Box>
+      <img src="https://user-images.githubusercontent.com/586552/63106528-06de5100-bf51-11e9-8a5e-98583ed74874.png" />
+    </Box>
+    <Text fontSize="0" color="gray.5">
+      Use brief and direct communication
+    </Text>
+  </Box>
+  <Box mr="2">
+    <Flex flexDirection="row" alignItems="center" mb="2">
+      <CircleOcticon icon={X} size={16} bg="red.5" color="white" mr="2" p="1"/>
+      <Text fontWeight="bold" color="gray.9" ml="1">
+        Don't
+      </Text> 
+    </Flex>
+    <Box borderRadius="3">
+      <img src="https://user-images.githubusercontent.com/586552/63106527-06de5100-bf51-11e9-858c-72de6a5c728a.png" />
+    </Box>
+    <Text fontSize="0" color="gray.5">
+      Don't use wordy and redundant copy
+    </Text>
+  </Box>
+</Flex>
+
 ### Accessibility
 Toasts are non-modal components and should contain `role=log` , which implies the element has `aria-live="polite"`. This notifies the user of the Toast via Assistance Technologies without having to change focus to the Toast. You can read more about `role=log` [here](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23).
 
@@ -97,6 +128,16 @@ Flash alerts can contain links or buttons depending on the type CTA and how much
 They typically do not timeout on their own, but can include a dismiss action for messages that can be closed or hidden.
 
 ## Popovers
+<Flex flexDirection={['column', 'row', 'row']}>
+  <Box mr="3"  mb="2">
+    <img width="262" src="https://user-images.githubusercontent.com/586552/63109550-8111d400-bf57-11e9-8714-46607da2f2ba.png" />
+    
+  </Box>
+  <Box mb="2">
+    <img width="386" src="https://user-images.githubusercontent.com/586552/63109551-8111d400-bf57-11e9-893b-2cdeffffd147.png" />
+  </Box>
+</Flex>
+
 Popovers are used to call attention to a new feature, change to an existing feature, or to provide additional context. Popovers can be helpful for flows that require light onboarding or instruction.
 
 **Use sparingly to avoid cognitive overload**
