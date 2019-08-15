@@ -1,8 +1,6 @@
 - title: Foundation
   url: /foundation
   children:
-    - title: Color
-      url: /foundation/color
     - title: Typography
       url: /foundation/typography
 - title: Global
@@ -19,6 +17,8 @@
       url: /ui-patterns/empty-states
     - title: Progressive disclosure
       url: /ui-patterns/progressive-disclosure
+    - title: Messaging
+      url: /ui-patterns/messaging
 - title: Design tools
   url: /tools
   children:
