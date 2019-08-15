@@ -74,7 +74,7 @@ Toasts should be brief and not bog down the experience with superfluous copy. If
 </Flex>
 
 ### Accessibility
-Toasts are non-modal components and should contain `role=log` , which implies the element has `aria-live="polite"`. This notifies the user of the Toast via Assistance Technologies without having to change focus to the Toast. You can read more about `role=log` [here](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23).
+Toasts are non-modal components and should contain `role=log` , which implies the element has `aria-live="polite"`. This notifies the user of the toast via Assistance Technologies without having to change focus to the toast. You can read more about `role=log` [here](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23).
 
 Toasts are generally informative and should not receive focus when they appear. For that reason, we suggest you **avoid using interactive elements** in the component (aside from a dismiss action). Keep in mind that, even without an explicit dismiss action, the user can always hit `esc` to dismiss the Toast. For more information on how interactive children affect web accessibility, [check out this issue](https://github.com/jackbsteinberg/std-toast/issues/29).
 
