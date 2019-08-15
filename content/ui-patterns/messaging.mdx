@@ -27,7 +27,7 @@ It's important to consider the context when selecting a component to convey your
 - _Flash alerts are best suited for this type of messaging._
 
 ## Toasts
-<Box mb="3">
+<Box mb="2" mt="4">
   <img width="453" src="https://user-images.githubusercontent.com/586552/63105014-f5477a00-bf4d-11e9-954e-f01582a39ef3.png"/>
 </Box>
 
@@ -80,7 +80,9 @@ Toasts are generally informative and should not receive focus when they appear. 
 
 
 ## Flash alerts
-<img src="https://user-images.githubusercontent.com/586552/63052321-055b4d00-bead-11e9-95ba-1d4cdfb34dae.png" />
+<Box mb="2" mt="4">
+  <img src="https://user-images.githubusercontent.com/586552/63052321-055b4d00-bead-11e9-95ba-1d4cdfb34dae.png" />
+</Box>
 Flash alerts are used to display updates or alerts pertaining to any part of the system; this includes information regarding the user's account, the organization, the repo, and more. These updates are typically not user-initiated but rather alerts that require the user's attention. Similarly to toasts, flash alerts can convey a warning, error, success, or a neutral message.
 
 Though flash alerts don't need to be as concise as a typical toast message, they should still be direct and not exceed two to three sentences. If additional context is needed, provide a link for the user to learn more. 
@@ -88,7 +90,6 @@ Though flash alerts don't need to be as concise as a typical toast message, they
 Don't use headings or multiple type sizes in flash alerts, rely on our default paragraph size instead.
 
 ### Full-width
-
 Flash alerts that affect every page (e.g. a global message) should use the [full-width style](https://primer.style/css/components/alerts), which spans the entire page and is intended to sit beneath the top-level navigation. When using a full-width flash alert, be sure to include the `container` class to append a max-width on the content and avoid long line-lengths, which can be difficult to read.
 
 <Flex flexDirection="column">
