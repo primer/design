@@ -11,30 +11,34 @@ Messaging components are used to provide important and relevant information to t
 Primer includes three different messaging components:
 
 - [Toasts](https://primer.style/css/components/toasts)
-- [Flash Alerts](https://primer.style/css/components/alerts)
+- [Flash alerts](https://primer.style/css/components/alerts)
 - [Popovers](https://primer.style/css/components/popover)
 
 ## Messaging Types
 It's important to consider the context when selecting a component to convey your message. Does the message need to interrupt the user flow? Is this a global message that needs to be shown on every page? Does it require the user to take an action, or is it more of a notice? Most messaging on GitHub falls into one of the following categories:
 
 **Feedback**: communicates something to the user based on an action they've taken or a change in context
-- _Toasts or Flash Alerts are best suited for this type of messaging._
+- _Toasts or Flash alerts are best suited for this type of messaging._
 
 **Highlights**: bring attention to how and why to engage with a feature
 - _Popovers are best suited for this type of messaging._
 
 **Updates**: inform the user of necessary updates or changes to the product as it relates to them.
-- _Flash Alerts are best suited for this type of messaging._
+- _Flash alerts are best suited for this type of messaging._
 
 ## Toasts
-Toasts are used to provide relevant feedback to the user, typically after they've taken an action. Primer includes styles for success, warning, error, loading, and default Toasts. Some examples of usage include:
+<Box mb="3">
+  <img width="453" src="https://user-images.githubusercontent.com/586552/63105014-f5477a00-bf4d-11e9-954e-f01582a39ef3.png"/>
+</Box>
+
+[Toasts](https://primer.style/css/components/toasts) are used to provide relevant feedback to the user, typically after they've taken an action. Primer includes styles for success, warning, error, loading, and default Toasts. Some examples include:
 
 - confirmation that an action was successfully taken
 - communicating that an action is pending
 - notifying the user if an action failed to complete.
 - providing general information.
 
-Toasts are best used in context of the page they're referring to (rather than a global notification that can appear on any page) and should require minimal user interaction. For global notices and messaging, see the Flash component.
+Toasts are best used in context of the page they're referring to (rather than a global notification that can appear on any page) and should require minimal user interaction. For global notices and messaging, see the [Flash component](#flash-alerts).
 
 Toasts should be brief and not bog down the experience with superfluous copy. If multiple toasts appear on the page, they will stack naturally.
 
@@ -46,15 +50,15 @@ Toasts are generally informative and should not receive focus when they appear. 
 
 ## Flash Alerts
 <img src="https://user-images.githubusercontent.com/586552/63052321-055b4d00-bead-11e9-95ba-1d4cdfb34dae.png" />
-Flash alerts are used to display updates or alerts pertaining to any part of the system; this includes information regarding the user's account, the organization, the repo, and more. These updates are typically not user-initiated but rather alerts that require the user's attention. Similarly to Toasts, Flash Alerts can convey a warning, error, success, or a neutral message.
+Flash alerts are used to display updates or alerts pertaining to any part of the system; this includes information regarding the user's account, the organization, the repo, and more. These updates are typically not user-initiated but rather alerts that require the user's attention. Similarly to Toasts, Flash alerts can convey a warning, error, success, or a neutral message.
 
-Though flash alerts don't need to be as concise as a typical toast message, they should still be direct and not exceed two to three sentences. If additional context is needed, provide a link for the user to learn more. 
+Though Flash alerts don't need to be as concise as a typical toast message, they should still be direct and not exceed two to three sentences. If additional context is needed, provide a link for the user to learn more. 
 
-Don't use headings or multiple type sizes in Flash Alerts, rely on our default paragraph size instead.
+Don't use headings or multiple type sizes in Flash alerts, rely on our default paragraph size instead.
 
 ### Full-width
 
-Flash alerts that affect every page (e.g. a global message) should use the [full-width style](https://primer.style/css/components/alerts), which spans the entire page and is intended to sit beneath the top-level navigation. When using a full-width Flash Alert, be sure to include the `container` class to append a max-width on the content and avoid long line-lengths, which can be difficult to read.
+Flash alerts that affect every page (e.g. a global message) should use the [full-width style](https://primer.style/css/components/alerts), which spans the entire page and is intended to sit beneath the top-level navigation. When using a full-width Flash alert, be sure to include the `container` class to append a max-width on the content and avoid long line-lengths, which can be difficult to read.
 
 <Flex flexDirection="column">
   <Box width="100%" mr="2"  mb="4">
@@ -90,7 +94,7 @@ Flash alerts that affect every page (e.g. a global message) should use the [full
 ### Interactive elements
 Flash alerts can contain links or buttons depending on the type CTA and how much attention it should draw.
 
-Flash messages typically do not timeout on their own, but can include a dismiss action for messages that can be closed or hidden.
+They typically do not timeout on their own, but can include a dismiss action for messages that can be closed or hidden.
 
 ## Popovers
 Popovers are used to call attention to a new feature, change to an existing feature, or to provide additional context. Popovers can be helpful for flows that require light onboarding or instruction.
