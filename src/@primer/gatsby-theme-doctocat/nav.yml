@@ -24,3 +24,5 @@
   children:
     - title: Figma
       url: /tools/figma
+- title: test
+  url: /test
