@@ -1,8 +1,8 @@
-- title: Foundation
-  url: /foundation
+- title: Foundations
+  url: /foundations
   children:
     - title: Typography
-      url: /foundation/typography
+      url: /foundations/typography
 - title: Global
   url: /global
   children:
