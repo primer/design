@@ -10,7 +10,8 @@
     }
   ],
   "routes": [
-    {"src": "/design/foundation(/typography)?/?$", "dest": "/design/foundations/$1"},
+    {"src": "/design/foundation/?", "dest": "/design/foundations"},
+    {"src": "/design/foundation/typography/?", "dest": "/design/foundations/typography"},
     {"src": "/design(/.*)?", "dest": "$1"},
     {
       "src": "/",
