@@ -10,11 +10,21 @@
     }
   ],
   "routes": [
-    { "src": "/design(/.*)?", "dest": "$1" },
+    {
+      "src": "/design/foundation/?",
+      "status": 301,
+      "headers": {"Location": "/design/foundations"}
+    },
+    {
+      "src": "/design/foundation/typography/?",
+      "status": 301,
+      "headers": {"Location": "/design/foundations/typography"}
+    },
+    {"src": "/design(/.*)?", "dest": "$1"},
     {
       "src": "/",
       "status": 301,
-      "headers": { "Location": "/design" }
+      "headers": {"Location": "/design"}
     }
   ]
 }
