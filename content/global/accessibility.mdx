@@ -24,7 +24,7 @@ Making our products accessible benefits everyone, not just people with disabilit
 
 Always use semantic HTML elements, like `button`, `ul`, `nav`. Most modern browsers implement the accessibility features outlined in the specs for these elements; without them, elements will need additional [ARIA attributes and roles](http://www.w3.org/TR/wai-aria/) to be recognized by assistive technologies.
 
-Elements like `h1`-`h6`, `nav`, `footer`, `header` have [meaningful roles](https://www.w3.org/TR/wai-aria/roles#role_definitions_header) assigned, so use them, and use them carefully. This can help assistive technologies read the page better and help users find information quicker.
+Elements like `h1`-`h6`, `nav`, `footer`, `header` have [meaningful roles](https://www.w3.org/TR/wai-aria-1.1/#role_definitions) assigned, so use them, and use them carefully. This can help assistive technologies read the page better and help users find information quicker.
 
 Only use a `div` or a `span` to markup up content when there isn't another HTML element that would semantically be more appropriate, or when an element is needed exclusively for applying CSS styles or JS behaviors.
 
@@ -53,7 +53,7 @@ Tab order is determined by the order of elements in the DOM, and not by their vi
 
 The `tabindex` attribute should only be used when absolutely necessary.
 
-- `tabindex=0/-1` makes an element focusable, while `tabindex=0` also includes the element in the normal tab order. In both cases, keyboard triggers of the element still require scripting, so where possible, use [interactive content](http://w3c.github.io/html/dom.html#kinds-of-content-interactive-content) instead.
+- `tabindex=0/-1` makes an element focusable, while `tabindex=0` also includes the element in the normal tab order. In both cases, keyboard triggers of the element still require scripting, so where possible, use [interactive content](https://html.spec.whatwg.org/multipage/dom.html#interactive-content) instead.
 
 - `tabindex=1+` takes an element to the very front of the default tab order. When it's applied, the element's visual positioning is no longer indicative of its tab order, and the only way to find out where an element is would be by tabbing through the page. Therefore, unless a page is carefully designed around elements with positive tabindex, it is very error-proned, and thus currently prohibited in github.com.
 
@@ -198,7 +198,7 @@ We do client side scanning of inaccessible elements in development environment. 
 
 - If you're working on a design that uses color to communicate something, grab the [Chromatic Vision Simulator app](https://itunes.apple.com/tw/app/chromatic-vision-simulator/id389310222?mt=8), this will let you use your iPhone camera to see what a colorblind person would see.
 
-- Check out [the Web Accessibility showcase on GitHub](https://github.com/showcases/web-accessibility). GitHubbers are free to add more projects to the showcase.
+- Check out [the Web Accessibility showcase on GitHub](https://github.com/collections/web-accessibility). GitHubbers are free to add more projects to the showcase.
 
 ## Manual testing
 
@@ -222,6 +222,6 @@ Keep in mind that behaviors in different screen readers can differ when navigati
 
 ## User support
 
-Accessibility is a priority for us, if you ever encounter accessibility related issues when using github.com, please don’t hesitate to reach out to us via [the contact page](https://github.com/contact) or email us at [support@github.com](mailto:support@github.com), we will try our best to assist.
+Accessibility is a priority for us, if you ever encounter accessibility related issues when using github.com, please don’t hesitate to reach out to us via [the contact page](https://support.github.com/contact) or email us at [support@github.com](mailto:support@github.com), we will try our best to assist.
 
 For information about the accessibility compliance of GitHub products, please refer to our [VPAT report, outlining §508 accessibility information for GitHub.com, GitHub Enterprise, and GitHub Desktop](https://government.github.com/accessibility/).
