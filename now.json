@@ -9,6 +9,7 @@
       "config": { "distDir": "public" }
     }
   ],
+  "trailingSlash": true,
   "routes": [
     {
       "src": "/design/foundation/?",
