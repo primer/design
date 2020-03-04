@@ -20,6 +20,7 @@
       "status": 301,
       "headers": {"Location": "/design/foundations/typography"}
     },
+    {"src": "/design", "dest": "/"},
     {"src": "/design(/.*)?", "dest": "$1"},
     {
       "src": "/",
