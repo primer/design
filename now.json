@@ -11,11 +11,6 @@
   ],
   "routes": [
     {
-      "src": "/",
-      "status": 301,
-      "headers": {"Location": "/design"}
-    },
-    {
       "src": "/design/foundation/?",
       "status": 301,
       "headers": {"Location": "/design/foundations"}
@@ -25,6 +20,12 @@
       "status": 301,
       "headers": {"Location": "/design/foundations/typography"}
     },
-    {"src": "/design(/.*)?", "dest": "$1"}
+    {"src": "/design(/.*)?", "dest": "$1"},
+    {
+      "src": "/",
+      "status": 301,
+      "headers": {"Location": "/design"}
+    },
+    { "handle": "filesystem" }
   ]
 }
