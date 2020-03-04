@@ -25,6 +25,7 @@
       "src": "/",
       "status": 301,
       "headers": {"Location": "/design"}
-    }
+    },
+    { "handle": "filesystem" }
   ]
 }
