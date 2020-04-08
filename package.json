@@ -3,9 +3,9 @@
   "repository": "primer/design",
   "version": "1.0.0",
   "scripts": {
-    "develop": "gatsby develop",
+    "start": "gatsby develop",
     "build": "gatsby build --prefix-paths",
-    "now-build": "npm run build",
+    "now-build": "yarn build",
     "lint": "eslint ."
   },
   "dependencies": {
