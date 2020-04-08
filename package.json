@@ -14,6 +14,7 @@
     "eslint": "5.8.0",
     "eslint-plugin-github": "1.6.0",
     "gatsby": "^2.13.25",
+    "gatsby-plugin-alias-imports": "^1.0.5",
     "react": "16.9.x",
     "react-bodymovin": "^2.0.0",
     "react-dom": "16.9.x"
