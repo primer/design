@@ -9,6 +9,6 @@ jobs:
         with:
           version: 10
       - name: install
-        run: npm ci
+        run: yarn
       - name: lint
-        run: npm run lint
+        run: yarn lint
