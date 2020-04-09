@@ -15,9 +15,9 @@ This is currently a work in progress! Follow along on our [project board](https:
 
 1. In the terminal, navigate (`cd`) to the repo directory
 
-1. `npm install` to install dependencies
+1. `yarn` to install dependencies
 
-2. `npm run develop` to start the dev server
+2. `yarn start` to start the dev server
 
 ## Deployment
 
