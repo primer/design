@@ -7,6 +7,7 @@
 * Accessibility: consider a11y in design early, list of tools
 * Design principles
 * Designing for safety
+* Content
 
 ### Foundations
 
