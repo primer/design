@@ -18,5 +18,6 @@
     "react": "16.9.x",
     "react-bodymovin": "^2.0.0",
     "react-dom": "16.9.x"
-  }
+  },
+  "private": true
 }
