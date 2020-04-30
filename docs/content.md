@@ -69,7 +69,7 @@
 
 * Native
   * Desktop
-  * Atom
+  * Mobile
   * IDEs
 * Workflows
   * Invitations (new org, repo, etc.)
