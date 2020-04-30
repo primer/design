@@ -11,6 +11,7 @@
 
 ### Foundations
 
+* Overview: include connection with primer primitives
 * Color: palette, use/brand (use more, use less), a11y (recommended combos), accent color
 * Spacing: scale, density on product vs spacious on marketing pages
 * Typography: scale, use (bold, normal, light, sans, mono) semantic markup/a11y
