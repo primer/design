@@ -33,7 +33,7 @@
 * Search and filter
 * Tables and lists
 
-### Worflows
+### Workflows
 
 * Creating
 * Feature onboarding
