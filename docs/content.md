@@ -30,7 +30,6 @@
 * Loading states
 * Messaging
 * Progressive disclosure: show more, expand, etc.
-* Search and filter
 * Tables and lists
 
 ### Workflows
@@ -38,6 +37,7 @@
 * Creating
 * Feature onboarding
 * Saving
+* Seaching and filtering
 
 ### Communication
 
