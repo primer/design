@@ -2,12 +2,10 @@
 
 ## Guidelines
 
-###  Global
+###  Principles
 
-* Accessibility: consider a11y in design early, list of tools
-* Design principles
-* Designing for safety
-* Content
+* Accessibility: (Inclusive) consider a11y in design early, list of tools
+* Safety: designing for safety
 
 ### Foundations
 
@@ -15,6 +13,7 @@
 * Color: palette, use/brand (use more, use less), a11y (recommended combos), accent color
 * Spacing: scale, density on product vs spacious on marketing pages
 * Typography: scale, use (bold, normal, light, sans, mono) semantic markup/a11y
+* Content
 
 ### Layout
 
