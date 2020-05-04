@@ -1,4 +1,4 @@
-# Design Guidelines content & IA
+# Interface Guidelines: proposed IA
 
 ## Guidelines
 
