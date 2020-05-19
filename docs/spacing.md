@@ -80,8 +80,9 @@ The most common value when stacking components vertically is 16px.
 ## Learn more about spacing
 If you’d like to read more about spacing in UI design, we recommend:
 
-- 
-
+- [Elements of design](https://www.invisionapp.com/design-defined/elements-of-design/)
+- [Design principles – Gestalt, white space and perception](https://manifesto.co.uk/design-principles-gestalt-white-space-perception/)
+- The Principle of spacing in UI design, [Part 1](https://medium.com/dwarves-design/the-principle-of-spacing-in-ui-design-part-1-3354d0d65e51) and [Part 2](https://medium.com/dwarves-design/the-principle-of-spacing-part-2-e3cf31b909fa)
 
 ## Related
 
