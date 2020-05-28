@@ -1,0 +1,72 @@
+---
+title: Empty states
+---
+
+import {Flex, Box, Text, BorderBox} from '@primer/components'
+
+Empty states are used to fill spaces when no content has been added yet, or is temporarily empty due to the nature of the feature. These guidelines demonstrate best practices for using the Blankslate component and designing empty states. If you're looking for guidelines on implementation, please refer to [Primer CSS](https://primer.style/css/components/blankslate).
+
+## The Blankslate component
+The Blankslate is made up of several elements that work together to inform the user about a feature and how to proceed forward. Below are the different elements of the component and how to modify them.
+
+![Blankslate anatomy](https://user-images.githubusercontent.com/6846673/62806713-78795380-baa8-11e9-9cbd-1a56fef3247b.png)
+
+### Graphic
+The graphic can bring delight, preview an interface element, or represent the goal of the feature. Graphics should be placed intentionally and with thought about the intention of the content. Graphics also differ in meaning and appeal to the user, which is why the Blankslate component has multiple variations. These variations are outlined later on this page.
+
+### Primary Text
+Use primary text to explain the purpose of the empty state, help users feel comfortable to engage with the content, or begin a feature flow. Primary text should sound welcoming, human, and convey the intention of the feature.
+
+### Secondary text
+This optional text is used to inform the user about the feature in more detail. Secondary text should be brief and non-redundant if possible. From the text, users should  be able to understand the general purpose of the feature and how it may help them accomplish a goal.
+
+### Primary action
+Blankslates can and are encouraged to use one primary action. This button should lead to a feature or component creation flow. Button copy should be kept brief and descriptive. If a button requires further specification, consider adding an Octicon.
+
+### Secondary action
+Secondary actions are optional and are represented by a text link located below the primary action button. A secondary action is used to direct a user to additional content about the feature. This might look like "[Learn more about X](#)" or "[Check out the guide on X](#)" or simply "[Learn more](#)".
+
+### Border
+The border is invisible by default, but can be added to help define the structure of the Blankslate component when needed. This can be particularly helpful in page layouts where the Blankslate is not the only content on the screen. For implementation, check out the [Primer CSS Blankslate component](https://primer.style/css/components/blankslate#add-border).
+
+## Variations
+Empty states have multiple variations that can be used in different contexts.
+
+### Pictograms
+[Pictograms](https://ghicons.github.com/) can be used to represent the feature where the Blankslate is found. Blankslates should default to using a pictogram for graphic elements.
+
+![pictogram Blankslate](https://user-images.githubusercontent.com/6846673/62806619-39e39900-baa8-11e9-9de0-5b2f511d63da.png)
+
+### Illustrations
+Illustrations can be used to give more personality to a Blankslate and prioritize it as a feature worth learning.
+
+![illustration Blankslate](https://user-images.githubusercontent.com/6846673/63133678-20948e00-bf7b-11e9-8774-9474d961c4b9.png)
+
+### Compact
+Compact states are a great way to engage and educate a user in places where there are more UI elements and the area is much more condensed. Generally, this would be in places where the content or feature would be left-aligned. While the border is optional for all empty states, we suggest adding the border on the Compact variation to better support page structure.
+
+<Text textAlign="center">
+  <Flex alignItems="center" flexDirection="row" mt="4" mb="4">
+    <Box width={6 / 12} mr="4">
+      <img alt="compact Blankslate with border" src="https://user-images.githubusercontent.com/6846673/63132959-e1b10900-bf77-11e9-9ddc-2060cf70dd73.png" />
+    </Box>
+    <Box width={6 / 12} mr="4">
+      <img alt="compact Blankslate without border" src="https://user-images.githubusercontent.com/6846673/63132935-c0e8b380-bf77-11e9-8cbc-410e574c7a08.png" />
+    </Box>
+  </Flex>
+</Text>
+
+### Code block
+Sometimes the best CTA is a list of steps or code instructions the user needs to follow in order to get started with a feature. This is the case for getting started with packages in GitHub:
+
+![Code block Blankslate](https://user-images.githubusercontent.com/589285/64209577-b83c1c80-ce55-11e9-8b61-8d82713b56a6.png)
+
+## Content and copy
+Empty states should explain features _in addition_ to conveying intention. In the example below, the primary text is used to provide a welcome invitation to creating a positive community while the secondary text supports this intent by informing the user on how to do this by providing a code of conduct.
+
+![code of conduct illustration Blankslate](https://user-images.githubusercontent.com/6846673/62806616-394b0280-baa8-11e9-8a5e-45f0c51aaa22.png)
+
+## First time user experiences
+For first time user experiences, use illustration Blankslates to playfully engage the user and introduce the Octocat as a symbol of GitHub. Primary text should welcome the user to the platform and feature. Secondary text should seek to educate the user, but at a simpler, less-technical level.
+
+![first time user Blankslate](https://user-images.githubusercontent.com/6846673/62813307-efb9e200-babe-11e9-93e7-a6fd45d7f942.png)

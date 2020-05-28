@@ -1,90 +1,84 @@
-# Design Guidelines content & IA
+# Interface Guidelines: proposed IA
 
 ## Guidelines
 
-###  Global
+###  Principles
 
-* Design Principles
-* Accessibility
-* Voice & tone (off link to Manual of Style?)
-* Designing for Safety
+* Accessibility: (Inclusive) consider a11y in design early, list of tools
+* Safety: designing for safety
 
-### Foundation
+### Foundations
 
-* Color: palette, use/brand (use more, use less), a11y (recommended combos)
-* Typography: scale, use (bold, normal, light, sans, mono) semantic markup/a11y,
+* Overview: include connection with primer primitives
+* Color: palette, use/brand (use more, use less), a11y (recommended combos), accent color
 * Spacing: scale, density on product vs spacious on marketing pages
-
-### UI Patterns
-
-* Empty states (blankslates)
-* Saving models
-* Loading states
-* Animation
-* Progressive disclosure (show more, expand etc.)
-* Defensive design (valley of safety vs destructive)
+* Typography: scale, use (bold, normal, light, sans, mono) semantic markup/a11y
+* Content
 
 ### Layout
 
-* Page layouts & hierarchy
-* Responsive, desktop & mobile first
 * Navigation
-* Search
+* Responsive, desktop & mobile first
+* Templates: page layouts & hierarchy
+
+### UI patterns
+
+* Animation
+* Button usage
+* Defensive design: valley of safety vs destructive, destructive actions, danger
+* Empty states (blankslates)
+* Loading states
+* Messaging
+* Progressive disclosure: show more, expand, etc.
+* Tables and lists
+
+### Workflows
+
+* Creating
+* Feature onboarding
+* Saving
+* Seaching and filtering
 
 ### Communication
 
+* Data formats
+* Emoji
+* Iconography
+* Imagery
+  * Octocats
+  * Illustrations
+  * Photos
 * Messaging & feedback
     * Alerts, error messages
     * System initiated vs user-initiated
     * Modals: when to use & when not, close & cancel buttons
-* Data formats
-* Status
 * Permissions
 * Product promos
-* Imagery
-  - Octocats
-  - Illustrations
-  - Photos
-* Iconography
-* Emoji
+* Status
 * Truncation
 * Writing
 
-### Workflows
+### Design tools
 
-* Onboarding
-* Invitations (new org, repo etc.)
-* Opt-ins
-* Sign up
-* Feature enabling
+* Figma: using components, Figma prototyping, sharing and permissions
+* Codepen
+* Playroom
 
-## Native (tbt)
+## Other/future sections
 
-* Desktop
-* Atom
-* IDE's
+* Native
+  * Desktop
+  * Mobile
+  * IDEs
+* Workflows
+  * Invitations (new org, repo, etc.)
+  * Opt-ins
+  * Sign up
+  * Feature enabling
 
-## Design Tools
-
-### Figma
-
-* Using components
-* Figma Prototyping
-* Sharing & permissions
-
-### InVision
-
-### Sketch
-
-* Current templates
-* Info re use and maintenance mode
-
-
-References
+## References
 
 * https://www.lightningdesignsystem.com/guidelines/overview/
 * https://material.io/design/
 * https://designsystem.gov.au/components/core/
 * https://www.microsoft.com/design/fluent/
-
-

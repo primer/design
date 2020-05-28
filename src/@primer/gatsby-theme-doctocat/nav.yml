@@ -1,0 +1,26 @@
+- title: Foundations
+  url: /foundations
+  children:
+    - title: Typography
+      url: /foundations/typography
+- title: Global
+  url: /global
+  children:
+    - title: Accessibility
+      url: /global/accessibility
+- title: UI patterns
+  url: /ui-patterns
+  children:
+    - title: Button usage
+      url: /ui-patterns/button-usage
+    - title: Empty states
+      url: /ui-patterns/empty-states
+    - title: Progressive disclosure
+      url: /ui-patterns/progressive-disclosure
+    - title: Messaging
+      url: /ui-patterns/messaging
+- title: Design tools
+  url: /tools
+  children:
+    - title: Figma
+      url: /tools/figma

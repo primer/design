@@ -1,0 +1,125 @@
+---
+title: Typography
+---
+
+import segoeImage from '../../src/images/segoe.svg'
+import sfImage from '../../src/images/sf.svg'
+import sfMonoImage from '../../src/images/sfMono.svg'
+import interImage from '../../src/images/interUI.svg'
+import ubuntuImage from '../../src/images/ubuntu.svg'
+import {Box} from '@primer/components'
+
+These guidelines summarize how we use typography at GitHub, and serve as guardrails for designers to design freely with best typographic practices in mind.
+
+## Typefaces
+
+The first three typefaces listed below are the most commonly utilized system-fonts on GitHub products. However, this isn’t a finite list, so keep in mind that typographic implementations may vary between browser settings and operating systems.
+
+[Inter UI](https://rsms.me/inter/) and [SF Mono](https://developer.apple.com/fonts/) are not system fonts, but are used in specialized scenarios to diffierentiate information and establish hierarchy.
+
+| Example                                                | Description                                                                                                                                                                                                                                     |
+| ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src={sfImage} alt="San Francisco" width="1000" /> | [San Francisco](https://developer.apple.com/fonts/) is a neo-grotesque sans-serif typeface designed by Apple to replace Helvetica Neue for OSX and iOS                                                                                          |
+| <img src={segoeImage} alt="Segoe" width="1000" />      | [Segoe UI](https://developer.microsoft.com/en-us/fabric#/resources) is a humanist sans-serif adopted by Microsoft as its default operating system font since Windows Vista                                                                     |
+| <img src={ubuntuImage} alt="Ubuntu" width="1000" />    | [Ubuntu](https://design.ubuntu.com/font/) is an OpenType-based, humanist sans-serif typeface. It became the default system font for Ubuntu 10.10 and is commonly used on Linux distros                                                          |
+| <img src={interImage} alt="Inter" width="1000" />      | [Inter UI](https://rsms.me/inter/) is a typeface designed by Rasmus Andersson specially for user interfaces. Inter UI is used in our products as a display face in select circumstances                                                         |
+| <img src={sfMonoImage} alt="SF Mono" width="1000" />   | [SF Mono](https://developer.apple.com/fonts/) is a monospace typeface that is part of the San Francisco typeface family. SF Mono is monospaced across weights, so resetting SF Mono text into another font weight will not cause text to reflow |
+
+## Font stack
+
+We utilize system fonts at GitHub, which allow for optimized performance. This design decision takes advantage of retina screens, dynamic kerning, additional font-weights, and improved readability.
+
+**System Fonts**—default GitHub font-stack with ample fallbacks alongside emoji support
+
+```
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+```
+
+**Monospace**—used within GitHub product to display metadata or captions, and used in marketing contexts as subheaders
+
+```
+$mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !default;
+```
+
+**Display face**—the font stack that implements Inter UI
+
+```
+font-family: InterUI, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+```
+
+_For more information on why we made the change to system fonts, check out [Mark Otto](http://markdotto.com/)'s article: [Shipping System fonts to GitHub.com](http://markdotto.com/2018/02/07/github-system-fonts/)_
+
+## Typography scale and line height
+
+The typography scale is designed to work for GitHub's product interfaces and marketing sites. Font sizes are designed to work in combination with line-height values so as to result in more sensible numbers wherever possible.
+
+| Font size: desktop | 1.25 line-height | 1.5 line-height |
+| ------------------ | ---------------- | --------------- |
+| 12px               | 15               | 18              |
+| 14px               | 17.5             | 21              |
+| 16px               | 20               | 24              |
+| 20px               | 25               | 30              |
+| 24px               | 30               | 36              |
+| 32px               | 40               | 48              |
+| 40px               | 50               | 60              |
+| 48px               | 60               | 72              |
+
+### Marketing typography scale
+
+Our marketing typography scale aligns with our core typography scale, except for one additional header size:
+
+| Font size: desktop | 1.25 line height | 1.5 line height |
+| ------------------ | ---------------- | --------------- |
+| 64px               | 80               | 96              |
+
+Marketing typography also incorporates [Inter UI](https://rsms.me/inter/) as a display face.
+_More information on [marketing typography](https://primer.style/css/utilities/marketing-type)_.
+
+## Applying typography
+
+It is best practice at GitHub to keep unique type styling to a minimum as to align stylistically with our other products.
+
+### Hierarchy
+
+When establishing hierarchy for GitHub products, designers should remember that we stress efficient, clean reading experiences for our users. Be sure to utilize Primer’s [typography scale](https://styleguide.github.com/primer/utilities/typography/) and [typography utilities](https://styleguide.github.com/primer/utilities/typography/) when doing so. Refrain from utilizing color as a primary method of emphasis.
+
+### Readability
+
+- **Line height**—Refer to our typography scale when structuring line height. Generally, our products should follow this scale without issues.
+
+- **Line length**—It's considered a good practice to keep lines around 80 characters or less—[W3 Page Structure Guidelines](https://www.w3.org/WAI/tutorials/page-structure/styling/). Cases vary depending on the situation, but this serves as a general rule of thumb for designing layouts.
+
+- **Type alignment**—Our content is typically left-aligned and ragged right. Be sensible in deviating from this standard, as justifying, centering, and right-aligning text is atypical of GitHub products.
+
+- **Font weight**—Adjust font weight to add emphasis and differentiate content hierarchy.
+
+- **Letter spacing**—Please refrain from altering letter-spacing on our products. There may be rare scenarios in which this is acceptable, but generally speaking, this should be avoided altogether.
+
+## Support
+
+### Iterate and componentize
+
+When certain typographic patterns in your design emerge, or you believe a certain solution should be made into a component, reach out to the [#design-systems](https://github.slack.com/messages/C0ZCGGGJ2) channel on Slack to find out more on submitting your code or idea. You may also reach out by opening an issue in [the Primer repo on GitHub](https://github.com/primer/primer).
+
+### Related typography components
+
+Primer includes many typographic solutions. Please utilize them when possible before creating a custom component. Some include:
+
+- [Alerts](https://styleguide.github.com/primer/components/alerts/)
+- [Labels](https://styleguide.github.com/primer/components/labels/)
+- [Subheads](https://styleguide.github.com/primer/components/subhead/)
+- [Navigation](https://styleguide.github.com/primer/components/navigation/)
+
+### Further reading and resources
+
+- [Mathematical Web Typography](https://jxnblk.com/blog/mathematical-web-typography/)
+- [The Elements of Typographic Style](https://www.amazon.com/Elements-Typographic-Style-Robert-Bringhurst/dp/0881791326)
+- [A Type Primer](https://www.amazon.com/Type-Primer-2nd-John-Kane-ebook/dp/B006Y1X55G)
+- [Thinking with Type](http://thinkingwithtype.com/)
+- [WCAG Accessibility Tutorials](https://www.w3.org/WAI/tutorials/page-structure/)
+- [Browser Typography Scale](http://type-scale.com/)
+- [Typewolf Blog](https://www.typewolf.com)
+
+<!-- **etc.** -->
+
+export const meta = {displayName: 'Typography'}

@@ -1,6 +1,0 @@
-export {default as Header} from './Header'
-export {default as SideNav} from './SideNav'
-export {default as IndexHero} from './IndexHero'
-export {default as Contributors} from './Contributors'
-export * from './constants'
-export * from './utils'
