@@ -118,7 +118,7 @@ Flash alerts that affect every page (e.g. a global message) should use the [full
       <img src="https://user-images.githubusercontent.com/586552/63046881-46e5fb00-bea1-11e9-87ee-80dbeb0bea1c.png" />
     </Box>
     <Text fontSize="0" color="gray.5">
-      Don’t let text span the entire width of the window (but non-text elements can still span the entire width)
+      Don’t let a single text block span the entire width of the window (non-text elements can still span the entire width, such as left-aligned text and right-aligned buttons)
     </Text>
   </Box>
 </Flex>
@@ -145,5 +145,4 @@ Popovers are used to call attention to a new feature, change to an existing feat
 Though they can be used for a variety of things, they should be used sparingly to avoid cognitive overload. It's important to consider the context in which the Popover appears. Are there other Popovers on the page? Does it appear on page load, or require the user to open the Popover? 
 
 Unlike other messaging components, Popovers should never include critical information (such as errors) and should always include a dismiss action.
-
 
