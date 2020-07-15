@@ -9,55 +9,55 @@ All configuration flows should be punctuated with CTAs that feature a logical te
 Individual settings that are not changed via discrete flows should minimize the required UI by saving configuration changes as they are made (e.g. changing your primary email address, adding an assignee to an issue, unsubscribing from a notification type, following a user, watching a repository).
 
 ## There are two primary patterns that should be used for saving user input on GitHub:
-  ### Save and route
-  - This pattern is primarily used for creation and deletion of new entities such as repositories, organizations, or user accounts. At the end of the flow, the user should be routed to the entity they just created. In some cases such as forking or using a template, we may need to hold the user at a waiting page while the entity is generated. In these cases, we should make the user feel confident that something is happening and that their configuration details will not be lost. In some cases, such as deleting a repository, it may make sense to be explicit that the interaction has occurred by using a [Flash alert](https://primer.style/css/components/alerts).
+### Save and route
+This pattern is primarily used for creation and deletion of new entities such as repositories, organizations, or user accounts. At the end of the flow, the user should be routed to the entity they just created. In some cases such as forking or using a template, we may need to hold the user at a waiting page while the entity is generated. In these cases, we should make the user feel confident that something is happening and that their configuration details will not be lost. In some cases, such as deleting a repository, it may make sense to be explicit that the interaction has occurred by using a [Flash alert](https://primer.style/css/components/alerts).
 
-  ### Optimistic update
-  - For interactions where the entity already exists and we merely need to update a field on that object, we should initiate an async server request using `remoteForm`, immediately display the desired changes as if they've already happened, and upon response from the server, either cache the result of a successful change to save loading time later or present a clear, concise error message if an error has occurred. If the change may not be obviously visible in the UI the user is currently viewing, we should trigger a [Toast](https://primer.style/css/components/toasts) to let the user know that the change occurred successfully. 
-  
-  ```javascript
+### Optimistic update
+For interactions where the entity already exists and we merely need to update a field on that object, we should initiate an async server request using `remoteForm`, immediately display the desired changes as if they've already happened, and upon response from the server, either cache the result of a successful change to save loading time later or present a clear, concise error message if an error has occurred. If the change may not be obviously visible in the UI the user is currently viewing, we should trigger a [Toast](https://primer.style/css/components/toasts) to let the user know that the change occurred successfully. 
 
-  <!-- feature-preview-trigger.ts -->
-  
-  import {fire, on} from 'delegated-events'
-  import {getAttribute, query, querySelectorAll} from '@github/query-selector'
-  import {dialog} from '../details-dialog'
-  import {fetchSafeDocumentFragment} from '../fetch'
-  import {remoteForm} from '@github/remote-form'
+```javascript
 
-  ...
+<!-- feature-preview-trigger.ts -->
 
-  on('click', '[data-feature-preview-trigger-url]', async event => {
-    const trigger = event.currentTarget
-    const url = getAttribute(trigger, 'data-feature-preview-trigger-url')
+import {fire, on} from 'delegated-events'
+import {getAttribute, query, querySelectorAll} from '@github/query-selector'
+import {dialog} from '../details-dialog'
+import {fetchSafeDocumentFragment} from '../fetch'
+import {remoteForm} from '@github/remote-form'
 
-    const newDialog = await dialog({
-      content: fetchSafeDocumentFragment(document, url),
-      dialogClass: 'feature-preview-dialog'
-    })
+...
 
-    const indicators = querySelectorAll(document, '.js-feature-preview-indicator')
-    for (const indicator of indicators) {
-      indicator.hidden = true
-    }
+on('click', '[data-feature-preview-trigger-url]', async event => {
+  const trigger = event.currentTarget
+  const url = getAttribute(trigger, 'data-feature-preview-trigger-url')
+
+  const newDialog = await dialog({
+    content: fetchSafeDocumentFragment(document, url),
+    dialogClass: 'feature-preview-dialog'
   })
 
-  remoteForm('.js-feature-preview-unenroll', async (form, wants) => {
-    await wants.text()
-    const feature = query(form, '.js-feature-preview-slug', HTMLInputElement).value
-    fire(form, `feature-preview-unenroll:${feature}`)
-  })
+  const indicators = querySelectorAll(document, '.js-feature-preview-indicator')
+  for (const indicator of indicators) {
+    indicator.hidden = true
+  }
+})
 
-  remoteForm('.js-feature-preview-enroll', async (form, wants) => {
-    await wants.text()
-    const feature = query(form, '.js-feature-preview-slug', HTMLInputElement).value
-    fire(form, `feature-preview-enroll:${feature}`)
-  })
+remoteForm('.js-feature-preview-unenroll', async (form, wants) => {
+  await wants.text()
+  const feature = query(form, '.js-feature-preview-slug', HTMLInputElement).value
+  fire(form, `feature-preview-unenroll:${feature}`)
+})
 
-  ```
-    
-  In a few specific cases, such as updating notification preferences, we should use the `data-disable-with` property to indicate that the response is still being sent to signal to the user that they shouldn't navigate away from the current page which may cause the request to fail silently in the event of an error.
+remoteForm('.js-feature-preview-enroll', async (form, wants) => {
+  await wants.text()
+  const feature = query(form, '.js-feature-preview-slug', HTMLInputElement).value
+  fire(form, `feature-preview-enroll:${feature}`)
+})
+
+```
   
-  ```html
-    <input type="submit" data-disable-with="Submitting...">Submit</input>
-  ```
+In a few specific cases, such as updating notification preferences, we should use the `data-disable-with` property to indicate that the response is still being sent to signal to the user that they shouldn't navigate away from the current page which may cause the request to fail silently in the event of an error.
+
+```html
+  <input type="submit" data-disable-with="Submitting...">Submit</input>
+```
