@@ -2,13 +2,16 @@
 title: Saving
 ---
 
-GitHub's save patterns help developers to store and update their configurations for different features throughout GitHub's various interfaces. These changes should be represented in the UI accurately, quickly, and obviously. Their behavior should be easy to reason about and inspire confidence and trust.
+GitHub's save patterns help users to store and update their configurations for different features throughout GitHub's various interfaces. These changes should be represented in the UI accurately, quickly, and obviously. Their behavior should be easy to reason about and inspire confidence and trust.
 
 All configuration flows should be punctuated with CTAs that feature a logical term such as "Create", "Save", "Delete", or "Update" (e.g. "Create" a new repository, "Add" an SSH key to your profile, "Save" security preferences, "Update" a repository's description, "Delete" an old email address). 
 
 Individual settings that are not changed via discrete flows should minimize the required UI by saving configuration changes as they are made (e.g. changing your primary email address, adding an assignee to an issue, unsubscribing from a notification type, following a user, watching a repository).
 
-## There are two primary patterns that should be used for saving user input on GitHub:
+## Patterns
+
+There are two primary patterns for saving configuration on GitHub.
+
 ### Save and route
 This pattern is primarily used for creation and deletion of new entities such as repositories, organizations, or user accounts. At the end of the flow, the user should be routed to the entity they just created. In some cases such as forking or using a template, we may need to hold the user at a waiting page while the entity is generated. In these cases, we should make the user feel confident that something is happening and that their configuration details will not be lost. In some cases, such as deleting a repository, it may make sense to be explicit that the interaction has occurred by using a [Flash alert](https://primer.style/css/components/alerts).
 
