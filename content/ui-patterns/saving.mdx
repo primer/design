@@ -56,7 +56,7 @@ remoteForm('.js-feature-preview-enroll', async (form, wants) => {
 
 ```
   
-In a few specific cases, such as updating notification preferences, we should use the `data-disable-with` property to indicate that the response is still being sent to signal to the user that they shouldn't navigate away from the current page which may cause the request to fail silently in the event of an error.
+In cases where we need to prevent the user from taking further action while the request completes (such as updating notification preferences) we should use the `data-disable-with` property with the present form of the button's verb (e.g. "Save" becomes "Saving...", "Follow" becomes "Following...") to indicate that they shouldn't navigate away from the current page which may cause the request to fail silently in the event of an error.
 
 ```html
   <input type="submit" data-disable-with="Submitting...">Submit</input>
