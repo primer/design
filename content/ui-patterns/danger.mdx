@@ -1,0 +1,15 @@
+---
+title: Destructive (danger) sequences
+---
+
+When users are making a destructive change to their GitHub account, we need to make sure they have a clear understanding of what is about to happen. Many times these changes are reversible, but may have irreversible side effects (making a repository public). Other times, they're not reversible at all (deleting an organization). Either way, we need to ensure that we've done everything we can to make sure there are no gaps in communication that may cause unintended effects so that we don't lose trust with users.
+
+There are 3 basic requirements we can apply to destructive flows that will ensure that the full effects of a change are clear to our users and that we minimize loss of trust.
+
+1. We should highlight all destructive flows visually. 
+  - Any actions that will delete user data must use the `btn-danger` class.
+  - All page sections that will trigger a destructive sequences should be highlighted with `border-red` and an `alert` icon to build an accessible, intuitive pattern of recognition. When people see those details, they should know to tread carefully. (Modals should not apply this.)
+
+2. We should force users to confirm that they understand which data will be destroyed, the steps to revert those changes (if reversible), and that they have rights to destroy that data with an explicit statement and password-protection for non-trivial deletions (repositories, organizations, user accounts, etc.).
+
+3. We should log all destruction events for the support team to help them with cases where something has gone wrong.
