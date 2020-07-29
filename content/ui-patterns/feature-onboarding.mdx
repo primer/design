@@ -1,3 +1,9 @@
+---
+title: Feature onboarding
+---
+
+import {Box, Flex, BorderBox, Text} from '@primer/components'
+
 # Onboarding
 
 This is a guide for designing onboarding for the product and does not include what to do for marketing pages, email announcements, social media, etc.
@@ -17,17 +23,17 @@ Consider the primary job to be done on a page before disrupting the user with a 
 ### Set clear campaign limits
 Use feature onboarding UI for a limited time, make it clear to the user how they may dismiss the message and return to their original task quickly. Define clear paramaters for why, when, and how often a user may see a onboarding message:
 
-✅ Define triggers
-- System tiggers, e.g. a new feature released, a user should not need to dismiss the same annoucement each time they visit a different repository.
-- User triggers, e.g. a user visits a specific repository for the first time, if recurring, a user should feel added value each time they see the message.
-      
- ✅ Timebox
-- Maximum number of days a coordinated campaign will run across all targeted users.
-- Maximum number of times a user will see an in-product message until dismissed.
+- **Define triggers**
+  - System tiggers, e.g. a new feature released, a user should not need to dismiss the same annoucement each time they visit a different repository.
+  - User triggers, e.g. a user visits a specific repository for the first time, if recurring, a user should feel added value each time they see the message.    
+- **Timebox**
+  - Maximum number of days a coordinated campaign will run across all targeted users.
+  - Maximum number of times a user will see an in-product message until dismissed.
+
 ### Avoid traffic collisions
 Avoid showing too many alerts at the same time. Collisions are awkward and undesireable. Consider what other alerts, teaching bubbles, or banners may be active on the page before launching your onboarding experience.
 
-<img width="656" alt="docsImage -  Avoid traffic" src="https://user-images.githubusercontent.com/47256527/88720302-7fdea600-d0d9-11ea-9dcb-0b4100114d7f.png">
+![docsImage -  Avoid traffic](https://user-images.githubusercontent.com/47256527/88720302-7fdea600-d0d9-11ea-9dcb-0b4100114d7f.png)
 
 ### Create efficient sequences
 Sequence tasks in a logical way to increase onboarding success. Clearly define when someone has started setup and successfully completed your flow. Treat your feature onboarding as a story or a journey with a:
@@ -45,26 +51,79 @@ Use teaching bubbles, alert banners, the feature preview tray, or announcement m
 ### Begin a setup flow
 Use [empty states](https://primer.style/design/ui-patterns/empty-states), [teaching bubbles](https://docs.microsoft.com/en-us/javascript/api/office-ui-fabric-react/iteachingbubbleprops?view=office-ui-fabric-react-latest), or a [CTA on a marketing page](https://github.com/features/actions) on GitHub to begin a setup flow.
 
-<img width="656" alt="blank state" src="https://user-images.githubusercontent.com/47256527/88720353-97b62a00-d0d9-11ea-93d6-951c9da55d9c.png">
+![blank state](https://user-images.githubusercontent.com/47256527/88720353-97b62a00-d0d9-11ea-93d6-951c9da55d9c.png)
 
-<img width="656" alt="Actions example 1" src="https://user-images.githubusercontent.com/47256527/88720395-a56baf80-d0d9-11ea-9bd6-e98df7a9f27e.png">
+![Actions example 1](https://user-images.githubusercontent.com/47256527/88720395-a56baf80-d0d9-11ea-9bd6-e98df7a9f27e.png)
+
 
 ### Guide your user through their task
 Use a [form](https://primer.style/css/components/forms), [checklist](https://primer.style/css/components/forms), or other UI elements to help users complete their task. 
 
-<img width="656" alt="Checklist example" src="https://user-images.githubusercontent.com/47256527/88720479-c7fdc880-d0d9-11ea-9ac1-76b9defafe79.png">
+![Checklist example](https://user-images.githubusercontent.com/47256527/88720479-c7fdc880-d0d9-11ea-9ac1-76b9defafe79.png)
 
 ### Celebrate the finish
 Use a toast, flash alert, or other message to confirm the user has completed their task. Message should be short and brief.
 
-<img width="657" alt="Do" src="https://user-images.githubusercontent.com/47256527/88720500-d3e98a80-d0d9-11ea-8943-43e6e04431b3.png">
+![Do](https://user-images.githubusercontent.com/47256527/88720500-d3e98a80-d0d9-11ea-8943-43e6e04431b3.png)
 
  
 ## Teaching bubble
+Teaching bubbles are a special [popover]() that calls attention to a feature in a specific part of the page. Generally, features highlighted by teaching bubbles should be used to educate the user and enriching to the user’s task at hand. Consider the page the user is currently viewing and what jobs-to-be-done they may be performing.
+
+**General guidelines**
+- Show one teaching bubble at a time.
+- Recommended to include a headline that states the purpose of the message.
+- Keep your message short and pithy, around 160 characters. 
+- If additional information must be added, consider a stepped guide or a “Learn more” link that opens in a new window or tab. 
+- It is preferable to use a descriptive dismiss button (e.g. “Ok, got it” or “Done”) over a close icon; if a close icon must be used, remember to apply the correct tab order and polite annoucements for screenreaders.
+-If a guided feature setup is needed in a recurring manner, consider using other more inline  patterns like empty states in lieu of teaching bubbles.
+- Keep your copy to maximum 160 characters.
+
+|Pattern |Quickstart| Top user benefits|
+|:--|:--|:--|
+|Whent to use |<li>Call attention to new or important features</li><li>Invoked by the system, like a new capability being available</li>|The highlighted feature extends or improves the user's likely task at hand|
+|When not to use |<li>Don't point to hidden elements</li><li>If the user cannot immediately interact and benefit from the feature highlighted</li>|Do not distract the user from completing their task.|
+
 ### Basic teaching bubble
+Refer to the [Primer popover component](https://primer.style/css/components/popover) for more detailed implementation guidelines.
+
+```html live title="Basic"
+<div class="Popover right-0 left-0 position-relative">
+  <div class="Popover-message text-left p-4 mt-2 mx-auto Box box-shadow-large">
+    <h4 class="mb-2">Teaching bubble heading</h4>
+    <p>Use this as a teaching moment that may enrich a user’s experience. Keep message to a maximum of 160 characters.</p>
+    <button class="btn btn-sm btn-outline mt-2" type="button">Primary action</button>
+    <button class="btn btn-invisible ml-2">Ok, dismiss</button>
+  </div>
+</div>
+```
+
 ### Condensed
+Use a close icon only for condensed messages that have no primary call to action. Remember to set the correct aria order for screen readers to easily dismiss the teaching bubble at the end of the message.
+
+<p><img src="https://user-images.githubusercontent.com/6744014/88740797-efad5a80-d0f2-11ea-95dc-8781f046f70c.png" width="300"/></p>
+
 ### Multiple calls to action
+The default dismissal button should say “Ok, got it” as a way to inject more personality while reaffirming with “ok” which internationalizes better as a more commonly recognized phrase. As a secondary call to action, it should be “Ok, dismiss.”
+
+<p><img src="https://user-images.githubusercontent.com/6744014/88741737-43b93e80-d0f5-11ea-8445-5b878607756e.png" width="180"/></p>
+
+If the primary action is not to dismiss the teaching bubble, they should invite the user to engage with the value proposition promised. Call to actions in teach bubbles should not take the user away from their current page. 
+
+Actions that take the user to a new page may only be linked from the copy and must open in a new tab or window to prevent loosing the user’s context.
+
+<Flex alignItems="center" flexDirection="column" my={5}>
+  <BorderBox width={9 / 12} border="1px solid" borderColor="gray.3" mb="2">
+    <img src="https://user-images.githubusercontent.com/6744014/88740809-f340e180-d0f2-11ea-9ba3-15005aebc378.png" />
+  </BorderBox>
+  <p>Multiple call to actions</p>
+</Flex>
+
 ### Variations
+
+|Emoji|Pictograms|Illustrations and gifs|
+|---|---|---|
+|![emoji](https://user-images.githubusercontent.com/6744014/88740799-f045f100-d0f2-11ea-9d23-5d002b2510e3.png)|![packages](https://user-images.githubusercontent.com/6744014/88740806-f2a84b00-d0f2-11ea-9530-f144d47e331c.png)|![gif](https://user-images.githubusercontent.com/6744014/88740801-f0de8780-d0f2-11ea-8c0f-1a52e2f38da0.png)|
 
 ## Inline feature discovery
 ### Page banner
