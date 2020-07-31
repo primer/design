@@ -1,0 +1,111 @@
+---
+title: Inclusive guidelines
+---
+
+Inclusive design is a methodology that allows people of different backgrounds and experiences to be productive and express their identities in a digital space without fear of compromising their personal safety.
+
+## Starting a new project
+
+As you begin tackling a new design problem with your team, here are a few core considerations to help guide you in your preliminary research.
+
+### Think through key questions
+
+It's important to consider different perspectives from the very beginning, before jumping into any solutions. These initial questions will help you be **intentional and proactive**, rather than reactive later on.
+
+Going through these questions is most effective within a large brainstorming session with your team, where everyone can bring their backgrounds and experiences to the table. You can also continue to ask these questions throughout the design process, especially as scope changes.
+
+#### How can this feature be used to harm someone?
+
+A great first priming question is, "How can this feature be used to harm someone? How can this feature be misused and create unwanted side effects (**stress cases**)?"
+
+To best understand stress cases as a team, it can be helpful to create specific personas. For example, describe the real world **impact*- of these affect people:
+- Someone escaping from an abusive relationship
+- Someone experiencing ongoing harassment
+- Someone being dogpiled (multiple people taking the same abusive action against you at once, like commenting)
+
+Take notes from this discussion and update any user journeys accordingly.
+
+#### Who might you be excluding?
+
+Another key question to think about beyond abuse is: "Who might you be excluding from partcipating because of the way the feature is built?" When we excitedly jump quickly into building and shipping, it can be easy to forget how our diverse and international community might view our work.
+
+Consider those who are:
+- (Link off to accessibility personas?)
+- Newer to the norms of tech, Software Development, and open source
+- Newer to the Internet
+- Using slower devices
+- On unreliable Internet connections
+- Not fluent in written or spoken English
+
+#### How might we encourage good and positive behavior?
+
+🚧
+
+#### How might we discourage bad or unproductive behavior?
+
+🚧
+
+### Engaging with your target user base
+
+It's critical to build an understanding of the humans you are designing for, whether that's face-to-face engagement or through data. Prepare what data questions you need to better understand the personas you've created in the work sessions above. Whether you're doing exploratory research or validating prototypes, here are some tips for sourcing diverse candidates:
+- Set a goal for who you’d like to represent. Backgrounds to consider:
+  - Location
+  - Experience level in programming/tech
+  - Gender identity
+- Set a balance between solicitng feedback in-product and manually outreaching
+- Need help? Reach out to GitHub employee resource groups (ERGs) to expand your network. Get additional candidate sourcing help from #user-research and #developer-relations, who are very connected to our communities
+
+Once you do find these candidates, **elevate them as your community champions**. Tell their stories internally, credit their work, and keep a feedback loop going with them.
+
+## Fundamentals to include in your design work
+
+These fundamental tools are useful when designing new features, as well as auditing existing ones.
+
+### Scope out minimal viable safety tools
+
+Account for how the feature you’re designing could be used to harm others, and how to mitigate harm in stress cases.
+- [ ] Is there an escape hatch? How easy is it to stop the stress from spreading?
+- [ ] Is there an easy way to report abuse and block the offending user(s)?
+
+### Add trust signals
+
+How might we remind people of the humans behind the code?
+- Usage of avatars where appropriate
+- Usage of full names, not just handles, in workplace environments
+- Mutual collaborators
+- Mutual followers/following
+- Shared languages, contribution, repos, orgs
+- Account age (I know this one is tricky)
+- Profile completeness (verified email, uploaded profile photo)
+
+### Privacy
+
+- [ ] When capturing personal identifying information (PII), make it clear _why_ we need the information and _how_ it will be used. This can be done as a sentence or two of copy with a link to help docs
+- [ ] Clearly describe when PII will be public or private
+- [ ] Clear ability to opt in and out of features and notifications
+
+### Clear, accessible, and inclusive language
+
+Be mindful of people who are not fluent in English, or read less-than-fluently. It's especially important to keep language as clear as possible during **high-stress moments**. In addition, when introducing technical jargon, be sure to provide documentation wherever possible.
+
+In addition to accessible language, we can rely on existing frameworks to ensure inclusive language is being used in feature work. Whenever we allow expressiveness with a freeform text box, consider:
+- [ ] Blocking words and symbols on the ADL hate symbols list: https://www.adl.org/hate-symbols
+- [ ] Using existing blocked words. Example: Blocked topics: https://data.githubapp.com/sql/7142000a-07e0-457a-9da3-a88c8ebf94e2
+
+### Include documentation and onboarding
+
+> Documentation is highly valued, frequently overlooked, and a means for establishing inclusive and accessible communities. ([Open Source Survey](https://opensourcesurvey.org/2017/#insights))
+
+Closely related to the above section on inclusive language, we have a community that is also in various stages of their programming or open source contribution journey. Well written documentation and onboarding helps GitHub users feel welcome and productive, and is a great addition to any new feature.
+
+For example, the detailed [CLI Manual](https://cli.github.com/manual/) is a wonderful, inclusive companion to the CLI tool that expands beyond the GitHub help documentation.
+
+## Preparing to ship
+
+When working on feature landing pages or social media posts, provide diverse stories and feature developers that are representative of the community.
+- [ ] Who are you including? Who are you leaving out?
+- [ ] Would someone from a marginalized background see this content and feel represented?
+
+## After shipping
+
+🚧
