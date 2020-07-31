@@ -8,6 +8,8 @@
   children:
     - title: Accessibility
       url: /global/accessibility
+    - title: Inclusive guidelines
+      url: /global/inclusive
 - title: UI patterns
   url: /ui-patterns
   children:
