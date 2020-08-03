@@ -19,9 +19,6 @@ When designing a feature onboarding flow, remember to:
 - Keep in mind the context, placement, and dominance of an onboarding element. 
 - Onboarding UI choices should be proportional to the functional hierarchy of the feature on the page.
 
-## Do not trap the user
-Make it clear to the user how they may dismiss the message and return to their original task quickly. For example, whenever possible, give the user a clear dismissal call to action over a discreet close icon.
-
 ## Set clear campaign limits
 Create a new feature release timeline with clear parameters and an appropriate ramp down plan:
 
@@ -37,21 +34,22 @@ Create a new feature release timeline with clear parameters and an appropriate r
 - Avoid showing too many alerts at the same time. Collisions are awkward and undesirable, no more than 2 alerts a time. 
 - Consider what other alerts, teaching bubbles, or banners may be active on the page before launching your onboarding experience.
 
-![docsImage -  Avoid traffic](https://user-images.githubusercontent.com/47256527/88720302-7fdea600-d0d9-11ea-9dcb-0b4100114d7f.png)
-
-<Flex>
-   <p><Text fontWeight="bold" color="red.5">Don't:</Text> forget to check coinciding features releases</p>
+<Flex alignItems="center" flexDirection="column" my={5}>
+  <BorderBox width={8/12} border="1px solid" borderColor="red.5" mb="2">
+    <img src="https://user-images.githubusercontent.com/6744014/89232625-b0708500-d59c-11ea-8af1-249894f6143a.png"/>
+  </BorderBox>
+  <p><Text fontWeight="bold" color="red.5">Don't:</Text> forget to check coinciding features releases on the same page</p>
 </Flex>
 
+
 ## Create efficient sequences
-- Sequence tasks in a logical way to increase onboarding success.
-- Clearly define when someone has started setup and successfully completed your flow.
-- Treat your feature onboarding as a story or a journey with a Beginning, Middle, and End.
+Sequence tasks in a logical way to increase onboarding success. Clearly define when someone has started setup and successfully completed your flow. 
 
-## Draw attention to your feature
-Use teaching bubbles, alert banners, the feature preview tray, or announcement modals to draw attention to your feature.
+Treat your feature onboarding as a story or a journey with a Beginning, Middle, and End:
 
-Combine multiple patterns to your advantage and create a well-rounded new feature annoucement strategy.
+### Beginning: Draw attention to your feature
+- Invite the user to engage with an onboarding journey.
+- Use teaching bubbles, alert banners, the feature preview tray or annoucement modals to draw attention to your feature.
 
 <Flex my={5}>
   <Box width="100%" mr="2">
@@ -72,22 +70,27 @@ Combine multiple patterns to your advantage and create a well-rounded new featur
   </Box>
 </Flex>
 
-## Begin a setup flow
-Use [empty states](https://primer.style/design/ui-patterns/empty-states), [teaching bubbles](https://docs.microsoft.com/en-us/javascript/api/office-ui-fabric-react/iteachingbubbleprops?view=office-ui-fabric-react-latest), or a [CTA on a marketing page](https://github.com/features/actions) on GitHub to begin a setup flow.
-
-![blank state](https://user-images.githubusercontent.com/47256527/88720353-97b62a00-d0d9-11ea-93d6-951c9da55d9c.png)
-
-![Actions example 1](https://user-images.githubusercontent.com/47256527/89215079-d4bc6980-d57c-11ea-981b-bc7ea6d07493.png)
-
-## Guide your user through their task
-Use a [form](https://primer.style/css/components/forms), [checklist](https://primer.style/css/components/forms), or other UI elements to help users complete their task. 
+### Middle: Guide your user through their task
+- Use form, checklist, or other components to help users complete their task.
 
 ![Checklist example](https://user-images.githubusercontent.com/47256527/88720479-c7fdc880-d0d9-11ea-9ac1-76b9defafe79.png)
 
-## Celebrate the finish
-Use a toast, flash alert, or other message to confirm the user has completed their task. Message should be short and brief.
+### End: Celebrate the finish
+- Clearly define when someone has started setup and successfully completed your flow.
+- Use a toast, flash alert, or other messages to confirm the user has completed their task. Message should be short and brief.
 
 ![Do](https://user-images.githubusercontent.com/47256527/88720500-d3e98a80-d0d9-11ea-8943-43e6e04431b3.png)
+
+## Do not trap or derail the user
+- Make it clear to the user how they may dismiss the message and return to their original task quickly.
+- Consider how to maintain context if a call-to-action links to a new page. 
+
+<Flex alignItems="center" flexDirection="column" my={5}>
+  <BorderBox width={9 / 12} border="1px solid" borderColor="gray.3" mb="2">
+    <img src="https://user-images.githubusercontent.com/6744014/88740809-f340e180-d0f2-11ea-9ba3-15005aebc378.png" />
+  </BorderBox>
+  <p>Multiple call to actions</p>
+</Flex>
 
  
 # Teaching bubble
