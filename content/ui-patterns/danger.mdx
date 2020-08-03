@@ -6,18 +6,18 @@ When users are making a destructive change to their GitHub account, we need to m
 
 There are a couple types of data that will need to be modified through our UI. Some of these types are not critical and require no particularly special treatment. These non-critical destructive flows include deleting a comment, issue, pull request, or discussion.
 
-For critical destructive flows (including modifying user access, deleting repositories, making private data public, etc.), there are 3 basic treatments we can apply that will ensure that the full effects of a change are clear to our users and that we minimize loss of trust.
+For critical destructive flows (including modifying user access, deleting repositories, making private data public, etc.), there are 3 basic treatments we can apply that will ensure the full effects of a change are clear to users and that we minimize loss of trust.
 
 [Example image 1 goes here]()
 
-1. We should highlight all destructive flows visually. 
+1. Highlight all destructive flows visually. 
   - Any actions that will delete significant user data must use the `btn-danger` class.
-  - All page sections that will trigger a destructive sequences should be highlighted with `border-red` and an `alert` icon to build an accessible, intuitive pattern of recognition. When people see those details, they should know to tread carefully. Ideally, these will be centralized into a `Danger Zone` section.
+  - All page sections that will trigger a destructive sequence should be highlighted with `border-red` and an `alert` icon to build an accessible, intuitive pattern of recognition. When users notice those patterns, they will know to tread carefully. Ideally, these will be centralized into a `Danger zone` section.
 
 [Example image 2 goes here]()
 
-2. We should force users into a second confirmation to ensure that they understand which data will be destroyed, the steps to revert those changes (if reversible), and that they have rights to destroy that data with an explicit statement, and/or password-protection.
+2. Force users into a second confirmation to ensure they understand what data will be destroyed, the steps to revert those changes (if reversible), and that they have rights to destroy that data with an explicit statement, and/or password-protection.
 
 [Example code goes here]
 
-3. We should follow the [audit logging rules](https://githubber.com/article/technology/dotcom/audit-logs/adding-new-events) and log all destruction events for the support team to help them with cases where something has gone wrong.
+3. Follow the [audit logging rules](https://githubber.com/article/technology/dotcom/audit-logs/adding-new-events) and log all destruction events for the support team to help with cases where something has gone wrong.
