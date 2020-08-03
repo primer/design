@@ -6,20 +6,23 @@ import {Box, Flex, BorderBox, Text} from '@primer/components'
 
 This is a guide for designing onboarding for the product and does not include what to do for marketing pages, email announcements, social media, etc.
 
-Onboarding is a virtual unboxing experience that helps users get started with an app.
+When designing a feature onboarding flow, you should:
 
 - ✅ Think creatively utilizing different ways to onboard users, such as empty states and off-product avenues.
 - ✅ For feature annoucements, prepare a release timeline to call out new features.
 - 🚫 Do not leave feature annoucement campaigns running forever.
 
-# Guiding principles
+# How to implement feature onboarding
 ## Proximity and proportion
-Onboarding elements should maintain an appropriate proximity to where the feature will live in perpetuity.
-
-Consider the primary job to be done on a page before disrupting the user with a feature callout.  Keep in mind the context, placement, and dominance of an onboarding element. Onboarding UI choices should be proportional to the hierarchy of the feature on the page.
+- Onboarding elements should maintain an appropriate proximity to where the feature will live in perpetuity.
+- Consider the primary job to be done on a page before disrupting the user with a feature callout. 
+- Keep in mind the context, placement, and dominance of an onboarding element. 
+- Onboarding UI choices should be proportional to the hierarchy of the feature on the page.
 
 ## Set clear campaign limits
-Use feature onboarding UI for a limited time, make it clear to the user how they may dismiss the message and return to their original task quickly. Define clear paramaters for why, when, and how often a user may see a onboarding message:
+- Use feature onboarding components for a limited time.
+- Make it clear to the user how they may dismiss the message and return to their original task quickly. 
+- Define clear paramaters for why, when, and how often a user may see a onboarding message.
 
 - **Define triggers**
   - System tiggers, e.g. a new feature released, a user should not need to dismiss the same annoucement each time they visit a different repository.
@@ -29,16 +32,21 @@ Use feature onboarding UI for a limited time, make it clear to the user how they
   - Maximum number of times a user will see an in-product message until dismissed.
 
 ## Avoid traffic collisions
-Avoid showing too many alerts at the same time. Collisions are awkward and undesireable. Consider what other alerts, teaching bubbles, or banners may be active on the page before launching your onboarding experience.
+- Avoid showing too many alerts at the same time. Collisions are awkward and undesirable, no more than 2 alerts a time. 
+- Consider what other alerts, teaching bubbles, or banners may be active on the page before launching your onboarding experience.
 
 ![docsImage -  Avoid traffic](https://user-images.githubusercontent.com/47256527/88720302-7fdea600-d0d9-11ea-9dcb-0b4100114d7f.png)
+
+</Flex>
+   <p><Text fontWeight="bold" color="red.5">Don't:</Text> forget to check coinciding features releases</p>
+</Flex>
 
 ## Create efficient sequences
 Sequence tasks in a logical way to increase onboarding success. Clearly define when someone has started setup and successfully completed your flow. Treat your feature onboarding as a story or a journey with a:
 
-- Beginning
-- Middle 
-- End
+- Start to setup the beginning journey of your onboarding experience.
+- Define the transition of your onboarding flow.
+- Take the users to the end of onboading success. 
 
 ## Draw attention to your feature
 Use teaching bubbles, alert banners, the feature preview tray, or announcement modals to draw attention to your feature.
@@ -51,8 +59,7 @@ Use [empty states](https://primer.style/design/ui-patterns/empty-states), [teach
 
 ![blank state](https://user-images.githubusercontent.com/47256527/88720353-97b62a00-d0d9-11ea-93d6-951c9da55d9c.png)
 
-![Actions example 1](https://user-images.githubusercontent.com/47256527/88720395-a56baf80-d0d9-11ea-9bd6-e98df7a9f27e.png)
-
+![Actions example 1](https://user-images.githubusercontent.com/47256527/89215079-d4bc6980-d57c-11ea-981b-bc7ea6d07493.png)
 
 ## Guide your user through their task
 Use a [form](https://primer.style/css/components/forms), [checklist](https://primer.style/css/components/forms), or other UI elements to help users complete their task. 
