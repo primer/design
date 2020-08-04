@@ -6,20 +6,30 @@ import {Box, Flex, BorderBox, Text} from '@primer/components'
 
 Onboarding is a virtual unboxing experience that helps users get started with an feature. This is a guide for designing onboarding for the product and does not include what to do for marketing pages, email announcements, social media, etc.
 
+Check out the feature on-boarding Figma [sticker sheet](https://www.figma.com/file/FJtZyBeBfwDkByHPfDSN6k/Feature-onboarding?node-id=857%3A6).
+
 When designing a feature onboarding flow, remember to:
 
 - ✅ Think creatively utilizing different ways to onboard users, including patterns that are not explicitly mentioned in this document.
 - ✅ Create a well-rounded feature release campaign that may leverage both on and off-product avenues.
 - 🚫 Do not leave feature annoucement campaigns running forever.
 
-# How to implement feature onboarding
-## Proximity and proportion
+## Guiding principles
+
+### Proximity and proportion
+
 - Onboarding elements should maintain an appropriate proximity to where the feature will live in perpetuity.
 - Consider the primary job to be done on a page before disrupting the user with a feature callout. 
 - Keep in mind the context, placement, and dominance of an onboarding element. 
 - Onboarding UI choices should be proportional to the functional hierarchy of the feature on the page.
 
-## Set clear campaign limits
+### Do not derail or trap the user
+
+- Make it clear to the user how they may dismiss the message and return to their original task quickly.
+- Maintain context if a call-to-action links to a new page, i.e. open the link a new tab or window to avoid losing a user's work.
+
+### Set clear campaign limits
+
 Create a new feature release timeline with clear parameters and an appropriate ramp down plan:
 
 - **Define why**
@@ -30,28 +40,30 @@ Create a new feature release timeline with clear parameters and an appropriate r
   - Timebox to a maximum number of days a coordinated campaign will run across all targeted users.
   - Specify a maximum number of impressions a user should see an in-product message. Respect when a user dismisses a message.
 
-## Avoid traffic collisions
+### Avoid traffic collisions
+
 - Avoid showing too many alerts at the same time. Collisions are awkward and undesirable, no more than 2 alerts a time. 
 - Consider what other alerts, teaching bubbles, or banners may be active on the page before launching your onboarding experience.
 
-<Flex alignItems="center" flexDirection="column" my={5}>
+<Flex alignItems="center" flexDirection="column" my={3}>
   <BorderBox width={8/12} border="1px solid" borderColor="red.5" mb="2">
     <img src="https://user-images.githubusercontent.com/6744014/89232625-b0708500-d59c-11ea-8af1-249894f6143a.png"/>
   </BorderBox>
   <p><Text fontWeight="bold" color="red.5">Don't:</Text> forget to check coinciding features releases on the same page</p>
 </Flex>
 
+### Create efficient sequences
 
-## Create efficient sequences
 Sequence tasks in a logical way to increase onboarding success. Clearly define when someone has started setup and successfully completed your flow. 
 
 Treat your feature onboarding as a story or a journey with a Beginning, Middle, and End:
 
-### Beginning: Draw attention to your feature
+#### Beginning: Draw attention to your feature
+
 - Invite the user to engage with an onboarding journey.
 - Use teaching bubbles, alert banners, the feature preview tray or annoucement modals to draw attention to your feature.
 
-<Flex my={5}>
+<Flex my={3}>
   <Box width="100%" mr="2">
     <BorderBox border="1px solid" borderColor="green.5" mb="2">
       <img src="https://user-images.githubusercontent.com/6744014/89225349-eb6bbc00-d58e-11ea-82b1-b84e8d35b1df.png" />
@@ -70,231 +82,225 @@ Treat your feature onboarding as a story or a journey with a Beginning, Middle, 
   </Box>
 </Flex>
 
-### Middle: Guide your user through their task
+#### Middle: Guide your user through their task
+
 - Use form, checklist, or other components to help users complete their task.
 
 ![Checklist example](https://user-images.githubusercontent.com/47256527/88720479-c7fdc880-d0d9-11ea-9ac1-76b9defafe79.png)
 
-### End: Celebrate the finish
+#### End: Celebrate the finish
+
 - Clearly define when someone has started setup and successfully completed your flow.
 - Use a toast, flash alert, or other messages to confirm the user has completed their task. Message should be short and brief.
 
 ![Do](https://user-images.githubusercontent.com/47256527/88720500-d3e98a80-d0d9-11ea-8943-43e6e04431b3.png)
 
-## Do not trap or derail the user
-- Make it clear to the user how they may dismiss the message and return to their original task quickly.
-- Consider how to maintain context if a call-to-action links to a new page. 
+## Teaching bubble
 
-<Flex alignItems="center" flexDirection="column" my={5}>
-  <BorderBox width={9 / 12} border="1px solid" borderColor="gray.3" mb="2">
-    <img src="https://user-images.githubusercontent.com/6744014/88740809-f340e180-d0f2-11ea-9ba3-15005aebc378.png" />
-  </BorderBox>
-  <p>Multiple call to actions</p>
-</Flex>
+A teaching bubble is a [Primer popover](https://primer.style/css/components/popover) that calls attention to a feature in a specific part of the page. Generally, teaching bubbles should be used to educate the user and enrich the task at hand.
 
- 
-# Teaching bubble
-Teaching bubbles are a special [popover]() that calls attention to a feature in a specific part of the page. Generally, features highlighted by teaching bubbles should be used to educate the user and enriching to the user’s task at hand. Consider the page the user is currently viewing and what jobs-to-be-done they may be performing.
+### Usage guidelines
 
-|Pattern |Quickstart| Top user benefits|
-|:--|:--|:--|
-|Whent to use |<li>Call attention to new or important features</li><li>Invoked by the system, like a new capability being available</li>|The highlighted feature extends or improves the user's likely task at hand|
-|When not to use |<li>Don't point to hidden elements</li><li>If the user cannot immediately interact and benefit from the feature highlighted</li>|Do not distract the user from completing their task.|
+Teaching bubble Figma [sticker sheet](https://www.figma.com/file/FJtZyBeBfwDkByHPfDSN6k/Feature-onboarding?node-id=857%3A34). 
 
-## General guidelines
-Refer to the [Primer popover component](https://primer.style/css/components/popover) for more detailed implementation guidelines.
-
-```html live title="Basic"
-<div class="Popover right-0 left-0 position-relative">
-  <div class="Popover-message text-left p-4 mt-2 mx-auto Box box-shadow-large">
-    <h4 class="mb-2">Teaching bubble heading</h4>
-    <p>Use this as a teaching moment that may enrich a user’s experience. Keep message to a maximum of 160 characters.</p>
-    <button class="btn btn-sm btn-outline mt-2" type="button">Primary action</button>
-    <button class="btn btn-invisible ml-2">Ok, dismiss</button>
-  </div>
-</div>
-```
-
-- Show one teaching bubble at a time.
-- Recommended to include a headline that states the purpose of the message.
-- Keep your message short and pithy, around 160 characters. 
-- If additional information must be added, consider a stepped guide or a “Learn more” link that opens in a new window or tab. 
-- It is preferable to use a descriptive dismiss button (e.g. “Ok, got it” or “Done”) over a close icon; if a close icon must be used, remember to apply the correct tab order and polite annoucements for screenreaders.
--If a guided feature setup is needed in a recurring manner, consider using other more inline  patterns like empty states in lieu of teaching bubbles.
-- Keep your copy to maximum 160 characters.
-
-### Multiple calls to action
-The default dismissal button should say “Ok, got it” as a way to inject more personality while reaffirming with “ok” which internationalizes better as a more commonly recognized phrase. As a secondary call to action, it should be “Ok, dismiss.”
-
-<p><img src="https://user-images.githubusercontent.com/6744014/88741737-43b93e80-d0f5-11ea-8445-5b878607756e.png" width="180"/></p>
-
-If the primary action is not to dismiss the teaching bubble, they should invite the user to engage with the value proposition promised. Call to actions in teach bubbles should not take the user away from their current page. 
-
-Actions that take the user to a new page may only be linked from the copy and must open in a new tab or window to prevent loosing the user’s context.
-
-<Flex alignItems="center" flexDirection="column" my={5}>
-  <BorderBox width={9 / 12} border="1px solid" borderColor="gray.3" mb="2">
-    <img src="https://user-images.githubusercontent.com/6744014/88740809-f340e180-d0f2-11ea-9ba3-15005aebc378.png" />
-  </BorderBox>
-  <p>Multiple call to actions</p>
-</Flex>
+- ✅ **Do**
+  - Highlight a new feature or important feature that extends or improves the user's experience on the page.
+  - Show one teaching bubble at a time.
+  - Include a headline that states the purpose of the message.
+  - Keep your message short and concise, around 160 characters.
+  - Make it clear how to easily dismiss the popover.
+- 🚫 **Don't**
+  - Do not point to hidden elements.
+  - Do not use a teaching bubble if the user cannot immediately interact and benefit from the feature highlighted.
+  - Do not derail users; if you need to include additional information, consider a "Learn more" link in the message body that opens a new window or tab.
 
 ### Variations
 
-|Emoji|Pictograms|Illustrations and gifs|
-|---|---|---|
-|![emoji](https://user-images.githubusercontent.com/6744014/88740799-f045f100-d0f2-11ea-9d23-5d002b2510e3.png)|![packages](https://user-images.githubusercontent.com/6744014/88740806-f2a84b00-d0f2-11ea-9530-f144d47e331c.png)|![gif](https://user-images.githubusercontent.com/6744014/88740801-f0de8780-d0f2-11ea-8c0f-1a52e2f38da0.png)|
+<table>
+  <tr>
+    <td></td>
+    <th>Example</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <th>Default</th>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89239384-dc483680-d5ad-11ea-9463-3c56e1feefd9.png"/></td>
+    <td>Generally, use a descriptive dismiss button over a close icon. "Ok, got it" is the default dismissal button copy.</td>
+  </tr>
+  <tr>
+    <th>Condensed</th>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89239379-db170980-d5ad-11ea-8327-fa8b035f5e0c.png"/></td>
+    <td>Use a close icon for condensed messages. Remember to apply the correct tab order for screen readers to easily dismiss the teaching bubble at the end of the message.</td>
+  </tr>
+  <tr>
+    <th>Multiple buttons</th>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89239536-58427e80-d5ae-11ea-9578-05c74c7701da.png"/></td>
+    <td>Invite the user to engage with the value proposition promised. Include dismiss as a secondary button as "Ok, dismiss". Additional links that takes the user to a new page should be linked from the text and must open in a new tab or window to prevent loosing the user’s context.</td>
+  </tr>
+  <tr>
+    <th>Emoji</th>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89239385-dc483680-d5ad-11ea-97e9-9ea6f54fe451.png"/></td>
+    <td>Use emojis to inject personality into the message.</td>
+  </tr>
+  <tr>
+    <th>Pictograms</th>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89239387-dce0cd00-d5ad-11ea-898b-b574bb837836.png"/>
+    <img src="https://user-images.githubusercontent.com/6744014/89239389-dd796380-d5ad-11ea-84f4-c0819100fc2a.png"/></td>
+    <td>Use pictograms can be used to represent the feature.</td>
+  </tr>
+  <tr>
+    <th>Illustrations and gifs</th>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89239386-dce0cd00-d5ad-11ea-8ff7-98001038a687.png"/></td>
+    <td>Visually communicate or demonstrate a complex feature with illustrations and gifs to supplement a message.</td>
+  </tr>
+</table>
 
-**Condensed**
+## Inline feature discovery
 
-Use a close icon only for condensed messages that have no primary call to action. Remember to set the correct aria order for screen readers to easily dismiss the teaching bubble at the end of the message.
+Inline feature discovery is a way to highlight features without obscuring other parts of the page while a user may be performing an existing task. 
 
-<p><img src="https://user-images.githubusercontent.com/6744014/88740797-efad5a80-d0f2-11ea-95dc-8781f046f70c.png" width="300"/></p>
+### Page banner
 
-# Inline feature discovery
+Page banners are used for annoucements that are relevant to the core task on the current page. Remember to consider using other feature announcement patterns or marketing strategies instead of disturbing the user with multiple announcements.
 
-A banner that appears inline often used as a way to reveal hidden features in more obscure parts of GitHub. Do not persist the banner without an ability to dismiss on a “core” high traffic page.
+Include a clear way for users to dismiss a page banner and [clear campaign parameters](#set-clear-campaign-limits).
 
-If there must be a visible inline banner, it should only persist for a specified amount of time. Consider using other feature annoucement UI patterns or marketing strategies rather than bombarding the user with annoucements in their place of work.
-
-## Page banner
-
-Page banners are used for annoucements that are relevant to the core job to be done on the current page. 
-
-<Flex alignItems="center" flexDirection="column" my={1}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="gray.3">
+<Flex alignItems="center" flexDirection="column" my={3}>
+  <BorderBox width={12 / 12} border="1px solid" borderColor="green.5" mb="2">
     <img src="https://user-images.githubusercontent.com/6744014/88745191-40768080-d0fe-11ea-97ae-6d9139027646.png" />
   </BorderBox>
+  <p><Text fontWeight="bold" color="green.5">Do:</Text> call out a major feature or change in a page with an invitation to engage and a clear way to dismiss.</p>
 </Flex>
 
-```html
-<div class="Box mb-5 p-4 text-center">
-  <h4>A fresh new look for repositories!</h4>
-  <p>We've made some improvements to make it easier to focus and find things in the repository. Read more about the re-design process in our <a href="#">blog post</a>.</p>
-  <p>Take a quick tour to see what's changed.</p>
-  <span><button class="btn btn-outline">Start tour</button><button class="btn btn-invisible">Ok, dismiss</button></span>
-</div>
-```
-
-<Flex alignItems="center" flexDirection="column" my={5}>
+<Flex alignItems="center" flexDirection="column" my={3}>
   <BorderBox width={12 / 12} border="1px solid" borderColor="red.5" mb="2">
     <img src="https://user-images.githubusercontent.com/6744014/88744095-3acb6b80-d0fb-11ea-876e-c461ee96de7c.png" />
   </BorderBox>
-  <p><Text fontWeight="bold" color="red.5">Don't:</Text> use a page banner to disproportionately highlight a small feature</p>
+  <p><Text fontWeight="bold" color="red.5">Don't:</Text> use a page banner to disproportionately highlight a small feature.</p>
 </Flex>
 
-## Inline feature highlight
+### Inline banner
 
-### Inline banners
+Inline banners may be used in a page with multiple steps or actions.
 
-On a page with multiple steps or actions, highlight a feature inline close to where it would be logical to extend the user’s experience. Consider [alerts]() with branded elements as a way to implement these messages.
+<table>
+  <tr>
+    <td></td>
+    <th>Example</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <th>Inline feature banner</th>
+    <td>
+      <img src="https://user-images.githubusercontent.com/6744014/88744364-f5f40480-d0fb-11ea-97c4-5ab87b548a2c.png"/>
+      <p>A short introduction to the Wiki feature while configuring your repository settings.</p>
+    </td>
+    <td>Organization, repository, or user settings, where a feature is managed and customized, inline alert banners may highlight relevant features that may help better accomplish a user’s task.</td>
+  </tr>
+  <tr>
+    <th>Hidden revealed</th>
+    <td>
+      <img src="https://user-images.githubusercontent.com/6744014/89241458-d35a6380-d5b3-11ea-9307-52c8ae80f2d3.png"/>
+      <p>Discovering the Profile Readme when creating a new repository.</p>
+    </td>
+    <td>In certain senarios, we release features that are hidden for the user to discover. Show a <a href="">Primer alert</a> at pivotal moments signal to the user they're on the right track and give more resources.</td>
+  </tr>
+</table>
 
-<Flex alignItems="center" flexDirection="column" my={5}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="gray.3" mb="2">
-    <img src="https://user-images.githubusercontent.com/6744014/88744092-3a32d500-d0fb-11ea-9037-b98875405ac2.png" />
-  </BorderBox>
-  <p>Organization, repository, or user settings, where a feature is managed and customized, inline feature discovery highlights relevant features that may help accomplish a user’s task.</p>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="gray.3" mb="2">
-    <img src="https://user-images.githubusercontent.com/6744014/88744364-f5f40480-d0fb-11ea-97c4-5ab87b548a2c.png" />
-  </BorderBox>
-</Flex>
-
-**Hidden revealed**
-
-In certain scenarios, we release features that are hidden for the user to discover. Encourage the user by showing confirmation messages at pivotal moments or give more resources. Refer to the [Primer alert component](). 
-
-Typically, this is paired with other off-platform ways to discover the feature like a blog post or other marketing efforts. Be sure to have clear documentation in GitHub Docs or other applicable user facing resources.
-
-<Flex alignItems="center" flexDirection="column" my={5}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="gray.3" mb="2">
-    <img src="https://user-images.githubusercontent.com/6744014/88744088-3901a800-d0fb-11ea-96c7-efdd64d43452.png" />
-  </BorderBox>
-  <p>Discovering the Profile Readme when creating a new repository</p>
-</Flex>
-
-<Flex alignItems="center" flexDirection="column" my={5}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="gray.3" mb="2">
-    <img src="https://user-images.githubusercontent.com/6744014/88744085-37d07b00-d0fb-11ea-862c-b9d2514c8dc8.png" />
-  </BorderBox>
-  <p>Discovering issue templates when naming a file</p>
-</Flex>
+<!-- <table>
+  <tr>
+    <th>Variations</th>
+    <th>Inline feature preview</th>
+    <th>Hidden revealed</th>
+  </tr>
+  <tr>
+    <th>Example</th>
+    <td>
+      <img src="https://user-images.githubusercontent.com/6744014/88744364-f5f40480-d0fb-11ea-97c4-5ab87b548a2c.png"/>
+    </td>
+    <td>
+      <img src="https://user-images.githubusercontent.com/6744014/89241458-d35a6380-d5b3-11ea-9307-52c8ae80f2d3.png"/>
+    </td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>A short introduction to the Wiki feature while configuring your repository settings.</td>
+    <td>Discovering the Profile Readme when creating a new repository.</td>
+  </tr>
+  <tr>
+    <th>Notes</th>
+    <td>Organization, repository, or user settings, where a feature is managed and customized, inline feature previews highlight relevant features that may help better accomplish a user’s task.</td>
+    <td>In certain senarios, we release features that are hidden for the user to discover. Show a <a href="">Primer alert</a> at pivotal moments signal to the user they're on the right track and give more resources.</td>
+  </tr>
+</table> -->
 
 ### Empty states
-Use empty states as an integrated way to onboard users to new features. Read more about [empty states]().
+
+Use empty states as an integrated way to onboard users to new features. Read more about [empty states](/ui-patterns/empty-states).
 
 **In-product marketing empty state**
 
-A first time experience may be more unique than the typical blank state. For special occasions, take a more branded approach to engage and guide the user through complex experiences. Be aware of how the experience will change once the first time UI is no longer there. 
+For special occasions, a first time experience may be more unique than the typical blank state. Take a more branded approach to engage and guide the user through complex experiences. Be aware of how the experience will change once the first time UI is no longer there. 
 
-<Flex alignItems="center" flexDirection="column" my={5}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="gray.3" mb="2">
+<Flex alignItems="center" flexDirection="column" my={3}>
+  <BorderBox width={9 / 12} border="1px solid" borderColor="gray.3" mb="2">
     <img src="https://user-images.githubusercontent.com/6744014/88744262-b3cac300-d0fb-11ea-9752-c43722a30399.png" />
   </BorderBox>
   <p>GitHub Actions branded first time user experience</p>
 </Flex>
 
 
-# Designated feature discovery areas
+## Designated feature discovery areas
+
 Designated feature area generally detached from where the feature actually lives and have a clear click through to try out the feature or learn more.
 
-## Dashboard feature bulletin
+### Dashboard feature bulletin
+
 The top of the right sidebar in a user’s dashabord (logged-in home) is a designated area for feature discovery. They take the user directly to the feature in the product or the relevant marketing pages.
 
-**Basic announcement guidelines**
-• Limit messages to around 160 characters. 
-• If there is a click through, include a clear call-to-action button; avoid hidden links.
-• Use color, with discretion, to spotlight and bring brand feature personality to the annoucement.
+When using a dashboard feature bulletin:
 
-<Flex alignItems="center" flexDirection="column" my={5}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="gray.3" mb="2">
-    <img src="https://user-images.githubusercontent.com/66705495/88829133-09957e80-d181-11ea-9ab2-81a6c5513e20.png" />
-  </BorderBox>
-  <p>GitHub Actions branded first time user experience</p>
+- Limit messages to around 160 characters. 
+- If there is a click-through, include a descriptive button; avoid hidden links.
+- Use color, with discretion, to spotlight and bring brand feature personality to the annoucement.
+
+<Flex alignItems="center" flexDirection="column" my={3}>
+  <img mb={2} src="https://user-images.githubusercontent.com/6744014/89245516-d22e3400-d5bd-11ea-8124-110a698562d2.png"/>
+  <p>An annoucement about GitHub Teams in the feature preview bulletin leads to an off-platform marketing page.</p>
 </Flex>
 
-## Beta feature preview dialog
+### Beta feature preview dialog
+
 Feature previews allow teams to test features in production with users who opt in. A feature under the beta preview will be added to the Feature Preview dialog, accessible through the user dropdown
 
-Please note, features in Beta testing are strongly advised to have a comprehensive release and redaction plan. No feature should remain in Beta for longer than X months unmonitored.
+Please note, features in beta testing are strongly advised to have a comprehensive release and redaction plan. No feature should remain in beta for longer than 2 months unmonitored.
 
-<Flex alignItems="center" flexDirection="column" my={5}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="gray.3" mb="2">
-    <img src="https://user-images.githubusercontent.com/66705495/88829215-2762e380-d181-11ea-956e-8cf4166ac92c.png" />
-  </BorderBox>
-  <p>GitHub Actions branded first time user experience</p>
-</Flex>
+![Beta feature preview dialog](https://user-images.githubusercontent.com/6744014/89245313-6b107f80-d5bd-11ea-86cb-b697c61a2d99.png)
 
-# Flairs
-Flairs are subtler ways to accentuate new features. They are a good alternative to call attention to new things without derailing the user from their primary job to be done. 
+## Flairs
 
-Consider using flairs for features that appear in a user’s current view but may navigate away from their current page. They may also be applicable for smaller features that appear inline that more self-explainatory and do not need a teaching bubble. 
+Flairs is a softer way to accentuate new features without derailing the user from their primary task.
 
-See Primer documentation on labels and muted links for detailed implementation guidelines.
+Consider using flairs for features that appear in a user’s current view but may navigate away from their current page to fully engage with the feature. They may also be applicable for smaller features that appear inline that are self-explainatory and do not need a teaching bubble. 
 
-**Beta**
-Beta tags are applicable for feature previews. They may be accompanied by a feedback link which is encouraged but not required, depending on space constraints. 
+Include relevant links to capture feedback, marketing pages or changelog entries whenever possible.
 
-<Flex alignItems="center" flexDirection="column" my={5}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="gray.3" mb="2">
-    <img src="https://user-images.githubusercontent.com/66705495/88829463-7872d780-d181-11ea-849c-5c293d40ccea.png" />
-  </BorderBox>
-  <p>GitHub Actions branded first time user experience</p>
-</Flex>
-<Flex alignItems="center" flexDirection="column" my={5}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="gray.3" mb="2">
-    <img src="https://user-images.githubusercontent.com/66705495/88829510-8c1e3e00-d181-11ea-9218-bdca1c08d819.png" />
-  </BorderBox>
-  <p>GitHub Actions branded first time user experience</p>
-</Flex>
+See Primer documentation on [colored labels](https://primer.style/css/components/labels#colored-labels) and [muted links](https://primer.style/css/components/labels) for detailed implementation guidelines. Flairs Figma [sticker sheet](https://www.figma.com/file/FJtZyBeBfwDkByHPfDSN6k/Feature-onboarding?node-id=860%3A6107).
 
-**New**
-For new features that are released to production with a GA scope. The new flair should be timed and not overstay it’s welcome, generally a feature may be considered “new” for 2 months. 
-
-Include a link to relevant marketing pages or changelog entries where possible.
-
-<Flex alignItems="center" flexDirection="column" my={5}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="gray.3" mb="2">
-    <img src="https://user-images.githubusercontent.com/66705495/88829561-9e987780-d181-11ea-893b-1010fd62e4ef.png" />
-  </BorderBox>
-  <p>GitHub Actions branded first time user experience</p>
-</Flex>
+<table>
+  <tr>
+    <td></td>
+    <th>Example</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <th>New</th>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89243986-364ef900-d5ba-11ea-84b7-821dc8b3d535.png"/></td>
+    <td>Generally, a feature may be considered “new” for 2 months.</td>
+  </tr>
+    <tr>
+    <th>Beta</th>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89243980-34853580-d5ba-11ea-9570-87de12a3b11c.png"/></td>
+    <td>Beta flairs accompany features in listed in the feature previews dialog.</td>
+  </tr>
+</table>
