@@ -43,7 +43,7 @@ Create a new feature release timeline with clear parameters and an appropriate r
 ### Avoid traffic collisions
 
 - Avoid showing too many alerts at the same time. Collisions are awkward and undesirable, no more than 2 alerts a time. 
-- Consider what other alerts, teaching bubbles, or banners may be active on the page before launching your onboarding experience.
+- Consider what other alerts, teaching bubbles, or banners may be active on the page when crafting an onboarding experience.
 
 <Flex alignItems="center" flexDirection="column" my={3}>
   <BorderBox width={8/12} border="1px solid" borderColor="red.5" mb="2">
@@ -54,14 +54,14 @@ Create a new feature release timeline with clear parameters and an appropriate r
 
 ### Create efficient sequences
 
-Sequence tasks in a logical way to increase onboarding success. Clearly define when someone has started setup and successfully completed your flow. 
+Sequence tasks in a logical way to increase onboarding success. Clearly define when someone has started setup and successfully completed an onboarding flow. 
 
-Treat your feature onboarding as a story or a journey with a Beginning, Middle, and End:
+Treat feature onboarding as a story or a journey with a Beginning, Middle, and End:
 
-#### Beginning: Draw attention to your feature
+#### Beginning: Draw attention to the feature
 
 - Invite the user to engage with an onboarding journey.
-- Use teaching bubbles, alert banners, the feature preview tray or annoucement modals to draw attention to your feature.
+- Use teaching bubbles, alert banners, the feature preview tray or annoucement modals to draw attention to the feature.
 
 <Flex my={3}>
   <Box width="100%" mr="2">
@@ -70,7 +70,7 @@ Treat your feature onboarding as a story or a journey with a Beginning, Middle, 
     </BorderBox>
     <Text fontWeight="bold" color="green.5">
       Do:
-    </Text> use empty states or alert banners to call attention to a feature if users will discover your feature in order to start a task.
+    </Text> use empty states or alert banners to call attention to a feature if users may discover the feature when starting a task.
   </Box>
   <Box width="100%">
     <BorderBox border="1px solid" borderColor="green.5" mb="2">
@@ -78,11 +78,11 @@ Treat your feature onboarding as a story or a journey with a Beginning, Middle, 
     </BorderBox>
     <Text fontWeight="bold" color="green.5">
       Do:
-    </Text> use teaching bubbles or other easily dismissable elements if users will discover your feature while they are completing another task.
+    </Text> use teaching bubbles or other easily dismissable elements if users will discover the feature when they are completing another task.
   </Box>
 </Flex>
 
-#### Middle: Guide your user through their task
+#### Middle: Guide users through their task
 
 - Use form, checklist, or other components to help users complete their task.
 
@@ -90,7 +90,7 @@ Treat your feature onboarding as a story or a journey with a Beginning, Middle, 
 
 #### End: Celebrate the finish
 
-- Clearly define when someone has started setup and successfully completed your flow.
+- Clearly define when someone has started setup and successfully completed an onboarding flow.
 - Use a toast, flash alert, or other messages to confirm the user has completed their task. Message should be short and brief.
 
 ![Do](https://user-images.githubusercontent.com/47256527/88720500-d3e98a80-d0d9-11ea-8943-43e6e04431b3.png)
@@ -107,12 +107,13 @@ Teaching bubble Figma [sticker sheet](https://www.figma.com/file/FJtZyBeBfwDkByH
   - Highlight a new feature or important feature that extends or improves the user's experience on the page.
   - Show one teaching bubble at a time.
   - Include a headline that states the purpose of the message.
-  - Keep your message short and concise, around 160 characters.
+  - Keep messages short and concise, around 160 characters.
   - Make it clear how to easily dismiss the popover.
+  - Include supplementary information when applicable. Consider a "Learn more" link in the message body that opens a new window or tab without destroying a user's work or context.
 - 🚫 **Don't**
   - Do not point to hidden elements.
-  - Do not use a teaching bubble if the user cannot immediately interact and benefit from the feature highlighted.
-  - Do not derail users; if you need to include additional information, consider a "Learn more" link in the message body that opens a new window or tab.
+  - Do not use a teaching bubble if the user cannot immediately interact or benefit from the highlighted feature.
+  - Do not derail users; call-to-actions should not remove the user from their current context.
 
 ### Variations
 
@@ -193,7 +194,7 @@ Inline banners may be used in a page with multiple steps or actions.
     <th>Inline feature banner</th>
     <td>
       <img src="https://user-images.githubusercontent.com/6744014/88744364-f5f40480-d0fb-11ea-97c4-5ab87b548a2c.png"/>
-      <p>A short introduction to the Wiki feature while configuring your repository settings.</p>
+      <p>A short introduction to the Wiki feature while configuring repository settings.</p>
     </td>
     <td>Organization, repository, or user settings, where a feature is managed and customized, inline alert banners may highlight relevant features that may help better accomplish a user’s task.</td>
   </tr>
@@ -224,7 +225,7 @@ Inline banners may be used in a page with multiple steps or actions.
   </tr>
   <tr>
     <th>Description</th>
-    <td>A short introduction to the Wiki feature while configuring your repository settings.</td>
+    <td>A short introduction to the Wiki feature while configuring repository settings.</td>
     <td>Discovering the Profile Readme when creating a new repository.</td>
   </tr>
   <tr>
