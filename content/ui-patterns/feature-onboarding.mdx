@@ -46,7 +46,7 @@ Create a new feature release timeline with clear parameters and an appropriate r
 - Consider what other alerts, teaching bubbles, or banners may be active on the page when crafting an onboarding experience.
 
 <Flex alignItems="center" flexDirection="column" my={3}>
-  <BorderBox width={8/12} border="1px solid" borderColor="red.5" mb="2">
+  <BorderBox width={8/12} border="1px solid" borderColor="red.5" mb="2" overflow="hidden">
     <img src="https://user-images.githubusercontent.com/6744014/89232625-b0708500-d59c-11ea-8af1-249894f6143a.png"/>
   </BorderBox>
   <p><Text fontWeight="bold" color="red.5">Don't:</Text> forget to check coinciding features releases on the same page</p>
@@ -65,7 +65,7 @@ Treat feature onboarding as a story or a journey with a Beginning, Middle, and E
 
 <Flex my={3}>
   <Box width="100%" mr="2">
-    <BorderBox border="1px solid" borderColor="green.5" mb="2">
+    <BorderBox border="1px solid" borderColor="green.5" mb="2" overflow="hidden">
       <img src="https://user-images.githubusercontent.com/6744014/89225349-eb6bbc00-d58e-11ea-82b1-b84e8d35b1df.png" />
     </BorderBox>
     <Text fontWeight="bold" color="green.5">
@@ -73,7 +73,7 @@ Treat feature onboarding as a story or a journey with a Beginning, Middle, and E
     </Text> use empty states or alert banners to call attention to a feature if users may discover the feature when starting a task.
   </Box>
   <Box width="100%">
-    <BorderBox border="1px solid" borderColor="green.5" mb="2">
+    <BorderBox border="1px solid" borderColor="green.5" mb="2" overflow="hidden">
       <img src="https://user-images.githubusercontent.com/6744014/89225996-0c80dc80-d590-11ea-9e08-b86b2022b7eb.png" />
     </BorderBox>
     <Text fontWeight="bold" color="green.5">
@@ -86,14 +86,24 @@ Treat feature onboarding as a story or a journey with a Beginning, Middle, and E
 
 - Use form, checklist, or other components to help users complete their task.
 
-![Checklist example](https://user-images.githubusercontent.com/47256527/88720479-c7fdc880-d0d9-11ea-9ac1-76b9defafe79.png)
+<Flex alignItems="center" flexDirection="column" my={3}>
+  <BorderBox width={9 / 12} mb={2} overflow="hidden">
+    <img src="https://user-images.githubusercontent.com/6744014/89254411-e8df8580-d5d3-11ea-969f-5080a8c6b0d4.png" />
+  </BorderBox>
+  <p>Example of a checklist.</p>
+</Flex>
 
 #### End: Celebrate the finish
 
 - Clearly define when someone has started setup and successfully completed an onboarding flow.
 - Use a toast, flash alert, or other messages to confirm the user has completed their task. Message should be short and brief.
 
-![Do](https://user-images.githubusercontent.com/47256527/88720500-d3e98a80-d0d9-11ea-8943-43e6e04431b3.png)
+<Flex alignItems="center" flexDirection="column" my={3}>
+  <BorderBox width={9 / 12} mb="2" overflow="hidden">
+    <img src="https://user-images.githubusercontent.com/6744014/89254175-62c33f00-d5d3-11ea-8b95-7faaea7ae71b.png"/>
+  </BorderBox>
+  <p>Example of a toast.</p>
+</Flex>
 
 ## Teaching bubble
 
@@ -167,14 +177,14 @@ Page banners are used for annoucements that are relevant to the core task on the
 Include a clear way for users to dismiss a page banner and [clear campaign parameters](#set-clear-campaign-limits).
 
 <Flex alignItems="center" flexDirection="column" my={3}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="green.5" mb="2">
+  <BorderBox width={12 / 12} border="1px solid" borderColor="green.5" mb="2" overflow="hidden">
     <img src="https://user-images.githubusercontent.com/6744014/88745191-40768080-d0fe-11ea-97ae-6d9139027646.png" />
   </BorderBox>
   <p><Text fontWeight="bold" color="green.5">Do:</Text> call out a major feature or change in a page with an invitation to engage and a clear way to dismiss.</p>
 </Flex>
 
 <Flex alignItems="center" flexDirection="column" my={3}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="red.5" mb="2">
+  <BorderBox width={12 / 12} border="1px solid" borderColor="red.5" mb="2" overflow="hidden">
     <img src="https://user-images.githubusercontent.com/6744014/88744095-3acb6b80-d0fb-11ea-876e-c461ee96de7c.png" />
   </BorderBox>
   <p><Text fontWeight="bold" color="red.5">Don't:</Text> use a page banner to disproportionately highlight a small feature.</p>
@@ -244,7 +254,7 @@ Use empty states as an integrated way to onboard users to new features. Read mor
 For special occasions, a first time experience may be more unique than the typical blank state. Take a more branded approach to engage and guide the user through complex experiences. Be aware of how the experience will change once the first time UI is no longer there. 
 
 <Flex alignItems="center" flexDirection="column" my={3}>
-  <BorderBox width={9 / 12} border="1px solid" borderColor="gray.3" mb="2">
+  <BorderBox width={9 / 12} border="1px solid" borderColor="gray.3" mb="2" overflow="hidden">
     <img src="https://user-images.githubusercontent.com/6744014/88744262-b3cac300-d0fb-11ea-9752-c43722a30399.png" />
   </BorderBox>
   <p>GitHub Actions branded first time user experience</p>
@@ -253,7 +263,7 @@ For special occasions, a first time experience may be more unique than the typic
 
 ## Designated feature discovery areas
 
-Designated feature area generally detached from where the feature actually lives and have a clear click through to try out the feature or learn more.
+Designated feature area generally detached from where the feature actually lives and have a clear click through to try out the feature or to learn more.
 
 ### Dashboard feature bulletin
 
