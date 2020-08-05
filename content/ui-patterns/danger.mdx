@@ -2,7 +2,7 @@
 title: Destructive (danger) sequences
 ---
 
-import * as Images from '/images/danger'
+import {dangerPatterns1.png, dangerPatterns2.png, dangerPatterns3.png, dangerPatterns4.png, dangerPatterns5.png, dangerPatterns6.png, dangerPatterns7.png} from '../../images/danger'
 
 When users are making a destructive change to their GitHub account, we need to make sure they have a clear understanding of what is about to happen. Many times these changes are reversible, but may have irreversible side effects (making a repository public). Other times, they're not reversible at all (deleting an organization). Either way, we need to ensure that we've done everything we can to make sure there are no gaps in communication that may cause unintended effects so that we don't lose trust with users.
 
@@ -16,7 +16,7 @@ For critical destructive flows (including modifying user access, deleting reposi
 
 ## Visual treatment
 
-<img alt='Visual treatment of "Danger Zone"' src={Images.dangerPatterns1} />
+<Images.dangerPatterns1 alt="Visual treatment of Danger Zone"  />
 
 1. We should highlight all destructive flows visually. 
   a. All page sections that will trigger a destructive sequences should be highlighted with `border-red` and an `alert` icon to build an accessible, intuitive pattern of recognition. When people see those details, they should know to tread carefully. Ideally, these will be centralized into a `Danger Zone` section.
