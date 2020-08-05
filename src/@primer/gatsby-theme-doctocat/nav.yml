@@ -13,12 +13,14 @@
   children:
     - title: Button usage
       url: /ui-patterns/button-usage
+    - title: Danger
+      url: /ui-patterns/danger
     - title: Empty states
       url: /ui-patterns/empty-states
-    - title: Progressive disclosure
-      url: /ui-patterns/progressive-disclosure
     - title: Messaging
       url: /ui-patterns/messaging
+    - title: Progressive disclosure
+      url: /ui-patterns/progressive-disclosure
 - title: Design tools
   url: /tools
   children:
