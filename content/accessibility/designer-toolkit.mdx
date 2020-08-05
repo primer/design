@@ -2,16 +2,10 @@
 title: Designer toolkit
 ---
 
-We don't have to tackle accessibility alone. Many designers and developers have created tools to aid us in aiding others. 
-## Checklists
+Whether you’re designing a new user experience or just one component, make sure you’re addressing the considerations from the respective list.
+## Accessibility checklists
 ### Component creation
-- [ ] Keyboard operable
-- [ ] Expected operation
-- [ ] Clear indication of focus
-- [ ] Color contrast
-- [ ] Label
-- [ ] Role 
-- [ ] States and properties
+Check out a11yportal's [custom component creation checklist for UX designers](https://www.a11yportal.com/guidelines/fundamentals/checklists.html#custom-control-checklist-ux).
 ### UX Flow
 - [ ] Annotation labels for developer handoff
 	- [ ] Focus/Tab order
@@ -23,50 +17,36 @@ We don't have to tackle accessibility alone. Many designers and developers have 
 - [ ] With color removed, does the design still make sense?
 - [ ] If someone increases the text size, is the page still usable? 
 ## Figma 
-### Sticker sheet
-Accessibility markers to label your Figma file for developer hand-off. Stickers to label tab order, roles  labels, and announcement types for notifications. 
-### Focus order, Tabindex, Tab order, Tab stops plugins
+### Accessibility sticker sheet
+This [Figma file](https://www.figma.com/file/o3Vhxw4SmBsUjeaVq3nF4y/Accessibility-Notation?node-id=0%3A1) includes annotations to use on your designs prior to developer-hand off. These annotations will allow you note accessibility information like desired tab order, screen reader labels, headings, and landmarks.
 
-![Focus orderer plugin screenshot](https://user-images.githubusercontent.com/40274682/88444235-0db44b80-cdd1-11ea-8c37-dd133726d676.png)
+![Screenshot of tab order sticker labels on a Figma layout](https://user-images.githubusercontent.com/40274682/89364293-04f02f00-d687-11ea-9542-439fa61ef3c8.png)
+
+### Tab stop/Swipe stop plugin
 
 - [A11y - Focus Orderer](https://www.figma.com/community/plugin/731310036968334777/A11y---Focus-Orderer) - Select your elements in the desired tabbing order, add them to the plugin to get a visible layer label, and use the tab key to test the tab order right inside of Figma.
 	- **How does this help?** - Instead of manually placing tab order stickers on your design, let the plugin do it for you, and you can tab through your design to see if the flow makes sense.
 
-### Color contrast plugins
-One of the most well-known accessibility spaces for designers, check your color contrast without leaving Figma. 
+![Focus orderer plugin screenshot](https://user-images.githubusercontent.com/40274682/88444235-0db44b80-cdd1-11ea-8c37-dd133726d676.png)
 
-![A11y - Color Contrast Checker plugin screenshot](https://user-images.githubusercontent.com/40274682/88444620-e2326080-cdd2-11ea-945a-ca0ed85bf2ac.png)
-
-- [A11y - Color Contrast Checker](https://www.figma.com/community/plugin/733159460536249875/A11y---Color-Contrast-Checker) - Select two frames to check contrast between them. You'll get the contrast ratio, it'll show the pass/fail for A, AA, and AAA, and you can adjust the lightness right within the plugin and see results real-time.
-
-![Able - Friction free acessibility plugin screenshot](https://user-images.githubusercontent.com/40274682/88444655-fece9880-cdd2-11ea-9af2-be6b6d1fe08e.png)
-
-- [Able - Friction free accessibility](https://www.figma.com/community/plugin/734693888346260052/Able-%E2%80%93-Friction-free-accessibility) - This is similar to A11y - Color Contrast Checker. The layout is a bit different and it's a matter of personal preference. 
-
-![Contrast plugin screenshots](https://user-images.githubusercontent.com/40274682/88444681-1c036700-cdd3-11ea-9be2-92eb651419d3.png)
+### Color contrast plugin
+Checking the color contrast is one of the most important steps to take as a designer. Thankfully there are plugins for Figma that allow you to check without leaving the design tool. 
 
 - [Contrast](https://www.figma.com/community/plugin/748533339900865323/Contrast) - This plugin does the same as the above in addition to checking accessibility on top of gradients.
 
-## Tools on the computer
+![Contrast plugin screenshots](https://user-images.githubusercontent.com/40274682/88444681-1c036700-cdd3-11ea-9be2-92eb651419d3.png)
 
-![Sim Daltonism app screenshot](https://user-images.githubusercontent.com/40274682/88444732-5ff66c00-cdd3-11ea-97f6-350c2f5a6f32.png)
+## System tools
 
 - [Sim Daltonism](https://apps.apple.com/us/app/sim-daltonism/id693112260?mt=12) - Free application in the Mac App Store that can simulate various color blindness disorders.
 	- **How does this help?** - When we are designing something that uses color (yes, that's everything), we can use this app to see what we've designed through the eyes of those who have color blindness and see if it makes sense to them.
 
-## Tools on the web
-### Color contrast checkers (can't have too many!)
+![Sim Daltonism app screenshot](https://user-images.githubusercontent.com/40274682/88444732-5ff66c00-cdd3-11ea-97f6-350c2f5a6f32.png)
 
-![Contrast Checker website screenshot](https://user-images.githubusercontent.com/40274682/88444742-74d2ff80-cdd3-11ea-91db-2edbe216d803.png)
 
--[WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) - manually paste hex codes to get their contrast ratio and see if it passes or fails for normal text, large text, and graphical objects
-
-![Color Review website screenshot](https://user-images.githubusercontent.com/40274682/88444756-90d6a100-cdd3-11ea-876c-1c850ae19223.png)
+## Web tools
+### Color contrast checker
 
 - [Color Review](https://color.review/) - Color review is fantastic if you're looking for help in finding an accessible color in a current palette with less guesswork. 
 
-### Full site accessibility
-
-![Accessibility Insights' automated checks screenshot](https://user-images.githubusercontent.com/40274682/88444772-a8158e80-cdd3-11ea-8aaa-5abc578cd23a.png)
-
-- [Accessibility Insights](https://accessibilityinsights.io) - Perfect assistant for live webpages. Perform a quick automated pass, test your Tab stops, Landmarks, Headings, and even an assisted manual walkthrough to hit all of WCAG 2.1 guidance. Walking through the Assessment on any webpage can help you get acquainted with WCAG guidelines.
+![Color Review website screenshot](https://user-images.githubusercontent.com/40274682/88444756-90d6a100-cdd3-11ea-876c-1c850ae19223.png)
