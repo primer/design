@@ -10,7 +10,7 @@ import Img5 from '../../images/danger/dangerPatterns5.png'
 import Img6 from '../../images/danger/dangerPatterns6.png'
 import Img7 from '../../images/danger/dangerPatterns7.png'
 
-When users are making a destructive change to their GitHub account, we need to make sure they have a clear understanding of what is about to happen. Many times these changes are reversible, but may have irreversible side effects (making a repository public). Other times, they're not reversible at all (deleting an organization). Either way, we need to ensure that we've done everything we can to make sure there are no gaps in communication that may cause unintended effects so that we don't lose trust with users.
+When users are making a destructive change to their GitHub account, you should make sure they have a clear understanding of what is about to happen. Many times these changes are reversible, but may have irreversible side effects (making a repository public). Other times, they're not reversible at all (deleting an organization). Either way, ensure that you've done everything you can so there are no gaps in communication that may cause unintended effects so that GitHub doesn't lose users' trust.
 
 # Non-critical data
 
@@ -18,12 +18,12 @@ There are several types of data within GitHub that will need to be deleted from 
 
 # Critical data
 
-For critical destructive flows (including modifying user access, deleting repositories, making private data public, etc.), there are 3 basic treatments we can apply that will ensure the full effects of a change are clear to users and that we minimize loss of trust.
+For critical destructive flows (including modifying user access, deleting repositories, making private data public, etc.), there are 3 basic treatments you can apply that will ensure the full effects of a change are clear to users and that we minimize loss of trust.
 
 ## Visual treatment
 
-1. We should highlight all destructive flows visually. 
-    - All page sections that will trigger a destructive sequences should be highlighted with `border-red` and an `alert` icon to build an accessible, intuitive pattern of recognition. When people see those details, they should know to tread carefully. Ideally, these will be centralized into a `Danger Zone` section.
+1. Highlight all destructive flows visually. 
+    - All page sections that will trigger a destructive sequence should be highlighted with `border-red` and an `alert` icon to build an accessible, intuitive pattern of recognition. When users notice those details, they should know to tread carefully. Ideally, these will be centralized into a `Danger zone` section.
     - Any actions that will delete significant user data must use the `btn-danger` class.
 
 <img alt='Visual treatment of Danger Zone' src={Img1} />
@@ -39,19 +39,19 @@ For critical destructive flows (including modifying user access, deleting reposi
 
 ## Secondary confirmation
 
-We should force users into a secondary confirmation flow - generally a [box-overlay]() - to ensure that they understand the full impact of the decision. 
+Take users into a secondary confirmation flow - generally a [box-overlay]() - to ensure they understand the full impact of the decision. 
 
-1. The user should be informed of exactly which data **will** be destroyed and forced to confirm that they understand it. This should be explained clearly and concisely in a bulleted list form, using the [`x` octicon]() to both draw attention and emphasize that it will be deleted. We should not list out data that will *not* be deleted.
+1. The user should be informed of exactly which data **will** be destroyed and required to confirm they understand it. This should be explained clearly and concisely in a bulleted list form, using the [`x` octicon]() to both draw attention and emphasize that it will be deleted. Don't list out data that will *not* be deleted.
 
 2. Each step in the confirmation flow enables the next step. This forces users to work through each step in sequence and adds a layer of friction that is not prohibitive, but should help minimize errors.
 
 <img alt='Example image of detailed list of data deletions' src={Img4} />
 
-3. The user should be informed of the the steps to revert those changes (if reversible) and forced to confirm again.
+3. The user should be informed of the the steps to revert those changes (if reversible) and requested to confirm again.
 
 <img alt='Example image of UI describing if or how data can be recovered' src={Img5} />
 
-4. In cases where the data will delete a user account, an organization, or a repository, the user should be forced to enter their password before confirming.
+4. In cases where the data will delete a user account, an organization, or a repository, the user should be asked to enter their password before confirming.
 
 <img alt='Example image of password-protected confirmation step' src={Img6} />
 
@@ -59,11 +59,10 @@ We should force users into a secondary confirmation flow - generally a [box-over
 
 <img alt='Example of a second-stage danger button' src={Img7} />
 
-
-_All data deletion events should be logged for the support team to help them handle cases where something has gone wrong._
+_Note: All data deletion events should be logged for the support team to help them handle cases where something has gone wrong._
 
 # Non-destructive danger patterns
 
-There are several cases within GitHub where we treat conversions or feature enablements as `danger` patterns. Examples include converting a pull request to a draft (no data is deleted) and enabling GitHub Pages (no data is deleted, some pages are published). These should not follow the `danger` patterns established above *unless* data is being deleted as those treatments should be specifically reserved for deletions.
+There are several cases where GitHub treats conversions or feature enablements as `danger` patterns. Examples include converting a pull request to a draft (no data is deleted) and enabling GitHub Pages (no data is deleted, some pages are published). These should not follow the `danger` patterns established before *unless* data is being deleted since the previously mentioned treatments are specifically reserved for deletions.
 
-In these cases, we want to make sure users are sufficiently informed of what will happen without visually implying that data will be lost. If we are concerned that the user may not have enough context to make a decision, we should use a [`box-row`]() with `bg-yellow` and the `warning` octicon to provide the necessary information. If an action is required, use `btn` or `btn-outline` instead of `btn-danger`.
+In these cases, make sure users are sufficiently informed of what will happen without visually implying that data will be lost. If you're concerned the user may not have enough context to make a decision, use a [`box-row`]() with `bg-yellow` and the `warning` octicon to provide the necessary information. If an action is required, use `btn` or `btn-outline` instead of `btn-danger`.
