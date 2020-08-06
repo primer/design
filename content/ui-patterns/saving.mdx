@@ -1,65 +1,30 @@
 ---
 title: Saving
 ---
+import Saving1 from '../../images/saving/saving1.png'
 
 GitHub's save patterns help users to store and update their configurations for different features throughout GitHub's various interfaces. These changes should be represented in the UI accurately, quickly, and obviously. Their behavior should be easy to reason about and inspire confidence and trust.
 
-All configuration flows should be punctuated with CTAs that feature a logical term such as "Create", "Save", "Delete", or "Update" (e.g. "Create" a new repository, "Add" an SSH key to your profile, "Save" security preferences, "Update" a repository's description, "Delete" an old email address). 
+Punctuate all configuration flows with CTAs that feature a logical term such as "Create", "Save", "Delete", or "Update" (e.g. "Create" a new repository, "Add" an SSH key to your profile, "Save" security preferences, "Update" a repository's description, "Delete" an old email address). 
 
-Individual settings that are not changed via discrete flows should minimize the required UI by saving configuration changes as they are made (e.g. changing your primary email address, adding an assignee to an issue, unsubscribing from a notification type, following a user, watching a repository).
+1. In general, use the least possible text. 
+2. In cases where it may be unclear to the user which entity is changing, you can add the entity's name to the button also.
+
+<img src={Saving1} alt='Examples of button labels' />
+
+For individual settings that are not changed via discrete flows, minimize the required UI by saving configuration changes as they are made (e.g. changing your primary email address, adding an assignee to an issue, unsubscribing from a notification type, following a user, watching a repository).
 
 ## Patterns
 
 There are two primary patterns for saving configuration on GitHub.
 
 ### Save and route
-This pattern is primarily used for creation and deletion of new entities such as repositories, organizations, or user accounts. At the end of the flow, the user should be routed to the entity they just created. In some cases such as forking or using a template, we may need to hold the user at a waiting page while the entity is generated. In these cases, we should make the user feel confident that something is happening and that their configuration details will not be lost. In some cases, such as deleting a repository, it may make sense to be explicit that the interaction has occurred by using a [Flash alert](https://primer.style/css/components/alerts).
+Use this pattern for creation and deletion of new entities such as repositories, organizations, or user accounts. At the end of the flow, route the user to the entity they just created. In some cases such as forking or using a template, you may need to hold the user at a waiting page while the entity is generated. In these cases, make the user feel confident that something is happening and that their configuration details will not be lost. In cases where there is not an entity-specific page to route the user to, explicitly indicate that the interaction has occurred by using a [`toast`](https://primer.style/css/components/toasts).
 
 ### Optimistic update
-For interactions where the entity already exists and we merely need to update a field on that object, we should initiate an async server request using `remoteForm`, immediately display the desired changes as if they've already happened, and upon response from the server, either cache the result of a successful change to save loading time later or present a clear, concise error message if an error has occurred. If the change may not be obviously visible in the UI the user is currently viewing, we should trigger a [Toast](https://primer.style/css/components/toasts) to let the user know that the change occurred successfully. 
+For interactions where the entity already exists and the user merely needs to update a field on that object, default to using async server requests and optimistic UI updates. If the change may not be obvious in the UI within the user's viewport, trigger a [Toast](https://primer.style/css/components/toasts) to let the user know that the change occurred successfully. 
 
-```javascript
-
-<!-- feature-preview-trigger.ts -->
-
-import {fire, on} from 'delegated-events'
-import {getAttribute, query, querySelectorAll} from '@github/query-selector'
-import {dialog} from '../details-dialog'
-import {fetchSafeDocumentFragment} from '../fetch'
-import {remoteForm} from '@github/remote-form'
-
-...
-
-on('click', '[data-feature-preview-trigger-url]', async event => {
-  const trigger = event.currentTarget
-  const url = getAttribute(trigger, 'data-feature-preview-trigger-url')
-
-  const newDialog = await dialog({
-    content: fetchSafeDocumentFragment(document, url),
-    dialogClass: 'feature-preview-dialog'
-  })
-
-  const indicators = querySelectorAll(document, '.js-feature-preview-indicator')
-  for (const indicator of indicators) {
-    indicator.hidden = true
-  }
-})
-
-remoteForm('.js-feature-preview-unenroll', async (form, wants) => {
-  await wants.text()
-  const feature = query(form, '.js-feature-preview-slug', HTMLInputElement).value
-  fire(form, `feature-preview-unenroll:${feature}`)
-})
-
-remoteForm('.js-feature-preview-enroll', async (form, wants) => {
-  await wants.text()
-  const feature = query(form, '.js-feature-preview-slug', HTMLInputElement).value
-  fire(form, `feature-preview-enroll:${feature}`)
-})
-
-```
-  
-In cases where we need to prevent the user from taking further action while the request completes (such as updating notification preferences) we should use the `data-disable-with` property with the present form of the button's verb (e.g. "Save" becomes "Saving...", "Follow" becomes "Following...") to indicate that they shouldn't navigate away from the current page which may cause the request to fail silently in the event of an error.
+In cases where we need to prevent the user from taking further action while the request completes (such as updating notification preferences) we should use the `data-disable-with` property with the present form of the action's verb (e.g. "Save" becomes "Saving...", "Follow" becomes "Following...") to indicate that they shouldn't navigate away from the current page which may cause the request to fail silently in the event of an error. In most cases, these actions should take minimal time, but in cases where it takes longer than normal, this clear indication is invaluable.
 
 ```html
   <input type="submit" data-disable-with="Submitting...">Submit</input>
