@@ -67,6 +67,11 @@ A great way to find answers to very specific accessibility questions when a reso
 
 Many of those searches will lead you to the [WAI-ARIA authoring practices 1.2](https://www.w3.org/TR/wai-aria-practices-1.2/) and [Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/TR/wai-aria-1.2/)
 
-##Internal resources
+## Linting
+We currently run basic linting [against positive `tabindex`](https://github.com/github/github/blob/8546895623677abc70f61951642f32c16de231a1/test/fast/linting/accessible_tabindex_test.rb) and [anchor links with `href="#"`](https://github.com/github/github/blob/8546895623677abc70f61951642f32c16de231a1/test/rubocop/cop/rails/link_href.rb).
+
+We do client side scanning of inaccessible elements in development environment. The inaccessible elements will be styled with red borders with an onclick alert and console warnings.
+
+## Internal resources
 - #accessibility channel in Slack
 - Microsoft's design system, Fluent, has an accessibility channel in Teams (This channel is dedicated to making the Fluent design system accessible, but is home to many talented designers and developers passionate about accessibility)
