@@ -45,11 +45,14 @@ Create a new feature release timeline with clear parameters and an appropriate r
 - Avoid showing too many alerts at the same time. Collisions are awkward and undesirable, no more than 2 alerts a time. 
 - Consider what other alerts, teaching bubbles, or banners may be active on the page when crafting an onboarding experience.
 
-<Flex alignItems="center" flexDirection="column" my={3}>
-  <BorderBox width={8/12} border="1px solid" borderColor="red.5" mb="2" overflow="hidden">
-    <img src="https://user-images.githubusercontent.com/6744014/89232625-b0708500-d59c-11ea-8af1-249894f6143a.png"/>
-  </BorderBox>
-  <p><Text fontWeight="bold" color="red.5">Don't:</Text> Don't forget to check coinciding feature releases on the same page.</p>
+<Flex my={3}>
+  <Box width="100%" mr="2">
+    <BorderBox border="1px solid" borderColor="red.5" mb="2" overflow="hidden">
+      <img src="https://user-images.githubusercontent.com/66705495/92283281-6e48a500-eeb4-11ea-9b3c-5f3a95ef0479.png" alt="Screenshot of two teaching bubbles overlapping"/>
+    </BorderBox>
+    <Text fontWeight="bold" color="red.5">
+        <p><Text fontWeight="bold" color="red.5">Don't:</Text> Don't forget to check coinciding feature releases on the same page.</p>
+  </Box>
 </Flex>
 
 ### Create efficient sequences
@@ -66,7 +69,7 @@ Treat feature onboarding as a story or a journey with a beginning, middle, and e
 <Flex my={3}>
   <Box width="100%" mr="2">
     <BorderBox border="1px solid" borderColor="green.5" mb="2" overflow="hidden">
-      <img src="https://user-images.githubusercontent.com/6744014/89225349-eb6bbc00-d58e-11ea-82b1-b84e8d35b1df.png" />
+      <img src="https://user-images.githubusercontent.com/6744014/89225349-eb6bbc00-d58e-11ea-82b1-b84e8d35b1df.png" alt="Example of the Blank Slate component in the Wiki tab of a repository." />
     </BorderBox>
     <Text fontWeight="bold" color="green.5">
       Do:
@@ -74,7 +77,7 @@ Treat feature onboarding as a story or a journey with a beginning, middle, and e
   </Box>
   <Box width="100%">
     <BorderBox border="1px solid" borderColor="green.5" mb="2" overflow="hidden">
-      <img src="https://user-images.githubusercontent.com/6744014/89225996-0c80dc80-d590-11ea-9e08-b86b2022b7eb.png" />
+      <img src="https://user-images.githubusercontent.com/6744014/89225996-0c80dc80-d590-11ea-9e08-b86b2022b7eb.png" alt="Example of a teaching bubble pointing out a new collaboration tool on GitHub" />
     </BorderBox>
     <Text fontWeight="bold" color="green.5">
       Do:
@@ -88,7 +91,7 @@ Treat feature onboarding as a story or a journey with a beginning, middle, and e
 
 <Flex alignItems="center" flexDirection="column" my={3}>
   <BorderBox width={9 / 12} mb={2} overflow="hidden">
-    <img src="https://user-images.githubusercontent.com/6744014/89254411-e8df8580-d5d3-11ea-969f-5080a8c6b0d4.png" />
+    <img src="https://user-images.githubusercontent.com/6744014/89254411-e8df8580-d5d3-11ea-969f-5080a8c6b0d4.png" alt="Example of a checklist on GitHub with two uncompleted tasks and one completed task" />
   </BorderBox>
   <p>Example of a checklist.</p>
 </Flex>
@@ -100,7 +103,7 @@ Treat feature onboarding as a story or a journey with a beginning, middle, and e
 
 <Flex alignItems="center" flexDirection="column" my={3}>
   <BorderBox width={9 / 12} mb="2" overflow="hidden">
-    <img src="https://user-images.githubusercontent.com/6744014/89254175-62c33f00-d5d3-11ea-8b95-7faaea7ae71b.png"/>
+    <img src="https://user-images.githubusercontent.com/6744014/89254175-62c33f00-d5d3-11ea-8b95-7faaea7ae71b.png" alt="Example of the success state toast component " />
   </BorderBox>
   <p>Example of a toast.</p>
 </Flex>
@@ -135,33 +138,33 @@ Teaching bubble Figma [sticker sheet](https://www.figma.com/file/FJtZyBeBfwDkByH
   </tr>
   <tr>
     <th>Default</th>
-    <td><img src="https://user-images.githubusercontent.com/6744014/89239384-dc483680-d5ad-11ea-9463-3c56e1feefd9.png"/></td>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89239384-dc483680-d5ad-11ea-9463-3c56e1feefd9.png" alt="Example of a default teaching bubble" /></td>
     <td>Generally, use a descriptive dismiss button over a close icon. "OK, got it" is the default dismissal button copy.</td>
   </tr>
   <tr>
     <th>Condensed</th>
-    <td><img src="https://user-images.githubusercontent.com/6744014/89239379-db170980-d5ad-11ea-8327-fa8b035f5e0c.png"/></td>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89239379-db170980-d5ad-11ea-8327-fa8b035f5e0c.png" alt="Example of a condensed teaching bubble"/></td>
     <td>Use a close icon for condensed messages. Remember to apply the correct tab order for screen readers to easily dismiss the teaching bubble at the end of the message.</td>
   </tr>
   <tr>
     <th>Multiple buttons</th>
-    <td><img src="https://user-images.githubusercontent.com/6744014/89239536-58427e80-d5ae-11ea-9578-05c74c7701da.png"/></td>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89239536-58427e80-d5ae-11ea-9578-05c74c7701da.png" alt="Example of a teaching bubble with multiple buttons" /></td>
     <td>Invite the user to engage with the value proposition promised. Include dismiss as a secondary button as "OK, dismiss". Additional links that takes the user to a new page should be linked from the text and must open in a new tab or window to prevent losing the user’s context.</td>
   </tr>
   <tr>
     <th>Emoji</th>
-    <td><img src="https://user-images.githubusercontent.com/6744014/89239385-dc483680-d5ad-11ea-97e9-9ea6f54fe451.png"/></td>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89239385-dc483680-d5ad-11ea-97e9-9ea6f54fe451.png" alt="Example of a teaching bubble with an emoji" /></td>
     <td>Use emojis to inject personality into the message.</td>
   </tr>
   <tr>
     <th>Pictograms</th>
-    <td><img src="https://user-images.githubusercontent.com/6744014/89239387-dce0cd00-d5ad-11ea-898b-b574bb837836.png"/>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89239387-dce0cd00-d5ad-11ea-898b-b574bb837836.png" alt="Example of a teaching bubble with pictograms" />
     <img src="https://user-images.githubusercontent.com/6744014/89239389-dd796380-d5ad-11ea-84f4-c0819100fc2a.png"/></td>
     <td>Use pictograms to represent the feature.</td>
   </tr>
   <tr>
     <th>Illustrations and gifs</th>
-    <td><img src="https://user-images.githubusercontent.com/6744014/90083962-d39be280-dcc8-11ea-9d38-4bc24f759ba9.gif"/></td>
+    <td><img src="https://user-images.githubusercontent.com/6744014/90083962-d39be280-dcc8-11ea-9d38-4bc24f759ba9.gif" alt="Example of a teaching bubble with a GIF" /></td>
     <td>Visually communicate or demonstrate a complex feature with illustrations and gifs to supplement a message.</td>
   </tr>
 </table>
@@ -178,14 +181,14 @@ Include a clear way for users to dismiss a page banner and [clear campaign param
 
 <Flex alignItems="center" flexDirection="column" my={3}>
   <BorderBox width={12 / 12} border="1px solid" borderColor="green.5" mb="2" overflow="hidden">
-    <img src="https://user-images.githubusercontent.com/6744014/88745191-40768080-d0fe-11ea-97ae-6d9139027646.png" />
+    <img src="https://user-images.githubusercontent.com/6744014/88745191-40768080-d0fe-11ea-97ae-6d9139027646.png" alt="Example of a page banner on the code tab of a repository" />
   </BorderBox>
   <p><Text fontWeight="bold" color="green.5">Do:</Text> Call out a major feature or change in a page with an invitation to engage and a clear way to dismiss.</p>
 </Flex>
 
 <Flex alignItems="center" flexDirection="column" my={3}>
   <BorderBox width={12 / 12} border="1px solid" borderColor="red.5" mb="2" overflow="hidden">
-    <img src="https://user-images.githubusercontent.com/6744014/88744095-3acb6b80-d0fb-11ea-876e-c461ee96de7c.png" />
+    <img src="https://user-images.githubusercontent.com/6744014/88744095-3acb6b80-d0fb-11ea-876e-c461ee96de7c.png" alt="Example of a page banner pointing out a small feature change" />
   </BorderBox>
   <p><Text fontWeight="bold" color="red.5">Don't:</Text> Don't use a page banner to disproportionately highlight a small feature.</p>
 </Flex>
@@ -203,7 +206,7 @@ Use inline banners in a page with multiple steps or actions.
   <tr>
     <th>Inline feature banner</th>
     <td>
-      <img src="https://user-images.githubusercontent.com/6744014/88744364-f5f40480-d0fb-11ea-97c4-5ab87b548a2c.png"/>
+      <img src="https://user-images.githubusercontent.com/6744014/88744364-f5f40480-d0fb-11ea-97c4-5ab87b548a2c.png" alt="Example of an inline feature banner" />
       <p>A short introduction to the Wiki feature while configuring repository settings.</p>
     </td>
     <td>Organization, repository, or user settings, where a feature is managed and customized, inline alert banners can highlight relevant features that may help better accomplish a user’s task.</td>
@@ -211,7 +214,7 @@ Use inline banners in a page with multiple steps or actions.
   <tr>
     <th>Hidden revealed</th>
     <td>
-      <img src="https://user-images.githubusercontent.com/6744014/89241458-d35a6380-d5b3-11ea-9307-52c8ae80f2d3.png"/>
+      <img src="https://user-images.githubusercontent.com/6744014/89241458-d35a6380-d5b3-11ea-9307-52c8ae80f2d3.png" alt="Example of an inline banner revealing an easter egg" />
       <p>Discovering the Profile Readme when creating a new repository.</p>
     </td>
     <td>Sometimes features can be hidden for users to discover. Show a <a href="">Primer alert</a> at pivotal moments to signal the user they're on the right track and provide more information.</td>
@@ -255,7 +258,7 @@ For special occasions, a first time experience may be more unique than the typic
 
 <Flex alignItems="center" flexDirection="column" my={3}>
   <BorderBox width={9 / 12} border="1px solid" borderColor="gray.3" mb="2" overflow="hidden">
-    <img src="https://user-images.githubusercontent.com/6744014/88744262-b3cac300-d0fb-11ea-9752-c43722a30399.png" />
+    <img src="https://user-images.githubusercontent.com/6744014/88744262-b3cac300-d0fb-11ea-9752-c43722a30399.png" alt="Screenshot of the empty state for GitHub actions" />
   </BorderBox>
   <p>GitHub Actions branded first-time user experience</p>
 </Flex>
@@ -276,7 +279,7 @@ When using a dashboard feature bulletin:
 - Use color, with discretion, to spotlight and bring brand feature personality to the annoucement.
 
 <Flex alignItems="center" flexDirection="column" my={3}>
-  <img mb={2} src="https://user-images.githubusercontent.com/6744014/89245516-d22e3400-d5bd-11ea-8124-110a698562d2.png"/>
+  <img mb={2} src="https://user-images.githubusercontent.com/6744014/89245516-d22e3400-d5bd-11ea-8124-110a698562d2.png" alt="Example of a bulletin that leads to a marketing page" />
   <p>An annoucement about GitHub Teams in the feature preview bulletin leads to an off-platform marketing page.</p>
 </Flex>
 
@@ -306,12 +309,12 @@ See Primer documentation on [colored labels](https://primer.style/css/components
   </tr>
   <tr>
     <th>New</th>
-    <td><img src="https://user-images.githubusercontent.com/6744014/89243986-364ef900-d5ba-11ea-84b7-821dc8b3d535.png"/></td>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89243986-364ef900-d5ba-11ea-84b7-821dc8b3d535.png" alt="Example of the NEW flair that highlights a new feature" /></td>
     <td>Generally, a feature may be considered “new” for 2 months.</td>
   </tr>
     <tr>
     <th>Beta</th>
-    <td><img src="https://user-images.githubusercontent.com/6744014/89243980-34853580-d5ba-11ea-9570-87de12a3b11c.png"/></td>
+    <td><img src="https://user-images.githubusercontent.com/6744014/89243980-34853580-d5ba-11ea-9570-87de12a3b11c.png" alt="Example of the BETA flair that highlights a beta feature" /></td>
     <td>Beta flairs accompany features listed in the feature previews dialog.</td>
   </tr>
 </table>
