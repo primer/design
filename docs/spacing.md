@@ -16,9 +16,7 @@ You can define different spacing values for different breakpoints, so the interf
 
 `[Example: component with larger margin around it in large screen, vs smaller margin in small screen]`
 
-In code, margins can be defined per breakpoint, where different breakpoints have a different margin applied.
-
-`[Example: mb-sm-2 mb-md-3 mb-lg-4]`
+In code, margins can be defined per breakpoint, where different breakpoints have a different margin applied. For example, applying the classes `mb-sm-2`, `mb-md-3`, and `mb-lg-4` to one component would translate into: `margin-bottom: 8px` in small screens (`mb-sm-2`), `margin-bottom: 16px` in medium screens (`mb-md-3`), and `margin-bottom: 24px` in large screens(`mb-lg-4`).
 
 ## Applying spacing
 
@@ -54,7 +52,7 @@ As a general rule, elements should align to other elements' outer box, and not t
 
 ## Hierarchy
 
-Do: Add more white space around components that are more important.
+**Do:** Add more white space around components that are more important.
 
 `[Examples: titles]`
 
@@ -64,13 +62,15 @@ Note: Editorial content can have more generous spacing.
 
 ## Consistency
 
-Do: Apply the same spacing values to similar components.
+**Do:** Apply the same spacing values to similar components.
 
 `[Example: all items in the sidebar have the same vertical distance]`
 
 ## Density
 
-`[Examples: ]`
+Some screens and flows require a denser layout, with smaller elements and less space between components, depending on the type of action users most often take. In these cases, use the smaller values of the spacing scale.
+
+`[Examples: high density screen, or part of screen]`
 
 ## Optical adjustments
 
