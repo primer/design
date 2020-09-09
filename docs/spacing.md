@@ -4,9 +4,9 @@ Careful spacing is key for the user to understand connections and hierarchies be
 
 ## Scale
 
-Primer follows a base-8 scale, as it allows for significant flexibility when defining a variety of spacing values within an interface.
+Primer follows a base-8 scale, as it allows for significant flexibility when defining a variety of spacing values within an interface. 
 
-`[list of spacing utilities]`
+The possible values are: 0, 4, 8, 16, 24, 32, 40, 48
 
 For very small components where 8 pixel spacing is too large, you can use 4 pixels. 
 
@@ -28,9 +28,17 @@ In some cases, for very small components and in denser areas of the UI, you can 
 
 `[Example: text and icon button]`
 
-Primer components have inner spacing built-in, so in most cases you’ll only need to consider vertical spacing between components.
+Primer components have padding built-in, so in most cases you’ll only need to consider vertical spacing *between* components.
 
-Do/Don’t: Using custom values?
+In some cases, the spacing values inside components don't follow the values in the scale, but the total size of the component should always follow the scale.
+
+`[Example: the padding inside a button may be 3px or 5px but the total height is 32px]`
+
+**Do:**
+- Use the spacing values available in Primer.
+
+**Don’t:**
+- Don't apply custom spacing values.
 
 ## Relationships
 
@@ -38,8 +46,11 @@ Elements that are close together are perceived as being related or part of the s
 
 `[Examples: cancel, save buttons; repo top nav buttons]`
 
-Alignment
-- Do / Don’t
+## Alignment
+
+As a general rule, elements should align to other elements' outer box, and not try to align to the content within a box.
+
+`[Example: text outside and above a table/list should align to the edge of the table (and not to the content within the rows]`
 
 ## Hierarchy
 
@@ -63,9 +74,9 @@ Do: Apply the same spacing values to similar components.
 
 ## Optical adjustments
 
-Icons
+In some cases, optical adjustments may break from the scale.
 
-Inline spacing
+`[Example: avatar on commits in repo landing page align optically with file icons below]`
 
 ## Common spacing values
 
@@ -76,6 +87,10 @@ Small components usually have 8px between them. In some cases, for very small bu
 The most common value when stacking components vertically is 16px.
 
 `[Example: issue header above first comment, sidebar, stacked boxes]`
+
+Generally, Primer elements have "squished" padding, where the vertical padding is smaller than the horizontal padding.
+
+`[Example: squished padding element, like a button.]`
 
 ## Learn more about spacing
 If you’d like to read more about spacing in UI design, we recommend:
