@@ -3,8 +3,7 @@ title: Messaging
 ---
 
 import {Box, Flex, BorderBox, Text, CircleOcticon} from '@primer/components'
-import {Check} from '@primer/octicons-react'
-import {X} from '@primer/octicons-react'
+import {CheckIcon, XIcon} from '@primer/octicons-react'
 
 Messaging components are used to provide important and relevant information to the user, including feedback, contextual information, product updates, and more.
 
@@ -45,10 +44,10 @@ Toasts should be brief and not bog down the experience with superfluous copy. If
 <Flex flexDirection={['column', 'row', 'row']}>
   <Box mr="2"  mb="4">
     <Flex flexDirection="row" alignItems="center" mb="2">
-      <CircleOcticon icon={Check} size={16} bg="green.5" color="white" mr="2" p="1"/>
+      <CircleOcticon icon={CheckIcon} size={16} bg="green.5" color="white" mr="2" p="1"/>
       <Text fontWeight="bold" color="gray.9" ml="1">
         Do
-      </Text> 
+      </Text>
     </Flex>
     <Box>
       <img src="https://user-images.githubusercontent.com/586552/63106528-06de5100-bf51-11e9-8a5e-98583ed74874.png" />
@@ -59,10 +58,10 @@ Toasts should be brief and not bog down the experience with superfluous copy. If
   </Box>
   <Box mr="2">
     <Flex flexDirection="row" alignItems="center" mb="2">
-      <CircleOcticon icon={X} size={16} bg="red.5" color="white" mr="2" p="1"/>
+      <CircleOcticon icon={XIcon} size={16} bg="red.5" color="white" mr="2" p="1"/>
       <Text fontWeight="bold" color="gray.9" ml="1">
         Don't
-      </Text> 
+      </Text>
     </Flex>
     <Box borderRadius="3">
       <img src="https://user-images.githubusercontent.com/586552/63106527-06de5100-bf51-11e9-858c-72de6a5c728a.png" />
@@ -85,7 +84,7 @@ Toasts are generally informative and should not receive focus when they appear. 
 </Box>
 Flash alerts are used to display updates or alerts pertaining to any part of the system; this includes information regarding the user's account, the organization, the repo, and more. These updates are typically not user-initiated but rather alerts that require the user's attention. Similarly to Toasts, Flash alerts can convey a warning, error, success, or a neutral message.
 
-Though Flash alerts don't need to be as concise as a typical Toast message, they should still be direct and not exceed two to three sentences. If additional context is needed, provide a link for the user to learn more. 
+Though Flash alerts don't need to be as concise as a typical Toast message, they should still be direct and not exceed two to three sentences. If additional context is needed, provide a link for the user to learn more.
 
 Don't use headings or multiple type sizes in Flash alerts, rely on our default paragraph size instead.
 
@@ -95,10 +94,10 @@ Flash alerts that affect every page (e.g. a global message) should use the [full
 <Flex flexDirection="column">
   <Box width="100%" mr="2"  mb="4">
     <Flex flexDirection="row" alignItems="center" mb="2">
-      <CircleOcticon icon={Check} size={16} bg="green.5" color="white" mr="2" p="1"/>
+      <CircleOcticon icon={CheckIcon} size={16} bg="green.5" color="white" mr="2" p="1"/>
       <Text fontWeight="bold" color="gray.9" ml="1">
         Do
-      </Text> 
+      </Text>
     </Flex>
     <Box>
       <img src="https://user-images.githubusercontent.com/586552/63046880-46e5fb00-bea1-11e9-836d-be1b1c7d963f.png" />
@@ -109,10 +108,10 @@ Flash alerts that affect every page (e.g. a global message) should use the [full
   </Box>
   <Box width="100%" mr="2">
     <Flex flexDirection="row" alignItems="center" mb="2">
-      <CircleOcticon icon={X} size={16} bg="red.5" color="white" mr="2" p="1"/>
+      <CircleOcticon icon={XIcon} size={16} bg="red.5" color="white" mr="2" p="1"/>
       <Text fontWeight="bold" color="gray.9" ml="1">
         Don't
-      </Text> 
+      </Text>
     </Flex>
     <Box borderRadius="3">
       <img src="https://user-images.githubusercontent.com/586552/63046881-46e5fb00-bea1-11e9-87ee-80dbeb0bea1c.png" />
@@ -132,7 +131,7 @@ They typically do not timeout on their own, but can include a dismiss action for
 <Flex flexDirection={['column', 'row', 'row']}>
   <Box mr="3"  mb="2">
     <img width="262" src="https://user-images.githubusercontent.com/586552/63109550-8111d400-bf57-11e9-8714-46607da2f2ba.png" />
-    
+
   </Box>
   <Box mb="2">
     <img width="386" src="https://user-images.githubusercontent.com/586552/63109551-8111d400-bf57-11e9-893b-2cdeffffd147.png" />
@@ -142,7 +141,7 @@ They typically do not timeout on their own, but can include a dismiss action for
 Popovers are used to call attention to a new feature, change to an existing feature, or to provide additional context. Popovers can be helpful for flows that require light onboarding or instruction.
 
 **Use sparingly to avoid cognitive overload**
-Though they can be used for a variety of things, they should be used sparingly to avoid cognitive overload. It's important to consider the context in which the Popover appears. Are there other Popovers on the page? Does it appear on page load, or require the user to open the Popover? 
+Though they can be used for a variety of things, they should be used sparingly to avoid cognitive overload. It's important to consider the context in which the Popover appears. Are there other Popovers on the page? Does it appear on page load, or require the user to open the Popover?
 
 Unlike other messaging components, Popovers should never include critical information (such as errors) and should always include a dismiss action.
 
