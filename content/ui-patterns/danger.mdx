@@ -1,0 +1,70 @@
+---
+title: Danger patterns
+---
+
+import Img1 from '../../images/danger/danger1.png'
+import Img2 from '../../images/danger/danger2.png'
+import Img3 from '../../images/danger/danger3.png'
+import Img4 from '../../images/danger/danger4.png'
+import Img5 from '../../images/danger/danger5.png'
+import Img6 from '../../images/danger/danger6.png'
+import Img7 from '../../images/danger/danger7.png'
+
+## Destructive changes
+
+When users are making a destructive change to their GitHub account, you should make sure they have a clear understanding of what is about to happen. Many times these changes are reversible, but may have irreversible side effects (making a repository public). Other times, they're not reversible at all (deleting an organization). Either way, ensure that you've done everything you can so there are no gaps in communication that may cause unintended effects so that GitHub doesn't lose users' trust.
+
+### Non-critical data
+
+There are several types of data within GitHub that will need to be deleted from time to time. Many of these are non-critical and can be handled without using a `danger` visual treatment. These non-critical destructive flows include deleting a comment, issue, pull request, or discussion.
+
+### Critical data
+
+For critical destructive flows (including modifying user access, deleting repositories, making private data public, etc.), there are 3 basic treatments you can apply that will ensure the full effects of a change are clear to users and that we minimize loss of trust.
+
+#### Visual treatment
+
+1. Highlight all destructive flows visually. 
+    - All page sections that will trigger a destructive sequence should be highlighted with a [`red border`](https://primer.style/css/utilities/borders#border-colors) and an [`alert` octicon](https://primer.style/octicons/alert-16) to build an accessible, intuitive pattern of recognition. When users notice those details, they should know to tread carefully. Ideally, these will be centralized into a "Danger Zone" section.
+    - Any actions that will delete significant user data must use the [`danger button`](https://primer.style/css/components/buttons#danger-button) component.
+
+<img alt='Visual treatment of Danger Zone' src={Img1} />
+
+2. Any actions that have prerequisites should remain disabled until those prerequisites have been completed.
+
+<img alt='Example image of a destructive action whose prerequisites have not been met' src={Img2} />
+
+3. Use standard danger buttons for standard views to avoid drawing unnecessary attention to the danger flows. We want to indicate that they are dangerous, not pull the user's attention away from what they are doing.
+
+<img alt='Example image of a Danger Zone with many "Danger" buttons' src={Img3} />
+
+
+#### Secondary confirmation
+
+Take users into a secondary confirmation flow - generally a [box overlay](https://primer.style/css/components/box-overlay) - to ensure they understand the full impact of the decision. 
+
+1. The user should be informed of exactly which data **will** be destroyed and required to confirm that they understand it. This should be explained clearly and concisely in a bulleted list form, using the [`x` octicon](https://primer.style/octicons/x-16) to both draw attention and emphasize that it will be deleted. Don't list out data that will *not* be deleted.
+
+2. Each step in the confirmation flow enables the next step. This forces users to work through each step in sequence and adds a layer of friction that is not prohibitive, but should help minimize errors.
+
+<img alt='Example image of detailed list of data deletions' src={Img4} />
+
+3. The user should be informed of the the steps to revert those changes (if reversible) and requested to confirm again.
+
+<img alt='Example image of UI describing if or how data can be recovered' src={Img5} />
+
+4. In cases where the data will delete a user account, an organization, or a repository, the user should be asked to enter their password before confirming.
+
+<img alt='Example image of password-protected confirmation step' src={Img6} />
+
+5. On secondary confirmation modals, the button should always be red to indicate its seriousness. It should be disabled by default. It should be enabled when all prior confirmation steps are completed.
+
+<img alt='Example of a second-stage danger button' src={Img7} />
+
+_Note: All data deletion events should be logged for the support team to help them handle cases where something has gone wrong._
+
+## Non-destructive changes
+
+There are several cases where GitHub treats conversions or feature enablements as `danger` patterns. Examples include converting a pull request to a draft (no data is deleted) and enabling GitHub Pages (no data is deleted, some pages are published). These should not follow the `danger` patterns established before *unless* data is being deleted since the previously mentioned treatments are specifically reserved for deletions.
+
+In these cases, make sure users are sufficiently informed of what will happen without visually implying that data will be lost. If you're concerned that the user may not have enough context to make a decision, we should use a yellow-themed [`flash alert`](https://primer.style/css/components/box#boxes-with-flash-alerts) with an [`alert` octicon](https://primer.style/octicons/alert-16) to provide the necessary information. If an action is required, use a [`default button`](https://primer.style/css/components/buttons#default-button) or [`outline button`](https://primer.style/css/components/buttons#outline-button) instead of a `danger button`.
