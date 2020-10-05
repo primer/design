@@ -45,14 +45,12 @@ Create a new feature release timeline with clear parameters and an appropriate r
 - Avoid showing too many alerts at the same time. Collisions are awkward and undesirable, no more than 2 alerts a time. 
 - Consider what other alerts, teaching bubbles, or banners may be active on the page when crafting an onboarding experience.
 
-<Flex my={3}>
-  <Box width="100%" mr="2">
-    <BorderBox border="1px solid" borderColor="red.5" mb="2" overflow="hidden">
-      <img src="https://user-images.githubusercontent.com/66705495/92283281-6e48a500-eeb4-11ea-9b3c-5f3a95ef0479.png" alt="Screenshot of two teaching bubbles overlapping"/>
-    </BorderBox>
-        <p><Text fontWeight="bold" color="red.5">Don't:</Text> Don't forget to check coinciding feature releases on the same page.</p>
-  </Box>
-</Flex>
+<DoDontContainer>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/66705495/92283281-6e48a500-eeb4-11ea-9b3c-5f3a95ef0479.png" alt="Screenshot of two teaching bubbles overlapping"/>
+    <Caption>Don't forget to check coinciding feature releases on the same page.</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Create efficient sequences
 
