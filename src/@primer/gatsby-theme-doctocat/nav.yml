@@ -15,10 +15,12 @@
       url: /ui-patterns/button-usage
     - title: Empty states
       url: /ui-patterns/empty-states
-    - title: Progressive disclosure
-      url: /ui-patterns/progressive-disclosure
     - title: Messaging
       url: /ui-patterns/messaging
+    - title: Progressive disclosure
+      url: /ui-patterns/progressive-disclosure
+    - title: Saving
+      url: /ui-patterns/saving
 - title: Design tools
   url: /tools
   children:
