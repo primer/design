@@ -45,12 +45,13 @@ Create a new feature release timeline with clear parameters and an appropriate r
 - Avoid showing too many alerts at the same time. Collisions are awkward and undesirable, no more than 2 alerts a time. 
 - Consider what other alerts, teaching bubbles, or banners may be active on the page when crafting an onboarding experience.
 
-<DoDontContainer>
-  <Dont>
-    <img src="https://user-images.githubusercontent.com/66705495/92283281-6e48a500-eeb4-11ea-9b3c-5f3a95ef0479.png" alt="Screenshot of two teaching bubbles overlapping"/>
-    <Caption>Don't forget to check coinciding feature releases on the same page.</Caption>
-  </Dont>
-</DoDontContainer>
+<Dont>
+  <img
+    src="https://user-images.githubusercontent.com/66705495/92283281-6e48a500-eeb4-11ea-9b3c-5f3a95ef0479.png"
+    alt="Screenshot of two teaching bubbles overlapping"
+  />
+  <Caption>Don't forget to check coinciding feature releases on the same page.</Caption>
+</Dont>
 
 ### Create efficient sequences
 
@@ -63,26 +64,28 @@ Treat feature onboarding as a story or a journey with a beginning, middle, and e
 - Invite the user to engage with an onboarding journey.
 - Use teaching bubbles, alert banners, the feature preview tray or annoucement modals to draw attention to the feature.
 
-<Flex my={3}>
-  <Box width="100%" mr="2">
-    <BorderBox border="1px solid" borderColor="green.5" mb="2" overflow="hidden">
-      <img src="https://user-images.githubusercontent.com/66705495/92768625-0929ff00-f34d-11ea-9524-bb3f88a4681e.png" alt="Example of the Blank Slate component in the Wiki tab of a repository." />
-    </BorderBox>
-    <Text fontWeight="bold" color="green.5">
-      Do:
-    </Text> Use empty states or alert banners to call attention to a feature if users may discover the feature when starting a task.
-  </Box>
-</Flex>
-<Flex my={3}>
-  <Box width="100%">
-    <BorderBox border="1px solid" borderColor="green.5" mb="2" overflow="hidden">
-      <img src="https://user-images.githubusercontent.com/66705495/92768727-2363dd00-f34d-11ea-84bf-36c2f3670589.png" alt="Example of a teaching bubble pointing out a new collaboration tool on GitHub" />
-    </BorderBox>
-    <Text fontWeight="bold" color="green.5">
-      Do:
-    </Text> Use teaching bubbles or other easily dismissable elements if users will discover the feature when they are completing another task.
-  </Box>
-</Flex>
+<DoDontContainer stacked>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/66705495/92768625-0929ff00-f34d-11ea-9524-bb3f88a4681e.png"
+      alt="Example of the Blank Slate component in the Wiki tab of a repository."
+    />
+    <Caption>
+      Use empty states or alert banners to call attention to a feature if users may discover the feature when starting a
+      task.
+    </Caption>
+  </Do>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/66705495/92768727-2363dd00-f34d-11ea-84bf-36c2f3670589.png"
+      alt="Example of a teaching bubble pointing out a new collaboration tool on GitHub"
+    />
+    <Caption>
+      Use teaching bubbles or other easily dismissable elements if users will discover the feature when they are
+      completing another task.
+    </Caption>
+  </Do>
+</DoDontContainer>
 
 #### Middle: Guide users through their task
 
@@ -115,17 +118,25 @@ A teaching bubble is a [Primer popover](https://primer.style/css/components/popo
 
 Teaching bubble Figma [sticker sheet](https://www.figma.com/file/FJtZyBeBfwDkByHPfDSN6k/Feature-onboarding?node-id=857%3A34). 
 
-- ✅ **Do**
-  - Highlight a new feature or important feature that extends or improves the user's experience on the page.
-  - Show one teaching bubble at a time.
-  - Include a headline that states the purpose of the message.
-  - Keep messages short and concise, around 160 characters.
-  - Make it clear how to easily dismiss the popover.
-  - Include supplementary information when applicable. Consider a "Learn more" link in the message body that opens a new window or tab without destroying a user's work or context.
-- 🚫 **Don't**
-  - Don't point to hidden elements.
-  - Don't use a teaching bubble if the user cannot immediately interact or benefit from the highlighted feature.
-  - Don't derail users; call-to-actions should not remove the user from their current context.
+<DoDontContainer>
+<Do>
+
+- Highlight a new feature or important feature that extends or improves the user's experience on the page.
+- Show one teaching bubble at a time.
+- Include a headline that states the purpose of the message.
+- Keep messages short and concise, around 160 characters.
+- Make it clear how to easily dismiss the popover.
+- Include supplementary information when applicable. Consider a "Learn more" link in the message body that opens a new window or tab without destroying a user's work or context.
+
+</Do>
+<Dont>
+
+- Don't point to hidden elements.
+- Don't use a teaching bubble if the user cannot immediately interact or benefit from the highlighted feature.
+- Don't derail users; call-to-actions should not remove the user from their current context.
+
+</Dont>
+</DoDontContainer>
 
 ### Variations
 
@@ -178,19 +189,24 @@ Use page banners for annoucements that are relevant to the core task on the curr
 
 Include a clear way for users to dismiss a page banner and [clear campaign parameters](#set-clear-campaign-limits).
 
-<Flex alignItems="center" flexDirection="column" my={3}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="green.5" mb="2" overflow="hidden">
-    <img src="https://user-images.githubusercontent.com/66705495/92768839-41314200-f34d-11ea-8f62-dfca0d43adf0.png" alt="Example of a page banner on the code tab of a repository" />
-  </BorderBox>
-  <p><Text fontWeight="bold" color="green.5">Do:</Text> Call out a major feature or change in a page with an invitation to engage and a clear way to dismiss.</p>
-</Flex>
-
-<Flex alignItems="center" flexDirection="column" my={3}>
-  <BorderBox width={12 / 12} border="1px solid" borderColor="red.5" mb="2" overflow="hidden">
-    <img src="https://user-images.githubusercontent.com/66705495/92768935-56a66c00-f34d-11ea-8b78-18ca99bd0350.png" alt="Example of a page banner pointing out a small feature change" />
-  </BorderBox>
-  <p><Text fontWeight="bold" color="red.5">Don't:</Text> Don't use a page banner to disproportionately highlight a small feature.</p>
-</Flex>
+<DoDontContainer stacked>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/66705495/92768839-41314200-f34d-11ea-8f62-dfca0d43adf0.png"
+      alt="Example of a page banner on the code tab of a repository"
+    />
+    <Caption>
+      Call out a major feature or change in a page with an invitation to engage and a clear way to dismiss.
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/66705495/92768935-56a66c00-f34d-11ea-8b78-18ca99bd0350.png"
+      alt="Example of a page banner pointing out a small feature change"
+    />
+    <Caption>Don't use a page banner to disproportionately highlight a small feature.</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Inline banner
 
