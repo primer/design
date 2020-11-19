@@ -12,13 +12,13 @@ Primer includes three different messaging components:
 - [Flash alerts](https://primer.style/css/components/alerts)
 - [Popovers](https://primer.style/css/components/popover)
 
-## Messaging Types
+## Messaging types
 
 It's important to consider the context when selecting a component to convey your message. Does the message need to interrupt the user flow? Is this a global message that needs to be shown on every page? Does it require the user to take an action, or is it more of a notice? Most messaging on GitHub falls into one of the following categories:
 
 **Feedback**: communicates something to the user based on an action they've taken or a change in context
 
-- _Toasts or Flash alerts are best suited for this type of messaging._
+- _Toasts or flash alerts are best suited for this type of messaging._
 
 **Highlights**: bring attention to how and why to engage with a feature
 
@@ -37,16 +37,16 @@ It's important to consider the context when selecting a component to convey your
   />
 </Box>
 
-[Toasts](https://primer.style/css/components/toasts) are used to provide relevant feedback to the user, typically after they've taken an action. Primer includes styles for success, warning, error, loading, and default Toasts. Some examples include:
+[Toasts](https://primer.style/css/components/toasts) are used to provide relevant feedback to the user, typically after they've taken an action. Primer includes styles for success, warning, error, loading, and default toasts. Some examples include:
 
-- confirmation that an action was successfully taken
-- communicating that an action is pending
-- notifying the user if an action failed to complete.
-- providing general information.
+- Confirmation that an action was successfully taken
+- Communicating that an action is pending
+- Notifying the user if an action failed to complete
+- Providing general information
 
-Toasts are best used in context of the page they're referring to (rather than a global notification that can appear on any page) and should require minimal user interaction. Toasts are best used to display time-sensitive information. For global notices and messaging, see the [Flash component](#flash-alerts).
+Toasts are best used in context of the page they're referring to (rather than a global notification that can appear on any page) and should require minimal user interaction. Toasts are best used to display time-sensitive information. For global notices and messaging, see the [flash component](#flash-alerts).
 
-Toasts should be brief and not bog down the experience with superfluous copy. If multiple Toasts appear on the page, they will stack naturally.
+Toasts should be brief and not bog down the experience with superfluous copy. If multiple toasts appear on the page, they will stack naturally.
 
 <DoDontContainer>
   <Do>
@@ -61,9 +61,9 @@ Toasts should be brief and not bog down the experience with superfluous copy. If
 
 ### Accessibility
 
-Toasts are non-modal components and should contain `role=log` , which implies the element has `aria-live="polite"`. This notifies the user of the Toast via Assistance Technologies without having to change focus to the Toast. You can read more about `role=log` [here](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23).
+Toasts are non-modal components and should contain `role=log` , which implies the element has `aria-live="polite"`. This notifies the user of the toast via Assistance Technologies without having to change focus to the toast. You can read more about `role=log` [here](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23).
 
-Toasts are generally informative and should not receive focus when they appear. For that reason, we suggest you **avoid using interactive elements** in the component (aside from a dismiss action). Keep in mind that, even without an explicit dismiss action, the user can always hit `esc` to dismiss the Toast. For more information on how interactive children affect web accessibility, [check out this issue](https://github.com/jackbsteinberg/std-toast/issues/29).
+Toasts are generally informative and should not receive focus when they appear. For that reason, we suggest you **avoid using interactive elements** in the component (aside from a dismiss action). Keep in mind that, even without an explicit dismiss action, the user can always hit `esc` to dismiss the toast. For more information on how interactive children affect web accessibility, [check out this issue](https://github.com/jackbsteinberg/std-toast/issues/29).
 
 ## Flash alerts
 
@@ -72,15 +72,15 @@ Toasts are generally informative and should not receive focus when they appear. 
 </Box>
 Flash alerts are used to display updates or alerts pertaining to any part of the system; this includes information regarding
 the user's account, the organization, the repo, and more. These updates are typically not user-initiated but rather alerts
-that require the user's attention. Similarly to Toasts, Flash alerts can convey a warning, error, success, or a neutral message.
+that require the user's attention. Similarly to toasts, flash alerts can convey a warning, error, success, or a neutral message.
 
-Though Flash alerts don't need to be as concise as a typical Toast message, they should still be direct and not exceed two to three sentences. If additional context is needed, provide a link for the user to learn more.
+Though flash alerts don't need to be as concise as a typical Toast message, they should still be direct and not exceed two to three sentences. If additional context is needed, provide a link for the user to learn more.
 
-Don't use headings or multiple type sizes in Flash alerts, rely on our default paragraph size instead.
+Don't use headings or multiple type sizes in flash alerts, rely on our default paragraph size instead.
 
 ### Full-width
 
-Flash alerts that affect every page (e.g. a global message) should use the [full-width style](https://primer.style/css/components/alerts), which spans the entire page and is intended to sit beneath the top-level navigation. When using a full-width Flash alert, be sure to include the `container` class to append a max-width on the content and avoid long line-lengths, which can be difficult to read.
+Flash alerts that affect every page (e.g. a global message) should use the [full-width style](https://primer.style/css/components/alerts), which spans the entire page and is intended to sit beneath the top-level navigation. When using a full-width flash alert, be sure to include the `container` class to append a max-width on the content and avoid long line-lengths, which can be difficult to read.
 
 <DoDontContainer stacked>
   <Do>
@@ -116,7 +116,6 @@ They typically do not timeout on their own, but can include a dismiss action for
 
 Popovers are used to call attention to a new feature, change to an existing feature, or to provide additional context. Popovers can be helpful for flows that require light onboarding or instruction.
 
-**Use sparingly to avoid cognitive overload**
-Though they can be used for a variety of things, they should be used sparingly to avoid cognitive overload. It's important to consider the context in which the Popover appears. Are there other Popovers on the page? Does it appear on page load, or require the user to open the Popover?
+**Use sparingly to avoid cognitive overload**. Though they can be used for a variety of things, they should be used sparingly to avoid cognitive overload. It's important to consider the context in which the popover appears. Are there other popovers on the page? Does it appear on page load, or require the user to open the popover?
 
-Unlike other messaging components, Popovers should never include critical information (such as errors) and should always include a dismiss action.
+Unlike other messaging components, popovers should never include critical information (such as errors) and should always include a dismiss action.
