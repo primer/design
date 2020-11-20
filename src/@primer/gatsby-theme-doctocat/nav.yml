@@ -7,7 +7,7 @@
   url: /accessibility
   children:
     - title: Accessibility at GitHub
-      url: /accessibility/accessibility-at-github
+      url: /accessibility/index
     - title: General overview
       url: /accessibility/general-overview
     - title: Designer toolkit
