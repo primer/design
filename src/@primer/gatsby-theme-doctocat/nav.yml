@@ -4,10 +4,10 @@
     - title: Typography
       url: /foundations/typography
 - title: Accessibility
-  url: /accessibility
+  url: /accessibility/accessibility-at-github
   children:
     - title: Accessibility at GitHub
-      url: /accessibility/index
+      url: /accessibility/accessibility-at-github
     - title: General overview
       url: /accessibility/general-overview
     - title: Designer toolkit
