@@ -11,7 +11,7 @@
     - title: Checklist
       url: /accessibility/checklist
     - title: Tools
-      url: /accessibility/Tools
+      url: /accessibility/tools
 - title: UI patterns
   url: /ui-patterns
   children:
