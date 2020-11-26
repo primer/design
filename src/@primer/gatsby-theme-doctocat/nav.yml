@@ -8,12 +8,10 @@
   children:
     - title: Accessibility at GitHub
       url: /accessibility/accessibility-at-github
-    - title: General overview
-      url: /accessibility/general-overview
-    - title: Designer toolkit
-      url: /accessibility/designer-toolkit
-    - title: Developer toolkit
-      url: /accessibility/developer-toolkit
+    - title: Checklist
+      url: /accessibility/checklist
+    - title: Tools
+      url: /accessibility/Tools
 - title: UI patterns
   url: /ui-patterns
   children:
