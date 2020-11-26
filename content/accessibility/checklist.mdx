@@ -1,8 +1,23 @@
 ---
-title: Checklist
+title: Accessibility checklist
 ---
 
-For official guidance, always refer to the W3C documentation. You can find failure examples for each WCAG standard, and techniques for fixing them in [How to Meet WCAG (Quick Reference)](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1&showtechniques=148&currentsidebar=%23col_customize#visual-presentation). The filtering on the left hand side is very helpful to scan for specifics such as developing, interaction design, content creation, visual design categories, and more. 
+For official guidance, always refer to the W3C documentation. You can find failure examples for each WCAG standard, and techniques for fixing them in [How to Meet WCAG (Quick Reference)](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1&showtechniques=148&currentsidebar=%23col_customize#visual-presentation). The filters on the left hand side can help when looking for specific subjects, such as interaction or visual design, content creation, and more. 
+
+If you're designing a feature or experience in GitHub, use the following checklist to assess your design for accessibility before developer handoff:
+
+- [ ]  Did you include annotations for:
+    - [ ]  Headings
+    - [ ]  Focus/Tab order
+    - [ ]  Screen reader labels
+    - [ ]  Landmarks (if applicable)
+- [ ]  Does the text meet color contrast (4.5:1 or 3:1 ratio depending on size)?
+- [ ]  Do graphic objects meet color contrast (3:1 ratio)?
+- [ ]  With color removed, does the design still make sense?
+- [ ]  If the user increases the text size, is the page still usable?
+- [ ]  When the screen reduces in size (down to 320px wide), is everything usable without scrolling horizontally? (There are a few exceptions to this rule: check  [1.4.10 - Reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html) for details)
+
+When designing a new component or control that isn't made up of one single piece of [standard semantic markup](https://developer.mozilla.org/en-US/docs/Web/HTML/Element), check out the Accessibility Portal's [custom control design checklist](https://www.a11yportal.com/guidelines/fundamentals/checklists.html#custom-control-checklist-ux).
 
 ## Visual considerations
 
@@ -13,105 +28,121 @@ For information about how GitHub meets color contrast guidelines, read the acces
 **Note:** Disabled controls do not need to hit any specific contrast levels. 
 
 **Official WCAG rules**
-[1.4.3 - Contrast (Minimum)(Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
-[1.4.11 - Non-text Contrast (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html)[1.4.1 - Use of color (Level AA)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
+- [1.4.3 - Contrast (Minimum)(Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
+- [1.4.11 - Non-text Contrast (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html)
+- [1.4.1 - Use of color (Level AA)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
 
 ### Typography
-#### Use headings
+#### Headings
 <!-- TODO: insert photo of proper headings, labeled -->
-Make sure that paragraphs and sections have approriate headings. This makes it easier for visual scanning and screen readers to get a map of the page's content. Use the semantic structure for headings whenever possible (`h1`- `h6`)
+- Make sure that paragraphs and sections have approriate headings. This makes it easier for visual scanning and screen readers to get a map of the page's content. - Use the semantic structure for headings whenever possible (`h1`- `h6`).
+
+**Note:** Properly labeled headings is one of the most important things a designer can label for developer handoff. [68% of 1207 surveyed users](https://webaim.org/projects/screenreadersurvey8/) responded that they are first likely to navigate through the headings on the page when trying to find information on a length web page.
 
 #### Length of text
-Though a AAA guideline and not a requirement to meet government standards, try to hit these typography standards if possible for better ease of reading:
+Though a level AAA guideline, try to hit the following typography standards for better ease of reading:
 - Width of text should not exceed 80 characters or glyphs 
 - Don't justify text
 - Allow for text magnification up to 200% without requiring horizontal scrolling.
 
-For specifics on the typography that GitHub utilizes, visit our [Typography](https://primer.style/design/foundations/typography) resource in our interface guidelines.
+Read Primer's [typography](https://primer.style/design/foundations/typography) guidelines for more detail about using type.
 
 #### Links
 Navigating from a list of all the links on a given web page is very common for assistive technology users. Make sure that the link text itself is meaningful and unique. There should be as few duplicated references as possible to prevent confusion. 
 
-More on links:
-- [Understanding 2.4.4 - Link Purpose](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html).
-#### Do
+For more detail on accessible links, read the W3C's [Understanding 2.4.4 - Link Purpose](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html).
+
+<DoDontContainer stacked>
+  <Do>
 ```html
 <p>Find out more about <a href="#url">GitHub Enterprise pricing</a>.<br /></p>
 ```
-#### Don't
+    <Caption>
+      
+    </Caption>
+  </Do>
+  <Dont>
 ```html
 <p>
   To find out more about GitHub Enterprise pricing,
   <a href="#url">click here</a>.
 </p>
 ```
+    <Caption>
+      
+    </Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Forms
-- All form inputs need labels
-- Don't use placeholder text for any titles, hints, or other important information. 
+- All form inputs should have a label.
+- Don't use placeholder text for titles, hints, or other important information. 
 
 ### Alt-text
-When people with screen readers come across images, graphs, and icons, by default the screen reader will speak the name of the file, which most of the time can be unhelpful (eg; final-final-truly-final-V2.jpg). 
+When screen reader users come across images, graphs, and icons, by default the screen reader will speak the name of the file, which most of the time can be unhelpful (for example: ``final-final-truly-final-V2.jpg``). 
 
-Use the `alt="string"` attribute when labeling an image. If the image has a descriptive caption already, you should give the image an atttibute of `alt=""`. This will prevent the screenreader from telling the person about the image multiple times. 
+Use HTML the `alt` attribute when labeling an image. If the image has a descriptive caption already, you should give the image an atttibute of `alt=""`. This will prevent the screenreader from telling the user about the image multiple times. 
 
 ## Semantic markup
 Always use semantic HTML elements, like `button`, `ul`, `nav`. Most modern browsers implement the accessibility features outlined in the specs for these elements; without them, elements will need additional [ARIA attributes and roles](https://www.w3.org/TR/wai-aria-1.2/) to be recognized by assistive technologies.
 
 Elements like `h1`-`h6`, `nav`, `footer`, `header` have [meaningful roles](https://www.w3.org/TR/wai-aria-1.2/#role_definitions) assigned, so use them, and use them carefully. This can help assistive technologies read the page better and help users find information quicker.
 
-Only use a `div` or a `span` to markup up content when there isn't another HTML element that would semantically be more appropriate, or when an element is needed exclusively for applying CSS styles or JS behaviors.
+Only use a `div` or a `span` to markup up content when there isn't another HTML element that would semantically be more appropriate, or when an element is needed exclusively for applying CSS styles or JavaScript behaviors.
 
-### Do
+<DoDontContainer stacked>
+  <Do>
 ```html
 <button type="button" class="btn">Send</button>
 ```
-
-### Don't
+    <Caption>
+      
+    </Caption>
+  </Do>
+  <Dont>
 ```html
 <span class="btn">Send</span>
 ```
+    <Caption>
+      
+    </Caption>
+  </Dont>
+</DoDontContainer>
 
 ## Keyboard accessibility
-Make sure all interactive elements can be accessed using Tab and Shift+Tab, and the arrow keys. Tabbing should be used to access standalone controls (buttons, links, widgets), and arrow keys should be used to navigate within a composite control (group of standalone controls, list of checkboxes)
+- Make sure all interactive elements can be accessed using Tab and Shift+Tab, and the arrow keys. 
+  - Tabbing should be used to access standalone controls (buttons, links, widgets), and arrow keys should be used to navigate within a composite control (group of standalone controls, list of checkboxes).
+- Avoid using CSS properties such as `float` and `order` in flex items as they are common sources for disconnection between visual and DOM order — tab order is determined by the order of elements in the DOM, and not by their visual positioning on the page after CSS is applied. 
+- The `tabindex` attribute should only be used when absolutely necessary.
+  - `tabindex=0/-1` makes an element focusable, while `tabindex=0` also includes the element in the normal tab order. In both cases, keyboard triggers of the element still require scripting, so where possible, use [interactive content](https://html.spec.whatwg.org/multipage/dom.html#interactive-content) instead.
+  - `tabindex=1+` takes an element to the very front of the default tab order. When it's applied, the element's visual positioning is no longer indicative of its tab order, and the only way to find out where an element is by tabbing through the page. You musn't apply `tabindex=1+` on github.com.
+- Some assistive technologies have keyboard combinations that override those of a web page, so don't rely on keyboard shortcuts as the only alternative to mouse actions.
 
-Tab order is determined by the order of elements in the DOM, and not by their visual positioning on the page after CSS is applied. CSS properties float and order for flex items are two common sources for disconnection between visual and DOM order.
-
-The `tabindex` attribute should only be used when absolutely necessary.
-
-- `tabindex=0/-1` makes an element focusable, while tabindex=0 also includes the element in the normal tab order. In both cases, keyboard triggers of the element still require scripting, so where possible, use [interactive content](https://html.spec.whatwg.org/multipage/dom.html#interactive-content) instead.
-
-- `tabindex=1+` takes an element to the very front of the default tab order. When it's applied, the element's visual positioning is no longer indicative of its tab order, and the only way to find out where an element is would be by tabbing through the page. Therefore, unless a page is carefully designed around elements with positive tabindex, it is very error-proned, and thus currently prohibited in github.com.
-
-Finally, bear in mind that some assistive technologies have keyboard combinations of their own that will override the combination on the web page, so don't rely on keyboard shortcuts as the only alternative to mouse actions.
-
-More on keyboard accessibility:
-- [2.4.3 - Focus order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html)
+Read more on keyboard accessibility on W3C's [focus order documentation](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html).
 
 ## Resources
 
 ### Understanding WCAG 2.1
 
-- [Knowbility.org](https://knowbility.org/search/?q=WCAG+2.1); Search for 'WCAG 2.1' on Knowbility to get a more clear and succinct interpretation of WCAG 2.1's official guidance. 
+- [Knowbility.org](https://knowbility.org/search/?q=WCAG+2.1): Search for 'WCAG 2.1' on Knowbility to get a more clear and succinct interpretation of WCAG 2.1's official guidance. 
 - The UK Government designed [easy-to-read posters](https://github.com/UKHomeOffice/posters/blob/master/accessibility/dos-donts/posters_en-UK/accessibility-posters-set.pdf) on designing for accessibility, broken out into principles for various conditions. Here is an [article about the posters](https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/) they designed.
-- The [a11yproject](https://www.a11yproject.com/resources/#html-and-aria) has collected a wealth of resources on web accessibility. We recommend browsing first by the table of contents on the side, as the list of resources is quite long.
+- The [a11yproject](https://www.a11yproject.com/resources/) includes a wealth of resources on web accessibility.
 
 ### Pattern libraries
 - [Inclusive components](https://inclusive-components.design/)
 - [WAI-ARIA Authoring Practices 1.2](https://www.w3.org/TR/wai-aria-practices-1.2/) is an in-depth list of UI patterns and how to implement them, from W3C. 
-- [a11ymatters patterns](https://www.a11ymatters.com/patterns) - shorter list, good information for developers.
+- [a11ymatters patterns](https://www.a11ymatters.com/patterns) includes useful information for developers.
 
 ## Screen readers
-Getting familiar with screen reader technology will allow you to get a better understanding of the people who navigate the web this way, and it will help you to check out your own UI to verify that it's usable. 
 
-**Top three screen readers for computers** ([data from WebAIM](https://webaim.org/projects/screenreadersurvey8/), August 2019)
+Top three screen readers for computers ([data from WebAIM](https://webaim.org/projects/screenreadersurvey8/), August 2019):
 - NVDA (Windows)
 - JAWS (Windows)
 - VoiceOver (Mac)
 
-**Top three screen readers for mobile devices** ([data from WebAIM](https://webaim.org/projects/screenreadersurvey8/), August 2019)
+Top three screen readers for mobile devices ([data from WebAIM](https://webaim.org/projects/screenreadersurvey8/), August 2019):
 - VoiceOver (iOS)
 - TalkBack for Android (Android)
 - Voice Assistant (Android)
 
-Keep in mind that behaviors in different screen readers can differ when navigating the same web page; just like designing for different browsers, when it comes to accessibility, it is not just the implementation of the browsers that can be different, but also the ones of assistive technology.
+Keep in mind that behaviors in different screen readers can differ. Just like there are different browser implementations, there are also different assistive technologies behave differently.
