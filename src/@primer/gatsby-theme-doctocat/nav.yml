@@ -8,8 +8,8 @@
   children:
     - title: Accessibility at GitHub
       url: /accessibility/accessibility-at-github
-    - title: Checklist
-      url: /accessibility/checklist
+    - title: Guidelines
+      url: /accessibility/guidelines
     - title: Tools
       url: /accessibility/tools
 - title: UI patterns
