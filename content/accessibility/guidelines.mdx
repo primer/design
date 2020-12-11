@@ -2,7 +2,7 @@
 title: Accessibility guidelines
 ---
 
-import {Code} from '@primer/gatsby-theme-doctocat/src/components/code'
+import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 
 For official guidance, always refer to the W3C documentation. You can find failure examples for each WCAG standard, and techniques for fixing them in [How to Meet WCAG (Quick Reference)](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1&showtechniques=148&currentsidebar=%23col_customize#visual-presentation). The filters on the left hand side can help when looking for specific subjects, such as interaction or visual design, content creation, and more. 
 
@@ -57,22 +57,20 @@ For more detail on accessible links, read the W3C's [Understanding 2.4.4 - Link 
 <DoDontContainer stacked>
   <Do>
     <Code>
-        <p>Find out more about <a href="#url">GitHub Enterprise pricing</a>.<br /></p>
+      {`<p>
+  Find out more about <a href="#url">GitHub Enterprise pricing</a>.<br />
+</p>`}
     </Code>
-    <Caption>
-      Make links meaningful and easy to understand
-    </Caption>
+    <Caption>Make links meaningful and easy to understand</Caption>
   </Do>
   <Dont>
     <Code>
-        <p>
-          To find out more about GitHub Enterprise pricing,
-          <a href="#url">click here</a>.
-        </p>
+      {`<p>
+  To find out more about GitHub Enterprise pricing,
+  <a href="#url">click here</a>.
+</p>`}
     </Code>
-    <Caption>
-      Don't create links that give no indication to the user
-    </Caption>
+    <Caption>Don't create links that give no indication to the user</Caption>
   </Dont>
 </DoDontContainer>
 
@@ -95,19 +93,15 @@ Only use a `div` or a `span` to markup up content when there isn't another HTML 
 <DoDontContainer stacked>
   <Do>
     <Code>
-        <button type="button" class="btn">Send</button>
+      {`<button type="button" class="btn">
+  Send
+</button>`}
     </Code>
-    <Caption>
-      Use HTML elements with semantic meaning
-    </Caption>
+    <Caption>Use HTML elements with semantic meaning</Caption>
   </Do>
   <Dont>
-    <Code>
-        <span class="btn">Send</span>
-    </Code>
-    <Caption>
-      Don't use HTML elements that have no semantic meaning when a better alternative exists
-    </Caption>
+    <Code>{`<span class="btn">Send</span>`}</Code>
+    <Caption>Don't use HTML elements that have no semantic meaning when a better alternative exists</Caption>
   </Dont>
 </DoDontContainer>
 
