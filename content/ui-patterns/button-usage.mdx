@@ -2,8 +2,6 @@
 title: Button usage
 ---
 
-import {Box, Flex, BorderBox, Text} from '@primer/components'
-
 These guidelines summarize how GitHub implements buttons across our products. We have standardized buttons documented on [Primer CSS](https://primer.style/css/) and [Primer Components](https://primer.style/components), and these docs which serve as the source of truth for development implementation. This article serves to supplement our technical docs with proper guidance on design implementation.
 
 ## Button types
@@ -21,24 +19,16 @@ At GitHub, buttons are a fundamental building block of our products. The followi
 
 ### Use sentence case
 
-<Flex>
-  <Box width="100%" mr="2">
-    <BorderBox border="1px solid" borderColor="green.5" mb="2">
-      <img src="https://user-images.githubusercontent.com/24916540/52501276-d3330080-2b94-11e9-954e-38c0f09f8ca1.png" />
-    </BorderBox>
-    <Text fontWeight="bold" color="green.5">
-      Do:
-    </Text> Use sentence case
-  </Box>
-  <Box width="100%" mr="2">
-    <BorderBox border="1px solid" borderColor="red.5" mb="2">
-      <img src="https://user-images.githubusercontent.com/24916540/52501272-d3330080-2b94-11e9-8829-7d12aae36ba1.png" />
-    </BorderBox>
-    <Text fontWeight="bold" color="red.5">
-      Don't:
-    </Text> Use all-caps or other text formats
-  </Box>
-</Flex>
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/24916540/52501276-d3330080-2b94-11e9-954e-38c0f09f8ca1.png" />
+    <Caption>Use sentence case</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/24916540/52501272-d3330080-2b94-11e9-8829-7d12aae36ba1.png" />
+    <Caption>Don't use all-caps or other text formats</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Keep button text concise
 
@@ -51,47 +41,31 @@ In certain scenarios, it may make sense to use full-width buttons that extend to
 - Modals with a singular call-to-action
 - Responsive behavior of buttons when scaled down
 
-<Flex>
-  <Box width="100%" mr="2">
-    <BorderBox border="1px solid" borderColor="green.5" mb="2">
-      <img src="https://user-images.githubusercontent.com/24916540/52501273-d3330080-2b94-11e9-906c-27d9f745f0c5.png" />
-    </BorderBox>
-    <Text fontWeight="bold" color="green.5">
-      Do:
-    </Text> Use this pattern to confirm important actions
-  </Box>
-  <Box width="100%" mr="2">
-    <BorderBox border="1px solid" borderColor="red.5" mb="2">
-      <img src="https://user-images.githubusercontent.com/24916540/52501274-d3330080-2b94-11e9-823d-61964966cc7b.png" />
-    </BorderBox>
-    <Text fontWeight="bold" color="red.5">
-      Don't:
-    </Text> Misuse this modifier by extending buttons full-width unnecessarily
-  </Box>
-</Flex>
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/24916540/52501273-d3330080-2b94-11e9-906c-27d9f745f0c5.png" />
+    <Caption>Use this pattern to confirm important actions</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/24916540/52501274-d3330080-2b94-11e9-823d-61964966cc7b.png" />
+    <Caption>Don't misuse this modifier by extending buttons full-width unnecessarily</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Use text descriptions
 
 In certain scenarios, buttons require supporting text to give the user more context. Use text labels sparingly, as buttons should generally be able to be understood on their own.
 
-<Flex>
-  <Box width="100%" mr="2">
-    <BorderBox border="1px solid" borderColor="green.5" mb="2">
-      <img src="https://user-images.githubusercontent.com/24916540/52501400-1b522300-2b95-11e9-8c47-71af68cfaeec.png" />
-    </BorderBox>
-    <Text fontWeight="bold" color="green.5">
-      Do:
-    </Text> Keep text brief, specific, and descriptive
-  </Box>
-  <Box width="100%" mr="2">
-    <BorderBox border="1px solid" borderColor="red.5" mb="2">
-      <img src="https://user-images.githubusercontent.com/24916540/53110379-cbfee180-3508-11e9-8762-04e3c8979afb.png" />
-    </BorderBox>
-    <Text fontWeight="bold" color="red.5">
-      Don't:
-    </Text> Use unnecesary, redundant text descriptions
-  </Box>
-</Flex>
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/24916540/52501400-1b522300-2b95-11e9-8c47-71af68cfaeec.png" />
+    <Caption>Keep text brief, specific, and descriptive</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/24916540/53110379-cbfee180-3508-11e9-8762-04e3c8979afb.png" />
+    <Caption>Don't use unnecesary, redundant text descriptions</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Use Octicons to clarify actions
 
@@ -105,7 +79,7 @@ Organize buttons together in button groups to show their similar functionality. 
 
 ### Using social proof
 
-Counters can be added as numerical aid in appropriate scenarios. They should generally only be used with “small” buttons, and only be used where a it is providing valuable context.
+Counters can be added as numerical aid in appropriate scenarios. They should generally only be used with “small” buttons, and only be used where it is providing valuable context.
 
 ## Hierarchy and placement
 
@@ -121,24 +95,16 @@ Only use one primary button on the page, whenever possible, to indicate its emph
 
 When a secondary button is placed in conjunction with a primary button, the primary button should always be placed on the outermost alignment, or on top and extended full-width if stacked.
 
-<Flex>
-  <Box width="100%" mr="2">
-    <BorderBox border="1px solid" borderColor="green.5" mb="2">
-      <img src="https://user-images.githubusercontent.com/24916540/53112631-aa542900-350d-11e9-87e0-3f5d0655ec84.png" />
-    </BorderBox>
-    <Text fontWeight="bold" color="green.5">
-      Do:
-    </Text> Follow this principle to align your buttons accordingly
-  </Box>
-  <Box width="100%" mr="2">
-    <BorderBox border="1px solid" borderColor="red.5" mb="2">
-      <img src="https://user-images.githubusercontent.com/24916540/53112632-aa542900-350d-11e9-8d45-521b70bd1d93.png" />
-    </BorderBox>
-    <Text fontWeight="bold" color="red.5">
-      Don't:
-    </Text> Ignore this principle and misalign primary buttons
-  </Box>
-</Flex>
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/24916540/53112631-aa542900-350d-11e9-87e0-3f5d0655ec84.png" />
+    <Caption>Follow this principle to align your buttons accordingly</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/24916540/53112632-aa542900-350d-11e9-8d45-521b70bd1d93.png" />
+    <Caption>Don't ignore this principle and misalign primary buttons</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Use outline buttons independently
 

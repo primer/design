@@ -23,6 +23,8 @@
       url: /ui-patterns/progressive-disclosure
     - title: Messaging
       url: /ui-patterns/messaging
+    - title: Feature onboarding
+      url: /ui-patterns/feature-onboarding
 - title: Design tools
   url: /tools
   children:
