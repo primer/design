@@ -56,7 +56,7 @@ For more detail on accessible links, read the W3C's [Understanding 2.4.4 - Link 
 
 <DoDontContainer stacked>
   <Do>
-    <Code>
+    <Code className="language-html">
       {`<p>
   Find out more about <a href="#url">GitHub Enterprise pricing</a>.<br />
 </p>`}
@@ -64,7 +64,7 @@ For more detail on accessible links, read the W3C's [Understanding 2.4.4 - Link 
     <Caption>Make links meaningful and easy to understand</Caption>
   </Do>
   <Dont>
-    <Code>
+    <Code className="language-html">
       {`<p>
   To find out more about GitHub Enterprise pricing,
   <a href="#url">click here</a>.
@@ -92,7 +92,7 @@ Only use a `div` or a `span` to markup up content when there isn't another HTML 
 
 <DoDontContainer stacked>
   <Do>
-    <Code>
+    <Code className="language-html">
       {`<button type="button" class="btn">
   Send
 </button>`}
@@ -100,7 +100,7 @@ Only use a `div` or a `span` to markup up content when there isn't another HTML 
     <Caption>Use HTML elements with semantic meaning</Caption>
   </Do>
   <Dont>
-    <Code>{`<span class="btn">Send</span>`}</Code>
+    <Code className="language-html">{`<span class="btn">Send</span>`}</Code>
     <Caption>Don't use HTML elements that have no semantic meaning when a better alternative exists</Caption>
   </Dont>
 </DoDontContainer>
