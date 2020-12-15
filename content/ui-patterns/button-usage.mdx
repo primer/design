@@ -10,53 +10,11 @@ These guidelines summarize how GitHub implements buttons across our products. We
 
 ### Button text
 
-<DoDontContainer>
-  <Do>
-    <img src="https://user-images.githubusercontent.com/24916540/52501276-d3330080-2b94-11e9-954e-38c0f09f8ca1.png" />
-    <Caption>Use sentence case</Caption>
-  </Do>
-  <Dont>
-    <img src="https://user-images.githubusercontent.com/24916540/52501272-d3330080-2b94-11e9-8829-7d12aae36ba1.png" />
-    <Caption>Don't use all-caps or other text formats</Caption>
-  </Dont>
-</DoDontContainer>
-
-### Keep button text concise
-
-When designing buttons, keep the text as short but descriptive as possible. Buttons are to be understood by their type and text; if further clarity is required, consider adding an octicon or adding a text description.
-
-### Adaptable full-width
-
-In certain scenarios, it may make sense to use full-width buttons that extend to the width of their container. Use this style sparingly, but some appropriate use-cases include:
-
-- Modals with a singular call-to-action
-- Responsive behavior of buttons when scaled down
-
-<DoDontContainer>
-  <Do>
-    <img src="https://user-images.githubusercontent.com/24916540/52501273-d3330080-2b94-11e9-906c-27d9f745f0c5.png" />
-    <Caption>Use this pattern to confirm important actions</Caption>
-  </Do>
-  <Dont>
-    <img src="https://user-images.githubusercontent.com/24916540/52501274-d3330080-2b94-11e9-823d-61964966cc7b.png" />
-    <Caption>Don't misuse this modifier by extending buttons full-width unnecessarily</Caption>
-  </Dont>
-</DoDontContainer>
+Button text should be clear and concise. Effective text should describe the action that will be taken when the user interacts with the button.
 
 ### Use text descriptions
 
 In certain scenarios, buttons require supporting text to give the user more context. Use text labels sparingly, as buttons should generally be able to be understood on their own.
-
-<DoDontContainer>
-  <Do>
-    <img src="https://user-images.githubusercontent.com/24916540/52501400-1b522300-2b95-11e9-8c47-71af68cfaeec.png" />
-    <Caption>Keep text brief, specific, and descriptive</Caption>
-  </Do>
-  <Dont>
-    <img src="https://user-images.githubusercontent.com/24916540/53110379-cbfee180-3508-11e9-8762-04e3c8979afb.png" />
-    <Caption>Don't use unnecesary, redundant text descriptions</Caption>
-  </Dont>
-</DoDontContainer>
 
 ## Types and usage
 
@@ -106,25 +64,30 @@ Organize buttons together in button groups to show their similar functionality. 
 
 Counters can be added as numerical aid in appropriate scenarios. They should generally only be used with “small” buttons, and only be used where it is providing valuable context.
 
+### Full-width
+
+Full-width buttons extend to the width of their parent container. Example use cases include:
+
+- Modals with a single call-to-action
+- Responsive behavior of buttons when scaled down to smaller screen sizes
+
 ## Hierarchy and placement
 
 <!-- TODO: Can be a do/don't. Remove headings -->
 
 <!-- ### Use size to modify button hierarchy -->
 
-Increase button size to bring prominence to buttons that have major impact. Decrease button size when space is limited and the action is of lesser significance. Use this modifier sparingly, as layouts should generally have only one large button.
+- Increase button size to bring prominence to buttons that have major impact.
+- Decrease button size when space is limited and the action is of lesser significance.
 
-<!-- ### Always align primary buttons to the outermost edge -->
+### Placement
 
-When a secondary button is placed in conjunction with a primary button, the primary button should always be placed on the outermost alignment, or on top and extended full-width if stacked.
+#### Inline
 
-<DoDontContainer>
-  <Do>
-    <img src="https://user-images.githubusercontent.com/24916540/53112631-aa542900-350d-11e9-87e0-3f5d0655ec84.png" />
-    <Caption>Follow this principle to align your buttons accordingly</Caption>
-  </Do>
-  <Dont>
-    <img src="https://user-images.githubusercontent.com/24916540/53112632-aa542900-350d-11e9-8d45-521b70bd1d93.png" />
-    <Caption>Don't ignore this principle and misalign primary buttons</Caption>
-  </Dont>
-</DoDontContainer>
+When aligning buttons inline, the primary action should always be placed to the outermost edge.
+
+<img width="508" alt="Example of primary action to the right of two secondary buttons" src="https://user-images.githubusercontent.com/10384315/102150666-fcbeb200-3e25-11eb-9a64-09195db9ecee.png">
+
+#### Stacked
+
+When aligning full-width buttons vertically, the primary action should always be placed on top of any secondary actions.
