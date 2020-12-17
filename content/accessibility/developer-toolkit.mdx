@@ -2,6 +2,8 @@
 title: Developer toolkit
 ---
 
+import Code from '@primer/gatsby-theme-doctocat/src/components/code'
+
 There are many accessibility checklists out there that you can use while developing UI to make sure your code is as accessible as possible. Below are a few that we recommend.
 
 ## Accessibility Insights
@@ -72,6 +74,39 @@ A great way to find answers to very specific accessibility questions when a reso
 Many of those searches will lead you to the [WAI-ARIA authoring practices 1.2](https://www.w3.org/TR/wai-aria-practices-1.2/) and [Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/TR/wai-aria-1.2/)
 
 Please double check any findings and ask questions before implementing a solution.
+
+## Semantic markup
+Always use semantic HTML elements, like `button`, `ul`, `nav`. Most modern browsers implement the accessibility features outlined in the specs for these elements; without them, elements will need additional [ARIA attributes and roles](https://www.w3.org/TR/wai-aria-1.2/) to be recognized by assistive technologies.
+
+Elements like `h1`-`h6`, `nav`, `footer`, `header` have [meaningful roles](https://www.w3.org/TR/wai-aria-1.2/#role_definitions) assigned, so use them, and use them carefully. This can help assistive technologies read the page better and help users find information quicker.
+
+Only use a `div` or a `span` to markup up content when there isn't another HTML element that would semantically be more appropriate, or when an element is needed exclusively for applying CSS styles or JavaScript behaviors.
+
+<DoDontContainer stacked>
+  <Do>
+    <Code className="language-html">
+      {`<button type="button" class="btn">
+  Send
+</button>`}
+    </Code>
+    <Caption>Use HTML elements with semantic meaning</Caption>
+  </Do>
+  <Dont>
+    <Code className="language-html">{`<span class="btn">Send</span>`}</Code>
+    <Caption>Don't use HTML elements that have no semantic meaning when a better alternative exists</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Keyboard accessibility
+- Make sure all interactive elements can be accessed using Tab and Shift+Tab, and the arrow keys. 
+  - Tabbing should be used to access standalone controls (buttons, links, widgets), and arrow keys should be used to navigate within a composite control (group of standalone controls, list of checkboxes).
+- Avoid using CSS properties such as `float` and `order` in flex items as they are common sources for disconnection between visual and DOM order — tab order is determined by the order of elements in the DOM, and not by their visual positioning on the page after CSS is applied. 
+- The `tabindex` attribute should only be used when absolutely necessary.
+  - `tabindex=0/-1` makes an element focusable, while `tabindex=0` also includes the element in the normal tab order. In both cases, keyboard triggers of the element still require scripting, so where possible, use [interactive content](https://html.spec.whatwg.org/multipage/dom.html#interactive-content) instead.
+  - `tabindex=1+` takes an element to the very front of the default tab order. When it's applied, the element's visual positioning is no longer indicative of its tab order, and the only way to find out where an element is by tabbing through the page. You musn't apply `tabindex=1+` on github.com.
+- Some assistive technologies have keyboard combinations that override those of a web page, so don't rely on keyboard shortcuts as the only alternative to mouse actions.
+
+Read more on keyboard accessibility on W3C's [focus order documentation](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html).
 
 ## Linting
 We currently run basic linting [against positive `tabindex`](https://github.com/github/github/blob/8546895623677abc70f61951642f32c16de231a1/test/fast/linting/accessible_tabindex_test.rb) and [anchor links with `href="#"`](https://github.com/github/github/blob/8546895623677abc70f61951642f32c16de231a1/test/rubocop/cop/rails/link_href.rb).
