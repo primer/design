@@ -7,9 +7,9 @@ import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 For official guidance, always refer to the [WCAG 2.1 W3C documentation](https://www.w3.org/TR/WCAG21/). You can find failure examples for each WCAG standard, and techniques for fixing them in [How to Meet WCAG (Quick Reference)](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1&showtechniques=148&currentsidebar=%23col_customize#visual-presentation). 
 
 ## It starts with you
-Accessible experiences start with designers. Tacking on accessibility after a design has been implemented not only costs businesses time and money, but it muddies the original design and leads to poor user experiences for both people with and without disabilities. 
+Accessible experiences start with designers. Tacking on accessibility after a design is implemented costs businesses time and money, and it muddies the original design, leading to a poor user experience for people with and without disabilities. 
 
-When we consider accessibility at the start, we can begin to design for everyone. 
+When we consider accessibility from the beginning, we design for everyone from the start. 
 
 Consider how different people will experience your design. For an informative list on real-life disability situations, check [An Alphabet of Accessibility Issues](https://the-pastry-box-project.net/anne-gibson/2014-july-31), published in The Pastry Box Project.
 
@@ -32,7 +32,7 @@ WCAG 2.1 includes more nuanced considerations than what is listed here, but thes
 ### Color
 #### Contrast
 Text and user interface components on a page must meet a specific minimum contrast ratio to pass WCAG 2.1 AA standards.
-- **Why?** People with low vision may have trouble reading or understanding important information. Depending on the contrast ratio, users may not see the item at all. Besides being perceived as disabled, this makes people struggle with things like making sure they select the correct option.
+**Why?** People with low vision may have trouble reading or understanding important information. Depending on the contrast ratio, users may not see the item at all. Besides being perceived as disabled items, this makes users struggle with actions like making sure they select the correct option.
 
 <DoDontContainer stacked>
     <Do>
@@ -45,48 +45,43 @@ Text and user interface components on a page must meet a specific minimum contra
     </Dont>
 </DoDontContainer>
 
-**Normal text (14pt)**
-4.5:1 minimum
-
-**Large text** (14pt bold + , 18pt +)**
-3:1 minimum
-
-**Graphical objects and user interface components**
-3:1 minimum
+- **Normal text (14pt)**: 4.5:1 minimum contrast
+**Large text (14pt bold + , 18pt +)**: 3:1 minimum contrast
+- **Graphical objects and user interface components**: 3:1 minimum contrast
 
 **Note:** Disabled controls do not need to hit any specific contrast levels.
 
-**Official WCAG guidelines**
+Official WCAG guidelines:
 - [1.4.3 - Contrast (Minimum)(Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
 - [1.4.11 - Non-text Contrast (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html)
 - [1.4.1 - Use of color (Level AA)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
 
 #### Use of color
-Adding in color brings delight to user experiences. The key point in [1.4.1 Use of Color](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html) is to make sure that it's not the sole identifier. If you have an important transition that is only a change in color, make sure that color change has a 3:1 contrast ratio. 
+The main point in the guideline [1.4.1 Use of Color](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html) is to make sure that color isn't the sole identifier. If you have an important transition that is only a change in color, make sure that color change has a 3:1 contrast ratio. 
 
-A great way to test for this is to navigate your designed experience in greyscale mode. 
+A great way to test for this is to navigate that experience in greyscale mode. 
 
 <DoDontContainer stacked>
     <Do>
        <img src="https://user-images.githubusercontent.com/40274682/102438332-eb65d900-3fd0-11eb-8238-0e826f53b939.png" alt="" />
-       <Caption>Using color and a different shape to indicate issue status</Caption>
+       <Caption>Use color and a different shape to indicate issue status</Caption>
     </Do>
     <Dont>
        <img src="https://user-images.githubusercontent.com/40274682/102438275-d0936480-3fd0-11eb-8b1c-94bbb0033c1f.png" alt="" />
-       <Caption>Using only color to indicate issue status</Caption>
+       <Caption>Don't use only color to indicate issue status</Caption>
     </Dont>
 </DoDontContainer>
 
 ### Typography
 #### Headings
-Properly labeled headings are one of the most important things a designer can make sure to do for developer handoff. [68% of 1207 surveyed screen reader users](https://webaim.org/projects/screenreadersurvey8/) responded that they are first likely to navigate via the headings when trying to find information on a lengthy web page.
+Properly labeled headings are one of the most important things a designer can do for developer handoff. [68% of 1207 surveyed screen reader users](https://webaim.org/projects/screenreadersurvey8/) responded that they are first likely to navigate via the headings when trying to find information on a lengthy web page.
+**Why?** This makes it easier for visual scanning and screen readers to get a map of the page's content.
 
 Use the semantic structure for headings whenever possible on paragraphs and sections (`h1`-`h6`). 
 
-There should only be one `h1` per web page. (Markdown on a page is an exception)
+There should only be one `h1` per web page (Markdown on a page is an exception).
 
 **Note:** Headings on a page don't need to visually match the semantic hierarchy, but should take on the appropriate role. 
-- **Why?** This makes it easier for visual scanning and screen readers to get a map of the page's content.
 
 <DoDontContainer stacked>
     <Do>
@@ -95,7 +90,7 @@ There should only be one `h1` per web page. (Markdown on a page is an exception)
     </Do>
     <Dont>
        <img src="https://user-images.githubusercontent.com/40274682/102439772-be66f580-3fd3-11eb-8ab2-1f6ca42bc745.png" alt="" />
-       <Caption>Don't use multiple H1s, skip over heading hierarchy for visual effect, or forget to label sections of information with headings</Caption>
+       <Caption>Don't use multiple `h1`s, skip over heading hierarchy for visual effect, or forget to label sections of information with headings</Caption>
     </Dont>
 </DoDontContainer>
 
@@ -131,31 +126,28 @@ For more detail on accessible links, read the W3C's [Understanding 2.4.4 - Link 
     - **Why?** Visible labels determine the purpose for inputs, and screen readers can read this information without extra code. If placeholder text contains important information and that information disappears when one starts to type, those with cognitive disabilities will have difficulty completing the form.
 
 #### Alt-text
-Use HTML the alt attribute when labeling an image. If the image has a descriptive caption already, you should give the image an attribute of `alt=""`. This will prevent the screenreader from telling the user about the image multiple times.
- - **Why?** When screen readers come across images, graphs, and icons, by default the screen reader will speak the name of the file, which most of the time can be unhelpful (for example: `final-final-truly-final-V2.jpg`).
+Use the HTML `alt` attribute when labeling an image. If the image has a descriptive caption already, you should give the image an attribute of `alt=""`. This will prevent the screenreader from telling the user about the image multiple times.
+ **Why?** When screen readers come across images, graphs, and icons, by default the screen reader will speak the name of the file, which most of the time can be unhelpful (for example: `final-final-truly-final-V2.jpg`).
 
 #### Content hover on focus
 Hover cards and tool tips need to be approached with care. To meet the bare minimum for accessibility, tooltips need to be: 
-- **Dismissible**
-    - Be able to dismiss tooltips without moving the pointer or keyboard focus (unless it's an input error or does not cover other content)
-- **Hoverable**
-    - Pointer can move over the hover content without the content disappearing
-- **Persistent**
-    - The tooltip doesn't dismiss itself without user action.
+- **Dismissible**: Be able to dismiss tooltips without moving the pointer or keyboard focus (unless it's an input error or does not cover other content).
+- **Hoverable**: Pointer can move over the hover content without the content disappearing.
+- **Persistent**: The tooltip doesn't dismiss itself without user action.
 
-For more information, [1.4.13 Content on Hover or Focus](https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html) 
+For more information read [1.4.13 Content on Hover or Focus](https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html).
 
 #### Text
 People using the web should be able to increase font size 200% without losing content or functionality.
 
-If you'd like to take the extra mile and meet non-required AAA guidelines, you can apply these:
-- Width of text should not exceed 80 characters or glyphs 
-- Don't justify text (align text to the left and right)
+If you'd like to go the extra mile and meet AAA guidelines, you can make sure that:
+- The width of text doesn't exceed 80 characters or glyphs 
+- Text isn't justified (align text to the left and right)
 
 Read Primer's [typography](https://primer.style/design/foundations/typography) guidelines for more detail about using type on GitHub.
 
 ## Keyboard accessibility
-All interactive elements need to be accessed and activated by a keyboard alone ([2.1 Keyboard Accessible](https://www.w3.org/TR/WCAG21/#keyboard-accessible))
+All interactive elements need to be accessed and activated by a keyboard alone ([2.1 Keyboard Accessible](https://www.w3.org/TR/WCAG21/#keyboard-accessible)).
 - Tabbing should be used to access standalone controls (buttons, links, widgets), and arrow keys should be used to navigate within a composite control (group of standalone controls, list of checkboxes).
 - Some assistive technologies have keyboard combinations that override those of a web page, so don't rely on keyboard shortcuts as the only alternative to mouse actions.
 
@@ -163,7 +155,7 @@ All interactive elements need to be accessed and activated by a keyboard alone (
 
 ### Understanding WCAG 2.1
 - [Knowbility.org](https://knowbility.org/search/?q=WCAG+2.1): Search for 'WCAG 2.1' on Knowbility to get a more clear and succinct interpretation of WCAG 2.1's official guidance. 
-- The UK Government designed [easy-to-read posters](https://github.com/UKHomeOffice/posters/blob/master/accessibility/dos-donts/posters_en-UK/accessibility-posters-set.pdf) on designing for accessibility, broken out into principles for various conditions. Here is an [article about the posters](https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/) they designed.
+- The UK's Home Office designed [easy-to-read posters](https://github.com/UKHomeOffice/posters/blob/master/accessibility/dos-donts/posters_en-UK/accessibility-posters-set.pdf) on designing for accessibility, broken out into principles for various conditions. You can read about [designing the posters](https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/) on the team's accessibility blog.
 - The [a11yproject](https://www.a11yproject.com/resources/) includes a wealth of resources on web accessibility.
 
 ### Pattern libraries
