@@ -21,7 +21,7 @@ Currently Primer supports two color modes.
 
 ### Types 
 
-- `-bg`: Base layer. 
+- `-bg`: Base layer
 - `-border`: Create boundaries between blocks 
 - `-text`: Words
 - `-icons`: Supporting symbols 
@@ -33,85 +33,76 @@ Primer’s functional system has two types of variable structure: 🖼
 Global functional: -property + -category + - state
 Component or app-level: -component name + -property +-state or category
 
-🚨 Include different formats for the different implementations here?
+// Note 🚨 Include different formats for the different implementations here? 🚨
 
 ## Foundations 
 
 ### Backgrounds
-![](https://i.imgur.com/zejflmn.png)
+![backgrounds-overview](https://user-images.githubusercontent.com/6951037/102642846-93f57380-415e-11eb-9acd-289cb3bed02f.png)
 
 Backgrounds are based on elevation, elements closer to the surface are lighter than those which are farther. Different color modes use elevation in different ways but in all of them the lightests is the closest.
 
 
-#### Canvas inset -1 
-
+#### Canvas inset (level -1) 
 `bg-canvas-inset` 
-Canvas inset is ground -1. Use for content feed and depth
 
-![](https://i.imgur.com/0ZDDLNW.png)
+Canvas inset is layer -1. Use for content feed and depth
 
-#### Canvas 0
+![backgrounds-canvas-inset](https://user-images.githubusercontent.com/6951037/102642833-90fa8300-415e-11eb-8844-b55b930d25f5.png)
 
+#### Canvas (level 0)
 `bg-canvas`
+
 Canvas is the level 0 across the whole product. There is typically only one of these per page. In most instances, this background is already applied to the markup that you’re working on.
+![backgrounds-canvas](https://user-images.githubusercontent.com/6951037/102642841-92c44680-415e-11eb-8d99-c987967f48d3.png)
 
-![](https://i.imgur.com/TaHmDlQ.png)
 
-
-#### Primary + 1
-
+#### Primary (level 1)
 `bg-primary`
+
 Focal point and primary surface. Most of the work happens on this surface.
 
-![](https://i.imgur.com/rBDjmQs.png)
+![backgrounds-primary](https://user-images.githubusercontent.com/6951037/102642840-922bb000-415e-11eb-8f90-ecbae42c3b65.png)
 
 
-#### Secondary +2
-
+#### Secondary (level 2)
 `bg-secondary`
-Second level of elevation. 🚨[Temporary?] In color modes where details are more difficult to distinguish, secondary backgrounds are the same color as primary backgrounds. Use tertiary background to achieve more contrast between backgrounds. Use the background only to establish some contrast on the canvas.
 
-![](https://i.imgur.com/laa81su.png)
+Second level of elevation. 
+// Note 🚨 In color modes where details are more difficult to distinguish, secondary backgrounds are the same color as primary backgrounds. Use tertiary background to achieve more contrast between backgrounds. Use the background only to establish some contrast on the canvas. 🚨
 
+![backgrounds-secondary](https://user-images.githubusercontent.com/6951037/102642838-922bb000-415e-11eb-952e-24d0e8fe87db.png)
 
 #### Tertiary +3
-
 `bg-tertiary`
 Ideal contrast level with primary background. Use this background to create resting areas where secondary or supporting information is displayed or as a signal to improve ‘scannability’ . For example, table headers or code snippets.
 
-![](https://i.imgur.com/3nwdhoi.png)
+![backgrounds-tertiary](https://user-images.githubusercontent.com/6951037/102642836-91931980-415e-11eb-933b-a86e5051c40a.png)
 
 
 #### Overlay + 4
-
 `bg-overlay`
 Elements that are positioned above all levels (absolute closest). For example, dropdowns, dialogs, select menus or popovers.
 
-![](https://i.imgur.com/PCz23Mk.png)
+![backgrounds-overlay](https://user-images.githubusercontent.com/6951037/102642832-8fc95600-415e-11eb-9b43-d3b6524a8793.png)
 
 ---
 
-
 ### Borders
 
-![](https://i.imgur.com/4AhdFyl.png)
-
+![borders-overview](https://user-images.githubusercontent.com/6951037/102643035-eb93df00-415e-11eb-8151-84e1c4d01be9.png)
 
 #### Primary
-
 `border-primary`
-Primary borders are used to group elements. For example the border around cards or box components. 
+Primary borders are used to group elements. For example the border around cards or box components.
 
-![](https://i.imgur.com/a2vjD26.png)
-
-
-
+![borders-primary](https://user-images.githubusercontent.com/6951037/102643029-ea62b200-415e-11eb-9cfc-d816ae65a4eb.png)
 
 #### Secondary
 `border-secondary`
 Secondary borders are supporting lines that separate content like sections or list items.
 
-![](https://i.imgur.com/w4m4UBX.png)
+![borders-secondary](https://user-images.githubusercontent.com/6951037/102643034-eafb4880-415e-11eb-933a-8abb9cd3d018.png)
  
 
 
@@ -177,9 +168,10 @@ There are four feedback categories. Info, success, warning and danger. Each cate
 `-success` completion or action resulted in expected outcome.
 
 
-💡 Feedback Don't rely on feedback colors on their own. Always use icons and text to support. This is an example of alerts, a component using color and icons to convey feedback categories. Other components that use feedback colors are [forms](https://) and [flash banners](https://). 
+💡 Feedback Don't rely on feedback colors on their own. Always use icons and text to support. This is an example of alerts, a component using color and icons to convey feedback categories. Other components that use feedback colors are [forms](https://) and [flash banners](https://).
 
-![](https://i.imgur.com/hurYyzZ.png)
+![feedback-example](https://user-images.githubusercontent.com/6951037/102643519-b045e000-415f-11eb-9bc3-d44193ebf12b.png)
+
 
 
 ```
