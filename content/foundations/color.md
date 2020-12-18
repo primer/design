@@ -4,18 +4,18 @@ Primer’s color system is built based on a functional model. The system is comp
 ## Color scale
 Main Primer color scale.
 
-![](https://i.imgur.com/Z19sRHg.png)
+![light-mode-scale](https://user-images.githubusercontent.com/6951037/102642133-8095d880-415d-11eb-80fb-71b089e27025.png)
+
 
 ## Color modes
 Currently Primer supports two color modes. 
 
 **Light mode**
-
-![](https://i.imgur.com/pg3Tfki.png)
+![Screen Shot 2020-12-10 at 10 47](https://user-images.githubusercontent.com/6951037/102642256-b63ac180-415d-11eb-979a-c3cf5ae2949b.png)
 
 **Dark mode**
+![Screen Shot 2020-12-10 at 10 46](https://user-images.githubusercontent.com/6951037/102642291-bf2b9300-415d-11eb-9713-c4d488876bdb.png)
 
-![](https://i.imgur.com/zgbTbDq.png)
 
 ## Functional model
 
