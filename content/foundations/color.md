@@ -8,7 +8,7 @@ Main Primer color scale.
 
 
 ## Color modes
-Currently Primer supports two color modes. 
+Currently Primer supports two color modes: light mode and dark mode. 
 
 **Light mode**
 ![Screen Shot 2020-12-10 at 10 47](https://user-images.githubusercontent.com/6951037/102642256-b63ac180-415d-11eb-979a-c3cf5ae2949b.png)
@@ -30,8 +30,8 @@ Currently Primer supports two color modes.
 ### Anatomy
 Primer’s functional system has two types of variable structure: 🖼
 
-Global functional: -property + -category + - state
-Component or app-level: -component name + -property +-state or category
+- Global functional: -property + -category + - state
+- Component or app-level: -component name + -property +-state or category
 
 // Note 🚨 Include different formats for the different implementations here? 🚨
 // Note 🚨 Pending discussion about code format before making the image 🚨
@@ -41,13 +41,13 @@ Component or app-level: -component name + -property +-state or category
 ### Backgrounds
 ![backgrounds-overview](https://user-images.githubusercontent.com/6951037/102642846-93f57380-415e-11eb-9acd-289cb3bed02f.png)
 
-Backgrounds are based on elevation, elements closer to the surface are lighter than those which are farther. Different color modes use elevation in different ways but in all of them the lightests is the closest.
+Backgrounds are based on elevation. Elements closer to the surface are lighter than those further away. Different color modes use elevation in different ways but in all modes the lightest is the closest.
 
 
 #### Canvas inset (level -1) 
 `bg-canvas-inset` 
 
-Canvas inset is layer -1. Use for content feed and depth
+Canvas inset is layer -1. Use for content feed and depth.
 
 ![backgrounds-canvas-inset](https://user-images.githubusercontent.com/6951037/102642833-90fa8300-415e-11eb-8844-b55b930d25f5.png)
 
@@ -74,15 +74,15 @@ Second level of elevation.
 
 ![backgrounds-secondary](https://user-images.githubusercontent.com/6951037/102642838-922bb000-415e-11eb-952e-24d0e8fe87db.png)
 
-#### Tertiary +3
+#### Tertiary (level 3)
 `bg-tertiary`
 
-The tertiary backgrounds achieves ideal contrast against primary background. Use this background to create resting areas where secondary or supporting information is displayed or as a visual anchor to improve ‘scannability’. For example, table headers or code snippets.
+The tertiary background achieves ideal contrast against the primary background. Use this background to create resting areas to display secondary or supporting information, or as a visual anchor to improve ‘scannability’. For example, table headers or code snippets.
 
 ![backgrounds-tertiary](https://user-images.githubusercontent.com/6951037/102642836-91931980-415e-11eb-933b-a86e5051c40a.png)
 
 
-#### Overlay + 4
+#### Overlay (level 4)
 `bg-overlay`
 Use overlay background for elements positioned above all levels (absolute closest). For example, dropdowns, dialogs, select menus or popovers.
 
@@ -117,63 +117,67 @@ Some high contrast modes in browsers or systems remove backgrounds and rely only
 
 ### Text and icons
 
-**Primary**
+#### Primary
 `text-primary`
 `icon-primary`
 
-Primary text and icons are the most visible foregrounds. The most common use of `text-primary`is default text like paragraphs, headings and labeling text. `icon-primary` is typically used as supporting symbol for text. Don't use text variables for icons, they have different accessibility requirements.
+Primary text and icons are the most visible foregrounds. The most common use of `text-primary`is default text like paragraphs, headings and labeling text. 
 
-**Secondary**
+`icon-primary` is typically used as supporting symbol for text. Don't use text variables for icons, they have different accessibility requirements.
+
+#### Secondary
 `text-primary`
 `icon-primary`
 
 Use secondary text for words or paragraphs that provide secondary information or not a critical part of a primary workflow. 
 
-**Tertiary**
+#### Tertiary
 `text-tertiary`
 `icon-tertiary`
 
 // Note 🚨 *Legacy and will be deprecated soon.* For muted text or disabled use `text-disabled` or `text-placeholder` instead. 
 
-**Disabled and placeholder**
+#### Disabled and placeholder
 `text-disabled`
 `text-placeholder`
 
 
-**Links**
+#### Links
 `text-link`
 
 Links are clickable highlighted text.
 
 ### States
-Functional group for interaction states. Each state has its own background, border, icon and text variable.States also have two levels of hierarchy. Primary and secondary. Primary is for most important interactions and cues. For example the selected state for pagination uses `-selected-primary` because it provides context about a whole view. Secondary states are for less important interactions. 
+Functional group for interaction states. Each state has its own background, border, icon and text variable. 
+
+States also have two levels of hierarchy: primary and secondary. Primary is for most important interactions and cues. For example, the selected state for pagination uses `-selected-primary` because it provides context about a whole view. Secondary states are for less important interactions. 
 
 // (Can't think of an example right now)
 
 States are used for patterns such as navigation, pagination, selectable list items, etc. 
 
-**Hover**
+#### Hover
 Used for: secondary navigation, pagination, selectable boxes, dropdowns, autocompletes… 
 Explain differences between primary and secondary 
 
-**Selected**
+#### Selected
 
 ## Feedback
 
-There are four feedback categories. Info, success, warning and danger. Each category has a bundle of styles and some variations. 
+There are four feedback categories: info, success, warning, and danger. Each category has a bundle of styles and some possible variations. 
 
-**Prefixes**
+### Prefixes
 `-bg, -border, -text, -icon`
 
-**Feedback categories (suffixes)**
+### Feedback categories (suffixes)
 
-`-info`: Neutral messaging and providing additional information.
-`-danger`: Error or destructive actions.
-`-warning`: Pending actions or non-blocking but critical events.
-`-success`: Completion or action resulted in expected outcome.
+- `-info`: Neutral messaging and additional information
+- `-danger`: Error or destructive actions
+- `-warning`: Pending actions or non-blocking but critical events
+- `-success`: Completion or action resulted in expected outcome
 
 
-💡 Feedback Don't rely on feedback colors on their own. Always use icons and text to support. This is an example of alerts, a component using color and icons to convey feedback categories. Other components that use feedback colors are [forms](https://primer.style/css/components/forms) and [flash banners](https://primer.style/css/components/alerts#with-action-button).
+Don't rely on feedback colors on their own: always use icons and text to support the message. The following image shows an example of alerts: a component using color and icons to convey feedback categories. Other components that use feedback colors are [forms](https://primer.style/css/components/forms) and [flash banners](https://primer.style/css/components/alerts#with-action-button).
 
 ![feedback-example](https://user-images.githubusercontent.com/6951037/102643519-b045e000-415f-11eb-9bc3-d44193ebf12b.png)
 
@@ -186,8 +190,6 @@ Feedback colors should never be relied on on their own to convey the category or
 
 ## Glossary
 
-**Functional variable**
-Color abstractions that are defined by meaning. For example: --color-state-selected. 
+- **Functional variable:** Color abstractions that are defined by meaning. For example: `--color-state-selected`. 
 
-**Color mode**
-Themes based on a given accessibility or contextual requirement. For example light mode (default mode for GitHub) or dark mode.
+- **Color mode:** Themes based on a given accessibility or contextual requirement. For example, light mode (default mode for GitHub) or dark mode.
