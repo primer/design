@@ -46,7 +46,7 @@ Elements that are close together are perceived as being related or part of the s
 
 ## Alignment
 
-As a general rule, elements should align to other elements' outer box, and not try to align to the content within a box.
+As a general rule, elements should align to other elements' outer box, and not try to align to the content inside a box.
 
 `[Example: text outside and above a table/list should align to the edge of the table (and not to the content within the rows]`
 
