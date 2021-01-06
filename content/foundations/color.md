@@ -91,6 +91,7 @@ Use overlay background for elements positioned above all levels (absolute closes
 ---
 
 ### Borders
+Borders are strokes or keylines that have two purposes: to group content or to establish a visual separation. 
 
 ![borders-overview](https://user-images.githubusercontent.com/6951037/102643035-eb93df00-415e-11eb-8151-84e1c4d01be9.png)
 
