@@ -54,7 +54,7 @@ Canvas inset is layer -1. Use for content feed and depth.
 #### Canvas (level 0)
 `bg-canvas`
 
-Canvas is the level 0 across the whole product. There is typically only one of these per page. In most instances, this background is already applied to the markup that you’re working on.
+Canvas is the level 0 across the whole product. There is typically only one of these per page. In most instances, this background is already applied to the markup that you’re working on so it won't need to be applied anywhere else.
 ![backgrounds-canvas](https://user-images.githubusercontent.com/6951037/102642841-92c44680-415e-11eb-8d99-c987967f48d3.png)
 
 
@@ -141,6 +141,7 @@ Use secondary text for words or paragraphs that provide secondary information or
 `text-disabled`
 `text-placeholder`
 
+Disabled text and placeholders have the lowest contrast agains all backgrounds. They intentionally miss the required contrast ratio to make sure users don't perceive them as actionable or active. 
 
 #### Links
 `text-link`
@@ -180,7 +181,6 @@ There are four feedback categories: info, success, warning, and danger. Each cat
 Don't rely on feedback colors on their own: always use icons and text to support the message. The following image shows an example of alerts: a component using color and icons to convey feedback categories. Other components that use feedback colors are [forms](https://primer.style/css/components/forms) and [flash banners](https://primer.style/css/components/alerts#with-action-button).
 
 ![feedback-example](https://user-images.githubusercontent.com/6951037/102643519-b045e000-415f-11eb-9bc3-d44193ebf12b.png)
-
 
 
 ```
