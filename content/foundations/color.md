@@ -130,13 +130,13 @@ Primary text and icons are the most visible foregrounds. The most common use of 
 `text-primary`
 `icon-primary`
 
-Use secondary text for words or paragraphs that provide secondary information or not a critical part of a primary workflow. 
+Secondary has lower contrast agains the background and can be used to create contrast when paired with primary text .Use secondary text for words or paragraphs that provide secondary information or not a critical part of a primary workflow. 
 
 #### Tertiary
 `text-tertiary`
 `icon-tertiary`
 
-// Note 🚨 *Legacy and will be deprecated soon.* For muted text or disabled use `text-disabled` or `text-placeholder` instead. 
+// Note 🚨 *Legacy and will be deprecated soon.* (hopefully) For muted text or disabled use `text-disabled` or `text-placeholder` instead. 
 
 #### Disabled and placeholder
 `text-disabled`
