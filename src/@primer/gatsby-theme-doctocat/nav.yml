@@ -3,11 +3,15 @@
   children:
     - title: Typography
       url: /foundations/typography
-- title: Global
-  url: /global
+- title: Accessibility
+  url: /accessibility/accessibility-at-github
   children:
-    - title: Accessibility
-      url: /global/accessibility
+    - title: Accessibility at GitHub
+      url: /accessibility/accessibility-at-github
+    - title: Guidelines
+      url: /accessibility/guidelines
+    - title: Tools
+      url: /accessibility/tools
 - title: UI patterns
   url: /ui-patterns
   children:
