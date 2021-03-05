@@ -3,6 +3,8 @@
   children:
     - title: Typography
       url: /foundations/typography
+    - title: Glossary
+      url: /foundations/glossary
 - title: Accessibility
   url: /accessibility/accessibility-at-github
   children:
