@@ -1,0 +1,197 @@
+---
+title: Content
+---
+
+import {Box} from '@primer/components'
+
+These guidelines are specific to and focused on GitHub product interfaces. Your first port of call for general content guidelines should be [GitHub’s Content Style Guide](https://brand.github.com/content/), followed by the [Microsoft Style Guide](https://docs.microsoft.com/en-us/style-guide/welcome/).
+
+## UI content principles
+
+### Keep it clear
+Aim for a seventh-grade or below reading level. This means you should write text that is straightforward, without trying to be creative with words.
+
+There are some useful tools you can use to test your content for simplicity and reading level:
+- [Grammarly](https://www.grammarly.com/)
+- [Hemingway](http://www.hemingwayapp.com/)
+- [Automatic Readability Checker](https://www.readabilityformulas.com/free-readability-formula-tests.php)
+
+### Keep it consistent
+Refer to the same actions, sections, labels, landing pages, and so on, the same way across the product. But don’t sacrifice clarity over consistency.
+
+## Voice and tone
+GitHub’s voice is:
+- Clear but not cold
+- Conversational but not jargon-y
+- Inclusive but not disingenuous
+- Helpful but not overly-prescriptive
+
+Tone is how you express personality and mood depending on the situation. GitHub’s tone is almost always **informal and positive**, with adjustments when needed depending on the channel, audience, and emotional state of the audience.
+
+You should consider the context of when a user will read something, keeping in mind that: 
+- Humor isn’t welcome in all situations, for example: in errors, when waiting, or when something fails.
+- Error messages should be understandable by humans.
+
+Read more about GitHub’s voice and tone in the [Brand Guide](https://brand.github.com/content/voice).
+
+## Top 10 rules
+If you’re in a hurry, these are the most important content guidelines to keep in mind, in no particular order.
+
+- Write in plain English, don’t sound like a robot.
+- Be brief, remove unnecessary words like adjectives and adverbs.
+- Use active voice.
+- Use sentence case, and when in doubt, don’t capitalize.
+- Always capitalize GitHub correctly.
+- Avoid gendered language.
+- Do not use slang or culturally-specific references.
+- Do not use “here” or “click here” in calls to action.
+- Be very thoughtful when introducing humor to the interface.
+- Have someone else proofread your text.
+
+## Content guidelines
+
+### Acronyms and abbreviations
+Use acronyms when they are more widely used than the spelled out term.
+ 
+“Pull request” should never be abbreviated. It’s always lowercase unless it’s starting a sentence.
+
+<!-- TODO: Where do we abbreviate? Months -->
+
+<!--
+### Alternative text
+TODO: In which cases should the UI include alternative text that doesn’t come for free with Primer.
+
+Do not replace text with emojis.
+-->
+
+### Dates and time 
+When referring to times, use am and pm, and not any other variation (a.m., A.M., AM).
+
+<!-- TODO: Dates. -->
+
+### Emojis
+Avoid using emojis, but when you do:
+- Use them only at the end of a sentence
+- Use only well-recognized emojis
+- Do not repeat emojis
+- Use emojis that will work well in both dark and light modes
+
+<!-- See also alternative text. -->
+
+### Error messages
+Be friendly and helpful, and avoid jargon.
+
+Do: 
+Don’t: 
+
+Do not blame the user.
+
+Do: 
+Don’t: 
+
+Do not apologize too much.
+
+Do: 
+Don’t: 
+
+Do not try to be funny.
+
+Do: 
+Don’t: 
+
+<!--
+### Feedback 
+TODO: Confirmation messages. Save, close, dismiss.
+
+Do: 
+Don’t: 
+-->
+
+### Forms
+Use sentence case for form titles, labels, and fields.
+Do not include colons in form labels.
+
+<!-- TODO: Error messages, form validation examples. -->
+
+### Labels and buttons
+All labels and button text should be in sentence case, and not include punctuation.
+
+Examples: 
+Save email preferences
+1 linked pull request
+12 days ago
+
+<Note>When a sentence or label starts with a number (for example, “2 references”), the number is the first word, and the rest of the sentence should be in lowercase.</Note>
+
+Action labels should start with an imperative verb that clearly indicates what to expect.
+
+Example: Save preferences
+
+Action labels can be shortened to only include an adjective and a noun.
+
+Example: New issue
+
+Use “sign in” rather than “log in”.
+
+### Links
+Link text should be meaningful and unique, with as few duplicated references as possible to prevent confusion. Ideally the link itself, or, alternatively, its programmatically determined context should provide information about where the link will take you, and help users decide whether to follow the link. Examples of programmatically determined context can be aria labels, or text within the same paragraph as the link.
+
+Do: 
+You can find out more about our speakers at the GitHub Universe site” [context within paragraph]
+
+Do:
+<a href="/pricing">
+   <img src="pricing.jpg" alt="">
+   Pricing information
+</a>  
+[image link contained in same element as context text]
+
+Never say “here” or “click here”.
+
+TODO: Accessible link text.
+
+<!--
+### Numbers
+TODO: Commas, truncation, rounding up or down. Do units have a space, KB, MB, etc.?
+-->
+
+### References to UI
+When referring to unclickable page names and sections, write them as they appear in the interface in quotation marks.
+
+Example: Go to the “Email notification settings” section.
+
+When referring to button or link text that a user should click on, use bold text without quotation marks. Make sure all UI references match the capitalization in the interface. If you’re writing for a mobile app experience, use “tap”, instead of “click”.
+
+Example: Click **Save**
+
+When referring to a folder, use a code tag.
+
+Example: Open the `docs` folder.
+
+### Subject
+In most instances, address the user as "you" and items "owned" by the user as "your" or "yours".
+
+Do: "Update your profile"
+Don't: "Update my profile"
+
+Some exceptions exist and are usually related to legal language, such as when a user needs to agree to terms, or confirm a destructive action.
+
+Do: "I have read the Terms of Service"
+Do: "I understand the consequences of … "
+
+<!--
+### Text truncation
+TODO: Examples of truncation: dates, large numbers, long file names.
+-->
+
+## What to avoid
+- Do not say that something is “easy”, “quick”, or that the user “just” needs to do something.
+- Do not capitalize common terms. Only proper nouns and product names should be capitalized.
+- Do not use emoji in UI content, or to replace words.
+- Use the word “and” instead of an ampersand or the “+” sign.
+- Do not use exclamation marks to indicate excitement, most actions aren’t.
+- Do not use the greater than and less than symbols to indicate steps in a flow.
+- Do not use semicolons: they are hard to get right and can be replaced by a period most times.
+
+## How to get help
+If you need clarification and can’t find an answer in the [GitHub’s Content Style Guide](https://brand.github.com/content/) or the [Microsoft Style Guide](https://docs.microsoft.com/en-us/style-guide/welcome/), or would like your UI content to be reviewed, please start a discussion in GitHub Primer repo and someone in the team will get back to you. If your query is urgent, you can ask directly in the #primer channel. 
