@@ -3,7 +3,8 @@ title: Content
 ---
 
 import {Box} from '@primer/components'
-import {Text} from '@primer/compoents'
+import {Text} from '@primer/components'
+import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 
 These guidelines are specific to and focused on GitHub product interfaces. Your first port of call for general content guidelines should be [GitHub’s Content Style Guide](https://brand.github.com/content/), followed by the [Microsoft Style Guide](https://docs.microsoft.com/en-us/style-guide/welcome/).
 
@@ -119,39 +120,62 @@ Do not include colons in form labels.
 ### Labels and buttons
 All labels and button text should be in sentence case, and not include punctuation.
 
-Examples: 
-Save email preferences
-1 linked pull request
-12 days ago
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>Save email preferences</Text>
+  <Text fontSize={3}>1 linked pull request</Text>
+  <Text fontSize={3}>12 days ago</Text>    
+ </Do>
+ <Dont>
+  <Text fontSize={3}>Save email preferences.</Text>
+  <Text fontSize={3}>1 Linked pull request</Text>
+  <Text fontSize={3}>12 Days ago</Text>    
+ </Dont>
+</DoDontContainer>
 
 <Note>When a sentence or label starts with a number (for example, “2 references”), the number is the first word, and the rest of the sentence should be in lowercase.</Note>
 
 Action labels should start with an imperative verb that clearly indicates what to expect.
 
-Example: Save preferences
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>Save preferences</Text>
+ </Do>
+</DoDontContainer>
 
 Action labels can be shortened to only include an adjective and a noun.
 
-Example: New issue
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>New issue</Text>
+ </Do>
+</DoDontContainer>
 
 Use “sign in” rather than “log in”.
 
 ### Links
-Link text should be meaningful and unique, with as few duplicated references as possible to prevent confusion. Ideally the link itself, or, alternatively, its programmatically determined context should provide information about where the link will take you, and help users decide whether to follow the link. Examples of programmatically determined context can be aria labels, or text within the same paragraph as the link.
+Link text should be meaningful and unique, with as few duplicated references as possible to prevent confusion. Ideally the link itself, or, alternatively, its programmatically determined context, should provide information about where the link will take you, and help users decide whether to follow the link. Examples of programmatically determined context can be aria labels, or text within the same paragraph as the link.
 
-Do: 
-You can find out more about our speakers at the GitHub Universe site” [context within paragraph]
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>You can find out more about our speakers at the GitHub Universe site”</Text>
+  <Caption>Set the context within the paragraph.</Caption>
+ </Do>
+</DoDontContainer>
 
-Do:
-<a href="/pricing">
+<DoDontContainer>
+  <Do>
+    <Code className="language-html">
+      {`<a href="/pricing">
    <img src="pricing.jpg" alt="">
    Pricing information
-</a>  
-[image link contained in same element as context text]
+</a>`}
+    </Code>
+    <Caption>Set the context of the image link from the text within the same container.</Caption>
+ </Do>
+</DoDontContainer>
 
 Never say “here” or “click here”.
-
-TODO: Accessible link text.
 
 <!--
 ### Numbers
@@ -161,26 +185,48 @@ TODO: Commas, truncation, rounding up or down. Do units have a space, KB, MB, et
 ### References to UI
 When referring to unclickable page names and sections, write them as they appear in the interface in quotation marks.
 
-Example: Go to the “Email notification settings” section.
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>Go to the “Email notification settings” section.</Text>
+ </Do>
+</DoDontContainer>
 
 When referring to button or link text that a user should click on, use bold text without quotation marks. Make sure all UI references match the capitalization in the interface. If you’re writing for a mobile app experience, use “tap”, instead of “click”.
 
-Example: Click **Save**
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>Click <strong>Save</strong></Text>
+ </Do>
+</DoDontContainer>
 
 When referring to a folder, use a code tag.
 
-Example: Open the `docs` folder.
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>Open the <code>docs</code> folder.</Text>
+ </Do>
+</DoDontContainer>
 
 ### Subject
 In most instances, address the user as "you" and items "owned" by the user as "your" or "yours".
 
-Do: "Update your profile"
-Don't: "Update my profile"
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>Update your profile</Text>
+ </Do>
+ <Dont>
+  <Text fontSize={3}>Update my profile</Text>
+ </Dont>
+</DoDontContainer>
 
 Some exceptions exist and are usually related to legal language, such as when a user needs to agree to terms, or confirm a destructive action.
 
-Do: "I have read the Terms of Service"
-Do: "I understand the consequences of … "
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>"I have read the Terms of Service"</Text>
+  <Text fontSize={3}>"I understand the consequences of … "</Text>
+ </Dont>
+</DoDontContainer>
 
 <!--
 ### Text truncation
