@@ -83,33 +83,67 @@ Avoid using emojis, but when you do:
 <!-- See also alternative text. -->
 
 ### Error messages
-Be friendly and helpful, and avoid jargon.
+Be friendly and helpful, and avoid jargon. Do not blame the user.
 
-Do: 
-Don’t: 
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>Enter a name</Text>  
+  <Text fontSize={3}>Your name must be between 2 and 20 characters</Text>
+ </Do>
+ <Dont>
+  <Text fontSize={3}>You forgot to add a name</Text>    
+  <Text fontSize={3}>Error 1234567890</Text> 
+ </Dont>
+</DoDontContainer>
 
-Do not blame the user.
+Be specific.
 
-Do: 
-Don’t: 
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>Enter a credit card number</Text>   
+ </Do>
+ <Dont>
+  <Text fontSize={3}>Field required</Text>    
+ </Dont>
+</DoDontContainer>
 
-Do not apologize too much.
+In most cases, apologizing won't fix the problem. As a rule, do not apologize too much in any situation in the UI.
 
-Do: 
-Don’t: 
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>All checks failed</Text>   
+ </Do>
+ <Dont>
+  <Text fontSize={3}>Sorry, all checks failed</Text>    
+ </Dont>
+</DoDontContainer>
 
-Do not try to be funny.
+Do not try to be funny or humorous.
 
-Do: 
-Don’t: 
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>Some checks failed</Text>   
+ </Do>
+ <Dont>
+  <Text fontSize={3}>Oops, some checks failed</Text>    
+ </Dont>
+</DoDontContainer>
 
-<!--
 ### Feedback 
-TODO: Confirmation messages. Save, close, dismiss.
+Feedback should be clear and reassuring, using the same terms used by the UI elements that triggered it. Don't try to be funny, and avoid jargon.
 
-Do: 
-Don’t: 
--->
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>Issue transfer in progress</Text>   
+  <Caption>Feedback message when transferring an issue, using the same term ("transfer") as the trigger button</Caption>
+ </Do>
+ <Dont>
+  <Text fontSize={3}>Moving the issue</Text>    
+  <Caption>Feedback message that uses a different term ("moving") than the trigger button</Caption>
+ </Dont>
+</DoDontContainer>
+
+<!-- TODO: More confirmation messages. Save, close, dismiss. -->
 
 ### Forms
 Use sentence case for form titles, labels, and fields.
@@ -182,6 +216,18 @@ Never say “here” or “click here”.
 TODO: Commas, truncation, rounding up or down. Do units have a space, KB, MB, etc.?
 -->
 
+### Punctuation
+Headings, labels and buttons should not include punctuation. In most cases, exclamation marks are not appropriate — most things aren't _that_ exciting.
+
+<DoDontContainer>
+ <Do>
+  <Text fontSize={3}>No code scanning alerts found</Text>
+ </Do>
+ <Dont>
+  <Text fontSize={3}>No code scanning alerts found!</Text>
+ </Dont>
+</DoDontContainer>
+
 ### References to UI
 When referring to unclickable page names and sections, write them as they appear in the interface in quotation marks.
 
@@ -224,7 +270,7 @@ Some exceptions exist and are usually related to legal language, such as when a 
 <DoDontContainer>
  <Do>
   <Text fontSize={3}>"I have read the Terms of Service"</Text>
-  <Text fontSize={3}>"I understand the consequences of … "</Text>
+  <Text fontSize={3}>"I understand, convert this issue to a discussion"</Text>
  </Dont>
 </DoDontContainer>
 
