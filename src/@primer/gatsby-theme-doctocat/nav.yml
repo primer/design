@@ -19,12 +19,27 @@
       url: /ui-patterns/button-usage
     - title: Empty states
       url: /ui-patterns/empty-states
-    - title: Progressive disclosure
-      url: /ui-patterns/progressive-disclosure
-    - title: Messaging
-      url: /ui-patterns/messaging
     - title: Feature onboarding
       url: /ui-patterns/feature-onboarding
+    - title: Messaging
+      url: /ui-patterns/messaging
+    - title: Progressive disclosure
+      url: /ui-patterns/progressive-disclosure    
+- title: Components
+  url: /components
+  children:
+    - title: Action list
+      url: /components/action-list
+    - title: Action menu
+      url: /components/action-menu
+    - title: Dialog
+      url: /components/dialog
+    - title: Dropdown menu
+      url: /components/dropdown-menu
+    - title: Overlay
+      url: /components/overlay
+    - title: Popover
+      url: /components/popover
 - title: Design tools
   url: /tools
   children:
