@@ -1,38 +1,58 @@
 ---
-title: UI patterns
+title: Components
 ---
 
 import {Grid, Flex, Box, Link, Text} from '@primer/components'
+
 
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr 1fr']} gridGap={4}>
     <div>
         <Flex bg="gray.1" justifyContent="center">
             <img width="400" alt="" src="https://compai.pub/v1/png/41d55c2894e91bd7d0594d005ce51e2471292973343c01dcbbc271c34aa2d702"/>
         </Flex>
-        <Link href="/ui-patterns/button-usage" fontWeight="bold">Button usage</Link>
+        <Link href="#" fontWeight="bold">Action list</Link>
     </div>
     <div>
         <Flex bg="gray.1" justifyContent="center">
             <img width="400" alt="" src="https://compai.pub/v1/png/41d55c2894e91bd7d0594d005ce51e2471292973343c01dcbbc271c34aa2d702"/>
         </Flex>
-        <Link href="/ui-patterns/empty-states" fontWeight="bold">Empty states</Link>
+        <Link href="#" fontWeight="bold">Action menu</Link>
     </div>
     <div>
         <Flex bg="gray.1" justifyContent="center">
             <img width="400" alt="" src="https://compai.pub/v1/png/41d55c2894e91bd7d0594d005ce51e2471292973343c01dcbbc271c34aa2d702"/>
         </Flex>
-        <Link href="/ui-patterns/feature-onboarding" fontWeight="bold">Feature onboarding</Link>
+        <Link href="/components/dialog" fontWeight="bold">Dialog</Link>
     </div>
     <div>
        <Flex bg="gray.1" justifyContent="center">
             <img width="400" alt="" src="https://compai.pub/v1/png/41d55c2894e91bd7d0594d005ce51e2471292973343c01dcbbc271c34aa2d702"/>
         </Flex>
-        <Link href="/ui-patterns/messaging" fontWeight="bold">Messaging</Link>
+        <Link href="#" fontWeight="bold">Dropdown menu</Link>
     </div>
     <div>
         <Flex bg="gray.1" justifyContent="center">
             <img width="400" alt="" src="https://compai.pub/v1/png/41d55c2894e91bd7d0594d005ce51e2471292973343c01dcbbc271c34aa2d702"/>
         </Flex>
-        <Link href="/ui-patterns/progressive-disclosure" fontWeight="bold">Progressive disclosure</Link>
+        <Link href="#" fontWeight="bold">Overlay</Link>
+    </div>
+    <div>
+       <Flex bg="gray.1" justifyContent="center">
+            <img width="400" alt="" src="https://compai.pub/v1/png/41d55c2894e91bd7d0594d005ce51e2471292973343c01dcbbc271c34aa2d702"/>
+        </Flex>
+        <Link href="#" fontWeight="bold">Popover</Link>
     </div>
 </Grid>
+
+<!--
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/24916540/52501276-d3330080-2b94-11e9-954e-38c0f09f8ca1.png" />
+    <Caption>Use sentence case</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/24916540/52501272-d3330080-2b94-11e9-8829-7d12aae36ba1.png" />
+    <Caption>Don't use all-caps or other text formats</Caption>
+  </Dont>
+</DoDontContainer>
+-->
