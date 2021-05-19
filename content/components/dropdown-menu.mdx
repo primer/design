@@ -1,0 +1,68 @@
+---
+title: Dropdown menu
+status: Alpha
+---
+
+import {Grid, Flex, Box, Button, ButtonOutline} from '@primer/components'
+
+Dropdown menus are used for making a single selection among a small list of options. The list is usually predefined with system values, but in some cases it can include user-provided data when those are known not to grow into too many items.
+
+<ButtonOutline mr={1}>React component</ButtonOutline>
+<ButtonOutline mr={1}>ViewComponent</ButtonOutline>
+<ButtonOutline>Figma component</ButtonOutline>
+
+## Anatomy 
+
+<img alt="Dropdown menu component anatomy" src="https://user-images.githubusercontent.com/223966/118820837-89c2d700-b8ae-11eb-8c92-9c0a5253772c.png" />
+<Caption>Caption here</Caption>
+
+<img alt="Dropdown menu component anatomy" src="https://user-images.githubusercontent.com/223966/118820841-8a5b6d80-b8ae-11eb-9c32-a97ed6b4f966.png" />
+<Caption>Caption here</Caption>
+
+## Usage
+
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={4}>
+    <div>
+        <Flex bg="gray.1" justifyContent="center">
+            <img width="400" alt="" src="https://compai.pub/v1/png/41d55c2894e91bd7d0594d005ce51e2471292973343c01dcbbc271c34aa2d702"/>
+        </Flex>
+    </div>
+    <div>
+        <Flex>
+            Limit the number of options within a dropdown menu. Dropdown menus work better with fewer items.
+        </Flex>
+    </div>
+    <div>
+        <Flex bg="gray.1" justifyContent="center">
+            <img width="400" alt="" src="https://compai.pub/v1/png/41d55c2894e91bd7d0594d005ce51e2471292973343c01dcbbc271c34aa2d702"/>
+        </Flex>
+    </div>
+    <div>
+        <Flex>
+            Action menu vs dropdown menu: Action menu has links to other places, while in a dropdown menu the selection gets applied to the source element.
+        </Flex>
+    </div>
+    <div>
+        <Flex bg="gray.1" justifyContent="center">
+            <img width="400" alt="" src="https://compai.pub/v1/png/41d55c2894e91bd7d0594d005ce51e2471292973343c01dcbbc271c34aa2d702"/>
+        </Flex>
+    </div>
+    <div>
+        <Flex>
+            Dropdown vs select panel: Single-select menu and multi-select panel is used when you have lots of data (usually provided by users/teams). Never include a search box inside of a dropdown menu.
+        </Flex>
+    </div>
+</Grid>
+
+<!--
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/24916540/52501276-d3330080-2b94-11e9-954e-38c0f09f8ca1.png" />
+    <Caption>Use sentence case</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/24916540/52501272-d3330080-2b94-11e9-8829-7d12aae36ba1.png" />
+    <Caption>Don't use all-caps or other text formats</Caption>
+  </Dont>
+</DoDontContainer>
+-->
