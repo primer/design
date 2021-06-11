@@ -5,11 +5,25 @@ status: Alpha
 
 import {Grid, Flex, Box, Button, ButtonOutline} from '@primer/components'
 
-An action list is a simple list of interactive actions or options. It displays a single column of content, divided into items.
+<Box sx={{fontSize: 3}} class="lead" as="p">
+    An action list is a vertical list of interactive actions or options. It is composed of items presented in a consistent single-column format, with room for icons, descriptions, side information, and other rich visuals.
+</Box>
 
+<img src="https://user-images.githubusercontent.com/293280/121754046-78917280-cac8-11eb-8320-245aca655586.png" alt="Action list examples" />
+
+<!--
 <ButtonOutline mr={1}>React component</ButtonOutline>
 <ButtonOutline mr={1}>ViewComponent</ButtonOutline>
 <ButtonOutline>Figma component</ButtonOutline>
+-->
+
+## Overview
+
+Action lists are used in action menus, navigation menus, selection options, and other overlays. They can also be used directly in page sidebars for showing individual actions, for handling local navigation, and for showing metadata.
+
+Action lists can group items into sections, and support dividers and headers for organization.
+
+Action lists use an inset style to...
 
 ## Anatomy 
 
@@ -26,10 +40,10 @@ An action list is a simple list of interactive actions or options. It displays a
 
 ## Usage
 
-<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={4}>
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
     <div>
         <Flex bg="gray.1" justifyContent="center">
-            <img width="400" alt="" src="https://compai.pub/v1/png/41d55c2894e91bd7d0594d005ce51e2471292973343c01dcbbc271c34aa2d702"/>
+            <img width="456" alt="" src="https://user-images.githubusercontent.com/293280/121753604-8e526800-cac7-11eb-8c62-b07cad478406.png" />
         </Flex>
     </div>
     <div>
@@ -39,7 +53,17 @@ An action list is a simple list of interactive actions or options. It displays a
     </div>
     <div>
         <Flex bg="gray.1" justifyContent="center">
-            <img width="400" alt="" src="https://compai.pub/v1/png/41d55c2894e91bd7d0594d005ce51e2471292973343c01dcbbc271c34aa2d702"/>
+            <img width="456" alt="" src="https://user-images.githubusercontent.com/293280/121755357-ca87c780-cacb-11eb-8290-affe01985f95.png" />
+        </Flex>
+    </div>
+    <div>
+        <Flex>
+            Action lists can group items into sections, and can use dividers and headers to organize the content.
+        </Flex>
+    </div>
+    <div>
+        <Flex bg="gray.1" justifyContent="center">
+            <img width="456" alt="" src="https://user-images.githubusercontent.com/293280/121755357-ca87c780-cacb-11eb-8290-affe01985f95.png" />
         </Flex>
     </div>
     <div>
