@@ -3,10 +3,10 @@ title: Action list
 status: Alpha
 ---
 
-import {Grid, Flex, Box, Button, ButtonOutline} from '@primer/components'
+import {Grid, Flex, Box, Button, ButtonOutline, Heading} from '@primer/components'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
-    An action list is a vertical list of interactive actions or options. It is composed of items presented in a consistent single-column format, with room for icons, descriptions, side information, and other rich visuals.
+    An action list is a vertical list of interactive actions or options. It’s composed of items presented in a consistent single-column format, with room for icons, descriptions, side information, and other rich visuals.
 </Box>
 
 <img src="https://user-images.githubusercontent.com/293280/121754046-78917280-cac8-11eb-8320-245aca655586.png" alt="Action list examples" />
@@ -19,11 +19,12 @@ import {Grid, Flex, Box, Button, ButtonOutline} from '@primer/components'
 
 ## Overview
 
-Action lists are essential for overlay components, being used by menus, selection panels, and other overlays. They can also be used directly in page sidebars for showing individual actions, for handling local navigation, and for displaying metadata.
+Action lists can have many uses. They’re the foundation of menus, selection panels, and other overlay components; they can be applied to page sidebars for showing individual actions, for handling local navigation, and for displaying metadata.
 
-Action lists can group items into sections, and support dividers and headers for establishing rhythm and hierarchy.
+Action list items can be grouped in sections by using headers and dividers. Individual item dividers can be used 
+Action lists support dividers and headers for grouping items into sections, and inset item dividers.
 
-Action lists use a mobile-friendly inset style. Its items adapt to touch-based devices and its single-column format should work consistently in any screen size.
+Action lists use a mobile-friendly inset style. Its items adapt to touch-based devices and its single-column format should render consistently in any screen size.
 
 ## Anatomy 
 
@@ -41,28 +42,36 @@ Action lists use a mobile-friendly inset style. Its items adapt to touch-based d
 
 -->
 
-## Usage
+
+## Application
+
+### In overlays
+
+### In pages
+
+## Options
 
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
     <div>
-        <Flex bg="gray.1" justifyContent="center">
-            <img width="456" alt="" src="https://user-images.githubusercontent.com/293280/121757211-a9c27080-cad1-11eb-8b09-792bf2975fc2.png" />
+        <Flex justifyContent="center">
+            <img width="464" alt="Action list sizes" src="https://user-images.githubusercontent.com/293280/121766871-c1b5e680-cb09-11eb-8835-bfec4c80e45a.png" />
         </Flex>
     </div>
     <div>
-        <Flex>
-            Action lists are used in action menus, navigation menus, selection options, and other overlays. They can also be used directly in the page for showing individual actions, for handling local navigation, and for showing metadata.
+        <Heading fontSize={3}>Sizes</Heading>
+        <Flex as="p">Action list items support three different sizes: small, medium, and large. The small size is the default and most common option. Medium sizes work well for relaxed local navigations, while large sizes can support items that need more breathing room.</Flex>
+        <Flex as="p">Sizes only grow vertically. This behavior keeps the content aligned among items, and retains horizontal space for density.</Flex>
+        <Flex as="p">On touch devices, the large size is used at all times to ensure usability when tapping.</Flex>
+        <Flex as="p">Avoid mixing different sizes in the same list.</Flex>
+    </div>
+    <div>
+        <Flex justifyContent="center">
+            <img width="464" alt="" src="https://user-images.githubusercontent.com/293280/121767353-91237c00-cb0c-11eb-9f77-0e27a8ea0759.png" />
         </Flex>
     </div>
     <div>
-        <Flex bg="gray.1" justifyContent="center">
-            <img width="456" alt="" src="https://user-images.githubusercontent.com/293280/121755357-ca87c780-cacb-11eb-8290-affe01985f95.png" />
-        </Flex>
-    </div>
-    <div>
-        <Flex>
-            Action lists can group items into sections, and can use dividers and headers to organize the content.
-        </Flex>
+        <Heading fontSize={3}>Item dividers</Heading>
+        <Flex as="p">Action lists can group items into sections, and can use dividers and headers to organize the content.</Flex>
     </div>
     <div>
         <Flex bg="gray.1" justifyContent="center">
