@@ -19,14 +19,12 @@ import {Grid, Flex, Box, Button, ButtonOutline, Heading} from '@primer/component
 
 ## Overview
 
-Action lists can have many uses. They’re the foundation of menus, selection panels, and other overlay components; they can be applied to page sidebars for showing individual actions, for handling local navigation, and for displaying metadata.
+Action lists can have many applications. They’re the foundation of menus, selection panels, and other overlay components; they can be applied to page sidebars for showing individual actions, for handling local navigation, and for displaying metadata.
 
-Action list items can be grouped in sections by using headers and dividers. Individual item dividers can be used 
-Action lists support dividers and headers for grouping items into sections, and inset item dividers.
+Action lists support dividers and headers for grouping items into sections. They also support inset dividers between individual items for clarity.
 
-Action lists use a mobile-friendly inset style. Its items adapt to touch-based devices and its single-column format should render consistently in any screen size.
+Action lists use a mobile-friendly inset style. Their items adapt to touch-based devices, and their single-column format should render consistently in any screen size.
 
-## Anatomy 
 
 <!--
 <img alt="Action list wrapper structure" src="https://user-images.githubusercontent.com/223966/118818389-2e8fe500-b8ac-11eb-81b2-8a61f4b3d7ba.png" />
@@ -40,14 +38,17 @@ Action lists use a mobile-friendly inset style. Its items adapt to touch-based d
 <img alt="Action list item structure" src="https://user-images.githubusercontent.com/223966/118818435-3bacd400-b8ac-11eb-8691-ab9cbba73249.png" />
 <Caption>Action list item structure</Caption>
 
--->
-
+## Anatomy 
 
 ## Application
 
 ### In overlays
 
 ### In pages
+
+
+-->
+
 
 ## Options
 
@@ -59,19 +60,33 @@ Action lists use a mobile-friendly inset style. Its items adapt to touch-based d
     </div>
     <div>
         <Heading fontSize={3}>Sizes</Heading>
-        <Flex as="p">Action list items support three different sizes: small, medium, and large. The small size is the default and most common option. Medium sizes work well for relaxed local navigations, while large sizes can support items that need more breathing room.</Flex>
+        <Flex as="p">Action list items support three different sizes: small, medium, and large. The small size is the default and most common option. Medium sizes work well for relaxed local navigation, while large sizes can support items that need more breathing room.</Flex>
         <Flex as="p">Sizes only grow vertically. This behavior keeps the content aligned among items, and retains horizontal space for density.</Flex>
         <Flex as="p">On touch devices, the large size is used at all times to ensure usability when tapping.</Flex>
         <Flex as="p">Avoid mixing different sizes in the same list.</Flex>
     </div>
     <div>
-        <Flex justifyContent="center">
-            <img width="464" alt="" src="https://user-images.githubusercontent.com/293280/121767353-91237c00-cb0c-11eb-9f77-0e27a8ea0759.png" />
+        <Flex flexDirection="column" justifyContent="center">
+            <Box>
+                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/121966246-226c3b80-cd23-11eb-856b-32bde42cb60f.png" />
+                <Caption>Use leading visuals in system sections, features, or options.</Caption>
+            </Box>
+            <Box>
+                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/121966249-2304d200-cd23-11eb-9bbf-fbc1ef2773b1.png" />
+                <Caption>Use leading visuals in important menu items.</Caption>
+            </Box>
+            <Box>
+                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/121966449-8c84e080-cd23-11eb-930f-9397ae2ea433.png" />
+                <Caption>Use leading visuals to represent content types.</Caption>
+            </Box>
         </Flex>
     </div>
+    
     <div>
-        <Heading fontSize={3}>Item dividers</Heading>
-        <Flex as="p">Action lists can group items into sections, and can use dividers and headers to organize the content.</Flex>
+        <Heading fontSize={3}>Leading visual</Heading>
+        <Flex as="p">Leading visuals are optional and appear at the start of an item. They can be octicons, avatars, and other custom visuals that fit a small area.</Flex>
+        <Flex as="p">When listing system sections, features, or options, use leading visuals to improve the items' scannability. Or, in user-provided objects, they can help signifying the item's content type and status.</Flex>
+        <Flex as="p">Depending on the context however, displaying a leading visual is not necessary. Per instance, a list of branches in a selector may not need repeated icons if the surrounding UI already provides enough context.</Flex>
     </div>
     <div>
         <Flex bg="gray.1" justifyContent="center">
@@ -79,9 +94,9 @@ Action lists use a mobile-friendly inset style. Its items adapt to touch-based d
         </Flex>
     </div>
     <div>
-        <Flex>
+        <Box as="p">
             Action lists can group items into sections, and can use dividers and headers to organize the content.
-        </Flex>
+        </Box>
     </div>
 </Grid>
 
