@@ -21,9 +21,11 @@ import {Grid, Flex, Box, Button, ButtonOutline, Heading} from '@primer/component
 
 Action lists can have many applications. They’re the foundation of menus, selection panels, and other overlay components; they can be applied to page sidebars for showing individual actions, for handling local navigation, and for displaying metadata.
 
-Action lists support dividers and headers for grouping items into sections. They also support inset dividers between individual items for clarity.
+Action lists support section dividers and headers for grouping items, and indivudal item dividers for added clarity.
 
-Action lists use a mobile-friendly inset style. Their items adapt to touch-based devices, and their single-column format should render consistently in any screen size.
+Action lists use a mobile-friendly inset style. Their sizes are adapted on touch devices, and their single-column format should render consistently in any screen size.
+
+Except for read-only and disabled exceptions, action list items are interactive.
 
 
 <!--
@@ -117,8 +119,8 @@ Action lists use a mobile-friendly inset style. Their items adapt to touch-based
     <div>
         <Heading fontSize={3}>Item dividers</Heading>
         <Flex as="p">Item dividers allow users to parse heavier amounts of information. They're placed between items and are useful in complex lists, particularly when descriptions or multi-line text is present.</Flex>
-        <Flex as="p">When considering whether to use item dividers, make sure they actually make the presented information easier to parse, and are not only adding noise to the UI.</Flex>
-        <Flex as="p">When using item dividers, Increasing the action list item size may also help with legibility.</Flex>
+        <Flex as="p">When considering whether to use item dividers, make sure they actually make the presented information easier to parse, and not only add noise to the UI.</Flex>
+        <Flex as="p">When using item dividers, increasing the action list item size may also help with legibility.</Flex>
     </div>
 </Grid>
 
