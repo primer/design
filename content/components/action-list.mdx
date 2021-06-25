@@ -19,13 +19,15 @@ import {Grid, Flex, Box, Button, ButtonOutline, Heading} from '@primer/component
 
 ## Overview
 
-Action lists can have many applications. They’re the foundation of menus, selection panels, and other overlay components; they can be applied to page sidebars for showing individual actions, for handling local navigation, and for displaying metadata.
+Action lists can have many applications:
+- They’re the foundation of menus, selection panels, and other overlay components
+- They can be applied to page sidebars for showing individual actions, handling local navigation, and displaying metadata
 
 Action lists support section dividers and headers for grouping items, and indivudal item dividers for added clarity.
 
 Action lists use a mobile-friendly inset style. Their sizes are adapted on touch devices, and their single-column format renders consistently in any screen size.
 
-Except for read-only and disabled exceptions, action list items are interactive.
+Action list items are interactive, with the exception of read-only and disabled items.
 
 
 <!--
@@ -92,8 +94,8 @@ Except for read-only and disabled exceptions, action list items are interactive.
     <div>
         <Heading fontSize={3}>Leading visual</Heading>
         <Flex as="p">Leading visuals are optional and appear at the start of an item. They can be octicons, avatars, and other custom visuals that fit a small area.</Flex>
-        <Flex as="p">When listing system sections, features, or options, use leading visuals to improve the items' scannability. Or, in user-provided objects, they can help signifying the item's content type and status.</Flex>
-        <Flex as="p">Depending on the context however, displaying a leading visual may not be necessary. Per instance, a list of branches in a select panel may not need repeated icons if the surrounding UI already gives enough hints about its content type.</Flex>
+        <Flex as="p">When listing system sections, features, or options, use leading visuals to improve the items' scannability. In user-generated objects, they can help indicate the item's content type and status.</Flex>
+        <Flex as="p">Depending on the context, displaying a leading visual may not be necessary. For example, a list of branches in a select panel may not need repeated icons if the surrounding UI provides enough hints about its content type.</Flex>
     </div>
     <div>
         <Flex justifyContent="center">&nbsp;</Flex>
@@ -101,16 +103,16 @@ Except for read-only and disabled exceptions, action list items are interactive.
     <div>
         <Heading fontSize={3}>Trailing visual and trailing text</Heading>
         <Box as="p">Trailing visual and trailing text can display auxiliary information. They're placed at the right of the item, and can denote status, keyboard shortcuts, or be used to set expectations about what the action does.</Box>
-        <Box as="p">Use an `arrow-right` octicon in menus to indicate the action will open more options, such as in a nested context. Or, use an `edit` octicon to denote the item is gonna be edited after clicking it.</Box>
-        <Box as="p">Custom trailing elements are supported, such as counters, labels, and other custom visuals that may help identifying the item.</Box>
-        <Box as="p">When using a trailing text for displaying keyboard shortcuts, always confirm the characters match with the user's OS. For example, for denoting a bold action in a Markdown toolbar, Use "Ctrl+B" on Linux and Windows, and "⌘B" on Mac. (<a href="https://apple.stackexchange.com/questions/55727/where-can-i-find-the-unicode-symbols-for-mac-functional-keys-command-shift-e">See reference for Mac functional keys</a>).</Box>
+        <Box as="p">Use an `arrow-right` octicon in menus to indicate the action will open more options, such as in a nested context. Use an `edit` octicon to indicate the item is going to be edited after clicking it.</Box>
+        <Box as="p">Custom trailing elements are supported, such as counters, labels, and other custom visuals that may help identify the item.</Box>
+        <Box as="p">When using a trailing text for displaying keyboard shortcuts, always confirm the characters match with the user's operating system. For example, to indicate a bold action in a Markdown toolbar, use "Ctrl+B" on Linux and Windows, and "⌘B" on Mac. (<a href="https://apple.stackexchange.com/questions/55727/where-can-i-find-the-unicode-symbols-for-mac-functional-keys-command-shift-e">See reference for Mac functional keys</a>).</Box>
     </div>
     <div>
         <Flex justifyContent="center">&nbsp;</Flex>
     </div>
     <div>
         <Heading fontSize={3}>Danger</Heading>
-        <Flex as="p">An action list item can have a special "danger" style, to be used in special cases that are destructive and require double attention from the user.</Flex>
+        <Flex as="p">An action list item can have a special "danger" style, to be used in special cases that are destructive and require extra attention from the user.</Flex>
         <Flex as="p">Place danger items at the end of the list.</Flex>
     </div>
     <div>
@@ -119,7 +121,7 @@ Except for read-only and disabled exceptions, action list items are interactive.
     <div>
         <Heading fontSize={3}>Item dividers</Heading>
         <Flex as="p">Item dividers allow users to parse heavier amounts of information. They're placed between items and are useful in complex lists, particularly when descriptions or multi-line text is present.</Flex>
-        <Flex as="p">When considering whether to use item dividers, make sure they actually make the presented information easier to parse, and not only add noise to the UI.</Flex>
+        <Flex as="p">When considering whether to use item dividers, make sure they truly make the presented information easier to parse, instead of adding visual clutter to the interface.</Flex>
         <Flex as="p">When using item dividers, increasing the action list item size may also help with legibility.</Flex>
     </div>
 </Grid>
