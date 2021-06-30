@@ -64,7 +64,16 @@ Action list items are interactive, with the exception of read-only and disabled 
 
 -->
 
-## Anatomy 
+## Anatomy
+
+An action list can be composed with:
+
+-   Action list items
+-   Item dividers
+-   Section headers (subtle or filled styles)
+-   Section dividers (subtle or filled styles)
+
+Action lists have by default an inset padding
 
 <img src="https://user-images.githubusercontent.com/293280/122128726-d7692b80-cde9-11eb-8e5b-2f4e2eb4b4a1.png" alt="Action list anatomy" />
 
@@ -84,7 +93,7 @@ Action list items are interactive, with the exception of read-only and disabled 
         <Flex as="p">Action list items support three different sizes: small, medium, and large. The small size is the default and most common option. Medium sizes work well for relaxed local navigation, while large sizes can support items that need more breathing room.</Flex>
         <Flex as="p">Sizes only grow vertically. This behavior keeps the content aligned among items, and retains horizontal space for density.</Flex>
         <Flex as="p">On touch devices, the large size is used at all times to ensure usability when tapping.</Flex>
-        <Flex as="p">Avoid mixing different sizes in the same list.</Flex>
+        <Flex as="p">Be cautious when mixing different sizes in the same list to avoid inconsistency.</Flex>
     </div>
     <div>
         <Flex flexDirection="column" justifyContent="center">
@@ -109,22 +118,30 @@ Action list items are interactive, with the exception of read-only and disabled 
         <Flex as="p">Depending on the context, displaying a leading visual may not be necessary. For example, a list of branches in a select panel may not need repeated icons if the surrounding UI provides enough hints about its content type.</Flex>
     </div>
     <div>
-        <Flex justifyContent="center">&nbsp;</Flex>
+        <Flex flexDirection="column" justifyContent="center">
+            <Box>
+                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/124040519-eb03bd00-d9b9-11eb-94ec-2653cb2e2278.png" />
+                <Caption>A right arrow as a trailing visual indicates there’s more options to choose after selecting an item.</Caption>
+            </Box>
+        </Flex>
     </div>
     <div>
         <Heading fontSize={3}>Trailing visual and trailing text</Heading>
         <Box as="p">Trailing visual and trailing text can display auxiliary information. They're placed at the right of the item, and can denote status, keyboard shortcuts, or be used to set expectations about what the action does.</Box>
         <Box as="p">Use an `arrow-right` octicon in menus to indicate the action will open more options, such as in a nested context. Use an `edit` octicon to indicate the item is going to be edited after clicking it.</Box>
         <Box as="p">Custom trailing elements are supported, such as counters, labels, and other custom visuals that may help identify the item.</Box>
-        <Box as="p">When using a trailing text for displaying keyboard shortcuts, always confirm the characters match with the user's operating system. For example, to indicate a bold action in a Markdown toolbar, use "Ctrl+B" on Linux and Windows, and "⌘B" on Mac. (<a href="https://apple.stackexchange.com/questions/55727/where-can-i-find-the-unicode-symbols-for-mac-functional-keys-command-shift-e">See reference for Mac functional keys</a>).</Box>
+        <Box as="p">When using a trailing text for displaying keyboard shortcuts, always confirm the characters match with the user's operating system. For example, to indicate a bold action in a Markdown toolbar, use "Ctrl+B" on Linux and Windows, and "⌘B" on Mac. <a href="https://support.apple.com/en-us/HT201236">See reference for Mac keyboard glyphs</a>.</Box>
     </div>
     <div>
-        <Flex justifyContent="center">&nbsp;</Flex>
+        <Flex justifyContent="center">
+            <img width="464" alt="Action list item in danger variation" src="https://user-images.githubusercontent.com/293280/124039646-33ba7680-d9b8-11eb-965c-f5f10e76cdbd.png" />
+        </Flex>        
     </div>
     <div>
         <Heading fontSize={3}>Danger</Heading>
-        <Flex as="p">An action list item can have a special "danger" style, to be used in special cases that are destructive and require extra attention from the user.</Flex>
-        <Flex as="p">Place danger items at the end of the list.</Flex>
+        <Box as="p">An action list item can have a special "danger" style, to be used in special cases that may require extra attention from the user.</Box>
+        <Box as="p">If the action is not destructive, present the user a way to undo the action instead of asking for confirmation. <a href="https://alistapart.com/article/neveruseawarning/">Never use a warning when you mean undo</a>.</Box>
+        <Box as="p">Place danger items at the end of the list.</Box>
     </div>
     <div>
         <Flex justifyContent="center">&nbsp;</Flex>
@@ -134,6 +151,7 @@ Action list items are interactive, with the exception of read-only and disabled 
         <Flex as="p">Item dividers allow users to parse heavier amounts of information. They're placed between items and are useful in complex lists, particularly when descriptions or multi-line text is present.</Flex>
         <Flex as="p">When considering whether to use item dividers, make sure they truly make the presented information easier to parse, instead of adding visual clutter to the interface.</Flex>
         <Flex as="p">When using item dividers, increasing the action list item size may also help with legibility.</Flex>
+        <Flex as="p">Unlike section dividers, item dividers </Flex>
     </div>
 </Grid>
 
