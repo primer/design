@@ -123,11 +123,16 @@ Action lists have by default an inset padding
                 <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/124040519-eb03bd00-d9b9-11eb-94ec-2653cb2e2278.png" />
                 <Caption>A right arrow as a trailing visual indicates there’s more options to choose after selecting an item.</Caption>
             </Box>
+            <Box>
+                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/124043984-2c4b9b00-d9c1-11eb-9aef-907f7cc91c27.png" />
+                <Caption>A trailing text with custom styling to indicate diff change.</Caption>
+            </Box>
         </Flex>
     </div>
     <div>
         <Heading fontSize={3}>Trailing visual and trailing text</Heading>
         <Box as="p">Trailing visual and trailing text can display auxiliary information. They're placed at the right of the item, and can denote status, keyboard shortcuts, or be used to set expectations about what the action does.</Box>
+        <Box as="p">Note these side visuals don't have dedicated interaction targets.</Box>
         <Box as="p">Use an `arrow-right` octicon in menus to indicate the action will open more options, such as in a nested context. Use an `edit` octicon to indicate the item is going to be edited after clicking it.</Box>
         <Box as="p">Custom trailing elements are supported, such as counters, labels, and other custom visuals that may help identify the item.</Box>
         <Box as="p">When using a trailing text for displaying keyboard shortcuts, always confirm the characters match with the user's operating system. For example, to indicate a bold action in a Markdown toolbar, use "Ctrl+B" on Linux and Windows, and "⌘B" on Mac. <a href="https://support.apple.com/en-us/HT201236">See reference for Mac keyboard glyphs</a>.</Box>
@@ -161,12 +166,6 @@ Action lists have by default an inset padding
 
 ### In overlays
 
-See Overlays.
-
-### In sidebars
-
-See side navigation.
-
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
     <div>
         <Link href="/components/action-menu">
@@ -196,6 +195,10 @@ See side navigation.
         <Box as="p">Select panels allows manipulating long lists of options, with filtering and other advanced interactions. They can be used for single or multi-selection.</Box>
     </div>
 </Grid>
+
+### In sidebars
+
+See side navigation.
 
 <!--
 
