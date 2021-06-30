@@ -3,7 +3,7 @@ title: Action list
 status: Alpha
 ---
 
-import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup} from '@primer/components'
+import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link} from '@primer/components'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
     An action list is a vertical list of interactive actions or options. It’s composed of items presented in a consistent single-column format, with room for icons, descriptions, side information, and other rich visuals.
@@ -134,24 +134,26 @@ Action lists have by default an inset padding
     </div>
     <div>
         <Flex justifyContent="center">
-            <img width="464" alt="Action list item in danger variation" src="https://user-images.githubusercontent.com/293280/124039646-33ba7680-d9b8-11eb-965c-f5f10e76cdbd.png" />
-        </Flex>        
-    </div>
-    <div>
-        <Heading fontSize={3}>Danger</Heading>
-        <Box as="p">An action list item can have a special "danger" style, to be used in special cases that may require extra attention from the user.</Box>
-        <Box as="p">If the action is not destructive, present the user a way to undo the action instead of asking for confirmation. <a href="https://alistapart.com/article/neveruseawarning/">Never use a warning when you mean undo</a>.</Box>
-        <Box as="p">Place danger items at the end of the list.</Box>
-    </div>
-    <div>
+            <img width="464" alt="Item dividers" src="https://user-images.githubusercontent.com/293280/124041789-6c5c4f00-d9bc-11eb-8638-e8d0f0bca2e0.png" />
+        </Flex>     
         <Flex justifyContent="center">&nbsp;</Flex>
     </div>
     <div>
         <Heading fontSize={3}>Item dividers</Heading>
         <Flex as="p">Item dividers allow users to parse heavier amounts of information. They're placed between items and are useful in complex lists, particularly when descriptions or multi-line text is present.</Flex>
-        <Flex as="p">When considering whether to use item dividers, make sure they truly make the presented information easier to parse, instead of adding visual clutter to the interface.</Flex>
+        <Flex as="p">When considering whether to use item dividers, make sure they truly make the presented information easier to parse, instead of only increasing visual clutter.</Flex>
         <Flex as="p">When using item dividers, increasing the action list item size may also help with legibility.</Flex>
-        <Flex as="p">Unlike section dividers, item dividers </Flex>
+    </div>
+    <div>
+        <Flex justifyContent="center">
+            <img width="464" alt="Action list item in danger variation" src="https://user-images.githubusercontent.com/293280/124039646-33ba7680-d9b8-11eb-965c-f5f10e76cdbd.png" />
+        </Flex>        
+    </div>
+    <div>
+        <Heading fontSize={3}>Danger</Heading>
+        <Box as="p">An action list item can have a special "danger" style, to be used in cases that require extra attention from the user.</Box>
+        <Box as="p">For destructive or irremediable actions, show a confirmation dialog for extra friction. If the action is not destructive, present the user a way to undo the action instead of asking for confirmation. <a href="https://alistapart.com/article/neveruseawarning/">Never use a warning when you mean undo</a>.</Box>
+        <Box as="p">Place danger items at the end of the list.</Box>
     </div>
 </Grid>
 
@@ -164,6 +166,36 @@ See Overlays.
 ### In sidebars
 
 See side navigation.
+
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
+    <div>
+        <Link href="/components/action-menu">
+            <img alt="Action menu" src="https://user-images.githubusercontent.com/293280/123880964-95b3a700-d8f8-11eb-9775-cbaf165207ed.png" />
+        </Link>
+    </div>
+    <div>
+        <Link href="/components/action-menu" fontWeight="bold">Action menu</Link>
+        <Box as="p">Action menus are used for disambiguation, navigation, or to display secondary options. They appear when users interact with buttons, actions, or other controls.</Box>
+    </div>
+    <div>
+        <Link href="/components/dropdown-menu">
+            <img alt="Select panel" src="https://user-images.githubusercontent.com/293280/123881067-cdbaea00-d8f8-11eb-98e4-e57c64489308.png" />
+        </Link>
+    </div>
+    <div>
+        <Link href="/components/dropdown-menu" fontWeight="bold">Dropdown menu</Link>
+        <Box as="p">Dropdown menus are used for making a single selection among a small list of options. The list is usually predefined with system values, but in some cases it can include user-provided data when those are known not to grow into too many items.</Box>
+    </div>
+    <div>
+        <Link href="/components/select-panel">
+            <img alt="Select panel" src="https://user-images.githubusercontent.com/293280/123876997-4158f900-d8f1-11eb-85cb-461d9bbee0cb.png" />
+        </Link>
+    </div>
+    <div>
+        <Link href="/components/select-panel" fontWeight="bold">Select panel</Link>
+        <Box as="p">Select panels allows manipulating long lists of options, with filtering and other advanced interactions. They can be used for single or multi-selection.</Box>
+    </div>
+</Grid>
 
 <!--
 
