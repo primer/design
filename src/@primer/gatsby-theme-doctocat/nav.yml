@@ -30,16 +30,6 @@
   children:
     - title: Action list
       url: /components/action-list
-    - title: Action menu
-      url: /components/action-menu
-    - title: Dialog
-      url: /components/dialog
-    - title: Dropdown menu
-      url: /components/dropdown-menu
-    - title: Overlay
-      url: /components/overlay
-    - title: Popover
-      url: /components/popover
 - title: Design tools
   url: /tools
   children:
