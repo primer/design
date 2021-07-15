@@ -3,6 +3,8 @@
   children:
     - title: Typography
       url: /foundations/typography
+    - title: UI content
+      url: /foundations/content
 - title: Accessibility
   url: /accessibility/accessibility-at-github
   children:
