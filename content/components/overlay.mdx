@@ -55,14 +55,16 @@ An overlay may wrap its content directly, or include a header and footer to prov
 
 ### Overlay header
 
-Overlay headers introduce the content with title, description, and may include buttons, such as `back` and close buttons.
+An overlay header appears at the top of an overlay. It introduces its content with title, description, and general actions.
 
-Overlay headers may include a close button, when 
+Avoid using a description if the title already conveys the same information. Don't be verbose.
+
+Reserve confirmation actions such as "Save", "Apply", and "Done" to the overlay footer, not the header.
 
 <ImageContainer>
   <img
-    width="597"
-    src="https://user-images.githubusercontent.com/293280/125708451-f62dc4a0-5996-4229-822a-815200b71dd6.png"
+    width="600"
+    src="https://user-images.githubusercontent.com/293280/125709255-7d0f199d-9ea9-46ac-ae5a-c6e60d97b289.png"
     alt=" "
     style="background: none"
   />
@@ -71,8 +73,8 @@ Overlay headers may include a close button, when
 
 <ImageContainer>
   <img
-    width="597"
-    src="https://user-images.githubusercontent.com/293280/125708571-aff7cbf9-edc9-43ac-9535-c8ea4f3c59eb.png"
+    width="600"
+    src="https://user-images.githubusercontent.com/293280/125709258-c542e916-69c3-4b37-9f7d-c118d9e704bd.png"
     alt=" "
     style="background: none"
   />
@@ -80,11 +82,31 @@ Overlay headers may include a close button, when
 <Caption>Overlay header with larger title and description.</Caption>
 
 #### Close button
-While some users might be accustomed to clicking outside or pressing Escape to close an overlay, a close button provides an easy escape route. They're particularly useful in larger overlays, when they're no longer connected to the source that triggered them. Always use close buttons in dialogs.
-
-### Content area
+Users may always click outside or press Escape to close an overlay, but a close button provides an easy escape route. They're useful in larger overlays, when the overlay is longer connected to the source that triggered them. Always use close buttons in dialogs.
 
 ### Overlay footer
+
+Use an overlay footer to show confirmation actions, navigation links or other important elements that should appear at the end of the overlay. Footers are shown outside of the scrolling area, and are always visible to the user.
+
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+    <Box>
+        <img
+            width="464"
+            alt="Overlay footer"
+            src="https://user-images.githubusercontent.com/293280/125710928-020030c9-ac72-486a-905d-521d6b879517.png"
+        />
+        <Caption>Use buttons in a footer to let the user finish the task.</Caption>
+    </Box>
+    <Box>
+        <img
+            width="464"
+            alt="Overlay footer"
+            src="https://user-images.githubusercontent.com/293280/125710210-feb2e37e-aa45-4f67-984f-09d50fde0c26.png"
+        />
+        <Caption>Use a link in a footer to provide access to a related page.</Caption>
+    </Box>
+</Grid>
+
 
 ## Options
 
