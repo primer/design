@@ -1,0 +1,43 @@
+---
+title: Color
+---
+[IMG]
+
+## Functional variables
+
+### Foundations
+
+| Variable | Role |
+| -------- | -------- |
+| `canvas-default`     | Main UI surface. Most of the work happens in it.     |
+| ~~`canvas-subtle`~~     | 🟡 Deprecating soon     |
+| `canvas-overlay`     | Main surface on UI elements with elevation. Ex. Popovers     |
+| `canvas-inset`     | Areas where more focus is needed. Ex. Feeds or timelines     |
+| `border-default`     | Main border to create boundaries. Critical to understanding the interface's hierarchy.    |
+| `border-muted`     | Secondary border to emphasize separation between elements     |
+| `border-subtle`    | Low opacity border designed to blend with backgrounds like images on avatars or primary buttons     |
+| `fg-default`    | Default text and icons, high readability. ~98% of foregrounds      |
+| `fg-muted`    | Medium-readability. used to create hierarchy in combination with normal. don't use for placeholder or disabled states      |
+| `fg-subtle`    | low contrast used for disabled states. It’s ok that it doesn’t pass the contrast requirements for text.  Quotes, disabled states, placeholders?     |
+| `fg-on-emphasis`    | Text and icons to use and color backgrounds     |
+
+### Color roles or highlights
+
+#### Global roles
+Special group of highlights to create boundaries inside a layout or highlight an area of content without any specific meaning.
+
+| Variable | Role |
+| -------- | -------- |
+| `neutral-` | Highlights content without any added meaning |
+| `accent-` | Highlights important interactive elements in the interface |
+| `success-` | Expresses completion or positive outcome of a task|
+| `attention-` | Warns of pending tasks or highlights active content  |
+| `severe-` | Mostly used when there's more than 3 levels of states like heatmaps |
+| `danger-` | Informs of error or negative messaging |
+
+#### GitHub-specific roles
+
+| Variable | Role |
+| -------- | -------- |
+| `done-` | Completion color for productivity and code review workflows |
+| `sponsors-` | Color suite for all sponsors-related content |
