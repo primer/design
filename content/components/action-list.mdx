@@ -61,7 +61,11 @@ An action list can be composed of:
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
     <div>
         <Flex justifyContent="center">
-            <img width="464" alt="Action list sizes" src="https://user-images.githubusercontent.com/293280/121766871-c1b5e680-cb09-11eb-8835-bfec4c80e45a.png" />
+            <img
+                width="464"
+                alt="Action list sizes"
+                src="https://user-images.githubusercontent.com/293280/125997468-fa064d6b-ace3-4dec-920d-178478d67ba9.png"
+            />
         </Flex>
     </div>
     <div>
@@ -74,15 +78,27 @@ An action list can be composed of:
     <div>
         <Flex flexDirection="column" justifyContent="center">
             <Box>
-                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/121966246-226c3b80-cd23-11eb-856b-32bde42cb60f.png" />
+                <img
+                    width="464"
+                    alt=" "
+                    src="https://user-images.githubusercontent.com/293280/125997571-d8b92b5e-5241-4f33-b223-825335b18f3d.png"
+                />
                 <Caption>Use leading visuals to represent system sections, features, or options.</Caption>
             </Box>
             <Box>
-                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/121966249-2304d200-cd23-11eb-9bbf-fbc1ef2773b1.png" />
+                <img
+                    width="464"
+                    alt=" "
+                    src="https://user-images.githubusercontent.com/293280/125997693-e0d9e379-19c1-4382-adbb-2a1882937373.png"
+                />
                 <Caption>Use leading visuals in important menu items.</Caption>
             </Box>
             <Box>
-                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/121966449-8c84e080-cd23-11eb-930f-9397ae2ea433.png" />
+                <img
+                    width="464"
+                    alt=" "
+                    src="https://user-images.githubusercontent.com/293280/125998871-9f51e402-2ccf-4e0a-9465-65d4956c630f.png"
+                />
                 <Caption>Use leading visuals to represent content types.</Caption>
             </Box>
         </Flex>
@@ -96,11 +112,19 @@ An action list can be composed of:
     <div>
         <Flex flexDirection="column" justifyContent="center">
             <Box>
-                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/124040519-eb03bd00-d9b9-11eb-94ec-2653cb2e2278.png" />
+                <img
+                    width="464"
+                    alt=" "
+                    src="https://user-images.githubusercontent.com/293280/125998961-24f90611-fe5f-4169-8943-eef68a6755a9.png"
+                />
                 <Caption>A right arrow as a trailing visual indicates there are more options to choose after selecting an item.</Caption>
             </Box>
             <Box>
-                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/124064900-9298e380-d9ea-11eb-8aa9-dae40ece9d5b.png" />
+                <img
+                    width="464"
+                    alt=" "
+                    src="https://user-images.githubusercontent.com/293280/125999062-bc489a21-cdc6-455a-8363-b7c8c7faeb3a.png"
+                />
                 <Caption>Trailing text with custom styling to indicate diff change.</Caption>
             </Box>
         </Flex>
@@ -119,9 +143,13 @@ Use an [`arrow-right`](https://primer.style/octicons/arrow-right-16) octicon in 
     </div>
     <div>
         <Flex justifyContent="center">
-            <img width="464" alt="Item dividers" src="https://user-images.githubusercontent.com/293280/124041789-6c5c4f00-d9bc-11eb-8638-e8d0f0bca2e0.png" />
-        </Flex>     
-        <Flex justifyContent="center">&nbsp;</Flex>
+            <img
+                width="464"
+                alt=" "
+                src="https://user-images.githubusercontent.com/293280/125999347-c20e7d85-48ec-4a7e-9ecf-b5a52a033256.png"
+            />
+        </Flex>
+        <Caption>Single-selection with block description using item dividers for increased visibility.</Caption>
     </div>
     <div>
         <Heading fontSize={3}>Item dividers</Heading>
@@ -131,11 +159,34 @@ Use an [`arrow-right`](https://primer.style/octicons/arrow-right-16) octicon in 
     </div>
     <div>
         <Flex justifyContent="center">
-            <img width="464" alt="Action list item in danger variation" src="https://user-images.githubusercontent.com/293280/124039646-33ba7680-d9b8-11eb-965c-f5f10e76cdbd.png" />
+            <img
+                width="464"
+                alt="Multi-selection"
+                src="https://user-images.githubusercontent.com/293280/126000062-3fc62e04-670d-4346-b65b-57c2e70ceeb0.png"
+            />
         </Flex>        
     </div>
     <div>
-        <Heading fontSize={3}>Danger</Heading>
+        <Heading fontSize={3}>Selection states</Heading>
+        <Box as="p">
+
+Action list items may be selected or checked. Single selections are represented with a [`check`](https://primer.style/octicons/check-16) octicon, while multiple selections are represented with a checkbox component. These selection visuals are always placed at the beginning of the item.
+
+</Box>
+        <Box as="p">When listing selectable items alongside non-selectable items in a menu, use dividers to differentiate between the item types.</Box>
+        <Box as="p">Don't mix different types of selections in the same list.</Box>
+    </div>
+    <div>
+        <Flex justifyContent="center">
+            <img
+                width="464"
+                alt="Action list item in danger variation"
+                src="https://user-images.githubusercontent.com/293280/125999384-b2a322db-8ec3-4a69-a414-10050544813b.png"
+            />
+        </Flex>        
+    </div>
+    <div>
+        <Heading fontSize={3}>Danger items</Heading>
         <Box as="p">An action list item can have a special "danger" style, to be used in cases that require extra attention from the user.</Box>
         <Box as="p">For destructive or irremediable actions, show a confirmation dialog for extra friction. If the action is not destructive, present the user a way to undo the action instead of asking for confirmation. <a href="https://alistapart.com/article/neveruseawarning/">Never use a warning when you mean undo</a>.</Box>
         <Box as="p">Place danger items at the end of the list.</Box>
@@ -176,6 +227,8 @@ Use an [`arrow-right`](https://primer.style/octicons/arrow-right-16) octicon in 
     </div>
 </Grid>
 
+### In sidebars
+
 <!--
 
 ### In sidebars
@@ -201,3 +254,7 @@ See side navigation.
   </Dont>
 </DoDontContainer>
 -->
+
+## Accessibility
+
+- Make sure 
