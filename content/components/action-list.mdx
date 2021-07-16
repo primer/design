@@ -21,11 +21,6 @@ import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link
     </Label>
 </LabelGroup>
 
-<!--
-<Label as="a" href="/components/ActionList" variant="xl" outline style="text-decoration: none">ViewComponent</Label>
-
--->
-
 <ImageContainer>
     <img
         width="868"
@@ -71,10 +66,10 @@ An action list can be composed of:
     </div>
     <div>
         <Heading fontSize={3}>Sizes</Heading>
-        <Flex as="p">Action list items support three different sizes: small, medium, and large. The small size is the default and most common option. Medium sizes work well for relaxed local navigation, while large sizes can support items that need more breathing room.</Flex>
-        <Flex as="p">Sizes only grow vertically. This behavior keeps the content aligned among items, and retains horizontal space for density.</Flex>
-        <Flex as="p">On touch devices, the large size is used at all times to ensure usability when tapping.</Flex>
-        <Flex as="p">Be cautious when mixing different sizes in the same list to avoid inconsistency.</Flex>
+        <Box as="p">Action list items support three different sizes: small, medium, and large. The small size is the default and most common option. Medium sizes work well for relaxed local navigation, while large sizes can support items that need more breathing room.</Box>
+        <Box as="p">Sizes only grow vertically. This behavior keeps the content aligned among items, and retains horizontal space for density.</Box>
+        <Box as="p">On touch devices, the large size is used at all times to ensure usability when tapping.</Box>
+        <Box as="p">Be cautious when mixing different sizes in the same list to avoid inconsistency.</Box>
     </div>
     <div>
         <Flex flexDirection="column" justifyContent="center">
@@ -94,9 +89,9 @@ An action list can be composed of:
     </div>
     <div>
         <Heading fontSize={3}>Leading visual</Heading>
-        <Flex as="p">Leading visuals are optional and appear at the start of an item. They can be octicons, avatars, and other custom visuals that fit a small area.</Flex>
-        <Flex as="p">When listing system sections, features, or options, use leading visuals to improve the items' scannability. In user-generated objects, they can help to indicate the item's content type and status.</Flex>
-        <Flex as="p">Depending on the context, displaying a leading visual may not be necessary. For example, a list of branches in a select panel may not need repeated icons if the surrounding UI provides enough hints about its content type.</Flex>
+        <Box as="p">Leading visuals are optional and appear at the start of an item. They can be octicons, avatars, and other custom visuals that fit a small area.</Box>
+        <Box as="p">When listing system sections, features, or options, use leading visuals to improve the items' scannability. In user-generated objects, they can help to indicate the item's content type and status.</Box>
+        <Box as="p">Depending on the context, displaying a leading visual may not be necessary. For example, a list of branches in a select panel may not need repeated icons if the surrounding UI provides enough hints about its content type.</Box>
     </div>
     <div>
         <Flex flexDirection="column" justifyContent="center">
@@ -130,9 +125,9 @@ Use an [`arrow-right`](https://primer.style/octicons/arrow-right-16) octicon in 
     </div>
     <div>
         <Heading fontSize={3}>Item dividers</Heading>
-        <Flex as="p">Item dividers allow users to parse heavier amounts of information. They're placed between items and are useful in complex lists, particularly when descriptions or multi-line text is present.</Flex>
-        <Flex as="p">When considering whether to use item dividers, make sure they truly make the presented information easier to parse, instead of only increasing visual clutter.</Flex>
-        <Flex as="p">When using item dividers, increasing the action list item size may also help with legibility.</Flex>
+        <Box as="p">Item dividers allow users to parse heavier amounts of information. They're placed between items and are useful in complex lists, particularly when descriptions or multi-line text is present.</Box>
+        <Box as="p">When considering whether to use item dividers, make sure they truly make the presented information easier to parse, instead of only increasing visual clutter.</Box>
+        <Box as="p">When using item dividers, increasing the action list item size may also help with legibility.</Box>
     </div>
     <div>
         <Flex justifyContent="center">
