@@ -26,7 +26,14 @@ import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link
 
 -->
 
-<img src="https://user-images.githubusercontent.com/293280/122133975-96c1e000-cdf2-11eb-9ce9-02d5014c1831.png" alt="Action list examples" />
+<ImageContainer>
+    <img
+        width="868"
+        src="https://user-images.githubusercontent.com/293280/125994797-430b8376-30f8-4971-b476-c5186f9ef6ca.png"
+        alt="Action list examples"
+        style="background: none"
+    />
+</ImageContainer>
 
 ## Overview
 
@@ -36,33 +43,9 @@ Action lists can have many applications:
 
 Action lists support section dividers and headers for grouping items, and individual item dividers for added clarity.
 
-Action lists use a mobile-friendly inset style. Their sizes are adapted on touch devices, and their single-column format renders consistently in any screen size.
+Action lists use a mobile-friendly inset style. Their sizes are adapted on touch devices, and their single-column format should render consistently in any screen size.
 
-Action list items are interactive, with the exception of read-only and disabled items.
-
-
-<!--
-<img alt="Action list wrapper structure" src="https://user-images.githubusercontent.com/223966/118818389-2e8fe500-b8ac-11eb-81b2-8a61f4b3d7ba.png" />
-<Caption>Action list wrapper structure</Caption>
-
-- **Action list item:** An action list item is a generic interactive element, which includes a main text and optional icons, descriptions, auxiliary information, and more.
-- **Action list section:** An action list section uses the ARIA role property to group elements from a list. Depending on the provided values, it renders a divider, a header, or both.
-- **Action list divider:** …
-- **Action list section header:** …
-
-<img alt="Action list item structure" src="https://user-images.githubusercontent.com/223966/118818435-3bacd400-b8ac-11eb-8691-ab9cbba73249.png" />
-<Caption>Action list item structure</Caption>
-
-
-
-## Application
-
-### In overlays
-
-### In pages
-
-
--->
+Items in an action list are generally interactive, and respond visually to `hover`, `active`, and `focus` states. Disabled and read-only items are also supported.
 
 ## Anatomy
 
@@ -73,9 +56,9 @@ An action list can be composed of:
 -   Section headers (subtle or filled styles)
 -   Section dividers (subtle or filled styles)
 
-<img src="https://user-images.githubusercontent.com/293280/122128726-d7692b80-cde9-11eb-8e5b-2f4e2eb4b4a1.png" alt="Action list anatomy" />
+<img src="https://user-images.githubusercontent.com/293280/125995889-12a2de9a-7e15-4638-87dd-6796a983f733.png" alt="Action list anatomy" />
 
-<img src="https://user-images.githubusercontent.com/293280/121974972-7718b200-cd35-11eb-8c04-1fffbc5deedc.png" alt="Action list item anatomy" />
+<img src="https://user-images.githubusercontent.com/293280/125996049-e2af9cc7-c736-4adc-9800-a1d742b7929e.png" alt="Action list item anatomy" />
 
 
 ## Options
@@ -112,7 +95,7 @@ An action list can be composed of:
     <div>
         <Heading fontSize={3}>Leading visual</Heading>
         <Flex as="p">Leading visuals are optional and appear at the start of an item. They can be octicons, avatars, and other custom visuals that fit a small area.</Flex>
-        <Flex as="p">When listing system sections, features, or options, use leading visuals to improve the items' scannability. In user-generated objects, they can help indicate the item's content type and status.</Flex>
+        <Flex as="p">When listing system sections, features, or options, use leading visuals to improve the items' scannability. In user-generated objects, they can help to indicate the item's content type and status.</Flex>
         <Flex as="p">Depending on the context, displaying a leading visual may not be necessary. For example, a list of branches in a select panel may not need repeated icons if the surrounding UI provides enough hints about its content type.</Flex>
     </div>
     <div>
@@ -131,7 +114,11 @@ An action list can be composed of:
         <Heading fontSize={3}>Trailing visual and trailing text</Heading>
         <Box as="p">Trailing visual and trailing text can display auxiliary information. They're placed at the right of the item, and can denote status, keyboard shortcuts, or be used to set expectations about what the action does.</Box>
         <Box as="p">Note these side visuals don't have dedicated interaction targets.</Box>
-        <Box as="p">Use an `arrow-right` octicon in menus to indicate the action will open more options, such as in a nested context. Use an `edit` octicon to indicate the item is going to be edited after clicking it.</Box>
+        <Box as="p">
+
+Use an [`arrow-right`](https://primer.style/octicons/arrow-right-16) octicon in menus to indicate the action will open more options, such as in a nested context. Use a [`pencil`](https://primer.style/octicons/pencil-16) octicon to indicate the item is going to be edited after clicking it.
+
+</Box>
         <Box as="p">Custom trailing elements are supported, such as counters, labels, and other custom visuals that may help identify the item.</Box>
         <Box as="p">When using a trailing text for displaying keyboard shortcuts, always confirm the characters match with the user's operating system. For example, to indicate a bold action in a Markdown toolbar, use "Ctrl+B" on Linux and Windows, and "⌘B" on Mac. <a href="https://support.apple.com/en-us/HT201236">See reference for Mac keyboard glyphs</a>.</Box>
     </div>
