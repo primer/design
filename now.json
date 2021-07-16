@@ -20,6 +20,11 @@
       "status": 301,
       "headers": {"Location": "/design/foundations/typography"}
     },
+    {
+      "src": "/design/foundation/color/?",
+      "status": 301,
+      "headers": {"Location": "/design/foundations/color"}
+    },
     {"src": "/design", "dest": "/"},
     {"src": "/design(/.*)?", "dest": "$1"},
     {
