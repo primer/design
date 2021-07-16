@@ -33,16 +33,16 @@ Overlays can streamline the interface by allowing extra options to be displayed 
 
 **Keep overlays simple**. Overlays are meant to be interacted quickly, so they're better suited for focused experiences. Avoid creating a whole page inside an overlay. Prefer single-column layouts that convey a clear goal the moment it's opened.
 
-**Overlays are often used for data manipulation**. Ensure its interactions are quick and effective. For example, a search field should appear focused when opening an overlay with selection options.
+**Overlays are often used for data manipulation**. Overlays can appear on top of the screen to let the user select and edit content in a way that was previously not available. Ensure its interactions are quick and effective.
 
-**Overlays can be fully interacted with a keyboard**. Keyboard navigation should be limited to the elements of the active overlay. Pressing Escape should dismiss the overlay. When an overlay is dismissed, focus generally returns to the element that opened it.
+**Overlays can be fully interacted with a keyboard**. Keyboard navigation should be limited to the elements of the active overlay. If the overlay contains a list, let users navigate using keyboard arrows. Pressing Escape should dismiss the overlay. When an overlay is dismissed, focus generally returns to the element that opened it.
 
-**Overlay contents should work well on any screen size**. For mobile are that should perfectly transition from small smartphones to the largest screens.
+**Overlay contents should work well on any device**. Overlays may transform into bottom sheets or full-screen experiences on mobile devices. Make sure the experience takes into account devices of all sizes and input methods.
 
 
 ## Anatomy
 
-An overlay may wrap its content directly, or include a header and footer to provide context.
+An overlay may wrap its content directly, or include a header to provide content, and a footer to provide actions.
 
 <ImageContainer>
   <img
@@ -55,11 +55,13 @@ An overlay may wrap its content directly, or include a header and footer to prov
 
 ### Overlay header
 
-An overlay header appears at the top of an overlay. It introduces its content with title, description, and general actions.
+An overlay header appears at the top of an overlay. It may introduce its content with title, description, and general actions.
 
 Avoid using a description if the title already conveys the same information. Don't be verbose.
 
 Reserve confirmation actions such as "Save", "Apply", and "Done" to the overlay footer, not the header.
+
+A divider between the header and content area is optional if there's no overflow scrolling.
 
 <ImageContainer>
   <img
@@ -81,12 +83,11 @@ Reserve confirmation actions such as "Save", "Apply", and "Done" to the overlay 
 </ImageContainer>
 <Caption>Overlay header with larger title and description.</Caption>
 
-#### Close button
-Users may always click outside or press Escape to close an overlay, but a close button provides an easy escape route. They're useful in larger overlays, when the overlay is longer connected to the source that triggered them. Always use close buttons in dialogs.
-
 ### Overlay footer
 
-Use an overlay footer to show confirmation actions, navigation links or other important elements that should appear at the end of the overlay. Footers are shown outside of the scrolling area, and are always visible to the user.
+Use an overlay footer to show confirmation actions, navigation links or other important elements that should appear at the bottom. Footers are shown outside of the scrolling area, and are always visible to the user.
+
+A divider between the footer and content area is optional if there's no overflow scrolling.
 
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
     <Box>
@@ -108,7 +109,16 @@ Use an overlay footer to show confirmation actions, navigation links or other im
 </Grid>
 
 
-## Options
+## Behaviors
+
+### Closing
+
+Users may always click outside or press Escape to close an overlay. Some overlays may provide a close button as an easy escape route. They're useful in larger overlays, and when the overlay is no longer visually connected to the source that triggered them. Always use close buttons in dialogs.
+
+Closing an overlay may apply changes right away (as seen in selection panels). If the overlay contains changes that are not immediately applied (such as in a form), offer footer buttons such as "Save", "Apply", or "Done". If the user closes the overlay without saving, offer a [`beforeUnload`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) prompt to the browser so the user can avoid loosing changes. The same confirmation should appear in the case they try to close the browser tab.
+
+The user should also be able to press the browser's back button to close the overlay. This is particularly useful on mobile devices.
+
 
 ### Width and height
 
@@ -129,7 +139,30 @@ Height | Size
 `lg` | 432px
 `xl` | 600px
 
-## Positioning
+## Placement
+
+Overlays may be:
+
+- Anchored to a source element (also known as a popover).
+- Centered on a container or on the viewport (also known as a dialog).
+- Placed full-screen, when on small viewports.
+- Placed as a bottom sheet, when on small viewports.
+
+### Anchored overlays (popovers)
+
+Anchored overlays are useful for menus, quick interactions, and data manipulation. They attach to the button or element that triggered the overlay, drawing a direct connection between them. The source element should have a "selected" visual state while the overlay is opened.
+
+Simple menus and other smaller anchored overlays may be displayed as-is on smaller screens (smaller than `md` breakpoint). As the overlay gets larger and more complex, a bottom sheet may provide more dinstinction and context.
+
+<ImageContainer>
+    <img
+        alt=""
+        width="373"
+        src="https://user-images.githubusercontent.com/293280/125703625-48d44fe1-79ea-4ee1-b735-fb5155a8374c.png"
+        style="background: none"
+    />
+</ImageContainer>
+<Caption>Lorem ipsum</Caption>
 
 <ImageContainer>
   <img
@@ -140,15 +173,6 @@ Height | Size
   />
 </ImageContainer>
 <Caption>Star and Unstar buttons</Caption>
-
-<ImageContainer>
-    <img
-        alt=""
-        width="373"
-        src="https://user-images.githubusercontent.com/293280/125703625-48d44fe1-79ea-4ee1-b735-fb5155a8374c.png"
-        style="background: none"
-    />
-</ImageContainer>
 
 <!--
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
@@ -231,3 +255,38 @@ Height | Size
     </div>
 </Grid>
 -->
+
+
+## Specialized overlays
+
+Several specialized components that rely on overlays are available for use. Use them directly when aiming for a specific behavior:
+
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
+    <div>
+        <Link href="/components/action-menu">
+            <img alt="Action menu" src="https://user-images.githubusercontent.com/293280/123880964-95b3a700-d8f8-11eb-9775-cbaf165207ed.png" />
+        </Link>
+    </div>
+    <div>
+        <Link href="/components/action-menu" fontWeight="bold">Action menu</Link>
+        <Box as="p">Action menus are used for disambiguation, navigation, or to display secondary options. They appear when users interact with buttons, actions, or other controls.</Box>
+    </div>
+    <div>
+        <Link href="/components/dropdown-menu">
+            <img alt="Select panel" src="https://user-images.githubusercontent.com/293280/123881067-cdbaea00-d8f8-11eb-98e4-e57c64489308.png" />
+        </Link>
+    </div>
+    <div>
+        <Link href="/components/dropdown-menu" fontWeight="bold">Dropdown menu</Link>
+        <Box as="p">Dropdown menus are used for making a single selection among a small list of options. The list is usually predefined with system values, but in some cases it can include user-provided data when those are known not to grow into too many items.</Box>
+    </div>
+    <div>
+        <Link href="/components/select-panel">
+            <img alt="Select panel" src="https://user-images.githubusercontent.com/293280/123876997-4158f900-d8f1-11eb-85cb-461d9bbee0cb.png" />
+        </Link>
+    </div>
+    <div>
+        <Link href="/components/select-panel" fontWeight="bold">Select panel</Link>
+        <Box as="p">Select panels allows manipulating long lists of options, with filtering and other advanced interactions. They can be used for single or multi-selection.</Box>
+    </div>
+</Grid>
