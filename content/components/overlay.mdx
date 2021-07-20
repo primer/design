@@ -29,11 +29,11 @@ import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link
 
 ## Overview
 
-Overlays can streamline the interface by allowing extra options to be displayed as the person needs them. Overlays present a new context to the user, and can facilitate the completion of individual tasks.
+Overlays can streamline the interface by allowing extra options to be displayed as needed. Overlays present a new context to the user, and can facilitate the completion of individual tasks.
 
-**Keep overlays simple**. Overlays are meant to be interacted quickly, so they're better suited for focused experiences. Avoid creating a whole page inside an overlay. Prefer single-column layouts that convey a clear goal the moment it's opened.
+**Keep overlays simple**. Overlays are meant to be interacted with quickly, so they're better suited for focused experiences. Avoid creating a whole page inside an overlay. Prefer single-column layouts that convey a clear goal the moment it's opened.
 
-**Overlays are often used for data manipulation**. Overlays can appear on top of the screen to let the user select and edit content in a way that was previously not available. Ensure its interactions are quick and effective.
+**Overlays are often used for data manipulation**. Overlays can appear on top of the screen to let the user select and edit content in a way that was previously not available. Ensure these interactions are quick and effective.
 
 **Overlays can be fully interacted with a keyboard**. Keyboard navigation should be limited to the elements of the active overlay. If the overlay contains a list, let users navigate using keyboard arrows. Pressing Escape should dismiss the overlay. When an overlay is dismissed, focus generally returns to the element that opened it.
 
@@ -42,7 +42,7 @@ Overlays can streamline the interface by allowing extra options to be displayed 
 
 ## Anatomy
 
-An overlay may wrap its content directly, or include a header to provide content, and a footer to provide actions.
+An overlay may include a header to provide content, and a footer to provide actions.
 
 <ImageContainer>
   <img
@@ -59,7 +59,7 @@ An overlay header appears at the top of an overlay. It may introduce its content
 
 Avoid using a description if the title already conveys the same information. Don't be verbose.
 
-Reserve confirmation actions such as "Save", "Apply", and "Done" to the overlay footer, not the header.
+Reserve confirmation actions such as **Save**, **Apply**, and **Done** to the overlay footer, not the header.
 
 A divider between the header and content area is optional if there's no overflow scrolling.
 
@@ -115,7 +115,7 @@ A divider between the footer and content area is optional if there's no overflow
 
 Users may always click outside or press Escape to close an overlay. Some overlays may provide a close button as an easy escape route. They're useful in larger overlays, and when the overlay is no longer visually connected to the source that triggered them. Always use close buttons in dialogs.
 
-Closing an overlay may apply changes right away (as seen in selection panels). If the overlay contains changes that are not immediately applied (such as in a form), offer footer buttons such as "Save", "Apply", or "Done". If the user closes the overlay without saving, offer a [`beforeUnload`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) prompt to the browser so the user can avoid loosing changes. The same confirmation should appear in the case they try to close the browser tab.
+Closing an overlay may apply changes right away (as seen in selection panels). If the overlay contains changes that are not immediately applied (such as in a form), offer footer buttons such as **Save**, **Apply**, or **Done**. If the user closes the overlay without saving, offer a [`beforeUnload`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) prompt to the browser so the user can avoid losing changes. The same confirmation should appear if the user tries to close the browser tab.
 
 The user should also be able to press the browser's back button to close the overlay. This is particularly useful on mobile devices.
 
