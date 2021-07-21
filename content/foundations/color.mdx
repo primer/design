@@ -25,14 +25,14 @@ Foundation variables are the building blocks of all interfaces. Use them to crea
 | `fg-subtle`    | low contrast used for disabled states. It’s ok that it doesn’t pass the contrast requirements for text.  Quotes, disabled states, placeholders?     |
 | `fg-on-emphasis`    | Text and icons to use on color backgrounds     |
 
-## Color roles or highlights
+## Color roles 
 Color roles are defined by the meaning they convey in the UI. Primer has 8 color roles with 4 variants each. 
 
 ### Global roles
 
-| Variable | Role |
+| Preffix | Role |
 | -------- | -------- |
-| `neutral-` | Highlights content without any added meaning. |
+| `neutral-`* | Highlights content without any added meaning. |
 | `accent-` | Use to draw attention to interactive elements. |
 | `success-` | Expresses completion or positive outcome of a task. |
 | `attention-` | Warns of pending tasks or highlights active content.  |
@@ -46,12 +46,13 @@ Color roles are defined by the meaning they convey in the UI. Primer has 8 color
 | `done-` | Completion color for productivity and code review workflows. |
 | `sponsors-` | Color suite for all sponsors-related content. |
 
-### Variants or suffixes
+### Variants
 
 | Suffix | Role |
 | -------- | -------- |
 | `-fg` | Apply color to text and icons. |
 | `-emphasis` | High contrast for background and borders. |
+| `-emphasis-plus`* | Highest contrast for background and borders. Only used by `neutral-` |
 | `-muted` | Medium contrast alpha value recommended for borders. |
 |`-subtle` | Low contrast solid color recommended for backgrounds. |
 
