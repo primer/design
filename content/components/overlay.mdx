@@ -111,6 +111,15 @@ A divider between the footer and content area is optional if there's no overflow
 
 ## Behaviors
 
+### Opening
+
+Overlays appear in the page after a direct user interaction, i.e. on click, tap, press, etc.
+
+On desktops and other devices with a fine pointer, overlays may also be triggered by a delayed `hover` event (GitHub calls these _hovercards_). Since this behavior doesn't work on touch devices, consider whether tapping on the source element should open the overlay or take the user to its destination directly. For example, a delayed hover on a **@username** may present a _hovercard_ on desktop, while a tap on the username would open a bottom sheet with a link to the user's profile page.
+
+Don't show overlays on page load. For that, prefer in-page messages and flash banners.
+
+
 ### Closing
 
 Users may always click outside or press Escape to close an overlay. Some overlays may provide a close button as an easy escape route. They're useful in larger overlays, and when the overlay is no longer visually connected to the source that triggered them. Always use close buttons in dialogs.
@@ -143,36 +152,108 @@ Height | Size
 
 Overlays may be:
 
-- Anchored to a source element (also known as a popover).
-- Centered on a container or on the viewport (also known as a dialog).
-- Placed full-screen, when on small viewports.
-- Placed as a bottom sheet, when on small viewports.
+- Anchored next a source element (popovers).
+- Centered on a container or on the viewport with a backdrop (dialogs).
 
-### Anchored overlays (popovers)
+On smaller screens, overlays can be one of the options above, or adapt to mobile-specific variations. There, they may:
 
-Anchored overlays are useful for menus, quick interactions, and data manipulation. They attach to the button or element that triggered the overlay, drawing a direct connection between them. The source element should have a "selected" visual state while the overlay is opened.
+- Appear as a bottom sheet (anchored to the bottom of the screen for easier reachability).
+- Appear full-screen (for forms, long lists and other complex flows).
 
-Simple menus and other smaller anchored overlays may be displayed as-is on smaller screens (smaller than `md` breakpoint). As the overlay gets larger and more complex, a bottom sheet may provide more dinstinction and context.
+### Anchored overlays as popovers
+
+Anchored overlays can be used in any device or screen size. They anchor to the button or source element that triggered them, drawing a direct connection between the elements. The source element should have a "selected" visual state while the overlay is opened.
+
+Anchored overlays are useful for menus, quick interactions, and data manipulation. They don't dim the rest of the screen when presented. 
+
+Interaction with the rest of the screen is temporarily blocked while an anchored overlay is active. They can be dismissed at any time by clicking outside of it. An anchored overlay may also be dismissed after choosing one of its options or buttons, or when clicking on an optional Close button.
 
 <ImageContainer>
     <img
-        alt=""
-        width="373"
-        src="https://user-images.githubusercontent.com/293280/125703625-48d44fe1-79ea-4ee1-b735-fb5155a8374c.png"
+        alt=" "
+        width="372"
+        src="https://user-images.githubusercontent.com/293280/126412744-45197568-26cd-432f-bfc0-03f5c90cb647.png"
         style="background: none"
     />
 </ImageContainer>
-<Caption>Lorem ipsum</Caption>
+<Caption>An anchored overlay attached to its source.</Caption>
+
+Keep anchored overlays out of the viewport edges. They should be at least 16px away from the viewport boundaries. Users shouldn't be blocked from scrolling the page while an anchored overlay is open, nor should a scrolling event in the page close the overlay.
+
+For more complex overlays, consider enabling mobile-specific bottom sheet or full-screen variations.
+
+Primer React uses [`anchoredPosition`](https://primer.style/components/anchoredPosition) to calculate the position of an anchored or centered overlay:
 
 <ImageContainer>
   <img
-    width="518"
-    src="https://user-images.githubusercontent.com/293280/125688190-c229316b-7786-4c23-b68b-1a9c8cca7791.png"
-    alt="Overlay positioning"
+    width="508"
+    src="https://user-images.githubusercontent.com/293280/126408752-c40d6f55-3790-45e7-9ea6-529c702154da.png"
+    alt=" "
     style="background: none"
   />
 </ImageContainer>
-<Caption>Star and Unstar buttons</Caption>
+<Caption>
+
+A visualization of available [`anchoredPosition`]((https://primer.style/components/anchoredPosition)) options. Source elements (purple squares) and their overlays (white squares) with  `side` (`outside-top`, `outside-right`, `outside-bottom`, `outside-left`) and `align` (`start`, `center`, `end`) settings.
+
+</Caption>
+
+### Centered overlays as dialogs
+
+Dialogs appear centered in the page, with a visible backdrop that dims the rest of the window for focus.
+
+All dialogs should have a title and a close button. Use an overlay header to compose these required elements.
+
+Dialogs are modal. Dialogs can be dismissed by clicking on the close button, or by interacting with another button in the overlay. To avoid losing information and missing important messages, clicking outside of the dialog will not close it. Prevent page scrolling when a dialog is visible.
+
+Make sure larger dialogs remain mobile-friendly. Even large dialogs need to be responsive. A dialog's width and height will be readjusted depending on the screen size and should never exceed the available space. Use responsive solutions to adjust the UI so they behave well on smaller screens.
+
+Dialogs never hit the viewport edges. Use a safe 32px margin to keep dialogs visually distinct from the rest of the page.
+
+Simple and small dialogs can remain as-is on mobile. As more elements are added to it, mobile-specific style variations such as Bottom sheet and Full-screen should be considered.
+
+<ImageContainer>
+  <img
+    width="838"
+    src="https://user-images.githubusercontent.com/293280/126410311-da5b64f2-049b-4eca-a5d8-2281b49f9d43.png"
+    alt=" "
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>
+
+A visualization of `inside-center` positioning, with underneath source elements and their available `align` (`start`, `center`, `end`) settings. 
+
+</Caption>
+
+### Bottom sheets (specific to small screens)
+
+A bottom sheet is a mobile-friendly and mobile-specific placement option. Overlays that appear anchored or centered in large screens may adapt to appear as a bottom sheet on small screens.
+
+A bottom sheet variant can be used when the overlay content is too overwhelming to appear anchored, or to faciliate reachability. A bottom sheet dims the rest of the screen for focus. This provides additional emphasis on its content and actions. Tapping on the backdrop dismisses the overlay.
+
+A bottom sheet has rounded upper corners. Its height should always accommodate the content inside.
+
+<img
+    src="https://user-images.githubusercontent.com/293280/126387985-8c14aaf9-6b63-4ead-b466-520f3156cb1a.png"
+    alt=" "
+    style="background: none"
+/>
+
+In order to work well in non-rectangular mobile screens and browser UI, bottom sheets may add extra padding inside the overlay, following [`env(safe-area-inset-*)`](https://developer.mozilla.org/en-US/docs/Web/CSS/env()) environment variables.
+
+On portrait, a bottom sheet takes up the full-width.
+
+On landscape, a bottom sheet has a maximum width of 480px, centered horizontally.
+
+<img
+    src="https://user-images.githubusercontent.com/293280/126388872-93a85fa6-f0be-428d-bbd9-58bd602cff76.png"
+    alt=" "
+    style="background: none"
+/>
+<Caption>Indicator when no title and close button are present.</Caption>
+
+A bottom sheet without a title or close button gets an indicator at the top. In case the bottom sheet gets long and takes all the available height, the indicator will reserve a safe area to keep the overlay dismissable.
 
 <!--
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
