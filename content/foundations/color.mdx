@@ -15,47 +15,47 @@ Foundation variables are the building blocks of all interfaces. Use them to crea
 | -------- | -------- |
 | `canvas-default`     | Main UI backgrounds. It's used in most components and surfaces.     |
 | ~~`canvas-subtle`~~     | 🟡 Deprecating soon     |
-| `canvas-overlay`     | Surface on elements that are displayed with elevation. For example: Dropdwons, popovers...     |
-| `canvas-inset`     | Surface on views where the content is the primary focus. Use for interfaces like feeds or timelines.     |
+| `canvas-overlay`     | Surface on elements that are displayed with elevation. For example, dropdowns and popovers.     |
+| `canvas-inset`     | Surface on views where the content is the primary focus. For example, feeds and timelines.     |
 | `border-default`     | Main border to create boundaries. Critical to understanding the interface's hierarchy.    |
-| `border-muted`     | Secondary border to emphasize separation between elements     |
-| `border-subtle`    | Low opacity border designed to blend with backgrounds like images on avatars or primary buttons     |
-| `fg-default`    | Default text and icons, high readability. ~98% of foregrounds      |
-| `fg-muted`    | Medium-readability. used to create hierarchy in combination with normal. don't use for placeholder or disabled states      |
-| `fg-subtle`    | low contrast used for disabled states. It’s ok that it doesn’t pass the contrast requirements for text.  Quotes, disabled states, placeholders?     |
-| `fg-on-emphasis`    | Text and icons to use on color backgrounds     |
+| `border-muted`     | Secondary border to emphasize separation between elements.     |
+| `border-subtle`    | Low opacity border designed to blend with backgrounds like images on avatars or primary buttons.     |
+| `fg-default`    | Provides high readability. Default text and icons, and most foregrounds.      |
+| `fg-muted`    | Provides medium readability. Used to create hierarchy in combination with `fg-default`. Do not use for placeholder or disabled states.      |
+| `fg-subtle`    | Provides low contrast. Used for disabled states — in these cases, it's acceptable that it does not pass general text contrast requirements.      |
+| `fg-on-emphasis`    | Used for text and icons on color backgrounds.     |
 
 ## Color roles 
 Color roles are defined by the meaning they convey in the UI. Primer has 8 color roles with 4 variants each. 
 
-![color-image-01](https://user-images.githubusercontent.com/6951037/126636938-8674c80c-c9cb-425c-b6d5-d1ddcc742fcb.png)
+![Color role anatomy: color role prefix + variant suffix](https://user-images.githubusercontent.com/6951037/126636938-8674c80c-c9cb-425c-b6d5-d1ddcc742fcb.png)
 
 ### Global roles
 
-| Preffix | Role |
+| Prefix | Role |
 | -------- | -------- |
-| `neutral-`* | Highlights content without any added meaning. |
+| `neutral-` | Use to highlight content without any added meaning. |
 | `accent-` | Use to draw attention to interactive elements. |
-| `success-` | Expresses completion or positive outcome of a task. |
-| `attention-` | Warns of pending tasks or highlights active content.  |
-| `severe-` | Mostly used when there's more than 3 levels of states like heatmaps. |
-| `danger-` | Informs of error or negative messaging. |
+| `success-` | Use to expresses the completion or positive outcome of a task. |
+| `attention-` | Use to warn of pending tasks or highlight active content.  |
+| `severe-` | Use when there are more than 3 levels of states, for example in heatmaps. |
+| `danger-` | Use to inform of error or another negative message. |
 
 ### GitHub-specific roles
 
-| Preffix | Role |
+| Prefix | Role |
 | -------- | -------- |
 | `done-` | Completion color for productivity and code review workflows. |
-| `sponsors-` | Color suite for all sponsors-related content. |
+| `sponsors-` | Color suite for all Sponsors-related content. |
 
 ### Variants
 
 | Suffix | Role |
 | -------- | -------- |
-| `-fg` | Apply color to text and icons. |
+| `-fg` | Text and icons. |
 | `-emphasis` | High contrast for background and borders. |
-| `-emphasis-plus`* | Highest contrast for background and borders. Only used by `neutral-` |
-| `-muted` | Medium contrast alpha value recommended for borders. |
-|`-subtle` | Low contrast solid color recommended for backgrounds. |
+| `-emphasis-plus` | Highest contrast for background and borders. Use only with the `neutral-` prefix. |
+| `-muted` | Medium contrast alpha value, recommended for borders. |
+|`-subtle` | Low contrast solid color, recommended for backgrounds. |
 
  
