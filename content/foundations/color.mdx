@@ -1,0 +1,65 @@
+---
+title: Color
+---
+
+Color plays a critical role in an interface’s usability. It helps the user know which actions to take, and understand hierarchy and relationships between elements.
+Primer’s color system is composed of different color modes, with their own color scale. Colors are named based on the function they perform in the interface.
+
+<img width="960" alt="modes" src="https://user-images.githubusercontent.com/6951037/127494388-77f3132f-67fc-49de-89d6-28730f8d3d27.png" />
+
+## Color modes
+GitHub's UI can be rendered in a variety of different color modes. Every element on GitHub’s interface maps to a color in the scale for each color mode.
+
+<img width="960" alt="functional-demo" src="https://user-images.githubusercontent.com/6951037/127494554-07b67dbd-66d3-4d36-8350-5ec837d6d1a5.png" />
+
+## Foundations
+Foundation variables are the building blocks of all interfaces. Use them to create layouts and content.
+
+| Variable | Role |
+| -------- | -------- |
+| `canvas-default`     | Main UI backgrounds. It's used in most components and surfaces.     |
+| ~~`canvas-subtle`~~     | 🟡 Deprecating soon     |
+| `canvas-overlay`     | Surface on elements that are displayed with elevation. For example, dropdowns and popovers.     |
+| `canvas-inset`     | Surface on views where the content is the primary focus. For example, feeds and timelines.     |
+| `border-default`     | Main border to create boundaries. Critical to understanding the interface's hierarchy.    |
+| `border-muted`     | Secondary border to emphasize separation between elements.     |
+| `border-subtle`    | Low opacity border designed to blend with backgrounds like images on avatars or primary buttons.     |
+| `fg-default`    | Provides high readability. Default text and icons, and most foregrounds.      |
+| `fg-muted`    | Provides medium readability. Used to create hierarchy in combination with `fg-default`. Do not use for placeholder or disabled states.      |
+| `fg-subtle`    | Provides low contrast. Used for disabled states — in these cases, it's acceptable that it does not pass general text contrast requirements.      |
+| `fg-on-emphasis`    | Used for text and icons on color backgrounds.     |
+
+## Color roles 
+Color roles are defined by the meaning they convey in the UI. Primer has 8 color roles with 4 variants each. 
+
+![Color role anatomy: color role prefix + variant suffix](https://user-images.githubusercontent.com/6951037/126636938-8674c80c-c9cb-425c-b6d5-d1ddcc742fcb.png)
+
+### Global roles
+
+| Prefix | Role |
+| -------- | -------- |
+| `neutral-` | Use to highlight content without any added meaning. |
+| `accent-` | Use to draw attention to interactive elements. |
+| `success-` | Use to expresses the completion or positive outcome of a task. |
+| `attention-` | Use to warn of pending tasks or highlight active content.  |
+| `severe-` | Use when there are more than 3 levels of states, for example in heatmaps. |
+| `danger-` | Use to inform of error or another negative message. |
+
+### GitHub-specific roles
+
+| Prefix | Role |
+| -------- | -------- |
+| `done-` | Completion color for productivity and code review workflows. |
+| `sponsors-` | Color suite for all Sponsors-related content. |
+
+### Variants
+
+| Suffix | Role |
+| -------- | -------- |
+| `-fg` | Text and icons. |
+| `-emphasis` | High contrast for background and borders. |
+| `-emphasis-plus` | Highest contrast for background and borders. Use only with the `neutral-` prefix. |
+| `-muted` | Medium contrast alpha value, recommended for borders. |
+|`-subtle` | Low contrast solid color, recommended for backgrounds. |
+
+ 
