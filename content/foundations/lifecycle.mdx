@@ -1,0 +1,51 @@
+---
+title: Lifecyle
+---
+
+These milestones summarize the maturity lifecycle of UI components in Primer. Components are required to meet all criteria _before_ being proceeding to a given milestone.
+
+## Experimental
+
+Proof-of-concept built outside of Primer.
+
+## Alpha
+
+The component is ready for preliminary usage, with breaking changes expected.
+
+- <details><summary>The component does not have external dependencies that are not relevant to end-user experiences. </summary>This could be external libraries or dependencies on libraries in an application (like GitHub.com)</details>
+- <details><summary>The component is compatible with color modes and can adapt to different themes. </summary>The component does not reference any hard-coded static values and uses functional variables. Any temporary or app-level variables have been removed. Theme values (such as a new brand scheme) can be swapped out without touching the public API of the component.</details>
+- Basic documentation exists that includes example usage of the component.
+- Primary use cases tested and reviewed.
+- The component has 100% test coverage.
+
+## Beta
+
+The component meets most maturity criteria, and use is encouraged for most scenarios.
+
+- <details><summary>The component is used in a production application in multiple instances.</summary>Expectation is three or more instances in dotcom for PVC, at least one or more instances for PRC. Usage has been audited and reviewed.</details>
+- <details><summary>Usage guidelines and configuration documentation covers common use cases.</summary>Implementation of additional features (secondary priorities) is expected during Beta. Additional and most common use cases should be documented by this phase. Documentation should include a sandbox environment such as Storybook.</details>
+- <details><summary>The design has been reviewed and any resulting issues have been addressed.</summary>Systems Designers have reviewed the current implementation and how it’s being used in production.</details>
+- The accessibility team has manually reviewed the component and any outstanding issues have been fixed.
+- <details><summary>The component does not introduce unnecessary performance regressions to the user experience or the Primer library.</summary>Where a component is handling loading states or progressive loading of UI, this may require designing for performance.</details>
+
+## Stable
+
+The component is significantly mature and usage is strongly encouraged, with long-term support expected.
+
+- <details><summary>The API remains stable, with no breaking changes for at least one month.</summary>Feedback has been sought and stats on component usage and implementation use cases reviewed. Complex components may require more detailed research, such as setting up scenarios that let consumers test the usability of the API.</details>
+- <details><summary>Documentation exists for the remaining implementation, usage, and design guidelines.</summary>PRC and/or PVC documentation includes all props and variations, accessibility guidelines (including common misuses), and common scenarios. Design documentation is added to Interface Guidelines. Figma components are available in the Primer Web library.</details>
+- Tooling (such as linters, codemods, etc.) to prevent further use of alternatives.
+
+## Deprecated
+
+The component will be removed in the future and should be avoided.
+
+- Documentation exists for the deprecation and alternative solutions.
+- Using the component emits a warning.
+
+## Removed
+
+The component no longer exists in Primer.
+
+- The removal date has been announced and is at least one month away from the release date of the package.
+- Manual and automated migration paths are documented and have been available for at least one month.

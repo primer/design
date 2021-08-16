@@ -7,6 +7,8 @@
       url: /foundations/typography
     - title: Content
       url: /foundations/content
+    - title: Lifecyle
+      url: /foundations/lifecycle
 - title: Accessibility
   url: /accessibility/accessibility-at-github
   children:
