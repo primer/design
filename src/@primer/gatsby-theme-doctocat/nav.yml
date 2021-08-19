@@ -7,8 +7,8 @@
       url: /foundations/typography
     - title: Content
       url: /foundations/content
-    - title: Lifecyle
-      url: /foundations/lifecycle
+    - title: Component lifecyle
+      url: /foundations/component-lifecycle
 - title: Accessibility
   url: /accessibility/accessibility-at-github
   children:
@@ -30,7 +30,7 @@
     - title: Messaging
       url: /ui-patterns/messaging
     - title: Progressive disclosure
-      url: /ui-patterns/progressive-disclosure    
+      url: /ui-patterns/progressive-disclosure
 - title: Components
   url: /components
   children:
