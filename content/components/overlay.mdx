@@ -119,7 +119,7 @@ Don't show overlays on page load. For that, prefer in-page messages and flash ba
 
 Users may always click outside or press Escape to close an overlay. Some overlays may provide a close button as an easy escape route. Close buttons are useful in larger overlays, and when the overlay is no longer visually connected to the source that triggered it. Always use close buttons in dialogs.
 
-Closing an overlay may apply changes right away (as seen in selection panels). If the overlay contains changes that are not immediately applied (such as in a form), offer footer buttons such as **Save**, **Apply**, or **Done**. If the user closes the overlay without saving, offer a [`beforeUnload`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) prompt to the browser so the user can avoid losing changes. The same confirmation should appear if the user tries to close the browser tab.
+Closing an overlay may apply changes right away. If the overlay contains changes that are not immediately applied (such as in a form), offer footer buttons such as **Save**, **Apply**, or **Done**. To avoid people from loosing important unsaved changes, a [`confirmation`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) may be used.
 
 The user should also be able to press the browser's back button to close the overlay. This is particularly useful on mobile devices.
 
