@@ -10,7 +10,7 @@ import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link
 </Box>
 
 <LabelGroup display="block" mb={4}>
-    <Label as="a" href="https://primer.style/components/ActionList" variant="xl" color="text.success" outline style="text-decoration: none; line-height: 20px;">
+    <Label as="a" href="https://primer.style/react/Overlay" variant="xl" color="text.success" outline style="text-decoration: none; line-height: 20px;">
         <img width="20" height="20" alt=" " src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png" style="vertical-align: middle; margin-right: 4px;" />
         React
     </Label>
@@ -19,11 +19,6 @@ import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link
         Figma
     </Label>
 </LabelGroup>
-
-<!--
-<Label as="a" href="/components/ActionList" variant="xl" outline style="text-decoration: none">ViewComponent</Label>
-
--->
 
 <img src="https://user-images.githubusercontent.com/293280/125706076-b16bb3d4-800f-4310-a082-f576e215e6c8.png" alt="Overlay examples" />
 
@@ -40,7 +35,7 @@ Overlays can streamline the interface by allowing extra options to be displayed 
 
 ## Anatomy
 
-Overlays may include a header to provide context, and footer to host actions. Its main area can support any content inside, and it may be scrollabe. For interactive lists, use [Action lists](/components/action-list).
+Overlays may include a header to provide context, and footer to host actions. The content area supports vertical scrolling when showing lots of items and longer forms. For rendering interactive lists, use [Action lists](/components/action-list).
 
 Overlays have a **safe area** of 16px. This is not a strict padding, but a guide to let the overlay boundaries free of text and heavy visual elements. Interactive elements may still be 8px away from the edge, as long as their main visual elements are within the safe area. For example, the **Close** button has its padding outside the safe area, but its octicon is distant enough.
 
