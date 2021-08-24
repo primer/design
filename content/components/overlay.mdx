@@ -37,7 +37,7 @@ Overlays can streamline the interface by allowing extra options to be displayed 
 
 Overlays may include a header to provide context, and footer to host actions. The content area supports vertical scrolling when showing lots of items and longer forms. For rendering interactive lists, use [Action lists](/components/action-list).
 
-Overlays have a **safe area** of 16px. This is not a strict padding, but a guide to let the overlay boundaries free of text and heavy visual elements. Interactive elements may still be 8px away from the edge, as long as their main visual elements are within the safe area. For example, the **Close** button has its padding outside the safe area, but its octicon is distant enough.
+Overlays have a **safe area** of 16px. This is not a strict padding, but a guide to keep the overlay boundaries free of text and heavy visual elements. Interactive elements may still be 8px away from the edge, as long as their main visual elements are within the safe area. For example, the **Close** button has its padding outside the safe area, but its octicon is distant enough.
 
 <ImageContainer>
   <img
@@ -56,7 +56,7 @@ Avoid using a description if the title already conveys the same information. Don
 
 Reserve confirmation actions such as **Save**, **Apply**, and **Done** to the overlay footer, not the header.
 
-A divider between the header and content area is optional if there's no overflow scrolling.
+If the content area has overflow scrolling, a divider must be shown between the header and content area. Otherwise, it's optional to show a divider between the header and content area.
 
 <ImageContainer>
   <img
@@ -82,7 +82,7 @@ A divider between the header and content area is optional if there's no overflow
 
 Use an overlay footer to show confirmation actions, navigation links or other important elements that should appear at the bottom. Footers are shown outside of the scrolling area, and are always visible to the user.
 
-A divider between the footer and content area is optional if there's no overflow scrolling.
+If the content area has overflow scrolling, a divider must be shown between the footer and content area. Otherwise, it's optional to show a divider between the footer and content area.
 
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
     <Box>
@@ -237,7 +237,7 @@ A bottom sheet has rounded upper corners. Its height should always accommodate t
 
 In order to work well in non-rectangular mobile screens and browser UI, bottom sheets may add extra padding inside the overlay, following [`env(safe-area-inset-*)`](https://developer.mozilla.org/en-US/docs/Web/CSS/env()) environment variables.
 
-On portrait, a bottom sheet takes up the full-width.
+On portrait, a bottom sheet takes up the full width of the viewport.
 
 On landscape, a bottom sheet has a maximum width of 480px, centered horizontally.
 
