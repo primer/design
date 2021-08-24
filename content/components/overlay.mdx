@@ -121,7 +121,7 @@ Users may always click outside or press Escape to close an overlay. Some overlay
 
 Closing an overlay may apply changes right away. If the overlay contains changes that are not immediately applied (such as in a form), offer footer buttons such as **Save**, **Apply**, or **Done**. To avoid people from loosing important unsaved changes, a [`confirmation`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) may be used.
 
-The user should also be able to press the browser's back button to close the overlay. This is particularly useful on mobile devices.
+The user should also be able to press the browser’s back button to close the overlay. This is particularly useful on mobile devices.
 
 
 ### Width and height
@@ -258,89 +258,7 @@ On landscape, a bottom sheet has a maximum width of 480px, centered horizontally
 />
 <Caption>Indicator when no title and close button are present.</Caption>
 
-A bottom sheet without a title or close button gets an indicator at the top. In case the bottom sheet gets long and takes all the available height, the indicator will reserve a safe area to keep the overlay dismissable.
-
-<!--
-<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-    <div>
-        <Flex justifyContent="center">
-            <img width="464" alt="Action list sizes" src="https://user-images.githubusercontent.com/293280/121766871-c1b5e680-cb09-11eb-8835-bfec4c80e45a.png" />
-        </Flex>
-    </div>
-    <div>
-        <Heading fontSize={3}>Sizes</Heading>
-        <Flex as="p">Action list items support three different sizes: small, medium, and large. The small size is the default and most common option. Medium sizes work well for relaxed local navigation, while large sizes can support items that need more breathing room.</Flex>
-        <Flex as="p">Sizes only grow vertically. This behavior keeps the content aligned among items, and retains horizontal space for density.</Flex>
-        <Flex as="p">On touch devices, the large size is used at all times to ensure usability when tapping.</Flex>
-        <Flex as="p">Be cautious when mixing different sizes in the same list to avoid inconsistency.</Flex>
-    </div>
-    <div>
-        <Flex flexDirection="column" justifyContent="center">
-            <Box>
-                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/121966246-226c3b80-cd23-11eb-856b-32bde42cb60f.png" />
-                <Caption>Use leading visuals to represent system sections, features, or options.</Caption>
-            </Box>
-            <Box>
-                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/121966249-2304d200-cd23-11eb-9bbf-fbc1ef2773b1.png" />
-                <Caption>Use leading visuals in important menu items.</Caption>
-            </Box>
-            <Box>
-                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/121966449-8c84e080-cd23-11eb-930f-9397ae2ea433.png" />
-                <Caption>Use leading visuals to represent content types.</Caption>
-            </Box>
-        </Flex>
-    </div>
-    <div>
-        <Heading fontSize={3}>Leading visual</Heading>
-        <Flex as="p">Leading visuals are optional and appear at the start of an item. They can be octicons, avatars, and other custom visuals that fit a small area.</Flex>
-        <Flex as="p">When listing system sections, features, or options, use leading visuals to improve the items' scannability. In user-generated objects, they can help indicate the item's content type and status.</Flex>
-        <Flex as="p">Depending on the context, displaying a leading visual may not be necessary. For example, a list of branches in a select panel may not need repeated icons if the surrounding UI provides enough hints about its content type.</Flex>
-    </div>
-    <div>
-        <Flex flexDirection="column" justifyContent="center">
-            <Box>
-                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/124040519-eb03bd00-d9b9-11eb-94ec-2653cb2e2278.png" />
-                <Caption>A right arrow as a trailing visual indicates there are more options to choose after selecting an item.</Caption>
-            </Box>
-            <Box>
-                <img width="464" alt=" " src="https://user-images.githubusercontent.com/293280/124064900-9298e380-d9ea-11eb-8aa9-dae40ece9d5b.png" />
-                <Caption>Trailing text with custom styling to indicate diff change.</Caption>
-            </Box>
-        </Flex>
-    </div>
-    <div>
-        <Heading fontSize={3}>Trailing visual and trailing text</Heading>
-        <Box as="p">Trailing visual and trailing text can display auxiliary information. They're placed at the right of the item, and can denote status, keyboard shortcuts, or be used to set expectations about what the action does.</Box>
-        <Box as="p">Note these side visuals don't have dedicated interaction targets.</Box>
-        <Box as="p">Use an `arrow-right` octicon in menus to indicate the action will open more options, such as in a nested context. Use an `edit` octicon to indicate the item is going to be edited after clicking it.</Box>
-        <Box as="p">Custom trailing elements are supported, such as counters, labels, and other custom visuals that may help identify the item.</Box>
-        <Box as="p">When using a trailing text for displaying keyboard shortcuts, always confirm the characters match with the user's operating system. For example, to indicate a bold action in a Markdown toolbar, use "Ctrl+B" on Linux and Windows, and "⌘B" on Mac. <a href="https://support.apple.com/en-us/HT201236">See reference for Mac keyboard glyphs</a>.</Box>
-    </div>
-    <div>
-        <Flex justifyContent="center">
-            <img width="464" alt="Item dividers" src="https://user-images.githubusercontent.com/293280/124041789-6c5c4f00-d9bc-11eb-8638-e8d0f0bca2e0.png" />
-        </Flex>     
-        <Flex justifyContent="center">&nbsp;</Flex>
-    </div>
-    <div>
-        <Heading fontSize={3}>Item dividers</Heading>
-        <Flex as="p">Item dividers allow users to parse heavier amounts of information. They're placed between items and are useful in complex lists, particularly when descriptions or multi-line text is present.</Flex>
-        <Flex as="p">When considering whether to use item dividers, make sure they truly make the presented information easier to parse, instead of only increasing visual clutter.</Flex>
-        <Flex as="p">When using item dividers, increasing the action list item size may also help with legibility.</Flex>
-    </div>
-    <div>
-        <Flex justifyContent="center">
-            <img width="464" alt="Action list item in danger variation" src="https://user-images.githubusercontent.com/293280/124039646-33ba7680-d9b8-11eb-965c-f5f10e76cdbd.png" />
-        </Flex>        
-    </div>
-    <div>
-        <Heading fontSize={3}>Danger</Heading>
-        <Box as="p">An action list item can have a special "danger" style, to be used in cases that require extra attention from the user.</Box>
-        <Box as="p">For destructive or irremediable actions, show a confirmation dialog for extra friction. If the action is not destructive, present the user a way to undo the action instead of asking for confirmation. <a href="https://alistapart.com/article/neveruseawarning/">Never use a warning when you mean undo</a>.</Box>
-        <Box as="p">Place danger items at the end of the list.</Box>
-    </div>
-</Grid>
--->
+A bottom sheet without a title or close button gets an indicator at the top. In case the bottom sheet gets long and takes all the available
 
 
 ## Specialized overlays
