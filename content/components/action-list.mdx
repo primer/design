@@ -6,33 +6,59 @@ status: Alpha
 import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link} from '@primer/components'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
-    An action list is a vertical list of interactive actions or options. It’s composed of items presented in a consistent single-column format, with room for icons, descriptions, side information, and other rich visuals.
+  An action list is a vertical list of interactive actions or options. It’s composed of items presented in a consistent
+  single-column format, with room for icons, descriptions, side information, and other rich visuals.
 </Box>
 
-
 <LabelGroup display="block" mb={4}>
-    <Label as="a" href="https://primer.style/components/ActionList" variant="xl" color="text.success" outline style="text-decoration: none; line-height: 20px;">
-        <img width="20" height="20" alt=" " src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png" style="vertical-align: middle; margin-right: 4px;" />
-        React
-    </Label>
-    <Label as="a" href="https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=1927%3A0" variant="xl" outline style="text-decoration: none; line-height: 20px;">
-        <img width="20" height="20" alt=" " src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png" style="vertical-align: middle; margin-right: 4px;" />
-        Figma
-    </Label>
+  <Label
+    as="a"
+    href="https://primer.style/react/ActionList"
+    variant="xl"
+    color="text.success"
+    outline
+    style="text-decoration: none; line-height: 20px;"
+  >
+    <img
+      width="20"
+      height="20"
+      alt=" "
+      src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    React
+  </Label>
+  <Label
+    as="a"
+    href="https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=1927%3A0"
+    variant="xl"
+    outline
+    style="text-decoration: none; line-height: 20px;"
+  >
+    <img
+      width="20"
+      height="20"
+      alt=" "
+      src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    Figma
+  </Label>
 </LabelGroup>
 
 <ImageContainer>
-    <img
-        width="868"
-        src="https://user-images.githubusercontent.com/293280/125994797-430b8376-30f8-4971-b476-c5186f9ef6ca.png"
-        alt="Action list examples"
-        style="background: none"
-    />
+  <img
+    width="868"
+    src="https://user-images.githubusercontent.com/293280/125994797-430b8376-30f8-4971-b476-c5186f9ef6ca.png"
+    alt="Action list examples"
+    style="background: none"
+  />
 </ImageContainer>
 
 ## Overview
 
 Action lists can have many applications:
+
 - They’re the foundation of menus, selection panels, and other overlay components
 - They can be applied to page sidebars for showing individual actions, handling local navigation, and displaying metadata
 
@@ -46,15 +72,20 @@ Items in an action list are generally interactive, and respond visually to `hove
 
 An action list can be composed of:
 
--   Action list items
--   Item dividers
--   Section headers (subtle or filled styles)
--   Section dividers (subtle or filled styles)
+- Action list items
+- Item dividers
+- Section headers (subtle or filled styles)
+- Section dividers (subtle or filled styles)
 
-<img src="https://user-images.githubusercontent.com/293280/125995889-12a2de9a-7e15-4638-87dd-6796a983f733.png" alt="Action list anatomy" />
+<img
+  src="https://user-images.githubusercontent.com/293280/125995889-12a2de9a-7e15-4638-87dd-6796a983f733.png"
+  alt="Action list anatomy"
+/>
 
-<img src="https://user-images.githubusercontent.com/293280/125996049-e2af9cc7-c736-4adc-9800-a1d742b7929e.png" alt="Action list item anatomy" />
-
+<img
+  src="https://user-images.githubusercontent.com/293280/125996049-e2af9cc7-c736-4adc-9800-a1d742b7929e.png"
+  alt="Action list item anatomy"
+/>
 
 ## Options
 
@@ -199,7 +230,7 @@ Action list items can be selected. Single selections are represented with a [`ch
 
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
     <div>
-        <Link href="/components/action-menu">
+        <Link href="https://primer.style/react/ActionMenu">
             <img alt="Action menu" src="https://user-images.githubusercontent.com/293280/123880964-95b3a700-d8f8-11eb-9775-cbaf165207ed.png" />
         </Link>
     </div>
@@ -209,12 +240,12 @@ Action list items can be selected. Single selections are represented with a [`ch
 
 Action menus are used for disambiguation, navigation, or to display secondary options. They appear when users interact with buttons, actions, or other controls.
 
-[Primer React implementation](https://primer.style/components/ActionMenu)
+[Primer React implementation](https://primer.style/react/ActionMenu)
 
 </Box>
     </div>
     <div>
-        <Link href="/components/dropdown-menu">
+        <Link href="https://primer.style/react/DropdownMenu">
             <img alt="Select panel" src="https://user-images.githubusercontent.com/293280/123881067-cdbaea00-d8f8-11eb-98e4-e57c64489308.png" />
         </Link>
     </div>
@@ -224,13 +255,12 @@ Action menus are used for disambiguation, navigation, or to display secondary op
 
 Dropdown menus are used for making a single selection among a small list of options. The list is usually predefined with system values, but in some cases it can include user-provided data when those are known not to grow into too many items.
 
-[Primer React implementation](https://primer.style/components/DropdownMenu)
-
+[Primer React implementation](https://primer.style/react/DropdownMenu)
 
 </Box>
     </div>
     <div>
-        <Link href="/components/select-panel">
+        <Link href="https://primer.style/react/SelectPanel">
             <img alt="Select panel" src="https://user-images.githubusercontent.com/293280/123876997-4158f900-d8f1-11eb-85cb-461d9bbee0cb.png" />
         </Link>
     </div>
@@ -240,7 +270,7 @@ Dropdown menus are used for making a single selection among a small list of opti
 
 Select panels allow manipulating long lists of options, with filtering and other advanced interactions. They can be used for single or multi-selection.
 
-[Primer React implementation](https://primer.style/components/SelectPanel)
+[Primer React implementation](https://primer.style/react/SelectPanel)
 
 </Box>
     </div>
