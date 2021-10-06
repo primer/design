@@ -1,0 +1,57 @@
+---
+title: Autocomplete
+status: Alpha
+---
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+    Autocomplete inputs are used to allow a user to quickly filter through a list of options to pick one or more values for a field.
+</Box>
+
+<!-- TODO: uncomment once React and Figma docs are live
+<LabelGroup display="block" mb={4}>
+    <Label as="a" href="https://primer.style/components/Autocomplete" variant="xl" color="text.success" outline style="text-decoration: none; line-height: 20px;">
+        <img width="20" height="20" alt=" " src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png" style="vertical-align: middle; margin-right: 4px;" />
+        React
+    </Label>
+    <Label as="a" href="https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=1927%3A0" variant="xl" outline style="text-decoration: none; line-height: 20px;">
+        <img width="20" height="20" alt=" " src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png" style="vertical-align: middle; margin-right: 4px;" />
+        Figma
+    </Label>
+</LabelGroup>
+-->
+
+## Overview
+
+The autocomplete component is an enhanced text input that is used to make it easier to choose one or more values from a long list of options. It is similar to a SelectPanel, except the text input is rendered inline instead of being toggled by a button.
+
+## Anatomy
+
+### Text input
+
+The text input is used to filter the options in the dropdown menu. It is also used to show the selected value (or values).
+
+This input should follow the same design guidelines as a text input that is not part of an autocomplete.
+
+### Menu of options
+
+The menu of options appears as a list in a non-modal dialog that the user may select one or more values from. When there are no possible selections that can be made, a message is displayed that explains there are no possible options to select.
+
+If a user is not limited to a specific list of options, an additional item can be rendered in the menu to choose the value that has been typed into the text input.
+
+A loading indicator should be displayed while the data for the list of options is still being populated. The loading indicator is intended to help the user understand that the list is not empty, it's just not done loading.
+
+#### Sorting
+
+The order of the items should not be random: they should be ordered in a way that makes it easy for a user to find a specific value. This could mean items may be ranked by how likely a user is to pick that option (e.g.: ordering issue labels by number of times they've been used in that repo), or it could simply be in alphabetical order.
+
+If multple values can be selected, the default behavior is to sort selected items to the top of the list after the menu is closed. If this sorting logic is not helpful for your use case, you may override this behavior for a more appropriate sorting logic.
+
+#### Filtering
+
+By default, menu items are filtered based on whether or not they match the value of the text input. The default filter is case-insensitive.
+
+Custom filtering logic can be applied if the default filtering behavior does not make sense for your use case. However, it is strongly discouraged to disable filtering entirely.
+
+#### Menu item rendering
+
+By default, menu items are just rendered as a single line of text. The list in the menu is rendered using the [Action List]() component, so menu items can be renderd with all of the same options as Action List items.
