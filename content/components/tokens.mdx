@@ -1,0 +1,95 @@
+---
+title: Tokens
+status: Alpha
+---
+<Box sx={{fontSize: 3}} class="lead" as="p">
+    A Token is a compact representation of an object, and are typically used to show a collection of related metadata.
+</Box>
+
+<!-- TODO: uncomment once React and Figma docs are live
+<LabelGroup display="block" mb={4}>
+    <Label as="a" href="https://primer.style/components/Token" variant="xl" color="text.success" outline style="text-decoration: none; line-height: 20px;">
+        <img width="20" height="20" alt=" " src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png" style="vertical-align: middle; margin-right: 4px;" />
+        React
+    </Label>
+    <Label as="a" href="https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=1927%3A0" variant="xl" outline style="text-decoration: none; line-height: 20px;">
+        <img width="20" height="20" alt=" " src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png" style="vertical-align: middle; margin-right: 4px;" />
+        Figma
+    </Label>
+</LabelGroup>
+-->
+
+## Overview
+Tokens almost always appear in a group. A group of tokens may be read-only, or they may be used as a way to input data.
+
+A read-only group of tokens organizes information in a way that helps users quickly scan and understand the view they're on. For example, a list of topics associated with a repository.
+
+Tokens may be used for data input to quickly add and remove items to a list of related attributes. For example, defining a list of GitHub users who can access a private repo.
+
+## Anatomy
+<!--
+![token anatomy diagram]()
+-->
+
+- Leading visual (optional)
+    - Provide additional context (e.g.: user avatar)
+- Label (required)
+    - Text only
+    - Keep it short
+- Remove button (optional)
+    - Removes the token from an editable group of tokens
+
+## Interactivity
+Tokens are almost always interactive. When a token is interactive, it will react to cursor hover and keyboard focus.
+
+While tokens may have the same interactivity as a button or a link, a token should not be used as a replacement for a button.
+
+If a token is a link or button AND it has a remove button, keyboard focus will only go to the link/button. Keyboard users can remove a token by focusing the link/button and pressing "Backspace" or "Delete". When a screen reader is focused on a removable token, it will read the token's label and tell users to press "Backspace" or "Delete" to remove it.
+
+Examples of interactions:
+- An issue label token that links to a list of issues with that label
+- A user token that shows a profile summary dialog on hover
+
+## Sizing
+<!--
+![token sizes]()
+-->
+
+Different token sizes can be used to maintain visual harmony with the other content on the screen or to maintain a comfortable touch target for interactive tokens.
+
+Keep visual hierarchy in mind. Large tokens should not visually compete with elements that have a higher priority.
+
+A group of tokens should not have tokens of different sizes.
+
+## Grouping tokens
+A group of tokens should flow like words in a paragraph, not a vertical list. This keeps the group compact to improve scannability.
+Tokens that represent different types of data should not be grouped together.
+Interactive tokens should not be grouped with non-interactive tokens.
+
+<!--
+![token group]()
+-->
+
+### Within a text input field
+By default, tokens wrap to the next line and expand the height of the input. This allows users to see many tokens at once.
+To limit how large the input can grow, a maximum height can be defined. After the input grows past that maximum height, it will scroll vertically.
+
+<!--
+![input with max height]()
+-->
+
+If the input is being used in a spot where the input height cannot grow, tokens can be forced to a single line that scrolls horizontally.
+
+<!--
+![input tokens on one line]()
+-->
+
+## Tokens as a way to enter information
+If tokens are being used for data input, it should be obvious that the user is in an edit or creation context.
+
+Tokens can be added or removed to a group in whatever way makes the most sense for your use-case. If you're unsure how to handle this, we recommend using an [Autocomplete](/autocomplete) component to allow users to sort through a list to pick options.
+The remove button is the preferred UI for removing a token from a group, but it may be hidden if there is a simple alternative that makes more sense for your use case. It's also ok to keep the remove button visible while still providing other ways to remove the button from a group.
+
+<!--
+![autocomplete+text input w/ tokens]()
+-->
