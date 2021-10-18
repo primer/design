@@ -30,11 +30,18 @@ A read-only group of tokens organizes information in a way that helps users quic
 Tokens may be used for data input to quickly add and remove items to a list of related attributes. For example, defining a list of GitHub users who can access a private repo.
 
 ## Anatomy
-![token anatomy diagram](https://user-images.githubusercontent.com/2313998/137771741-1af9a639-2fe3-4878-99e7-47d0691b8dc2.png)
-
-- **Leading visual** (optional): Provides additional context (e.g.: user avatar)
-- **Label** (required): Concise text label
-- **Remove button** (optional): Removes the token from an editable group of tokens
+<Box display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 2}}>
+    <img
+        width="456"
+        alt="token anatomy diagram"
+        src="https://user-images.githubusercontent.com/2313998/137778682-ee35f8e0-72de-4a24-b1bd-e4ea02e2ac49.png"
+    />
+    <Box as="ul" mt="0">
+        <Box as="li" mt="0"><strong>Leading visual</strong> (optional): Provides additional context (e.g.: user avatar)</Box>
+        <Box as="li"><strong>Label</strong> (required): Concise text label</Box>
+        <Box as="li"><strong>Remove button</strong> (optional): Removes the token from an editable group of tokens</Box>
+    </Box>
+</Box>
 
 ## Interactivity
 Tokens are almost always interactive. When a token is interactive, it will react to cursor hover and keyboard focus.
