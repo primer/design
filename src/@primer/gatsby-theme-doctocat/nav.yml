@@ -34,6 +34,8 @@
   children:
     - title: Action list
       url: /components/action-list
+    - title: Autocomplete
+      url: /components/autocomplete
     - title: Tokens
       url: /components/tokens
 - title: Design tools
