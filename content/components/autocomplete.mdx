@@ -42,15 +42,37 @@ This input follows the same design guidelines as a text input that is not part o
 
 ### Menu
 
-![open autocomplete with text input de-emphasized](https://user-images.githubusercontent.com/2313998/137768286-004814a5-5c07-425a-81d8-1f763db4f6cc.png)
-
 The menu is a list of options for the field's value. It appears as a list in a non-modal dialog that the user may select one or more values from.
 
-When there are no possible selections that can be made, a message is displayed that explains there are no possible options to select. The default message is "No selectable options".
+![open autocomplete with text input de-emphasized](https://user-images.githubusercontent.com/2313998/138128820-df4db151-5e28-473f-a341-03391e1b9afd.png)
 
-If a user is not limited to a pre-defined list of options, an additional item can be rendered in the menu to select the value that has been typed into the text input.
 
-A loading indicator should be displayed while the data for the list of options is being populated. The loading indicator helps the user understand that the list is not empty, it's just not done loading.
+<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+    <img
+        width="456"
+        alt="menu opened, showing an empty state"
+        src="https://user-images.githubusercontent.com/2313998/138128784-4cdadb38-3b3e-4fbe-accb-772949d958de.png"
+    />
+    <Box as="p" mt="0">When there are no possible selections that can be made, a message is displayed that explains there are no possible options to select. The default message is "No selectable options".</Box>
+</Box>
+
+<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+    <img
+        width="456"
+        alt="menu opened, showing an empty state"
+        src="https://user-images.githubusercontent.com/2313998/138128776-6cad977d-b2b7-4661-9ff8-d9dda6bcaed2.png"
+    />
+    <Box as="p" mt="0">If a user is not limited to a pre-defined list of options, an additional item can be rendered in the menu to select the value that has been typed into the text input.</Box>
+</Box>
+
+<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+    <img
+        width="456"
+        alt="menu opened, showing an empty state"
+        src="https://user-images.githubusercontent.com/2313998/138128811-5542f1e0-2177-4741-af5b-c4bf52c65401.png"
+    />
+    <Box as="p" mt="0">A loading indicator should be displayed while the data for the list of options is being populated. The loading indicator helps the user understand that the list is not empty, it's just not done loading.</Box>
+</Box>
 
 #### Menu item rendering
 
