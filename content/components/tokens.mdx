@@ -105,6 +105,15 @@ Examples of interactions:
     <Box as="p" mt="0">If the input is being used in a spot where the input height cannot grow, tokens can be forced to a single line that scrolls horizontally.</Box>
 </Box>
 
+<Box display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+    <img
+        width="456"
+        alt="two tokens and text that reads '+5' rendered in an input"
+        src="https://user-images.githubusercontent.com/2313998/139962783-e0e67ecf-65f0-4828-9b7c-fe51a79c81f5.png"
+    />
+    <Box as="p" mt="0">If it would be overwhelming to show all of the tokens at once, you can choose to only show a specified number of tokens until the input is focused. This functionality can be used whether the tokens wrap to multiple lines or if they're constrained to a single line.</Box>
+</Box>
+
 
 ## Tokens as a way to enter information
 <Box display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
