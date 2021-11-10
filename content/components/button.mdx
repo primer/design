@@ -1,0 +1,149 @@
+---
+title: Button
+status: Alpha
+---
+
+import {LabelGroup, Label, Box} from '@primer/components'
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+    A button is the basic user action on a web page. It is meant to direct the user to the purpose of the page or section on the page.
+</Box>
+
+<LabelGroup display="block" mb={4}>
+    <Label as="a" href="https://primer.style/components/Button" variant="xl" color="text.success" outline style="text-decoration: none; line-height: 20px;">
+        <img width="20" height="20" alt=" " src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png" style="vertical-align: middle; margin-right: 4px;" />
+        React
+    </Label>
+</LabelGroup>
+
+## Overview
+A Button is used consistently but sparingly in a web page. The nature of the action performed by the button is supported through variants.
+
+Sometimes, a button is complemented by an icon. Icon only buttons are also common usage.
+
+A counter in the trailing position is a common pattern at Github. Buttons can denote state by changing icon color or text.
+
+Button also act as a bedrock for the DropdownMenu. Buttons can be grouped also.
+
+Buttons need to visually and non-visually support different user actions and states like hover, disabled, focused and active.
+
+## Anatomy
+<Box display="flex" alignItems="flex-start" flexDirection={["column", "column"]} sx={{gap: 2}}>
+    <img
+        width="456"
+        alt="button anatomy diagram"
+        src="https://user-images.githubusercontent.com/10384315/138380981-2b8b719d-919f-4a24-94b3-573c3d4025d5.png"
+    />
+    <Box as="ul" mt="0">
+        <Box as="li" mt="0"><strong>Leading icon</strong> (optional): Provides additional context</Box>
+        <Box as="li"><strong>Button text</strong> (required): Concise text label</Box>
+        <Box as="li"><strong>Counter</strong> (optional): Use CounterLabel for this</Box>
+        <Box as="li"><strong>TrailingIcon</strong> (optional): Used in dropdowns usually</Box>
+    </Box>
+</Box>
+
+## Button variants
+
+Buttons come in a few different variants. They are used in different contexts.
+In components, this is represented by the `variant` prop.
+Implementation wise, they differ in look and feel under various states.
+
+### Default
+
+The default button is the default variant in the `Button` component.
+Here is what it looks like in different states.
+<Box>
+    <img width='400' src='https://user-images.githubusercontent.com/417268/141059984-6d74d033-5780-4a6e-acdf-c89ba786294f.png' />
+</Box>
+
+### Primary
+
+The default button is the default variant in the `Button` component.
+Here is what it looks like in different states.
+<Box>
+    <img width='400' src='https://user-images.githubusercontent.com/417268/141060953-e35239c6-cd81-4a52-bbb2-91a4d881003b.png' />
+</Box>
+
+### Invisible
+
+The default button is the default variant in the `Button` component.
+Here is what it looks like in different states.
+<Box>
+    <img width='400' src='https://user-images.githubusercontent.com/417268/141061097-98970b77-93b9-4048-a0ce-abfa19102292.png' />
+</Box>
+
+### Danger
+
+The default button is the default variant in the `Button` component.
+Here is what it looks like in different states.
+<Box>
+    <img width='400' src='https://user-images.githubusercontent.com/417268/141061136-44634e00-1105-465c-9f60-f8b2a0378ac3.png' />
+</Box>
+
+## Buttons with Icons
+
+Icons are used in Buttons(at Github) for:
+
+- A Leading Icon may be used to enhance the context of the button text
+- A Leading Icon may be used to denote a certain state of the button (eg Watch/Unwatch)
+- A Trailing Icon is not very common in usage, but the `TriangleDownIcon` icon is used in buttons as a base for the dropdown menu.
+
+Here's what a leading icon will look like in all of the variants
+
+<Box display="flex" alignItems="flex-start" flexDirection={["column", "column"]} sx={{gap: 2}}>
+    <span>Default</span>
+    <img width='200' src='https://user-images.githubusercontent.com/417268/141068226-e383a7fc-4845-4e29-b19a-cdedd7d1ba5f.png' />
+    <span>Primary</span>
+    <img width='200' src='https://user-images.githubusercontent.com/417268/141068584-4f8267df-1b5b-4a8d-9800-4651994b7664.png' />
+    <span>Invisible</span>
+    <img width='200' src='https://user-images.githubusercontent.com/417268/141068701-ce43bcc1-0e24-437d-810d-ae8afd928308.png' />
+    <span>Danger</span>
+    <img width='200' src='https://user-images.githubusercontent.com/417268/141068654-04a67134-568c-4ba9-9d88-85ba6c3a5bfa.png' />
+</Box>
+
+## Icon only Buttons
+
+These buttons will display only the icon component and visually hide the button text. They are used for popular icons like search/upvote or burger family menus.
+
+<Box>
+    <img width='300' src='https://user-images.githubusercontent.com/417268/141069418-ee6585f7-9941-410f-99ab-058494971b54.png' />
+</Box>
+
+## Button Counters
+
+Counters at the trailing end of the button denote extra context relevant to the button. Like upvote/watch count.
+We use the `CounterLabel` component to show this. 
+
+<Box display="flex" alignItems="flex-start" flexDirection={["column", "column"]} sx={{gap: 2}}>
+    <span>Default</span>
+    <img width='200' src='https://user-images.githubusercontent.com/417268/141070891-1781dc9e-2fab-4e73-bb08-29c9a8e4217f.png' />
+    <span>Primary</span>
+    <img width='200' src='https://user-images.githubusercontent.com/417268/141070946-7e7cfe29-9fcd-44aa-9bd0-c47ba27fa606.png' />
+    <span>Invisible</span>
+    <img width='200' src='https://user-images.githubusercontent.com/417268/141070963-f31aa823-dd2b-4eec-89bf-a9eab4a37a52.png' />
+    <span>Danger</span>
+    <img width='200' src='https://user-images.githubusercontent.com/417268/141070980-e34c3e8b-e765-49c8-807e-8e4a0eff8ddc.png' />
+</Box>
+
+
+## ButtonLink
+
+The ButtonLink will be a separate component. This will render as an anchor or an appropriate framework link component as configured by the user.
+
+// Waiting for design input from Ash
+
+## Accessible Buttons
+
+The Button component has to follow the below criteria to be accessible
+
+- Sufficient color contrast during the various states(focus/hover/pressed) of the button in each variant. 
+- Correct button text even in icon only buttons
+- Make `aria-hidden` for icons.
+- Treat link as a link and button as button.
+
+## Button sizes
+
+Button components will be available in two sizes.
+
+Standard(32px) and Small(28px)
+
