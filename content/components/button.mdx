@@ -6,7 +6,7 @@ status: Alpha
 import {LabelGroup, Label, Box} from '@primer/components'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
-    A button is the basic user action on a web page. It is meant to direct the user to the purpose of the page or section on the page.
+    A button is the basic user action on a web page. It is meant to direct the user to the main action of the page or section.
 </Box>
 
 <LabelGroup display="block" mb={4}>
@@ -17,13 +17,13 @@ import {LabelGroup, Label, Box} from '@primer/components'
 </LabelGroup>
 
 ## Overview
-A Button is used consistently but sparingly in a web page. The nature of the action performed by the button is supported through variants.
+A Button is usually used consistently but sparingly in a web page. The nature of the action performed by the button is supported through variants.
 
 Sometimes, a button is complemented by an icon. Icon only buttons are also common usage.
 
 A counter in the trailing position is a common pattern at Github. Buttons can denote state by changing icon color or text.
 
-Button also act as a bedrock for the DropdownMenu. Buttons can be grouped also.
+Button also acts as a bedrock for the DropdownMenu. Buttons can be grouped in different ways.
 
 Buttons need to visually and non-visually support different user actions and states like hover, disabled, focused and active.
 
@@ -103,7 +103,7 @@ Here's what a leading icon will look like in all of the variants
 
 ## Icon only Buttons
 
-These buttons will display only the icon component and visually hide the button text. They are used for popular icons like search/upvote or burger family menus.
+These buttons will display only the icon component and visually hide the button text. They are used for popular actions like search/upvote or burger family menus.
 
 <Box>
     <img width='300' src='https://user-images.githubusercontent.com/417268/141069418-ee6585f7-9941-410f-99ab-058494971b54.png' />
@@ -134,7 +134,7 @@ The ButtonLink will be a separate component. This will render as an anchor or an
 
 ## Accessible Buttons
 
-The Button component has to follow the below criteria to be accessible
+The Button component has to follow below criteria to be accessible
 
 - Sufficient color contrast during the various states(focus/hover/pressed) of the button in each variant. 
 - Correct button text even in icon only buttons
