@@ -1,8 +1,12 @@
 - title: Foundations
   url: /foundations
   children:
+    - title: Color
+      url: /foundations/color
     - title: Typography
       url: /foundations/typography
+    - title: Content
+      url: /foundations/content
 - title: Accessibility
   url: /accessibility/accessibility-at-github
   children:
@@ -19,12 +23,23 @@
       url: /ui-patterns/button-usage
     - title: Empty states
       url: /ui-patterns/empty-states
-    - title: Progressive disclosure
-      url: /ui-patterns/progressive-disclosure
-    - title: Messaging
-      url: /ui-patterns/messaging
     - title: Feature onboarding
       url: /ui-patterns/feature-onboarding
+    - title: Messaging
+      url: /ui-patterns/messaging
+    - title: Progressive disclosure
+      url: /ui-patterns/progressive-disclosure    
+- title: Components
+  url: /components
+  children:
+    - title: Action list
+      url: /components/action-list
+    - title: Autocomplete
+      url: /components/autocomplete
+    - title: Overlay
+      url: /components/overlay
+    - title: Tokens
+      url: /components/tokens
 - title: Design tools
   url: /tools
   children:
