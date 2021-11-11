@@ -1,0 +1,291 @@
+---
+title: Content
+---
+
+import {Box} from '@primer/components'
+import {Text} from '@primer/components'
+import Code from '@primer/gatsby-theme-doctocat/src/components/code'
+
+These guidelines are specific to and focused on GitHub product interfaces. Your first port of call for general content guidelines should be [GitHub’s Content Style Guide](https://brand.github.com/content/), followed by the [Microsoft Style Guide](https://docs.microsoft.com/en-us/style-guide/welcome/).
+
+## UI content principles
+
+Keep the following principles in mind when creating UI content for GitHub.
+
+### 1. Keep it clear
+Aim for a seventh-grade or below reading level. This means you should write text that is straightforward, without trying to be creative with words.
+
+There are some useful tools you can use to test your content for simplicity and reading level:
+- [Grammarly](https://www.grammarly.com/)
+- [Hemingway](http://www.hemingwayapp.com/)
+- [Automatic Readability Checker](https://www.readabilityformulas.com/free-readability-formula-tests.php)
+
+### 2. Keep it consistent
+Refer to the same actions, sections, labels, landing pages, and so on, the same way across the product. But don’t sacrifice clarity over consistency.
+
+## Voice and tone
+GitHub’s voice is:
+- Clear but not cold
+- Conversational but not jargon-y
+- Inclusive but not disingenuous
+- Helpful but not overly-prescriptive
+
+Tone is how you express personality and mood depending on the situation. GitHub’s tone is almost always **informal and positive**, with adjustments when needed depending on the channel, audience, and emotional state of the audience.
+
+You should consider the context of when a user will read something, keeping in mind that: 
+- Humor isn’t welcome in all situations, for example: in errors, when waiting, or when something fails.
+- Error messages should be understandable by humans.
+
+Read more about GitHub’s voice and tone in the [Brand Guide](https://brand.github.com/content/voice).
+
+## Top 10 rules
+If you’re in a hurry, these are the most important content guidelines to keep in mind, in no particular order.
+
+- Write in plain English, don’t sound like a robot.
+- Be brief, remove unnecessary words like adjectives and adverbs.
+- Use active voice.
+- Use sentence case, and when in doubt, don’t capitalize.
+- Always capitalize GitHub correctly.
+- Avoid gendered language.
+- Do not use slang or culturally-specific references.
+- Do not use “here” or “click here” in calls to action.
+- Be very thoughtful when introducing humor to the interface.
+- Have someone else proofread your text.
+
+## Content guidelines
+
+### Acronyms and abbreviations
+Use acronyms when they are more widely used than the spelled out term.
+ 
+“Pull request” should never be abbreviated. It’s always lowercase unless it’s starting a sentence.
+
+<!-- TODO: Where do we abbreviate? Months -->
+
+<!--
+### Alternative text
+TODO: In which cases should the UI include alternative text that doesn’t come for free with Primer.
+
+Do not replace text with emojis.
+-->
+
+### Dates and time 
+When referring to times, use am and pm, and not any other variation (a.m., A.M., AM).
+
+<!-- TODO: Dates. -->
+
+### Emojis
+Avoid using emojis, but when you do:
+- Use them only at the end of a sentence
+- Use only well-recognized emojis
+- Do not repeat emojis
+- Use emojis that will work well in both dark and light modes
+
+<!-- See also alternative text. -->
+
+### Error messages
+Be friendly and helpful, and avoid jargon. Do not blame the user.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Be friendly and helpful. Example: Enter a name, Your name must be between 2 and 20 characters" src="https://user-images.githubusercontent.com/10384315/125705639-f7b1633b-0292-4244-b89e-77bfc319fd5c.png"/>
+ </Do>
+ <Dont>
+  <img width="420" alt="Don't: Blame the user and use jargon. Example: You forgot to add your name, Error 1234567890" src="https://user-images.githubusercontent.com/10384315/125705637-46f0f425-ce56-4cf1-a270-0cba9be2a0e6.png"/>
+ </Dont>
+</DoDontContainer>
+
+Be specific.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Be specific. Example: Enter a credit card number" src="https://user-images.githubusercontent.com/10384315/125707971-28e57b6a-c236-4aa1-afc2-dccda4dd1902.png"/>   
+ </Do>
+ <Dont>
+  <img width="420" alt="Don't: Be vauge. Example: Field required" src="https://user-images.githubusercontent.com/10384315/125707969-a1ddcf5a-58e9-410b-81cf-a6433ace8420.png"/>    
+ </Dont>
+</DoDontContainer>
+
+In most cases, apologizing won't fix the problem. As a rule, do not apologize too much in any situation in the UI.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: State what has happened. Example: All checks failed" src="https://user-images.githubusercontent.com/10384315/125705636-24363aa4-a064-4242-86fa-e315ca72f8ed.png"/>  
+ </Do>
+ <Dont>
+  <img width="420" alt="Don't: Do not apologize excessively in the UI. Example: Sorry, all checks failed" src="https://user-images.githubusercontent.com/10384315/125705635-c1910a2e-6810-4b56-b29f-f918a4543bef.png"/>   
+ </Dont>
+</DoDontContainer>
+
+Do not try to be funny or humorous.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Clearly state the outcome. Example: Some checks failed" src="https://user-images.githubusercontent.com/10384315/125705634-aa90dfb2-afb8-4023-97f6-98682a0ac1c3.png"/> 
+ </Do>
+ <Dont>
+  <img width="420" alt="Don't: Try to be humorous or funny. Example: Oops, some checks failed" src="https://user-images.githubusercontent.com/10384315/125705633-d4b75c6d-7299-4192-b15c-88e9f9b36eac.png"/>   
+ </Dont>
+</DoDontContainer>
+
+### Feedback 
+Feedback should be clear and reassuring, using the same terms used by the UI elements that triggered it. Don't try to be funny, and avoid jargon.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Write feedback to be clear and reassuring. Example: Issue transfer in progress" src="https://user-images.githubusercontent.com/10384315/125705630-b26ef02a-6110-4b58-8bce-d4a45bfc7c05.png"/>
+  <Caption>Feedback message when transferring an issue, using the same term ("transfer") as the trigger button</Caption>
+ </Do>
+ <Dont>
+  <img width="420" alt="Don't: Use language in feedback that is different from its trigger. Example: Moving the issue" src="https://user-images.githubusercontent.com/10384315/125705629-78c436df-76ab-4dab-9ca8-966835c4de10.png"/> 
+  <Caption>Feedback message that uses a different term ("moving") than the trigger button</Caption>
+ </Dont>
+</DoDontContainer>
+
+<!-- TODO: More confirmation messages. Save, close, dismiss. -->
+
+### Forms
+Use sentence case for form titles, labels, and fields.
+Do not include colons in form labels.
+
+<!-- TODO: Error messages, form validation examples. -->
+
+### Labels and buttons
+All labels and button text should be in sentence case, and not include punctuation.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Leave out punctuation in labels and buttons. Example: Save email preferences, 1 linked pull request, 12 days ago" src="https://user-images.githubusercontent.com/10384315/125705627-5396a0fc-891f-4e22-8add-ead2a1a621f1.png"/>   
+ </Do>
+ <Dont>
+  <img width="420" alt="Don't: Include punctuation in labels and buttons. Example: Save email preferences., 1 Linked pull request, 12 Days ago" src="https://user-images.githubusercontent.com/10384315/125705625-1ecfde99-9d8f-4566-97b3-3959e78b2c45.png"/> 
+ </Dont>
+</DoDontContainer>
+
+<Note>When a sentence or label starts with a number (for example, “2 references”), the number is the first word, and the rest of the sentence should be in lowercase.</Note>
+
+Action labels should start with an imperative verb that clearly indicates what to expect.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Start action labels with an imperative verb. Example: Save preferences" src="https://user-images.githubusercontent.com/10384315/125705622-1b7f24d2-423a-4616-9b43-2c48e01c2ca1.png"/>
+ </Do>
+</DoDontContainer>
+
+Action labels can be shortened to only include an adjective and a noun.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Shorten action labels. Example: New issue" src="https://user-images.githubusercontent.com/10384315/125705620-379acdd5-2e62-4e30-8e2d-ad2211e768b9.png"/>
+ </Do>
+</DoDontContainer>
+
+Use “sign in” rather than “log in”.
+
+### Links
+Link text should be meaningful and unique, with as few duplicated references as possible to prevent confusion. Ideally the link itself, or, alternatively, its programmatically determined context, should provide information about where the link will take you, and help users decide whether to follow the link. Examples of programmatically determined context can be aria labels, or text within the same paragraph as the link.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Set context and provide information that relates the link's location. Example: You can find out more about our speakers at the GitHub Universe site" src="https://user-images.githubusercontent.com/10384315/125705618-334a5169-fcbd-460f-a8b6-7b05c6ed6254.png"/>
+  <Caption>Set the context within the paragraph.</Caption>
+ </Do>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <Code className="language-html">
+      {`<a href="/pricing">
+   <img src="pricing.jpg" alt="">
+   Pricing information
+</a>`}
+    </Code>
+    <Caption>Set the context of the image link from the text within the same container.</Caption>
+ </Do>
+</DoDontContainer>
+
+Never say “here” or “click here”.
+
+<DoDontContainer>
+  <Dont>
+    <img width="420" alt="Don't: Never say 'here' or 'click here' in links. Example: Click here to find out more about our speakers at GitHub Universe." src="https://user-images.githubusercontent.com/10384315/125705617-56dc3569-b388-43af-b80a-db43e406450d.png"/>
+  </Dont>
+</DoDontContainer>
+
+<!--
+### Numbers
+TODO: Commas, truncation, rounding up or down. Do units have a space, KB, MB, etc.?
+-->
+
+### Punctuation
+Headings, labels and buttons should not include punctuation. In most cases, exclamation marks are not appropriate — most things aren't _that_ exciting.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Remove punctuation from headings and labels. Example: No code scanning alerts found" src="https://user-images.githubusercontent.com/10384315/125705616-d066fdb3-dcb2-4b88-b154-45dc4e8396f1.png"/>
+ </Do>
+ <Dont>
+  <img width="420" alt="Don't: In most cases don't use exclamation marks. Example: No code scanning alerts found!" src="https://user-images.githubusercontent.com/10384315/125705615-b800023a-d39b-4d6f-aca2-6a5cf488938f.png"/>
+ </Dont>
+</DoDontContainer>
+
+### References to UI
+When referring to unclickable page names and sections, write them as they appear in the interface in quotation marks.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Refer to unclickable sections as they are written in the UI and wrapped in quotes. Example: Go to the 'Email notifications settings' section." src="https://user-images.githubusercontent.com/10384315/125705614-5c6c9ead-7cae-4129-b812-7eb0fd1908bd.png"/>
+ </Do>
+</DoDontContainer>
+
+When referring to button or link text that a user should click on, use bold text without quotation marks. Make sure all UI references match the capitalization in the interface. If you’re writing for a mobile app experience, use “tap”, instead of “click”.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Write button and links in bold. Example: Click Save with Save in bold" src="https://user-images.githubusercontent.com/10384315/125705613-96de4bcf-cf6d-4c12-886e-a8ad8619d84c.png"/>
+ </Do>
+</DoDontContainer>
+
+When referring to a folder, use a code tag.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Write a folder name with the code tag. Example: Open the <code>docs</code> folder" src="https://user-images.githubusercontent.com/10384315/125705612-77cb3dc3-5445-4440-a2c9-bbe761fdd1e3.png"/>
+ </Do>
+</DoDontContainer>
+
+### Subject
+In most instances, address the user as "you" and items "owned" by the user as "your" or "yours".
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Address the user as you. Example: Update your profile" src="https://user-images.githubusercontent.com/10384315/125705611-3a5d082d-324b-415a-9c77-5aa59adde753.png"/>
+ </Do>
+ <Dont>
+  <img width="420" alt="Don't: Address the user or things they own with 'I' or 'my'. Example: Update my profile" src="https://user-images.githubusercontent.com/10384315/125705610-58bf0f25-b63e-41db-bc35-40328653ab11.png"/>
+ </Dont>
+</DoDontContainer>
+
+Some exceptions exist and are usually related to legal language, such as when a user needs to agree to terms, or confirm a destructive action.
+
+<DoDontContainer>
+ <Do>
+  <img width="420" alt="Do: Exception to address the user as I with legal terms. Example: I have read the Terms of Service, I understand, convert this issue to a discussion" src="https://user-images.githubusercontent.com/10384315/125705608-aa8660aa-ec67-4fb0-a4cf-b69ef0b442aa.png" />
+ </Do>
+</DoDontContainer>
+
+<!--
+### Text truncation
+TODO: Examples of truncation: dates, large numbers, long file names.
+-->
+
+## What to avoid
+- Do not say that something is “easy”, “quick”, or that the user “just” needs to do something.
+- Do not capitalize common terms. Only proper nouns and product names should be capitalized.
+- Do not use emoji in UI content, or to replace words.
+- Use the word “and” instead of an ampersand or the “+” sign.
+- Do not use exclamation marks to indicate excitement, most actions aren’t.
+- Do not use the greater than and less than symbols to indicate steps in a flow.
+- Do not use semicolons: they are hard to get right and can be replaced by a period most times.
+
+## How to get help
+If you need clarification and can’t find an answer in the [GitHub’s Content Style Guide](https://brand.github.com/content/) or the [Microsoft Style Guide](https://docs.microsoft.com/en-us/style-guide/welcome/), or would like your UI content to be reviewed, please start a discussion in github/primer and someone in the team will get back to you. If your query is urgent, you can ask directly in the [#primer](https://github.slack.com/archives/CSGAVNZ19) channel. 

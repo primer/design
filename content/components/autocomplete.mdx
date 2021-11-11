@@ -1,0 +1,93 @@
+---
+title: Autocomplete
+status: Alpha
+---
+
+import {LabelGroup, Label, Box} from '@primer/components'
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+    Autocomplete inputs allow users to quickly filter through a list of options to pick one or more values for a field.
+</Box>
+
+<LabelGroup display="block" mb={4}>
+    <Label as="a" href="https://primer.style/components/Autocomplete" variant="xl" color="text.success" outline style="text-decoration: none; line-height: 20px;">
+        <img width="20" height="20" alt=" " src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png" style="vertical-align: middle; margin-right: 4px;" />
+        React
+    </Label>
+    {/* TODO: uncomment once Figma docs are live
+    <Label as="a" href="https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=1927%3A0" variant="xl" outline style="text-decoration: none; line-height: 20px;">
+        <img width="20" height="20" alt=" " src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png" style="vertical-align: middle; margin-right: 4px;" />
+        Figma
+    </Label> */}
+</LabelGroup>
+
+## Overview
+
+The autocomplete component is an enhanced text input that makes it easier to choose one or more values from a long list of options. The list of options is displayed when a user focuses the input. It is similar to a SelectPanel, except the text input is rendered inline instead of being shown after clicking a button.
+
+## Anatomy
+An autocomplete is made up of an input and a menu of options.
+
+![autocomplete anatomy diagram](https://user-images.githubusercontent.com/2313998/137769316-20c07a68-0d7e-46cc-940e-7aec5a2e0ad8.png)
+
+
+## Usage
+### Text input
+
+![open autocomplete with menu de-emphasized](https://user-images.githubusercontent.com/2313998/137768284-0f267d5e-c299-4ab5-91d9-cd9ed0735edc.png)
+
+The text input is used to filter the options in the menu. It is also used to show the selected value (or values).
+
+This input follows the same design guidelines as a text input that is not part of an autocomplete.
+
+### Menu
+
+The menu is a list of options for the field's value. It appears as a list in a non-modal dialog that the user may select one or more values from.
+
+![open autocomplete with text input de-emphasized](https://user-images.githubusercontent.com/2313998/138128820-df4db151-5e28-473f-a341-03391e1b9afd.png)
+
+
+<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+    <img
+        width="456"
+        alt="menu opened, showing an empty state"
+        src="https://user-images.githubusercontent.com/2313998/138128784-4cdadb38-3b3e-4fbe-accb-772949d958de.png"
+    />
+    <Box as="p" mt="0">When there are no possible selections that can be made, a message is displayed that explains there are no possible options to select. The default message is "No selectable options".</Box>
+</Box>
+
+<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+    <img
+        width="456"
+        alt="menu opened, showing an empty state"
+        src="https://user-images.githubusercontent.com/2313998/138128776-6cad977d-b2b7-4661-9ff8-d9dda6bcaed2.png"
+    />
+    <Box as="p" mt="0">If a user is not limited to a pre-defined list of options, an additional item can be rendered in the menu to select the value that has been typed into the text input.</Box>
+</Box>
+
+<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+    <img
+        width="456"
+        alt="menu opened, showing an empty state"
+        src="https://user-images.githubusercontent.com/2313998/138128811-5542f1e0-2177-4741-af5b-c4bf52c65401.png"
+    />
+    <Box as="p" mt="0">A loading indicator should be displayed while the data for the list of options is being populated. The loading indicator helps the user understand that the list is not empty, it's just not done loading.</Box>
+</Box>
+
+#### Menu item rendering
+
+By default, menu items are rendered as a single line of text. The list in the menu is rendered using the [Action List](/action-list) component, so menu items can be rendered with all of the same options as Action List items.
+
+## Sort and filter behavior
+
+### Sorting
+
+The order of the items should not be random: they should be ordered in a way that makes it easy for a user to find a specific value. This could mean items may be ranked by how likely a user is to pick that option (for example, ordering labels by the number of times they've been used in that repository), or it could simply be in alphabetical order.
+
+If multiple values can be selected, the default behavior is to move the selected items to the top of the list after the menu is closed. If this sorting logic is not helpful for your use case, you may override this behavior with a more appropriate sorting logic.
+
+### Filtering
+
+By default, menu items are filtered based on whether or not they match the value of the text input. The default filter is case-insensitive.
+
+Custom filtering logic can be applied if the default filtering behavior does not make sense for your use case. However, it is strongly discouraged to disable filtering entirely.
