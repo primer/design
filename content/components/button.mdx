@@ -6,7 +6,7 @@ status: Alpha
 import {LabelGroup, Label, Box} from '@primer/components'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
-    A button is the basic user action on a web page. It is meant to direct the user to the main action of the page or section.
+    A button is the core user action on a web page. Buttons usually trigger a purposeful action directing the user to get their work done.
 </Box>
 
 <LabelGroup display="block" mb={4}>
@@ -17,7 +17,7 @@ import {LabelGroup, Label, Box} from '@primer/components'
 </LabelGroup>
 
 ## Overview
-A Button is usually used consistently but sparingly in a web page. The nature of the action performed by the button is supported through variants.
+Buttons must be used consistently and sparingly. The nature of the action performed by the button is supported through variants.
 
 Sometimes, a button is complemented by an icon. Icon only buttons are also common usage.
 
@@ -37,58 +37,52 @@ Buttons need to visually and non-visually support different user actions and sta
     <Box as="ul" mt="0">
         <Box as="li" mt="0"><strong>Leading icon</strong> (optional): Provides additional context</Box>
         <Box as="li"><strong>Button text</strong> (required): Concise text label</Box>
-        <Box as="li"><strong>Counter</strong> (optional): Use CounterLabel for this</Box>
-        <Box as="li"><strong>TrailingIcon</strong> (optional): Used in dropdowns usually</Box>
+        <Box as="li"><strong>Counter</strong> (optional): Adds count context to specific types of buttons</Box>
+        <Box as="li"><strong>TrailingIcon</strong> (optional): Commonly used in dropdowns</Box>
     </Box>
 </Box>
 
 ## Button variants
 
-Buttons come in a few different variants. They are used in different contexts.
-In components, this is represented by the `variant` prop.
-Implementation wise, they differ in look and feel under various states.
+Buttons come in a few different variants to be used in different contexts.
+Each of the variants differ in look and feel under various states.
 
 ### Default
 
-The default button is the default variant in the `Button` component.
-Here is what it looks like in different states.
+This is the default variant in the `Button` component. It's the most used variant too.
 <Box>
     <img width='400' src='https://user-images.githubusercontent.com/417268/141059984-6d74d033-5780-4a6e-acdf-c89ba786294f.png' />
 </Box>
 
 ### Primary
 
-The default button is the default variant in the `Button` component.
-Here is what it looks like in different states.
+This button variant is used for high priority actions and is green in color to stand out on the page.
+
 <Box>
     <img width='400' src='https://user-images.githubusercontent.com/417268/141060953-e35239c6-cd81-4a52-bbb2-91a4d881003b.png' />
 </Box>
 
 ### Invisible
 
-The default button is the default variant in the `Button` component.
-Here is what it looks like in different states.
+This button variant is used to denote lower priority actions.
 <Box>
     <img width='400' src='https://user-images.githubusercontent.com/417268/141061097-98970b77-93b9-4048-a0ce-abfa19102292.png' />
 </Box>
 
 ### Danger
 
-The default button is the default variant in the `Button` component.
-Here is what it looks like in different states.
+This variant of button is used to denote a risky action that we want the user to think twice about before performing.
 <Box>
     <img width='400' src='https://user-images.githubusercontent.com/417268/141061136-44634e00-1105-465c-9f60-f8b2a0378ac3.png' />
 </Box>
 
-## Buttons with Icons
+## Buttons with icons
 
-Icons are used in Buttons(at Github) for:
+Icons can be used in buttons for different goals:
 
-- A Leading Icon may be used to enhance the context of the button text
-- A Leading Icon may be used to denote a certain state of the button (eg Watch/Unwatch)
-- A Trailing Icon is not very common in usage, but the `TriangleDownIcon` icon is used in buttons as a base for the dropdown menu.
-
-Here's what a leading icon will look like in all of the variants
+- A leading icon may be used to amplify the context of the button text
+- A leading icon may be used to indicate the button's state
+- A trailing icon can be used in buttons as a base for the dropdown menu.
 
 <Box display="flex" alignItems="flex-start" flexDirection={["column", "column"]} sx={{gap: 2}}>
     <span>Default</span>
@@ -101,18 +95,16 @@ Here's what a leading icon will look like in all of the variants
     <img width='200' src='https://user-images.githubusercontent.com/417268/141068654-04a67134-568c-4ba9-9d88-85ba6c3a5bfa.png' />
 </Box>
 
-## Icon only Buttons
+## Icon only buttons
 
-These buttons will display only the icon component and visually hide the button text. They are used for popular actions like search/upvote or burger family menus.
-
+Icon-only buttons display only the icon component and visually hide the button text. They are used for actions such as search, upvote, and overflow menus.
 <Box>
     <img width='300' src='https://user-images.githubusercontent.com/417268/141069418-ee6585f7-9941-410f-99ab-058494971b54.png' />
 </Box>
 
-## Button Counters
+## Button counters
 
-Counters at the trailing end of the button denote extra context relevant to the button. Like upvote/watch count.
-We use the `CounterLabel` component to show this. 
+Counters can be used at the trailing end of the button to give extra context relevant to the button, like, for example, in upvote and watch buttons.
 
 <Box display="flex" alignItems="flex-start" flexDirection={["column", "column"]} sx={{gap: 2}}>
     <span>Default</span>
@@ -130,9 +122,7 @@ We use the `CounterLabel` component to show this.
 
 The ButtonLink will be a separate component. This will render as an anchor or an appropriate framework link component as configured by the user.
 
-// Waiting for design input from Ash
-
-## Accessible Buttons
+## Accessibility
 
 The Button component has to follow below criteria to be accessible
 
