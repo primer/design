@@ -109,25 +109,32 @@ Borders can be used to group content or to create a visible separation between s
 - `border.success`: 
 - `border.attention`: 
 - `border.danger`: 
-- `border.severe`: 
+- `border.severe`:  
 - `border.done`:
 
 ### Combining Colors
-
 Not all colors pair well with each other. There are combinations of backgrounds and foregrounds that guarantee compliance with WCAG contrast guidelines and a wide range of hierarchical relationships between elements. 
 
-✅ Do’s
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
 
-----
+<Box>
+        <img 
+            width="464"
+            alt="Correct colored text and background combinations" 
+            src="https://user-images.githubusercontent.com/6951037/141484362-577536e6-5625-4fb5-9d79-8551147526e7.png"
+        />
 
-**❌ Dont’s**
-<img width="960" alt="dont-combinations" src="https://user-images.githubusercontent.com/6951037/141307275-46e623a2-a4fd-457c-955e-e517a282368f.png" />
-
-- Don’t use default or muted text on .emphasis colors
-- Don’t use muted text on colored backgrounds
-- Don’t use border colors for backgrounds
-- Don’t apply background or border colors to text
-- Don’t combine foregrounds with inset backgrounds
+        <Caption>Don’t combine color text with bg.subtle or bg.emphasis. Colored foregrounds should be combined with their matching backgrounds or bg.default.</Caption>
+    </Box>
+    <Box>
+        <img
+            width="464"
+            alt="Incorrect colored text and background combinations" 
+            src="https://user-images.githubusercontent.com/6951037/141484586-eacf3326-63c0-4f1e-b394-0bfe4035c8a7.png"
+        />
+        <Caption>Use a link in a footer to provide access to a related page.</Caption>
+    </Box>
+</Grid>
 
 Presentational color system (🔒only accessible to GitHub staff)
 We are working on a system to apply color to labels and other user-defined components. It’s currently in the design stage. If you have any suggestions or questions about this project, please add a comment to the issue. https://github.com/github/primer/issues/287
