@@ -48,7 +48,7 @@ Each of these jobs is controlled by a different system with its own rules, requi
 
 ### Functional color system
 The functional system is based on the meaning, or function, that colors have in the interface. For example: the color blue is not called blue, it’s called accent. Its purpose is to highlight interactive elements.
-
+<img width="960" alt="color-roles-list" src="https://user-images.githubusercontent.com/6951037/141302835-05ea2e26-fc89-49ed-8dc5-2af6a6ca9df8.png" />
 ### Foregrounds: Text and icons
 Foreground elements are text and icons. You can apply color to them using any of the foreground (or `fg` for short) variables. 
 
@@ -85,8 +85,6 @@ Background colors affect surfaces of components or UI elements, such as pages, b
 
 **Color roles**
 
-<img width="960" alt="color-roles-list" src="https://user-images.githubusercontent.com/6951037/141302835-05ea2e26-fc89-49ed-8dc5-2af6a6ca9df8.png" />
-
 - Accent: Use `bg.accent` to accentuate interactive areas in the UI like selected elements. [IMG 🌇 alt: Visual example]
 - Success: Use `bg.success` to highlight a positive message. [IMG 🌇 alt: Visual example]
 - Attention: Use `bg.attention` to highlight elements that require a users attention or pending statuses. [IMG 🌇 alt: Visual example]
@@ -115,12 +113,14 @@ Borders can be used to group content or to create a visible separation between s
 ### Combining Colors
 Not all colors pair well with each other. There are combinations of backgrounds and foregrounds that guarantee compliance with WCAG contrast guidelines and a wide range of hierarchical relationships between elements. 
 
+#### Pairing color roles
+
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
     <Box>
     <img
         width="464"
         alt="Correct colored text and background combinations"
-        src="https://user-images.githubusercontent.com/6951037/141484362-577536e6-5625-4fb5-9d79-8551147526e7.png"
+        src="https://user-images.githubusercontent.com/6951037/141516234-0e267cba-a417-408c-958b-48fcfd1e76b6.png"
     />
   <Caption>Don’t combine color text with bg.subtle or bg.emphasis. Colored foregrounds should be combined with their matching backgrounds or bg.default.</Caption>
     </Box>
@@ -128,15 +128,37 @@ Not all colors pair well with each other. There are combinations of backgrounds 
         <img
             width="464"
             alt="Incorrect colored text and background combinations"
-            src="https://user-images.githubusercontent.com/6951037/141484586-eacf3326-63c0-4f1e-b394-0bfe4035c8a7.png"
+            src="https://user-images.githubusercontent.com/6951037/141516295-33c1101e-1b6d-45d4-aa12-35268350e697.png"
         />
         <Caption>Use a link in a footer to provide access to a related page.</Caption>
     </Box>
 </Grid>
 
-Presentational color system (🔒only accessible to GitHub staff)
+#### Color roles and foregrounds
+
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+    <Box>
+    <img
+        width="464"
+        alt="Correct combinations for muted foregrounds"
+        src="https://user-images.githubusercontent.com/6951037/141516384-b6a8625b-29bd-4c5c-be2a-272eda6458c8.png"
+    />
+  <Caption>Only use fg.muted on default, subtle, inset.</Caption>
+    </Box>
+    <Box>   
+        <img
+            width="464"
+            alt="Incorrect combinations for muted foregrounds"
+            src="https://user-images.githubusercontent.com/6951037/141516445-32d33c77-7e79-4b9a-8f4b-dd012158d5a9.png"
+        />
+        <Caption>Use a link in a footer to provide access to a related page.</Caption>
+    </Box>
+</Grid>
+
+### Presentational color system (🔒only accessible to GitHub staff)
 We are working on a system to apply color to labels and other user-defined components. It’s currently in the design stage. If you have any suggestions or questions about this project, please add a comment to the issue. https://github.com/github/primer/issues/287
-Data visualization color system (🔒only accessible to GitHub staff)
+
+### Data visualization color system (🔒only accessible to GitHub staff)
 Primer does not currently have a data visualization system. In the meantime, we’ll try to offer support on a case-by-case basis, prioritizing customer needs. If you have any questions about data visualization, open an issue [here]. 
 
 
