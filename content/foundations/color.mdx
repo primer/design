@@ -116,20 +116,18 @@ Borders can be used to group content or to create a visible separation between s
 Not all colors pair well with each other. There are combinations of backgrounds and foregrounds that guarantee compliance with WCAG contrast guidelines and a wide range of hierarchical relationships between elements. 
 
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-
-<Box>
-        <img 
-            width="464"
-            alt="Correct colored text and background combinations" 
-            src="https://user-images.githubusercontent.com/6951037/141484362-577536e6-5625-4fb5-9d79-8551147526e7.png"
-        />
-
-        <Caption>Don’t combine color text with bg.subtle or bg.emphasis. Colored foregrounds should be combined with their matching backgrounds or bg.default.</Caption>
-    </Box>
     <Box>
+    <img
+        width="464"
+        alt="Correct colored text and background combinations"
+        src="https://user-images.githubusercontent.com/6951037/141484362-577536e6-5625-4fb5-9d79-8551147526e7.png"
+    />
+  <Caption>Don’t combine color text with bg.subtle or bg.emphasis. Colored foregrounds should be combined with their matching backgrounds or bg.default.</Caption>
+    </Box>
+    <Box>   
         <img
             width="464"
-            alt="Incorrect colored text and background combinations" 
+            alt="Incorrect colored text and background combinations"
             src="https://user-images.githubusercontent.com/6951037/141484586-eacf3326-63c0-4f1e-b394-0bfe4035c8a7.png"
         />
         <Caption>Use a link in a footer to provide access to a related page.</Caption>
