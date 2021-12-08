@@ -48,8 +48,6 @@ Foreground elements are text and icons. You can apply color to them using any of
 | `fg.muted`      | Use for content that is secondary or provides additional context but is not critical to understanding the flow of an interface.  | 
 | `fg.onEmphasis` | On emphasis is the text color designed to combine with -emphasis backgrounds for optimal contrast.                               | 
 
-<img width="480" alt="img-onEmphasis" src="https://user-images.githubusercontent.com/6951037/141304060-1e3d5285-f80f-4363-8c07-e5865c6fe073.png"/>
-
 **Color roles**
 
 | Variable       | Purpose                                                            | 
@@ -60,8 +58,6 @@ Foreground elements are text and icons. You can apply color to them using any of
 | `fg.danger`    | Use to emphasize an error or a blocking status. Action is required | 
 | `fg.severe`    | Use to emphasize a level of severity between attention and danger  | 
 | `fg.done`      | Use to style text that refers to completed tasks or workflows      | 
-
-<img width="480" alt="img-color-roles-example" src="https://user-images.githubusercontent.com/6951037/141304173-5f919074-b5ae-4c0b-b5d2-8a2cd6ea2d03.png" />
 
 ### Backgrounds
 Background colors apply to surfaces of components or UI elements, such as pages, boxes, and overlays.
@@ -87,7 +83,7 @@ Background colors apply to surfaces of components or UI elements, such as pages,
 | `bg.done`      | Use to style text that refers to completed tasks or workflows.                | 
 
 
--Emphasis: Every background has an `.emphasis` variant. These backgrounds are reserved to reinforce the highest priority element in a single page or view. [IMG 🌇 alt: Visual example]
+-Emphasis: Every background has an `.emphasis` variant. These backgrounds are to reinforce the highest priority element in a single page or view. [IMG 🌇 alt: Visual example]
 
 ### Borders
 Borders can be used to group content or to create a visible separation between sections or items. They’re most commonly used on tables, side sections, and cards. 
@@ -104,6 +100,26 @@ Borders can be used to group content or to create a visible separation between s
 - `border.danger`: 
 - `border.severe`:  
 - `border.done`:
+
+### The functional system in Action
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+    <Box>
+    <img
+        width="464"
+        alt="img-onEmphasis"
+        src="https://user-images.githubusercontent.com/6951037/141304060-1e3d5285-f80f-4363-8c07-e5865c6fe073.png"
+    />
+  <Caption>fg.onEmphasis should be paired with any en .emphasis color role. In this example, fg.onEmphasis paired with bg.accent.emphasis </Caption>
+    </Box>
+    <Box>   
+        <img
+            width="464"
+            alt="img-color-roles-example"
+            src="https://user-images.githubusercontent.com/6951037/141304173-5f919074-b5ae-4c0b-b5d2-8a2cd6ea2d03.png"
+        />
+        <Caption>This is a common combination of color role variables</Caption>
+    </Box>
+</Grid>
 
 ### Combining Colors
 Not all colors pair well with each other. There are combinations of backgrounds and foregrounds that guarantee compliance with WCAG contrast guidelines and a wide range of hierarchical relationships between elements. 
