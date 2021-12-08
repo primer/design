@@ -41,47 +41,51 @@ The functional system is based on the meaning, or purpose, that colors have in t
 Foreground elements are text and icons. You can apply color to them using any of the foreground (or `fg` for short) variables. 
 
 **Foundations**
-|  Variable    | Purpose |  
-|--------------|---------|
-| `fg.default` |  Primary color for text and icons in any given interface. It should be used for body content, titles and labels. |
 
-
-- :  
-- `Muted`: Use for content that is secondary or provides additional context but is not critical to understanding the flow of an interface.
-- `On emphasis`: On emphasis is the text color designed to combine with -emphasis backgrounds for optimal contrast.
+| Variable        | Purpose                                                                                                                          | 
+| :---------------| :------------------------------------------------------------------------------------------------------------------------------- | 
+| `fg.default`    | Primary color for text and icons in any given interface. It should be used for body content, titles and labels.                  | 
+| `fg.muted`      | Use for content that is secondary or provides additional context but is not critical to understanding the flow of an interface.  | 
+| `fg.onEmphasis` | On emphasis is the text color designed to combine with -emphasis backgrounds for optimal contrast.                               | 
 
 <img width="480" alt="img-onEmphasis" src="https://user-images.githubusercontent.com/6951037/141304060-1e3d5285-f80f-4363-8c07-e5865c6fe073.png"/>
 
 **Color roles**
 
-- `fg.accent`: Use for links [IMG 🌇 alt: Visual example]
-- `fg.success`: Use to emphasize a positive message [IMG 🌇 alt: Visual example]
-- `fg.attention`: Use to flag text or icons that require the users attention [IMG 🌇 alt: Visual example]
-- `fg.danger`: Use to emphasize an error or a blocking status. Action is required [IMG 🌇 alt: Visual example]
-- `fg.severe`: Use to emphasize a level of severity between attention and danger [IMG 🌇 alt: Visual example]
-- `fg.done`: Use to style text that refers to completed tasks or workflows [IMG 🌇 alt: Visual example]
+| Variable       | Purpose                                                            | 
+| :--------------| :------------------------------------------------------------------| 
+| `fg.accent`    | Use for interactive text or icons.                                 | 
+| `fg.success`   | Use to emphasize a positive message.                               | 
+| `fg.attention` | Use to flag text or icons that require the users attention         | 
+| `fg.danger`    | Use to emphasize an error or a blocking status. Action is required | 
+| `fg.severe`    | Use to emphasize a level of severity between attention and danger  | 
+| `fg.done`      | Use to style text that refers to completed tasks or workflows      | 
 
 <img width="480" alt="img-color-roles-example" src="https://user-images.githubusercontent.com/6951037/141304173-5f919074-b5ae-4c0b-b5d2-8a2cd6ea2d03.png" />
 
 ### Backgrounds
-Background colors affect surfaces of components or UI elements, such as pages, boxes, and overlays.
+Background colors apply to surfaces of components or UI elements, such as pages, boxes, and overlays.
 
 **Foundations**
 
-- `bg.default`: Primary background color. 
-- `bg.subtle`: Provide visual rest and contrast against the default background.
-- `bg.emphasis`: It’s highest in contrast against the default background, such as in tooltips. 
-- `bg.inset`: Can be used instead of default background when you want to create a focal point like in conversations or activity feeds.
-
+| Variable        | Purpose                                                                                                                  | 
+| :---------------| :----------------------------------------------------------------------------------------------------------------------- | 
+| `bg.default`    | Primary background color.                                                                                                | 
+| `bg.subtle`     | Provide visual rest and contrast against the default background.                                                         | 
+| `bg.onEmphasis` | It’s highest in contrast against the default background, such as in tooltips.                                            | 
+| `bg.inset`      | Can be used instead of default background when you want to create a focal point like in conversations or activity feeds. | 
 
 **Color roles**
 
-- `bg.accent`: Use to accentuate interactive areas in the UI like selected elements. [IMG 🌇 alt: Visual example]
-- `bg.success`: Use to highlight a positive message. [IMG 🌇 alt: Visual example]
-- `bg.attention`: Use to highlight elements that require a users attention or pending statuses. [IMG 🌇 alt: Visual example]
-- `bg.danger`: Use to emphasize an error or a blocking status. Action is required [IMG 🌇 alt: Visual example]
-- `bg.severe`: Use to emphasize an extra level of severity between attention and danger [IMG 🌇 alt: Visual example]
-- `bg.done`: Use to style text that refers to completed tasks or workflows [IMG 🌇 alt: Visual example]
+| Variable       | Purpose                                                                       | 
+| :--------------| :---------------------------------------------------------------------------- | 
+| `bg.accent`    | Use to accentuate interactive areas in the UI like selected elements.         | 
+| `bg.success`   | Use to highlight a positive message.                                          | 
+| `bg.attention` | Use to highlight elements that require a users attention or pending statuses. | 
+| `bg.danger`    | Use to emphasize an error or a blocking status. Action is required.           | 
+| `bg.severe`    | Use to emphasize an extra level of severity between attention and danger.     | 
+| `bg.done`      | Use to style text that refers to completed tasks or workflows.                | 
+
 
 -Emphasis: Every background has an `.emphasis` variant. These backgrounds are reserved to reinforce the highest priority element in a single page or view. [IMG 🌇 alt: Visual example]
 
