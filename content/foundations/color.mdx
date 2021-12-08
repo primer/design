@@ -15,35 +15,28 @@ GitHub's UI offers a variety of different color modes. For product UI, design in
 
 <img width="960" alt="functional-demo" src="https://user-images.githubusercontent.com/6951037/127494554-07b67dbd-66d3-4d36-8350-5ec837d6d1a5.png" />
 
-### Why use Primer color systems
+## How to use color for product UI
+
+Primer delivers colors in the form of [variables](https://primer.style/primitives/colors). Color variables can be grouped into different groups based on their purpose:
+
+- Functional: To convey a meaning or a state. For example, from the functional perspective the color green is used to reinforce positive messaging. In a functional system green variables are named with the suffix `.success`
+- Presentational: To represent a color. For example, the color steps in the Primer scale are named by color and lightness. Names are such as scale.blue.5. These variables don't currently support color modes. There is no available system to use colors in this form yet.
+
+As the system grows, we are working to provide different APIs that fit different color needs. Check the [Primitives](https://github.com/primer/primitives/releases/tag/v7.2.0) repository to follow along as we release new variables and systems.
+
+### Functional color system
+The functional system is based on the meaning, or purpose, that colors have in the interface. This system is estructured into two groups of variables:
+
+- Foundations: Foregrounds, backgrounds and borders that make 95% of a product interface. Each variable is generated based on visual weight. 
+- Color roles: Foregrounds, backgrounds and borders to highlight affordance or meaning of elements in the UI.
+
+<img width="960" alt="color-roles-list" src="https://user-images.githubusercontent.com/6951037/141302835-05ea2e26-fc89-49ed-8dc5-2af6a6ca9df8.png" />
+
+### Why use the Primer functional system
 
  - ✅ I need dark, dimmed, etc mode
  - ✅ I want to get all future themes updated for free
  - ✅ I want to guarantee I have an accessible color answer across themes
- 
-## Principles
-The Primer color system is optimized to be versatile enough 
-
-### Use color with purpose
-For a visual language to be effective, it needs to be as clear and concise as possible. Some ways you can apply this principle. For example, in product UI avoid using color for decoration. 
-
-### Color is accessible by default
-Colors can help some users scan UI elements. Some other users may find it easier to scan elements that have different shapes, sizes or space around them. Never use colors on their own to convey a meaning. Color should be used as a supporting element to reinforce a message or a status. 
-
-## How to use color for product UI
-
-Primer delivers colors in the form of [variables](https://primer.style/primitives/colors). These color variables are classified based on the *job* they have in the product interface. Color jobs can be:
-
-- Functional: Convey a meaning or a state. For example, [add quick example].
-- Presentational: Convey the color value. For example, in user-created labels or categories.
-
-Each of these jobs is controlled by a different system with its own rules, requirements, and conventions.
-
-### Functional color system
-The functional system is based on the meaning, or function, that colors have in the interface. For example: the color blue is not called blue, it’s called accent. Its purpose is to highlight interactive elements.
-This system is based on the idea of Foundations and Color roles. Foundations are the 
-
-<img width="960" alt="color-roles-list" src="https://user-images.githubusercontent.com/6951037/141302835-05ea2e26-fc89-49ed-8dc5-2af6a6ca9df8.png" />
 
 ### Foregrounds: Text and icons
 Foreground elements are text and icons. You can apply color to them using any of the foreground (or `fg` for short) variables. 
