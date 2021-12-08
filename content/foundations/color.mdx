@@ -16,18 +16,18 @@ GitHub's UI offers a variety of different color modes. For product UI, design in
 <img width="960" alt="functional-demo" src="https://user-images.githubusercontent.com/6951037/127494554-07b67dbd-66d3-4d36-8350-5ec837d6d1a5.png" />
 
 ## How to use color for product UI
-Primer delivers colors in the form of [variables](https://primer.style/primitives/colors). Color variables can be grouped into different groups based on their purpose:
+Primer delivers colors in the form of [variables](https://primer.style/primitives/colors) or design tokens. Color variables can be grouped into different groups based on their purpose:
 
-- Functional: To convey a meaning or a state. For example, from the functional perspective the color green is used to reinforce positive messaging. In a functional system green variables are named with the suffix `.success`
-- Presentational: To represent a color. For example, the color steps in the Primer scale are named by color and lightness. Names are such as scale.blue.5. These variables don't currently support color modes. There is no available system to use colors in this form yet.
+- **Functional:** To convey a meaning or a state. For example, from the functional perspective the color green is used to reinforce positive messaging. In a functional system green variables are named with the suffix `.success`
+- **Presentational:** To represent a color. For example, the color steps in the Primer scale are named by color and lightness. Names are such as scale.blue.5. These variables don't currently support color modes. There is no available system to use colors in this form yet.
 
 As the system grows, we are working to provide different APIs that fit different color needs. Check the [Primitives](https://github.com/primer/primitives/releases/tag/v7.2.0) repository to follow along as we release new variables and systems.
 
-### Functional color system
+### Functional system
 The functional system is based on the meaning, or purpose, that colors have in the interface. This system is estructured into two groups of variables:
 
-- Foundations: Foregrounds, backgrounds and borders that make 95% of a product interface. Each variable is generated based on visual weight. 
-- Color roles: Foregrounds, backgrounds and borders to highlight affordance or meaning of elements in the UI.
+- **Foundations:** Foregrounds, backgrounds and borders that make 95% of a product interface. Each variable is generated based on visual weight. 
+- **Color roles:** Foregrounds, backgrounds and borders to highlight affordance or meaning of elements in the UI.
 
 <img width="960" alt="color-roles-list" src="https://user-images.githubusercontent.com/6951037/141302835-05ea2e26-fc89-49ed-8dc5-2af6a6ca9df8.png" />
 
@@ -40,17 +40,13 @@ The functional system is based on the meaning, or purpose, that colors have in t
 ### Foregrounds: Text and icons
 Foreground elements are text and icons. You can apply color to them using any of the foreground (or `fg` for short) variables. 
 
-**Foundations**
-
-| Variable        | Purpose                                                                                                                          | 
+| Foundations     | Purpose                                                                                                                          | 
 | :---------------| :------------------------------------------------------------------------------------------------------------------------------- | 
 | `fg.default`    | Primary color for text and icons in any given interface. It should be used for body content, titles and labels.                  | 
 | `fg.muted`      | Use for content that is secondary or provides additional context but is not critical to understanding the flow of an interface.  | 
 | `fg.onEmphasis` | On emphasis is the text color designed to combine with -emphasis backgrounds for optimal contrast.                               | 
 
-**Color roles**
-
-| Variable       | Purpose                                                            | 
+| Color roles    | Purpose                                                            | 
 | :--------------| :------------------------------------------------------------------| 
 | `fg.accent`    | Use for interactive text or icons.                                 | 
 | `fg.success`   | Use to emphasize a positive message.                               | 
@@ -62,46 +58,61 @@ Foreground elements are text and icons. You can apply color to them using any of
 ### Backgrounds
 Background colors apply to surfaces of components or UI elements, such as pages, boxes, and overlays.
 
-**Foundations**
-
-| Variable        | Purpose                                                                                                                  | 
+| Foundations     | Purpose                                                                                                                  | 
 | :---------------| :----------------------------------------------------------------------------------------------------------------------- | 
 | `bg.default`    | Primary background color.                                                                                                | 
 | `bg.subtle`     | Provide visual rest and contrast against the default background.                                                         | 
 | `bg.onEmphasis` | It’s highest in contrast against the default background, such as in tooltips.                                            | 
 | `bg.inset`      | Can be used instead of default background when you want to create a focal point like in conversations or activity feeds. | 
 
-**Color roles**
-
-| Variable       | Purpose                                                                       | 
-| :--------------| :---------------------------------------------------------------------------- | 
-| `bg.accent`    | Use to accentuate interactive areas in the UI like selected elements.         | 
-| `bg.success`   | Use to highlight a positive message.                                          | 
-| `bg.attention` | Use to highlight elements that require a users attention or pending statuses. | 
-| `bg.danger`    | Use to emphasize an error or a blocking status. Action is required.           | 
-| `bg.severe`    | Use to emphasize an extra level of severity between attention and danger.     | 
-| `bg.done`      | Use to style text that refers to completed tasks or workflows.                | 
-
-
--Emphasis: Every background has an `.emphasis` variant. These backgrounds are to reinforce the highest priority element in a single page or view. [IMG 🌇 alt: Visual example]
+| Color roles             | Purpose                                                                       | 
+| :--------------------| :---------------------------------------------------------------------------- | 
+| `bg.accent`          | Use to accentuate interactive areas in the UI like selected elements.         | 
+| `bg.success`         | Use to highlight a positive message.                                          | 
+| `bg.attention`       | Use to highlight elements that require a users attention or pending statuses. | 
+| `bg.danger`          | Use to emphasize an error or a blocking status. Action is required.           | 
+| `bg.severe`          | Use to emphasize an extra level of severity between attention and danger.     | 
+| `bg.done`            | Use to style text that refers to completed tasks or workflows.                |
+| `bg.[ROLE].emphasis` | Use to highlight the most important item of a view or an interface            | 
 
 ### Borders
-Borders can be used to group content or to create a visible separation between sections or items. They’re most commonly used on tables, side sections, and cards. 
+Borders can be used to group content or to create a visible separation between sections or items. They’re most commonly used on tables, side sections, and cards.
 
-**Foundations**
-- Default: Use to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout.
-- Muted: Use for dividers to emphasize the separation between items, columns or sections. 
+| Foundations       | Purpose                                                                                                                                 | 
+| :-----------------| :-------------------------------------------------------------------------------------------------------------------------------------- | 
+| `border.default`  | Use to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout.   | 
+| `border.muted`    | Use for dividers to emphasize the separation between items, columns or sections.                                                        
 
-**Color roles**
+| Color roles                 | Purpose                                                                    | 
+| :------------------------| :---------------------------------------------------------------------------- | 
+| `border.accent`          | Use to accentuate interactive areas in the UI like selected elements.         | 
+| `border.success`         | Use to highlight a positive message.                                          | 
+| `border.attention`       | Use to highlight elements that require a users attention or pending statuses. | 
+| `border.danger`          | Use to emphasize an error or a blocking status. Action is required.           | 
+| `border.severe`          | Use to emphasize an extra level of severity between attention and danger.     | 
+| `border.done`            | Use to style text that refers to completed tasks or workflows.                |
+| `border.[ROLE].emphasis` | Use to highlight the most important item of a view or an interface            | 
 
-- `border.accent`: 
-- `border.success`: 
-- `border.attention`: 
-- `border.danger`: 
-- `border.severe`:  
-- `border.done`:
+### Functional system in action
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+    <Box>
+    <img
+        width="464"
+        alt="image with combination of foundational variables"
+        src="https://user-images.githubusercontent.com/6951037/145223860-4db73d78-8791-44db-b94d-c7966ce13fab.png"
+    />
+  <Caption>A pairing of foundations is bg.subtle, border.default, and border.muted </Caption>
+    </Box>
+    <Box>   
+        <img
+            width="464"
+            alt="img-bg-inset"
+            src="https://user-images.githubusercontent.com/6951037/145223862-2ea9027c-1474-47d0-8caf-8ab8d93a841b.png"
+        />
+        <Caption>Thinking about elevation bg.inset would the underground. It's meant to create a feeling of focus or depth</Caption>
+    </Box>
+</Grid>
 
-### The functional system in Action
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
     <Box>
     <img
