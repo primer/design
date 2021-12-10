@@ -4,7 +4,7 @@ title: Button usage
 
 These guidelines summarize how GitHub implements buttons across our products. We have standardized buttons documented on [Primer CSS](https://primer.style/css/) and [Primer Components](https://primer.style/components), and these docs which serve as the source of truth for development implementation. This article serves to supplement our technical docs with proper guidance on design implementation.
 
-## Button types
+## Types
 
 At GitHub, buttons are a fundamental building block of our products. Most of the time, we use the "Default" button type, but other types of buttons may be used to indicate something special about the button's hierarchy or functionality. The following table catalogues a quick glance at how we use buttons at GitHub:
 
@@ -48,9 +48,7 @@ In certain scenarios, buttons require supporting text to give the user more cont
   </Dont>
 </DoDontContainer>
 
-## Variation options
-
-### Sizes
+## Sizes
 
 | Size      | Usage                                                                                                                                                            |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -58,41 +56,22 @@ In certain scenarios, buttons require supporting text to give the user more cont
 | Small     | Decrease button size when space is limited and the action is of lesser significance.                                                                             |
 | Large     | Increase button size to bring prominence to buttons that have major impact. Use large buttons sparingly, as layouts should generally have only one large button. |
 
-### Icons
+## Alignments
 
-Use [Octicons](https://primer.style/octicons/) in conjunction with buttons to clarify an action if text alone is not enough to explain its functionality.
+### Order
 
-In some cases, Octicons are used to create an identifiable visual indicator for a common action or paradigm. For example, the repo icon is used next to repo links, the new repo button, and repeated in the new repo flow. This repetition and continuity helps people learn and identify our visual language.
+When a secondary button is placed in conjunction with a primary button, the primary button should always be placed on the outermost alignment, or on top and extended full-width if stacked.
 
-#### Icon with label
-
-Most of the time, a button will have an icon and a label for clarity.
-
-![button with label and icon](https://user-images.githubusercontent.com/2313998/129626583-22dce7ca-611f-42c7-9a51-2ba1551bb5f5.png)
-
-#### Icon only
-
-In some cases, an action can be understood without using just an icon. Icon-only buttons can help save space in a cramped area.
-
-Buttons that only use an icon should still have a label that is invisible to sighted users, but accesssible to assistive technology (for example: read aloud by a screenreader).
-
-![button with icon but no label](https://user-images.githubusercontent.com/2313998/129626586-378e2b7f-7300-4804-93fb-c88f7f22407e.png)
-
-### Counters
-
-Counters can be added in appropriate scenarios to provide context. For example, showing social proof by displaying the number of people watching a repo.
-
-#### Counter inside button
-
-A count can be displayed inside of a button using a [CounterLabel](https://primer.style/react/CounterLabel).
-
-![button with count inside](https://user-images.githubusercontent.com/2313998/129626580-465111c8-9237-4e33-af42-b2e830ea9cc3.png)
-
-#### Counter attached to a button
-
-A count can be displayed as a separate element that is attached to a button. Only display a count as separate element that is attached to a button when the button uses the "small" size variant and the button type is "Default" or "Outline".
-
-![button with count attached](https://user-images.githubusercontent.com/2313998/129626579-a2f17327-1b6e-43b4-8971-5b9a24f96dda.png)
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/2313998/129807268-f6db63e7-c3c8-48e3-844f-a68daa7f52a1.png" />
+    <Caption>Follow this principle to align your buttons accordingly</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/2313998/129807410-984487b7-4088-4a12-bdac-07e1123b68dc.png" />
+    <Caption>Don't ignore this principle and misalign primary buttons</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Full-width
 
@@ -112,6 +91,42 @@ In certain scenarios, it may make sense to use full-width buttons that extend to
   </Dont>
 </DoDontContainer>
 
+## Icons
+
+Use [Octicons](https://primer.style/octicons/) in conjunction with buttons to clarify an action if text alone is not enough to explain its functionality.
+
+In some cases, Octicons are used to create an identifiable visual indicator for a common action or paradigm. For example, the repo icon is used next to repo links, the new repo button, and repeated in the new repo flow. This repetition and continuity helps people learn and identify our visual language.
+
+### Icon with label
+
+Most of the time, a button will have an icon and a label for clarity.
+
+![button with label and icon](https://user-images.githubusercontent.com/2313998/129626583-22dce7ca-611f-42c7-9a51-2ba1551bb5f5.png)
+
+### Icon only
+
+In some cases, an action can be understood without using just an icon. Icon-only buttons can help save space in a cramped area.
+
+Buttons that only use an icon should still have a label that is invisible to sighted users, but accesssible to assistive technology (for example: read aloud by a screenreader).
+
+![button with icon but no label](https://user-images.githubusercontent.com/2313998/129626586-378e2b7f-7300-4804-93fb-c88f7f22407e.png)
+
+## Counters
+
+Counters can be added in appropriate scenarios to provide context. For example, showing social proof by displaying the number of people watching a repo.
+
+#### Counter inside button
+
+A count can be displayed inside of a button using a [CounterLabel](https://primer.style/react/CounterLabel).
+
+![button with count inside](https://user-images.githubusercontent.com/2313998/129626580-465111c8-9237-4e33-af42-b2e830ea9cc3.png)
+
+#### Counter attached to a button
+
+A count can be displayed as a separate element that is attached to a button. Only display a count as separate element that is attached to a button when the button uses the "small" size variant and the button type is "Default" or "Outline".
+
+![button with count attached](https://user-images.githubusercontent.com/2313998/129626579-a2f17327-1b6e-43b4-8971-5b9a24f96dda.png)
+
 ## Dropdown triggers
 
 ### Button that toggles a dropdown
@@ -126,7 +141,7 @@ Group a button with a dropdown button in instances where a primary action allows
 
 ![button with action variants example](https://user-images.githubusercontent.com/2313998/129630910-8c21b316-e6d6-4fb9-b7c2-2d21283a4e86.png)
 
-## Button groups
+## Groups
 
 Use button groups to organize similar functionality. Only "Default" and "Outline" button types can be used in button groups. This modifier can also be used as a filtering pattern.
 
@@ -146,21 +161,6 @@ Use button groups to organize similar functionality. Only "Default" and "Outline
 ### Limit primary button usage
 
 Only use one primary button on the page, whenever possible, to indicate its emphasis relative to other actions. Primary buttons have top priority in visual hierarchy, and using too many of them on a single view dilutes their effectiveness.
-
-### Always align primary buttons to the outermost edge
-
-When a secondary button is placed in conjunction with a primary button, the primary button should always be placed on the outermost alignment, or on top and extended full-width if stacked.
-
-<DoDontContainer>
-  <Do>
-    <img src="https://user-images.githubusercontent.com/2313998/129807268-f6db63e7-c3c8-48e3-844f-a68daa7f52a1.png" />
-    <Caption>Follow this principle to align your buttons accordingly</Caption>
-  </Do>
-  <Dont>
-    <img src="https://user-images.githubusercontent.com/2313998/129807410-984487b7-4088-4a12-bdac-07e1123b68dc.png" />
-    <Caption>Don't ignore this principle and misalign primary buttons</Caption>
-  </Dont>
-</DoDontContainer>
 
 ### Use outline buttons independently
 
