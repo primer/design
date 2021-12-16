@@ -40,13 +40,13 @@ You should always use Primer's functional color system in your designs to make s
 ### Foregrounds
 Foreground elements are **text and icons**. You can apply color to them using any of the foreground variables (or `fg` for short). 
 
-| Foundations     | Purpose                                                                                                                          | 
+| Foundations     | Usage                                                                                                                          | 
 | :---------------| :------------------------------------------------------------------------------------------------------------------------------- | 
 | `fg.default`    | Primary color for text and icons in any given interface. It should be used for body content, titles and labels.                  | 
 | `fg.muted`      | Use for content that is secondary or that provides additional context but is not critical to understanding the flow of an interface.  | 
 | `fg.onEmphasis` | On emphasis is the text color designed to combine with `-emphasis` backgrounds for optimal contrast.                               | 
 
-| Color roles    | Purpose                                                            | 
+| Color roles    | Usage                                                            | 
 | :--------------| :------------------------------------------------------------------| 
 | `fg.accent`    | Use for interactive text or icons like links or buttons.           | 
 | `fg.success`   | Use to emphasize a positive message.                               | 
@@ -58,14 +58,14 @@ Foreground elements are **text and icons**. You can apply color to them using an
 ### Backgrounds
 Background colors apply to surfaces of components or UI elements, such as pages, boxes, and overlays.
 
-| Foundations     | Purpose                                                                                                                  | 
+| Foundations     | Usage                                                                                                                  | 
 | :---------------| :----------------------------------------------------------------------------------------------------------------------- | 
 | `bg.default`    | Primary background color.                                                                                                | 
 | `bg.subtle`     | Provides visual rest and contrast against the default background.                                                         | 
 | `bg.onEmphasis` | Provides the highest contrast against the default background, such as in tooltips.                                            | 
 | `bg.inset`      | Can be used instead of the default background to create a focal point, such as in conversations or activity feeds. | 
 
-| Color roles             | Usage                                                                      | 
+| Color roles          | Usage                                                                         | 
 | :--------------------| :---------------------------------------------------------------------------- | 
 | `bg.accent`          | Use to accentuate interactive areas in the UI like selected elements.         | 
 | `bg.success`         | Use to highlight a positive message.                                          | 
@@ -83,7 +83,7 @@ Borders can be used to group content or to create a visible separation between s
 | `border.default`  | Use to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout.   | 
 | `border.muted`    | Use for dividers to emphasize the separation between items, columns or sections.                                                        
 
-| Color roles                 | Purpose                                                                    | 
+| Color roles              | Usage                                                                         | 
 | :------------------------| :---------------------------------------------------------------------------- | 
 | `border.accent`          | Use to accentuate interactive areas in the UI like selected elements.         | 
 | `border.success`         | Use to highlight a positive message.                                          | 
@@ -94,88 +94,60 @@ Borders can be used to group content or to create a visible separation between s
 | `border.[ROLE].emphasis` | Use to highlight the most important item of a view or an interface.            | 
 
 ## Functional system in action
-<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-    <Box>
-    <img
-        width="464"
-        alt="image with combination of foundation variables"
-        src="https://user-images.githubusercontent.com/6951037/145223860-4db73d78-8791-44db-b94d-c7966ce13fab.png"
-    />
-  <Caption>Example of pairing foundation variables: ```bg.subtle``` with ```border.muted``` </Caption>
-    </Box>
-    <Box>   
-        <img
-            width="464"
-            alt="img-bg-inset"
-            src="https://user-images.githubusercontent.com/6951037/145223862-2ea9027c-1474-47d0-8caf-8ab8d93a841b.png"
-        />
-        <Caption>Thinking about elevation ```bg.inset``` would be the underground. It's meant to create a feeling of focus or depth</Caption>
-    </Box>
-</Grid>
 
-<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-    <Box>
-    <img
-        width="464"
-        alt="img-onEmphasis"
-        src="https://user-images.githubusercontent.com/6951037/141304060-1e3d5285-f80f-4363-8c07-e5865c6fe073.png"
-    />
-  <Caption>fg.onEmphasis pairs with bg.[role].emphasis variables. In this example, fg.onEmphasis paired with bg.accent.emphasis </Caption>
-    </Box>
-    <Box>   
-        <img
-            width="464"
-            alt="img-color-roles-example"
-            src="https://user-images.githubusercontent.com/6951037/141304173-5f919074-b5ae-4c0b-b5d2-8a2cd6ea2d03.png"
-        />
-        <Caption>An example of an alert that pairs bg.success, fg.success, and border.success </Caption>
-    </Box>
-</Grid>
+
+
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/6951037/145223860-4db73d78-8791-44db-b94d-c7966ce13fab.png" />
+    <Caption>Example of pairing foundation variables: ```bg.subtle``` with ```border.muted```"</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/6951037/145223862-2ea9027c-1474-47d0-8caf-8ab8d93a841b.png" />
+    <Caption>Tihinking about elevation ```bg.inset``` would be the underground. It's meant to create a feeling of focus or depth</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/6951037/141304060-1e3d5285-f80f-4363-8c07-e5865c6fe073.png" />
+    <Caption>fg.onEmphasis pairs with bg.[role].emphasis variables. In this example, fg.onEmphasis paired with bg.accent.emphasis"</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/6951037/141304173-5f919074-b5ae-4c0b-b5d2-8a2cd6ea2d03.png" />
+    <Caption>An example of an alert that pairs bg.success, fg.success, and border.success</Caption>
+  </Dont>
+</DoDontContainer>
+
 
 ## Combining colors
 Not all colors pair well with each other. There are combinations of backgrounds and foregrounds that guarantee compliance with WCAG contrast guidelines and a wide range of hierarchical relationships between elements. 
 
 ### Pairing color roles
 
-<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-    <Box>
-    <img
-        width="464"
-        alt="Correct colored text and background combinations"
-        src="https://user-images.githubusercontent.com/6951037/141516234-0e267cba-a417-408c-958b-48fcfd1e76b6.png"
-    />
-  <Caption>Don’t combine color text with bg.subtle or bg.emphasis. Colored foregrounds should be combined with their matching backgrounds or bg.default.</Caption>
-    </Box>
-    <Box>   
-        <img
-            width="464"
-            alt="Incorrect colored text and background combinations"
-            src="https://user-images.githubusercontent.com/6951037/143043985-2fb49bb6-9d69-4cd8-9e26-ef5c81147dda.png"
-        />
-        <Caption>Use a link in a footer to provide access to a related page.</Caption>
-    </Box>
-</Grid>
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/6951037/141516234-0e267cba-a417-408c-958b-48fcfd1e76b6.png" />
+    <Caption>TBD</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/6951037/143043985-2fb49bb6-9d69-4cd8-9e26-ef5c81147dda.png" />
+    <Caption>TBD</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Color roles and foregrounds
 
-<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-    <Box>
-    <img
-        width="464"
-        alt="Correct combinations for muted foregrounds"
-        src="https://user-images.githubusercontent.com/6951037/141516384-b6a8625b-29bd-4c5c-be2a-272eda6458c8.png"
-    />
-  <Caption>Only use fg.muted on default, subtle, inset.</Caption>
-    </Box>
-    <Box>   
-        <img
-            width="464"
-            alt="Incorrect combinations for muted foregrounds"
-            src="https://user-images.githubusercontent.com/6951037/141516445-32d33c77-7e79-4b9a-8f4b-dd012158d5a9.png"
-        />
-        <Caption>Never pair emphasis foregrounds with emphasis backgrounds</Caption>
-    </Box>
-</Grid>
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/6951037/141516384-b6a8625b-29bd-4c5c-be2a-272eda6458c8.png" />
+    <Caption>nly use fg.muted on default, subtle, inset.</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/6951037/141516445-32d33c77-7e79-4b9a-8f4b-dd012158d5a9.png" />
+    <Caption>Never pair emphasis foregrounds with emphasis backgrounds</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Color roles recipes
 
