@@ -96,28 +96,43 @@ Borders can be used to group content or to create a visible separation between s
 ## Functional system in action
 
 
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+    <Box>
+        <img
+            width="464"
+            alt="Table component showing the combination of bg.subtle with border.default, and border.muted"
+            src="https://user-images.githubusercontent.com/6951037/145223860-4db73d78-8791-44db-b94d-c7966ce13fab.png"
+        />
+        <Caption>Example of pairing foundation variables: bg.subtle with border.default, and border.muted.</Caption>
+    </Box>
+    <Box>
+        <img
+            width="464"
+            alt="UI demonstration of what bg.inste looks like. It darkens the background of the whole UI"
+            src="https://user-images.githubusercontent.com/6951037/145223862-2ea9027c-1474-47d0-8caf-8ab8d93a841b.png"
+        />
+        <Caption>Thinking in terms of elevation bg.inset would represent an underground level. It's meant to create a feeling of focus or depth.</Caption>
+    </Box>
+</Grid>
 
-<DoDontContainer>
-  <Do>
-    <img src="https://user-images.githubusercontent.com/6951037/145223860-4db73d78-8791-44db-b94d-c7966ce13fab.png" />
-    <Caption>Example of pairing foundation variables: ```bg.subtle``` with ```border.muted```"</Caption>
-  </Do>
-  <Dont>
-    <img src="https://user-images.githubusercontent.com/6951037/145223862-2ea9027c-1474-47d0-8caf-8ab8d93a841b.png" />
-    <Caption>Tihinking about elevation ```bg.inset``` would be the underground. It's meant to create a feeling of focus or depth</Caption>
-  </Dont>
-</DoDontContainer>
-
-<DoDontContainer>
-  <Do>
-    <img src="https://user-images.githubusercontent.com/6951037/141304060-1e3d5285-f80f-4363-8c07-e5865c6fe073.png" />
-    <Caption>fg.onEmphasis pairs with bg.[role].emphasis variables. In this example, fg.onEmphasis paired with bg.accent.emphasis"</Caption>
-  </Do>
-  <Dont>
-    <img src="https://user-images.githubusercontent.com/6951037/141304173-5f919074-b5ae-4c0b-b5d2-8a2cd6ea2d03.png" />
-    <Caption>An example of an alert that pairs bg.success, fg.success, and border.success</Caption>
-  </Dont>
-</DoDontContainer>
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+    <Box>
+        <img
+            width="464"
+            alt="Example of a hover style on a list where the background uses bg.accent.emphasis and the text uses fg.onEmphasis."
+            src="https://user-images.githubusercontent.com/6951037/141304060-1e3d5285-f80f-4363-8c07-e5865c6fe073.png"
+        />
+        <Caption>fg.onEmphasis pairs with bg.[ANY_COLOR_ROLE].emphasis variables. This example shows fg.onEmphasis paired with bg.accent.emphasis.</Caption>
+    </Box>
+    <Box>
+        <img
+            width="464"
+            alt="UI demonstration of what bg.inste looks like. It darkens the background of the whole UI"
+            src="https://user-images.githubusercontent.com/6951037/141304173-5f919074-b5ae-4c0b-b5d2-8a2cd6ea2d03.png"
+        />
+        <Caption>An example of an alert that pairs bg.success, fg.success, and border.success.</Caption>
+    </Box>
+</Grid>
 
 
 ## Combining colors
