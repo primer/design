@@ -30,30 +30,33 @@ Overlays can streamline the interface by allowing extra options to be displayed 
 
 **Overlays can be fully interacted with a keyboard**. Keyboard navigation should be limited to the elements of the active overlay. If the overlay contains a list, let users navigate using keyboard arrows. Pressing Escape should dismiss the overlay. When an overlay is dismissed, focus generally returns to the element that opened it.
 
-**Overlay contents should work well on any device**. Overlays may adapt to bottom sheets or full-screen on mobile devices. Make sure the overlay contents work with all supported sizes and input methods.
+**Overlay contents should work well on any device**. Overlays may adapt their designs to fit narrower viewports, sometimes becoming bottom sheets or full-screen on mobile devices. Make sure the overlay contents work with all supported sizes and input methods.
 
 
 ## Anatomy
-<ImageContainer>
+<ImageContainer mb={4}>
   <img
     width="636"
-    src="https://user-images.githubusercontent.com/293280/125708874-bdb83c2b-e215-450f-b888-542b16c23dad.png"
+    src="https://user-images.githubusercontent.com/293280/146612470-c44bf782-efc8-44d3-8538-8214139f3b97.png"
     alt="Overlay anatomy"
     style="background: none"
   />
 </ImageContainer>
-Overlays may include a header to provide context, and footer to host actions. The content area supports vertical scrolling when showing lots of items and longer forms. For rendering interactive lists, use [Action lists](/components/action-list).
+
+Overlays main 
+
+Overlays may include an optional header region to provide context, and a footer region to host actions. The content area supports vertical scrolling when showing lots of items and longer forms. For rendering interactive lists, use [Action lists](/components/action-list).
 
 Overlays have a **safe area** of 16px. This is not a strict padding, but a guide to keep the overlay boundaries free of text and heavy visual elements. Interactive elements may still be 8px away from the edge, as long as their main visual elements are within the safe area. For example, the **Close** button has its padding outside the safe area, but its octicon is distant enough.
 
 
-### Overlay header
+### Header region
 
-An overlay header may be used to provide context to the user by displaying title, description, and offering an easy-to-escape route with a **Close** button. Overlay headers may also provide ways for the user to interact with items through search and tabs.
+A header region may be used to provide context to the user by displaying title, description, and offering an easy-to-escape route with a **Close** button. Headers may also provide ways for the user to interact with items through search and tabs.
 
 Avoid using a description if the title already conveys the same information. Don't be verbose.
 
-Reserve confirmation actions such as **Save**, **Apply**, and **Done** to the overlay footer, not the header.
+Reserve confirmation actions such as **Save**, **Apply**, and **Done** to the footer region, not the header.
 
 If the content area has overflow scrolling, a divider must be shown between the header and content area. Otherwise, it's optional to show a divider between the header and content area.
 
@@ -65,7 +68,7 @@ If the content area has overflow scrolling, a divider must be shown between the 
     style="background: none"
   />
 </ImageContainer>
-<Caption>Overlay header with search field.</Caption>
+<Caption>Header region with search field.</Caption>
 
 <ImageContainer>
   <img
@@ -75,33 +78,77 @@ If the content area has overflow scrolling, a divider must be shown between the 
     style="background: none"
   />
 </ImageContainer>
-<Caption>Overlay header with larger title and description.</Caption>
+<Caption>Header region with larger title and description.</Caption>
 
-### Overlay footer
+### Content region
 
-Use an overlay footer to show confirmation actions, navigation links or other important elements that should appear at the bottom. Footers are shown outside of the scrolling area, and are always visible to the user.
 
-If the content area has overflow scrolling, a divider must be shown between the footer and content area. Otherwise, it's optional to show a divider between the footer and content area.
 
-<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-    <Box>
-        <img
-            width="464"
-            alt="Overlay footer"
-            src="https://user-images.githubusercontent.com/293280/125710928-020030c9-ac72-486a-905d-521d6b879517.png"
-        />
-        <Caption>Use buttons in a footer to let the user finish the task.</Caption>
-    </Box>
-    <Box>
-        <img
-            width="464"
-            alt="Overlay footer"
-            src="https://user-images.githubusercontent.com/293280/125710210-feb2e37e-aa45-4f67-984f-09d50fde0c26.png"
-        />
-        <Caption>Use a link in a footer to provide access to a related page.</Caption>
-    </Box>
-</Grid>
+### Footer region
 
+The footer region may be used to show confirmation actions, navigation links or other important elements that should appear outside of the content scrolling region.
+
+If the content area has overflow scrolling, a divider must be shown between the footer and content area. Otherwise, showing a divider is optional.
+
+<ImageContainer>
+  <img
+    width="600"
+    src="https://user-images.githubusercontent.com/293280/146613971-391a757b-e5a5-40c2-b166-8f829c5d3609.png"
+    alt=" "
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>Use buttons in a footer to let the user finish the task.</Caption>
+
+<ImageContainer>
+  <img
+    width="600"
+    src="https://user-images.githubusercontent.com/293280/146613606-493cb6fb-2f7b-4ec0-9f66-545b5f38d61c.png"
+    alt=" "
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>Use a link in a footer to provide access to a related page.</Caption>
+
+### Backdrop
+
+A backdrop is a layer that dims the screen behind the overlay. It's used to prevent the user from interacting with the page behind the overlay.
+
+## Options
+
+### Width and height
+
+The dimensions of an overlay should follow the presets below. Since they must fit within the viewport, overlays appear smaller than the preset dimensions.
+
+Make sure the contents of an overlay fit a minimum width of 320px at all cases.
+
+Width             | Value     | Size  | Application
+:-----------------|:---------:|------:|:-----------
+Small             | `small`   | 256px | Menus
+Medium            | `medium`  | 320px | Menus, select panels, confirmation dialogs
+Large             | `large`   | 480px | Dialogs with lists or forms
+Extra large       | `xlarge`  | 640px | Dialogs with rich content
+Extra extra large | `xxlarge` | 960px | Dialogs with page previews, settings etc.
+
+Height      | Value    | Size               | Application
+:-----------|:--------:|:------------------:|:-----------
+Automatic   | `auto`   | Adjusts to content | Menus, confirmation dialogs
+Extra small | `xsmall` | 192px              | 
+Small       | `small`  | 256px              |
+Medium      | `medium` | 320px              | Select panels
+Large       | `large`  | 432px              | Select panels
+Extra large | `xlarge` | 600px              | 
+
+Avoid having overlays that are too short or too tall compared to its width. As a rule of thumb, keep the width and height proportions within the following ranges:
+
+&ZeroWidthSpace;<sub>Height</sub> ∖ <sup>Width</sup> | Small | Medium | Large | Extra large | Extra extra large |
+---------------|:-----:|:------:|:-----:|:-----------:|:-----------------:|
+Automatic      | ✅    | ✅     | ❌     | ❌          | ❌                 |
+Extra small    | ✅    | ✅     | ❌     | ❌          | ❌                 |
+Small          | ✅    | ✅     | ✅     | ❌          | ❌                 |
+Medium         | ✅    | ✅     | ✅     | ❌          | ❌                 |
+Large          | ❌    | ✅     | ✅     | ✅          | ❌                 |
+Extra large    | ❌    | ❌     | ✅     | ✅          | ✅                 |
 
 ## Behaviors
 
@@ -118,29 +165,10 @@ Don't show overlays on page load. For that, prefer in-page messages and flash ba
 
 Users may always click outside or press Escape to close an overlay. Some overlays may provide a close button as an easy escape route. Close buttons are useful in larger overlays, and when the overlay is no longer visually connected to the source that triggered it. Always use close buttons in dialogs.
 
-Closing an overlay may apply changes right away. If the overlay contains changes that are not immediately applied (such as in a form), offer footer buttons such as **Save**, **Apply**, or **Done**. To avoid people from loosing important unsaved changes, a [`confirmation`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) may be used.
+Closing an overlay may apply changes right away. If the overlay contains changes that are not immediately applied (such as in a form), offer footer buttons such as **Save**, **Apply**, or **Done**. To avoid people from loosing important unsaved changes, a [`beforeUnload`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) event may be used.
 
 The user should also be able to press the browser’s back button to close the overlay. This is particularly useful on mobile devices.
 
-
-### Width and height
-
-Width | Size
-----|----
-`sm` | 256px
-`md` | 320px
-`lg` | 480px
-`xl` | 640px
-`xxl` | 960px
-
-Height | Size
-----|----
-`auto` | Adjusts to content height
-`xs` | 192px
-`sm` | 256px
-`md` | 320px
-`lg` | 432px
-`xl` | 600px
 
 ## Placement
 
@@ -220,6 +248,8 @@ A visualization of `inside-center` positioning, with underneath source elements 
 
 </Caption>
 
+## Responsive variants
+
 ### Bottom sheets (specific to small screens)
 
 A bottom sheet is a mobile-friendly and mobile-specific placement option. Overlays that appear anchored or centered in large screens may adapt to appear as a bottom sheet on small screens.
@@ -259,10 +289,9 @@ On landscape, a bottom sheet has a maximum width of 480px, centered horizontally
 
 A bottom sheet without a title or close button gets an indicator at the top. In case the bottom sheet gets long and takes all the available
 
-<!-- TODO
-## Specialized overlays
+## Components
 
-Several specialized components that rely on overlays are available for use. Use them directly when aiming for a specific behavior:
+Several components that rely on overlays are available for use. Use them directly when aiming for a specific behavior:
 
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
     <div>
@@ -271,7 +300,7 @@ Several specialized components that rely on overlays are available for use. Use 
         </Link>
     </div>
     <div>
-        <Link href="/components/action-menu" fontWeight="bold">Action menu</Link>
+        <Heading fontSize={3}>Action menu</Heading>
         <Box as="p">Action menus are used for disambiguation, navigation, or to display secondary options. They appear when users interact with buttons, actions, or other controls.</Box>
     </div>
     <div>
@@ -280,17 +309,52 @@ Several specialized components that rely on overlays are available for use. Use 
         </Link>
     </div>
     <div>
-        <Link href="/components/dropdown-menu" fontWeight="bold">Dropdown menu</Link>
+        <Heading fontSize={3}>Dropdown menu</Heading>
         <Box as="p">Dropdown menus are used for making a single selection among a small list of options. The list is usually predefined with system values, but in some cases it can include user-provided data when those are known not to grow into too many items.</Box>
     </div>
     <div>
-        <Link href="/components/select-panel">
+        <Link href="https://primer.style/react/SelectPanel">
             <img alt="Select panel" src="https://user-images.githubusercontent.com/293280/123876997-4158f900-d8f1-11eb-85cb-461d9bbee0cb.png" />
         </Link>
     </div>
     <div>
-        <Link href="/components/select-panel" fontWeight="bold">Select panel</Link>
-        <Box as="p">Select panels allows manipulating long lists of options, with filtering and other advanced interactions. They can be used for single or multi-selection.</Box>
+        <Heading fontSize={3}>Select panel</Heading>
+        <Box as="p">
+
+Select panels allows manipulating long lists of options, with filtering and other advanced interactions. They can be used for single or multi-selection.
+
+[Primer React implementation](https://primer.style/react/SelectPanel)
+
+</Box>
+    </div>
+    <div>
+        <Link href="https://primer.style/react/Dialog2#confirmationdialog">
+            <img alt="Confirmation dialog" src="https://user-images.githubusercontent.com/293280/146620807-b5a757bc-59a0-4596-ad3a-ef656c7d5620.png" />
+        </Link>
+    </div>
+    <div>
+        <Heading fontSize={3}>Confirmation dialog</Heading>
+        <Box as="p">
+
+Confirmation dialogs lets users confirm or cancel an action. They are used as an extra friction for destructive actions.
+
+[Primer React implementation](https://primer.style/react/Dialog2#confirmationdialog)
+
+</Box>
+    </div>
+<div>
+        <Link href="https://primer.style/react/Dialog2">
+            <img alt="Dialog" src="https://user-images.githubusercontent.com/293280/146621670-20a7e5dd-1f62-4780-a7ed-10711db93fcb.png" />
+        </Link>
+    </div>
+    <div>
+        <Heading fontSize={3}>Dialog</Heading>
+        <Box as="p">
+
+Dialogs are larger used to display information, forms and other rich content.
+
+[Primer React implementation](https://primer.style/react/Dialog2)
+
+</Box>
     </div>
 </Grid>
--->
