@@ -1,5 +1,5 @@
 ---
-title: Overlay
+title: Overlays
 status: Alpha
 ---
 
@@ -24,50 +24,48 @@ import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link
 
 ## Overview
 
-Overlays can streamline the interface by allowing extra options to be displayed as needed. Overlays present a new context to the user, and can facilitate the completion of individual tasks. They are also useful for data-manipulation, providing a dedicated surface for selecting or editing options.
+Overlays can streamline the interface by allowing extra options to be displayed as needed. Overlays create a new modality to the user, and can facilitate the completion of individual tasks.
 
-**Keep overlays simple**. Overlays are meant to be interacted with quickly, so they're better suited for clear experiences. Avoid creating a whole page inside an overlay. Prefer single-column layouts that convey a clear goal the moment it's opened.
+**Keep overlays simple**. Overlays are meant to be interacted with quickly. Avoid creating a whole page inside an overlay. Prefer single-column layouts that convey a clear goal the moment the overlay is opened.
 
-**Overlays can be fully interacted with a keyboard**. Keyboard navigation should be limited to the elements of the active overlay. If the overlay contains a list, let users navigate using keyboard arrows. Pressing Escape should dismiss the overlay. When an overlay is dismissed, focus generally returns to the element that opened it.
+**Keep overlays accessible**. Overlays can be fully interacted with keyboard, and only the elements inside the overlay should be focusable. If the overlay contains a list, users should be able to navigate with keyboard arrows. Pressing Escape should dismiss the overlay. When an overlay is dismissed, focus generally returns to the element that opened it.
 
-**Overlay contents should work well on any device**. Overlays may adapt their designs to fit narrower viewports, sometimes becoming bottom sheets or full-screen on mobile devices. Make sure the overlay contents work with all supported sizes and input methods.
-
+**Overlays should work well on any device**. Overlays must adjust their designs to fit in smaller viewports, and may adapt their style to become bottom sheets or full-screen on narrow devices. Make sure the overlay contents work with all supported sizes and input methods.
 
 ## Anatomy
 <ImageContainer mb={4}>
   <img
     width="636"
     src="https://user-images.githubusercontent.com/293280/146623655-e8cda46c-10d5-4473-b54b-278bde283913.png"
-    alt="Overlay anatomy"
+    alt="Overlays have 3 regions: header, content, and footer. These regions may be divided by a full-width divider. Overlays use shadows to indicate elevation, and may appear above a backdrop that dims the rest of the screen."
     style="background: none"
   />
 </ImageContainer>
 <Caption>Anatomy of an overlay.</Caption>
 
+**Keep the edges of an overlay free of text and heavy visuals.** This breathing room is meant to visually distinguish the overlay as an elevated surface, alongside its shadow. As a rule of thumb, a safe area of 16px is enough. Components that have transparent or discrete backgrounds may take into account their own paddings, and appear beyond the safe area.
 
-**Overlays use shadows to communicate elevation.**  and to help draw attention to its active area.
+**The content region may scroll vertically** to accommodate lists and content that is too long to fit in the available space.
 
-**Overlays have a safe area of 16px**. This is not a strict padding or margin, but a guide to keep the overlay boundaries free of text and heavy visual elements. Elements may still appear closer to the edge, as long as there's enough distinction of the overlay contents and the rest of the page.
+**Optional header and footer regions assist larger overlays**. They may help providing context, and host non-scrollable actions such as **Close** or **Save**.
 
-**Header and footer regions are optional**. They can be used to support larger and complex overlays, to provide context, and host actions.
-
-**The content region supports vertical scrolling** when showing lots of items and longer forms, or when displayed in small viewports.
+Backdrops _______.
 
 ### Header region
 
-A header region may be used to provide context to the user by displaying title, description, and offering an easy-to-escape route with a **Close** button. Headers may also provide ways for the user to interact with items through search and tabs.
+A header region may be used to provide context to the user by displaying title, description, and offering an easy-to-escape route with a **Close** button. Headers may also provide ways for the user to interact with the content, such as with search and tabs.
 
-Avoid using a description if the title already conveys the same information. Don't be verbose.
+**Titles should be succint**. Titles and descriptions wrap to multiple lines. Descriptions are optional. Don't be verbose.
 
-Reserve confirmation actions such as **Save**, **Apply**, and **Done** to the footer region, not the header.
+Reserve buttons such as **Save**, **Apply**, and **Done** to the footer region.
 
-If the content area has overflow scrolling, a divider must be shown between the header and content area. Otherwise, it's optional to show a divider between the header and content area.
+A divider may be used to separate the header from the content, specially in scenarios where the content region is scrollable.
 
 <ImageContainer>
   <img
     width="600"
     src="https://user-images.githubusercontent.com/293280/125709255-7d0f199d-9ea9-46ac-ae5a-c6e60d97b289.png"
-    alt=" "
+    alt="An overlay with a header that contains a title with description, an overflow button for custom actions, a close button, and a search field."
     style="background: none"
   />
 </ImageContainer>
@@ -77,7 +75,7 @@ If the content area has overflow scrolling, a divider must be shown between the 
   <img
     width="600"
     src="https://user-images.githubusercontent.com/293280/125709258-c542e916-69c3-4b37-9f7d-c118d9e704bd.png"
-    alt=" "
+    alt="An overlay with a header that contains larger title and description, an overflow button for custom actions, and a close button."
     style="background: none"
   />
 </ImageContainer>
@@ -85,7 +83,7 @@ If the content area has overflow scrolling, a divider must be shown between the 
 
 ### Content region
 
-
+- Don't _______.
 
 ### Footer region
 
@@ -121,13 +119,9 @@ A backdrop is a layer that dims the screen behind the overlay. It's used to dist
 
 ### Width and height
 
+Overlays width and height dimensions should be set by the values below. In all cases, overlays should never extend beyond the viewport sizes, and may resize to fit smaller devices.
 
-
-The dimensions of an overlay should follow the presets below. Since they must fit within the viewport, overlays need to be responsive smaller than the preset dimensions.
-
-In smaller viewports, overlays may 
-
-Make sure the contents of an overlay fit a minimum width of 320px at all cases.
+Make sure the contents of any overlay fit a minimum width of 320px.
 
 Width             | Value     | Size  | Application
 :-----------------|:---------:|------:|:-----------
@@ -146,15 +140,18 @@ Medium      | `medium` | 320px              | Select panels
 Large       | `large`  | 432px              | Select panels
 Extra large | `xlarge` | 600px              | 
 
-Avoid having overlays that are too short or too tall compared to its width. As a rule of thumb, keep the width and height proportions within the following ranges:
+_______ If the height is set to automatic, make sure the content region has a maximum height that simulates ________.
+
+Avoid having overlays that are too short or too tall compared to its width. As a rule of thumb, keep a maximum size ratio of 1.6:1, which translates to the following ranges:
 
 &ZeroWidthSpace;<sub>Height</sub> ∖ <sup>Width</sup> | Small | Medium | Large | Extra large | Extra extra large |
 ---------------|:-----:|:------:|:-----:|:-----------:|:-----------------:|
 Extra small    | ✅    | ✅     | ❌     | ❌          | ❌                 |
-Small          | ✅    | ✅     | ✅     | ❌          | ❌                 |
+Small          | ✅    | ✅     | ❌     | ❌          | ❌                 |
 Medium         | ✅    | ✅     | ✅     | ❌          | ❌                 |
 Large          | ❌    | ✅     | ✅     | ✅          | ❌                 |
 Extra large    | ❌    | ❌     | ✅     | ✅          | ✅                 |
+
 
 ## Behaviors
 
@@ -166,6 +163,7 @@ On desktops and other devices with a fine pointer, overlays may also be triggere
 
 Don't show overlays on page load. For that, prefer in-page messages and flash banners.
 
+### Loading
 
 ### Closing
 
@@ -294,6 +292,8 @@ On landscape, a bottom sheet has a maximum width of 480px, centered horizontally
 <Caption>Indicator when no title and close button are present.</Caption>
 
 A bottom sheet without a title or close button gets an indicator at the top. In case the bottom sheet gets long and takes all the available
+
+## Navigation
 
 ## Components
 

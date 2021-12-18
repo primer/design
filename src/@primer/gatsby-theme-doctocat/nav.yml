@@ -27,6 +27,8 @@
       url: /ui-patterns/feature-onboarding
     - title: Messaging
       url: /ui-patterns/messaging
+    - title: Overlays
+      url: /ui-patterns/overlays
     - title: Progressive disclosure
       url: /ui-patterns/progressive-disclosure    
 - title: Components
@@ -36,8 +38,6 @@
       url: /components/action-list
     - title: Autocomplete
       url: /components/autocomplete
-    - title: Overlay
-      url: /components/overlay
     - title: Tokens
       url: /components/tokens
 - title: Design tools
