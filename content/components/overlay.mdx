@@ -37,18 +37,21 @@ Overlays can streamline the interface by allowing extra options to be displayed 
 <ImageContainer mb={4}>
   <img
     width="636"
-    src="https://user-images.githubusercontent.com/293280/146612470-c44bf782-efc8-44d3-8538-8214139f3b97.png"
+    src="https://user-images.githubusercontent.com/293280/146623655-e8cda46c-10d5-4473-b54b-278bde283913.png"
     alt="Overlay anatomy"
     style="background: none"
   />
 </ImageContainer>
 
-Overlays main 
+------
 
-Overlays may include an optional header region to provide context, and a footer region to host actions. The content area supports vertical scrolling when showing lots of items and longer forms. For rendering interactive lists, use [Action lists](/components/action-list).
+**Overlays use shadows to communicate elevation.**  and to help draw attention to its active area.
 
-Overlays have a **safe area** of 16px. This is not a strict padding, but a guide to keep the overlay boundaries free of text and heavy visual elements. Interactive elements may still be 8px away from the edge, as long as their main visual elements are within the safe area. For example, the **Close** button has its padding outside the safe area, but its octicon is distant enough.
+**Overlays have a safe area of 16px**. This is not a strict padding or margin, but a guide to keep the overlay boundaries free of text and heavy visual elements. Elements may still appear closer to the edge, as long as their main visual elements are within safe boundaries.
 
+**Header and footer regions are optional**. They may be used as overlays grow in complexity, to provide context, and host actions.
+
+**The content region supports vertical scrolling** when showing lots of items and longer forms, or when the overlay is displayed in small viewports.
 
 ### Header region
 
@@ -112,13 +115,17 @@ If the content area has overflow scrolling, a divider must be shown between the 
 
 ### Backdrop
 
-A backdrop is a layer that dims the screen behind the overlay. It's used to prevent the user from interacting with the page behind the overlay.
+A backdrop is a layer that dims the screen behind the overlay. It's used to distinguish larger overlays from the page behind them. 
 
 ## Options
 
 ### Width and height
 
-The dimensions of an overlay should follow the presets below. Since they must fit within the viewport, overlays appear smaller than the preset dimensions.
+
+
+The dimensions of an overlay should follow the presets below. Since they must fit within the viewport, overlays need to be responsive smaller than the preset dimensions.
+
+In smaller viewports, overlays may 
 
 Make sure the contents of an overlay fit a minimum width of 320px at all cases.
 
@@ -143,7 +150,6 @@ Avoid having overlays that are too short or too tall compared to its width. As a
 
 &ZeroWidthSpace;<sub>Height</sub> ∖ <sup>Width</sup> | Small | Medium | Large | Extra large | Extra extra large |
 ---------------|:-----:|:------:|:-----:|:-----------:|:-----------------:|
-Automatic      | ✅    | ✅     | ❌     | ❌          | ❌                 |
 Extra small    | ✅    | ✅     | ❌     | ❌          | ❌                 |
 Small          | ✅    | ✅     | ✅     | ❌          | ❌                 |
 Medium         | ✅    | ✅     | ✅     | ❌          | ❌                 |
@@ -295,22 +301,33 @@ Several components that rely on overlays are available for use. Use them directl
 
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
     <div>
-        <Link href="/components/action-menu">
+        <Link href="https://primer.style/react/ActionMenu">
             <img alt="Action menu" src="https://user-images.githubusercontent.com/293280/123880964-95b3a700-d8f8-11eb-9775-cbaf165207ed.png" />
         </Link>
     </div>
     <div>
         <Heading fontSize={3}>Action menu</Heading>
-        <Box as="p">Action menus are used for disambiguation, navigation, or to display secondary options. They appear when users interact with buttons, actions, or other controls.</Box>
+        <Box as="p">
+
+Action menus are used for disambiguation, navigation, or to display secondary options. They appear when users interact with buttons, actions, or other controls.
+
+[Primer React implementation](https://primer.style/react/ActionMenu)
+
+</Box>
     </div>
     <div>
-        <Link href="/components/dropdown-menu">
-            <img alt="Select panel" src="https://user-images.githubusercontent.com/293280/123881067-cdbaea00-d8f8-11eb-98e4-e57c64489308.png" />
+        <Link href="https://primer.style/react/DropdownMenu">
+            <img alt="Dropdown menu" src="https://user-images.githubusercontent.com/293280/123881067-cdbaea00-d8f8-11eb-98e4-e57c64489308.png" />
         </Link>
     </div>
     <div>
         <Heading fontSize={3}>Dropdown menu</Heading>
-        <Box as="p">Dropdown menus are used for making a single selection among a small list of options. The list is usually predefined with system values, but in some cases it can include user-provided data when those are known not to grow into too many items.</Box>
+        <Box as="p">
+Dropdown menus are used for making a single selection among a small list of options. The list is usually predefined with system values, but in some cases it can include user-provided data when those are known not to grow into too many items.
+
+[Primer React implementation](https://primer.style/react/DropdownMenu)
+
+</Box>
     </div>
     <div>
         <Link href="https://primer.style/react/SelectPanel">
