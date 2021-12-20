@@ -123,34 +123,34 @@ Overlays width and height dimensions should be set by the values below. In all c
 
 Make sure the contents of any overlay fit a minimum width of 320px.
 
-Width             | Value     | Size  | Application
-:-----------------|:---------:|------:|:-----------
-Small             | `small`   | 256px | Menus
-Medium            | `medium`  | 320px | Menus, select panels, confirmation dialogs
-Large             | `large`   | 480px | Dialogs with lists or forms
-Extra large       | `xlarge`  | 640px | Dialogs with rich content
-Extra extra large | `xxlarge` | 960px | Dialogs with page previews, settings etc.
+Width     | Size  | Application
+:---------|:------|:-----------
+`small`   | 256px | Menus
+`medium`  | 320px | Menus, select panels, confirmation dialogs
+`large`   | 480px | Dialogs with lists or forms
+`xlarge`  | 640px | Dialogs with rich content
+`xxlarge` | 960px | Dialogs with page previews, settings etc.
 
-Height      | Value    | Size               | Application
-:-----------|:--------:|:------------------:|:-----------
-Automatic   | `auto`   | Adjusts to content | Menus, confirmation dialogs
-Extra small | `xsmall` | 192px              | 
-Small       | `small`  | 256px              |
-Medium      | `medium` | 320px              | Select panels
-Large       | `large`  | 432px              | Select panels
-Extra large | `xlarge` | 600px              | 
+Height   | Size               | Application
+:--------|:-------------------|:-----------
+`auto`   | Adjusts to content | Menus, confirmation dialogs
+`xsmall` | 192px              | 
+`small`  | 256px              |
+`medium` | 320px              | Select panels
+`large`  | 432px              | Select panels
+`xlarge` | 600px              | 
 
 _______ If the height is set to automatic, make sure the content region has a maximum height that simulates ________.
 
 Avoid having overlays that are too short or too tall compared to its width. As a rule of thumb, keep a maximum size ratio of 1.6:1, which translates to the following ranges:
 
-&ZeroWidthSpace;<sub>Height</sub> ∖ <sup>Width</sup> | Small | Medium | Large | Extra large | Extra extra large |
----------------|:-----:|:------:|:-----:|:-----------:|:-----------------:|
-Extra small    | ✅    | ✅     | ❌     | ❌          | ❌                 |
-Small          | ✅    | ✅     | ❌     | ❌          | ❌                 |
-Medium         | ✅    | ✅     | ✅     | ❌          | ❌                 |
-Large          | ❌    | ✅     | ✅     | ✅          | ❌                 |
-Extra large    | ❌    | ❌     | ✅     | ✅          | ✅                 |
+&ZeroWidthSpace;<sub>Height</sub> ∖ <sup>Width</sup> | `small` | `medium` | `large` | `xlarge` | `xxlarge` |
+----------|:-----:|:------:|:-----:|:-----------:|:-----------------:|
+`xsmall`  | ✅    | ✅     | ❌     | ❌          | ❌                 |
+`small`   | ✅    | ✅     | ❌     | ❌          | ❌                 |
+`medium`  | ✅    | ✅     | ✅     | ❌          | ❌                 |
+`large`   | ❌    | ✅     | ✅     | ✅          | ❌                 |
+`xlarge`  | ❌    | ❌     | ✅     | ✅          | ✅                 |
 
 
 ## Behaviors
