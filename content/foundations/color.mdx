@@ -3,19 +3,30 @@ title: Color
 ---
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
-   Color is a fundamental piece in the Primer visual language. In this guide you will learn about the principles, patterns, and abstractions that make Primer’s color system.
+  Color is a fundamental piece in the Primer visual language. In this guide you will learn about the principles,
+  patterns, and abstractions that make Primer’s color system.
 </Box>
 
 import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link} from '@primer/components'
 
-<img width="960" alt="Light mode, Dark mode, and Dimmed dark mode" src="https://user-images.githubusercontent.com/6951037/127494388-77f3132f-67fc-49de-89d6-28730f8d3d27.png" />
+<img
+  width="960"
+  alt="Light mode, Dark mode, and Dimmed dark mode"
+  src="https://user-images.githubusercontent.com/6951037/127494388-77f3132f-67fc-49de-89d6-28730f8d3d27.png"
+/>
 
 ## Get started
+
 GitHub's UI offers a variety of different color modes. When designing product interfaces, you should design in light mode by default. Every pattern in Primer is built to work across all color modes out of the box.
 
-<img width="960" alt="functional-demo" src="https://user-images.githubusercontent.com/6951037/127494554-07b67dbd-66d3-4d36-8350-5ec837d6d1a5.png" />
+<img
+  width="960"
+  alt="functional-demo"
+  src="https://user-images.githubusercontent.com/6951037/127494554-07b67dbd-66d3-4d36-8350-5ec837d6d1a5.png"
+/>
 
 ## How to use color for product UI
+
 Primer delivers colors in the form of [variables](https://primer.style/primitives/colors) or design tokens. Color variables are grouped based on their purpose:
 
 - **Functional:** To convey a meaning or a state. For example, from a functional perspective the color green is used to reinforce positive messaging. In a functional system, green variables are named with the suffix `.success`.
@@ -24,129 +35,148 @@ Primer delivers colors in the form of [variables](https://primer.style/primitive
 As the system grows, it will provide more APIs that fit different color needs. Check the [Primer Primitives](https://github.com/primer/primitives/releases/) repository to follow along as we release new variables and systems.
 
 ### Functional system
+
 The functional system is based on the meaning, or purpose, that colors have in the interface. This system is structured into two groups of variables:
 
-- **Foundations:** Foregrounds, backgrounds, and borders that make up most of a product interface. Each variable is generated based on visual weight. 
+- **Foundations:** Foregrounds, backgrounds, and borders that make up most of a product interface. Each variable is generated based on visual weight.
 - **Color roles:** Foregrounds, backgrounds, and borders that highlight affordance or the meaning of elements in the UI.
 
-<img width="960" alt="Accent: blue, Success: green, Attention: yellow, Danger: red, Severe: orange, Done: purple" src="https://user-images.githubusercontent.com/6951037/141302835-05ea2e26-fc89-49ed-8dc5-2af6a6ca9df8.png" />
+<img
+  width="960"
+  alt="Accent: blue, Success: green, Attention: yellow, Danger: red, Severe: orange, Done: purple"
+  src="https://user-images.githubusercontent.com/6951037/141302835-05ea2e26-fc89-49ed-8dc5-2af6a6ca9df8.png"
+/>
 
 You should always use Primer's functional color system in your designs to make sure that:
 
- - It supports color modes out of the box
- - It gets all future themes updates "for free"
- - You have an accessible color combination across themes
+- It supports color modes out of the box
+- It gets all future themes updates "for free"
+- You have an accessible color combination across themes
 
 ### Foregrounds
-Foreground elements are **text and icons**. You can apply color to them using any of the foreground variables (or `fg` for short). 
 
-| Foundations     | Usage                                                                                                                          | 
-| :---------------| :------------------------------------------------------------------------------------------------------------------------------- | 
-| `fg.default`    | Primary color for text and icons in any given interface. It should be used for body content, titles and labels.                  | 
-| `fg.muted`      | Use for content that is secondary or that provides additional context but is not critical to understanding the flow of an interface.  | 
-| `fg.onEmphasis` | On emphasis is the text color designed to combine with `-emphasis` backgrounds for optimal contrast.                               | 
+Foreground elements are **text and icons**. You can apply color to them using any of the foreground variables (or `fg` for short).
 
-| Color roles    | Usage                                                            | 
-| :--------------| :------------------------------------------------------------------| 
-| `fg.accent`    | Use for interactive text or icons like links or buttons.           | 
-| `fg.success`   | Use to emphasize a positive message.                               | 
-| `fg.attention` | Use to highlight text or icons that require the user's attention.        | 
-| `fg.danger`    | Use to emphasize an error or a blocking status. Action is required. | 
-| `fg.severe`    | Use to emphasize a level of severity between attention and danger.  | 
-| `fg.done`      | Use to style text that refers to completed tasks or workflows.      | 
+| Foundations                                                                       | Usage                                                                                                                                |
+| :-------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| ![](https://swatch-sid.vercel.app?mode=light&token=fg.muted) `fg.default`         | Primary color for text and icons in any given interface. It should be used for body content, titles and labels.                      |
+| ![](https://swatch-sid.vercel.app?mode=light&token=fg.muted) `fg.muted`           | Use for content that is secondary or that provides additional context but is not critical to understanding the flow of an interface. |
+| ![](https://swatch-sid.vercel.app?mode=light&token=fg.onEmphasis) `fg.onEmphasis` | On emphasis is the text color designed to combine with `-emphasis` backgrounds for optimal contrast.                                 |
+
+| Color roles                                                                     | Usage                                                               |
+| :------------------------------------------------------------------------------ | :------------------------------------------------------------------ |
+| ![](https://swatch-sid.vercel.app?mode=light&token=accent.fg) `fg.accent`       | Use for interactive text or icons like links or buttons.            |
+| ![](https://swatch-sid.vercel.app?mode=light&token=success.fg) `fg.success`     | Use to emphasize a positive message.                                |
+| ![](https://swatch-sid.vercel.app?mode=light&token=attention.fg) `fg.attention` | Use to highlight text or icons that require the user's attention.   |
+| ![](https://swatch-sid.vercel.app?mode=light&token=danger.fg) `fg.danger`       | Use to emphasize an error or a blocking status. Action is required. |
+| ![](https://swatch-sid.vercel.app?mode=light&token=severe.fg) `fg.severe`       | Use to emphasize a level of severity between attention and danger.  |
+| ![](https://swatch-sid.vercel.app?mode=light&token=done.fg) `fg.done`           | Use to style text that refers to completed tasks or workflows.      |
 
 ### Backgrounds
+
 Background colors apply to surfaces of components or UI elements, such as pages, boxes, and overlays.
 
-| Foundations     | Usage                                                                                                                  | 
-| :---------------| :----------------------------------------------------------------------------------------------------------------------- | 
-| `bg.default`    | Primary background color.                                                                                                | 
-| `bg.subtle`     | Provides visual rest and contrast against the default background.                                                         | 
-| `bg.onEmphasis` | Provides the highest contrast against the default background, such as in tooltips.                                            | 
-| `bg.inset`      | Can be used instead of the default background to create a focal point, such as in conversations or activity feeds. | 
+| Foundations     | Usage                                                                                                              |
+| :-------------- | :----------------------------------------------------------------------------------------------------------------- |
+| `bg.default`    | Primary background color.                                                                                          |
+| `bg.subtle`     | Provides visual rest and contrast against the default background.                                                  |
+| `bg.onEmphasis` | Provides the highest contrast against the default background, such as in tooltips.                                 |
+| `bg.inset`      | Can be used instead of the default background to create a focal point, such as in conversations or activity feeds. |
 
-| Color roles          | Usage                                                                         | 
-| :--------------------| :---------------------------------------------------------------------------- | 
-| `bg.accent`         <Box width={20} height={20} bg="accent.emphasis"/> | Use to accentuate interactive areas in the UI like selected elements.         | 
-| `bg.success`         | Use to highlight a positive message.                                          | 
-| `bg.attention`       | Use to highlight elements that require a user's attention or pending statuses. | 
-| `bg.danger`          | Use to emphasize an error or a blocking status, where action is required.           | 
-| `bg.severe`          | Use to emphasize an extra level of severity between attention and danger.     | 
-| `bg.done`            | Use to style text that refers to completed tasks or workflows.                |
-| `bg.[ANY_OF_ABOVE].emphasis` | Use to highlight the most important item of a view or an interface.            | 
+| Color roles                                                    | Usage                                                                          |
+| :------------------------------------------------------------- | :----------------------------------------------------------------------------- |
+| `bg.accent` <Box width={20} height={20} bg="accent.emphasis"/> | Use to accentuate interactive areas in the UI like selected elements.          |
+| `bg.success`                                                   | Use to highlight a positive message.                                           |
+| `bg.attention`                                                 | Use to highlight elements that require a user's attention or pending statuses. |
+| `bg.danger`                                                    | Use to emphasize an error or a blocking status, where action is required.      |
+| `bg.severe`                                                    | Use to emphasize an extra level of severity between attention and danger.      |
+| `bg.done`                                                      | Use to style text that refers to completed tasks or workflows.                 |
+| `bg.[ANY_OF_ABOVE].emphasis`                                   | Use to highlight the most important item of a view or an interface.            |
 
 ### Borders
+
 Borders can be used to group content or to create a visible separation between sections or items. They’re most commonly used on tables, side sections, and cards.
 
-| Foundations       | Usage                                                                                                                                 | 
-| :-----------------| :-------------------------------------------------------------------------------------------------------------------------------------- | 
-| `border.default`  | Use to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout.   | 
-| `border.muted`    | Use for dividers to emphasize the separation between items, columns or sections.                                                        
+| Foundations      | Usage                                                                                                                                 |
+| :--------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| `border.default` | Use to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout. |
+| `border.muted`   | Use for dividers to emphasize the separation between items, columns or sections.                                                      |
 
-| Color roles              | Usage                                                                         | 
-| :------------------------| :---------------------------------------------------------------------------- | 
-| `border.accent`          | Use to accentuate interactive areas in the UI like selected elements.         | 
-| `border.success`         | Use to highlight a positive message.                                          | 
-| `border.attention`       | Use to highlight elements that require a users attention or pending statuses. | 
-| `border.danger`          | Use to emphasize an error or a blocking status. Action is required.           | 
-| `border.severe`          | Use to emphasize an extra level of severity between attention and danger.     | 
+| Color roles              | Usage                                                                         |
+| :----------------------- | :---------------------------------------------------------------------------- |
+| `border.accent`          | Use to accentuate interactive areas in the UI like selected elements.         |
+| `border.success`         | Use to highlight a positive message.                                          |
+| `border.attention`       | Use to highlight elements that require a users attention or pending statuses. |
+| `border.danger`          | Use to emphasize an error or a blocking status. Action is required.           |
+| `border.severe`          | Use to emphasize an extra level of severity between attention and danger.     |
 | `border.done`            | Use to style text that refers to completed tasks or workflows.                |
-| `border.[ROLE].emphasis` | Use to highlight the most important item of a view or an interface.            | 
+| `border.[ROLE].emphasis` | Use to highlight the most important item of a view or an interface.           |
 
 ## Functional system in action
 
-
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-    <Box>
-        <img
-            width="464"
-            alt="Table component showing the combination of bg.subtle with border.default, and border.muted"
-            src="https://user-images.githubusercontent.com/6951037/145223860-4db73d78-8791-44db-b94d-c7966ce13fab.png"
-        />
-        <Caption>Example of pairing foundation variables: bg.subtle with border.default, and border.muted.</Caption>
-    </Box>
-    <Box>
-        <img
-            width="464"
-            alt="UI demonstration of what bg.inset looks like. It darkens the background of the whole UI"
-            src="https://user-images.githubusercontent.com/6951037/145223862-2ea9027c-1474-47d0-8caf-8ab8d93a841b.png"
-        />
-        <Caption>Thinking in terms of elevation, bg.inset would represent an underground level. It's meant to create a feeling of focus or depth.</Caption>
-    </Box>
+  <Box>
+    <img
+      width="464"
+      alt="Table component showing the combination of bg.subtle with border.default, and border.muted"
+      src="https://user-images.githubusercontent.com/6951037/145223860-4db73d78-8791-44db-b94d-c7966ce13fab.png"
+    />
+    <Caption>Example of pairing foundation variables: bg.subtle with border.default, and border.muted.</Caption>
+  </Box>
+  <Box>
+    <img
+      width="464"
+      alt="UI demonstration of what bg.inset looks like. It darkens the background of the whole UI"
+      src="https://user-images.githubusercontent.com/6951037/145223862-2ea9027c-1474-47d0-8caf-8ab8d93a841b.png"
+    />
+    <Caption>
+      Thinking in terms of elevation, bg.inset would represent an underground level. It's meant to create a feeling of
+      focus or depth.
+    </Caption>
+  </Box>
 </Grid>
 
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-    <Box>
-        <img
-            width="464"
-            alt="Example of a hover style on a list where the background uses bg.accent.emphasis and the text uses fg.onEmphasis."
-            src="https://user-images.githubusercontent.com/6951037/141304060-1e3d5285-f80f-4363-8c07-e5865c6fe073.png"
-        />
-        <Caption>fg.onEmphasis pairs with bg.[ANY_COLOR_ROLE].emphasis variables. This example shows fg.onEmphasis paired with bg.accent.emphasis.</Caption>
-    </Box>
-    <Box>
-        <img
-            width="464"
-            alt="Green success alert with check icon, pairing bg.success, fg.success, and border.success color variables"
-            src="https://user-images.githubusercontent.com/6951037/141304173-5f919074-b5ae-4c0b-b5d2-8a2cd6ea2d03.png"
-        />
-        <Caption>An example of an alert that pairs bg.success, fg.success, and border.success.</Caption>
-    </Box>
+  <Box>
+    <img
+      width="464"
+      alt="Example of a hover style on a list where the background uses bg.accent.emphasis and the text uses fg.onEmphasis."
+      src="https://user-images.githubusercontent.com/6951037/141304060-1e3d5285-f80f-4363-8c07-e5865c6fe073.png"
+    />
+    <Caption>
+      fg.onEmphasis pairs with bg.[ANY_COLOR_ROLE].emphasis variables. This example shows fg.onEmphasis paired with
+      bg.accent.emphasis.
+    </Caption>
+  </Box>
+  <Box>
+    <img
+      width="464"
+      alt="Green success alert with check icon, pairing bg.success, fg.success, and border.success color variables"
+      src="https://user-images.githubusercontent.com/6951037/141304173-5f919074-b5ae-4c0b-b5d2-8a2cd6ea2d03.png"
+    />
+    <Caption>An example of an alert that pairs bg.success, fg.success, and border.success.</Caption>
+  </Box>
 </Grid>
-
 
 ## Combining colors
-Not all colors pair well with each other. There are combinations of backgrounds and foregrounds that guarantee compliance with WCAG contrast guidelines and a wide range of hierarchical relationships between elements. 
+
+Not all colors pair well with each other. There are combinations of backgrounds and foregrounds that guarantee compliance with WCAG contrast guidelines and a wide range of hierarchical relationships between elements.
 
 ### Pairing color roles
 
 <DoDontContainer>
   <Do>
-    <img src="https://user-images.githubusercontent.com/6951037/146400758-3f487fe3-c07a-4b5c-b190-99f81f0efdb2.png" alt="" />
+    <img
+      src="https://user-images.githubusercontent.com/6951037/146400758-3f487fe3-c07a-4b5c-b190-99f81f0efdb2.png"
+      alt=""
+    />
     <Caption>Pair color role foregrounds with their background counterparts or with bg.default and bg.subtle.</Caption>
   </Do>
   <Dont>
-    <img src="https://user-images.githubusercontent.com/6951037/146400887-e9340e29-688f-4320-b633-e9f02b93cde5.png" alt="" />
+    <img
+      src="https://user-images.githubusercontent.com/6951037/146400887-e9340e29-688f-4320-b633-e9f02b93cde5.png"
+      alt=""
+    />
     <Caption>Never pair emphasis foregrounds with emphasis background.</Caption>
   </Dont>
 </DoDontContainer>
@@ -155,21 +185,43 @@ Not all colors pair well with each other. There are combinations of backgrounds 
 
 <DoDontContainer>
   <Do>
-    <img src="https://user-images.githubusercontent.com/6951037/146401147-33bef1f2-a53c-4d06-b20d-3dc32eb1879f.png" alt="" />
+    <img
+      src="https://user-images.githubusercontent.com/6951037/146401147-33bef1f2-a53c-4d06-b20d-3dc32eb1879f.png"
+      alt=""
+    />
     <Caption>Only use fg.muted with bg.default, bg.subtle, and bg.inset.</Caption>
   </Do>
   <Dont>
-    <img src="https://user-images.githubusercontent.com/6951037/146401229-60f13aa3-e3c4-4125-8879-829a769c7365.png" alt="" />
+    <img
+      src="https://user-images.githubusercontent.com/6951037/146401229-60f13aa3-e3c4-4125-8879-829a769c7365.png"
+      alt=""
+    />
     <Caption>Never use fg.muted on bg.emphasis or any of the color roles backgrounds.</Caption>
   </Dont>
 </DoDontContainer>
 
 ### Color roles recipes
 
-<img width="960" alt="Combination of variables 1: bg.[COLOR-ROLE] + border.[COLOR-ROLE] + fg.[COLOR-ROLE]" src="https://user-images.githubusercontent.com/6951037/141517378-1719360d-e924-46bc-b6e5-4fabcd75a050.png" />
-<img width="960" alt="Combination of variables 2: bg.[COLOR-ROLE] + border.[COLOR-ROLE].emphasis + fg.[COLOR-ROLE]" src="https://user-images.githubusercontent.com/6951037/141517387-660b2fef-469b-453b-a112-c8d744103f73.png" />
-<img width="960" alt="Combination of variables 3: bg.default + border.[COLOR-ROLE].emphasis + fg.[COLOR-ROLE]" src="https://user-images.githubusercontent.com/6951037/141517412-08590dc5-bd8d-48de-b130-c16eccf33872.png" />
-<img width="960" alt="Combination of variables 4: bg.[COLOR-ROLE] + border.[COLOR-ROLE] + fg.default" src="https://user-images.githubusercontent.com/6951037/141517656-e75941ac-6c63-418a-95ea-d687c4d501e7.png" />
+<img
+  width="960"
+  alt="Combination of variables 1: bg.[COLOR-ROLE] + border.[COLOR-ROLE] + fg.[COLOR-ROLE]"
+  src="https://user-images.githubusercontent.com/6951037/141517378-1719360d-e924-46bc-b6e5-4fabcd75a050.png"
+/>
+<img
+  width="960"
+  alt="Combination of variables 2: bg.[COLOR-ROLE] + border.[COLOR-ROLE].emphasis + fg.[COLOR-ROLE]"
+  src="https://user-images.githubusercontent.com/6951037/141517387-660b2fef-469b-453b-a112-c8d744103f73.png"
+/>
+<img
+  width="960"
+  alt="Combination of variables 3: bg.default + border.[COLOR-ROLE].emphasis + fg.[COLOR-ROLE]"
+  src="https://user-images.githubusercontent.com/6951037/141517412-08590dc5-bd8d-48de-b130-c16eccf33872.png"
+/>
+<img
+  width="960"
+  alt="Combination of variables 4: bg.[COLOR-ROLE] + border.[COLOR-ROLE] + fg.default"
+  src="https://user-images.githubusercontent.com/6951037/141517656-e75941ac-6c63-418a-95ea-d687c4d501e7.png"
+/>
 
 ## Color outside the functional system
 
@@ -179,13 +231,13 @@ Primer does not currently provide a presentational or data visualization color s
 
 Primer colors exist in different formats and are made available throughout the Primer libraries and tools. Not all colors exist everywhere and the naming depends on the Primer library. Below a list to help find the right Primer color documentation that is specific to that role and environment.
 
-| I am | Documentation | Example color usage |
-| -------- | -------- | -------- |
-| A product **designer** working in **Figma** | [Primer Primitives](https://www.figma.com/file/B5XPE8IwGPIZDAvN7jqWqx/Primer-Primitives) | `bg/accent` |
-| An **engineer** using **Primer ViewComponents** | [color system arguments](https://primer.style/view-components/system-arguments#color) | `bg: :accent` |
-| An **engineer** using **Primer React** | [sx props](https://primer.style/react/overriding-styles) | `accent.subtle` |
-| An **engineer** creating **custom UI** | [Primer CSS color utilities](https://primer.style/css/utilities/colors) | `color-bg-accent` |
-| A Primer **React maintainer** creating a **component** | [Primer Primitives variables](https://primer.style/primitives/colors) | `accent.sublte` |
-| A Primer **CSS maintainer** creating a **component** | [Primer Primitives variables](https://primer.style/primitives/colors) | `--color-accent-sublte` |
+| I am                                                   | Documentation                                                                            | Example color usage     |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------------- | ----------------------- |
+| A product **designer** working in **Figma**            | [Primer Primitives](https://www.figma.com/file/B5XPE8IwGPIZDAvN7jqWqx/Primer-Primitives) | `bg/accent`             |
+| An **engineer** using **Primer ViewComponents**        | [color system arguments](https://primer.style/view-components/system-arguments#color)    | `bg: :accent`           |
+| An **engineer** using **Primer React**                 | [sx props](https://primer.style/react/overriding-styles)                                 | `accent.subtle`         |
+| An **engineer** creating **custom UI**                 | [Primer CSS color utilities](https://primer.style/css/utilities/colors)                  | `color-bg-accent`       |
+| A Primer **React maintainer** creating a **component** | [Primer Primitives variables](https://primer.style/primitives/colors)                    | `accent.sublte`         |
+| A Primer **CSS maintainer** creating a **component**   | [Primer Primitives variables](https://primer.style/primitives/colors)                    | `--color-accent-sublte` |
 
 Stuck choosing the right color? Feel free to reach out in the [#primer](https://github.slack.com/archives/CSGAVNZ19) Slack channel.
