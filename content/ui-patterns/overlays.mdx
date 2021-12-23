@@ -268,7 +268,9 @@ A centered dialog with a title and close button in the header, a scrollable cont
 
 ### Side sheets
 
-Side sheets 
+Side sheets slide from the right or left edges of the viewport. Side sheets may be used for global drawers, quick previews in full-width pages, or quick configuration panels.
+
+Side sheets take the entire height of the viewport, and should be used sparingly. Don't use side sheets to present forms or flows that should be a page instead.
 
 ## Responsive variants
 
@@ -278,7 +280,9 @@ A bottom sheet is a variant supported on narrow viewports made to facilitate rea
 
 A bottom sheet variant can be used when the overlay content is too overwhelming to appear anchored. A bottom sheet always dims the rest of the screen for focus. Tapping on the backdrop dismisses the overlay.
 
-Its height should always accommodate the content inside. On portrait, a bottom sheet takes up the full width of the viewport.
+Its height should always accommodate the content inside. If the content is too tall to fit in the viewport, the content region should scroll accordingly.
+
+On portrait, a bottom sheet takes up the full width of the viewport.
 
 <ImageContainer>
   <img
@@ -316,9 +320,13 @@ On landscape, a bottom sheet has a maximum width of 480px, centered horizontally
 </ImageContainer>
 <Caption>Header indicator when no title and close button are present.</Caption>
 
-A bottom sheet without a title or close button gets an indicator at the top. In case the bottom sheet gets long and takes all the available
+A bottom sheet without a title or close button gets an a header indicator at the top. Slide it down to dismiss the overlay.
 
 ### Full-screen (specific to narrow viewports)
+
+Full-screen overlays may be used to present content that needs all the available space on narrow viewports.
+
+Overlays that have one or more input fields should always use the full-screen variant.
 
 <!--
 ## Navigation
