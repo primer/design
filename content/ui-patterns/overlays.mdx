@@ -28,7 +28,7 @@ Overlays can streamline the interface by allowing extra options to be displayed 
 
 **Keep overlays simple**. Overlays are meant to be interacted with quickly. Avoid creating a whole page inside an overlay. Prefer single-column layouts that convey a clear goal the moment the overlay is opened.
 
-**Keep overlays accessible**. Overlays can be fully interacted with keyboard, and only the elements inside the overlay should be focusable. If the overlay contains a list, users should be able to navigate with keyboard arrows. Pressing Escape should dismiss the overlay. When an overlay is dismissed, focus generally returns to the element that opened it.
+**Keep overlays accessible**. Overlays should be fully functional with keyboard. When an overlay is present, the rest of the page becomes noninteractive until the overlay is dismissed. Pressing Escape should dismiss the overlay. When an overlay is dismissed, focus generally returns to the element that opened it.
 
 **Overlays should work well on any device**. Overlays must adjust their designs to fit in smaller viewports, and may adapt their style to become bottom sheets or full-screen on narrow devices. Make sure the overlay contents work with all supported sizes and input methods.
 
@@ -47,9 +47,9 @@ Overlays can streamline the interface by allowing extra options to be displayed 
 
 **The content region may scroll vertically** to accommodate lists and content that is too long to fit in the available space.
 
-**Optional header and footer regions assist larger overlays**. They may help providing context, and host non-scrollable actions such as **Close** or **Save**.
+**Optional header and footer regions assist larger overlays**. They help providing context, and may host non-scrollable actions such as **Close** or **Save**.
 
-Backdrops _______.
+**Backdrops help emphasizing the active content**. Backdrops are specially recommended for larger overlays such as dialogs, to highlight their modality.
 
 ### Header region
 
@@ -57,7 +57,7 @@ A header region may be used to provide context to the user by displaying title, 
 
 **Titles should be succint**. Titles and descriptions wrap to multiple lines. Descriptions are optional. Don't be verbose.
 
-Reserve buttons such as **Save**, **Apply**, and **Done** to the footer region.
+Reserve buttons such as **Save**, **Apply**, and **Done** for the footer region.
 
 A divider may be used to separate the header from the content, specially in scenarios where the content region is scrollable.
 
@@ -80,10 +80,6 @@ A divider may be used to separate the header from the content, specially in scen
   />
 </ImageContainer>
 <Caption>Header region with larger title and description.</Caption>
-
-### Content region
-
-- Don't _______.
 
 ### Footer region
 
@@ -111,40 +107,45 @@ If the content area has overflow scrolling, a divider must be shown between the 
 </ImageContainer>
 <Caption>Use a link in a footer to provide access to a related page.</Caption>
 
-### Backdrop
-
-A backdrop is a layer that dims the screen behind the overlay. It's used to distinguish larger overlays from the page behind them. 
-
 ## Options
 
 ### Width and height
 
 Overlays width and height dimensions should be set by the values below. In all cases, overlays should never extend beyond the viewport sizes, and may resize to fit smaller devices.
 
-Make sure the contents of any overlay fit a minimum width of 320px.
+Make sure the contents of any overlay fit narrow viewports with a width of at least 320px.
 
-Width     | Size  | Application
-:---------|:------|:-----------
-`small`   | 256px | Menus
-`medium`  | 320px | Menus, select panels, confirmation dialogs
-`large`   | 480px | Dialogs with lists or forms
-`xlarge`  | 640px | Dialogs with rich content
-`xxlarge` | 960px | Dialogs with page previews, settings etc.
+<Grid gridTemplateColumns={['1fr', null, null, null, 'auto 1fr']} gridGap={4}>
+<div>
 
-Height   | Size               | Application
-:--------|:-------------------|:-----------
-`auto`   | Adjusts to content | Menus, confirmation dialogs
-`xsmall` | 192px              | 
-`small`  | 256px              |
-`medium` | 320px              | Select panels
-`large`  | 432px              | Select panels
-`xlarge` | 600px              | 
+Width     | Size
+:---------|:------
+`small`   | 256px
+`medium`  | 320px
+`large`   | 480px
+`xlarge`  | 640px
+`xxlarge` | 960px
 
-_______ If the height is set to automatic, make sure the content region has a maximum height that simulates ________.
+</div>
+<div>
+
+Height   | Size               
+:--------|:-------------------
+`auto`   | Adjusts to content
+`xsmall` | 192px
+`small`  | 256px
+`medium` | 320px
+`large`  | 432px
+`xlarge` | 600px
+
+</div>
+</Grid>
+
+If the height is set to automatic, make sure the content region has a maximum height defined to support overflow scrolling. For overlays that list user-generated information in a single line, use the `large` height for reference.
 
 Avoid having overlays that are too short or too tall compared to its width. As a rule of thumb, keep a maximum size ratio of 1.6:1, which translates to the following ranges:
 
-&ZeroWidthSpace;<sub>Height</sub> ∖ <sup>Width</sup> | `small` | `medium` | `large` | `xlarge` | `xxlarge` |
+&ZeroWidthSpace;<span style="white-space: nowrap"><sub>Height</sub> ∖ <sup>Width</sup></span> | `small` | `medium` | `large` | `xlarge` | `xxlarge` |
 ----------|:-----:|:------:|:-----:|:-----------:|:-----------------:|
 `xsmall`  | ✅    | ✅     | ❌     | ❌          | ❌                 |
 `small`   | ✅    | ✅     | ❌     | ❌          | ❌                 |
@@ -159,38 +160,57 @@ Avoid having overlays that are too short or too tall compared to its width. As a
 
 Overlays appear in the page after a direct user interaction, i.e. on click, tap, press, etc.
 
+<!--
+The following paragraph needs a revision based on
+https://github.com/github/primer/issues/575
+
 On desktops and other devices with a fine pointer, overlays may also be triggered by a delayed `hover` event (GitHub calls these _hovercards_). Since this behavior doesn't work on touch devices, consider whether tapping on the source element should open the overlay or take the user to its destination directly. For example, a delayed hover on a **@username** may present a _hovercard_ on desktop, while a tap on the username would open a bottom sheet with a link to the user's profile page.
+-->
+
+
 
 Don't show overlays on page load. For that, prefer in-page messages and flash banners.
 
+<!--
 ### Loading
+Pending.
+-->
 
-### Closing
+### Dismissing
 
-Users may always click outside or press Escape to close an overlay. Some overlays may provide a close button as an easy escape route. Close buttons are useful in larger overlays, and when the overlay is no longer visually connected to the source that triggered it. Always use close buttons in dialogs.
+Users should be able to dismiss an overlay by:
+- Pressing Escape.
+- Pressing on a Close button.
+- Clicking or tapping outside.
+- Pressing the browser’s back button.
 
-Closing an overlay may apply changes right away. If the overlay contains changes that are not immediately applied (such as in a form), offer footer buttons such as **Save**, **Apply**, or **Done**. To avoid people from loosing important unsaved changes, a [`beforeUnload`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) event may be used.
+Close buttons are useful as an easy escape route, particularly in larger or more complex overlays, or when the overlay is no longer visually connected to the source that triggered it. Always use close buttons overlays with backdrops.
 
-The user should also be able to press the browser’s back button to close the overlay. This is particularly useful on mobile devices.
+Users may click or tap outside to dismiss an overlay. Larger overlays with backdrops may opt to disable this functionality in dangerous scenarios where the user could loose progress or data accidentally.
+
+If the overlay contains changes that are not immediately applied (such as in a form), offer footer buttons such as **Save**, **Apply**, or **Submit**. To avoid people from loosing important unsaved changes, a [`beforeUnload`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) event may be used.
+
+Users should also be able to press the browser’s back button to dismiss the overlay. This is particularly useful on mobile devices.
 
 
 ## Placement
 
-Overlays may be:
+Overlays may appear:
 
-- Anchored next a source element (popovers).
-- Centered on a container or on the viewport with a backdrop (dialogs).
+- Anchored next a source element (also known as "popovers").
+- Centered on the viewport with a backdrop (also known as "dialogs").
+- As a sliding side sheet with a backdrop.
 
-On smaller screens, overlays can be one of the options above, or adapt to mobile-specific variations. In this case, they may:
+On narrow viewports, overlays can be one of the options above, or adapt to variants that are designed specifically for smaller devices:
 
-- Appear as a bottom sheet (anchored to the bottom of the screen for easier reachability).
-- Appear full-screen (for forms, long lists and other complex flows).
+- Bottom sheet (anchored to the bottom of the screen for easier touch reachability).
+- Full-screen (for forms, long lists and other complex flows).
 
-### Anchored overlays as popovers
+### Anchored overlays ("popovers")
 
 Anchored overlays can be used in any device or screen size. They anchor to the button or source element that triggered them, drawing a direct connection between the elements. The source element should have a "selected" visual state while the overlay is opened.
 
-Anchored overlays are useful for menus, quick interactions, and data manipulation. They don't dim the rest of the screen when presented. 
+Anchored overlays are useful for menus, quick interactions, and data manipulation. They don't dim the rest of the screen with a backdrop when presented.
 
 Interaction with the rest of the screen is temporarily blocked while an anchored overlay is active. They can be dismissed at any time by clicking outside of it. An anchored overlay may also be dismissed after choosing one of its options or buttons, or when clicking on an optional Close button.
 
@@ -206,94 +226,104 @@ Interaction with the rest of the screen is temporarily blocked while an anchored
 
 Keep anchored overlays out of the viewport edges. They should be at least 16px away from the viewport boundaries. Users shouldn't be blocked from scrolling the page while an anchored overlay is open, nor should a scrolling event in the page close the overlay.
 
-For more complex overlays, consider enabling mobile-specific bottom sheet or full-screen variations.
-
-Primer React uses [`anchoredPosition`](https://primer.style/react/anchoredPosition) to calculate the position of an anchored or centered overlay.
+Primer uses [`anchoredPosition`](https://github.com/primer/behaviors/blob/main/docs/anchored-position.md) to calculate the position of an overlay.
 
 <ImageContainer>
   <img
     width="508"
-    src="https://user-images.githubusercontent.com/293280/126408752-c40d6f55-3790-45e7-9ea6-529c702154da.png"
+    src="https://user-images.githubusercontent.com/293280/147167707-66da9301-fdfd-4810-9f62-41e4f6f3c23c.png"
     alt=" "
     style="background: none"
   />
 </ImageContainer>
 <Caption>
 
-A visualization of available [`anchoredPosition`]((https://primer.style/components/anchoredPosition)) options. Source elements (purple squares) and their overlays (white squares) with  `side` (`outside-top`, `outside-right`, `outside-bottom`, `outside-left`) and `align` (`start`, `center`, `end`) settings.
+A visualization of available [`anchoredPosition`](https://github.com/primer/behaviors/blob/main/docs/anchored-position.md) options. Source elements (purple squares) and their overlays (white squares) with  `side` (`outside-top`, `outside-right`, `outside-bottom`, `outside-left`) and `align` (`start`, `center`, `end`) settings.
 
 </Caption>
 
-### Centered overlays as dialogs
+### Centered overlays ("dialogs")
 
-Dialogs appear centered in the page, with a visible backdrop that dims the rest of the window for focus.
+Centered overlays appear centered in the viewport, with a visible backdrop that dims the rest of the window for focus.
 
-All dialogs should have a title and a close button. Use an overlay header to compose these required elements.
+Centered overlays should always have an overlay header with title close button. Prevent page scrolling when a centered overlay is present.
 
-Dialogs are modal. Dialogs can be dismissed by clicking on the close button, or by interacting with another button in the overlay. To avoid losing information and missing important messages, clicking outside of the dialog will not close it. Prevent page scrolling when a dialog is visible.
+Overlays shouldn't touch the viewport edges. Use a safe 24px margin to keep centered overlays visually distinct from the rest of the page, even on narrow viewports.
 
-Make sure larger dialogs remain mobile-friendly. Even large dialogs need to be responsive. A dialog's width and height will be readjusted depending on the screen size and should never exceed the available space. Use responsive solutions to adjust the UI so they behave well on smaller screens.
-
-Dialogs never hit the viewport edges. Use a safe 32px margin to keep dialogs visually distinct from the rest of the page.
-
-Simple and small dialogs can remain as-is on mobile. As more elements are added to it, mobile-specific style variations such as Bottom sheet and Full-screen should be considered.
+Simple and small centered overlays can remain as-is on narrow viewports. As more elements are added to it, responsive variants should be considered.
 
 <ImageContainer>
   <img
-    width="838"
-    src="https://user-images.githubusercontent.com/293280/126410311-da5b64f2-049b-4eca-a5d8-2281b49f9d43.png"
+    width="661"
+    src="https://user-images.githubusercontent.com/293280/147170315-80da186f-7de8-4632-893e-31c56dc1e65d.png"
     alt=" "
     style="background: none"
   />
 </ImageContainer>
 <Caption>
 
-A visualization of `inside-center` positioning, with underneath source elements and their available `align` (`start`, `center`, `end`) settings. 
+A centered dialog with a title and close button in the header, a scrollable content region, and a footer with buttons.
 
 </Caption>
 
+### Side sheets
+
+Side sheets 
+
 ## Responsive variants
 
-### Bottom sheets (specific to small screens)
+### Bottom sheets (specific to narrow viewports)
 
-A bottom sheet is a mobile-friendly and mobile-specific placement option. Overlays that appear anchored or centered in large screens may adapt to appear as a bottom sheet on small screens.
+A bottom sheet is a variant supported on narrow viewports made to facilitate reachability. Overlays that appear anchored or centered in large screens may adapt to appear as a bottom sheet on small screens.
 
-A bottom sheet variant can be used when the overlay content is too overwhelming to appear anchored, or to faciliate reachability. A bottom sheet dims the rest of the screen for focus. This provides additional emphasis on its content and actions. Tapping on the backdrop dismisses the overlay.
+A bottom sheet variant can be used when the overlay content is too overwhelming to appear anchored. A bottom sheet always dims the rest of the screen for focus. Tapping on the backdrop dismisses the overlay.
 
-A bottom sheet has rounded upper corners. Its height should always accommodate the content inside.
+Its height should always accommodate the content inside. On portrait, a bottom sheet takes up the full width of the viewport.
 
-<img
-    src="https://user-images.githubusercontent.com/293280/126387985-8c14aaf9-6b63-4ead-b466-520f3156cb1a.png"
+<ImageContainer>
+  <img
+    width="680"
+    src="https://user-images.githubusercontent.com/293280/147170160-5392c649-0dcb-4c7c-adfc-2524a4a3915c.png"
     alt=" "
     style="background: none"
-/>
+  />
+</ImageContainer>
+<Caption>
 
 In order to work well in non-rectangular mobile screens and browser UI, bottom sheets may add extra padding inside the overlay, following [`env(safe-area-inset-*)`](https://developer.mozilla.org/en-US/docs/Web/CSS/env()) environment variables.
 
-On portrait, a bottom sheet takes up the full width of the viewport.
+</Caption>
 
 On landscape, a bottom sheet has a maximum width of 480px, centered horizontally.
 
 <ImageContainer>
     <img
         width="880"
-        src="https://user-images.githubusercontent.com/293280/126532776-fb9efd1c-1c98-4345-817e-46a269863850.png"
+        src="https://user-images.githubusercontent.com/293280/147170826-73caa091-b71a-4296-beba-ccf3a2ccf9ab.png"
         alt=" "
         style="background: none"
     />
 </ImageContainer>
 <Caption>Bottom sheet on landscape viewports.</Caption>
 
-<img
-    src="https://user-images.githubusercontent.com/293280/126388872-93a85fa6-f0be-428d-bbd9-58bd602cff76.png"
-    alt=" "
-    style="background: none"
-/>
-<Caption>Indicator when no title and close button are present.</Caption>
+<ImageContainer>
+    <img
+        width="500"
+        src="https://user-images.githubusercontent.com/293280/147170671-09e6002a-2622-41b6-afe5-f37f0890a6c3.png"
+        alt=" "
+        style="background: none"
+    />
+</ImageContainer>
+<Caption>Header indicator when no title and close button are present.</Caption>
 
 A bottom sheet without a title or close button gets an indicator at the top. In case the bottom sheet gets long and takes all the available
 
+### Full-screen (specific to narrow viewports)
+
+<!--
 ## Navigation
+This section should cover in-overlay navigation such as drill-in scenarios, back button, etc.
+-->
 
 ## Components
 
