@@ -36,20 +36,34 @@ Overlays can streamline the interface by allowing extra options to be displayed 
 <ImageContainer mb={4}>
   <img
     width="636"
-    src="https://user-images.githubusercontent.com/293280/146623655-e8cda46c-10d5-4473-b54b-278bde283913.png"
+    src="https://user-images.githubusercontent.com/293280/149601062-2e35343d-e2f9-406d-a5c9-ac21cda0e1fe.png"
     alt="Overlays have 3 regions: header, content, and footer. These regions may be divided by a full-width divider. Overlays use shadows to indicate elevation, and may appear above a backdrop that dims the rest of the screen."
     style="background: none"
   />
 </ImageContainer>
 <Caption>Anatomy of an overlay.</Caption>
 
-**Keep the edges of an overlay free of text and heavy visuals.** This breathing room is meant to visually distinguish the overlay as an elevated surface, alongside its shadow. As a rule of thumb, a safe area of 16px is enough. Components that have transparent or discrete backgrounds may take into account their own paddings, and appear beyond the safe area.
+**Keep the edges of an overlay free of text and heavy visuals.** This breathing room is meant to visually distinguish the overlay as an elevated surface, alongside its shadow. Generally, a compact a safe area of 16px is preferred. Components that have transparent or discrete backgrounds may take into account their own paddings, and appear beyond the safe area.
 
 **The content region may scroll vertically** to accommodate lists and content that is too long to fit in the available space.
 
 **Optional header and footer regions assist larger overlays**. They help provide context and may host non-scrollable actions such as **Close** or **Save**.
 
 **Backdrops help emphasize the active content**. Backdrops are specially recommended for larger overlays such as dialogs, to highlight their modality.
+
+<ImageContainer mb={4}>
+  <img
+    width="636"
+    src="https://user-images.githubusercontent.com/293280/149601850-2736ea96-b6ab-46b7-8bdb-11920f833d29.png"
+    alt=""
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>
+
+An example of a dialog with 16px paddings. Notice the **Close** button is closer to the edges, but its icon is still within the safe area.
+
+</Caption>
 
 ### Header region
 
@@ -282,7 +296,7 @@ Side sheets take the entire height of the viewport, and should be used sparingly
 
 A bottom sheet is a variant supported on narrow viewports made to facilitate reachability. Overlays that appear anchored or centered in large screens may adapt to appear as a bottom sheet on small screens.
 
-A bottom sheet variant can be used when the overlay content is too overwhelming to appear anchored. A bottom sheet always dims the rest of the screen for focus. Tapping on the backdrop dismisses the overlay.
+A bottom sheet variant can be used when the overlay content is too busy to appear anchored. A bottom sheet always dims the rest of the screen for focus. Tapping on the backdrop dismisses the overlay.
 
 Its height should always accommodate the content inside. If the content is too tall to fit in the viewport, the content region should scroll accordingly.
 
@@ -343,7 +357,7 @@ Several components that rely on overlays are available for use. Use them directl
 
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
     <div>
-        <Link href="https://primer.style/react/ActionMenu">
+        <Link href="https://primer.style/react/ActionMenu2">
             <img alt="Action menu" src="https://user-images.githubusercontent.com/293280/123880964-95b3a700-d8f8-11eb-9775-cbaf165207ed.png" />
         </Link>
     </div>
@@ -351,9 +365,9 @@ Several components that rely on overlays are available for use. Use them directl
         <Heading fontSize={3}>Action menu</Heading>
         <Box as="p">
 
-Action menus are used for disambiguation, navigation, or to display secondary options. They appear when users interact with buttons, actions, or other controls.
+Action menus are used for showing actions, navigation, or to display secondary options. They appear when users interact with a trigger button.
 
-[Primer React implementation](https://primer.style/react/ActionMenu)
+[Primer React implementation](https://primer.style/react/ActionMenu2)
 
 </Box>
     </div>
@@ -411,7 +425,7 @@ Confirmation dialogs let users confirm or cancel an action. They are used as ext
         <Heading fontSize={3}>Dialog</Heading>
         <Box as="p">
 
-Dialogs are larger used to display information, forms and other rich content.
+Dialogs are larger overlays used to display details, forms, and other rich content.
 
 [Primer React implementation](https://primer.style/react/Dialog2)
 
