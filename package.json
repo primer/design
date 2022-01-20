@@ -9,7 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@primer/gatsby-theme-doctocat": "^3.1.1",
+    "@primer/gatsby-theme-doctocat": "^3.2.0",
     "@primer/octicons-react": "^11.0.0",
     "eslint": "5.8.0",
     "eslint-plugin-github": "1.6.0",
