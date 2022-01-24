@@ -1,0 +1,195 @@
+---
+title: Forms
+---
+
+![forms example screenshot]()
+<!--
+- login
+- user settings
+- create repo
+-->
+
+Forms are used to complete tasks that require data input from the user. For example: creating a new repo, configuring settings, and logging in.
+
+Primer's form design guidelines aim to minimize the effort and cognitive load required to complete a task that involves a form.
+
+Note: this document is an early work in progress. More information will be added as our designers define how forms should work at GitHub. For example: form submission/saving patterns, form layouts, different kinds of forms, and much more
+<!--
+TODO:
+The following topics will be critical to defining strong guidelines for designing forms:
+- Form layout
+- Form structure and hierarchy
+- Validation messages that apply to the entire form
+- Form submission patterns
+- Patterns for grouping related fields
+- How to deal with forms that are very long or contain multiple parts
+- Fields that use a "progressive disclosure" pattern based on whether a setting has been toggled on
+-->
+
+## Form field anatomy
+
+Form fields are made up of the same parts, but they are laid out differently depending on the kind of input.
+
+![a diagram labeling the anatomy of a text input field]()
+![a diagram labeling the anatomy of a checkbox input field]()
+
+1. Label (required)
+2. Required field indicator
+3. Input (required)
+<!-- TODO: finish listing labeled parts -->
+
+### Label (required)
+Fields must be labeled so users understand what the field is used for.
+
+Labels should be descriptive and as short as possible: ideally, it will always fit on one line of text. Labels should be written in sentence-case. For example: "Repository name".
+
+If you're having trouble keeping label text short, consider using a [caption](#caption) to provide more context.
+
+In rare cases, a label may be hidden when the user has enough context to understand what the field does. When a label is visually hidden, label text must still be provided for assistive technology such as screen readers. For example: a search field with an icon that is placed in the spot a user would expect to find a search field may have a visually hidden label that reads "Search"
+
+### Required field indicator
+When a field is required to have a value, it should be visibly marked as required. For more information, see the [required fields](#required-fields) section.
+
+### Input (required)
+The input is what the user interacts with to set the value of the field.
+
+For more specific information about each input, visit the respective component documentation page. For example: [CheckboxInputField](), [TextInputField]()
+
+### Placeholder text
+Text inputs and select dropdowns may display placeholder text to demonstrate what kind of value the field is expecting.
+
+<DoDontContainer>
+  <Do>
+    {/*
+        TODO: add mock of labeled "Twitter username" input with "@github" placeholder - https://github.com/settings/profile
+        <img src="https://user-images.githubusercontent.com/24916540/52501276-d3330080-2b94-11e9-954e-38c0f09f8ca1.png" />
+    */}
+    <Caption>Label fields</Caption>
+  </Do>
+  <Dont>
+    {/*
+        TODO: add mock of UNlabeled "Twitter username" input with "Twitter username" placeholder - https://github.com/settings/profile
+        <img src="https://user-images.githubusercontent.com/24916540/52501276-d3330080-2b94-11e9-954e-38c0f09f8ca1.png" />
+    */}
+    <Caption>Rely on placeholder text to label a field</Caption>
+  </Dont>
+</DoDontContainer>
+
+In rare cases where an input has enough context to visually hide a label (see [label guidelines](#label) for more info), a placeholder may be used like a [label](#label) to give additional context.
+
+Otherwise, placeholder text alone is not an acceptable substitute for a field label because:
+- The placeholder text disappears as soon as the input has a value
+- Placeholder text colors are typically too light to meet the minimum color contrast ratio required to be aceessible
+- Screenreaders do not read placeholder text
+
+### Caption
+Captions may be used to show information to provide additional context about the field to help them fill in the correct data. Caption text should be as short as possible.
+
+Fields may only have one caption.
+
+Caption text may be displayed at the same time as a validation message, or it may be hidden if is redundant information.
+
+<DoDontContainer>
+  <Do>
+    {/*
+        TODO: add mock of labeled "Twitter username" input with "@github" placeholder - https://github.com/settings/profile
+        <img src="https://user-images.githubusercontent.com/24916540/52501276-d3330080-2b94-11e9-954e-38c0f09f8ca1.png" />
+    */}
+    <Caption>Show a caption at the same time as a validation message when it has helpful information</Caption>
+  </Do>
+  <Dont>
+    {/*
+        TODO: add mock of UNlabeled "Twitter username" input with "Twitter username" placeholder - https://github.com/settings/profile
+        <img src="https://user-images.githubusercontent.com/24916540/52501276-d3330080-2b94-11e9-954e-38c0f09f8ca1.png" />
+    */}
+    <Caption>Show a caption that is redundant with the validation message</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Validation message
+Validation messages may be displayed to provide helpful information for a user to correct an invalid value and submit the form to complete their task.
+
+Fields may only have one validation message.
+
+If a validation message is redundant with a caption, show the validation message and remove the caption. A validation message makes the field easier to spot when a user is scanning for invalid fields.
+
+For more information about form validation, see the [validation guidelines](#invalid-input).
+
+## Requiring a value or selection
+
+<!-- Required parts of the form are marked with a "*" next to the text that labels that part of the form. -->
+
+![a list of related checkboxes with an asterisk next to the text that labels the list]()
+If a user must check a selection from a list of options, an asterisk is displayed next to the text that labels that list of options.
+
+![a text input with an asterisk next to the label text]()
+If a user must make set a value for a field, an asterisk is displayed next to the field label's text.
+
+<DoDontContainer>
+  <Do>
+    {/*
+        TODO: add mock of a form where every field is required, and they're marked as required
+        <img src="https://user-images.githubusercontent.com/24916540/52501276-d3330080-2b94-11e9-954e-38c0f09f8ca1.png" />
+    */}
+    <Caption>Always show an indicator when a field is required</Caption>
+  </Do>
+  <Dont>
+    {/*
+        TODO: add mock of a form where every field is required, and they're NOT marked as required
+        <img src="https://user-images.githubusercontent.com/24916540/52501276-d3330080-2b94-11e9-954e-38c0f09f8ca1.png" />
+    */}
+    <Caption>Exclude the indicator when there are no optional fields</Caption>
+  </Dont>
+</DoDontContainer>
+
+If a part of the form is required to have a value or selection, it must be marked as required. Even if every field in the form is required, every field must be marked as required. Consistent visual treatment for required fields avoids confusion about when a field is required.
+
+## Form structure
+
+### Ordering
+Forms fields should be in a predictable order that flows naturally.
+
+A few tips to acheive a natural flow:
+- Order fields by their relative level of importance
+- Keep related fields ordered to be near each other
+- When possible, keep inputs that require keyboard input near eachother so that people who use a mouse don't have to switch back and forth between clicking and typing
+
+### Grouping
+<!--
+    TODO: reconsider the use of the word "label" in the sentence below. It could be confused with an input <label>.
+    Maybe consider something like "title" or "legend" for label-like things that are not literally a <label>.
+-->
+When there is a collection of closely related fields, they should be grouped together using whitespace and a label.
+
+#### Choice list
+
+A common pattern for picking one or more options from a list is to show a list of checkbox or radio inputs that the user can check.
+
+## Behavior and interaction
+
+### Ready to receive input
+
+### Not ready to receive input
+
+### Validation
+
+Don't rely on browser-native validation messages, use Primer instead. We avoid browser-native validation messages because they are not accessible to screenreaders, and they visually clash with Primer styles.
+
+**Error message**: An invalid field should always have a message explaining why the field's value does not pass validation. The message should explain why the field is invalid, and guide users to a valid field value.
+
+**Success message**: A success message may be used when a user might need extra assurance that the field's value is valid. For example: when correcting an invalid value. Success messages aren't as critical as error messages because error messages have information that is blocking the user from completing their task.
+
+## Kinds of form data
+
+### Free-form text
+
+### Pick an option
+
+## Form components
+For more specific guideance on a specific kind of form field, check out the component documentation.
+
+[TextInputField](/TextInputField)
+Be mindful of browser-native form completion. If a browser is unlikely to pick the correct value for a text input, explicitly say that browser-native form completion should be disabled. For example: a browser might try and populate an input labeled "Name" with the user's first and last name.
+
+- [CheckboxInputField](/CheckboxInputField)
+- [RadioInputField](/RadioInputField)
