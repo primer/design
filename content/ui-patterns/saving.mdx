@@ -1,0 +1,163 @@
+---
+title: Save
+---
+
+Save patterns help users to store and update their content and configuration throughout GitHub. These changes should be represented in the UI accurately, quickly, and obviously. Their behavior should inspire confidence and trust.
+
+## Calls to action
+
+### Label copy
+
+All configuration flows should have calls to action that include an obvious active verb such as "Create", "Save", "Delete", or "Update" (for example, "Create" a new repository, "Add" an SSH key to your profile, "Save" security preferences, "Update" a repository's description, "Delete" an old email address).
+
+When defining these calls to actions, make sure to:
+1. Keep the text as succinct and clear as possible
+2. Add the item’s name to the button text in cases where it may be unclear to the user what is being changed
+
+![Screenshot of the 'Create a new repository' form](https://user-images.githubusercontent.com/2313998/150868902-a8514e84-5cd4-4081-b13d-46f00f404625.png)
+
+### Placement
+
+Save buttons should be placed somewhere intuitive and easily accessible. If all of the fields save automatically, do not include a save button. This makes it unclear when data is being saved.
+
+Default to placing the submit button at the bottom right of the form. In cases where this is an unintuitive placement, explore other positions to place the button.
+<img width="1790" alt="Screenshot of the 'Edit repository details' form" src="https://user-images.githubusercontent.com/2313998/150868909-71f72f1a-eafc-4777-a639-96d81b33eebb.png">
+
+{/*
+TODO:
+Consider how we might define more patterns to keep the "Save" button easily accessible on long forms:
+- add save and cancel buttons on top AND bottom?
+- use a sticky header with save and cancel buttons?
+*/}
+
+If a save button is used to save an inline edit to the input or inputs where the change was made.
+![Screen recording of a user editing a PR's title](https://user-images.githubusercontent.com/2313998/150868914-6af36067-39a6-4fec-adb9-518c5abd595d.gif)
+
+It's strongly recommended to have a single save button for all of the inputs on the page. If you're designing a page with pieces of content that can be separately toggled into an edit mode (such as editing an issue title), only allow one edit mode toggled on at a time so that only one save button is visible. When there is on save button per section of a page or form, users may be confused about whether the save button will save all of the inputs or just the subset of the inputs. This confusion is even more likely for visually impaired users because they can't see if each save button is visually grouped with a set of inputs.
+
+{/* 
+TODO: find an example of this, mock one up (if that's allowed), or exclude this visual example
+
+![🖼 Include a DO example with image to reinforce message]()
+*/}
+
+{/* TODO: reference the case where there's a declaratively saved form on a page with inherently saved inputs (such as user Profile settings) */}
+
+### State
+
+Do not disable or hide a form's save button if the form is invalid or has not been changed. The only time the save button should be disabled is in cases where you need to prevent the user from taking further action while the request completes (such as updating notification preferences). In these cases, disable the save button and the form inputs. While the form is disabled, update the save button's label with the present continuous form of the action's verb (for example, "Save" becomes "Saving...", "Follow" becomes "Following...") to indicate that they shouldn't navigate away from the current page which may cause the request to fail silently in the event of an error. In most cases, these actions should take minimal time, but in cases where it takes longer than normal, this clear indication is invaluable.
+
+![Screenshot of a CTA label that changes from "Update" to "Updating..."](https://user-images.githubusercontent.com/2313998/150868916-ea209d7c-136e-4f6a-a1b0-51d1e54faf46.png)
+
+## Explicit saving
+An explicit save does not apply changes until the user explicitly takes an action to submit the changes.
+
+If you're designing a form, start with an explicit saving pattern. Avoid mixing paradigms on a single page with multiple forms, and never mix paradigms in a single form. For example: if I upload a profile photo in the "Public profile" form, that change should not be saved until I explicitly submit the whole form.
+
+If there was an error saving the data, the user's data should be preserved in the form and they should be given [feedback](#feedback) about the failure.
+
+{/*
+TODO: determine if we should include the following guidance:
+
+If a user tries to navigate away from a page with an unsaved form, we should warn them that their changes will be lost.
+*/}
+
+### Declarative inputs
+
+When designing a form that is saved explicitly, use the following inputs:
+- Text inputs
+- Checkbox groups
+- Radio button groups
+- Dropdown menus
+
+To maintain consistent interaction patterns across your app, do not use toggle switches or segmented controls in an explicitly saved form. They should only be used when they automatically change based on user input.
+
+## Automatic saving
+
+Automatic saving applies changes as they are made.
+
+Automatic saving should be used when the user expects instant feedback from the change they made. Changes should only be saved automatically using[imperitive inputs](#imperitive-inputs) and for individual settings that are not changed via separate flows.
+
+If a field is saved automatically, it should be obvious whether or not it saved without using text or visual indicators. A visual indicator for a field that has been "saved" or has an error "error" could be mistaken as a validation status.
+
+![Screen recording of a user changing their theme in the 'Appearance' settings tab](https://user-images.githubusercontent.com/2313998/150868921-afc2b8b8-e39f-478f-b17d-398b790bda89.gif)
+
+
+### Imperitive inputs
+
+When user input is automatically saved, use the following inputs:
+- Toggle switches
+- Segmented controls
+- Single-select dropdowns
+
+These inputs are designed to reduce UI by giving instant feedback. The toggle switch behaves like a light switch: the light just switches on and off without you having to confirm each time you flip the switch. Segmented controls and single-select dropdowns behave like a soda machine: the soda comes out as soon as you press the buttons without you confirming which soda you wanted.
+
+To build an accessible and consistent app, do not automatically save declarative inputs.
+
+### Inputs that are problematic for autosaving:
+**Text inputs**
+- Users are expecting to set a value and then submit
+- Sensitive information could be unintentionally submitted. For example: a change password input
+
+**Checkbox groups**
+- It could be unclear whether or not their selections have been saved
+- Users may accidentally submit a selection that they clicked by accident
+
+**Radio button groups**
+Screenreader users can't read the options without selecting them. This could accidentally apply a selection the user didn't want.
+
+**Browser-native `<select>` dropdowns**
+On Windows, a select dropdown has a similar problem as a radio button group. 
+Options are selected when a user focuses the select and uses their arrow keys to read through each option
+
+## Feedback
+
+If the change may not be obvious in the UI within the user's viewport, provide feedback to let the user know that the change occurred successfully. If the change occured without a redirect or page refresh, you could use a toast message. If the change occured and the page refreshes or redirects, you could use a flash banner message.
+
+<img width="1787" alt="Screenshot of the user's activity feed page with a flash banner confirming that a repository has been deleted" src="https://user-images.githubusercontent.com/2313998/150868934-b96e6d9d-d022-433f-87ab-189baf1776fa.png">
+
+
+If an imperitive input did not automatically save, show an error message that explains why the change wasn't saved.
+
+{/*
+TODO: find an example of this, mock one up (if that's allowed), or exclude this visual example
+
+![🖼 Include a DO example with image to reinforce message]()
+*/}
+
+## Error forgiveness
+
+For risky changes, provide an option to "undo" after saving.
+
+![Screenshot of a user hovering the 'Revert' button after merging a PR](https://user-images.githubusercontent.com/2313998/150870681-349185eb-342a-49f2-a7d3-6e58132e86a0.png)
+
+
+Before submitting a form with very dangerous consequences (for example, delete a repository), ask the to user confirm they want to submit the form.
+
+![Screen recording of a user confirming that they want to delete a repository](https://user-images.githubusercontent.com/2313998/150868926-f99d23f6-6e31-4333-9545-2625451dae99.gif)
+
+{/*
+TODO: come up with some helpful guidance on tabbed forms, or just exclude these guidelines until an issue comes up
+
+## Saving multi-page forms
+
+### Sequential pages
+If a form is broken up into steps using sequential pages, wait until the last step has been completed to submit the form. However, a user should be able to go back to any step's page without losing data.
+
+### Non-sequential pages
+If a form is broken up into non-sequential pages (for example, form tabs),
+*/}
+
+
+## Redirecting
+When creating new content like issues, discussions, or even larger entities such as repositories or organizations, you may redirect the user to the entity they just created at the end of the flow.
+
+In some cases, such as forking or using a template, you may need to hold the user at a waiting page while the entity is generated. In these cases, make the user feel confident that something is happening and that their configuration details will not be lost. 
+
+![Screen recording of a user forking a repository](https://user-images.githubusercontent.com/2313998/150868932-6c7ba5a0-3eac-4fcb-826f-08459c6efa30.gif)
+
+{/*
+TODO: find an example of this, mock one up (if that's allowed), or exclude this visual example
+
+![🖼 Include a DO example with image to reinforce message]()
+*/}
