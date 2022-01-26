@@ -20,8 +20,30 @@ When defining these calls to actions, make sure to:
 
 Place save buttons somewhere intuitive and easily accessible. If all of the fields save automatically, do not include a save button. This makes it unclear when data is being saved. See the guidlines on [explicit saving](#explicit-saving) and [automatic saving](#automatic-saving) for more information.
 
-Default to placing the submit button at the bottom right of the form. In cases where this is an unintuitive placement, explore other positions to place the button.
-<img width="1790" alt="Save changes button aligned to the lower right corner of the Edit repository details form dialog" src="https://user-images.githubusercontent.com/2313998/150868909-71f72f1a-eafc-4777-a639-96d81b33eebb.png">
+It's strongly recommended to have only one save button on a page. Allow only one edit mode activated at a time if you're designing a page with content that can be edited separately (such as an Issue title). Pages that contain multiple save buttons can cause confusion about which save button saves which group. Multiple save buttons with the same label can cause confusion for people who use assistive technologies like screen readers and voice recognition software.
+
+{/*TODO: ![🖼 Include a DO example with image to reinforce message]()*/}
+
+{/*TODO: reference the case where there's a declaratively saved form on a page with inherently saved inputs (such as user Profile settings)*/}
+
+#### Common places for a submit button
+
+Default to placing the submit button at the bottom left of the form. Field labels and inputs are left-aligned and run from top-to-bottom, so users would naturally move their eyes down and to the left.
+
+{/*TODO: ![🖼 Include a DO example with image to reinforce message]()*/}
+
+If the save button is used in a dialog, place the button at the bottom right of the dialog. Right-aligned dialog buttons feel familiar because it's a very common pattern. For example: Windows, macOS, and Android.
+
+{/*TODO: ![🖼 Include a DO example with image to reinforce message]()*/}
+
+If the save button in the dialog has a label that makes the button almost as wide as the dialog, you may opt to make the dialog action buttons full-width. If there is a secondary action button, it must also be full-width.
+
+{/*TODO: ![🖼 Include a DO example with image to reinforce message]()*/}
+
+If the button is used to send a message such as a comment on an issue, right-align the button below the text area. This is where GitHub has traditionally placed the "Submit" button for issues and pull requests, and it's common to place a "send" button to the right. For example: iMessage, Facebook (mobile web), Twitter, Reddit.
+
+{/*TODO: Make sure right-aligned send buttons are ok for right-to-left languages*/}
+{/*TODO: ![🖼 Include a DO example with image to reinforce message]()*/}
 
 {/*
 TODO:
@@ -34,18 +56,9 @@ TODO:
 
 To minimize UI, some content may be edited inline without taking the user to a separate flow. An input used for inline editing should have a save button placed very close to visually group the input with the button.
 
-If a save button is used to save an inline edit to the input or inputs where the change was made.
 ![Save button is placed to the right of the input used to edit the PR title](https://user-images.githubusercontent.com/2313998/150868914-6af36067-39a6-4fec-adb9-518c5abd595d.gif)
 
-It's strongly recommended to have only one save button on a page. Allow only one edit mode activated at a time if you're designing a page with content that can be edited separately (such as an Issue title). Pages that contain multiple save buttons can cause confusion about which save button saves which group. Multiple save buttons with the same label can cause confusion for people who use assistive technologies like screen readers and voice recognition software.
-
-{/* 
-TODO: Mock up one or more examples of this
-
-![🖼 Include a DO example with image to reinforce message]()
-*/}
-
-{/* TODO: reference the case where there's a declaratively saved form on a page with inherently saved inputs (such as user Profile settings) */}
+If you encounter a case where your submit button would not be intuitive or easily accessible using any of the placement options described above, then consider alternatives and optinally propose a new Primer pattern.
 
 ### State
 
@@ -93,7 +106,7 @@ A select dropdown has a similar problem as a radio button group. Options are sel
 
 Automatic saving applies changes as they are made.
 
-Automatic saving should be used when the user expects instant feedback from the change they made. Changes should only be saved automatically using[imperitive inputs](#imperitive-inputs) and for individual settings that are not changed via separate flows.
+Automatic saving should be used when the user expects instant feedback from the change they made. Changes should only be saved automatically using [imperitive inputs](#imperitive-inputs) and for individual settings that are not changed via separate flows.
 
 If a field is saved automatically, it should be obvious whether or not it saved without using text or visual indicators. A visual indicator for a field that has been "saved" or has an error "error" could be mistaken as a validation status.
 
@@ -120,11 +133,7 @@ If the change may not be obvious in the UI within the user's viewport, provide f
 
 If an imperitive input did not automatically save, show an error message that explains why the change wasn't saved.
 
-{/*
-TODO: Mock up one or more examples of this
-
-![🖼 Include a DO example with image to reinforce message]()
-*/}
+{/*TODO: ![🖼 Include a DO example with image to reinforce message]()*/}
 
 ## Error forgiveness
 
@@ -137,8 +146,7 @@ Before submitting a form with very dangerous consequences (for example, delete a
 
 ![User flow of a user confirming that they want to delete a repository](https://user-images.githubusercontent.com/2313998/150868926-f99d23f6-6e31-4333-9545-2625451dae99.gif)
 
-{/*
-TODO: come up with some helpful guidance on tabbed forms, or just exclude these guidelines until an issue comes up
+{/*TODO: come up with some helpful guidance on tabbed forms, or just exclude these guidelines until an issue comes up*/
 
 ## Saving multi-page forms
 
