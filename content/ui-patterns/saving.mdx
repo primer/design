@@ -14,8 +14,6 @@ When defining these calls to actions, make sure to:
 1. Keep the text as succinct and clear as possible
 2. Add the item’s name to the button text in cases where it may be unclear to the user what is being changed
 
-![Create a new repository form with "Create repository" button submission text](https://user-images.githubusercontent.com/2313998/150868902-a8514e84-5cd4-4081-b13d-46f00f404625.png)
-
 ### Placement
 
 Place save buttons somewhere intuitive and easily accessible. If all of the fields save automatically, do not include a save button. This makes it unclear when data is being saved. See the guidlines on [explicit saving](#explicit-saving) and [automatic saving](#automatic-saving) for more information.
@@ -62,7 +60,7 @@ If you encounter a case where your submit button would not be intuitive or easil
 
 ### State
 
-Do not disable or hide a form's save button even if the form is invalid or has not been changed.
+Do not disable or hide a form's save button even if the form is invalid or has not been changed. Disabled buttons cannot be focused using the Tab key, and disabled button styles are typically low-contrast and difficult to read.
 
 ## Explicit saving
 An explicit save does not apply changes until the user explicitly takes an action to submit the changes.
