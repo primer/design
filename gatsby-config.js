@@ -12,7 +12,7 @@ module.exports = {
       resolve: '@primer/gatsby-theme-doctocat',
       options: {
         defaultBranch: 'main',
-      }
+      },
     },
     {
       resolve: 'gatsby-plugin-alias-imports',
