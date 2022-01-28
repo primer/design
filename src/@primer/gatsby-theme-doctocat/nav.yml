@@ -29,6 +29,8 @@
       url: /ui-patterns/messaging
     - title: Progressive disclosure
       url: /ui-patterns/progressive-disclosure    
+    - title: Saving
+      url: /ui-patterns/saving
 - title: Components
   url: /components
   children:
