@@ -5,12 +5,14 @@ title: Saving
 import {Box} from '@primer/components'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
-    Save patterns help users to store and update their content and configuration throughout GitHub. These changes should be represented in the UI accurately, quickly, and obviously. Their behavior should inspire confidence and trust.
+    Save patterns help users store and update their content and configuration throughout GitHub. These changes should be represented in the UI accurately, quickly, and obviously. Their behavior should inspire confidence and trust.
 </Box>
 
 ## Calls to action
 
-### Label
+When data is not automatically saved after the user make changes, buttons are used to submit or cancel the changes.
+
+### Text
 
 All configuration flows should have calls to action that include an obvious active verb such as "Create", "Save", "Delete", or "Update" (for example, "Create" a new repository, "Add" an SSH key to your profile, "Save" security preferences, "Update" a repository's description, "Delete" an old email address).
 
@@ -28,11 +30,15 @@ If the save button only refers to a segment of inputs on the page, use the _seco
 
 For more guidance on button usage, see the [button interface guidelines](/ui-patterns/button-usage).
 
+### State
+
+Do not disable or hide a form's save button even if the form is invalid or has not been changed. Disabled buttons cannot be focused using the Tab key, and disabled button styles are typically low-contrast and difficult to read.
+
 ### Placement
 
-Place save buttons somewhere intuitive and easily accessible. If all of the fields save automatically, do not include a save button. This makes it unclear when data is being saved. See the guidlines on [explicit saving](#explicit-saving) and [automatic saving](#automatic-saving) for more information.
+Place save buttons somewhere intuitive and easily accessible. If all of the fields save automatically, do not include a save button. This makes it unclear when data is being saved. See the guidelines on [explicit saving](#explicit-saving) and [automatic saving](#automatic-saving) for more information.
 
-It's strongly recommended to have only one save button on a page. Allow only one edit mode activated at a time if you're designing a page with content that can be edited separately (such as an Issue title). Pages that contain multiple save buttons can cause confusion about which save button saves which group. Multiple save buttons with the same label can cause confusion for people who use assistive technologies like screen readers and voice recognition software.
+There should only be one save button on a page.Allow only one edit mode activated at a time if you're designing a page with content that can be edited separately (such as an issue title). Pages that contain multiple save buttons can cause confusion about which save button saves which group. Multiple save buttons with the same label can cause confusion for people who use assistive technologies like screen readers and voice recognition software.
 
 <img width="960" src="https://user-images.githubusercontent.com/2313998/151448415-24fc9f15-627f-47b7-abab-2020d285b770.png" />
 
@@ -46,7 +52,7 @@ If there is a button to submit and a button to cancel, the cancel button should 
         alt="A form with the inputs and save button left aligned"
         src="https://user-images.githubusercontent.com/2313998/151623721-2cbe406b-ee3d-4bef-85f2-7f671771308a.png"
     />
-    <Box as="p" mt="0">Default to placing the submit button at the bottom left of the form. Field labels and inputs are left-aligned and run from top-to-bottom, so users would naturally move their eyes down and to the left.</Box>
+    <Box as="p" mt="0">Default to placing the submit button at the bottom left of the form. Labels and inputs are left-aligned and run from top-to-bottom, so users would naturally move their eyes down and to the left.</Box>
 </Box>
 
 #### Bottom-right
@@ -59,7 +65,7 @@ If there is a button to submit and a button to cancel, the button to cancel shou
         alt="A small form in a dialog that has 'Cancel' and 'Save' buttons at the bottom right"
         src="https://user-images.githubusercontent.com/2313998/151623724-d59d5967-5484-4e81-a4c2-1109409956ee.png"
     />
-    <Box as="p" mt="0">If the save button is used in a dialog, place the button at the bottom right of the dialog. Right-aligned dialog buttons feel familiar because it's a very common pattern. For example: Windows, macOS, and Android.</Box>
+    <Box as="p" mt="0">If the save button is used in a dialog, place the button at the bottom right of the dialog. Right-aligned dialog buttons feel familiar because it's a common pattern across various platforms such as Windows, macOS, and Android.</Box>
 </Box>
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
@@ -68,7 +74,7 @@ If there is a button to submit and a button to cancel, the button to cancel shou
         alt="A multi-line text input with 'Close with Comment' and 'Comment' buttons right-aligned below the input"
         src="https://user-images.githubusercontent.com/2313998/151623722-96b6f25d-d8b7-4de7-affe-cd202d6282f1.png"
     />
-    <Box as="p" mt="0">If the button is used to send a message such as a comment on an issue, right-align the button below the text area. This is where GitHub has traditionally placed the "submit" button for issues and pull requests, and it's common to place a "send" button to the right. For example: iMessage, Facebook (mobile web), Twitter, Reddit.</Box>
+    <Box as="p" mt="0">If the button is used to send a message such as a comment on an issue, right-align the button below the text area. This is where GitHub has traditionally placed the **Submit** button for issues and pull requests, and it's common practice in other apps to place a **Send** button to the right. </Box>
 </Box>
 
 
@@ -83,7 +89,7 @@ TODO:
 
 #### Adjacent to inline editing input
 
-To minimize UI, some content may be edited inline without taking the user to a separate flow.
+To simplify the interface, some content may be edited inline without taking the user to a separate flow. An input used for inline editing should have a save button placed very close to visually connect the input with the button.
 
 An input used for inline editing should have a save button placed very close to visually group the input with the button.
 
@@ -95,11 +101,7 @@ An input used for inline editing should have a save button placed very close to 
 
 #### Other
 
-If you encounter a case where your submit button would not be intuitive or easily accessible using any of the placement options described above, then consider alternatives and optinally propose a new Primer pattern.
-
-### State
-
-Do not disable or hide a form's save button even if the form is invalid or has not been changed. Disabled buttons cannot be focused using the Tab key, and disabled button styles are typically low-contrast and difficult to read.
+If you believe your submit button will not be intuitive or easily accessible using any of the placement options listed here, you may consider alternatives and optionally propose a new Primer pattern.
 
 <DoDontContainer>
   <Do>
@@ -113,13 +115,12 @@ Do not disable or hide a form's save button even if the form is invalid or has n
 </DoDontContainer>
 
 ## Explicit saving
-An explicit save does not apply changes until the user explicitly takes an action to submit the changes. If you're designing a form, start with an explicit saving pattern.
 
-Explicitly saved forms can be saved by clicking a submit button or by pressing the "Enter" key while focused on an input.
+When designing a form, start with an explicit saving pattern. Avoid mixing explicit and automatic save patterns on a single page with multiple forms, and never mix save patterns in a single form. For example: if I upload a profile photo in the "Public profile" form, that change should not be saved until I explicitly submit the whole form.
 
-If there was an error saving the data, the user's data should be preserved in the form and they should be given [feedback](#feedback) about the failure.
+Explicitly saved forms can be saved by clicking a submit button or by pressing Enter while focused on an input.
 
-Avoid mixing explicit and automatic save patterns on a single page with multiple forms, and never mix save patterns in a single form. For example: if I upload a profile photo in the "Public profile" form, that change should not be saved until I explicitly submit the whole form.
+If there is an error saving the data, the user's data should be preserved in the form and they should be given [feedback](#feedback) about the failure.
 
 <DoDontContainer>
   <Do>
@@ -136,7 +137,7 @@ Avoid mixing explicit and automatic save patterns on a single page with multiple
 
 With the addition of the command palette there are additional opportunities to accidentally navigate away from a page with unpublished edits.
 
-If a user tries to navigate away from a page with a form that has unsaved changes, you can optionally warn them that their changes will be lost using the [beforeunload event](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event). Modern browsers prevent developers from customizing the alrt message, so we're limited to a generic message like "Do you want to leave this site? Changes you made may not be saved."
+If a user tries to navigate away from a page with a form that has unsaved changes, you can optionally warn them that their changes will be lost using the [`beforeunload` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event). Modern browsers prevent developers from customizing the `alert` message, so we're limited to a generic message like "Do you want to leave this site? Changes you made may not be saved."
 
 ### Declarative controls
 
@@ -146,9 +147,9 @@ If a user tries to navigate away from a page with a form that has unsaved change
 - Browser-native `<select>` dropdown menus
 - Multi-select dropdown menus
 
-To maintain consistent interaction patterns across your app, do not use toggle switches or segmented controls in an explicitly saved form. They should only be used when they automatically change based on user input.
+To maintain consistent interaction patterns across your app, do not use toggle switches or segmented controls in an explicitly saved form. These should only be used with automatic saving.
 
-To build an accessible and consistent app, do not automatically save declarative inputs.
+To ensure your forms are accessible, do not automatically save declarative inputs.
 
 #### Problems with autosaving declarative inputs:
 **Text inputs**
@@ -180,7 +181,7 @@ To build an accessible and consistent app, do not automatically save declarative
 
 Automatic saving applies changes as they are made.
 
-Automatic saving should be used when the user expects instant feedback from the change they made. Changes should only be saved automatically using [imperitive inputs](#imperitive-inputs) and for individual settings that are not changed via separate flows.
+Automatic saving should be used when the user expects instant feedback from the change they made. Changes should only be saved automatically using [imperative inputs](#imperative-inputs).
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
     <img
@@ -189,19 +190,19 @@ Automatic saving should be used when the user expects instant feedback from the 
         src="https://user-images.githubusercontent.com/2313998/151448402-69b15752-65d2-4d93-8b5c-e2456e1fb802.png"
     />
     <div>
-        <Box as="p" mt="0">If a field is saved automatically, it should be obvious whether or not it saved without using text or visual indicators. A visual indicator for a field that has been "saved" or has an error "error" could be mistaken as a validation status.</Box>
+        <Box as="p" mt="0">If a form field is saved automatically, it should be obvious whether or not it saved without using text or visual indicators. A visual indicator for whether or not a form field has been saved successfully could be mistaken as a validation status.</Box>
     </div>
 </Box>
 
 
-### Imperitive controls
+### Imperative controls
 
-When user input is automatically saved, use the following inputs:
+Imperative inputs are designed to reduce UI by giving instant feedback. When user input is automatically saved, use the following inputs:
 - Toggle switches
 - Segmented controls
 - Single-select dropdowns that are not native `<select>` dropdowns or part of an explicitly saved form
 
-These inputs are designed to reduce UI by giving instant feedback. The toggle switch behaves like a light switch: the light just switches on and off without you having to confirm each time you flip the switch. Segmented controls and single-select dropdowns behave like a soda machine: the soda comes out as soon as you press the buttons without you confirming which soda you wanted.
+The toggle switch behaves like a light switch: the light just switches on and off without you having to confirm each time you flip the switch. Segmented controls and single-select dropdowns behave like a soda machine: the soda comes out as soon as you press the button to select which soda you want.
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
     <img
@@ -209,14 +210,14 @@ These inputs are designed to reduce UI by giving instant feedback. The toggle sw
         alt="A switching being turned off, reverting back to on due to an error, then being turned off again"
         src="https://user-images.githubusercontent.com/2313998/151624246-76c19631-9a63-4feb-85ec-1d1abdb8e519.gif"
     />
-    <Box as="p" mt="0">If an imperitive input did not automatically save, show the original value and an error message.</Box>
+    <Box as="p" mt="0">If an imperative input did not automatically save, show the original value and an error message.</Box>
 </Box>
 
 ## Feedback
 
-If the change may not be obvious in the UI within the user's viewport, provide feedback to let the user know that the change occurred successfully. If the change occured without a redirect or page refresh, you could use a toast message. If the change occured and the page refreshes or redirects, you could use a flash banner message.
+If the change is not obvious within the user's viewport, provide feedback to let the user know that the change occurred successfully. If the change occurred without a redirect or page refresh, you can use the toast component. If the change occurred and the page refreshes or redirects, you can use a flash banner component.
 
-**A note on toasts:** If your design is being implemented in github.com, avoid using a toast for now. They have accessibility issues that need to be fixed.
+<Note>If your design is being implemented in github.com, avoid using a toast for now. They have accessibility issues that need to be fixed.</Note>
 
 ## Error forgiveness
 
