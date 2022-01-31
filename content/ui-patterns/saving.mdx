@@ -38,8 +38,13 @@ Do not disable or hide a form's save button even if the form is invalid or has n
 
 Place save buttons somewhere intuitive and easily accessible. If all of the fields save automatically, do not include a save button. This makes it unclear when data is being saved. See the guidelines on [explicit saving](#explicit-saving) and [automatic saving](#automatic-saving) for more information.
 
-There should only be one save button on a page.Allow only one edit mode activated at a time if you're designing a page with content that can be edited separately (such as an issue title). Pages that contain multiple save buttons can cause confusion about which save button saves which group. Multiple save buttons with the same label can cause confusion for people who use assistive technologies like screen readers and voice recognition software.
+There should only be one save button on a page. Allow only one edit mode activated at a time if you're designing a page with content that can be edited separately (such as an issue title). Pages that contain multiple save buttons can cause confusion about which save button saves which group. Multiple save buttons with the same label can cause confusion for people who use assistive technologies like screen readers and voice recognition software.
 
+<!--
+TODO: Update this screenshot to be a DO/DON'T
+- DO: Show one save button on the page
+- DON'T: Show a save button for each section of the page
+-->
 <img width="960" src="https://user-images.githubusercontent.com/2313998/151448415-24fc9f15-627f-47b7-abab-2020d285b770.png" />
 
 #### Bottom-left
@@ -122,6 +127,9 @@ Explicitly saved forms can be saved by clicking a submit button or by pressing E
 
 If there is an error saving the data, the user's data should be preserved in the form and they should be given [feedback](#feedback) about the failure.
 
+<!--
+TODO: Update these screenshots to not show the toggle switch
+-->
 <DoDontContainer>
   <Do>
     <img src="https://user-images.githubusercontent.com/2313998/151623711-ad294946-fd67-428d-96b2-e4f534857c8a.png" />
@@ -147,7 +155,7 @@ If a user tries to navigate away from a page with a form that has unsaved change
 - Browser-native `<select>` dropdown menus
 - Multi-select dropdown menus
 
-To maintain consistent interaction patterns across your app, do not use toggle switches or segmented controls in an explicitly saved form. These should only be used with automatic saving.
+To maintain consistent interaction patterns across your app, do not use segmented controls in an explicitly saved form. These should only be used with automatic saving.
 
 To ensure your forms are accessible, do not automatically save declarative inputs.
 
@@ -183,6 +191,7 @@ Automatic saving applies changes as they are made.
 
 Automatic saving should be used when the user expects instant feedback from the change they made. Changes should only be saved automatically using [imperative inputs](#imperative-inputs).
 
+<!-- TODO: Update the image in this example -->
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
     <img
         width="456"
@@ -192,25 +201,6 @@ Automatic saving should be used when the user expects instant feedback from the 
     <div>
         <Box as="p" mt="0">If a form field is saved automatically, it should be obvious whether or not it saved without using text or visual indicators. A visual indicator for whether or not a form field has been saved successfully could be mistaken as a validation status.</Box>
     </div>
-</Box>
-
-
-### Imperative controls
-
-Imperative inputs are designed to reduce UI by giving instant feedback. When user input is automatically saved, use the following inputs:
-- Toggle switches
-- Segmented controls
-- Single-select dropdowns that are not native `<select>` dropdowns or part of an explicitly saved form
-
-The toggle switch behaves like a light switch: the light just switches on and off without you having to confirm each time you flip the switch. Segmented controls and single-select dropdowns behave like a soda machine: the soda comes out as soon as you press the button to select which soda you want.
-
-<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
-    <img
-        width="456"
-        alt="A switching being turned off, reverting back to on due to an error, then being turned off again"
-        src="https://user-images.githubusercontent.com/2313998/151624246-76c19631-9a63-4feb-85ec-1d1abdb8e519.gif"
-    />
-    <Box as="p" mt="0">If an imperative input did not automatically save, show the original value and an error message.</Box>
 </Box>
 
 ## Feedback
