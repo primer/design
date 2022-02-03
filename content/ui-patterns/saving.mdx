@@ -149,7 +149,7 @@ With the addition of the command palette there are additional opportunities to a
 If a user tries to navigate away from a page with a form that has unsaved changes, you can optionally warn them that their changes will be lost using the [`beforeunload` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event). Modern browsers prevent developers from customizing the `alert` message, so we're limited to a generic message like "Do you want to leave this site? Changes you made may not be saved."
 
 ### Declarative controls
-
+To ensure your forms are accessible, you should use explicit saving (and not automatic saving) in declarative inputs. These are:
 - Text inputs
 - Checkbox groups
 - Radio button groups
