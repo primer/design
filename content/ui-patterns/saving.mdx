@@ -20,42 +20,87 @@ When defining these calls to actions, make sure to:
 1. Keep the text as succinct and clear as possible
 2. Add the item’s name to the button text in cases where it may be unclear to the user what is being changed
 
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/2313998/152432682-2e102919-114a-43ce-a446-5501d287084a.png" />
+    <Caption>Use descriptive text with an active verb</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/2313998/152432685-08d8a944-c802-44ed-89e0-e9d3aa87771b.png" />
+    <Caption>Don't use vague text</Caption>
+  </Dont>
+</DoDontContainer>
+
 ### Appearance
 
-If the save button is used to save every input on the page, use the _primary_ button appearance.
-
-If the save button has a corresponding cancel button, use the _primary_ button appearance for the save button, and _secondary_ for the cancel button.
-
-If the save button only refers to a segment of inputs on the page, use the _secondary_ button appearance.
+- If the save button is used to save every input on the page, use the **primary** button appearance.
+- If the save button only refers to a segment of inputs on the page, use the **secondary** button appearance.
+- If the save button has a corresponding cancel button, use the **primary** button appearance for the save button, and **secondary** for the cancel button.
 
 For more guidance on button usage, see the [button interface guidelines](/ui-patterns/button-usage).
+
+<Box mb={3} display="flex" alignItems="flex-start" justifyContent="space-between" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+    <Box mb={3} display="flex" alignItems="center" flexDirection="column" mx="auto" sx={{gap: 2}}>
+        <img
+            width="456"
+            src="https://user-images.githubusercontent.com/2313998/152432687-e119f44c-9325-4ae7-b277-e8559a4eb37b.png"
+        />
+        <Text as="p" mt="0" align="center" fontSize={1}>Inputs all belong to one form</Text>
+        <img
+            width="456"
+            alt="A small form in a dialog that has 'Cancel' and 'Save' buttons at the bottom right"
+            src="https://user-images.githubusercontent.com/2313998/151623724-d59d5967-5484-4e81-a4c2-1109409956ee.png"
+        />
+        <Text as="p" mt="0" align="center" fontSize={1}>A form with a button to save and a button to cancel</Text>
+    </Box>
+    <Box mb={3} display="flex" alignItems="center" flexDirection="column" mx="auto" sx={{gap: 2}}>
+        <img
+            width="456"
+            src="https://user-images.githubusercontent.com/2313998/152432688-e74f67b2-a777-4c5f-be45-37a43615e6ab.png"
+        />
+        <Text as="p" mt="0" align="center" fontSize={1}>Inputs divided into multiple sections</Text>
+    </Box>
+</Box>
 
 ### State
 
 Do not disable or hide a form's save button even if the form is invalid or has not been changed. Disabled buttons cannot be focused using the Tab key, and disabled button styles are typically low-contrast and difficult to read.
 
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/2313998/151623709-2a4257d6-e8d0-4156-b928-c7097981791c.png" />
+    <Caption>Always keep the save button enabled</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/2313998/151623715-3b298004-b624-43dc-875c-2590c08070e7.png" />
+    <Caption>Don't disable the save button if the form is invalid or unchanged</Caption>
+  </Dont>
+</DoDontContainer>
+
 ### Placement
 
 Place save buttons somewhere intuitive and easily accessible. If all of the fields save automatically, do not include a save button. This makes it unclear when data is being saved. See the guidelines on [explicit saving](#explicit-saving) and [automatic saving](#automatic-saving) for more information.
 
-There should only be one save button on a page. Allow only one edit mode activated at a time if you're designing a page with content that can be edited separately (such as an issue title). Pages that contain multiple save buttons can cause confusion about which save button saves which group. Multiple save buttons with the same label can cause confusion for people who use assistive technologies like screen readers and voice recognition software.
+- There should only be one save button on a page. 
+- Place save buttons somewhere intuitive and easily accessible. If all of the fields save automatically, do not include a save button. This makes it unclear when data is being saved. See the guidelines on [explicit saving](#explicit-saving) and [automatic saving](#automatic-saving) for more information.
+- Allow only one edit mode activated at a time if you're designing a page with content that can be edited separately (such as an issue title). Pages that contain multiple save buttons can cause confusion about which save button saves which group. Multiple save buttons with the same label can cause confusion for people who use assistive technologies like screen readers and voice recognition software.
 
 <DoDontContainer>
   <Do>
     <img alt="A form with one save button at the bottom" src="https://user-images.githubusercontent.com/2313998/151887934-cfcc5130-53a8-4f40-ba36-97148ead72c0.png" />
-    <Caption>Always keep the save button enabled</Caption>
+    <Caption>Have one save button per form</Caption>
   </Do>
   <Dont>
     <img alt="A form with two sections. Each section has it's own save button." src="https://user-images.githubusercontent.com/2313998/151887938-1fa6b5d7-c5c1-4010-ab99-e5c37bff8c0a.png" />
-    <Caption>Don't disable the save button if the form is invalid or unchanged</Caption>
+    <Caption>Don't have one save button per section of a form</Caption>
   </Dont>
 </DoDontContainer>
 
 #### Bottom-left
 
-If there is a button to submit and a button to cancel, the cancel button should go to the right of the submit button.
+If there is a button to submit and a button to cancel, the cancel button should go to the **right** of the submit button.
 
-<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
     <img
         width="456"
         alt="A form with the inputs and save button left aligned"
@@ -66,9 +111,9 @@ If there is a button to submit and a button to cancel, the cancel button should 
 
 #### Bottom-right
 
-If there is a button to submit and a button to cancel, the button to cancel should go to the left of the submit button.
+If there is a button to submit and a button to cancel, the button to cancel should go to the **left** of the submit button.
 
-<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
     <img
         width="456"
         alt="A small form in a dialog that has 'Cancel' and 'Save' buttons at the bottom right"
@@ -77,13 +122,15 @@ If there is a button to submit and a button to cancel, the button to cancel shou
     <Box as="p" mt="0">If the save button is used in a dialog, place the button at the bottom right of the dialog. Right-aligned dialog buttons feel familiar because it's a common pattern across various platforms such as Windows, macOS, and Android.</Box>
 </Box>
 
-<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
     <img
         width="456"
         alt="A multi-line text input with 'Close with Comment' and 'Comment' buttons right-aligned below the input"
         src="https://user-images.githubusercontent.com/2313998/151623722-96b6f25d-d8b7-4de7-affe-cd202d6282f1.png"
     />
-    <Box as="p" mt="0">If the button is used to send a message such as a comment on an issue, right-align the button below the text area. This is where GitHub has traditionally placed the **Submit** button for issues and pull requests, and it's common practice in other apps to place a **Send** button to the right. </Box>
+    <Box as="p" mt="0">
+        If the button is used to send a message such as a comment on an issue, right-align the button below the text area. This is where GitHub has traditionally placed the <strong>Submit</strong> button for issues and pull requests, and it's common practice in other apps to place a <strong>Send</strong> button to the right.
+    </Box>
 </Box>
 
 
@@ -98,9 +145,9 @@ TODO:
 
 #### Adjacent to inline editing input
 
-To simplify the interface, some content may be edited inline without taking the user to a separate flow. An input used for inline editing should have a save button placed very close to visually connect the input with the button.
+To simplify the interface, some content may be edited inline without taking the user to a separate flow.
 
-An input used for inline editing should have a save button placed very close to visually group the input with the button.
+An input used for inline editing should have a save button placed very close to visually connect the input with the button.
 
 <img
     width="960"
@@ -111,17 +158,6 @@ An input used for inline editing should have a save button placed very close to 
 #### Other
 
 If you believe your submit button will not be intuitive or easily accessible using any of the placement options listed here, you may consider alternatives and optionally propose a new Primer pattern.
-
-<DoDontContainer>
-  <Do>
-    <img src="https://user-images.githubusercontent.com/2313998/151623709-2a4257d6-e8d0-4156-b928-c7097981791c.png" />
-    <Caption>Always keep the save button enabled</Caption>
-  </Do>
-  <Dont>
-    <img src="https://user-images.githubusercontent.com/2313998/151623715-3b298004-b624-43dc-875c-2590c08070e7.png" />
-    <Caption>Disable the save button if the form is invalid or unchanged</Caption>
-  </Dont>
-</DoDontContainer>
 
 ## Explicit saving
 
@@ -134,30 +170,29 @@ If there is an error saving the data, the user's data should be preserved in the
 <DoDontContainer>
   <Do>
     <img alt="A form broken into two sections where one section has a dropdown that automatically saves" src="https://user-images.githubusercontent.com/2313998/151887935-980adacd-41aa-47cb-8756-eeaa1a6d0f2b.png" />
-    <Caption>Separate auto-saving controls from an explicitly saved form</Caption>
+    <Caption>Separate auto-saving inputs from an explicitly saved form</Caption>
   </Do>
   <Dont>
     <img alt="A form with a single section and it contains a dropdown that automatically saves" src="https://user-images.githubusercontent.com/2313998/151887936-d41900ca-2d63-43ac-bf82-55b4bba0df61.png" />
-    <Caption>Mix auto-saving controls with explictly saved controls in the same form</Caption>
+    <Caption>Don't mix auto-saving inputs and explicitly saved inputs in the same form</Caption>
   </Dont>
 </DoDontContainer>
 
 ### Unsaved changes
 
-With the addition of the command palette there are additional opportunities to accidentally navigate away from a page with unpublished edits.
-
-If a user tries to navigate away from a page with a form that has unsaved changes, you can optionally warn them that their changes will be lost using the [`beforeunload` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event). Modern browsers prevent developers from customizing the `alert` message, so we're limited to a generic message like "Do you want to leave this site? Changes you made may not be saved."
+If a user tries to navigate away from a page with a form that has unsaved changes, you have the option to warn them that their changes will be lost using the [`beforeunload` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event). Modern browsers prevent developers from customizing the `alert` message, so we're limited to a generic message like "Do you want to leave this site? Changes you made may not be saved."
 
 ### Declarative controls
+
 To ensure your forms are accessible, you should use explicit saving (and not automatic saving) in declarative inputs. These are:
+
 - Text inputs
 - Checkbox groups
 - Radio button groups
 - Browser-native `<select>` dropdown menus
 - Multi-select dropdown menus
 
-To maintain consistent interaction patterns across your app, do not use segmented controls in an explicitly saved form. These should only be used with automatic saving.
-
+To ensure your forms are accessible, do not automatically save declarative inputs.
 
 There are a few issues to bear in mind with autosaving declarative inputs.
 
@@ -179,9 +214,7 @@ There are a few issues to bear in mind with autosaving declarative inputs.
 
 ## Automatic saving
 
-Automatic saving applies changes as they are made.
-
-Automatic saving should be used when the user expects instant feedback from the change they made. Changes should only be saved automatically using [imperative inputs](#imperative-inputs).
+Automatic saving applies changes as they are made. Automatic saving should be used when the user expects instant feedback from the change they made.
 
 <Box mb={3} display="flex" alignItems="center" flexDirection="column" mt={6} mx="auto" sx={{gap: 2, maxWidth: '450px'}}>
     <Box display="inline-block" overflow="hidden" borderWidth="1px" borderColor="border.default" borderStyle="solid" borderRadius="12px">
@@ -194,19 +227,36 @@ Automatic saving should be used when the user expects instant feedback from the 
     <Text as="p" mt="0" align="center" fontSize={1}>If a form field is saved automatically, it should be obvious whether or not it saved without using text or visual indicators. A visual indicator for whether or not a form field has been saved successfully could be mistaken as a validation status.</Text>
 </Box>
 
+### Dropdown menu accessibility
+
+Automatically saving a single-select dropdown menu is accessible as long as it is a semantic menu. A semantic menu can only be a list of items that can be selected.
+
+As soon as a dropdown has additional features (search inputs, filters, tabs, etc), the dropdown should be treated like a dialog with a button to submit and a button to cancel. A dialog will provide the proper navigation features for folks using assistive technology.
+
 ## Feedback
 
-If the change is not obvious within the user's viewport, provide feedback to let the user know that the change occurred successfully. If the change occurred without a redirect or page refresh, you can use the toast component. If the change occurred and the page refreshes or redirects, you can use a flash banner component.
+If the change is not obvious within the user's viewport, provide feedback to let the user know that the change occurred successfully.
+
+- If the change occurred without a redirect or page refresh, you can use the toast component.
+- If the change occurred and the page refreshes or redirects, you can use a flash banner component.
 
 <Note variant="warning">If your design is being implemented in github.com, avoid using a toast for now. Those toasts have accessibility issues that need to be fixed.</Note>
 
 ## Error forgiveness
 
-For risky changes, provide a way to undo those changes after saving.
-
 Before submitting a form with very dangerous consequences (for example, delete a repository), ask the to user confirm they want to submit the form.
 
+For risky changes, provide a way to undo those changes after saving.
+
+<Box display="flex" alignItems="center" flexDirection="column"mx="auto" sx={{gap: 1}}>
+    <Box display="inline-block" overflow="hidden" borderWidth="1px" borderColor="border.default" borderStyle="solid" borderRadius="12px">
+        <img width="960" src="https://user-images.githubusercontent.com/2313998/152434199-a067b037-baf8-4093-8796-b0bb58344223.png" />
+    </Box>
+    <Text as="p" mt="0" align="center" fontSize={1}>After merging a pull request, a button appears to revert the changes</Text>
+</Box>
+
 ## Redirecting
+
 When creating new content like issues, discussions, or even larger entities such as repositories or organizations, you may redirect the user to the entity they just created at the end of the flow.
 
 In some cases, such as forking or using a template, you may need to hold the user at a waiting page while the entity is generated. In these cases, make the user feel confident that something is happening and that their configuration details will not be lost. 
