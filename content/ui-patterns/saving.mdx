@@ -159,20 +159,12 @@ To ensure your forms are accessible, you should use explicit saving (and not aut
 To maintain consistent interaction patterns across your app, do not use segmented controls in an explicitly saved form. These should only be used with automatic saving.
 
 
-#### Problems with autosaving declarative inputs:
-**Text inputs**
-- Users are expecting to set a value and then submit
-- Sensitive information could be unintentionally submitted. For example: a change password input
+There are a few issues to bear in mind with autosaving declarative inputs.
 
-**Checkbox groups**
-- It could be unclear whether or not their selections have been saved
-- Users may accidentally submit a selection that they clicked by accident
-
-**Radio button groups**
-- Screenreader users can't read the options without selecting them. This could accidentally apply a selection the user didn't want.
-
-**Browser-native `<select>` dropdowns**
-- A select dropdown has a similar problem as a radio button group. Options are selected when a user focuses the select and uses their arrow keys to read through each option
+- Text inputs: Users expect to set a value and then submit. Sensitive information could be unintentionally submitted, such as a change password input.
+- Checkbox groups: It could be unclear whether or not the selections has been saved. Users may accidentally submit a selection clicked by accident.
+- Radio button groups: Screenreader users can't read the options without selecting them, which could accidentally apply a selection the user didn't want.
+- Browser-native `<select>` dropdowns: Similarly to radio button groups, options could be selected when a user focuses the select and uses the arrow keys to read through each option.
 
 <DoDontContainer>
   <Do>
