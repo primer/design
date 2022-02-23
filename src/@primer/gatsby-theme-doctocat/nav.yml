@@ -29,6 +29,8 @@
       url: /ui-patterns/empty-states
     - title: Feature onboarding
       url: /ui-patterns/feature-onboarding
+    - title: Focus management
+      url: /ui-patterns/focus-management
     - title: Messaging
       url: /ui-patterns/messaging
     - title: Progressive disclosure
