@@ -17,25 +17,26 @@ Note: this document is an early work in progress. More information will be added
 <!--
 TODO:
 The following topics will be critical to defining strong guidelines for designing forms:
-- Form layout
-- Form structure and hierarchy
-- Validation messages that apply to the entire form
-- Form submission patterns
-- Patterns for grouping related fields
-- How to deal with forms that are very long or contain multiple parts
-- Fields that use a "progressive disclosure" pattern based on whether a setting has been toggled on
+- [ ] Form layout
+- [x] Form structure and hierarchy
+- [x] Validation messages that apply to the entire form
+- [x] Form submission patterns
+- [x] Patterns for grouping related fields
+- [ ] How to deal with forms that are very long or contain multiple parts
+- [x] Fields that use a "progressive disclosure" pattern based on whether a setting has been toggled on
 -->
 
 ## Form field anatomy
 
 Form fields are made up of the same parts, but they are laid out differently depending on the kind of input.
 
-![a diagram labeling the anatomy of a text input field]()
-![a diagram labeling the anatomy of a checkbox input field]()
+![a diagram labeling the anatomy of a text field]()
 
 1. Label (required)
 2. Required field indicator
 3. Input (required)
+4. Caption
+5. Validation message
 <!-- TODO: finish listing labeled parts -->
 
 ### Label (required)
@@ -55,7 +56,7 @@ The input is what the user interacts with to set the value of the field.
 
 For more specific information about each input, visit the respective component documentation page. For example: [CheckboxInputField](), [TextInputField]()
 
-### Placeholder text
+<!-- ### Placeholder text
 Text inputs and select dropdowns may display placeholder text to demonstrate what kind of value the field is expecting.
 
 <DoDontContainer>
@@ -81,6 +82,7 @@ Otherwise, placeholder text alone is not an acceptable substitute for a field la
 - The placeholder text disappears as soon as the input has a value
 - Placeholder text colors are typically too light to meet the minimum color contrast ratio required to be aceessible
 - Screenreaders do not read placeholder text
+-->
 
 ### Caption
 Captions may be used to show information to provide additional context about the field to help them fill in the correct data. Caption text should be as short as possible.
@@ -161,7 +163,9 @@ A few tips to acheive a natural flow:
 -->
 When there is a collection of closely related fields, they should be grouped together using whitespace and a label.
 
-#### Choice list
+Effective techniques to group a collection of form controls include proximity, whitespace, background colors.
+
+<!-- #### Choice list
 
 A common pattern for picking one or more options from a list is to show a list of checkbox or radio inputs that the user can check.
 
@@ -169,9 +173,11 @@ A common pattern for picking one or more options from a list is to show a list o
 
 ### Ready to receive input
 
-### Not ready to receive input
+### Not ready to receive input -->
 
-### Validation
+## Validation
+
+### Form control validation
 
 Don't rely on browser-native validation messages, use Primer instead. We avoid browser-native validation messages because they are not accessible to screenreaders, and they visually clash with Primer styles.
 
@@ -179,11 +185,27 @@ Don't rely on browser-native validation messages, use Primer instead. We avoid b
 
 **Success message**: A success message may be used when a user might need extra assurance that the field's value is valid. For example: when correcting an invalid value. Success messages aren't as critical as error messages because error messages have information that is blocking the user from completing their task.
 
-## Kinds of form data
+### Global form validation
 
-### Free-form text
+Idk what to say here
 
-### Pick an option
+## Input methods
+
+### Open-ended text fields
+
+Use an open-ended text field when the form control does not have a list of possible values. If it's possible to suggest values, use an [Autocomplete](#autocomplete) that allows users to pick a value or enter their own.
+
+TextInput
+Textarea
+Autocomplete
+
+### A set of selectable options
+
+ChoiceGroup w/ Radios
+ChoiceGroup w/ Checkboxes
+Select
+Dropdown
+Autocomplete
 
 ## Form components
 For more specific guideance on a specific kind of form field, check out the component documentation.
