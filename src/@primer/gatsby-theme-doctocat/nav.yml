@@ -28,7 +28,9 @@
     - title: Messaging
       url: /ui-patterns/messaging
     - title: Progressive disclosure
-      url: /ui-patterns/progressive-disclosure    
+      url: /ui-patterns/progressive-disclosure
+    - title: Semantic HTML
+      url: /ui-patterns/semantic-html
 - title: Components
   url: /components
   children:
