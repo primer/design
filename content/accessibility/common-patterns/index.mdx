@@ -1,0 +1,18 @@
+---
+title: Common patterns
+---
+
+import {Grid, Flex, Box, Link, Text, Label} from '@primer/components'
+
+
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
+    <div>
+        <Link href="/design/ui-patterns/focus-management">
+            {/* <img role="presentation" src="https://user-images.githubusercontent.com/2313998/138136341-c85ccaf9-f83f-4933-9fde-9a7b9c630fe4.png" /> */}
+        </Link>
+    </div>
+    <div>
+        <Link href="/accessibility/common-patterns/focus-management" fontWeight="bold">Focus Management</Link>
+        <Box as="p">Managing focus within a page or application is essential for users to be able to successfully navigate, complete actions, and understand where they are within a web page or application. A focus indicator is usually seen visually as a blue outline around an interactive element when that element has focus.</Box>
+    </div>
+</Grid>
