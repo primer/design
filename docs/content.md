@@ -37,7 +37,7 @@
 * Creating
 * Feature onboarding
 * Saving
-* Seaching and filtering
+* Searching and filtering
 
 ### Communication
 
