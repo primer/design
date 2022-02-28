@@ -16,6 +16,8 @@
       url: /accessibility/guidelines
     - title: Tools
       url: /accessibility/tools
+    - title: Semantic HTML
+      url: /accessibility/semantic-html
 - title: UI patterns
   url: /ui-patterns
   children:
@@ -29,8 +31,6 @@
       url: /ui-patterns/messaging
     - title: Progressive disclosure
       url: /ui-patterns/progressive-disclosure
-    - title: Semantic HTML
-      url: /ui-patterns/semantic-html
 - title: Components
   url: /components
   children:
