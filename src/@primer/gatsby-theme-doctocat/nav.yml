@@ -14,10 +14,10 @@
       url: /accessibility/accessibility-at-github
     - title: Guidelines
       url: /accessibility/guidelines
-    - title: Tools
-      url: /accessibility/tools
     - title: Semantic HTML
       url: /accessibility/semantic-html
+    - title: Tools
+      url: /accessibility/tools
 - title: UI patterns
   url: /ui-patterns
   children:
