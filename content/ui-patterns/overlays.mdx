@@ -43,6 +43,22 @@ Overlays can streamline the interface by allowing extra options to be displayed 
 </ImageContainer>
 <Caption>Anatomy of an overlay.</Caption>
 
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+      <Flex justifyContent="center">
+          <img
+              width="464"
+              alt="Action list sizes"
+              src="https://user-images.githubusercontent.com/293280/125997468-fa064d6b-ace3-4dec-920d-178478d67ba9.png"
+          />
+      </Flex>
+  </div>
+  <div>
+      <Heading fontSize={2}>Keep the edges of an overlay free of text and heavy visuals.</Heading>
+      <Box as="p">This breathing room is meant to visually distinguish the overlay as an elevated surface, alongside its shadow. Generally, a compact a safe area of 16px is preferred. Components that have transparent or discrete backgrounds may take into account their own paddings, and appear beyond the safe area.</Box>
+  </div>
+</Grid>
+
 **Keep the edges of an overlay free of text and heavy visuals.** This breathing room is meant to visually distinguish the overlay as an elevated surface, alongside its shadow. Generally, a compact a safe area of 16px is preferred. Components that have transparent or discrete backgrounds may take into account their own paddings, and appear beyond the safe area.
 
 **The content region may scroll vertically** to accommodate lists and content that is too long to fit in the available space.
@@ -286,7 +302,7 @@ A centered dialog with a title and close button in the header, a scrollable cont
 
 ### Side sheets
 
-Side sheets slide from the right or left edges of the viewport. Side sheets are mainly used for global navigation drawers, but right sheets can also be considered for quick previews in full-width pages, or quick configuration panels.
+Side sheets slide from the right or left edges of the viewport. Left side sheets are reserved for global navigation drawers. Right side sheets are used for global actions, but can also be considered for quick previews in full-width pages, or configuration panels.
 
 Side sheets take the entire height of the viewport, and should be used sparingly. Don't use side sheets to present forms or flows that should be a page instead.
 
