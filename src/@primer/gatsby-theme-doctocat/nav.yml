@@ -12,6 +12,8 @@
   children:
     - title: Accessibility at GitHub
       url: /accessibility/accessibility-at-github
+    - title: Focus management
+      url: /accessibility/focus-management
     - title: Guidelines
       url: /accessibility/guidelines
     - title: Headings
