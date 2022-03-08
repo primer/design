@@ -20,6 +20,8 @@
       url: /accessibility/headings
     - title: Semantic HTML
       url: /accessibility/semantic-html
+    - title: Text resize, respacing, and zoom
+      url: /accessibility/text-resize-respacing-and-zoom
     - title: Tools
       url: /accessibility/tools
 - title: UI patterns
