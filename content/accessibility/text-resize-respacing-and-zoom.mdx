@@ -1,5 +1,5 @@
 ---
-title: Text size, spacing, and zoom
+title: Text resize, respacing, and zoom
 ---
 
 ## Overview
@@ -48,6 +48,21 @@ As you're developing a feature, make sure to test the page using the resize tech
 [WCAG Text spacing techniques](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html#techniques) are employed.
 
 ## Examples
+
+<DoDontContainer stacked>
+  <Do>
+    <Caption>Do ensure that the text does not overflow when text spacing is customized</Caption>
+    <img width="400" alt="Screenshot of a GitHub issue description with adjusted text spacing. The issue description is contained within the bounds of the container even with adjusted text spacing " src="https://user-images.githubusercontent.com/16447748/157532517-38ae80a0-f5f8-47ec-b9fc-7d5ba5d27bd2.png">
+  </Do>
+  <Do>
+    <Caption>Do use the browser zoom functionality to verify that the page is readable and functional and make adjustments as necessary</Caption>
+    <img width="1802" alt="Screenshot of a GitHub markdown toolbar that becomes unusable with overlapping controls at browser magnification of 200%" src="https://user-images.githubusercontent.com/16447748/157534278-daa67dbd-ecfb-4964-ab45-13d6037355a0.png">
+  </Do>
+  <Dont>
+    <Caption>Don't use a fixed height on text content containers</Caption>
+    <img width="400" alt="Screenshot of a GitHub issue description where the container has a fixed height, causing the authored long description to overflow" src="https://user-images.githubusercontent.com/16447748/157533237-a18c1cfb-d962-4349-8cbd-a390174b4ebc.png">
+  </Dont>
+</DoDontContainer>
 
 ## Additional resources
 
