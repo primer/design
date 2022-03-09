@@ -8,7 +8,7 @@
     - title: Content
       url: /foundations/content
 - title: Accessibility
-  url: /accessibility/accessibility-at-github
+  url: /accessibility
   children:
     - title: Accessibility at GitHub
       url: /accessibility/accessibility-at-github
