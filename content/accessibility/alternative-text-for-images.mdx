@@ -49,6 +49,20 @@ A missing `alt` attribute is bad, but an `alt` attribute with wrong or useless i
 - Don't fill the `alt` text with keywords. The `alt` attribute is often misused as a place to store SEO keywords or copyright information.
 - Combine `alt` text with the caption or the content. If the image is sufficiently described in the text (for example, a simple diagram illustrating what's written in the web page text) it can have a brief `alt` text such as "Diagram of work flow described above".
 
+<DoDontContainer>
+    <Do>
+      <Caption>Every img element must have an 'alt' attribute.</Caption>
+      <Code className="language-html">{`<img src="image1.jpg" alt="A dog playing with a ball" />`}</Code>
+      <br />
+      <Caption>Leave the 'alt' attribute empty for decorative.</Caption>
+      <Code className="language-html">{`<img src="shape.png" alt="" />`}</Code>
+    </Do>
+    <Dont>
+      <Caption>Don't use an img element without an 'alt' attribute.</Caption>
+     <Code className="language-html">{`<img src="image1.jpg"/>`}</Code>
+    </Dont>
+</DoDontContainer>
+
 You can read more tips in the [Web Accessibility Tutorials Guidance on how to create websites that meet WCAG
 ](https://www.w3.org/WAI/tutorials/images/tips/).
 
