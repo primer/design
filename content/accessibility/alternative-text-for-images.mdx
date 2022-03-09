@@ -1,5 +1,5 @@
 ---
-title: Alternative Text for Images
+title: Alternative text for images
 ---
 
 ## Overview
@@ -10,22 +10,22 @@ title: Alternative Text for Images
 
 ## Why?
 
-Images can make the web user experience better and more pleasant, especially for users with cognitive and learning disabilities. But not all images used in websites are accessible, and that can be a major barrier. Accessible images are beneficial for everyone, especially for people using screen reader and other assistive technologies, as well as is beneficial for Search Engine Optimization (SEO). 
+Images can make the web user experience better and more pleasant, especially for users with cognitive and learning disabilities. Not all images used in websites are accessible, and that can be a major barrier. Accessible images are beneficial for everyone, especially for people using screen readers and other assistive technologies, as well Search Engine Optimization (SEO). 
 
 You can read more about why alternative text for images is important in the [Web Accessibility Tutorials Guidance on how to create websites that meet WCAG
 ](https://www.w3.org/WAI/tutorials/images/#why-is-this-important).
 
-## Guidelines & Examples
+## Guidelines and examples
 
-### Informative & Decorative images
+### Informative and decorative images
 
-To help you determine the best way to communicate the information of an image to a screen reader users you can use [the alt text decision tree provided by the W3C](
+To help you determine the best way to communicate the information of an image to a screen reader user, you can use [the alt text decision tree provided by the W3C](
 https://www.w3.org/WAI/tutorials/images/decision-tree/).
 
-Depending the purpose of the images, they can be categorized into two categories: [informative](https://www.w3.org/WAI/tutorials/images/informative/) and [decorative](https://www.w3.org/WAI/tutorials/images/decorative/) images.
+Depending the purpose of the images, they can be categorized into one of two categories: [informative](https://www.w3.org/WAI/tutorials/images/informative/) or [decorative](https://www.w3.org/WAI/tutorials/images/decorative/) images.
 
-- Informative images convey a simple concept or information that can be expressed in a short phrase or sentence. The alt text must contain the description of what is displayed visually in the image.
-- Decorative images don’t add information to the content of a page. For example an image that is included to make the website more visually attractive. You will always get an affirmative answer to the question "if the image was removed, would the user still get all the information from the page?".
+- Informative images convey a simple concept or information that can be expressed in a short phrase or sentence. The `alt` text must contain the description of what is displayed visually in the image.
+- Decorative images don’t add information to the content of a page. For example, an image that is included to make the website more visually attractive. You will always get an affirmative answer to the question "if the image was removed, would the user still get all the information from the page?".
 
 ### For designers
 
@@ -33,20 +33,20 @@ When you create a new design and it includes images, include captions of a descr
 
 ### For engineers
 
-As you're developing a new component, feature, or page that contains an image, use proper [semantic html](https://primer.style/design/accessibility/semantic-html) and use the `<img>` element with a proper alternative text using the `alt` attribute.
+As you're developing a new component, feature, or page that contains an image, use proper [semantic HTML](https://primer.style/design/accessibility/semantic-html) and use the `<img>` element with proper alternative text using the `alt` attribute.
 
 Every `<img>` element must have an `alt` attribute. It could have content for informative images or be empty for decorative images, but it must always be present.
 
 ### How to write good alt text
 
-A missing alt attribute is bad, but an alt with wrong or useless information is not a better solution. When writing the alt text of an image you should always have in mind some rules:
+A missing `alt` attribute is bad, but an `alt` attribute with wrong or useless information is not a better solution. When writing the `alt` text of an image, you should always have in mind some rules:
 
-- Keep it short. It's usually better to avoid long, boring, or irrelevant information. The alt text should be the most concise description possible of the image’s purpose.
+- Keep it short. It's usually better to avoid long, boring, or irrelevant information. The `alt` text should be the most concise description possible of the image’s purpose.
 - The alternative text should not include the words button, link, or image. Screen readers already provide that information.
 - In [textual images](https://www.w3.org/WAI/tutorials/images/textual/
-), images that contains words that are important to understanding the content, the words are included in the text alternative.
-- Don't fill the alt text with keywords. The alt attribute is often misused as a place to store SEO keywords or copyright information.
-- Combine alt text with the caption or the content. If the image is sufficiently described in the text — for example, a simple diagram illustrating what's written in the web page text — it can have brief alt text such as "Diagram of work flow as describe above".
+) (images that contains words that are important to understanding the content), the words are included in the text alternative.
+- Don't fill the `alt` text with keywords. The `alt` attribute is often misused as a place to store SEO keywords or copyright information.
+- Combine `alt` text with the caption or the content. If the image is sufficiently described in the text, for example, a simple diagram illustrating what's written in the web page text, it can have brief `alt` text such as "Diagram of work flow described above".
 
 You can read more tips in the [Web Accessibility Tutorials Guidance on how to create websites that meet WCAG
 ](https://www.w3.org/WAI/tutorials/images/tips/).
