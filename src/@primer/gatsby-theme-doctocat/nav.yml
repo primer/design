@@ -22,6 +22,8 @@
       url: /accessibility/semantic-html
     - title: Text resize and respacing
       url: /accessibility/text-resize-and-respacing
+    - title: Alternative text for images
+      url: /accessibility/alternative-text-for-images
     - title: Tools
       url: /accessibility/tools
 - title: UI patterns
