@@ -20,6 +20,8 @@
       url: /accessibility/headings
     - title: Semantic HTML
       url: /accessibility/semantic-html
+    - title: Alternative text for images
+      url: /accessibility/alternative-text-for-images
     - title: Tools
       url: /accessibility/tools
 - title: UI patterns
