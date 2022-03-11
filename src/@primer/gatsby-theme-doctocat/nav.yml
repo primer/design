@@ -12,16 +12,18 @@
   children:
     - title: Accessibility at GitHub
       url: /accessibility/accessibility-at-github
-    - title: Focus management
-      url: /accessibility/focus-management
     - title: Guidelines
       url: /accessibility/guidelines
+    - title: Tools
+      url: /accessibility/tools
+    - title: Focus management
+      url: /accessibility/focus-management
     - title: Headings
       url: /accessibility/headings
     - title: Semantic HTML
       url: /accessibility/semantic-html
-    - title: Tools
-      url: /accessibility/tools
+    - title: Links
+      url: /accessibility/links
 - title: UI patterns
   url: /ui-patterns
   children:
