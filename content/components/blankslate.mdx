@@ -1,0 +1,271 @@
+---
+title: Blankslate
+status: Beta
+---
+
+import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link} from '@primer/components'
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+  A Blankslate is a placeholder for areas where no data or content is present. It is primarily used for feature onboarding and/or as an empty state calling for a user to populate the current view by performing a specific action.
+
+</Box>
+
+<LabelGroup display="block" mb={4}>
+  <Label
+    as="a"
+    href="https://primer.style/react/ActionList"
+    variant="xl"
+    color="text.success"
+    outline
+    style="text-decoration: none; line-height: 20px;"
+  >
+    <img
+      width="20"
+      height="20"
+      alt=" "
+      src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    React
+  </Label>
+  <Label
+    as="a"
+    href="https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=1927%3A0"
+    variant="xl"
+    outline
+    style="text-decoration: none; line-height: 20px;"
+  >
+    <img
+      width="20"
+      height="20"
+      alt=" "
+      src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    Figma
+  </Label>
+</LabelGroup>
+
+<ImageContainer>
+  <img
+    width="868"
+    src="https://user-images.githubusercontent.com/293280/125994797-430b8376-30f8-4971-b476-c5186f9ef6ca.png"
+    alt="Action list examples"
+    style="background: none"
+  />
+</ImageContainer>
+
+
+## Anatomy
+
+An action list can be composed of:
+
+- Action list items
+- Item dividers
+- Section headers (subtle or filled styles)
+- Section dividers (subtle or filled styles)
+
+<img
+  src="https://user-images.githubusercontent.com/293280/125995889-12a2de9a-7e15-4638-87dd-6796a983f733.png"
+  alt="Action list anatomy"
+/>
+
+<img
+  src="https://user-images.githubusercontent.com/293280/125996049-e2af9cc7-c736-4adc-9800-a1d742b7929e.png"
+  alt="Action list item anatomy"
+/>
+
+## Options
+
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+    <div>
+        <Flex justifyContent="center">
+            <img
+                width="464"
+                alt="Action list sizes"
+                src="https://user-images.githubusercontent.com/293280/125997468-fa064d6b-ace3-4dec-920d-178478d67ba9.png"
+            />
+        </Flex>
+    </div>
+    <div>
+        <Heading fontSize={3}>Sizes</Heading>
+        <Box as="p">Action list items support three different sizes: small, medium, and large. The small size is the default and most common option. Medium sizes work well for relaxed local navigation, while large sizes can support items that need more breathing room.</Box>
+        <Box as="p">Sizes only grow vertically. This behavior keeps the content aligned among items, and retains horizontal space for density.</Box>
+        <Box as="p">On touch devices, the large size is used at all times to ensure usability when tapping.</Box>
+        <Box as="p">Be cautious when mixing different sizes in the same list to avoid inconsistency.</Box>
+    </div>
+    <div>
+        <Flex flexDirection="column" justifyContent="center">
+            <Box>
+                <img
+                    width="464"
+                    alt=" "
+                    src="https://user-images.githubusercontent.com/293280/125997571-d8b92b5e-5241-4f33-b223-825335b18f3d.png"
+                />
+                <Caption>Use leading visuals to represent system sections, features, or options.</Caption>
+            </Box>
+            <Box>
+                <img
+                    width="464"
+                    alt=" "
+                    src="https://user-images.githubusercontent.com/293280/125997693-e0d9e379-19c1-4382-adbb-2a1882937373.png"
+                />
+                <Caption>Use leading visuals in important menu items.</Caption>
+            </Box>
+            <Box>
+                <img
+                    width="464"
+                    alt=" "
+                    src="https://user-images.githubusercontent.com/293280/125998871-9f51e402-2ccf-4e0a-9465-65d4956c630f.png"
+                />
+                <Caption>Use leading visuals to represent content types.</Caption>
+            </Box>
+        </Flex>
+    </div>
+    <div>
+        <Heading fontSize={3}>Leading visual</Heading>
+        <Box as="p">Leading visuals are optional and appear at the start of an item. They can be octicons, avatars, and other custom visuals that fit a small area.</Box>
+        <Box as="p">When listing system sections, features, or options, use leading visuals to improve the items' scannability. In user-generated objects, they can help to indicate the item's content type and status.</Box>
+        <Box as="p">Depending on the context, displaying a leading visual may not be necessary. For example, a list of branches in a select panel may not need repeated icons if the surrounding UI provides enough hints about its content type.</Box>
+    </div>
+    <div>
+        <Flex flexDirection="column" justifyContent="center">
+            <Box>
+                <img
+                    width="464"
+                    alt=" "
+                    src="https://user-images.githubusercontent.com/293280/125998961-24f90611-fe5f-4169-8943-eef68a6755a9.png"
+                />
+                <Caption>A right arrow as a trailing visual indicates there are more options to choose after selecting an item.</Caption>
+            </Box>
+            <Box>
+                <img
+                    width="464"
+                    alt=" "
+                    src="https://user-images.githubusercontent.com/293280/125999062-bc489a21-cdc6-455a-8363-b7c8c7faeb3a.png"
+                />
+                <Caption>Trailing text with custom styling to indicate diff change.</Caption>
+            </Box>
+        </Flex>
+    </div>
+    <div>
+        <Heading fontSize={3}>Trailing visual and trailing text</Heading>
+        <Box as="p">Trailing visual and trailing text can display auxiliary information. They're placed at the right of the item, and can denote status, keyboard shortcuts, or be used to set expectations about what the action does.</Box>
+        <Box as="p">Note these side visuals don't have dedicated interaction targets.</Box>
+        <Box as="p">
+
+Use an [`arrow-right`](https://primer.style/octicons/arrow-right-16) octicon in menus to indicate the action will open more options, such as in a nested context. Use a [`pencil`](https://primer.style/octicons/pencil-16) octicon to indicate the item is going to be edited after clicking it.
+
+</Box>
+        <Box as="p">Custom trailing elements are supported, such as counters, labels, and other custom visuals that may help identify the item.</Box>
+        <Box as="p">When using a trailing text for displaying keyboard shortcuts, always confirm the characters match with the user's operating system. For example, to indicate a bold action in a Markdown toolbar, use "Ctrl+B" on Linux and Windows, and "⌘B" on Mac. <a href="https://support.apple.com/en-us/HT201236">See reference for Mac keyboard glyphs</a>.</Box>
+    </div>
+    <div>
+        <Flex justifyContent="center">
+            <img
+                width="464"
+                alt=" "
+                src="https://user-images.githubusercontent.com/293280/125999347-c20e7d85-48ec-4a7e-9ecf-b5a52a033256.png"
+            />
+        </Flex>
+        <Caption>Single-selection with block description using item dividers for increased visibility.</Caption>
+    </div>
+    <div>
+        <Heading fontSize={3}>Item dividers</Heading>
+        <Box as="p">Item dividers allow users to parse heavier amounts of information. They're placed between items and are useful in complex lists, particularly when descriptions or multi-line text is present.</Box>
+        <Box as="p">When considering whether to use item dividers, make sure they truly make the presented information easier to parse, instead of only increasing visual clutter.</Box>
+        <Box as="p">When using item dividers, increasing the action list item size may also help with legibility.</Box>
+    </div>
+    <div>
+        <Flex justifyContent="center">
+            <img
+                width="464"
+                alt="Multi-selection"
+                src="https://user-images.githubusercontent.com/293280/126000062-3fc62e04-670d-4346-b65b-57c2e70ceeb0.png"
+            />
+        </Flex>        
+    </div>
+    <div>
+        <Heading fontSize={3}>Selection states</Heading>
+        <Box as="p">
+
+Action list items can be selected. Single selections are represented with a [`check`](https://primer.style/octicons/check-16) octicon, while multiple selections are represented with a checkbox component. These selection visuals are always placed at the beginning of the item.
+
+</Box>
+        <Box as="p">When listing selectable items alongside non-selectable items in a menu, use dividers to differentiate between the item types.</Box>
+        <Box as="p">Don't mix different types of selections in the same list.</Box>
+    </div>
+    <div>
+        <Flex justifyContent="center">
+            <img
+                width="464"
+                alt="Action list item in danger variation"
+                src="https://user-images.githubusercontent.com/293280/125999384-b2a322db-8ec3-4a69-a414-10050544813b.png"
+            />
+        </Flex>        
+    </div>
+    <div>
+        <Heading fontSize={3}>Danger items</Heading>
+        <Box as="p">An action list item can have a special "danger" style, to be used in cases that require extra attention from the user.</Box>
+        <Box as="p">For destructive or irremediable actions, show a confirmation dialog for extra friction. If the action is not destructive, present the user a way to undo the action instead of asking for confirmation. <a href="https://alistapart.com/article/neveruseawarning/">Never use a warning when you mean undo</a>.</Box>
+        <Box as="p">Place danger items at the end of the list.</Box>
+    </div>
+</Grid>
+
+## Accessibility considerations
+- All text must have a a contrast ratio equal to or greater than 4.5:1
+- Visuals used should have a contrast ratio equal to or greater than 3:1
+- The heading should be concise and informative
+- The action link(s) must be descriptive, using language that informs the user where they will be taken, for example “Create SSH key” and “Learn more about SSH keys”.
+
+
+
+### In overlays
+
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
+    <div>
+        <Link href="https://primer.style/react/ActionMenu">
+            <img alt="Action menu" src="https://user-images.githubusercontent.com/293280/123880964-95b3a700-d8f8-11eb-9775-cbaf165207ed.png" />
+        </Link>
+    </div>
+    <div>
+        <Heading fontSize={3}>Action menu</Heading>
+        <Box as="p">
+
+Action menus are used for disambiguation, navigation, or to display secondary options. They appear when users interact with buttons, actions, or other controls.
+
+[Primer React implementation](https://primer.style/react/ActionMenu)
+
+</Box>
+    </div>
+    <div>
+        <Link href="https://primer.style/react/DropdownMenu">
+            <img alt="Select panel" src="https://user-images.githubusercontent.com/293280/123881067-cdbaea00-d8f8-11eb-98e4-e57c64489308.png" />
+        </Link>
+    </div>
+    <div>
+        <Heading fontSize={3}>Dropdown menu</Heading>
+        <Box as="p">
+
+Dropdown menus are used for making a single selection among a small list of options. The list is usually predefined with system values, but in some cases it can include user-provided data when those are known not to grow into too many items.
+
+[Primer React implementation](https://primer.style/react/DropdownMenu)
+
+</Box>
+    </div>
+    <div>
+        <Link href="https://primer.style/react/SelectPanel">
+            <img alt="Select panel" src="https://user-images.githubusercontent.com/293280/123876997-4158f900-d8f1-11eb-85cb-461d9bbee0cb.png" />
+        </Link>
+    </div>
+    <div>
+        <Heading fontSize={3}>Select panel</Heading>
+        <Box as="p">
+
+Select panels allow manipulating long lists of options, with filtering and other advanced interactions. They can be used for single or multi-selection.
+
+[Primer React implementation](https://primer.style/react/SelectPanel)
+
+</Box>
+    </div>
+</Grid>
