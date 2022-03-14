@@ -24,6 +24,8 @@
       url: /accessibility/text-resize-and-respacing
     - title: Alternative text for images
       url: /accessibility/alternative-text-for-images
+    - title: Describing a button’s purpose
+      url: /accessibility/button-purpose
     - title: Tools
       url: /accessibility/tools
 - title: UI patterns
