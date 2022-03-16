@@ -54,7 +54,7 @@ To ensure your forms are accessible, you should use explicit saving (and not aut
 
 ### Calls to action
 
-When data is not automatically saved after the user make changes, buttons are used to submit or cancel the changes.
+When data is not automatically saved after the user makes changes, buttons are used to submit or cancel the changes.
 
 #### Text
 
@@ -123,7 +123,7 @@ Do not disable or hide a form's save button even if the form is invalid or has n
 
 #### Placement
 
-Place save buttons somewhere intuitive and easily accessible. If all of the fields save automatically, do not include a save button. This makes it unclear when data is being saved. See the guidelines on [explicit saving](#explicit-saving) and [automatic saving](#automatic-saving) for more information.
+Place save buttons somewhere intuitive and easily accessible. 
 
 - There should only be one save button on a page.
 - Place save buttons somewhere intuitive and easily accessible. If all of the fields save automatically, do not include a save button. This makes it unclear when data is being saved. See the guidelines on [explicit saving](#explicit-saving) and [automatic saving](#automatic-saving) for more information.
@@ -140,7 +140,7 @@ Place save buttons somewhere intuitive and easily accessible. If all of the fiel
   </Dont>
 </DoDontContainer>
 
-##### Bottom-left
+##### Bottom-left (default)
 
 If there is a button to submit and a button to cancel, the cancel button should go to the **right** of the submit button.
 
@@ -153,7 +153,7 @@ If there is a button to submit and a button to cancel, the cancel button should 
     <Box as="p" mt="0">Default to placing the submit button at the bottom left of the form. Labels and inputs are left-aligned and run from top-to-bottom, so users would naturally move their eyes down and to the left.</Box>
 </Box>
 
-##### Bottom-right
+##### Bottom-right (dialogs and comments)
 
 If there is a button to submit and a button to cancel, the button to cancel should go to the **left** of the submit button.
 
@@ -216,10 +216,10 @@ Automatic saving applies changes as they are made. Automatic saving should be us
     <Text as="p" mt="0" align="center" fontSize={1}>If a form field is saved automatically, it should be obvious whether or not it saved without using text or visual indicators. A visual indicator for whether or not a form field has been saved successfully could be mistaken as a validation status.</Text>
 </Box>
 
-There are a few issues to bear in mind with autosaving declarative controls.
+There are a few issues to bear in mind with autosaving [declarative controls](#declarative-controls).
 
 - Text inputs: Users expect to set a value and then submit. Sensitive information could be unintentionally submitted, such as a change password input.
-- Checkbox groups: It could be unclear whether or not the selections has been saved. Users may accidentally submit a selection clicked by accident.
+- Checkbox groups: It could be unclear whether or not the selection has been saved. Users may accidentally submit a selection clicked by accident.
 - Radio button groups: Screenreader users can't read the options without selecting them, which could accidentally apply a selection the user didn't want.
 - Browser-native `<select>` dropdowns: Similarly to radio button groups, options could be selected when a user focuses the select and uses the arrow keys to read through each option.
 
@@ -238,7 +238,7 @@ If the change is not obvious within the user's viewport, provide feedback to let
 
 ## Error forgiveness
 
-Before submitting a form with very dangerous consequences (for example, delete a repository), ask the user to confirm they want to submit the form.
+Before submitting a form with potentially destructive consequences (for example, delete a repository), ask the user to confirm they want to submit the form.
 
 For risky changes, provide a way to undo those changes after saving.
 
