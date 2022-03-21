@@ -41,18 +41,18 @@ People who have low or colorblind vision may have trouble identifying links that
 
 ### For engineers
 - Use the Primer link components:
-	- [Link | Primer ViewComponents](https://primer.style/view-components/components/link)
-	- [Link | Primer React](https://primer.style/react/Link)
+	- [Primer ViewComponents | Link](https://primer.style/view-components/components/link)
+	- [Primer React | Link](https://primer.style/react/Link)
 - Don't override the link styling provided in the components
-- Make sure links receive our global focus indicator styling when navigating the page with a keyboard.
+- Make sure links receive our global focus indicator styling when navigating the page with a keyboard. (Reference: [Focus management | Primer](https://primer.style/design/accessibility/focus-management))
 - Avoid adding side effects to link click events. Links should navigate, not affect the page.
 
 ## Common mistakes
 - Only adding an underline to a link when it has focus or is hovered over
-- Adding underlines to *every link on the page*
+- Adding underlines to *every link on the page*. For example, a navigation list is a list of links but it is not required to have all of these navigational links underlined because the intent is understood and an underline is not needed to identify the interactive nature of the control.
 
 ## Additional resources
-- [Color to Distinguish Links from Text](https://dequeuniversity.com/class/visual-design/color/distinguish-links-from-text)
+- [Color to Distinguish Links from Text](https://dequeuniversity.com/class/visual-design/color/distinguish-links-from-text) (This link to Deque requires a subscription to access the content.)
 - Accessibility Insights plugin > Assessment > 7. Links
 - [WebAIM: Links and Hypertext - Introduction to Links and Hypertext](https://webaim.org/techniques/hypertext/)
 
@@ -60,4 +60,4 @@ People who have low or colorblind vision may have trouble identifying links that
 - [Understanding Success Criterion 4.1.2: Name, Role, Value](https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html)
 - [Authoring Practices Guide - Links](https://www.w3.org/TR/wai-aria-practices-1.2/#link)
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.2 (w3.org)](https://www.w3.org/TR/wai-aria-1.2/#link)
-- https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html
+- [Understanding Success Criterion 2.4.4: Link Purpose (In Context)](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html)
