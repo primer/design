@@ -26,6 +26,8 @@
       url: /accessibility/alternative-text-for-images
     - title: Describing a button’s purpose
       url: /accessibility/button-purpose
+    - title: Announcements
+      url: /accessibility/announcements
     - title: Tools
       url: /accessibility/tools
 - title: UI patterns
