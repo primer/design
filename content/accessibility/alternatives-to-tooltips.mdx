@@ -4,22 +4,28 @@ title: Alternatives to tooltips
 
 ## Overview
 
-Tooltips are frequently used to convey information. However, tooltips are rarely appropriate, and its misuse can result in a myriad of accessibility issues.
+Tooltips are often used to convey information. However, tooltips are rarely appropriate, and its misuse can result in a myriad of accessibility issues.
 Always consider **not** using a tooltip for an improved user experience.
 
 ## Why?
 
-- Tooltips are hidden by default making it easy to miss. Never use tooltips to convey critical information.
-- Tooltips are not accessible on mobile devices.
+- Tooltips are hidden by default making it easy to miss, so it should never be used to convey critical information.
+- Tooltips are never accessible on mobile devices.
 - Tooltips should **never** be set on static elements. Tooltips on static elements are not accessible to keyboard users and screen reader users.
-
-If you determine that tooltips are appropriate for your usecase, make sure to carefully follow guidelines set in [PVC: Tooltip component](https://primer.style/view-components/components/alpha/tooltip).
 
 ## Guidelines 
 
 ### For designers
 
+Only include tooltips on your design as a last resort. Never include tooltips on static elements. 
+
+If you have an appropriate tooltip in your design, be sure to annotate the tooltip carefully with the preferred type (e.g. label or description) to ensure proper semantics.
+
 ### For developers
+
+If you come across a design or a page with a tooltip on a static element, remove it. Consult a designer for an alternative way of conveying the information.
+
+If you determine that tooltips are appropriate for your usecase, make sure to carefully follow guidelines set in [PVC: Tooltip component](https://primer.style/view-components/components/alpha/tooltip).
 
 ## What are alternatives to tooltips?
 
@@ -33,11 +39,20 @@ Often, tooltips duplicate content that is already available on the page making t
 
 ### Use a modal
 
-### Use a disclosure
+### Use a summary disclosure
+
+<DoDontContainer stacked>
+    <Do>
+       <Caption>Do use a pattern that is accessible for more groups of users such as a summary disclosure /Caption>
+    </Do>
+    <Dont>
+       <Caption>Don't set tooltips on static elements</Caption>
+    </Dont>
+</DoDontContainer>
 
 ### Other
 
-## Resources 
+## Additional resources 
 
 - [Your tooltips are bogus](https://heydonworks.com/article/your-tooltips-are-bogus/)
 - [erb lint rule: NoAriaLabelMisuseCounter](https://github.com/github/erblint-github/blob/main/docs/rules/accessibility/no-aria-label-misuse-counter.md#no-aria-label-misuse-counter)
