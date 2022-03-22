@@ -12,14 +12,14 @@
   children:
     - title: Accessibility at GitHub
       url: /accessibility/accessibility-at-github
-    - title: Alternatives to tooltips
-      url: /accessibility/alternatives-to-tooltips
     - title: Focus management
       url: /accessibility/focus-management
     - title: Guidelines
       url: /accessibility/guidelines
     - title: Tools
       url: /accessibility/tools
+    - title: Tooltip alternatives
+      url: /accessibility/tooltip-alternatives
     - title: Semantic HTML
       url: /accessibility/semantic-html
     - title: Headings
