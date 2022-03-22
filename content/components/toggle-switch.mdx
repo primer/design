@@ -7,8 +7,6 @@ import {Box, Text} from '@primer/components'
 
 ## Anatomy
 
-<!-- ![A toggle switch annotated to show the parts: knob, track, and status text](https://user-images.githubusercontent.com/2313998/159587114-97d7de3c-9ff6-4f13-beca-6e4da2d548c6.png) -->
-
 <Box display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
     <Box as="ul" m="0" p="0">
         <li><strong>Track</strong>: The clickable area where the toggle switch moves back and forth</li>
@@ -74,7 +72,7 @@ If you have a section of configuration options that can be disabled, use a butto
 Toggle switches are buttons that change and save a boolean configuration option when they are toggled.
 Checkboxes are form inputs that are used to select one or more items from a list, and are not saved without explicit confirmation such as pressing a "save" button.
 
-A toggle switch should never be used as a replacement for a checkbox. See the [saving patterns](/saving) for more details.
+A toggle switch should never be used as a replacement for a checkbox. See the [saving patterns](/ui-patterns/saving) for more details.
 
 <DoDontContainer>
   <Do>
@@ -135,7 +133,7 @@ A toggle switch should never be used as a replacement for a checkbox. See the [s
 ### Progressive disclosure
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <Box as="p" mt="0">The <a href="/progressive-disclosure">progressive disclosure pattern</a> may be used to hide or show content based on whether a toggle switch is on.</Box>
+    <Box as="p" mt="0">The <a href="/ui-patterns/progressive-disclosure">progressive disclosure pattern</a> may be used to hide or show content based on whether a toggle switch is on.</Box>
     <img
         width="456"
         role="presentation"
