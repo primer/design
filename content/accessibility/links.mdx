@@ -6,53 +6,53 @@ title: Links
 Links are user interface elements that *navigate* you to a new place or new content. Contrast this with buttons, which are designed to *activate* a feature.
 
 ## Why?
-Links can do things like help with page context, reference similar items of interest, and allow for endless connected information surfing through sites like Wikipedia. Links play a key part in your experience on the web, but without proper consideration those links can be frustrating, skipped over, or completely unnoticed. 
+Links can do things like help with page context, reference similar items of interest, and allow for endless connected information surfing through sites like Wikipedia. Links play a key part in your experience on the web, but without proper consideration they can be frustrating to use, skipped over, or completely unnoticed. 
 
 For screen reader assistive technology, links and buttons are expected to function differently. If a link is activated and does not do what was expected, that can be disorienting and frustrating. 
 
-A common way a screen reader might navigate the page is by going through a list of all the links on the page. Without context, "read more" or "click here" links won't be very helpful. 
+A common way a screen reader might navigate the page is by going through a list of all the links on the page. Without context, "read more" or "click here" links are not helpful. 
 
-People who have low or colorblind vision may have trouble identifying links that just use color to distinguish between plain text, this is why keeping the underline styling on links within body text is important for identification.
+People who have low or colorblind vision may have trouble identifying links that just use color to distinguish them from plain text, this is why keeping the underline styling on links within body text is important for identification.
 
 ## How to test links
-- Check a link's function. If clicking a link instead activates a feature on the page, it should be a `<button>`, and vice versa. 
-- Check a link's purpose. If you can't get an idea of where a link will take you based on the link text alone, the link text needs updates. 
+- Check a link's function. If clicking a link activates a feature on the page, it should be a `<button>`, and vice versa. 
+- Check a link's purpose. If you can't get an idea of where a link will take you based on the link text alone, the link text should be updated. 
 - [Check a link's contrast](https://webaim.org/resources/contrastchecker/). Links being text supersede the widget contrast requirement, which means all links need to pass 4.5:1 against the background color that they are on. 
-- In body text, like a markdown file, check to make sure that all links have underline styling. 
+- In body text, like a Markdown file, check to make sure that all links have underline styling. 
 
 ## Guidelines
 
 ### For designers
-- Make sure you're using the proper accent color for links in your mocks. Double check the color you're using if you're using it on anything other than a white background. For more context on color, check out our [Color | Interface guidelines (primer.style)](https://primer.style/design/foundations/color).
+- Make sure you use the correct accent color for links in your designs. Double check the color you're using if you're using it on anything other than a white background. For more context on color, check out our [color documentation](https://primer.style/design/foundations/color).
 - Make sure a link's purpose can be understood on its own without the surrounding context in concise words. 
 - Links should always be underlined if they're in body text. 
-- Links should look like links, not buttons. In rare circumstances, links look like buttons (like calls to action). It's important to make sure that if the action takes you somewhere rather than does something on the page, it's semantically coded as a link regardless of the visual style.
+- Links should look like links, not buttons, except in rare circumstances, like calls to action. If the action takes you somewhere rather than doing something on the page, it should be semantically coded as a link regardless of the visual style.
 
 <DoDontContainer stacked>
     <Do>
-        <Caption>Be sure to underline links in paragraphs and sentences</Caption>
+        <Caption>Underline links in paragraphs and sentences</Caption>
         <img src="https://user-images.githubusercontent.com/40274682/157987879-8762ad9c-c287-4360-b55f-9d85658e874b.png" alt="Appropriate underlined links in a GitHub issues post"/>
     </Do>
     <Dont>
-        <Caption>Underline every link, or forget to underline any links in paragraphs and sentences</Caption>
+        <Caption>Don't underline every link, or forget to underline any links in paragraphs and sentences</Caption>
         <img src="https://user-images.githubusercontent.com/40274682/157987884-d1ba14ca-9844-44af-b648-5236dc513a16.png" alt="GitHub issues post with no underlined links"/>
     </Dont>
 </DoDontContainer>
 
 ### For engineers
 - Use the Primer link components:
-	- [Primer ViewComponents | Link](https://primer.style/view-components/components/link)
-	- [Primer React | Link](https://primer.style/react/Link)
+	- [Link in Primer ViewComponents](https://primer.style/view-components/components/link)
+	- [Link in Primer React](https://primer.style/react/Link)
 - Don't override the link styling provided in the components
-- Make sure links receive our global focus indicator styling when navigating the page with a keyboard. (Reference: [Focus management | Primer](https://primer.style/design/accessibility/focus-management))
+- Make sure links receive our global focus indicator styling when navigating the page with a keyboard (reference: [Focus management](https://primer.style/design/accessibility/focus-management))
 - Avoid adding side effects to link click events. Links should navigate, not affect the page.
 
 ## Common mistakes
 - Only adding an underline to a link when it has focus or is hovered over
-- Adding underlines to *every link on the page*. For example, a navigation list is a list of links but it is not required to have all of these navigational links underlined because the intent is understood and an underline is not needed to identify the interactive nature of the control.
+- Underlining every link on the page. For example, a navigation list is a list of links but navigational links don't have to be underlined because the intent is understood and an underline is not needed to identify the interactive nature of the control.
 
 ## Additional resources
-- [Color to Distinguish Links from Text](https://dequeuniversity.com/class/visual-design/color/distinguish-links-from-text) (This link to Deque requires a subscription to access the content.)
+- [Color to Distinguish Links from Text](https://dequeuniversity.com/class/visual-design/color/distinguish-links-from-text) (requires a subscription to access the content)
 - Accessibility Insights plugin > Assessment > 7. Links
 - [WebAIM: Links and Hypertext - Introduction to Links and Hypertext](https://webaim.org/techniques/hypertext/)
 
