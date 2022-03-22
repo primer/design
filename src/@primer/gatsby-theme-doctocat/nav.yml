@@ -50,6 +50,8 @@
       url: /components/action-list
     - title: Autocomplete
       url: /components/autocomplete
+    - title: Toggle switch
+      url: /components/toggle-switch
     - title: Tokens
       url: /components/tokens
 - title: Design tools
