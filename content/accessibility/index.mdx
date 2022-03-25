@@ -4,8 +4,11 @@ title: Accessibility
 
 import {Grid, Flex, Box, Link, Text, Label} from '@primer/components'
 
+<Grid gridTemplateColumns="1fr" gridGap={4}>
 
-<Grid gridTemplateColumns={['1fr', null, null, null, '1fr']} gridGap={4}>
+
+<Grid gridTemplateColumns="1fr" gridGap={4}>
+    <h2>General</h2>
     <div>
         <Link href="/design/content/accessibility/accessibility-at-github" fontWeight="bold">Accessibility at GitHub</Link>
         <Box as="p">Get started with accessibility at GitHub.</Box>
@@ -18,6 +21,11 @@ import {Grid, Flex, Box, Link, Text, Label} from '@primer/components'
         <Link href="/design/content/accessibility/tools" fontWeight="bold">Tools</Link>
         <Box as="p">A selection of tools to help designers create accessible designs.</Box>
     </div>
+</Grid>
+
+
+<Grid gridTemplateColumns="1fr" gridGap={4}>
+    <h2>Specific</h2>
     <div>
         <Link href="/design/content/accessibility/semantic-html" fontWeight="bold">Semantic HTML</Link>
         <Box as="p">Understand when and how to use semantic HTML to improve the experience of the largest number of users possible.</Box>
@@ -50,4 +58,5 @@ import {Grid, Flex, Box, Link, Text, Label} from '@primer/components'
         <Link href="/design/content/accessibility/links" fontWeight="bold">Links</Link>
         <Box as="p">Links help us navigate a website. Learn how to style links appropriately to keep them usable by all.</Box>
     </div>
+</Grid>
 </Grid>
