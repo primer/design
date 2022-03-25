@@ -31,7 +31,7 @@ Always consider **not** using a tooltip for an improved user experience.
    </Do>
    <Dont>
       <img width="456" alt="Non-interactive text element activating a long and wordy tooltip on hover" src="https://user-images.githubusercontent.com/40274682/160182084-948a7969-9c84-4c08-8801-4d8a5253b1ce.png"/>
-      <Caption>Don't use wordy tooltips and don't use them on non-interactive elements</Caption>
+      <Caption>Don't use tooltips on non-interactive elements</Caption>
    </Dont>
 </DoDontContainer>
 
@@ -53,18 +53,33 @@ If you determine that tooltips are appropriate for your use case, make sure to c
 
 ## Alternatives to tooltips
 
-### 1. Always persist the content
+### 1. Persist the content
 
 If possible, persist the content so it's always available rather than using a tooltip, which hides content by default. This ensures that the content is always discovered and surfaced to users regardless of device.
 
-### 2. Don't show content
+<DoDontContainer>
+   <Do>
+      <img width="456" alt="Always persist content do" src="https://user-images.githubusercontent.com/40274682/160192785-13764229-7c42-4fa9-b752-b2ec741d4d4a.png"/>
+      <Caption>Find an appropriate permanent place to display additional information.</Caption>
+   </Do>
+   <Dont>
+      <img width="456" alt="Always persist content don't" src="https://user-images.githubusercontent.com/40274682/160192791-2d69905a-bd1f-4508-9c0a-9e968b6d4ac3.png"/>
+      <Caption>Don't use a tooltip to add in additional helpful infomation</Caption>
+   </Dont>
+</DoDontContainer>
 
-If the tooltips duplicate content that is already available on the page, remove it.
+### 2. Don't duplicate content
 
-<DoDontContainer stacked>
+If the tooltip duplicates content that is already available on the page, remove it.
+
+<DoDontContainer>
+   <Do>
+      <img width="456" alt="Pointer hovering over a link with no tooltip" src="https://user-images.githubusercontent.com/40274682/160201665-0f3bf527-fef7-4d79-b81b-af194385be5d.png"/>
+      <Caption>Remove any duplicate tooltip text.</Caption>
+   </Do>
     <Dont>
-       <Caption>Don't set tooltips that duplicate the trigger element content, nor on static trigger elements</Caption>
-       <img width="412" alt="Screenshot of tooltip with GitHub username, @inkblotty, on a static span that says @inkblotty" src="https://user-images.githubusercontent.com/16447748/159560475-273758aa-b49e-4087-b140-9c66b52f1d39.png" />
+       <img width="456" alt="Screenshot of tooltip with GitHub username, @inkblotty, on a static span that says @inkblotty" src="https://user-images.githubusercontent.com/40274682/160201667-d90e076d-7441-45f4-b0b6-620693921105.png"/>
+       <Caption>Don't set tooltips that duplicate the trigger element content.</Caption>
     </Dont>
 </DoDontContainer>
 
@@ -74,12 +89,12 @@ Consider using a modal which will be accessible for mobile users and will allow 
 
 <DoDontContainer stacked>
     <Do>
-       <Caption>Do use a pattern that is accessible for more groups of users such as a modal</Caption>
        <img width="800" alt="Screenshot of GitHub Actions page with a modal that conveys workflow file information about a runner" src="https://user-images.githubusercontent.com/16447748/159562366-7a3ec7bc-5aba-48ac-99f5-6e45b01dd997.png" />
+       <Caption>Do use a pattern that is accessible for more groups of users such as a modal</Caption>
     </Do>
     <Dont>
-       <Caption>Don't set tooltips on static elements nor set long content inside a tooltip</Caption>
        <img width="800" alt="Screenshot of GitHub Actions page that initially used a tooltip on a static element to convey long workflow file information" src="https://user-images.githubusercontent.com/16447748/159562559-6dd9e9c6-8a96-4676-93f8-6ba17d8b3804.png" />
+       <Caption>Don't set tooltips on static elements nor set long content inside a tooltip</Caption>
     </Dont>
 </DoDontContainer>
 
@@ -89,12 +104,12 @@ Consider using a summary disclosure that is accessible for mobile users and also
 
 <DoDontContainer stacked>
     <Do>
-       <Caption>Do use a pattern that is accessible to a larger number users such as a summary disclosure</Caption>
        <img width="800" alt="Screenshot of GitHub pricing page that uses a summary disclosure to hide and show information for point made" src="https://user-images.githubusercontent.com/16447748/159560761-382819b2-99a8-4f59-87ba-0447fe68e59e.png" />
+       <Caption>Do use a pattern that is accessible to a larger number users such as a summary disclosure</Caption>
     </Do>
     <Dont>
-       <Caption>Don't set tooltips on static elements nor set long content inside a tooltip</Caption>
        <img width="800" alt="Screenshot of GitHub pricing page that initially used a tooltip to hide and show long descriptions for each point made" src="https://user-images.githubusercontent.com/16447748/159561347-1c2c9d38-7082-44f7-b9d8-642c8cca8085.png" />
+       <Caption>Do use a pattern that is accessible to a larger number users such as a summary disclosure</Caption>
     </Dont>
 </DoDontContainer>
 
