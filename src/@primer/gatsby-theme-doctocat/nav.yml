@@ -34,6 +34,10 @@
       url: /accessibility/focus-management
     - title: Describing a button’s purpose
       url: /accessibility/button-purpose
+    - title: Links
+      url: /accessibility/links
+    - title: Tools
+      url: /accessibility/tools
 - title: UI patterns
   url: /ui-patterns
   children:
