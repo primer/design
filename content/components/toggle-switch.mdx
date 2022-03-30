@@ -86,7 +86,7 @@ import {Box, Text} from '@primer/components'
 ### Progressive disclosure
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <Box as="p" mt="0">The <a href="/ui-patterns/progressive-disclosure">progressive disclosure pattern</a> may be used to hide or show content based on whether a toggle switch is on.</Box>
+    <Box as="p" mt="0">The <a href="/ui-patterns/progressive-disclosure">progressive disclosure pattern</a> may be used to hide or show content based on whether a toggle switch is on. Content revealed on toggle switch activation should always come <em>after</em> the toggle switch.</Box>
     <img
         width="456"
         role="presentation"
@@ -102,7 +102,7 @@ Toggle switches should have the same keyboard navigation features as a button. A
 
 ### Touch target
 
-When the UI is rendered on a touch-screen device, ensure that the toggle switch has a large enough touch target size. The toggle switch should react when the user taps or hovers anywhere in the touch target area, even if it isn't directly on the control.
+When the UI is rendered on a touch-screen device, ensure that the toggle switch has a large enough touch target size. The toggle switch should respond to hovers, clicks, and taps anywhere in the touch target area, even if it isn't directly on the control.
 
 ![Diagram showing touch target size on medium and small toggle switches](https://user-images.githubusercontent.com/2313998/159587125-7b4c5f1a-2cdb-4653-8650-6c94d78e951d.png)
 
