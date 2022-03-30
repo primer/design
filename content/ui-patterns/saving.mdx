@@ -18,11 +18,11 @@ If there is an error saving the data, the user's data should be preserved in the
 
 <DoDontContainer>
   <Do>
-    <img alt="A form broken into two sections where one section has a dropdown that automatically saves" src="https://user-images.githubusercontent.com/2313998/151887935-980adacd-41aa-47cb-8756-eeaa1a6d0f2b.png" />
+    <img alt="A form broken into two sections where one section has a dropdown that automatically saves" src="https://user-images.githubusercontent.com/2313998/159594852-aa1223c7-201e-42ea-9109-649371709d22.png" />
     <Caption>Separate auto-saving controls from an explicitly saved form</Caption>
   </Do>
   <Dont>
-    <img alt="A form with a single section and it contains a dropdown that automatically saves" src="https://user-images.githubusercontent.com/2313998/151887936-d41900ca-2d63-43ac-bf82-55b4bba0df61.png" />
+    <img alt="A form with a single section and it contains a dropdown that automatically saves" src="https://user-images.githubusercontent.com/2313998/159594854-8edb9736-bdd1-436c-a327-8525b6ddac0c.png" />
     <Caption>Don't mix auto-saving controls and explicitly saved controls in the same form</Caption>
   </Dont>
 </DoDontContainer>
@@ -51,6 +51,14 @@ To ensure your forms are accessible, you should use explicit saving (and not aut
     <Caption>Don't automatically save selections once the dropdown is closed</Caption>
   </Dont>
 </DoDontContainer>
+
+There are a few issues to bear in mind with autosaving declarative controls.
+
+- Text inputs: Users expect to set a value and then submit. Sensitive information could be unintentionally submitted, such as a change password input.
+- Checkbox groups: It could be unclear whether or not the selection has been saved. Users may accidentally submit a selection clicked by accident.
+- Radio button groups: Screenreader users can't read the options without selecting them, which could accidentally apply a selection the user didn't want.
+- Browser-native `<select>` dropdowns: Similarly to radio button groups, options could be selected when a user focuses the select and uses the arrow keys to read through each option.
+
 
 ### Calls to action
 
@@ -216,12 +224,11 @@ Automatic saving applies changes as they are made. Automatic saving should be us
     <Text as="p" mt="0" align="center" fontSize={1}>If a form field is saved automatically, it should be obvious whether or not it saved without using text or visual indicators. A visual indicator for whether or not a form field has been saved successfully could be mistaken as a validation status.</Text>
 </Box>
 
-There are a few issues to bear in mind with autosaving [declarative controls](#declarative-controls).
+### Imperative controls
 
-- Text inputs: Users expect to set a value and then submit. Sensitive information could be unintentionally submitted, such as a change password input.
-- Checkbox groups: It could be unclear whether or not the selection has been saved. Users may accidentally submit a selection clicked by accident.
-- Radio button groups: Screenreader users can't read the options without selecting them, which could accidentally apply a selection the user didn't want.
-- Browser-native `<select>` dropdowns: Similarly to radio button groups, options could be selected when a user focuses the select and uses the arrow keys to read through each option.
+To reduce UI and give instant feedback, you should use automatic saving (and not explicit saving) for imperative controls. These are:
+- [Toggle switches](/components/toggle-switch). The toggle switch behaves like a light switch: the light just switches on and off without you having to confirm each time you flip the switch.
+- Single-select dropdowns that are not native `<select>` dropdowns or part of an explicitly saved form. Single-select dropdowns behave like a radio dial: the station starts playing as soon as you select it.
 
 ### Dropdown menu accessibility
 

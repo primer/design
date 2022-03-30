@@ -16,6 +16,8 @@
       url: /accessibility/guidelines
     - title: Tools
       url: /accessibility/tools
+    - title: Tooltip alternatives
+      url: /accessibility/tooltip-alternatives
     - title: Semantic HTML
       url: /accessibility/semantic-html
     - title: Headings
@@ -30,6 +32,10 @@
       url: /accessibility/focus-management
     - title: Describing a button’s purpose
       url: /accessibility/button-purpose
+    - title: Links
+      url: /accessibility/links
+    - title: Tools
+      url: /accessibility/tools
 - title: UI patterns
   url: /ui-patterns
   children:
@@ -52,6 +58,8 @@
       url: /components/action-list
     - title: Autocomplete
       url: /components/autocomplete
+    - title: Toggle switch
+      url: /components/toggle-switch
     - title: Tokens
       url: /components/tokens
 - title: Design tools
