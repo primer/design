@@ -22,4 +22,4 @@ This is currently a work in progress! Follow along on our [project board](https:
 
 ## Deployment
 
-We deploy this site using [GitHub Pages](https://pages.github.com/). Every push to a branch other than `main` will deploy to a URL unique to the preview environment. Merges to `main` will automatically deploy the site to `primer-design.github.io`.
+We deploy this site using [GitHub Pages](https://pages.github.com/). Every push to a branch other than `main` will deploy to a URL unique to the preview environment. Merges to `main` will automatically deploy the site to `https://primer.github.io/design/`.
