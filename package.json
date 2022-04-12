@@ -2,9 +2,6 @@
   "name": "primer-design",
   "repository": "primer/design",
   "version": "1.0.0",
-  "engines": {
-    "node": "^12"
-  },
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build --prefix-paths",
