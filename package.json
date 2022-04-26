@@ -5,6 +5,7 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build --prefix-paths",
+    "build:preview": "gatsby build",
     "now-build": "yarn build",
     "lint": "eslint ."
   },
@@ -16,7 +17,8 @@
     "gatsby": "^2.32.13",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "react": "16.9.x",
-    "react-dom": "16.9.x"
+    "react-dom": "16.9.x",
+    "yarn": "^1.22.18"
   },
   "private": true
 }

@@ -6,10 +6,10 @@
 import styled from 'styled-components'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 
-const OverridenTable = styled(Table)`
+const OverriddenTable = styled(Table)`
   img {
     vertical-align: middle;
   }
 `
 
-export default OverridenTable
+export default OverriddenTable

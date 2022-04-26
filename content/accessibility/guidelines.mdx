@@ -73,27 +73,6 @@ A great way to test for this is to navigate that experience in greyscale mode.
 </DoDontContainer>
 
 ### Typography
-#### Headings
-Properly labeled headings are one of the most important things a designer can do for developer handoff. [68% of 1207 surveyed screen reader users](https://webaim.org/projects/screenreadersurvey8/) responded that they are first likely to navigate via the headings when trying to find information on a lengthy web page.
-
-**Why?** This makes it easier for visual scanning and screen readers to get a map of the page's content.
-
-Use the semantic structure for headings whenever possible on paragraphs and sections (`h1`-`h6`). 
-
-There should only be one `h1` per web page (Markdown on a page is an exception).
-
-**Note:** Headings don't need to visually match their semantic meaning, but should follow the correct level and order (`h1` through to `h6`), without skipping levels or being removed altogether. 
-
-<DoDontContainer stacked>
-    <Do>
-       <img src="https://user-images.githubusercontent.com/40274682/102531820-d54f2b80-4057-11eb-9361-9b90b001fc67.png" alt="" />
-       <Caption>Follow a clear heading hierarchy</Caption>
-    </Do>
-    <Dont>
-       <img src="https://user-images.githubusercontent.com/40274682/102531812-d1bba480-4057-11eb-8f25-31df20e36039.png" alt="" />
-       <Caption>Don't use multiple `h1`s, skip over heading hierarchy for visual effect, or forget to label sections of information with headings</Caption>
-    </Dont>
-</DoDontContainer>
 
 #### Links
 Assistive technology users will frequently browse a list of links for easy navigation. For this reason, make sure that the link text is meaningful and unique. There should be as few duplicated references as possible to prevent confusion.
@@ -126,11 +105,6 @@ For more detail on accessible links, read the W3C's [Understanding 2.4.4 - Link 
 
 **Why?** Visible labels determine the purpose for inputs, and screen readers can read this information without extra code. If placeholder text contains important information and that information disappears when one starts to type, those with cognitive disabilities will have difficulty completing the form.
 
-#### Alt-text
-Use the HTML `alt` attribute when labeling an image. If the image has a descriptive caption already, you should give the image an attribute of `alt=""`. This will prevent the screenreader from telling the user about the image multiple times.
-
-**Why?** When screen readers come across images, graphs, and icons, by default the screen reader will speak the name of the file, which most of the time can be unhelpful (for example: `final-final-truly-final-V2.jpg`).
-
 #### Content hover on focus
 Hover cards and tool tips need to be approached with care. To meet the bare minimum for accessibility, tooltips need to be: 
 - **Dismissible**: Be able to dismiss tooltips without moving the pointer or keyboard focus (unless it's an input error or does not cover other content).
@@ -152,6 +126,7 @@ Read Primer's [typography](https://primer.style/design/foundations/typography) g
 All interactive elements need to be accessed and activated by a keyboard alone ([2.1 Keyboard Accessible](https://www.w3.org/TR/WCAG21/#keyboard-accessible)).
 - Tabbing should be used to access standalone controls (buttons, links, widgets), and arrow keys should be used to navigate within a composite control (group of standalone controls, list of checkboxes).
 - Some assistive technologies have keyboard combinations that override those of a web page, so don't rely on keyboard shortcuts as the only alternative to mouse actions.
+- Focus must be visible for all interactive elements. [Read more about focus management](https://primer.style/design/accessibility/focus-management)
 
 ## Resources
 
