@@ -246,7 +246,7 @@ Inline validation provides immediate feedback as the user is entering data. For 
         alt="screen recording of validation being performed as the user tries to fix an invalid input"
         src="https://user-images.githubusercontent.com/2313998/164065860-25e23fa0-e22a-435d-adbd-5666a9fd7890.gif"
     />
-    <Box as="p" mt="0">We shouldn’t attempt to validate an input before the user is done with it. So validation may be performed as the user is typing or making their selection, but only <strong>after the first time the input has been validated</strong> and the <strong>input is in an invalid state</strong>. This gives the user early positive feedback by removing the error if the user makes a change that fixes it.</Box>
+    <Box as="p" mt="0">Don't attempt to validate an input before the user is done with it. Validation may be performed as the user is typing or making their selection, but only <strong>after the first time the input has been validated</strong> and the <strong>input is in an invalid state</strong>. This gives the user early positive feedback by removing the error if the user makes a change that fixes it.</Box>
 </Box>
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
