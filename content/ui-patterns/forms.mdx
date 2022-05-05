@@ -2,7 +2,7 @@
 title: Forms
 ---
 
-import {Box, Text} from '@primer/components'
+import {Box, Heading, Link, Text} from '@primer/components'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
     Forms are used to complete tasks that require data input from the user. For example: creating a new repo, configuring settings, and logging in.
@@ -49,9 +49,7 @@ For more information, see the [required fields](#required-fields) section.
 
 ### Input (required)
 
-The input is what the user interacts with to set the value of the input. You may pre-fill inputs with smart default values, but be careful about making too many assumptions about what a user wants or needs.
-
-The input must have a minimum contrast ratio of 3:1 to pass WCAG AA-compliance. This is defined in [WCAG success criterion 1.4.11](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html).
+The input is what the user interacts with to set the value of the form control. You may pre-fill inputs with smart default values, but be careful about making too many assumptions about what a user wants or needs.
 
 ### Caption
 
@@ -63,11 +61,11 @@ Caption text may be used to augment the [label](#label), but should not be redun
 
 <DoDontContainer>
   <Do>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/164065190-5ef9d8db-c9ca-4aec-a2ea-321a81cc080e.png" />
+    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/166832266-c34634ec-2ade-4bf6-8401-df0bdc02b324.png" />
     <Caption>Use caption text that shows new information and provides helpful context</Caption>
   </Do>
   <Dont>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/164065192-f1fd1c28-2031-4bb1-836b-607d14a3d4f4.png" />
+    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/166832267-e00f88bb-6a81-42e2-a29d-63cc58a70550.png" />
     <Caption>Don’t use caption text that is redundant</Caption>
   </Dont>
 </DoDontContainer>
@@ -93,11 +91,11 @@ Information from the caption should not be repeated in the error message. Show t
 
 <DoDontContainer>
   <Do>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/164065196-b0146ade-eccb-4a71-b1b6-f4a82b96c115.png" />
+    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/166832268-519ebea3-e989-455c-b182-58e991d78a25.png" />
     <Caption>Hide a caption that is redundant with the validation message</Caption>
   </Do>
   <Dont>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/164065194-8f123836-5cda-4eea-8f0f-f1c016aa197c.png" />
+    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/166832269-4756f340-c24a-41bd-8fa9-db807607c874.png" />
     <Caption>Don’t show a repetitive validation message</Caption>
   </Dont>
 </DoDontContainer>
@@ -114,7 +112,7 @@ Use an open-ended text field when the field does not have a list of possible val
 
 ### A set of selectable options
 
-![Action menu, autocomplete input with limited options, checkbox group, radio group, select](https://user-images.githubusercontent.com/2313998/164782313-851a5a90-8c50-409f-b03d-4200928e0a67.png)
+![Action menu, autocomplete input with limited options, checkbox group, radio group, select](https://user-images.githubusercontent.com/2313998/166832271-1b7b6e56-9716-4edc-8a11-9cf5ff9d9311.png)
 
 Show a set of selectable options when there is a finite number of possible values.
 
@@ -148,9 +146,9 @@ To achieve an intuitive flow:
     <img
         width="456"
         alt="visually grouped of related inputs"
-        src="https://user-images.githubusercontent.com/2313998/164065207-16e51727-55b2-48bc-930c-ad9f0890ae10.png"
+        src="https://user-images.githubusercontent.com/2313998/166850298-4117b815-ffa1-4f46-9ccd-dbecd1d0db71.png"
     />
-    <Box as="p" mt="0">When there is a collection of closely related fields, they should be labeled and visually grouped together. Effective techniques to visually group a collection of form controls include proximity and whitespace.</Box>
+    <Box as="p" mt="0">When there is a collection of closely related fields, they should be labeled and visually grouped together. For example: putting form controls closer together.</Box>
 </Box>
 
 ### Progressively disclosed form controls
@@ -159,7 +157,7 @@ To achieve an intuitive flow:
     <img
         width="456"
         alt="form section where controls are hidden until the feature is enabled"
-        src="https://user-images.githubusercontent.com/2313998/164065212-d4a27d66-cc3a-4e27-8c70-58ff8cc6ea65.png"
+        src="https://user-images.githubusercontent.com/2313998/166850300-d3128b88-0ca4-4356-a687-04795e3103bb.png"
     />
     <Box as="p" mt="0">To keep forms concise, you may choose to hide or show form controls based on selections the user has made.</Box>
 </Box>
@@ -184,8 +182,8 @@ Sometimes, progressively disclosed form controls can be visually nested under a 
             src="https://user-images.githubusercontent.com/2313998/164065216-a2702413-5e84-4ec0-b990-b72261df0fb1.png"
         />
         <img
-            alt="Checkbox that progressively discloses a labeled text input"
-            src="https://user-images.githubusercontent.com/2313998/164065217-7969283a-6dbb-43b6-8f62-e4ab995de246.png"
+            alt="Checkbox that progressively discloses a labeled select input"
+            src="https://user-images.githubusercontent.com/2313998/166850721-7a5bf061-353d-4cdc-88b6-0d6d81087cb3.png"
         />
     </div>
     <Box as="p" mt="0">If the parent form control does not provide sufficient context, a visible label should be shown. Make sure the label of the nested form control doesn’t clash with the label of its parent form control.</Box>
@@ -229,7 +227,14 @@ After a form has been submitted and failed validation, you may switch to inline 
 
 ### Inline validation
 
-Inline validation provides immediate feedback while the user is entering data. For example: when setting a username, you could show a success message if the name is available or an error message if it’s taken.
+<Note variant="warning">
+  Inline validation offers immediate feedback, but be sure to consider the following drawbacks.
+
+  <ul>
+    <li>There is a negative impact on perceived performance when validating server-side.</li>
+    <li>When a screen reader user moves focus from the invalid input to the next form control, they will be interrupted by the validation message of the previous form control.</li>
+  </ul>
+</Note>
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
     <img
@@ -258,16 +263,6 @@ Inline validation provides immediate feedback while the user is entering data. F
     <Box as="p" mt="0">If the form control’s validation is likely to take more than 1 second, show a loading indicator.</Box>
 </Box>
 
-<Note variant="warning">
-  Inline validation offers immediate feedback, but be sure to consider the following drawbacks.
-
-  <ul>
-  <li><strong>Negative impact on perceived performance when validating server-side:</strong> Inline validation works best with data that can be checked instantly with client-side validation. Using server-side validation for inline validation could make the app feel slow because the user has to wait for the server to send back a validation response.</li>
-
-  <li><strong>Interrupted flow for screen reader users:</strong> Inline validation isn’t as disruptive for sighted users because they can choose to ignore the errors until they’re ready to fix them. When a screen reader user moves focus from the invalid input to the next form control, they will be interrupted by the validation message of the previous form control.</li>
-  </ul>
-</Note>
-
 ### Validating a group of form controls
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
@@ -285,11 +280,116 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
 
 ## Related components
 
-- Action menu ([React](https://primer.style/react/ActionMenu))
-- Autocomplete ([React](https://primer.style/react/Autocomplete))
-- Checkbox group ([React](https://primer.style/react/CheckboxGroup))
-- Form control ([React](https://primer.style/react/FormControl))
-- Radio group ([React](https://primer.style/react/RadioGroup))
-- Select ([React](https://primer.style/react/Select))
-- Textarea ([React](https://primer.style/react/Textarea))
-- Text input ([React](https://primer.style/react/TextInput))
+<Box mb={4} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+  <img
+    width="456"
+    role="presentation"
+    src="https://user-images.githubusercontent.com/293280/123880964-95b3a700-d8f8-11eb-9775-cbaf165207ed.png"
+  />
+  <div>
+    <Heading fontSize={3}>Action menu with selection</Heading>
+    <p>If the parent form control provides sufficient visual context, you may visually hide the label. However, you must specify text for a visually hidden label that is accessible to screen readers.</p>
+    <a href="https://primer.style/react/ActionMenu#with-selection">Primer React implementation</a>
+  </div>
+</Box>
+
+<Box mb={4} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/166846797-3200ea71-698b-470b-a992-513a6df2b7b5.png"
+  />
+  <div>
+    <Heading fontSize={3}>Autocomplete</Heading>
+    <p>
+      An autocomplete input renders a text input that allows a user to quickly filter through a list of options to pick one or more values.
+    </p>
+      <a href="https://primer.style/react/Autocomplete">Primer React implementation</a>
+  </div>
+</Box>
+
+<Box mb={4} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/166846801-91a03e2d-aedb-4ba3-b8ea-c7abcb7eadd6.png"
+  />
+  <div>
+    <Heading fontSize={3}>Checkbox group</Heading>
+    <p>
+      A set of checkboxes to let users make one or more selections from a short list of options
+    </p>
+      <a href="https://primer.style/react/CheckboxGroup">Primer React implementation</a>
+  </div>
+</Box>
+
+<Box mb={4} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/166846802-7d3a0563-d853-4d7b-b26f-0bb4e8c0d3ad.png"
+  />
+  <div>
+    <Heading fontSize={3}>Form control</Heading>
+    <p>
+      A form control renders a labelled input and, optionally, associated validation text and/or hint text.
+    </p>
+    <a href="https://primer.style/react/FormControl">Primer React implementation</a>
+  </div>
+</Box>
+
+<Box mb={4} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/166846804-0b629054-9e56-42aa-b565-c7c82d63f52c.png"
+  />
+  <div>
+    <Heading fontSize={3}>Radio group</Heading>
+    <p>
+      A set of radio inputs to let users make a single selection from a short list of options
+    </p>
+    <a href="https://primer.style/react/RadioGroup">Primer React implementation</a>
+  </div>
+</Box>
+
+<Box mb={4} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/166846806-613c00c4-950e-47b4-bf2d-262af9bcb8d0.png"
+  />
+  <div>
+    <Heading fontSize={3}>Select dropdown</Heading>
+    <p>
+      A select input may be used when a user needs to select one option from a long list
+    </p>
+    <a href="https://primer.style/react/Select">Primer React implementation</a>
+  </div>
+</Box>
+
+<Box mb={4} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/166833712-78f78a74-6d39-40d5-9cce-13e6e8ab691c.png"
+  />
+  <div>
+    <Heading fontSize={3}>Textarea</Heading>
+    <p>
+      A text area is used to put multiple lines of text in an input
+    </p>
+    <a href="https://primer.style/react/Textarea">Primer React implementation</a>
+  </div>
+</Box>
+
+<Box mb={4} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+  <img role="presentation" width="456" src="https://user-images.githubusercontent.com/2313998/166846809-d05cddd2-54c3-41a5-801f-d4d186dfe903.png" />
+  <div>
+    <Heading fontSize={3}>Text input</Heading>
+    <p>
+      A text input is used to set a value that is a single line of text. See the list of <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types">types in the MDN docs</a>.
+    </p>
+    <a href="https://primer.style/react/Textarea">Primer React implementation</a>
+  </div>
+</Box>

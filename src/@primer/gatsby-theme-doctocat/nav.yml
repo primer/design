@@ -41,10 +41,10 @@
       url: /ui-patterns/button-usage
     - title: Empty states
       url: /ui-patterns/empty-states
-    - title: Forms
-      url: /ui-patterns/forms
     - title: Feature onboarding
       url: /ui-patterns/feature-onboarding
+    - title: Forms
+      url: /ui-patterns/forms
     - title: Messaging
       url: /ui-patterns/messaging
     - title: Progressive disclosure
