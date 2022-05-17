@@ -2,7 +2,7 @@
 title: Forms
 ---
 
-import {Box, Heading, Link, Text} from '@primer/components'
+import {Box, Heading, Link} from '@primer/components'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
     Forms are used to complete tasks that require data input from the user. For example: creating a new repo, configuring settings, and logging in.
@@ -208,9 +208,25 @@ Use Primer instead of browser-native validation UI. Browser-native validation me
 
 The default behavior of the web is to perform validation when the user attempts to submit the form. This lets the user flow quickly through the form without interruption.
 
-When the form fails validation, the first invalid input should be focused and scrolled into the viewport.
+When the form fails validation, guide the user to the invalid inputs:
+- If the form has 3 or more errors, you may show an [interactive summary of errors](#interactive-summary-of-errors)
+- If an interactive summary of errors is not shown, the first invalid input should be focused and scrolled into the viewport
 
 After a form has been submitted and failed validation, you may switch to inline validation to provide quicker feedback.
+
+#### Interactive summary of errors
+
+<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+    <img
+        width="456"
+        alt="a form for biographical information that has three invalid inputs"
+        src="https://user-images.githubusercontent.com/2313998/168926352-c30563ab-3782-4b86-8d21-1ad6dcfa09e3.png"
+    />
+    <div>
+      <Box as="p" mt="0">In a <a href="/ui-patterns/messaging#flash-alerts">flash alert</a> at the top of the form, list the invalid inputs as anchor links. When the link is activated, place focus in it's corresponding input.</Box>
+      <Box as="p" mt="0">When the flash alert appears, it should be focused.</Box>
+    </div>
+</Box>
 
 ### Inline validation
 
@@ -248,17 +264,6 @@ After a form has been submitted and failed validation, you may switch to inline 
         src="https://user-images.githubusercontent.com/2313998/164065857-573ca6db-f2c7-49ac-a3cf-bf479a40973d.gif"
     />
     <Box as="p" mt="0">If the form control’s validation is likely to take more than 1 second, show a loading indicator.</Box>
-</Box>
-
-### Validating a group of form controls
-
-<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <img
-        width="456"
-        alt="checkbox group with an error"
-        src="https://user-images.githubusercontent.com/2313998/164065224-d1ba56ce-c632-4318-b9b2-b75940f771a6.png"
-    />
-    <Box as="p" mt="0">A validation message may be used to describe an error for a group of form controls. For example: if a user checks 3 checkboxes when they’re only allowed to check 2 options.</Box>
 </Box>
 
 ## Submission
