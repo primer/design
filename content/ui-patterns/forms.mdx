@@ -129,6 +129,33 @@ To achieve an intuitive flow:
 - Keep related fields near each other
 - When possible, keep inputs that require keyboard input near each other so that users who use a mouse don't have to switch back and forth between clicking and typing
 
+### Sizing form controls
+
+#### Hint at the expected length of the value
+
+<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+    <img width="456" alt="15 inputSizeAsHint" src="https://user-images.githubusercontent.com/2313998/170069941-0e7ead2f-1e20-47dc-b7b0-e7a27480d2a5.png" />
+    <Box>
+    <Box as="p" mt="0">
+      Form controls should be sized to fit their value. Start with the browser default width, and adjust as needed.
+    </Box>
+    <Box as="ul" pl="1rem">
+      <li>Single-line text inputs get a default width set by the browser, but their width can be changed to fit the approximate length of their text.
+        <ul>
+          <li>If the text length could fall into a wide range, then either keep the browser-default length, or fill the width of its parent.</li>
+        </ul>
+      </li>
+      <li>Multi-line text inputs (a [Textarea](#textarea)) get a default width and height set by the browser, but its dimensions can be changed to fit longer blocks of text.</li>
+      <li>Select dropdown widths are set by the browser to be as wide as the text of it's longest option. We shouldn't override this width unless it's to make the dropdown fill the width of its parent.</li>
+      <li>Checkbox and radio inputs have static dimensions</li>
+    </Box>
+    </Box>
+</Box>
+
+#### Maintain page hierarchy
+
+Input components ship with size variants that adjust font size and padding to maintain consistent hierarchy with adjacent elements.
+
 ### Grouping form controls
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
@@ -367,7 +394,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
     src="https://user-images.githubusercontent.com/2313998/166833712-78f78a74-6d39-40d5-9cce-13e6e8ab691c.png"
   />
   <div>
-    <Heading fontSize={3}>Textarea</Heading>
+    <Heading fontSize={3} id="textarea">Textarea</Heading>
     <p>
       A text area is used to put multiple lines of text in an input
     </p>
