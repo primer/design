@@ -263,28 +263,31 @@ After a form has been submitted and failed validation, you may switch to inline 
 </Note>
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <img
+    <video
         width="456"
-        alt="screen recording of validation being performed after the user changes and blurs"
-        src="https://user-images.githubusercontent.com/2313998/164065853-fd7ef55a-7082-4b0d-aa6b-2b25af4c664b.gif"
+        controls
+        loop
+        src="https://user-images.githubusercontent.com/2313998/170273001-3e722629-bcb3-4677-83b5-cfde9296ca52.mp4"
     />
     <Box as="p" mt="0">If the form control is in a valid state, validation should be performed until after the user has made a change to the input <strong>and has removed focus from the input</strong>.</Box>
 </Box>
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <img
+    <video
         width="456"
-        alt="screen recording of validation being performed as the user tries to fix an invalid input"
-        src="https://user-images.githubusercontent.com/2313998/164065860-25e23fa0-e22a-435d-adbd-5666a9fd7890.gif"
+        controls
+        loop
+        src="https://user-images.githubusercontent.com/2313998/170273004-913ba77a-041f-43e5-9809-0d2c303cf518.mp4"
     />
     <Box as="p" mt="0">Don't attempt to validate an input before the user is done with it. Validation may be performed as the user is typing or making their selection, but only <strong>after the first time the input has been validated</strong> and the <strong>input is in an invalid state</strong>. This gives the user early positive feedback by removing the error if the user makes a change that fixes it.</Box>
 </Box>
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <img
+    <video
         width="456"
-        alt="screen recording of valid repo name input showing loading indicator after blur"
-        src="https://user-images.githubusercontent.com/2313998/164065857-573ca6db-f2c7-49ac-a3cf-bf479a40973d.gif"
+        controls
+        loop
+        src="https://user-images.githubusercontent.com/2313998/170273002-677fea75-265a-42d7-b8e8-f5a07128ca38.mp4"
     />
     <Box as="p" mt="0">If the form control’s validation is likely to take more than 1 second, show a loading indicator.</Box>
 </Box>
