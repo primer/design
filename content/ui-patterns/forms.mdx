@@ -10,7 +10,7 @@ import {Box, Heading, Link} from '@primer/components'
 
 ## Form control anatomy
 
-![diagrams labeling the anatomy of a text field and a checkbox field](https://user-images.githubusercontent.com/2313998/168928812-fa5c9ad7-4f92-4e9d-8e6e-62eb4413985c.png)
+![diagrams labeling the anatomy of a text field and a checkbox field](https://user-images.githubusercontent.com/2313998/170069900-f8f24ab2-a373-4a95-9ac8-2249260ffcae.png)
 
 ### Label (required)
 
@@ -44,11 +44,11 @@ Caption text may be used to augment the [label](#label), but should not be redun
 
 <DoDontContainer>
   <Do>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/166832266-c34634ec-2ade-4bf6-8401-df0bdc02b324.png" />
+    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/170069904-5ff41e86-a95f-4644-b1af-1b8a6225dc59.png" />
     <Caption>Use caption text that shows new information and provides helpful context</Caption>
   </Do>
   <Dont>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/166832267-e00f88bb-6a81-42e2-a29d-63cc58a70550.png" />
+    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/170069907-5a147b22-0856-4c61-91a2-f9c1db8e941d.png" />
     <Caption>Don’t use caption text that is redundant</Caption>
   </Dont>
 </DoDontContainer>
@@ -61,11 +61,11 @@ An individual checkbox or radio should not have its own validation message or st
 
 <DoDontContainer>
   <Do>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/164065196-b0146ade-eccb-4a71-b1b6-f4a82b96c115.png" />
+    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/170069916-08bcf5c6-9a8f-4998-a246-39d7f020e94b.png" />
     <Caption>Show a validation message for the group of inputs</Caption>
   </Do>
   <Dont>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/164065199-6cfa4893-55cb-4f81-a7d6-4b6ff66339eb.png" />
+    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/170069919-d557c4d8-ed4d-4a3c-80c7-3372359603ab.png" />
     <Caption>Don’t show a validation message for each input</Caption>
   </Dont>
 </DoDontContainer>
@@ -74,11 +74,11 @@ Information from the caption should not be repeated in the error message. Show t
 
 <DoDontContainer>
   <Do>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/166832268-519ebea3-e989-455c-b182-58e991d78a25.png" />
+    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/170069909-b9ad91e4-db88-42c0-bc83-d2f00f24a66e.png" />
     <Caption>Hide a caption that is redundant with the validation message</Caption>
   </Do>
   <Dont>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/166832269-4756f340-c24a-41bd-8fa9-db807607c874.png" />
+    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/170069912-d8dfdde4-08bd-47ab-b9fe-3ab0f0f603a5.png" />
     <Caption>Don’t show a repetitive validation message</Caption>
   </Dont>
 </DoDontContainer>
@@ -89,13 +89,13 @@ For more information about form validation, see the [validation guidelines](#inv
 
 ### Open-ended text
 
-![Text input, open-ended autocomplete text input, plain text input, textarea](https://user-images.githubusercontent.com/2313998/168104196-e0400967-a455-4513-97b0-3005d7ee3d0c.png)
+![Text input, open-ended autocomplete text input, plain text input, textarea](https://user-images.githubusercontent.com/2313998/170069913-325a987b-9a75-4e83-826a-bb7ae73d6831.png)
 
 Use an open-ended text field when the field does not have a list of possible values. If the input is able to suggest values, use [autocomplete](#autocomplete) to allow users to pick a value or enter their own.
 
 ### A set of selectable options
 
-![Action menu, autocomplete input with limited options, checkbox group, radio group, select](https://user-images.githubusercontent.com/2313998/168104199-2990e43c-6204-4ef5-970c-c9babaf1196c.png)
+![Action menu, autocomplete input with limited options, checkbox group, radio group, select](https://user-images.githubusercontent.com/2313998/170069915-657a6291-2729-4e3e-abbc-b7611f8051dc.png)
 
 Show a set of selectable options when there is a finite number of possible values.
 
@@ -105,11 +105,11 @@ Forms should have a structure that makes it easy for users to scan. Forms that f
 
 <DoDontContainer>
   <Do>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/164065202-5c3aba0b-5cef-4ef4-9339-7192a3ebf23a.png" />
+    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/170069921-98bb9035-2125-4807-b790-1da90e6bde3b.png" />
     <Caption>Default to vertically stacked form controls</Caption>
   </Do>
   <Dont>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/164065205-4000430d-2216-4954-a367-86fbd0254cc3.png" />
+    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/170069922-ed8a0ef7-0573-4f02-bd15-da6a5acbc527.png" />
     <Caption>Don’t lay out forms that flow into columns just to reduce the vertical space used by the form</Caption>
   </Dont>
 </DoDontContainer>
@@ -128,21 +128,21 @@ To achieve an intuitive flow:
 #### Hint at the expected length of the value
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <img width="456" alt="15 inputSizeAsHint" src="https://user-images.githubusercontent.com/2313998/170069941-0e7ead2f-1e20-47dc-b7b0-e7a27480d2a5.png" />
+    <img width="456" role="presentation" src="https://user-images.githubusercontent.com/2313998/170069941-0e7ead2f-1e20-47dc-b7b0-e7a27480d2a5.png" />
     <Box>
-    <Box as="p" mt="0">
-      Form controls should be sized to fit their value. Start with the browser default width, and adjust as needed.
-    </Box>
-    <Box as="ul" pl="1rem">
-      <li>Single-line text inputs get a default width set by the browser, but their width can be changed to fit the approximate length of their text.
-        <ul>
-          <li>If the text length could fall into a wide range, then either keep the browser-default length, or fill the width of its parent.</li>
-        </ul>
-      </li>
-      <li>Multi-line text inputs (a [Textarea](#textarea)) get a default width and height set by the browser, but its dimensions can be changed to fit longer blocks of text.</li>
-      <li>Select dropdown widths are set by the browser to be as wide as the text of it's longest option. We shouldn't override this width unless it's to make the dropdown fill the width of its parent.</li>
-      <li>Checkbox and radio inputs have static dimensions</li>
-    </Box>
+      <Box as="p" mt="0">
+        Form controls should be sized to fit their value. Start with the browser default width, and adjust as needed.
+      </Box>
+      <Box as="ul" pl="1rem">
+        <li>Single-line text inputs get a default width set by the browser, but their width can be changed to fit the approximate length of their text.
+          <ul>
+            <li>If the text length could fall into a wide range, then either keep the browser-default length, or fill the width of its parent.</li>
+          </ul>
+        </li>
+        <li>Multi-line text inputs (a [Textarea](#textarea)) get a default width and height set by the browser, but its dimensions can be changed to fit longer blocks of text.</li>
+        <li>Select dropdown widths are set by the browser to be as wide as the text of it's longest option. We shouldn't override this width unless it's to make the dropdown fill the width of its parent.</li>
+        <li>Checkbox and radio inputs have static dimensions</li>
+      </Box>
     </Box>
 </Box>
 
@@ -156,7 +156,7 @@ Input components ship with size variants that adjust font size and padding to ma
     <img
         width="456"
         alt="visually grouped of related inputs"
-        src="https://user-images.githubusercontent.com/2313998/166850298-4117b815-ffa1-4f46-9ccd-dbecd1d0db71.png"
+        src="https://user-images.githubusercontent.com/2313998/170069926-230f01ae-6371-4b4b-9b79-c2a82a7f5d2e.png"
     />
     <Box as="p" mt="0">When there is a collection of closely related fields, they should be labeled and visually grouped together. For example: putting form controls closer together.</Box>
 </Box>
@@ -167,7 +167,7 @@ Input components ship with size variants that adjust font size and padding to ma
     <img
         width="456"
         alt="form section where controls are hidden until the feature is enabled"
-        src="https://user-images.githubusercontent.com/2313998/166850300-d3128b88-0ca4-4356-a687-04795e3103bb.png"
+        src="https://user-images.githubusercontent.com/2313998/170069928-5ea261f4-78c1-44d6-92f4-95392d12b47f.png"
     />
     <Box as="p" mt="0">To keep forms concise, you may choose to hide or show form controls based on selections the user has made.</Box>
 </Box>
@@ -180,23 +180,25 @@ Sometimes, progressively disclosed form controls can be visually nested under a 
     <img
         width="456"
         alt="Primary discipline radio buttons, selected 'Other' option reveals a text input"
-        src="https://user-images.githubusercontent.com/2313998/164065214-0c0bc39f-52e5-4534-9c69-a1f6e4566fa9.png"
+        src="https://user-images.githubusercontent.com/2313998/170069930-87ffd7f3-89db-4a0a-bca3-64d0244e54a3.png"
     />
     <Box as="p" mt="0">If the parent form control provides sufficient visual context, you may visually hide the label. However, you must specify text for a visually hidden label that is accessible to screen readers.</Box>
 </Box>
 
 <Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <div>
+      <Box flexGrow={1} flexShrink={0} flexBasis={["column", "column", "column", "column", "456px"]}>
         <img
+            width="456"
             alt="Checkbox that progressively discloses a dropdown with an internal label"
-            src="https://user-images.githubusercontent.com/2313998/164065216-a2702413-5e84-4ec0-b990-b72261df0fb1.png"
+            src="https://user-images.githubusercontent.com/2313998/170069931-24cf2caa-148d-49bd-b1dc-361ec1ea8b61.png"
         />
         <img
+            width="456"
             alt="Checkbox that progressively discloses a labeled select input"
-            src="https://user-images.githubusercontent.com/2313998/166850721-7a5bf061-353d-4cdc-88b6-0d6d81087cb3.png"
+            src="https://user-images.githubusercontent.com/2313998/170069932-37f1d07d-f7ef-4021-b74c-f217a990296f.png"
         />
-    </div>
-    <Box as="p" mt="0">If the parent form control does not provide sufficient context, a visible label should be shown. Make sure the label of the nested form control doesn’t clash with the label of its parent form control.</Box>
+      </Box>
+    <Box as="p" mt="0" flexShrink={1}>If the parent form control does not provide sufficient context, a visible label should be shown. Make sure the label of the nested form control doesn’t clash with the label of its parent form control.</Box>
 </Box>
 
 See [progressive disclosure](/ui-patterns/progressive-disclosure) for more information.
@@ -211,7 +213,7 @@ Use Primer instead of browser-native validation UI. Browser-native validation me
   <Box flexGrow={1} flexBasis="0">
     <img
         alt="input with forbidden characters"
-        src="https://user-images.githubusercontent.com/2313998/164065220-30c25ca4-827f-4327-95f4-9be888272813.png"
+        src="https://user-images.githubusercontent.com/2313998/170069933-233fd82d-7af8-4475-b73c-65bec80a3891.png"
     />
     <Box as="p" mt="0"><strong>Error messages:</strong> An invalid field should always have a message explaining why the value does not pass validation. The message should explain why the value is invalid, and unblock users from completing their task by guiding them to a valid value.</Box>
   </Box>
@@ -219,7 +221,7 @@ Use Primer instead of browser-native validation UI. Browser-native validation me
   <Box flexGrow={1} flexBasis="0">
     <img
         alt="valid repo name success"
-        src="https://user-images.githubusercontent.com/2313998/164065221-7e4f6a21-e9a7-465b-9a86-83c61533fdec.png"
+        src="https://user-images.githubusercontent.com/2313998/170069936-48ddd7de-9cdb-4c18-bccd-18fa4a39bcf0.png"
     />
     <Box as="p" mt="0"><strong>Success messages:</strong> A success message may be used when a user might need extra assurance that the field's value is valid. For example: when creating a repository name, it’s nice to be assured that the name is available and valid.</Box>
   </Box>
@@ -241,7 +243,7 @@ After a form has been submitted and failed validation, you may switch to inline 
     <img
         width="456"
         alt="a form for biographical information that has three invalid inputs"
-        src="https://user-images.githubusercontent.com/2313998/168926352-c30563ab-3782-4b86-8d21-1ad6dcfa09e3.png"
+        src="https://user-images.githubusercontent.com/2313998/170069940-44aec752-e840-4e51-abe5-fd45226f0388.png"
     />
     <div>
       <Box as="p" mt="0">In a <a href="/ui-patterns/messaging#flash-alerts">flash alert</a> at the top of the form, list the invalid inputs as anchor links. When the link is activated, place focus in it's corresponding input.</Box>
@@ -310,7 +312,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
   <img
     role="presentation"
     width="456"
-    src="https://user-images.githubusercontent.com/2313998/168104391-d83bef5e-a628-4788-b1c2-6d72980fa508.png"
+    src="https://user-images.githubusercontent.com/2313998/170268364-021748a9-f304-4626-8ff2-3a71a5bcbd6b.png"
   />
   <div>
     <Heading fontSize={3}>Autocomplete</Heading>
@@ -325,7 +327,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
   <img
     role="presentation"
     width="456"
-    src="https://user-images.githubusercontent.com/2313998/166846801-91a03e2d-aedb-4ba3-b8ea-c7abcb7eadd6.png"
+    src="https://user-images.githubusercontent.com/2313998/170268367-51ee68d4-8121-4f49-b995-86755a381d6c.png"
   />
   <div>
     <Heading fontSize={3}>Checkbox group</Heading>
@@ -340,7 +342,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
   <img
     role="presentation"
     width="456"
-    src="https://user-images.githubusercontent.com/2313998/166846802-7d3a0563-d853-4d7b-b26f-0bb4e8c0d3ad.png"
+    src="https://user-images.githubusercontent.com/2313998/170268368-5daef93f-b7d3-4863-938a-9c777c609ee4.png"
   />
   <div>
     <Heading fontSize={3}>Form control</Heading>
@@ -355,7 +357,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
   <img
     role="presentation"
     width="456"
-    src="https://user-images.githubusercontent.com/2313998/166846804-0b629054-9e56-42aa-b565-c7c82d63f52c.png"
+    src="https://user-images.githubusercontent.com/2313998/170268369-b9885114-90f0-4bae-863e-ca3ed37aa67d.png"
   />
   <div>
     <Heading fontSize={3}>Radio group</Heading>
@@ -370,7 +372,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
   <img
     role="presentation"
     width="456"
-    src="https://user-images.githubusercontent.com/2313998/168104392-cc13297a-1b32-4a80-83aa-5dc569085ebc.png"
+    src="https://user-images.githubusercontent.com/2313998/170268372-be76e525-7337-4739-afd0-7e4a12037731.png"
   />
   <div>
     <Heading fontSize={3}>Select dropdown</Heading>
@@ -385,7 +387,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
   <img
     role="presentation"
     width="456"
-    src="https://user-images.githubusercontent.com/2313998/166833712-78f78a74-6d39-40d5-9cce-13e6e8ab691c.png"
+    src="https://user-images.githubusercontent.com/2313998/170268373-463d55fa-ead8-4471-91f2-2bec2456f385.png"
   />
   <div>
     <Heading fontSize={3} id="textarea">Textarea</Heading>
@@ -397,7 +399,11 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
 </Box>
 
 <Box mb={4} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-  <img role="presentation" width="456" src="https://user-images.githubusercontent.com/2313998/166846809-d05cddd2-54c3-41a5-801f-d4d186dfe903.png" />
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/170268374-7d701912-5f6c-45ce-832f-e7c3b1d3c476.png"
+  />
   <div>
     <Heading fontSize={3}>Text input</Heading>
     <p>
