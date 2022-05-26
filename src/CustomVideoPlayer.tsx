@@ -41,7 +41,11 @@ const CustomVideoPlayer = (props: React.HTMLProps<HTMLVideoElement>) => {
           }}
           onClick={isPlaying ? pauseVideo : playVideo}
         >
-          {isPlaying ? <ColumnsIcon size={40} fill="white" /> : <PlayIcon size={50} fill="white" />}
+          {isPlaying ? (
+            <ColumnsIcon aria-label="Pause" size={40} fill="white" />
+          ) : (
+            <PlayIcon aria-label="Play" size={50} fill="white" />
+          )}
         </Box>
       )}
     </Box>
