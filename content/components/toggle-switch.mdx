@@ -3,7 +3,7 @@ title: Toggle switch
 description: A toggle switch is used to immediately toggle a setting on or off.
 ---
 
-import {Box, Text} from '@primer/components'
+import {Box, Text} from '@primer/react'
 
 ## Anatomy
 
@@ -17,81 +17,138 @@ import {Box, Text} from '@primer/components'
 
 ### Label and description
 
-<Box mb={5} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <div>
-    <Box as="p" mt="0">Every toggle switch should have a label that says what is being turned on or off. Optionally, you may include a description about the setting that is being turned on or off.</Box>
-    <Box as="p" mt="0">Labels should be succinct, and can describe an object or an action (for example: "Discussions" or "Automatically watch repositories"). Don't use phrases that describe the switch's state in your label.</Box>
-    </div>
-    <img
-        width="456"
-        role="presentation"
-        src="https://user-images.githubusercontent.com/2313998/159587115-5ffcdefb-f5e9-4180-8dc3-5328b0440f7f.png"
-    />
+<Box
+  mb={5}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <div>
+    <Box as="p" mt="0">
+      Every toggle switch should have a label that says what is being turned on or off. Optionally, you may include a
+      description about the setting that is being turned on or off.
+    </Box>
+    <Box as="p" mt="0">
+      Labels should be succinct, and can describe an object or an action (for example: "Discussions" or "Automatically
+      watch repositories"). Don't use phrases that describe the switch's state in your label.
+    </Box>
+  </div>
+  <img
+    width="456"
+    role="presentation"
+    src="https://user-images.githubusercontent.com/2313998/159587115-5ffcdefb-f5e9-4180-8dc3-5328b0440f7f.png"
+  />
 </Box>
 
 <DoDontContainer>
   <Do>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/159587088-99e8fe4c-59a3-4452-836d-bd6f2297045a.png" />
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/159587088-99e8fe4c-59a3-4452-836d-bd6f2297045a.png"
+    />
     <Caption>Use succinct phrases with verbs or nouns</Caption>
   </Do>
   <Dont>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/159587096-5f8a6913-df95-4ea0-9838-a366faf95e52.png" />
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/159587096-5f8a6913-df95-4ea0-9838-a366faf95e52.png"
+    />
     <Caption>Don't use phrases that describe the switch's state</Caption>
   </Dont>
 </DoDontContainer>
 
 ### Layout
 
-<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <div>
-        <Box as="p" mt="0">By default, lay out a toggle switch horizontally justified with its label and optional description.</Box>
-        <Box as="p" mt="0">You may use a vertical layout when a toggle switch is layed out inline with other content, or if a horizontal layout would put the switch too far from its label. If the vertical layout is left-aligned, the "on"/"off" text may be moved to the right of the switch.</Box>
-    </div>
-    <Box display="flex" flexDirection="column" sx={{gap: 2, flexGrow: 1, flexShrink: 0}}>
-        <img
-            width="456"
-            role="presentation"
-            src="https://user-images.githubusercontent.com/2313998/159587115-5ffcdefb-f5e9-4180-8dc3-5328b0440f7f.png"
-        />
-        <img
-            width="456"
-            role="presentation"
-            src="https://user-images.githubusercontent.com/2313998/159587126-8d30ff26-33a8-4b84-87db-13dcfdff9dac.png"
-        />
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <div>
+    <Box as="p" mt="0">
+      By default, lay out a toggle switch horizontally justified with its label and optional description.
     </Box>
+    <Box as="p" mt="0">
+      You may use a vertical layout when a toggle switch is layed out inline with other content, or if a horizontal
+      layout would put the switch too far from its label. If the vertical layout is left-aligned, the "on"/"off" text
+      may be moved to the right of the switch.
+    </Box>
+  </div>
+  <Box display="flex" flexDirection="column" sx={{gap: 2, flexGrow: 1, flexShrink: 0}}>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/159587115-5ffcdefb-f5e9-4180-8dc3-5328b0440f7f.png"
+    />
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/159587126-8d30ff26-33a8-4b84-87db-13dcfdff9dac.png"
+    />
+  </Box>
 </Box>
 
 ### Size
 
-<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <Box as="p" mt="0">A small variant is provided to maintain visual hierarchy, or for dense areas where the default size will not fit.</Box>
-    <img
-        width="456"
-        role="presentation"
-        src="https://user-images.githubusercontent.com/2313998/159587124-e7ef0a16-fd42-4614-be3e-80c985332ef7.png"
-    />
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Box as="p" mt="0">
+    A small variant is provided to maintain visual hierarchy, or for dense areas where the default size will not fit.
+  </Box>
+  <img
+    width="456"
+    role="presentation"
+    src="https://user-images.githubusercontent.com/2313998/159587124-e7ef0a16-fd42-4614-be3e-80c985332ef7.png"
+  />
 </Box>
 
 ### Loading
 
-<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <Box as="p" mt="0">When a toggle switch is waiting for something to load before toggling, a loading indicator should be displayed. The switch should not prematurely toggle from "on" to "off". Wait until loading is complete before showing a change.</Box>
-    <img
-        width="456"
-        role="presentation"
-        src="https://user-images.githubusercontent.com/2313998/159587116-aa07a847-a633-4515-82b3-20ebe2349914.png"
-    />
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Box as="p" mt="0">
+    When a toggle switch is waiting for something to load before toggling, a loading indicator should be displayed. The
+    switch should not prematurely toggle from "on" to "off". Wait until loading is complete before showing a change.
+  </Box>
+  <img
+    width="456"
+    role="presentation"
+    src="https://user-images.githubusercontent.com/2313998/159587116-aa07a847-a633-4515-82b3-20ebe2349914.png"
+  />
 </Box>
 
 ### Progressive disclosure
 
-<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
-    <Box as="p" mt="0">The <a href="/ui-patterns/progressive-disclosure">progressive disclosure pattern</a> may be used to hide or show content based on whether a toggle switch is on. Content revealed on toggle switch activation should always come <em>after</em> the toggle switch.</Box>
-    <img
-        width="456"
-        role="presentation"
-        src="https://user-images.githubusercontent.com/2313998/159591632-f604ec1d-aca9-42f7-ad65-16f8811f192f.png"
-    />
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Box as="p" mt="0">
+    The <a href="/ui-patterns/progressive-disclosure">progressive disclosure pattern</a> may be used to hide or show
+    content based on whether a toggle switch is on. Content revealed on toggle switch activation should always come{' '}
+    <em>after</em> the toggle switch.
+  </Box>
+  <img
+    width="456"
+    role="presentation"
+    src="https://user-images.githubusercontent.com/2313998/159591632-f604ec1d-aca9-42f7-ad65-16f8811f192f.png"
+  />
 </Box>
 
 ## Accessibility
@@ -114,14 +171,19 @@ If you have a group of configuration options that can be disabled, use a button 
 
 ![Configuration options section that can be enabled or disabled. Configuration controls are hidden when it is disabled.](https://user-images.githubusercontent.com/2313998/159587120-2d842830-18c7-4429-bd10-f5424f6fac9e.png)
 
-
 <DoDontContainer>
   <Do>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/159587100-1a1af5b2-dd19-456a-a0ed-c2f9fa7f7c2e.png" />
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/159587100-1a1af5b2-dd19-456a-a0ed-c2f9fa7f7c2e.png"
+    />
     <Caption>Use a button to affect multiple related toggles</Caption>
   </Do>
   <Dont>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/159587101-446548c2-41c3-45c1-b710-db3149e2ebe4.png" />
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/159587101-446548c2-41c3-45c1-b710-db3149e2ebe4.png"
+    />
     <Caption>Don't use a toggle switch to represent mixed values</Caption>
   </Dont>
 </DoDontContainer>
@@ -135,11 +197,17 @@ A toggle switch should never be used as a replacement for a checkbox. See [savin
 
 <DoDontContainer>
   <Do>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/159587105-45d50974-eb76-46cd-a3fd-c1e0f605f3ef.png" />
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/159587105-45d50974-eb76-46cd-a3fd-c1e0f605f3ef.png"
+    />
     <Caption>Use a toggle switch like a button</Caption>
   </Do>
   <Dont>
-    <img role="presentation" src="https://user-images.githubusercontent.com/2313998/159587113-6c8461f7-3d4d-4e6a-b3a5-c585c5143fba.png" />
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/159587113-6c8461f7-3d4d-4e6a-b3a5-c585c5143fba.png"
+    />
     <Caption>Don't use a toggle switch as a replacement for a checkbox</Caption>
   </Dont>
 </DoDontContainer>

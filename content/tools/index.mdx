@@ -2,16 +2,18 @@
 title: Design tools
 ---
 
-import {Grid, Flex, Box, Link, Text, Label} from '@primer/components'
+import {Grid, Flex, Box, Link, Text, Label} from '@primer/react'
 
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
-    <div>
-        <Link href="/design/tools/figma">
-            {/* <img role="presentation" src="https://user-images.githubusercontent.com/293280/123880841-54bb9280-d8f8-11eb-9a6f-4c33c8196fbf.png" /> */}
-        </Link>
-    </div>
-    <div>
-        <Link href="/design/tools/figma" fontWeight="bold">Figma</Link>
-        <Box as="p">A guide on how to get started using Figma to design interfaces at GitHub.</Box>
-    </div>
-  </Grid>
+  <div>
+    <Link href="/design/tools/figma">
+      {/* <img role="presentation" src="https://user-images.githubusercontent.com/293280/123880841-54bb9280-d8f8-11eb-9a6f-4c33c8196fbf.png" /> */}
+    </Link>
+  </div>
+  <div>
+    <Link href="/design/tools/figma" fontWeight="bold">
+      Figma
+    </Link>
+    <Box as="p">A guide on how to get started using Figma to design interfaces at GitHub.</Box>
+  </div>
+</Grid>
