@@ -2,13 +2,11 @@
 title: Components
 ---
 
-import { Grid, Box, Link, Text, Label } from '@primer/react'
+import {Box, Link, Text, Label} from '@primer/react'
+import {Grid} from '@primer/react/deprecated'
+import {Flex} from '@primer/react/deprecated'
 
-<Grid gridTemplateColumns
-
-import { Flex } from '@primer/react/deprecated';
-
-={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
   <div>
     <Link href="/design/components/action-list">
       <img
