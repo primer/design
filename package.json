@@ -12,6 +12,7 @@
   "dependencies": {
     "@primer/gatsby-theme-doctocat": "^4.0.0 ",
     "@primer/octicons-react": "^11.0.0",
+    "@primer/react": "^35.2.2",
     "eslint": "5.8.0",
     "eslint-plugin-github": "1.6.0",
     "gatsby": "^2.32.13",
