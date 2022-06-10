@@ -1,3 +1,36 @@
 ---
 title: Foundations
 ---
+
+import {Grid, Flex, Box, Link, Text, Label} from '@primer/components'
+
+
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
+    <div>
+        <Link href="/design/foundations/color">
+            {/* <img role="presentation" src="https://user-images.githubusercontent.com/293280/123880841-54bb9280-d8f8-11eb-9a6f-4c33c8196fbf.png" /> */}
+        </Link>
+    </div>
+    <div>
+        <Link href="/design/foundations/color" fontWeight="bold">Color</Link>
+        <Box as="p">How to work with color modes and themes, and how to apply color to GitHub interfaces.</Box>
+    </div>
+  <div>
+        <Link href="/design/foundations/typography">
+            {/* <img role="presentation" src="https://user-images.githubusercontent.com/293280/123880841-54bb9280-d8f8-11eb-9a6f-4c33c8196fbf.png" /> */}
+        </Link>
+    </div>
+    <div>
+        <Link href="/design/foundations/typography" fontWeight="bold">Typography</Link>
+        <Box as="p">How to use and apply typography to GitHub interfaces.</Box>
+    </div>
+  <div>
+        <Link href="/design/foundations/content">
+            {/* <img role="presentation" src="https://user-images.githubusercontent.com/293280/123880841-54bb9280-d8f8-11eb-9a6f-4c33c8196fbf.png" /> */}
+        </Link>
+    </div>
+    <div>
+        <Link href="/design/foundations/content" fontWeight="bold">Content</Link>
+        <Box as="p">How to create interfaces that follow GitHub's content guidelines.</Box>
+    </div>
+  </Grid>

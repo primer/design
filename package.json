@@ -5,20 +5,20 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build --prefix-paths",
+    "build:preview": "gatsby build",
     "now-build": "yarn build",
     "lint": "eslint ."
   },
   "dependencies": {
-    "@loadable/component": "^5.10.2",
-    "@primer/gatsby-theme-doctocat": "^1.7.0",
+    "@primer/gatsby-theme-doctocat": "^3.1.1",
     "@primer/octicons-react": "^11.0.0",
     "eslint": "5.8.0",
     "eslint-plugin-github": "1.6.0",
     "gatsby": "^2.32.13",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "react": "16.9.x",
-    "react-bodymovin": "^2.0.0",
-    "react-dom": "16.9.x"
+    "react-dom": "16.9.x",
+    "yarn": "^1.22.18"
   },
   "private": true
 }
