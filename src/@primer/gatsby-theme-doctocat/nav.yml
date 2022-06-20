@@ -20,12 +20,14 @@
       url: /accessibility/alternative-text-for-images
     - title: Assistive technology announcements
       url: /accessibility/announcements
+    - title: Context Menus
+      url: /accessibility/context-menus
     - title: Describing a button’s purpose
       url: /accessibility/button-purpose
     - title: Focus management
       url: /accessibility/focus-management
     - title: Headings
-      url: /accessibility/headings 
+      url: /accessibility/headings
     - title: Links
       url: /accessibility/links
     - title: Semantic HTML
@@ -46,7 +48,7 @@
     - title: Messaging
       url: /ui-patterns/messaging
     - title: Progressive disclosure
-      url: /ui-patterns/progressive-disclosure    
+      url: /ui-patterns/progressive-disclosure
     - title: Saving
       url: /ui-patterns/saving
 - title: Components
