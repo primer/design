@@ -1,0 +1,41 @@
+---
+title: Context Menus
+---
+
+## Overview
+
+A context menu is a menu of options on a web page or application that appears when you right click or press the context menu key on a keyboard. By default, on a website it gives the user a list of options applicable to the browser, such as: Back, Reload, Save As, Print, etc. There are occasions in web apps where it may be necessary to override the default browser context menu with a custom context menu.
+
+## Why replace the browser context menu?
+
+Some web apps have complex functionality and having a custom context menu would help surface common options for a particular element. An example would be a spreadsheet application. Each cell may have multiple actions that could be taken, such as: Cut, Copy, Paste, Insert row, Delete row, etc. These actions may also have keyboard shortcuts associated with them, so having them in a menu will help a user understand what they are.
+
+## Guidelines
+
+All [semantics and functionality for accessible menus](https://www.w3.org/WAI/ARIA/apg/patterns/menu/) (for designers and engineers) apply to custom context menus.
+
+### For designers
+
+1. Unless there is a good use-case (such as the spreadsheet use-case previously mentioned), users may not be expecting the default context menu to be overwritten.
+2. This should not just be a keyboard feature. There should be some indication to users that the context menu exists. Some examples:
+
+- A visual chevron
+- A tooltip or popup that appears for first-time users
+
+3. If there are keyboard shortcuts associated with a menu item, they should be visually associated with the menu item.
+4. Context menus should be consistent throughout the application.
+
+### For engineers
+
+1. If there are [keyboard shortcuts](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-keyshortcuts) associated with a menu item, they should be added with the `aria-keyshortcuts="<key shortcut>"` attribute (note: this does not add the functionality. It only announces the associated keyboard shortcut).
+2. The [contextMenu event](https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event) is triggered by either right clicking or pressing the context menu key. This event can be used to replace the default context menu with a custom menu.
+
+## Additional resources
+
+- [ARIA Authoring Practices Guide - Menus](https://www.w3.org/WAI/ARIA/apg/patterns/menu/)
+- [Apple's Human Interface Guidelines on Context Menus](https://developer.apple.com/design/human-interface-guidelines/components/menus-and-actions/context-menus/)
+
+### Related WCAG guidelines and success criteria
+
+- [2.1 Keyboard Accessible](https://www.w3.org/TR/WCAG21/#keyboard-accessible)
+- [3.2 Predictable](https://www.w3.org/TR/WCAG21/#predictable)
