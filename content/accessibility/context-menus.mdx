@@ -4,7 +4,7 @@ title: Context menus
 
 ## Overview
 
-A context menu is a menu of options on a web page or application that appears when you right click or press the context menu key on a keyboard. By default, on a website it gives the user a list of options applicable to the browser, such as: Back, Reload, Save As, Print, etc. There are occasions in web apps where it may be necessary to override the default browser context menu with a custom context menu.
+A context menu is a menu of options on a web page or application that appears when you right click, press a key combination (Shift+F10 for Windows, VO+Shift+M for macOS with VoiceOver running), or press the context menu key on a keyboard. By default, on a website it gives the user a list of options applicable to the browser, such as: Back, Reload, Save As, Print, etc. There are occasions in web apps where it may be necessary to override the default browser context menu with a custom context menu.
 
 ## Why replace the browser context menu?
 
@@ -22,12 +22,12 @@ All [semantics and functionality for accessible menus](https://www.w3.org/WAI/AR
    - A visual icon
    - A tooltip or popup that appears for first-time users
 
-3. If there are keyboard shortcuts associated with a menu item, they should appear visually on the menu item.
+3. If there are global keyboard shortcuts associated with a menu item, they should appear visually on the menu item.
 4. Context menus should be consistent throughout the application. For example, if one spreadsheet cell has a context menu, they all should.
 
 ### For engineers
 
-1. If there are [keyboard shortcuts](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-keyshortcuts) associated with a menu item, they should be added with the `aria-keyshortcuts="<key shortcut>"` attribute (note: this does not add the functionality. It only announces the associated keyboard shortcut).
+1. The menu element should have `aria-label="Context"`. This is what users will expect.
 2. The [contextMenu event](https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event) is triggered by either right clicking or pressing the context menu key. This event can be used to replace the default context menu with a custom menu.
 
 ## Additional resources
