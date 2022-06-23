@@ -6,42 +6,16 @@ status: Alpha
 import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link} from '@primer/components'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
-  An overlay is a flexible floating surface, used to display transient content such as menus, selection options,dialogs,
-  and more.
+  An overlay is a flexible floating surface, used to display transient content such as menus, selection options, dialogs, and more.
 </Box>
 
 <LabelGroup display="block" mb={4}>
-  <Label
-    as="a"
-    href="https://primer.style/react/Overlay"
-    variant="xl"
-    color="text.success"
-    outline
-    style="text-decoration: none; line-height: 20px;"
-  >
-    <img
-      width="20"
-      height="20"
-      alt=""
-      src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png"
-      style="vertical-align: middle; margin-right: 4px;"
-    />
+  <Label as="a" href="https://primer.style/react/Overlay" variant="xl" outline style="text-decoration: none; line-height: 20px;" >
+    <img width="20" height="20" alt="" src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png" style="vertical-align: middle; margin-right: 4px;" />
     React
   </Label>
-  <Label
-    as="a"
-    href="https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=9677%3A44413"
-    variant="xl"
-    outline
-    style="text-decoration: none; line-height: 20px;"
-  >
-    <img
-      width="20"
-      height="20"
-      alt=""
-      src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png"
-      style="vertical-align: middle; margin-right: 4px;"
-    />
+  <Label as="a" href="https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=9677%3A44413" variant="xl" outline style="text-decoration: none; line-height: 20px;">
+    <img width="20" height="20" alt="" src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png" style="vertical-align: middle; margin-right: 4px;" />
     Figma
   </Label>
 </LabelGroup>
@@ -50,146 +24,150 @@ import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link
 
 ## Overview
 
-Overlays can streamline the interface by allowing extra options to be displayed as needed. Overlays create a new modality to the user, and can facilitate the completion of individual tasks.
+Overlays can streamline the interface by allowing extra options to be disclosed as needed. Overlays create a new modality to the user, and can facilitate the completion of individual tasks.
 
 ### Keep overlays simple
 
-Overlays are meant to be interacted with quickly. Avoid creating a whole page inside an overlay. Prefer single-column layouts that convey a clear goal the moment the overlay is opened. If secondary navigation is required for the feature, consider designing a new page.
+Overlays are meant to be interacted in a single context. Avoid creating a whole page inside an overlay. Prefer single-column layouts that convey a clear goal from the moment the overlay is opened.
+
+However, overlays are powerful tools when creating space for single-context interfaces. When designing new features to support a main interface, start by considering if the interface for the feature can be created under a single context. 
+
+If the answer is yes, designing the feature inside an overlay provides an easy way to add support to mobile and avoid deeper navigations. If the answer is no, or if a side navigation is required for the feature, consider designing a new page.
 
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/18661030/172914027-668b5b51-b414-4e69-8e5c-9069222eaaad.png"
+      src="https://user-images.githubusercontent.com/293280/174922550-782a544b-12aa-4b2a-9ca7-700f8bc4f166.png"
       alt=""
     />
     <Caption>Prefer a single column layout.</Caption>
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/18661030/172914038-d27437cc-213c-42d7-950d-a6997e777489.png"
+      src="https://user-images.githubusercontent.com/293280/174922547-c658b89e-d304-48f0-b884-76bd0d440c9c.png"
       alt=""
     />
-    <Caption>Avoid secondary navigation within an overlay.</Caption>
+    <Caption>Avoid side navigation within an overlay.</Caption>
   </Dont>
 </DoDontContainer>
+
+### Trigger elements and overlay states
+
+Overlays are initially hidden, but can be opened by an element with `role="button"` called **trigger**. This role allows the **trigger** to be a relativelly complex element, such as a list item. 
 
 ### Ensure overlays are accessible
 
-Overlays should be fully functional using the keyboard. When an overlay is used for a dialog, a close button must be present. Pressing `Esc` should dismiss an overlay, generally returning focus to the element that opened it. Overlays should have clear, descriptive titles.
-
-<DoDontContainer>
-  <Do>
-    <img
-      src="https://user-images.githubusercontent.com/18661030/172926094-08197e69-6e8a-4aa1-849a-455ceab89cb0.png"
-      alt=""
-    />
-    <Caption>Provide a title and close button for dialogs.</Caption>
-  </Do>
-  <Dont>
-    <img
-      src="https://user-images.githubusercontent.com/18661030/172926105-c436ea40-1d9d-4166-8780-ea0a68f91068.png"
-      alt=""
-    />
-    <Caption>Avoid dialogs without a title or close button.</Caption>
-  </Dont>
-</DoDontContainer>
+Overlays should be fully functional using the keyboard and assistive technology. Pressing `Esc` should dismiss an overlay, returning focus to the **trigger** that opened it.
 
 ### Overlays should work well on any device
 
-Overlays must adjust their designs to fit in smaller viewports, and may adapt their style to become bottom sheets or full-screen on narrow devices. Make sure the overlay contents work with all supported sizes and input methods.
+Overlays must adjust their designs to fit in smaller viewports. Make sure the overlay contents work with all supported sizes and input methods.
 
-<DoDontContainer>
-  <Do>
-    <img
-      src="https://user-images.githubusercontent.com/18661030/172926228-9e46b6f0-bc4c-47e3-8c90-960d1ec26031.png"
-      alt=""
-    />
-    <Caption>Use a bottom sheet for narrow devices.</Caption>
-  </Do>
-  <Dont>
-    <img
-      src="https://user-images.githubusercontent.com/18661030/172926222-aeace43b-871f-4877-a69d-bc81e53c674a.png"
-      alt=""
-    />
-    <Caption>Avoid setting explicit widths on content to prevent screen overflow.</Caption>
-  </Dont>
-</DoDontContainer>
+### Overlay URLs
+
+Generally, simple overlays won't have a URL. Alerts, simple dialogs, confirmation dialogs are not candidate for URLs. 
+
+However, overlays containing navigation menus or forms can have their own URLs to facilitate user navigation and logic flow on narrow viewports.
+
+<!--
+
+Todo:
+
+---SPLIT PAGE LAYOUT: These types of Overlays can be placed in a pane region of a page on regular viewports. And can be displayed as fullscreen Overlays on narrow viewports.---
+
+Note: *It was decided that only overlays that are actual overlays on regular or on narrow viewports can have a URL. The above case is resolved by the split page layout.*
+
+-->
 
 ## Anatomy
 
-<ImageContainer mb={4}>
+<!-- <ImageContainer mb={4} bg='canvas.inset'>
   <img
-    width="636"
-    src="https://user-images.githubusercontent.com/293280/149601062-2e35343d-e2f9-406d-a5c9-ac21cda0e1fe.png"
+    width="768"
+    src="https://user-images.githubusercontent.com/293280/174913178-0b739f53-f9b8-4213-9376-4f918a679941.png"
     alt="Overlays have 3 regions: header, content, and footer. These regions may be divided by a full-width divider. Overlays use shadows to indicate elevation, and may appear above a backdrop that dims the rest of the screen."
     style="background: none"
   />
-</ImageContainer>
+</ImageContainer> -->
+<img alt="" src="https://user-images.githubusercontent.com/293280/174921246-606b8de1-dabd-4865-ae98-1e7677f1bb38.png" width="960" />
 <Caption>Anatomy of an overlay.</Caption>
 
-#### Spacing
+### Overlay regions
 
-Keep the edges of an overlay free of text and heavy visuals. This breathing room is meant to visually distinguish the overlay as an elevated surface, alongside its shadow. Generally, a compact a safe area of 16px is preferred. Components that have transparent or discrete backgrounds may take into account their own paddings, and appear beyond the safe area.
+- header
+- actions
+- subheader
+- body
+- footer
 
-#### Scroll behavior
+### Scroll behavior
 
-The content region may scroll vertically to accommodate lists and content that is too long to fit in the available space.
+The **body** region may scroll vertically to accommodate lists and contents too long to fit in the available space, or when the overlay appears in a small screen.
 
-#### Header and footer
+### Spacing
 
-Optional header and footer regions assist larger overlays. They help provide context and may host non-scrollable actions such as **Close** or **Save**.
+Keep the edges of an overlay free of text and heavy visuals. This breathing room is meant to visually distinguish the overlay as an elevated surface, alongside its shadow. Use a safe area of 16px when rendering content. Inner components that have transparent or discrete backgrounds may bleed into the padding for visual alignment.
 
-#### Backdrops
-
-Backdrops help emphasize the active content. Backdrops are especially recommended for larger overlays such as dialogs, to highlight their modality.
-
-<ImageContainer mb={4}>
-  <img
-    width="636"
-    src="https://user-images.githubusercontent.com/293280/149601850-2736ea96-b6ab-46b7-8bdb-11920f833d29.png"
-    alt=""
-    style="background: none"
-  />
-</ImageContainer>
+<img src="https://user-images.githubusercontent.com/293280/174925634-603a27cf-2281-4a3a-9078-d1b8138e0d09.png" width="960" />
 <Caption>
-
-An example of a dialog with 16px paddings. Notice the **Close** button is closer to the edges, but its icon is still within the safe area.
-
+  1. Close button placed `8px` away from the edges. Note that the "×" glyph remains within the safe area.<br />
+  2. A search field in the Subheader region appears closer to the edges. While the search icon remains within the safe area.<br />
+  3. Action list items in the Body region.<br />
+  4. Footer buttons always appear inside the safe area. <br />
 </Caption>
+
+### Backdrop
+
+An Overlay can have a visual **backdrop** element. The **backdrop** dims the rest of the page to emphasize the active Overlay. It appears when an Overlay is centered on the page, or aligned to the side.
+
+By default, clicking on the **backdrop** will dismiss the Overlay. However, if the overlay contains a form that can have unsaved changes, the **backdrop** won't dismiss the Overlay. 
+
+<!--
+Todo:
+(discuss more about form states and forms that can be closed by the backdrop)
+-->
 
 ### Header region
 
-A header region should be used to provide context to the user by displaying a title, description, and a **Close** button. Headers may also provide ways for the user to interact with the content, such as with search and tabs.
+A **header** is used to provide the context of the Overlay. By default, the component support a title, description, and a close button within the **header**.
 
-- **Titles should be succinct**. Descriptions are optional, and may wrap to multiple lines.
-- Reserve buttons such as **Save**, **Apply**, and **Done** for the footer region.
-- A divider may be used to separate the header from the content, partic in scenarios where the content region is scrollable.
+Headers are required when the overlay has a [`role="dialog"`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role). In that case, a title must be provided even if they are not visually displayed. The close button must always be visible.
 
-<ImageContainer>
-  <img
-    width="600"
-    src="https://user-images.githubusercontent.com/293280/125709255-7d0f199d-9ea9-46ac-ae5a-c6e60d97b289.png"
-    alt="An overlay with a header that contains a title with description, an overflow button for custom actions, a close button, and a search field."
-    style="background: none"
-  />
-</ImageContainer>
-<Caption>Header region with search field.</Caption>
+Titles and descriptions wrap to multiple lines if necessary. <!-- Todo: (discuss about custom headers with examples) -->
 
-<ImageContainer>
-  <img
-    width="600"
-    src="https://user-images.githubusercontent.com/293280/125709258-c542e916-69c3-4b37-9f7d-c118d9e704bd.png"
-    alt="An overlay with a header that contains larger title and description, an overflow button for custom actions, and a close button."
-    style="background: none"
-  />
-</ImageContainer>
-<Caption>Header region with larger title and description.</Caption>
+Variants of the **header** region:
+
+`header = 'mediumTitle' (default) | 'largeTitle' | 'custom'`
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175222060-df99c36c-c510-4ac3-a85c-8255e78856a1.png" alt="" />
+    <Caption>Simple medium title</Caption>
+  </div>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/174953817-6560e09d-9035-4427-b959-0a42dc0f7dea.png" alt="" />
+    <Caption>Default Header with medium title, also displaying a description and a search field.</Caption>
+  </div>
+</Box>
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/174949589-601f4cff-d766-406f-a638-666d1b693f28.png" alt="" />
+    <Caption>Header with large title variant</Caption>
+  </div>
+</Box>
+
+<!-- Todo: missing custom header example -->
+
+### Subheader
+
+The subheader region is an optional space for interactive controls. Use it to display a search field, a filter menu, or an `UnderlineNav`.
 
 ### Footer region
 
-The footer region may be used to show confirmation actions, navigation links, or other important elements that should appear outside of the content scrolling region.
+The footer region may be used to show confirmation actions, navigation links, or specialized actions.
 
-If the content area has overflow scrolling, a divider _must_ be shown between the footer and content area. Otherwise, showing a divider is optional.
+If the content area has overflow scrolling, a divider will be shown between the footer and content area. Otherwise, showing a divider is optional.
 
 <ImageContainer>
   <img
@@ -211,9 +189,9 @@ If the content area has overflow scrolling, a divider _must_ be shown between th
 </ImageContainer>
 <Caption>Use a link in a footer to provide access to a related page.</Caption>
 
-### Width and height
+### Dimensions
 
-Overlays should never extend beyond the viewport sizes, and may resize to fit smaller devices. The contents of an overlay should fit narrow viewports with a mimumum width of 320px. In the contents of an overlay extend vertically beyond the specified height, the content region will scroll.
+Overlays should never extend beyond the viewport sizes, and may resize to fit smaller devices. The contents of an overlay should fit narrow viewports with a minimum width of 320px. If the contents of an overlay extend vertically beyond the specified height, the content region will scroll.
 
 Overlays width and height dimensions should be set by the values in the following tables.
 
@@ -223,6 +201,7 @@ Overlays width and height dimensions should be set by the values in the followin
 | Width     | Size               |
 | :-------- | :----------------- |
 | `auto`    | Adjusts to content |
+| `xsmall`  | 192px              |
 | `small`   | 256px              |
 | `medium`  | 320px              |
 | `large`   | 480px              |
@@ -248,7 +227,7 @@ Overlays width and height dimensions should be set by the values in the followin
 
 ### Opening
 
-Overlays appear on the page after a direct user interaction, such as on click, tap, press, etc. Don't show overlays on page load. For that, prefer in-page messages and flash banners.
+Overlays can be opened by a direct user interaction with a **trigger**. If they have an associated URL, they appear already open on page load.
 
 ### Dismissing
 
@@ -256,14 +235,14 @@ Users should be able to dismiss an overlay by:
 
 - Pressing Escape
 - Pressing on a **Close** button
-- Clicking or tapping outside
-- Pressing the browser’s back button
+- Clicking outside
+- Pressing the browser’s back button, if it has an associated URL
 
 Close buttons are useful as an easy escape route, particularly in larger or more complex overlays, or when the overlay is no longer visually connected to the source that triggered it. Always use a close button for overlays with backdrops.
 
 Users may click or tap outside to dismiss an overlay. Larger overlays with backdrops may opt to disable this functionality in dangerous scenarios where the user could lose progress or data accidentally.
 
-If the overlay contains changes that are not immediately applied (such as in a form), offer footer buttons such as **Save**, **Apply**, or **Submit**. To avoid users from losing important unsaved changes, a [`beforeUnload`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) event may be used.
+If the overlay contains changes that are not immediately applied (such as in a form), provide footer buttons such as **Save**, **Apply**, or **Submit**. To avoid users from losing important unsaved changes, a [`beforeUnload`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) event may be used.
 
 Users should also be able to click or tap the browser’s back button to dismiss the overlay. This is particularly useful on mobile devices.
 
@@ -279,6 +258,8 @@ On narrow viewports, overlays can be one of the options above, or adapt to varia
 
 - Bottom sheet (anchored to the bottom of the screen for easier touch reachability)
 - Full-screen (for forms, long lists and other complex flows)
+
+<!-- Overlays that contain input fields or other controls that require a keyboard should appear as full screen on narrow viewports. -->
 
 ### Anchored overlays
 
@@ -347,6 +328,14 @@ A centered dialog with a title and close button in the header, a scrollable cont
 Side sheets slide from the right or left edges of the viewport. Left side sheets are reserved for global navigation drawers. Right side sheets are used for global actions, but can also be considered for quick previews in full-width pages, or configuration panels.
 
 Side sheets take the entire height of the viewport, and should be used sparingly. Don't use side sheets to present forms or flows that should be a page instead.
+
+#### Left side sheets
+
+#### Right side sheets
+
+#### Top side sheets
+
+#### Bottom side sheets
 
 ## Responsive variants
 
