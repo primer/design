@@ -16,7 +16,7 @@ People who have low or colorblind vision may have trouble identifying links that
 
 ## How to test links
 - Check a link's function. If clicking a link activates a feature on the page, it should be a `<button>`, and vice versa. 
-- Check a link's purpose. If you can't get an idea of where a link will take you based on the link text alone, the link text should be updated. 
+- Check a link's purpose. If you can't get an idea of where a link will take you based on the link text alone, the link text should be updated. Learn more at [Link text](#link-text).
 - [Check a link's contrast](https://webaim.org/resources/contrastchecker/). Because links are text-based, they need to pass 4.5:1 against the background color that they are on.
 - In body text, like a Markdown file, check to make sure that all links have underline styling. 
 
@@ -67,10 +67,38 @@ People who have low or colorblind vision may have trouble identifying links that
 - Only adding an underline to a link when it has focus or is hovered over
 - Underlining every link on the page. For example, a navigation list is a list of links but navigational links don't have to be underlined because the intent is understood and an underline is not needed to identify the interactive nature of the control.
 
+## Link text
+
+Link text should be descriptive enough to convey the destination without the context of the surrounding text. Screen reader users often tab through links on a page to quickly find content without needing to listen to the full page.
+When link text is too generic like "Read more", the destination of the link is not conveyed. 
+
+It may be acceptable in some scenarios to provide a more descriptive link text for screen reader users by setting the `aria-label`. However, this technique will result in divergence between the label and the text and is not an ideal, future-proof solution.
+Whenever possible, prefer a single descriptive link text that is available for both sighted users and screen reader users.
+
+If you must resort to the ARIA technique to provide a descriptive link text, you must follow these principles:
+
+1. The visible text is included in full as part of the accessible name to avoid a violation of [SC 2.5.3: Label in Name](https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html).
+2. The sentence that the link is a part of is well-formed and grammatical when read with both the visible text and the accessible name.
+
+### Bad: Accessible name results in badly formed sentence 👎 
+
+### Bad: Accessible name does not include visible link text 👎 
+
+### Good: Accessible name includes visible link text 👍 
+
+The link below includes visible link text and is well-formed:
+
+```HTML
+<a href="..." aria-label="Learn more about GitHub pricing plans">Learn more</button>
+```
+
+As demonstrated, this technique can easily go wrong and is not a future proof solution so only use it if necessary.
+
 ## Additional resources
 - [Color to Distinguish Links from Text](https://dequeuniversity.com/class/visual-design/color/distinguish-links-from-text) (requires a subscription to access the content)
 - [Accessibility Insights plugin](https://accessibilityinsights.io/en/): With the Accessibility Insights plugin installed, open the plugin, visit the **Assessment** option and select **7. Links**
 - [WebAIM: Links and Hypertext - Introduction to Links and Hypertext](https://webaim.org/techniques/hypertext/)
+- [erblint-github Avoid generic link text](https://github.com/github/erblint-github/blob/main/docs/rules/accessibility/avoid-generic-link-text-counter.md)
 
 ### Related WCAG guidelines and success criteria
 - [Understanding Success Criterion 4.1.2: Name, Role, Value](https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html)
