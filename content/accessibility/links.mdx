@@ -69,30 +69,43 @@ People who have low or colorblind vision may have trouble identifying links that
 
 ## Link text
 
-Link text should be descriptive enough to convey the destination without the context of the surrounding text. Screen reader users often tab through links on a page to quickly find content without needing to listen to the full page.
+Link text should be descriptive enough to convey the destination without relying on the surrounding text. Screen reader users often tab through links on a page to quickly find content without needing to listen to the full page.
 When link text is too generic like "Read more", the destination of the link is not conveyed. 
 
 It may be acceptable in some scenarios to provide a more descriptive link text for screen reader users by setting the `aria-label`. However, this technique will result in divergence between the label and the text and is not an ideal, future-proof solution.
 Whenever possible, prefer a single descriptive link text that is available for both sighted users and screen reader users.
 
-If you must resort to the ARIA technique to provide a descriptive link text, you must follow these principles:
+If you must resort to the ARIA technique to provide a descriptive link text, follow these principles:
 
 1. The visible text is included in full as part of the accessible name to avoid a violation of [SC 2.5.3: Label in Name](https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html).
 2. The sentence that the link is a part of is well-formed and grammatical when read with both the visible text and the accessible name.
 
-### Bad: Accessible name results in badly formed sentence 👎 
+### Bad: Accessible name results in poorly-formed sentence 👎 
 
-### Bad: Accessible name does not include visible link text 👎 
+The content below will be announced as, "Learn more about keyboard shortcuts allow you to access common commands more quickly" by screen readers which is incomprehensible.
+
+```HTML
+<a href="..." aria-label="Learn more about keyboard shortcuts">Keyboard shortcuts</a> allow you to access common commands more quickly.
+```
+
+### Bad: Accessible name does not include information conveyed in visible text 👎 
+
+The link text below has an accessible name that fails to convey information that is available in visible text.
+
+```HTML
+<a href="..." aria-label="Visit profile">@monalisa's profile</a>
+```
 
 ### Good: Accessible name includes visible link text 👍 
 
-The link below includes visible link text and is well-formed:
+The link below has an accessible name that fully includes the visible link text and is comprehensible.
+(This example uses the ARIA technique for demo purposes and is technically valid, but the link text here can just be "Learn more about GitHub pricing plans".)
 
 ```HTML
-<a href="..." aria-label="Learn more about GitHub pricing plans">Learn more</button>
+There are various plans available. <a href="..." aria-label="Learn more about GitHub pricing plans">Learn more</button>
 ```
 
-As demonstrated, this technique can easily go wrong and is not a future proof solution so only use it if necessary.
+As demonstrated in the examples, this technique adds more complexity to the code and can introduce more problems so only use this technique if absolutely necessary.
 
 ## Additional resources
 - [Color to Distinguish Links from Text](https://dequeuniversity.com/class/visual-design/color/distinguish-links-from-text) (requires a subscription to access the content)
