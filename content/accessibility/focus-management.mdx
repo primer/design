@@ -58,7 +58,7 @@ When removing content, focus should return to a logical spot. By default, if you
 
 ### Filtering
 
-Filtering is a very complex topic. Accessibiity guidance will vary depending on the filter implementation, but when done right, focus management should only play a small role. For example, if you have five filters and apply the first filter, you do not want to be moved to the results because you may not be ready to move on. Focus should instead continue to remain on the selected element.
+Filtering is a very complex topic. Accessibility guidance will vary depending on the filter implementation, but when done right, focus management should only play a small role. For example, if you have five filters and apply the first filter, you do not want to be moved to the results because you may not be ready to move on. Focus should instead continue to remain on the selected element.
 Focus management really only applies when a selected filter is removed from the page. For instance, if a "Clear" filter is applied which removes the "Clear" element, follow the focus management guidance provided in [Removing content](#removing-content).
 
 If the filter is implemented as a link causing a full page reload, the focus may get lost. In this implementation, focus management is a nice to have rather than a requirement. It is much more important to ensure there is a skip link and a proper heading structure is in place to support efficient navigation.
