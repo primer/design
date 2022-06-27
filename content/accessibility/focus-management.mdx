@@ -56,6 +56,13 @@ When adding content to the page, focus should move to the first item that is add
 
 When removing content, focus should return to a logical spot. By default, if you remove an item and don't tell the focus where to go next, it will return to the `body` element and the user will need to navigate through the entire page again to get to where they were. For example, if deleting a comment within a thread, move the focus to either a “write comment” input if one exists, or the menu of the next comment. If there is no other comment, use the previous comment. This is just a suggestion, use best judgement when deciding what will be logical for a user.
 
+### Filtering
+
+Filtering is a very complex topic. Accessibiity guidance will vary depending on the filter implementation, but when done right, focus management should only play a small role. For example, if you have five filters and apply the first filter, you do not want to be moved to the results because you may not be ready to move on. Focus should instead continue to remain on the selected element.
+Focus management really only applies when a selected filter is removed from the page. For instance, if a "Clear" filter is applied which removes the "Clear" element, follow the focus management guidance provided in [Removing content](#removing-content).
+
+If the filter is implemented as a link causing a full page reload, the focus may get lost. In this implementation, focus management is a nice to have rather than a requirement. It is much more important to ensure there is a skip link and a proper heading structure is in place to support efficient navigation.
+
 ## Additional resources
 
 ### Good focus management
@@ -63,6 +70,7 @@ When removing content, focus should return to a logical spot. By default, if you
 - [Improve Accessibility in Your React App By Managing Focus in Mutable Content](https://medium.com/swlh/improve-accessibility-in-your-react-app-by-managing-focus-in-mutable-content-4ddf4ed92186)
 - [Focus management and inert](https://css-tricks.com/focus-management-and-inert/)
 - [Removing Headaches from Focus Management](https://developers.google.com/web/updates/2016/03/focus-start-point)
+- [Deep-dive: Focus management](https://github.com/github/accessibility/blob/main/docs/deep-dive-notes/2021-12-1-focus-managaement.md) (link only accessible to GitHub staff)
 
 ### Related WCAG guidelines and success criteria
 
