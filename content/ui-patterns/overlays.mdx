@@ -20,19 +20,19 @@ import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link
   </Label>
 </LabelGroup>
 
-<img src="https://user-images.githubusercontent.com/293280/125706076-b16bb3d4-800f-4310-a082-f576e215e6c8.png" alt="" />
+<img src="https://user-images.githubusercontent.com/293280/175845849-08ab3226-a5da-4955-b0a0-13aff60cbe3b.png" alt="" />
 
 ## Overview
 
-Overlays can streamline the interface by allowing extra options to be disclosed as needed. Overlays create a new modality to the user, and can facilitate the completion of individual tasks.
+Overlays can streamline the interface by allowing extra content to be disclosed as needed. Overlays create a new modality to the user, and can facilitate the completion of individual tasks.
 
 ### Keep overlays simple
 
 Overlays are meant to be interacted in a single context. Avoid creating a whole page inside an overlay. Prefer single-column layouts that convey a clear goal from the moment the overlay is opened.
 
-However, overlays are powerful tools when creating space for single-context interfaces. When designing new features to support a main interface, start by considering if the interface for the feature can be created under a single context. 
+However, overlays are powerful tools when creating space for single-context interfaces. When designing a new feature to support a main interface, start by considering if the new feature can be created under a single context. 
 
-If the answer is yes, designing the feature inside an overlay provides an easy way to add support to mobile and avoid deeper navigations. If the answer is no, or if a side navigation is required for the feature, consider designing a new page.
+If the answer is yes, designing the feature inside an overlay provides an easy way to add responsive support, and avoid deeper navigations. If the answer is no, or if a side navigation is required for the feature, consider designing a new page.
 
 <DoDontContainer>
   <Do>
@@ -53,7 +53,11 @@ If the answer is yes, designing the feature inside an overlay provides an easy w
 
 ### Trigger elements and overlay states
 
-Overlays are initially hidden, but can be opened by an element with `role="button"` called **trigger**. This role allows the **trigger** to be a relativelly complex element, such as a list item. 
+Overlays are initially hidden, but can be opened by an element with `role="button"` or `role="combobox"`, called **trigger**. The role `button` allows the **trigger** to be a relativelly complex element, such as a list item. The role `combobox` allows the trigger to be a form input that uses to Overlay to present suggestions or autcomplete options.
+
+<!-- TODO: talk about autocomplete overlays
+
+Overlays can also be opened by interaction with form elements -->
 
 ### Ensure overlays are accessible
 
@@ -65,7 +69,7 @@ Overlays must adjust their designs to fit in smaller viewports. Make sure the ov
 
 ### Overlay URLs
 
-Generally, simple overlays won't have a URL. Alerts, simple dialogs, confirmation dialogs are not candidate for URLs. 
+Generally, simple overlays won't have a URL. Specialized overlays such as alerts, simple dialogs, or confirmation dialogs are not candidates for URLs. 
 
 However, overlays containing navigation menus or forms can have their own URLs to facilitate user navigation and logic flow on narrow viewports.
 
@@ -110,17 +114,17 @@ Keep the edges of an overlay free of text and heavy visuals. This breathing room
 
 <img src="https://user-images.githubusercontent.com/293280/174925634-603a27cf-2281-4a3a-9078-d1b8138e0d09.png" width="960" />
 <Caption>
-  1. Close button placed `8px` away from the edges. Note that the "×" glyph remains within the safe area.<br />
-  2. A search field in the Subheader region appears closer to the edges. While the search icon remains within the safe area.<br />
+  1. A search field in the Subheader region appears closer to the edges. While the search icon remains within the safe area.<br />
+  2. Close button placed `8px` away from the edges. Note that the "×" glyph remains within the safe area.<br />
   3. Action list items in the Body region.<br />
   4. Footer buttons always appear inside the safe area. <br />
 </Caption>
 
 ### Backdrop
 
-An Overlay can have a visual **backdrop** element. The **backdrop** dims the rest of the page to emphasize the active Overlay. It appears when an Overlay is centered on the page, or aligned to the side.
+An Overlay can have a visual **backdrop** element. The **backdrop** dims the rest of the page to emphasize the active Overlay. It appears when an Overlay is centered on the page, or attached to the sides.
 
-By default, clicking on the **backdrop** will dismiss the Overlay. However, if the overlay contains a form that can have unsaved changes, the **backdrop** won't dismiss the Overlay. 
+By default, clicking on the **backdrop** will dismiss the Overlay. However, if the Overlay contains a form that can have unsaved changes, the **backdrop** won't dismiss the Overlay, regardless of the state of the form.
 
 <!--
 Todo:
@@ -129,39 +133,54 @@ Todo:
 
 ### Header region
 
-A **header** is used to provide the context of the Overlay. By default, the component support a title, description, and a close button within the **header**.
+A **header** region is used to provide the context of the Overlay. By default, the region supports a title, description, and a close button.
 
-Headers are required when the overlay has a [`role="dialog"`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role). In that case, a title must be provided even if they are not visually displayed. The close button must always be visible.
+**Headers** are required when the overlay has a [`role="dialog"`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role). In that case, a title must be provided even if they are not visually displayed. The close button must always be visible. 
+<!-- _(see Dialog component documentation)_ -->
 
 Titles and descriptions wrap to multiple lines if necessary. <!-- Todo: (discuss about custom headers with examples) -->
 
-Variants of the **header** region:
-
-`header = 'mediumTitle' (default) | 'largeTitle' | 'custom'`
-
-<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-  <div>
-    <img src="https://user-images.githubusercontent.com/293280/175222060-df99c36c-c510-4ac3-a85c-8255e78856a1.png" alt="" />
-    <Caption>Simple medium title</Caption>
-  </div>
-  <div>
-    <img src="https://user-images.githubusercontent.com/293280/174953817-6560e09d-9035-4427-b959-0a42dc0f7dea.png" alt="" />
-    <Caption>Default Header with medium title, also displaying a description and a search field.</Caption>
-  </div>
-</Box>
+Variants of the **header** region:  
+`'title' (default) | 'largeTitle' | 'custom'`
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
-    <img src="https://user-images.githubusercontent.com/293280/174949589-601f4cff-d766-406f-a638-666d1b693f28.png" alt="" />
+    <img src="https://user-images.githubusercontent.com/293280/175849372-a9d33d3b-96f3-497e-bad6-70df4d91072a.png" alt="" />
+    <Caption>Header with the default title variant</Caption>
+  </div>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175849374-6a71d8a0-da61-4745-a059-4560d053089b.png" alt="" />
     <Caption>Header with large title variant</Caption>
   </div>
 </Box>
 
-<!-- Todo: missing custom header example -->
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175849370-bcc9161c-901e-4e03-ba40-0626dd0523c4.png" alt="" />
+    <Caption>Header with custom variant</Caption>
+  </div>
+</Box>
 
-### Subheader
+### Actions region
 
-The subheader region is an optional space for interactive controls. Use it to display a search field, a filter menu, or an `UnderlineNav`.
+<!-- Todo -->
+
+### Subheader region
+
+The subheader region is an optional space for interactive controls. Use it to display a search field, a filter menu, or a local navigation component.
+
+<!-- UnderlineNav. -->
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175849377-ef70f4e7-2978-415c-9da1-a2ba2f33bdc3.png" alt="" />
+    <Caption>Header displaying a subheader with a search field.</Caption>
+  </div>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175849376-ef25a1ba-b5b7-4ae0-8d9a-78095932886a.png" alt="" />
+    <Caption>Header displaying a subheader with a local navigation.</Caption>
+  </div>
+</Box>
 
 ### Footer region
 
@@ -169,15 +188,21 @@ The footer region may be used to show confirmation actions, navigation links, or
 
 If the content area has overflow scrolling, a divider will be shown between the footer and content area. Otherwise, showing a divider is optional.
 
-<ImageContainer>
-  <img
-    width="600"
-    src="https://user-images.githubusercontent.com/293280/146613971-391a757b-e5a5-40c2-b166-8f829c5d3609.png"
-    alt=""
-    style="background: none"
-  />
-</ImageContainer>
-<Caption>Use buttons in a footer to let the user finish the task and confirm their action.</Caption>
+<img src="https://user-images.githubusercontent.com/293280/175850630-9f3df284-c69b-4d16-9e57-ea04a0202d04.png" width="960" alt="" />
+<Caption>
+  Use buttons in a footer to let the user complete a task.
+</Caption>
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175850639-a77d537e-2807-47d2-b456-a298d5f44918.png" alt="" />
+    <Caption>Footer with small buttons.</Caption>
+  </div>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175850637-3b193552-b35f-4b07-b2d6-4ca546c8131a.png" alt="" />
+    <Caption>Footer with auxiliary create button.</Caption>
+  </div>
+</Box>
 
 <ImageContainer>
   <img
@@ -191,9 +216,9 @@ If the content area has overflow scrolling, a divider will be shown between the 
 
 ### Dimensions
 
-Overlays should never extend beyond the viewport sizes, and may resize to fit smaller devices. The contents of an overlay should fit narrow viewports with a minimum width of 320px. If the contents of an overlay extend vertically beyond the specified height, the content region will scroll.
+Overlays should never extend beyond the viewport sizes, and may resize to fit smaller devices. The contents of an overlay should fit narrow viewports with a minimum width of `320px`. If the contents of an Overlay extend vertically beyond the specified height, the **body** region will scroll.
 
-Overlays width and height dimensions should be set by the values in the following tables.
+Overlays width and height properties support the following values:
 
 <Grid gridTemplateColumns={['1fr', null, null, null, 'auto 1fr']} gridGap={4}>
 <div>
@@ -227,30 +252,31 @@ Overlays width and height dimensions should be set by the values in the followin
 
 ### Opening
 
-Overlays can be opened by a direct user interaction with a **trigger**. If they have an associated URL, they appear already open on page load.
+Overlays can be opened by a direct user interaction with a **trigger**. If they have an associated URL and the URL is accessed by the user, they appear already open on page load.
 
 ### Dismissing
 
 Users should be able to dismiss an overlay by:
 
 - Pressing Escape
-- Pressing on a **Close** button
-- Clicking outside
+- Pressing the **Close** button, if present
+- Clicking outside, if allowed
 - Pressing the browser’s back button, if it has an associated URL
 
-Close buttons are useful as an easy escape route, particularly in larger or more complex overlays, or when the overlay is no longer visually connected to the source that triggered it. Always use a close button for overlays with backdrops.
+<!-- TODO: review the following text -->
+<!-- Close buttons are useful as an easy escape route, particularly in larger or more complex overlays, or when the overlay is no longer visually connected to the source that triggered it. Always use a close button for overlays with backdrops.
 
 Users may click or tap outside to dismiss an overlay. Larger overlays with backdrops may opt to disable this functionality in dangerous scenarios where the user could lose progress or data accidentally.
 
 If the overlay contains changes that are not immediately applied (such as in a form), provide footer buttons such as **Save**, **Apply**, or **Submit**. To avoid users from losing important unsaved changes, a [`beforeUnload`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) event may be used.
 
-Users should also be able to click or tap the browser’s back button to dismiss the overlay. This is particularly useful on mobile devices.
+Users should also be able to click or tap the browser’s back button to dismiss the overlay. This is particularly useful on mobile devices. -->
 
 ## Placement
 
 Overlays may appear:
 
-- Anchored next a source element (typically for menus)
+- Anchored next to its **trigger** element (typically for menus or autocompletes)
 - Centered in the viewport with a backdrop (also known as "dialogs")
 - As a sliding side sheet with a backdrop
 
