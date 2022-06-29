@@ -289,37 +289,31 @@ On narrow viewports, overlays can be one of the options above, or adapt to varia
 
 ### Anchored overlays
 
-Anchored overlays can be used in any device or screen size. They anchor to the button or source element that triggered them, drawing a direct connection between the elements. The source element should have a "selected" visual state while the overlay is opened.
+Anchored overlays can be used in any device or screen size. They are placed next to the **trigger**, drawing a direct connection between the elements. The source element should have a "selected" visual state while the overlay is opened.
 
 Anchored overlays are useful for menus, quick interactions, and data manipulation. They don't dim the rest of the screen with a backdrop when presented.
 
-Anchored overlays can be dismissed at any time by clicking outside of it. An anchored overlay may also be dismissed after choosing one of its options or buttons, or when clicking on an optional **Close** button.
+<!-- Anchored overlays can be dismissed at any time by clicking outside of it. An anchored overlay may also be dismissed after choosing one of its options or buttons, or when clicking on an optional **Close** button. -->
 
-<ImageContainer>
-  <img
-    alt=""
-    width="372"
-    src="https://user-images.githubusercontent.com/293280/126412744-45197568-26cd-432f-bfc0-03f5c90cb647.png"
-    style="background: none"
-  />
-</ImageContainer>
-<Caption>An anchored overlay attached to its source.</Caption>
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/176536659-6431d96a-d097-493b-bd2c-aa79c3552abe.png" alt="" />
+    <Caption>Icon button as a trigger.</Caption>
+  </div>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/176537040-78aa273e-df8a-428f-98e4-4c3032e972e5.png" alt="" />
+    <Caption>Input field as a trigger for autocomplete behavior.</Caption>
+  </div>
+</Box>
 
-Anchored overlays should be at least 16px away from the viewport boundaries. Users shouldn't be blocked from scrolling the page while an anchored overlay is open, nor should a scrolling event in the page close the overlay.
+<!-- Anchored overlays should be at least 16px away from the viewport boundaries. Users shouldn't be blocked from scrolling the page while an anchored overlay is open, nor should a scrolling event in the page close the overlay. -->
 
-Primer uses [`anchoredPosition`](https://github.com/primer/behaviors/blob/main/docs/anchored-position.md) to calculate the position of an overlay.
+<!-- Primer uses [`anchoredPosition`](https://github.com/primer/behaviors/blob/main/docs/anchored-position.md) to calculate the position of an overlay. -->
 
-<ImageContainer>
-  <img
-    width="508"
-    src="https://user-images.githubusercontent.com/293280/147167707-66da9301-fdfd-4810-9f62-41e4f6f3c23c.png"
-    alt=""
-    style="background: none"
-  />
-</ImageContainer>
+<img src="https://user-images.githubusercontent.com/293280/176537628-50ae4d3f-e1b5-407a-84c4-8abd8789d12d.png" alt="" />
 <Caption>
 
-A visualization of available [`anchoredPosition`](https://github.com/primer/behaviors/blob/main/docs/anchored-position.md) options. Source elements (purple squares) and their overlays (white squares) with `side` (`outside-top`, `outside-right`, `outside-bottom`, `outside-left`) and `align` (`start`, `center`, `end`) settings.
+A visualization of available [`anchoredPosition`](https://github.com/primer/behaviors/blob/main/docs/anchored-position.md) options. Trigger elements (purple squares) and their overlays (white squares) with `side` (`outside-top`, `outside-right`, `outside-bottom`, `outside-left`) and `align` (`start`, `center`, `end`) settings.
 
 </Caption>
 
