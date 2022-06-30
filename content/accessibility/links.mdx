@@ -84,26 +84,17 @@ If you must resort to the ARIA technique to provide a descriptive link text, fol
 
 The content below will be announced as, "Learn more about keyboard shortcuts allow you to access common commands more quickly" by screen readers which is incomprehensible.
 
-```HTML
-<a href="..." aria-label="Learn more about keyboard shortcuts">Keyboard shortcuts</a> allow you to access common commands more quickly.
-```
-
-### Bad: Accessible name does not include information conveyed in visible text 👎 
-
-The link text below has an accessible name that fails to convey information that is available in visible text.
-
-```HTML
-<a href="..." aria-label="Visit profile">@monalisa's profile</a>
-```
-
-### Good: Accessible name includes visible link text 👍 
-
-The link below has an accessible name that fully includes the visible link text and is comprehensible.
-(This example uses the ARIA technique for demo purposes and is technically valid, but the link text here can just be "Learn more about GitHub pricing plans".)
-
-```HTML
-There are various plans available. <a href="..." aria-label="Learn more about GitHub pricing plans">Learn more</button>
-```
+<DoDontContainer>
+    <Do>
+      <Caption>Accessible name fully includes the visible link text, "Learn more" and is well-formed with either label.</Caption>
+      <Code className="language-html">{`There are various plans available. <a href="..." aria-label="Learn more about GitHub pricing plans">Learn more</button>`}</Code>
+      <br />
+    </Do>
+    <Dont>
+      <Caption>Accessible name results in poorly-formed sentence, "Learn more about keyboard shortcuts allow you to access common commands more quickly". </Caption>
+      <Code className="language-html">{`<a href="..." aria-label="Learn more about keyboard shortcuts">Keyboard shortcuts</a> allow you to access common commands more quickly.`}</Code>
+    </Dont>
+</DoDontContainer>
 
 As demonstrated in the examples, this technique adds more complexity to the code and can introduce more problems than it solves so only use this technique if absolutely necessary.
 
