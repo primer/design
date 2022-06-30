@@ -329,8 +329,9 @@ Centered overlays should always have an overlay header with a title and **Close*
 
 Overlays shouldn't touch the viewport edges. Use a safe 16px margin to keep centered overlays visually distinct from the rest of the page, even on narrow viewports.
 
-Simple and small centered overlays can remain as-is on narrow viewports. Consider <a href="#responsive-variants">responsive variants</a> as more elements are added to it.
+<!-- Simple and small centered overlays can remain as-is on narrow viewports. Consider <a href="#responsive-variants">responsive variants</a> as more elements are added to it. -->
 
+<!--
 <ImageContainer>
   <img
     width="661"
@@ -344,6 +345,7 @@ Simple and small centered overlays can remain as-is on narrow viewports. Conside
 A centered dialog with a title and close button in the header, a scrollable content region, and a footer with buttons.
 
 </Caption>
+-->
 
 ### Side sheets
 
@@ -363,14 +365,7 @@ Its height should always accommodate the content inside. If the content is too t
 
 On portrait mode, a bottom sheet takes up the full width of the viewport.
 
-<ImageContainer>
-  <img
-    width="680"
-    src="https://user-images.githubusercontent.com/293280/147170160-5392c649-0dcb-4c7c-adfc-2524a4a3915c.png"
-    alt=""
-    style="background: none"
-  />
-</ImageContainer>
+<img src="https://user-images.githubusercontent.com/293280/176795034-d9077cd0-adf2-4a8c-832b-f90fdd314e0e.png" alt="" />
 <Caption>
 
 In order to work well in non-rectangular mobile screens and browser UI, bottom sheets may add extra padding inside the overlay, following [`env(safe-area-inset-*)`](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>) environment variables.
@@ -379,27 +374,8 @@ In order to work well in non-rectangular mobile screens and browser UI, bottom s
 
 On landscape mode, a bottom sheet has a maximum width of 480px, centered horizontally.
 
-<ImageContainer>
-  <img
-    width="880"
-    src="https://user-images.githubusercontent.com/293280/147170826-73caa091-b71a-4296-beba-ccf3a2ccf9ab.png"
-    alt=""
-    style="background: none"
-  />
-</ImageContainer>
+<img src="https://user-images.githubusercontent.com/293280/176796135-fe63dbb8-a5aa-4b2b-a20e-7db2d4f925bc.png" alt="" />
 <Caption>Bottom sheet on landscape viewports.</Caption>
-
-<ImageContainer>
-  <img
-    width="500"
-    src="https://user-images.githubusercontent.com/293280/147170671-09e6002a-2622-41b6-afe5-f37f0890a6c3.png"
-    alt=""
-    style="background: none"
-  />
-</ImageContainer>
-<Caption>Header indicator when no title and close button are present.</Caption>
-
-A bottom sheet without a title or close button gets a header indicator at the top. Slide it down to dismiss the overlay.
 
 ### Full-screen (specific to narrow viewports)
 
@@ -407,6 +383,7 @@ Full-screen overlays may be used to present content that needs all the available
 
 Overlays that have one or more input fields should always use the full-screen variant.
 
+<!--
 <ImageContainer>
   <img
     width="500"
@@ -416,6 +393,7 @@ Overlays that have one or more input fields should always use the full-screen va
   />
 </ImageContainer>
 <Caption>Full-screen overlay with close button.</Caption>
+-->
 
 <!--
 ## Navigation
