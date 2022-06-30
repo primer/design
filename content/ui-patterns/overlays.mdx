@@ -204,6 +204,7 @@ If the content area has overflow scrolling, a divider will be shown between the 
   </div>
 </Box>
 
+<!--
 <ImageContainer>
   <img
     width="600"
@@ -213,6 +214,7 @@ If the content area has overflow scrolling, a divider will be shown between the 
   />
 </ImageContainer>
 <Caption>Use a link in a footer to provide access to a related page.</Caption>
+-->
 
 ### Dimensions
 
@@ -276,8 +278,8 @@ Users should also be able to click or tap the browser’s back button to dismiss
 
 Overlays may appear:
 
-- Anchored next to its **trigger** element (typically for menus or autocompletes)
-- Centered in the viewport with a backdrop (also known as "dialogs")
+- Anchored next to its **trigger** element
+- Centered in the viewport with a backdrop
 - As a sliding side sheet with a backdrop
 
 On narrow viewports, overlays can be one of the options above, or adapt to variants that are designed specifically for smaller devices:
@@ -323,7 +325,7 @@ Centered overlays appear centered in the viewport, with a visible backdrop that 
 
 Centered overlays should always have an overlay header with a title and **Close** button.
 
-Prevent page scrolling when a centered overlay is present.
+<!-- Prevent page scrolling when a centered overlay is present. -->
 
 Overlays shouldn't touch the viewport edges. Use a safe 16px margin to keep centered overlays visually distinct from the rest of the page, even on narrow viewports.
 
@@ -348,14 +350,6 @@ A centered dialog with a title and close button in the header, a scrollable cont
 Side sheets slide from the right or left edges of the viewport. Left side sheets are reserved for global navigation drawers. Right side sheets are used for global actions, but can also be considered for quick previews in full-width pages, or configuration panels.
 
 Side sheets take the entire height of the viewport, and should be used sparingly. Don't use side sheets to present forms or flows that should be a page instead.
-
-#### Left side sheets
-
-#### Right side sheets
-
-#### Top side sheets
-
-#### Bottom side sheets
 
 ## Responsive variants
 
