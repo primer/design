@@ -8,15 +8,15 @@ In order for a button’s purpose to be clear to all users, it must have a meani
 
 ### What is a meaningful name?
 
-A meaningful name describes the button’s purpose: The action that occurs when the button is activated (e.g. removing a list item), and the action’s associated context (e.g. the specific item to be removed). To avoid unnecessary verbosity, button names should be as succinct as possible while still being descriptive and unique. Refer to [Identifying comments](#identifying-comments) below for an example of a succinct, unique name.
+A meaningful name describes the button’s purpose: the action that occurs when the button is activated (for example: removing a list item), and the action’s associated context (for example: the specific item to be removed). To avoid unnecessary verbosity, button names should be as succinct as possible while still being descriptive and unique. 
 
-To explore how meaningful names can be set in code, refer to the [Examples](#examples) below.
+Refer to [Identifying GitHub comments](#identifying-github-comments) below for an example of a succinct, unique name. To explore how meaningful names can be set in code, refer to the [examples](#examples) below.
 
 ### Why is a meaningful name necessary?
 
 Clear and consistent labels set user expectations for button actions, giving users confidence that activating a button will have the outcome they expect.
 
-Screen readers (e.g. VoiceOver) provide overlays to enable users to jump to specific types of elements, including buttons. Elements are listed by their names. When buttons don’t have meaningful names, it’s not possible to determine which action will be performed when selecting them from the list.
+Screen readers (for example: VoiceOver) provide overlays to enable users to jump to specific types of elements, including buttons. Elements are listed by their names. When buttons don’t have meaningful names, it’s not possible to determine which action will be performed when selecting them from the list.
 
 ## How to test names
 
@@ -30,35 +30,67 @@ When reviewing buttons on a page, ensure the following are true:
 
 ### For designers
 
-- When including an icon-only (i.e. unlabeled) button in a design, recommend an accessible name.
+- When including an unlabeled, icon-only button in a design, recommend an accessible name.
 - When including multiple buttons that peform the same function in a design, use the same label for each.
 
 ### For engineers
 
-- When a button doesn’t have a visible label (e.g. an [IconButton](https://primer.style/view-components/components/iconbutton)), provide an accessible name. Refer to [ARIA 14: Using `aria-label` to provide an invisible label where a visible label cannot be used](https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA14).
-- Because `aria-label` doesn’t _supplement_ visible labels but rather _supplants_ them, when a button has a visible label, include that label in its accessible name. A best practice is to have the text of the label at the start of the name.
+- When a button doesn’t have a visible label (for example: an [IconButton](https://primer.style/view-components/components/iconbutton)), provide an accessible name. Refer to [ARIA 14: Using `aria-label` to provide an invisible label where a visible label cannot be used](https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA14).
+- Because `aria-label` doesn’t _supplement_ visible labels but rather _supplants_ them, when a button has a visible label, include that label in its accessible name. A good practice is to have the text of the label at the start of the name.
 - Don’t use `aria-label` when its content would be identical to a button’s visible label.
 - Don’t reuse the same (visible) label or (invisible) name for buttons which perform different actions.
 
 ## Examples
 
-### 👎 Bad: Redundant `aria-label` attribute
+<DoDontContainer>
+  <Do>
+    <Code className="language-html">
+      {`<button type="button">OK</button>`}
+    </Code>
+    <Caption>The button does not have a redundant `aria-label` attribute.</Caption>
+  </Do>
+  <Dont>
+    <Code className="language-html">
+      {`<button type="button">OK</button>`}
+    </Code>
+    <Caption>The button has a redundant and unnecessary `aria-label` attribute.</Caption>
+ </Dont>
+</DoDontContainer>
 
-The button below has a redundant and unnecessary `aria-label` attribute:
+
+<DoDontContainer>
+  <Do>
+    <Code className="language-html">
+      {`<button type="button" aria-label="smockle’s profile"><img alt="smockle" src="https://avatars.githubusercontent.com/u/3104489?s=32"></button>`}
+    </Code>
+    <Caption>The button should have an accessible name.</Caption>
+  </Do>
+  <Dont>
+    <Code className="language-html">
+      {`<button type="button"><img src="https://avatars.githubusercontent.com/u/3104489?s=32"></button>`}
+    </Code>
+    <Caption>The button should not be missing a name.</Caption>
+ </Dont>
+</DoDontContainer>
+
+
+### Meaningful and unique names
+
+Each button in the example below has a unique name which describes its action (“Remove”) and its action’s context (for example: “'Apples'”).
 
 ```HTML
-<button type="button" aria-label="OK">OK</button>
+<script>
+  function removeItem(event) {
+    const item = event.target.closest("li");
+    item?.parentNode.removeChild(item);
+  }
+</script>
+<ul>
+  <li>Apples <button onclick="removeItem(event)" aria-label="Remove 'Apples'" type="button">❌</button></li>
+  <li>Bananas <button onclick="removeItem(event)" aria-label="Remove 'Bananas'" type="button">❌</button></li>
+  <li>Cantaloupes <button onclick="removeItem(event)" aria-label="Remove 'Cantaloupes'" type="button">❌</button></li>
+</ul>
 ```
-
-### 👎 Bad: Missing name
-
-The button below is missing a name:
-
-```HTML
-<button type="button"><img src="https://avatars.githubusercontent.com/u/3104489?s=32"></button>
-```
-
-### 👎 Bad: Meaningless name, reused for unrelated buttons
 
 Although each button in the example below performs a different action, they all have the same name: ❌ (“cross mark”). This name does not describe the action that occurs when a given button is activated, nor does it describe the action’s context.
 
@@ -76,39 +108,6 @@ Although each button in the example below performs a different action, they all 
 </ul>
 ```
 
-### 👍 Good: No redundant `aria-label` attribute
-
-The button below does not have a redundant `aria-label` attribute:
-
-```HTML
-<button type="button">OK</button>
-```
-
-### 👍 Good: Name is provided
-
-The button below has an accessible name:
-
-```HTML
-<button type="button" aria-label="smockle’s profile"><img alt="smockle" src="https://avatars.githubusercontent.com/u/3104489?s=32"></button>
-```
-
-### 👍 Good: Meaningful and unique names
-
-Each button in the example below has a unique name which describes its action (“Remove”) and its action’s context (e.g. “'Apples'”).
-
-```HTML
-<script>
-  function removeItem(event) {
-    const item = event.target.closest("li");
-    item?.parentNode.removeChild(item);
-  }
-</script>
-<ul>
-  <li>Apples <button onclick="removeItem(event)" aria-label="Remove 'Apples'" type="button">❌</button></li>
-  <li>Bananas <button onclick="removeItem(event)" aria-label="Remove 'Bananas'" type="button">❌</button></li>
-  <li>Cantaloupes <button onclick="removeItem(event)" aria-label="Remove 'Cantaloupes'" type="button">❌</button></li>
-</ul>
-```
 
 ## Additional resources
 
@@ -155,7 +154,7 @@ The name may be hidden and only exposed by assistive technology, whereas a label
 
 #### Identifying GitHub comments
 
-When a button is associated with a specific comment, a comment indentifier should be included within the button’s name. [`reaction_target_identifier`](https://github.com/github/github/blob/016b875e0542c0781a3c6f5ed27c58c472cc6717/app/components/reactions/reactions_component.rb#L47-L51) (only accessible to GitHub staff) uses [`aria-label-date`](https://github.com/github/github/blob/9bea7b7d0d120df6b9b864fda39fe374479acc0d/app/components/application_component.rb#L68-L78) (only accessible to GitHub staff) to generates a concise, unique comment identifier.
+When a button is associated with a specific comment, a comment indentifier should be included within the button’s name. [`reaction_target_identifier`](https://github.com/github/github/blob/016b875e0542c0781a3c6f5ed27c58c472cc6717/app/components/reactions/reactions_component.rb#L47-L51) (only accessible to GitHub staff) uses [`aria-label-date`](https://github.com/github/github/blob/9bea7b7d0d120df6b9b864fda39fe374479acc0d/app/components/application_component.rb#L68-L78) (only accessible to GitHub staff) to generate a concise, unique comment identifier.
 
 For example, `reaction_target_identifier` could be used in a reply-to-comment button’s name. In all cases, `reaction_target_identifier` adds the comment’s author and timestamp; conditionally, as needed, `reaction_target_identifier` adds progressively-verbose date information:
 
