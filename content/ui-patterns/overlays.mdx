@@ -112,7 +112,7 @@ The **body** region may scroll vertically to accommodate lists and contents too 
 
 Keep the edges of an overlay free of text and heavy visuals. This breathing room is meant to visually distinguish the overlay as an elevated surface, alongside its shadow. Use a safe area of 16px when rendering content. Inner components that have transparent or discrete backgrounds may bleed into the padding for visual alignment.
 
-<img src="https://user-images.githubusercontent.com/293280/174925634-603a27cf-2281-4a3a-9078-d1b8138e0d09.png" width="960" />
+<img alt="" src="https://user-images.githubusercontent.com/293280/174925634-603a27cf-2281-4a3a-9078-d1b8138e0d09.png" width="960" />
 <Caption>
   1. A search field in the Subheader region appears closer to the edges. While the search icon remains within the safe area.<br />
   2. Close button placed `8px` away from the edges. Note that the "×" glyph remains within the safe area.<br />
@@ -135,7 +135,7 @@ Todo:
 
 A **header** region is used to provide the context of the Overlay. By default, the region supports a title, description, and a close button.
 
-**Headers** are required when the overlay has a [`role="dialog"`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role). In that case, a title must be provided even if they are not visually displayed. The close button must always be visible. 
+**Headers** are required when the overlay has a [`role="dialog"`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role). In that case, a title must be provided even if it is not visually displayed. The close button must always be visible. 
 <!-- _(see Dialog component documentation)_ -->
 
 Titles and descriptions wrap to multiple lines if necessary. <!-- Todo: (discuss about custom headers with examples) -->
