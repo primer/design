@@ -53,7 +53,7 @@ If the answer is yes, designing the feature inside an overlay provides an easy w
 
 ### Trigger elements and overlay states
 
-Overlays are initially hidden, but can be opened by an element with `role="button"` or `role="combobox"`, called **trigger**. The role `button` allows the **trigger** to be a relativelly complex element, such as a list item. The role `combobox` allows the trigger to be a form input that uses to Overlay to present suggestions or autcomplete options.
+Overlays are initially hidden, but can be opened by an element with `role="button"` or `role="combobox"`, called **trigger**. The role `button` allows the **trigger** to be a relativelly complex element, such as a list item. The role `combobox` allows the trigger to be a form input that uses an overlay to present suggestions or autocomplete options.
 
 <!-- TODO: talk about autocomplete overlays
 
@@ -122,9 +122,9 @@ Keep the edges of an overlay free of text and heavy visuals. This breathing room
 
 ### Backdrop
 
-An Overlay can have a visual **backdrop** element. The **backdrop** dims the rest of the page to emphasize the active Overlay. It appears when an Overlay is centered on the page, or attached to the sides.
+An overlay can have a visual **backdrop** element. The **backdrop** dims the rest of the page to emphasize the active overlay. It appears when an overlay is centered on the page, or attached to the sides.
 
-By default, clicking on the **backdrop** will dismiss the Overlay. However, if the Overlay contains a form that can have unsaved changes, the **backdrop** won't dismiss the Overlay, regardless of the state of the form.
+By default, clicking on the **backdrop** will dismiss the overlay. However, if the overlay contains a form that can have unsaved changes, the **backdrop** won't dismiss the overlay, regardless of the state of the form.
 
 <!--
 Todo:
@@ -133,7 +133,7 @@ Todo:
 
 ### Header region
 
-A **header** region is used to provide the context of the Overlay. By default, the region supports a title, description, and a close button.
+A **header** region is used to provide the context of the overlay. By default, the region supports a title, description, and a close button.
 
 **Headers** are required when the overlay has a [`role="dialog"`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role). In that case, a title must be provided even if it is not visually displayed. The close button must always be visible. 
 <!-- _(see Dialog component documentation)_ -->
@@ -218,7 +218,7 @@ If the content area has overflow scrolling, a divider will be shown between the 
 
 ### Dimensions
 
-Overlays should never extend beyond the viewport sizes, and may resize to fit smaller devices. The contents of an overlay should fit narrow viewports with a minimum width of `320px`. If the contents of an Overlay extend vertically beyond the specified height, the **body** region will scroll.
+Overlays should never extend beyond the viewport sizes, and may resize to fit smaller devices. The contents of an overlay should fit narrow viewports with a minimum width of `320px`. If the contents of an overlay extend vertically beyond the specified height, the **body** region will scroll.
 
 Overlays width and height properties support the following values:
 
