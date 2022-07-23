@@ -1,0 +1,284 @@
+---
+title: Segmented control
+---
+
+import {Box, Text} from '@primer/components'
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+  A segmented control is used to pick one choice from a linear set of closely related choices, and immediately apply
+  that selection.
+</Box>
+
+## Anatomy
+
+![A diagram of a segmented control with three buttons. The labeled parts of the segmented control are: the selected third button, the icon in the second button, and the text label in the second button.](https://user-images.githubusercontent.com/2313998/180623801-08eb59b2-7609-4017-a391-4f6b5c4c68ac.png)
+
+## Content
+
+A segmented control should have 2–5 choices with text labels, or up to 6 icon-only buttons. Too many choices can be difficult to parse and take up too much horizontal space.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180623808-99d9376f-73bd-4c1c-a9e1-495c84818276.png"
+      role="presentation"
+    />
+    <Caption>Use a segmented control for picking from 5 (6 for icon-only buttons) or fewer options.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180623811-e503fc57-4220-46c3-b40e-23c38c9a74c5.png"
+      role="presentation"
+    />
+    <Caption>Don't use a segmented control for more than 5 options.</Caption>
+  </Dont>
+</DoDontContainer>
+
+Each choice should be a static value. None of the choices may be a dropdown button.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180623815-d72a2c84-8353-4b84-965a-abe6ce1da724.png"
+      role="presentation"
+    />
+    <Caption>
+      Use a segmented control for selecting from a list of static values. You may use an auxiliary dropdown adjacent to
+      the segmented control.
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624829-d10c1324-378c-435c-a39b-c41b1ffb8081.png"
+      role="presentation"
+    />
+    <Caption>Don't use a segmented control with a choice that is a dropdown.</Caption>
+  </Dont>
+</DoDontContainer>
+
+If there are more than 5 choices, use another choice selection pattern such as a group of radio inputs or a dropdown menu.
+
+### Button icons
+
+<img
+  src="https://user-images.githubusercontent.com/2313998/180623824-41ac7a02-0895-40f7-a973-0aa055a9503c.png"
+  role="presentation"
+/>
+
+Icons may be used to make choices easier to understand.
+
+Use icons without a visible text label sparingly, and only with icons that are easily understood by an average GitHub user. When a segment has an icon without a visible text label, the text label should be shown in a tooltip.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624830-b91217ae-7c79-4698-a71a-a482576e5df9.png"
+      role="presentation"
+    />
+    <Caption>Use icons without a visible label when the icon's meaning is obvious.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624831-82387f4d-29ec-4d14-b3d4-edbdc58f6257.png"
+      role="presentation"
+    />
+    <Caption>Don't use obscure icons without a visible label.</Caption>
+  </Dont>
+</DoDontContainer>
+
+Icons should not be used to communicate state
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624836-920ff9c3-ba88-4137-8d9d-6f4d06271e08.png"
+      role="presentation"
+    />
+    <Caption>Use icons to as a visual cue to communicate what the choice does.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624838-1915681f-1c50-4d0e-94e9-98f3537cf285.png"
+      role="presentation"
+    />
+    <Caption>Change or add icons to indicate whether the choice is selected.</Caption>
+  </Dont>
+</DoDontContainer>
+
+Be consistent with the way visual cues are used in each button of the segmented control. Use either all icons, all text labels, or all text labels with icons.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624832-b9ce99d7-e4e3-46fb-8b24-76133fc6dd90.png"
+      role="presentation"
+    />
+    <Caption>Keep the visual cues in each button consistent.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624835-fc3c7c3b-9f55-4001-9e16-9c7e2071bf8d.png"
+      role="presentation"
+    />
+    <Caption>Don't mix visual cues between buttons.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Button label text
+
+Segmented control button labels should be nouns or noun phrases that succinctly describe the choice. Button labels may not wrap to multiple lines.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624839-3ea19093-ca19-4081-b20d-70fae6c17271.png"
+      role="presentation"
+    />
+    <Caption>Phrase choice labels as nouns or noun phrases with as few characters as possible.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624840-b689b044-92d6-452b-b36f-524df912f59f.png"
+      role="presentation"
+    />
+    <Caption>Phrase choice labels as an action or with unnecessarily long strings of text.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Contextual information
+
+<img
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/180623806-23b98c83-e870-4eed-b1f1-635e919a3d2d.png"
+/>
+
+See the [layout](#layout) section for ways to compose a segmented control with a label.
+
+### Label
+
+Segmented controls must have a text label, even if the label is only accessible to screen readers. However, a visible text label is preferred.
+
+### Caption
+
+An optional caption may be used to provide additional context to help users make a selection or explain how what effect the selection will have. Caption text should be as short as possible.
+
+## Interaction
+
+Selections are mutually exclusive. Once a selection has been made, it can only be deselected by making a new selection.
+
+A segmented control does not require a "Save" button to apply the selection. When a choice is selected, the selection immediately affects an object, state, or view.
+
+## Layout
+
+### Composed with label and caption
+
+#### Single-column
+
+<img
+  src="https://user-images.githubusercontent.com/2313998/180624841-cc4e4bf9-098c-425c-ba84-7df8413c2055.png"
+  role="presentation"
+/>
+
+A single-column layout is the same way form controls (for example, text inputs) are layed out. The single-column layout is useful for preserving horizontal space.
+
+#### Two-column
+
+<img
+  src="https://user-images.githubusercontent.com/2313998/180624842-f3abb168-1d3d-4cdb-a167-2c78059653d5.png"
+  role="presentation"
+/>
+<img
+  src="https://user-images.githubusercontent.com/2313998/180624843-75a82099-b95f-41f6-b9a9-35adc3e1537e.png"
+  role="presentation"
+/>
+
+A two-column layout can be used to:
+
+- Align the control with adjacent elements
+- Conserve vertical space
+- Group related controls in a way that is easy to scan
+
+### Adapting to narrow areas
+
+There are cases where a segmented control needs to be placed in a spot that is too narrow to accommodate all of its options. In these cases, the control can be adapted to fit in the narrow area without sacrificing usability.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624845-49eb0b79-21ee-43d0-b4c8-8e8528359427.png"
+      role="presentation"
+    />
+    <Caption>
+      Replace the segmented control with an action menu or use icons that are easily understood without text labels.
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624844-c81c94b4-a004-4c89-8aea-2470c429dd75.png"
+      role="presentation"
+    />
+    <Caption>Wrap the buttons to multiple lines, use an overflow button, or remove buttons</Caption>
+  </Dont>
+</DoDontContainer>
+
+#### Convert to an action menu
+
+<img
+  src="https://user-images.githubusercontent.com/2313998/180624846-a906563a-0878-44ce-89d1-46905b190d20.png"
+  role="presentation"
+/>
+This works well because option text may still be viewed when the dropdown menu is opened
+
+#### Only show icons
+
+<img
+  src="https://user-images.githubusercontent.com/2313998/180624848-763f8f2f-c5d4-43a6-bb89-87647bcf6510.png"
+  role="presentation"
+/>
+This isn’t as strong of a solution because option text will be hidden in a hover tooltip, and not all options have an icon
+that works without text
+
+### Fill available width
+
+<img
+  src="https://user-images.githubusercontent.com/2313998/180624849-a8d785f2-0a0c-42dd-915c-65e26a09eb64.png"
+  role="presentation"
+/>
+A segmented control can be stretched to fill the available width.
+
+## Additional accessibility considerations
+
+### Keyboard navigation
+
+!🎥[Keyboard navigation video]()
+
+A segmented control is treated like a [toolbar](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role), not a [radio group](https://developer.mozilla.org/en-US/docs/web/accessibility/aria/roles/radiogroup_role).
+
+#### `Tab`
+
+The `Tab` key while focused on the previous focusable element moves focus into the segmented control.
+
+When focus is moved into the segmented control, focus should go to the button for whichever choice is selected.
+
+Pressing `Tab` while one of the segmented control buttons is focused will move focus to the next focusable element outside of the segmented control.
+
+#### `Enter` or `Space`
+
+Pressing `Enter` or `Space` while focused on a deselected button selects that button. This is the default behavior for buttons.
+
+If the focused button is already selected, pressing `Enter` or `Space` should not deselect the button.
+
+#### `Left Arrow` or `Right Arrow`
+
+The `Left Arrow` key moves focus to the previous button. If the first button is focused, pressing `Left Arrow` will not move the focus.
+
+The `Right Arrow` key moves focus to the next button. If the last button is focused, pressing `Right Arrow` will not move the focus.
+
+### Touch targets
+
+<img
+  src="https://user-images.githubusercontent.com/2313998/180624850-cd500a01-518a-4f93-81b9-fb38410a4371.png"
+  role="presentation"
+/>
+
+Ensure segmented control buttons have a large enough touch target size. The buttons should respond to hovers, clicks, and taps anywhere in the touch target area, even if it isn't directly on the control.

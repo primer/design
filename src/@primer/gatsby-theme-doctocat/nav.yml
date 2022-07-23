@@ -25,7 +25,7 @@
     - title: Focus management
       url: /accessibility/focus-management
     - title: Headings
-      url: /accessibility/headings 
+      url: /accessibility/headings
     - title: Links
       url: /accessibility/links
     - title: Semantic HTML
@@ -46,7 +46,7 @@
     - title: Messaging
       url: /ui-patterns/messaging
     - title: Progressive disclosure
-      url: /ui-patterns/progressive-disclosure    
+      url: /ui-patterns/progressive-disclosure
     - title: Saving
       url: /ui-patterns/saving
 - title: Components
@@ -56,6 +56,8 @@
       url: /components/action-list
     - title: Autocomplete
       url: /components/autocomplete
+    - title: Segmented control
+      url: /components/segmented-control
     - title: Toggle switch
       url: /components/toggle-switch
     - title: Tokens
