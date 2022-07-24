@@ -9,13 +9,36 @@ import {Box, Text} from '@primer/components'
   that selection.
 </Box>
 
+<!--
+TODO: uncomment this when SegmentedControl is ready in React
+<Label
+  as="a"
+  href="https://primer.style/components/Autocomplete"
+  variant="xl"
+  outline
+  display="flex"
+  style="text-decoration: none;  align-items: center;"
+>
+  <img
+    width="20"
+    height="20"
+    alt=""
+    src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png"
+    style="vertical-align: middle; margin-right: 4px;"
+  />
+  React
+</Label>
+-->
+
 ## Anatomy
 
 ![A diagram of a segmented control with three buttons. The labeled parts of the segmented control are: the selected third button, the icon in the second button, and the text label in the second button.](https://user-images.githubusercontent.com/2313998/180623801-08eb59b2-7609-4017-a391-4f6b5c4c68ac.png)
 
 ## Content
 
-A segmented control should have 2–5 choices with text labels, or up to 6 icon-only buttons. Too many choices can be difficult to parse and take up too much horizontal space.
+### Buttons
+
+A segmented control should have 2–5 choices with text labels, or up to 6 icon-only buttons. Too many choices can be difficult to parse and take up too much horizontal space. If there are more than 5 choices, use another choice selection pattern such as a group of radio inputs or a dropdown menu.
 
 <DoDontContainer>
   <Do>
@@ -33,8 +56,6 @@ A segmented control should have 2–5 choices with text labels, or up to 6 icon-
     <Caption>Don't use a segmented control for more than 5 options.</Caption>
   </Dont>
 </DoDontContainer>
-
-Each choice should be a static value. None of the choices may be a dropdown button.
 
 <DoDontContainer>
   <Do>
@@ -56,37 +77,30 @@ Each choice should be a static value. None of the choices may be a dropdown butt
   </Dont>
 </DoDontContainer>
 
-If there are more than 5 choices, use another choice selection pattern such as a group of radio inputs or a dropdown menu.
-
 ### Button icons
 
-<img
-  src="https://user-images.githubusercontent.com/2313998/180623824-41ac7a02-0895-40f7-a973-0aa055a9503c.png"
-  role="presentation"
-/>
+<Box
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Text as="p" mt="0">
+    An icon can be rendered in a segmented control button as a visual cue to help users understand the choice that
+    button represents.
+  </Text>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/180623824-41ac7a02-0895-40f7-a973-0aa055a9503c.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
-Icons may be used to make choices easier to understand.
+#### Effective visual cues
 
-Use icons without a visible text label sparingly, and only with icons that are easily understood by an average GitHub user. When a segment has an icon without a visible text label, the text label should be shown in a tooltip.
+Be consistent with the way visual cues are used in each button of the segmented control. Use either all icons, all text labels, or all text labels with icons.
 
-<DoDontContainer>
-  <Do>
-    <img
-      src="https://user-images.githubusercontent.com/2313998/180624830-b91217ae-7c79-4698-a71a-a482576e5df9.png"
-      role="presentation"
-    />
-    <Caption>Use icons without a visible label when the icon's meaning is obvious.</Caption>
-  </Do>
-  <Dont>
-    <img
-      src="https://user-images.githubusercontent.com/2313998/180624831-82387f4d-29ec-4d14-b3d4-edbdc58f6257.png"
-      role="presentation"
-    />
-    <Caption>Don't use obscure icons without a visible label.</Caption>
-  </Dont>
-</DoDontContainer>
-
-Icons should not be used to communicate state
+Do not change icons to communicate state.
 
 <DoDontContainer>
   <Do>
@@ -105,8 +119,6 @@ Icons should not be used to communicate state
   </Dont>
 </DoDontContainer>
 
-Be consistent with the way visual cues are used in each button of the segmented control. Use either all icons, all text labels, or all text labels with icons.
-
 <DoDontContainer>
   <Do>
     <img
@@ -121,6 +133,27 @@ Be consistent with the way visual cues are used in each button of the segmented 
       role="presentation"
     />
     <Caption>Don't mix visual cues between buttons.</Caption>
+  </Dont>
+</DoDontContainer>
+
+#### Icon-only buttons
+
+Use icons without a visible text label sparingly, and only with icons that are easily understood by an average GitHub user. When a segment has an icon without a visible text label, the text label should be shown in a tooltip.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624830-b91217ae-7c79-4698-a71a-a482576e5df9.png"
+      role="presentation"
+    />
+    <Caption>Use icons without a visible label when the icon's meaning is obvious.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/180624831-82387f4d-29ec-4d14-b3d4-edbdc58f6257.png"
+      role="presentation"
+    />
+    <Caption>Don't use obscure icons without a visible label.</Caption>
   </Dont>
 </DoDontContainer>
 
@@ -147,20 +180,39 @@ Segmented control button labels should be nouns or noun phrases that succinctly 
 
 ### Contextual information
 
-<img
-  role="presentation"
-  src="https://user-images.githubusercontent.com/2313998/180623806-23b98c83-e870-4eed-b1f1-635e919a3d2d.png"
-/>
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="0">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Label
+    </Text>
+    <Text as="p" mt="0">
+      Segmented controls must have a text label, even if the label is only accessible to screen readers. However, a
+      visible text label is preferred.
+    </Text>
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Caption
+    </Text>
+    <Text as="p" mt="0">
+      An optional caption may be used to provide additional context to help users make a selection or explain how what
+      effect the selection will have. Caption text should be as short as possible.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/180623806-23b98c83-e870-4eed-b1f1-635e919a3d2d.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
 See the [layout](#layout) section for ways to compose a segmented control with a label.
-
-### Label
-
-Segmented controls must have a text label, even if the label is only accessible to screen readers. However, a visible text label is preferred.
-
-### Caption
-
-An optional caption may be used to provide additional context to help users make a selection or explain how what effect the selection will have. Caption text should be as short as possible.
 
 ## Interaction
 
@@ -170,7 +222,7 @@ A segmented control does not require a "Save" button to apply the selection. Whe
 
 ## Layout
 
-### Composed with label and caption
+### Composing the control with a label and caption
 
 #### Single-column
 
@@ -183,14 +235,18 @@ A single-column layout is the same way form controls (for example, text inputs) 
 
 #### Two-column
 
-<img
-  src="https://user-images.githubusercontent.com/2313998/180624842-f3abb168-1d3d-4cdb-a167-2c78059653d5.png"
-  role="presentation"
-/>
-<img
-  src="https://user-images.githubusercontent.com/2313998/180624843-75a82099-b95f-41f6-b9a9-35adc3e1537e.png"
-  role="presentation"
-/>
+<Box display="flex" mb={3} flexWrap="wrap" sx={{gap: 3}}>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/180624842-f3abb168-1d3d-4cdb-a167-2c78059653d5.png"
+    role="presentation"
+    width="456"
+  />
+  <img
+    src="https://user-images.githubusercontent.com/2313998/180624843-75a82099-b95f-41f6-b9a9-35adc3e1537e.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
 A two-column layout can be used to:
 
@@ -198,9 +254,84 @@ A two-column layout can be used to:
 - Conserve vertical space
 - Group related controls in a way that is easy to scan
 
+### Fill available width
+
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Text as="p" mt="0">
+    A segmented control's width can stretch each button evenly to fill the width of the control's parent. This option is
+    intended to make the segmented control easier to adapt into different layouts.
+  </Text>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/180624849-a8d785f2-0a0c-42dd-915c-65e26a09eb64.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
+
 ### Adapting to narrow areas
 
 There are cases where a segmented control needs to be placed in a spot that is too narrow to accommodate all of its options. In these cases, the control can be adapted to fit in the narrow area without sacrificing usability.
+
+<Box
+  as="figure"
+  display="flex"
+  alignItems="center"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <figcaption>
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Convert to an action menu
+    </Text>
+    <Text as="p" mt="0">
+      Swapping out the segmented control for an action menu is especially helpful when:
+      <Box as="ul" mt={1} pl="1rem">
+        <li>The icons are cannot be understood without visible text labels</li>
+        <li>The control is stil too wide when text labels are hidden</li>
+      </Box>
+    </Text>
+  </figcaption>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/180624846-a906563a-0878-44ce-89d1-46905b190d20.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
+
+<Box
+  as="figure"
+  display="flex"
+  alignItems="center"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  m={0}
+  mb={5}
+  sx={{gap: 3}}
+>
+  <figcaption>
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Only show icons
+    </Text>
+    <Text as="p" mt="0">
+      If your segmented control uses icons that can be understood without a visible text label, then you can hide the
+      text labels and rely only on icons. The text from the hidden label will still be visible in a tooltip.
+    </Text>
+  </figcaption>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/180624846-a906563a-0878-44ce-89d1-46905b190d20.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
 <DoDontContainer>
   <Do>
@@ -221,38 +352,24 @@ There are cases where a segmented control needs to be placed in a spot that is t
   </Dont>
 </DoDontContainer>
 
-#### Convert to an action menu
-
-<img
-  src="https://user-images.githubusercontent.com/2313998/180624846-a906563a-0878-44ce-89d1-46905b190d20.png"
-  role="presentation"
-/>
-This works well because option text may still be viewed when the dropdown menu is opened
-
-#### Only show icons
-
-<img
-  src="https://user-images.githubusercontent.com/2313998/180624848-763f8f2f-c5d4-43a6-bb89-87647bcf6510.png"
-  role="presentation"
-/>
-This isn’t as strong of a solution because option text will be hidden in a hover tooltip, and not all options have an icon
-that works without text
-
-### Fill available width
-
-<img
-  src="https://user-images.githubusercontent.com/2313998/180624849-a8d785f2-0a0c-42dd-915c-65e26a09eb64.png"
-  role="presentation"
-/>
-A segmented control can be stretched to fill the available width.
-
-## Additional accessibility considerations
+## Accessibility
 
 ### Keyboard navigation
 
-!🎥[Keyboard navigation video]()
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+<div>
 
 A segmented control is treated like a [toolbar](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role), not a [radio group](https://developer.mozilla.org/en-US/docs/web/accessibility/aria/roles/radiogroup_role).
+
+<div>
 
 #### `Tab`
 
@@ -274,11 +391,36 @@ The `Left Arrow` key moves focus to the previous button. If the first button is 
 
 The `Right Arrow` key moves focus to the next button. If the last button is focused, pressing `Right Arrow` will not move the focus.
 
+</div>
+
+</div>
+
+<Box flexShrink={0}>
+  <CustomVideoPlayer
+    width="456"
+    autoPlay
+    loop
+    src="https://user-images.githubusercontent.com/2313998/180625732-901564bf-4b2e-4526-a2df-3848fb98d5b3.mp4"
+  />
+</Box>
+</Box>
+
 ### Touch targets
 
-<img
-  src="https://user-images.githubusercontent.com/2313998/180624850-cd500a01-518a-4f93-81b9-fb38410a4371.png"
-  role="presentation"
-/>
+<Box
+  as="figure"
+  display="flex"
+  alignItems="center"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
 
-Ensure segmented control buttons have a large enough touch target size. The buttons should respond to hovers, clicks, and taps anywhere in the touch target area, even if it isn't directly on the control.
+<Text as="p" mt="0">Ensure segmented control buttons have a large enough touch target size. The buttons should respond to hovers, clicks, and taps anywhere in the touch target area, even if it isn't directly on the control.</Text>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/180624850-cd500a01-518a-4f93-81b9-fb38410a4371.png"
+    role="presentation"
+    width="456"
+  />
+</Box>

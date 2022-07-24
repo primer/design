@@ -2,9 +2,9 @@ import React from 'react'
 import {Box} from '@primer/components'
 import {ColumnsIcon, PlayIcon} from '@primer/octicons-react'
 
-const CustomVideoPlayer = (props: React.HTMLProps<HTMLVideoElement>) => {
+const CustomVideoPlayer = ({autoPlay, controls, ...rest}: React.HTMLProps<HTMLVideoElement>) => {
   const videoElement = React.useRef<HTMLVideoElement | null>(null)
-  const [isPlaying, setIsPlaying] = React.useState<boolean>(props.autoPlay)
+  const [isPlaying, setIsPlaying] = React.useState<boolean>(autoPlay)
 
   const playVideo = () => {
     videoElement.current.play()
@@ -18,17 +18,26 @@ const CustomVideoPlayer = (props: React.HTMLProps<HTMLVideoElement>) => {
 
   return (
     <Box
+      borderColor="border.muted"
+      borderRadius={2}
+      borderStyle="solid"
+      borderWidth={1}
+      overflow="hidden"
       position="relative"
+      display="inline-flex"
       sx={{
         ':hover button': {
           opacity: 1,
         },
+        '> video': {
+          maxWidth: '100%'
+        }
       }}
     >
       {/* component users would be able to pass their own <track> children */}
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-      <video {...props} ref={videoElement} />
-      {!props.controls && (
+      <video {...rest} ref={videoElement} />
+      {!controls && (
         <Box
           as="button"
           position="absolute"
