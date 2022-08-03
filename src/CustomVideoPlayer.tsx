@@ -4,15 +4,15 @@ import {ColumnsIcon, PlayIcon} from '@primer/octicons-react'
 
 const CustomVideoPlayer = ({autoPlay, controls, ...rest}: React.HTMLProps<HTMLVideoElement>) => {
   const videoElement = React.useRef<HTMLVideoElement | null>(null)
-  const [isPlaying, setIsPlaying] = React.useState<boolean>(autoPlay)
+  const [isPlaying, setIsPlaying] = React.useState<boolean>(Boolean(autoPlay))
 
   const playVideo = () => {
-    videoElement.current.play()
+    videoElement.current?.play()
     setIsPlaying(true)
   }
 
   const pauseVideo = () => {
-    videoElement.current.pause()
+    videoElement.current?.pause()
     setIsPlaying(false)
   }
 
@@ -30,13 +30,13 @@ const CustomVideoPlayer = ({autoPlay, controls, ...rest}: React.HTMLProps<HTMLVi
           opacity: 1,
         },
         '> video': {
-          maxWidth: '100%'
-        }
+          maxWidth: '100%',
+        },
       }}
     >
       {/* component users would be able to pass their own <track> children */}
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-      <video {...rest} ref={videoElement} />
+      <video {...rest} autoPlay={autoPlay} ref={videoElement} />
       {!controls && (
         <Box
           as="button"
