@@ -18,10 +18,19 @@ const CustomVideoPlayer = (props: React.HTMLProps<HTMLVideoElement>) => {
 
   return (
     <Box
+      borderColor="border.muted"
+      borderRadius={2}
+      borderStyle="solid"
+      borderWidth={1}
+      overflow="hidden"
       position="relative"
+      display="inline-flex"
       sx={{
         ':hover button': {
           opacity: 1,
+        },
+        '> video': {
+          maxWidth: '100%',
         },
       }}
     >
