@@ -36,6 +36,8 @@ jobs:
 
       - name: Build
         run: yarn build:preview
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Archive build output
         run: 'tar --dereference --directory public/ -cvf artifact.tar .'
