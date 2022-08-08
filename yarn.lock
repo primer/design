@@ -1832,11 +1832,6 @@
     styled-system "^5.0.18"
     worker-loader "^3.0.2"
 
-"@primer/octicons-react@^16.3.1":
-  version "16.3.1"
-  resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-16.3.1.tgz#86982fe1001eee138d5ee46accbcdf62d51d11c5"
-  integrity sha512-uzTs8/CvLiW1/47cgMRkIK9bKWpnw+UonCbgczXErwSSLqMDHfiiTpobW1trvRuoiMgLwsPo0l7kBBdKBnmq3g==
-
 "@primer/octicons-react@^17.3.0":
   version "17.4.0"
   resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-17.4.0.tgz#b4e838dab01e5dbdb229f4b9abfe424ae06f1fd2"
