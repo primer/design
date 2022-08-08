@@ -10,15 +10,21 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@primer/gatsby-theme-doctocat": "^3.1.1",
-    "@primer/octicons-react": "^11.0.0",
+    "@primer/gatsby-theme-doctocat": "^4.0.0",
+    "@primer/octicons-react": "^17.0.0",
+    "@primer/react": "^35.5.0",
     "eslint": "5.8.0",
     "eslint-plugin-github": "1.6.0",
-    "gatsby": "^2.32.13",
+    "gatsby": "^3.7.2",
     "gatsby-plugin-alias-imports": "^1.0.5",
-    "react": "16.9.x",
-    "react-dom": "16.9.x",
+    "gatsby-plugin-postcss": "^4.14.0",
+    "gatsby-plugin-typescript": "^2.12.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "yarn": "^1.22.18"
+  },
+  "devDependencies": {
+    "path-browserify": "^1.0.1"
   },
   "private": true
 }

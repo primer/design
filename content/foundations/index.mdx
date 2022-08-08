@@ -2,9 +2,9 @@
 title: Foundations
 ---
 
-import {Grid, Flex, Box, Link, Text, Label} from '@primer/components'
+import {Box, Link, Text, Label} from '@primer/react'
 
-<Grid gridTemplateColumns={['1fr', null, null, null]} gridGap={4}>
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null]} gridGap={4}>
   <div>
     <Link href="/design/foundations/color" fontWeight="bold">
       Color
@@ -23,4 +23,4 @@ import {Grid, Flex, Box, Link, Text, Label} from '@primer/components'
     </Link>
     <Box as="p">How to create interfaces that follow GitHub's content guidelines.</Box>
   </div>
-</Grid>
+</Box>

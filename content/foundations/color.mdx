@@ -7,11 +7,15 @@ title: Color
   patterns, and abstractions that make Primer’s color system.
 </Box>
 
-import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link} from '@primer/components'
+import {Box, Button, Heading, Label, LabelGroup, Link} from '@primer/react'
 
 ## Get started
 
-<img width="960" alt="Image showing the two different types of color modes: light mode and dark mode" src="https://user-images.githubusercontent.com/6951037/146927448-cb518377-114a-4ab8-a37e-1eeffc8732c7.png" />
+<img
+  width="960"
+  alt="Image showing the two different types of color modes: light mode and dark mode"
+  src="https://user-images.githubusercontent.com/6951037/146927448-cb518377-114a-4ab8-a37e-1eeffc8732c7.png"
+/>
 
 GitHub's UI offers a variety of different color modes. When designing product interfaces, you should design in light mode by default. Every pattern in Primer is built to work across all color modes out of the box.
 
@@ -27,7 +31,7 @@ Primer delivers colors in the form of [variables](https://primer.style/primitive
 
 - **Functional:** To convey a meaning or a state. For example, from a functional perspective the color green is used to reinforce positive messaging. In a functional system, green variables are named with the suffix `.success`.
 - **Presentational:** To represent a color. For example, the color steps in the Primer scale are named by color and lightness, such as `scale.blue.5`. These variables don't currently support color modes.
-As the system grows, it will provide more APIs that fit different color needs. Check the [Primer Primitives](https://github.com/primer/primitives/releases/) repository to follow along as we release new variables and systems.
+  As the system grows, it will provide more APIs that fit different color needs. Check the [Primer Primitives](https://github.com/primer/primitives/releases/) repository to follow along as we release new variables and systems.
 
 ### Functional system
 
@@ -36,9 +40,9 @@ The functional system is based on the meaning, or purpose, that colors have in t
 - **Foundations:** Foregrounds, backgrounds, and borders that make up most of a product interface. Each variable is generated based on visual weight.
 
 <img
-width="960"
-alt="Dark gray, midtone gray and light gray swatches as example of foundational colors"
-src="https://user-images.githubusercontent.com/6951037/146926823-b8489e82-978d-4aed-b186-2dcc70691fc7.png"
+  width="960"
+  alt="Dark gray, midtone gray and light gray swatches as example of foundational colors"
+  src="https://user-images.githubusercontent.com/6951037/146926823-b8489e82-978d-4aed-b186-2dcc70691fc7.png"
 />
 
 - **Color roles:** Foregrounds, backgrounds, and borders that highlight affordance or the meaning of elements in the UI.
@@ -61,9 +65,9 @@ Foreground elements are **text and icons**. You can apply color to them using an
 
 | Foundations                                                                       | Usage                                                                                                                                |
 | :-------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
-| ![](https://swatch-sid.vercel.app?mode=light&token=fg.default) `fg.default`         | Primary color for text and icons in any given interface. It should be used for body content, titles and labels.                      |
+| ![](https://swatch-sid.vercel.app?mode=light&token=fg.default) `fg.default`       | Primary color for text and icons in any given interface. It should be used for body content, titles and labels.                      |
 | ![](https://swatch-sid.vercel.app?mode=light&token=fg.muted) `fg.muted`           | Use for content that is secondary or that provides additional context but is not critical to understanding the flow of an interface. |
-| ![](https://swatch-sid.vercel.app?mode=light&token=fg.subtle) `fg.subtle`           | Use for placeholder text, icons or decorative foregrounds. |
+| ![](https://swatch-sid.vercel.app?mode=light&token=fg.subtle) `fg.subtle`         | Use for placeholder text, icons or decorative foregrounds.                                                                           |
 | ![](https://swatch-sid.vercel.app?mode=light&token=fg.onEmphasis) `fg.onEmphasis` | On emphasis is the text color designed to combine with `-emphasis` backgrounds for optimal contrast.                                 |
 
 | Color roles                                                                     | Usage                                                               |
@@ -73,59 +77,57 @@ Foreground elements are **text and icons**. You can apply color to them using an
 | ![](https://swatch-sid.vercel.app?mode=light&token=attention.fg) `fg.attention` | Use to highlight text or icons that require the user's attention.   |
 | ![](https://swatch-sid.vercel.app?mode=light&token=danger.fg) `fg.danger`       | Use to emphasize an error or a blocking status. Action is required. |
 | ![](https://swatch-sid.vercel.app?mode=light&token=severe.fg) `fg.severe`       | Use to emphasize a level of severity between attention and danger.  |
-| ![](https://swatch-sid.vercel.app?mode=light&token=open.fg) `fg.open`           | Use to style text that refers to open tasks or workflows.      |
-| ![](https://swatch-sid.vercel.app?mode=light&token=closed.fg) `fg.closed`       | Use to style text that refers to closed tasks or workflows.      |
+| ![](https://swatch-sid.vercel.app?mode=light&token=open.fg) `fg.open`           | Use to style text that refers to open tasks or workflows.           |
+| ![](https://swatch-sid.vercel.app?mode=light&token=closed.fg) `fg.closed`       | Use to style text that refers to closed tasks or workflows.         |
 | ![](https://swatch-sid.vercel.app?mode=light&token=done.fg) `fg.done`           | Use to style text that refers to completed tasks or workflows.      |
 
 ### Backgrounds
 
 Background colors apply to surfaces of components or UI elements, such as pages, boxes, and overlays.
 
-| Foundations     | Usage                                                                                                              |
-| :-------------- | :----------------------------------------------------------------------------------------------------------------- |
+| Foundations                                                                            | Usage                                                                                                              |
+| :------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |
 | ![](https://swatch-sid.vercel.app?mode=light&token=neutral.emphasisPlus) `bg.emphasis` | Provides the highest contrast against the default background, such as in tooltips.                                 |
-| ![](https://swatch-sid.vercel.app?mode=light&token=canvas.default) `bg.default`    | Primary background color.                                                                                          |
-| ![](https://swatch-sid.vercel.app?mode=light&token=canvas.subtle) `bg.subtle`     | Provides visual rest and contrast against the default background.                                                  |
-| ![](https://swatch-sid.vercel.app?mode=light&token=canvas.inset) `bg.inset`      | Can be used instead of the default background to create a focal point, such as in conversations or activity feeds. |
+| ![](https://swatch-sid.vercel.app?mode=light&token=canvas.default) `bg.default`        | Primary background color.                                                                                          |
+| ![](https://swatch-sid.vercel.app?mode=light&token=canvas.subtle) `bg.subtle`          | Provides visual rest and contrast against the default background.                                                  |
+| ![](https://swatch-sid.vercel.app?mode=light&token=canvas.inset) `bg.inset`            | Can be used instead of the default background to create a focal point, such as in conversations or activity feeds. |
 
-
-
-| Color roles                                                    | Usage                                                                          |
-| :------------------------------------------------------------- | :----------------------------------------------------------------------------- |
-| ![](https://swatch-sid.vercel.app?mode=light&token=accent.subtle) `bg.accent`| Use to accentuate interactive areas in the UI like selected elements.          |
-| ![](https://swatch-sid.vercel.app?mode=light&token=success.subtle) `bg.success`                                                   | Use to highlight a positive message.                                           |
-| ![](https://swatch-sid.vercel.app?mode=light&token=attention.subtle) `bg.attention`                                                 | Use to highlight elements that require a user's attention or pending statuses. |
-| ![](https://swatch-sid.vercel.app?mode=light&token=danger.subtle) `bg.danger`                                                    | Use to emphasize an error or a blocking status, where action is required.      |
-| ![](https://swatch-sid.vercel.app?mode=light&token=severe.subtle) `bg.severe`                                                    | Use to emphasize an extra level of severity between attention and danger.      |
-| ![](https://swatch-sid.vercel.app?mode=light&token=open.subtle) `bg.open`                                                      | Use to style text that refers to open tasks or workflows.                 |
-| ![](https://swatch-sid.vercel.app?mode=light&token=closed.subtle) `bg.closed`                                                  | Use to style text that refers to closed tasks or workflows.                 |
-| ![](https://swatch-sid.vercel.app?mode=light&token=done.subtle) `bg.done`                                                      | Use to style text that refers to completed tasks or workflows.                 |
-| ![](https://swatch-sid.vercel.app?mode=light&token=accent.emphasis) `bg.[ANY_OF_ABOVE].emphasis`                                   | Use to highlight the most important item of a view or an interface.            |
+| Color roles                                                                                      | Usage                                                                          |
+| :----------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
+| ![](https://swatch-sid.vercel.app?mode=light&token=accent.subtle) `bg.accent`                    | Use to accentuate interactive areas in the UI like selected elements.          |
+| ![](https://swatch-sid.vercel.app?mode=light&token=success.subtle) `bg.success`                  | Use to highlight a positive message.                                           |
+| ![](https://swatch-sid.vercel.app?mode=light&token=attention.subtle) `bg.attention`              | Use to highlight elements that require a user's attention or pending statuses. |
+| ![](https://swatch-sid.vercel.app?mode=light&token=danger.subtle) `bg.danger`                    | Use to emphasize an error or a blocking status, where action is required.      |
+| ![](https://swatch-sid.vercel.app?mode=light&token=severe.subtle) `bg.severe`                    | Use to emphasize an extra level of severity between attention and danger.      |
+| ![](https://swatch-sid.vercel.app?mode=light&token=open.subtle) `bg.open`                        | Use to style text that refers to open tasks or workflows.                      |
+| ![](https://swatch-sid.vercel.app?mode=light&token=closed.subtle) `bg.closed`                    | Use to style text that refers to closed tasks or workflows.                    |
+| ![](https://swatch-sid.vercel.app?mode=light&token=done.subtle) `bg.done`                        | Use to style text that refers to completed tasks or workflows.                 |
+| ![](https://swatch-sid.vercel.app?mode=light&token=accent.emphasis) `bg.[ANY_OF_ABOVE].emphasis` | Use to highlight the most important item of a view or an interface.            |
 
 ### Borders
 
 Borders can be used to group content or to create a visible separation between sections or items. They’re most commonly used on tables, side sections, and cards.
 
-| Foundations      | Usage                                                                                                                                 |
-| :--------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| Foundations                                                                         | Usage                                                                                                                                 |
+| :---------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
 | ![](https://swatch-sid.vercel.app?mode=light&token=border.default) `border.default` | Use to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout. |
-| ![](https://swatch-sid.vercel.app?mode=light&token=border.muted) `border.muted`   | Use for dividers to emphasize the separation between items, columns or sections.                                                      |
+| ![](https://swatch-sid.vercel.app?mode=light&token=border.muted) `border.muted`     | Use for dividers to emphasize the separation between items, columns or sections.                                                      |
 
-| Color roles              | Usage                                                                         |
-| :----------------------- | :---------------------------------------------------------------------------- |
-| ![](https://swatch-sid.vercel.app?mode=light&token=accent.muted) `border.accent`          | Use to accentuate interactive areas in the UI like selected elements.         |
-| ![](https://swatch-sid.vercel.app?mode=light&token=success.muted) `border.success`         | Use to highlight a positive message.                                          |
+| Color roles                                                                                  | Usage                                                                         |
+| :------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------- |
+| ![](https://swatch-sid.vercel.app?mode=light&token=accent.muted) `border.accent`             | Use to accentuate interactive areas in the UI like selected elements.         |
+| ![](https://swatch-sid.vercel.app?mode=light&token=success.muted) `border.success`           | Use to highlight a positive message.                                          |
 | ![](https://swatch-sid.vercel.app?mode=light&token=attention.muted) `border.attention`       | Use to highlight elements that require a users attention or pending statuses. |
-| ![](https://swatch-sid.vercel.app?mode=light&token=danger.muted) `border.danger`          | Use to emphasize an error or a blocking status. Action is required.           |
-| ![](https://swatch-sid.vercel.app?mode=light&token=severe.muted) `border.severe`          | Use to emphasize an extra level of severity between attention and danger.     |
-| ![](https://swatch-sid.vercel.app?mode=light&token=open.muted) `border.open`            | Use to style text that refers to open tasks or workflows.                |
-| ![](https://swatch-sid.vercel.app?mode=light&token=closed.muted) `border.closed`        | Use to style text that refers to closed tasks or workflows.                |
-| ![](https://swatch-sid.vercel.app?mode=light&token=done.muted) `border.done`            | Use to style text that refers to completed tasks or workflows.                |
+| ![](https://swatch-sid.vercel.app?mode=light&token=danger.muted) `border.danger`             | Use to emphasize an error or a blocking status. Action is required.           |
+| ![](https://swatch-sid.vercel.app?mode=light&token=severe.muted) `border.severe`             | Use to emphasize an extra level of severity between attention and danger.     |
+| ![](https://swatch-sid.vercel.app?mode=light&token=open.muted) `border.open`                 | Use to style text that refers to open tasks or workflows.                     |
+| ![](https://swatch-sid.vercel.app?mode=light&token=closed.muted) `border.closed`             | Use to style text that refers to closed tasks or workflows.                   |
+| ![](https://swatch-sid.vercel.app?mode=light&token=done.muted) `border.done`                 | Use to style text that refers to completed tasks or workflows.                |
 | ![](https://swatch-sid.vercel.app?mode=light&token=accent.emphasis) `border.[ROLE].emphasis` | Use to highlight the most important item of a view or an interface.           |
 
 ## Functional system in action
 
-<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <Box>
     <img
       width="464"
@@ -145,9 +147,9 @@ Borders can be used to group content or to create a visible separation between s
       focus or depth.
     </Caption>
   </Box>
-</Grid>
+</Box>
 
-<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <Box>
     <img
       width="464"
@@ -167,12 +169,11 @@ Borders can be used to group content or to create a visible separation between s
     />
     <Caption>An example of an alert that pairs bg.success, fg.success, and border.success.</Caption>
   </Box>
-</Grid>
+</Box>
 
 ## Combining colors
 
 Not all colors pair well with each other. There are combinations of backgrounds and foregrounds that guarantee compliance with WCAG contrast guidelines and a wide range of hierarchical relationships between elements. Never use color on its own to convey a message or meaning. Pair it with explicit text and icons instead.
-
 
 ### Pairing color roles
 
