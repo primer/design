@@ -181,8 +181,8 @@ To achieve an intuitive flow:
         </ul>
       </li>
       <li>
-        Multi-line text inputs (a [Textarea](#textarea)) get a default width and height set by the browser, but its
-        dimensions can be changed to fit longer blocks of text.
+        Multi-line text inputs <a href="#textarea">Textarea</a> get a default width and height set by the browser, but
+        its dimensions can be changed to fit longer blocks of text.
       </li>
       <li>
         Select dropdown widths are set by the browser to be as wide as the text of it's longest option. We shouldn't
@@ -363,11 +363,13 @@ After a form has been submitted and failed validation, you may switch to inline 
   flexDirection={['column', 'column', 'column', 'column', 'row']}
   sx={{gap: 3}}
 >
-  <CustomVideoPlayer
-    width="456"
-    loop
-    src="https://user-images.githubusercontent.com/2313998/170273001-3e722629-bcb3-4677-83b5-cfde9296ca52.mp4"
-  />
+  <Box flexShrink={0}>
+    <CustomVideoPlayer
+      width="456"
+      loop
+      src="https://user-images.githubusercontent.com/2313998/170273001-3e722629-bcb3-4677-83b5-cfde9296ca52.mp4"
+    />
+  </Box>
   <Box as="p" mt="0">
     If the form control is in a valid state, validation should be performed until after the user has made a change to
     the input <strong>and has removed focus from the input</strong>.
@@ -381,11 +383,13 @@ After a form has been submitted and failed validation, you may switch to inline 
   flexDirection={['column', 'column', 'column', 'column', 'row']}
   sx={{gap: 3}}
 >
-  <CustomVideoPlayer
-    width="456"
-    loop
-    src="https://user-images.githubusercontent.com/2313998/170273004-913ba77a-041f-43e5-9809-0d2c303cf518.mp4"
-  />
+  <Box flexShrink={0}>
+    <CustomVideoPlayer
+      width="456"
+      loop
+      src="https://user-images.githubusercontent.com/2313998/170273004-913ba77a-041f-43e5-9809-0d2c303cf518.mp4"
+    />
+  </Box>
   <Box as="p" mt="0">
     Don't attempt to validate an input before the user is done with it. Validation may be performed as the user is
     typing or making their selection, but only <strong>after the first time the input has been validated</strong> and
@@ -401,11 +405,13 @@ After a form has been submitted and failed validation, you may switch to inline 
   flexDirection={['column', 'column', 'column', 'column', 'row']}
   sx={{gap: 3}}
 >
-  <CustomVideoPlayer
-    width="456"
-    loop
-    src="https://user-images.githubusercontent.com/2313998/170273002-677fea75-265a-42d7-b8e8-f5a07128ca38.mp4"
-  />
+  <Box flexShrink={0}>
+    <CustomVideoPlayer
+      width="456"
+      loop
+      src="https://user-images.githubusercontent.com/2313998/170273002-677fea75-265a-42d7-b8e8-f5a07128ca38.mp4"
+    />
+  </Box>
   <Box as="p" mt="0">
     If the form control’s validation is likely to take more than 1 second, show a loading indicator.
   </Box>
@@ -430,7 +436,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
     src="https://user-images.githubusercontent.com/293280/123881067-cdbaea00-d8f8-11eb-98e4-e57c64489308.png"
   />
   <div>
-    <Heading fontSize={3}>Action menu with selection</Heading>
+    <Heading sx={{fontSize: 3}}>Action menu with selection</Heading>
     <p>
       If the parent form control provides sufficient visual context, you may visually hide the label. However, you must
       specify text for a visually hidden label that is accessible to screen readers.
@@ -452,7 +458,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
     src="https://user-images.githubusercontent.com/2313998/170268364-021748a9-f304-4626-8ff2-3a71a5bcbd6b.png"
   />
   <div>
-    <Heading fontSize={3}>Autocomplete</Heading>
+    <Heading sx={{fontSize: 3}}>Autocomplete</Heading>
     <p>
       An autocomplete input renders a text input that allows a user to quickly filter through a list of options to pick
       one or more values.
@@ -474,7 +480,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
     src="https://user-images.githubusercontent.com/2313998/170268367-51ee68d4-8121-4f49-b995-86755a381d6c.png"
   />
   <div>
-    <Heading fontSize={3}>Checkbox group</Heading>
+    <Heading sx={{fontSize: 3}}>Checkbox group</Heading>
     <p>A set of checkboxes to let users make one or more selections from a short list of options</p>
     <a href="https://primer.style/react/CheckboxGroup">Primer React implementation</a>
   </div>
@@ -493,7 +499,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
     src="https://user-images.githubusercontent.com/2313998/170268368-5daef93f-b7d3-4863-938a-9c777c609ee4.png"
   />
   <div>
-    <Heading fontSize={3}>Form control</Heading>
+    <Heading sx={{fontSize: 3}}>Form control</Heading>
     <p>A form control renders a labelled input and, optionally, associated validation text and/or hint text.</p>
     <a href="https://primer.style/react/FormControl">Primer React implementation</a>
   </div>
@@ -512,7 +518,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
     src="https://user-images.githubusercontent.com/2313998/170268369-b9885114-90f0-4bae-863e-ca3ed37aa67d.png"
   />
   <div>
-    <Heading fontSize={3}>Radio group</Heading>
+    <Heading sx={{fontSize: 3}}>Radio group</Heading>
     <p>A set of radio inputs to let users make a single selection from a short list of options</p>
     <a href="https://primer.style/react/RadioGroup">Primer React implementation</a>
   </div>
@@ -531,7 +537,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
     src="https://user-images.githubusercontent.com/2313998/170268372-be76e525-7337-4739-afd0-7e4a12037731.png"
   />
   <div>
-    <Heading fontSize={3}>Select dropdown</Heading>
+    <Heading sx={{fontSize: 3}}>Select dropdown</Heading>
     <p>A select input may be used when a user needs to select one option from a long list</p>
     <a href="https://primer.style/react/Select">Primer React implementation</a>
   </div>
@@ -550,7 +556,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
     src="https://user-images.githubusercontent.com/2313998/170268373-463d55fa-ead8-4471-91f2-2bec2456f385.png"
   />
   <div>
-    <Heading fontSize={3} id="textarea">
+    <Heading sx={{fontSize: 3}} id="textarea">
       Textarea
     </Heading>
     <p>A text area is used to put multiple lines of text in an input</p>
@@ -571,7 +577,7 @@ Forms should follow consistent patterns for [submitting and saving data](/ui-pat
     src="https://user-images.githubusercontent.com/2313998/170268374-7d701912-5f6c-45ce-832f-e7c3b1d3c476.png"
   />
   <div>
-    <Heading fontSize={3}>Text input</Heading>
+    <Heading sx={{fontSize: 3}}>Text input</Heading>
     <p>
       A text input is used to set a value that is a single line of text. See the list of{' '}
       <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types">types in the MDN docs</a>.
