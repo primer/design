@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@github/prettier-config": "^0.0.4",
     "@primer/gatsby-theme-doctocat": "^4.0.0",
     "@primer/octicons-react": "^17.3.0",
     "@primer/react": "^35.5.0",
