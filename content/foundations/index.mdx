@@ -2,25 +2,25 @@
 title: Foundations
 ---
 
-import {Box, Link, Text, Label} from '@primer/react'
+import {Box, Link, Text} from '@primer/react'
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null]} gridGap={4}>
   <div>
-    <Link href="/design/foundations/color" fontWeight="bold">
+    <Link href="/design/foundations/color" sx={{fontWeight: 'bold'}}>
       Color
     </Link>
-    <Box as="p">How to work with color modes and themes, and how to apply color to GitHub interfaces.</Box>
+    <Text as="p">How to work with color modes and themes, and how to apply color to GitHub interfaces.</Text>
   </div>
   <div>
-    <Link href="/design/foundations/typography" fontWeight="bold">
+    <Link href="/design/foundations/typography" sx={{fontWeight: 'bold'}}>
       Typography
     </Link>
-    <Box as="p">How to use and apply typography to GitHub interfaces.</Box>
+    <Text as="p">How to use and apply typography to GitHub interfaces.</Text>
   </div>
   <div>
-    <Link href="/design/foundations/content" fontWeight="bold">
+    <Link href="/design/foundations/content" sx={{fontWeight: 'bold'}}>
       Content
     </Link>
-    <Box as="p">How to create interfaces that follow GitHub's content guidelines.</Box>
+    <Text as="p">How to create interfaces that follow GitHub's content guidelines.</Text>
   </div>
 </Box>

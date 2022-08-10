@@ -2,11 +2,11 @@
 title: Components
 ---
 
-import {Box, Link, Text, Label} from '@primer/react'
+import {Box, Link, Text} from '@primer/react'
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
   <div>
-    <Link href="/design/components/action-list">
+    <Link href="/design/components/action-list" sx={{fontWeight: 'bold'}}>
       <img
         role="presentation"
         src="https://user-images.githubusercontent.com/293280/123880841-54bb9280-d8f8-11eb-9a6f-4c33c8196fbf.png"
@@ -14,13 +14,13 @@ import {Box, Link, Text, Label} from '@primer/react'
     </Link>
   </div>
   <div>
-    <Link href="/design/components/action-list" fontWeight="bold">
+    <Link href="/design/components/action-list" sx={{fontWeight: 'bold'}}>
       Action list
     </Link>
-    <Box as="p">
+    <Text as="p">
       An action list is a vertical list of interactive actions or options. It’s composed of items presented in a
       consistent single-column format, with room for icons, descriptions, side information, and other rich visuals.
-    </Box>
+    </Text>
   </div>
   <div>
     <Link href="/design/components/autocomplete">
@@ -31,13 +31,13 @@ import {Box, Link, Text, Label} from '@primer/react'
     </Link>
   </div>
   <div>
-    <Link href="/design/components/autocomplete" fontWeight="bold">
+    <Link href="/design/components/autocomplete" sx={{fontWeight: 'bold'}}>
       Autocomplete
     </Link>
-    <Box as="p">
+    <Text as="p">
       Autocomplete inputs allow users to quickly filter through a list of options to pick one or more values for a
       field.
-    </Box>
+    </Text>
   </div>
   <div>
     <Link href="/design/components/toggle-switch">
@@ -48,10 +48,10 @@ import {Box, Link, Text, Label} from '@primer/react'
     </Link>
   </div>
   <div>
-    <Link href="/design/components/toggle-switch" fontWeight="bold">
+    <Link href="/design/components/toggle-switch" sx={{fontWeight: 'bold'}}>
       Toggle switch
     </Link>
-    <Box as="p">A toggle switch is used to immediately toggle a setting on or off.</Box>
+    <Text as="p">A toggle switch is used to immediately toggle a setting on or off.</Text>
   </div>
   <div>
     <Link href="/design/components/tokens">
@@ -62,11 +62,11 @@ import {Box, Link, Text, Label} from '@primer/react'
     </Link>
   </div>
   <div>
-    <Link href="/design/components/tokens" fontWeight="bold">
+    <Link href="/design/components/tokens" sx={{fontWeight: 'bold'}}>
       Tokens
     </Link>
-    <Box as="p">
+    <Text as="p">
       A token is a compact representation of an object, and is typically used to show a collection of related metadata.
-    </Box>
+    </Text>
   </div>
 </Box>
