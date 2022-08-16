@@ -120,6 +120,15 @@ If the content area has overflow scrolling, a divider will be shown between the 
   </div>
 </Box>
 
+### Dimensions
+
+Dialogs should never extend beyond the viewport sizes, and may resize to fit smaller devices. The body contents should fit narrow viewports with a minimum width of `320px`. If the contents extend vertically beyond the specified height, the **body** region will scroll.
+
+The `height` and `width` may be set to `auto` which will set a minimum width of `192px` and respond to the contents of the Dialog. Additionally, an explicit `height` and `width` may be set with a specific set of options.
+
+<!-- img -->
+<Caption>Recommended height and width combinations for Dialog</Caption>
+
 ### Scroll behavior
 
 The **body** region scrolls vertically to accommodate lists and contents too long to fit in the available space, or when the Dialog appears in a small screen.
@@ -144,7 +153,40 @@ By default, clicking on the **backdrop** will dismiss the Dialog. However, if th
 
 ## Usage
 
-<!-- List of dos and donts covering the most important ways of how to (and not) use the component. This section can also be referred to as Options. Consider when and how this component could be used incorrectly, what are the ideal ways of using it, special cases, alternative components (include links if needed). -->
+### Keep content simple
+
+Dialogs are meant to be interacted with in a single context. Avoid creating a whole page inside a Dialog. Prefer single-column layouts that convey a clear goal from the moment the Dialog is opened.
+
+However, Dialogs are powerful tools when creating space for single-context interfaces. When designing a new feature to support a main interface, start by considering if the new feature can be created under a single context.
+
+If the answer is yes, designing the feature inside a Dialog provides an easy way to add responsive support, and avoid deeper navigations. If the answer is no, or if a side navigation is required for the feature, consider designing a new page.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/293280/174922550-782a544b-12aa-4b2a-9ca7-700f8bc4f166.png"
+      alt=""
+    />
+    <Caption>Prefer a single column layout.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/293280/174922547-c658b89e-d304-48f0-b884-76bd0d440c9c.png"
+      alt=""
+    />
+    <Caption>Avoid side navigation within a Dialog.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Trigger elements and keyboard focus
+
+Dialogs are initially hidden, and can be opened by an element with `role="button"`, called a **trigger**. The role `button` allows the **trigger** to be a relativelly complex element, such as an action list item.
+
+Dialogs should be fully functional using the keyboard and assistive technology. Pressing `Esc` should dismiss a Dialog, also returning focus to the **trigger** that opened it.
+
+### Dialogs should work well on any device
+
+Dialogs must adjust their designs to fit in smaller viewports. Make sure the overlay contents work with all supported sizes and input methods.
 
 ## Hierarchy and placement
 
