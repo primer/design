@@ -1,9 +1,11 @@
 {
   "extends": [
-    "plugin:github/es6",
     "plugin:github/react",
     "plugin:jsx-a11y/recommended"
   ],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
   "env": {
     "jest": false
   },
@@ -12,7 +14,7 @@
   },
   "settings": {
     "react": {
-      "version": "16"
+      "version": "17"
     }
   }
 }

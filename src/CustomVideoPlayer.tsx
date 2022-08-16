@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box} from '@primer/components'
+import {Box} from '@primer/react'
 import {ColumnsIcon, PlayIcon} from '@primer/octicons-react'
 
 const CustomVideoPlayer = (props: React.HTMLProps<HTMLVideoElement>) => {
