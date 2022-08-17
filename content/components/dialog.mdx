@@ -1,0 +1,197 @@
+---
+title: Dialog
+status: Alpha
+---
+
+import {Box, Heading, Label, LabelGroup, Link, Caption} from '@primer/components'
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+  A Dialog is a floating surface used to display transient content such as confirmation actions, selection options, and more.
+</Box>
+
+<LabelGroup display="block" mb={4}>
+  <Label
+    as="a"
+    href="https://primer.style/react/Dialog"
+    variant="xl"
+    color="text.success"
+    outline
+    style="text-decoration: none; line-height: 20px;"
+  >
+    <img
+      width="20"
+      height="20"
+      alt=" "
+      src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    React
+  </Label>
+  <Label as="a" href="#" variant="xl" outline style="text-decoration: none; line-height: 20px;">
+    <img
+      width="20"
+      height="20"
+      alt=" "
+      src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    Figma
+  </Label>
+</LabelGroup>
+
+## Overview
+
+Dialogs can streamline the interface by allowing extra content to be disclosed as needed. Dialogs create a new modality to the user, and can facilitate the completion of individual tasks.
+
+## Anatomy
+
+<img alt="" src="https://user-images.githubusercontent.com/293280/174921246-606b8de1-dabd-4865-ae98-1e7677f1bb38.png" width="960" />
+<Caption>Anatomy of a Dialog.</Caption>
+
+### Dialog regions
+
+- **Header**: Provides context for the Dialog with a `title`.
+- **Subheader**: Optional area for additional header content such as an `input` field.
+- **Actions**: Optional area for an additional action button.
+- **Close Button**: Required button that dismisses the Dialog.
+- **Body** : The main contents of the Dialog.
+- **Footer**: Optional area for confirmation or cancel action buttons.
+
+### Header region
+
+The **header** region provides context for the Dialog. By default, the region supports a title, description, and a close button. Titles and descriptions may wrap to multiple lines if necessary.
+
+The title is required for all Dialogs, but may be visually hidden for custom scenarios such as a command palette. The close button is required and may **not** be visually hidden.
+
+The header region provides a slot for custom content in place of the default title/description, though title is still required and may be visually hidden. The title has a default size and a large option for confirmation dialogs.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175849372-a9d33d3b-96f3-497e-bad6-70df4d91072a.png" alt="" />
+    <Caption>Header with the default title variant.</Caption>
+  </div>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175849374-6a71d8a0-da61-4745-a059-4560d053089b.png" alt="" />
+    <Caption>Header with large title variant.</Caption>
+  </div>
+</Box>
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175849370-bcc9161c-901e-4e03-ba40-0626dd0523c4.png" alt="" />
+    <Caption>Header with custom variant.</Caption>
+  </div>
+</Box>
+
+### Subheader region
+
+The subheader region is an optional space for interactive controls. Use it to display a search field, a filter menu, or a local navigation component.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175849377-ef70f4e7-2978-415c-9da1-a2ba2f33bdc3.png" alt="" />
+    <Caption>Header displaying a subheader with a search field.</Caption>
+  </div>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175849376-ef25a1ba-b5b7-4ae0-8d9a-78095932886a.png" alt="" />
+    <Caption>Header displaying a subheader with a local navigation.</Caption>
+  </div>
+</Box>
+
+### Footer region
+
+The footer region may be used to show confirmation actions, navigation links, or specialized actions.
+
+If the content area has overflow scrolling, a divider will be shown between the footer and content area. Otherwise, showing a divider is optional.
+
+<img src="https://user-images.githubusercontent.com/293280/175850630-9f3df284-c69b-4d16-9e57-ea04a0202d04.png" width="960" alt="" />
+<Caption>
+  Use buttons in a footer to let the user complete a task.
+</Caption>
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175850639-a77d537e-2807-47d2-b456-a298d5f44918.png" alt="" />
+    <Caption>Footer with small buttons.</Caption>
+  </div>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175850637-3b193552-b35f-4b07-b2d6-4ca546c8131a.png" alt="" />
+    <Caption>Footer with auxiliary create button.</Caption>
+  </div>
+</Box>
+
+### Dimensions
+
+Dialogs should never extend beyond the viewport sizes, and may resize to fit smaller devices. The body contents should fit narrow viewports with a minimum width of `320px`. If the contents extend vertically beyond the specified height, the **body** region will scroll.
+
+The `height` and `width` may be set to `auto` which will set a minimum width of `192px` and respond to the contents of the Dialog. Additionally, an explicit `height` and `width` may be set with a specific set of options.
+
+<!-- img -->
+<Caption>Recommended height and width combinations for Dialog</Caption>
+
+### Scroll behavior
+
+The **body** region scrolls vertically to accommodate lists and contents too long to fit in the available space, or when the Dialog appears in a small screen.
+
+### Spacing
+
+The edges of Dialog are free of text and heavy visuals to visually distinguish the Dialog as an elevated surface, alongside its shadow. Content within the body and header should remain within the 16px safe area. However, inner components that have transparent or discrete backgrounds may bleed into the padding for visual alignment.
+
+<img alt="" src="https://user-images.githubusercontent.com/293280/174925634-603a27cf-2281-4a3a-9078-d1b8138e0d09.png" width="960" />
+<Caption>
+  1. A search field in the Subheader region appears closer to the edges. While the search icon remains within the safe area.<br />
+  2. Close button placed `8px` away from the edges. Note that the "×" glyph remains within the safe area.<br />
+  3. Action list items in the Body region.<br />
+  4. Footer buttons always appear inside the safe area. <br />
+</Caption>
+
+### Backdrop
+
+Dialog displays with a **backdrop**, which dims the rest of the page. The backdrop is visible when the Dialog is centered on the page, or attached to a sides as a sheet.
+
+By default, clicking on the **backdrop** will dismiss the Dialog. However, if the Dialog contains a form that can have unsaved changes, the **backdrop** won't dismiss the Dialog, regardless of the state of the form.
+
+## Usage
+
+### Keep content simple
+
+Dialogs are meant to be interacted with in a single context. Avoid creating a whole page inside a Dialog. Prefer single-column layouts that convey a clear goal from the moment the Dialog is opened.
+
+However, Dialogs are powerful tools when creating space for single-context interfaces. When designing a new feature to support a main interface, start by considering if the new feature can be created under a single context.
+
+If the answer is yes, designing the feature inside a Dialog provides an easy way to add responsive support, and avoid deeper navigations. If the answer is no, or if a side navigation is required for the feature, consider designing a new page.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/293280/174922550-782a544b-12aa-4b2a-9ca7-700f8bc4f166.png"
+      alt=""
+    />
+    <Caption>Prefer a single column layout.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/293280/174922547-c658b89e-d304-48f0-b884-76bd0d440c9c.png"
+      alt=""
+    />
+    <Caption>Avoid side navigation within a Dialog.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Trigger elements and keyboard focus
+
+Dialogs are initially hidden, and can be opened by an element with `role="button"`, called a **trigger**. The role `button` allows the **trigger** to be a relativelly complex element, such as an action list item.
+
+Dialogs should be fully functional using the keyboard and assistive technology. Pressing `Esc` should dismiss a Dialog, also returning focus to the **trigger** that opened it.
+
+### Dialogs should work well on any device
+
+Dialogs must adjust their designs to fit in smaller viewports. Make sure the overlay contents work with all supported sizes and input methods.
+
+## Placement
+
+<!-- Where to use the component and how it interacts with the rest of the UI. Include images and dos and donts of how the component should be used within the UI. -->
+
+## Accessibility
+
+<!-- Accessibility considerations when using the component. Include keyboard navigation, descriptions, common mistakes to avoid. -->
