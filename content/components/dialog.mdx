@@ -62,9 +62,9 @@ Dialogs can streamline the interface by allowing extra content to be disclosed a
 
 The **header** region provides context for the Dialog. By default, the region supports a title, description, and a close button. Titles and descriptions may wrap to multiple lines if necessary.
 
-The title is required for all Dialogs, but may be visually hidden for custom scenarios such as a command palette. The close button is required and may **not** be visually hidden.
+The title is required for all Dialogs, but may be visually hidden for custom scenarios such as a command palette. The close button is required and may **not** be visually hidden. The title has a default size along with a larger option for confirmation dialogs.
 
-The header region provides a slot for custom content in place of the default title/description, though title is still required and may be visually hidden. The title has a default size and a large option for confirmation dialogs.
+The header region provides a slot for custom content in place of the default title/description, though a title is still required and may be visually hidden. Secondary action icon buttons may be placed next to the close button.
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
@@ -80,7 +80,12 @@ The header region provides a slot for custom content in place of the default tit
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
     <img src="https://user-images.githubusercontent.com/293280/175849370-bcc9161c-901e-4e03-ba40-0626dd0523c4.png" alt="" />
-    <Caption>Header with custom variant.</Caption>
+    <Caption>Header with custom variant and a secondary action button.</Caption>
+  </div>
+  <div>
+    {/* new img here */}
+    <img src="https://user-images.githubusercontent.com/293280/175849370-bcc9161c-901e-4e03-ba40-0626dd0523c4.png" alt="" />
+    <Caption>Command palette with a visually hidden title.</Caption>
   </div>
 </Box>
 
@@ -96,6 +101,21 @@ The subheader region is an optional space for interactive controls. Use it to di
   <div>
     <img src="https://user-images.githubusercontent.com/293280/175849376-ef25a1ba-b5b7-4ae0-8d9a-78095932886a.png" alt="" />
     <Caption>Header displaying a subheader with a local navigation.</Caption>
+  </div>
+</Box>
+
+### Body region
+
+The body region is the main content of the Dialog. It can contain any content that is relevant to the task at hand. The body region is scrollable if the content exceeds the height of the Dialog.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175849377-ef70f4e7-2978-415c-9da1-a2ba2f33bdc3.png" alt="" />
+    <Caption>Body content will scroll vertically if the content exceeds the overall Dialog height.</Caption>
+  </div>
+  <div>
+    <img src="https://user-images.githubusercontent.com/293280/175849376-ef25a1ba-b5b7-4ae0-8d9a-78095932886a.png" alt="" />
+    <Caption>The body may contain additional content such as banners and form controls.</Caption>
   </div>
 </Box>
 
@@ -129,10 +149,6 @@ The `height` and `width` may be set to `auto` which will set a minimum width of 
 
 <img width="1292" alt="" src="https://user-images.githubusercontent.com/18661030/185178528-e1c176ef-f407-40ab-8729-965e21d64f6d.png"/>
 <Caption>Recommended height and width combinations for Dialog</Caption>
-
-### Scroll behavior
-
-The **body** region scrolls vertically to accommodate lists and contents too long to fit in the available space, or when the Dialog appears in a small screen.
 
 ### Spacing
 
@@ -183,14 +199,14 @@ Dialogs should be fully functional using the keyboard and assistive technology. 
 
 Dialogs must adjust their designs to fit in smaller viewports. Make sure the overlay contents work with all supported sizes and input methods.
 
-## Regular-screen placement
+## Regular-viewport placement
 
 ### Centered
 
 By default, Dialog appears centered in the viewport, with a visible backdrop that dims the rest of the window for focus. Centered Dialogs are surrounded by a safe area of `16px` between the frame and the viewport for all sizes.
 
 <img width="960" alt="" src="https://user-images.githubusercontent.com/18661030/185224429-9f0af3ee-3e11-4f94-a5f6-746ed8a5c300.png"/>
-<Caption>Dialog centered within a desktop screen size.</Caption>
+<Caption>Dialog centered within a desktop screen.</Caption>
 
 ### Side sheets
 
@@ -204,7 +220,7 @@ Side sheets take the entire height of the viewport, and should be used sparingly
 <img width="960" alt="placement-desktop-2" src="https://user-images.githubusercontent.com/18661030/185214094-419d2271-dbb9-4e78-90e6-4433ed9c42fb.png"/>
 <Caption>Right aligned side sheet for global actions.</Caption>
 
-## Narrow-screen placement
+## Narrow-viewport placement
 
 ### Bottom sheets
 
