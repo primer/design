@@ -49,15 +49,6 @@ Dialogs can streamline the interface by allowing extra content to be disclosed a
 <img width="960" alt="" src="https://user-images.githubusercontent.com/18661030/185477953-4b18ef02-675f-4f30-9c83-e421a875ae92.png" />
 <Caption>Anatomy of a Dialog.</Caption>
 
-### Dialog regions
-
-- **Header**: Provides context for the Dialog with a `title`.
-- **Subheader**: Optional area for additional header content such as an `input` field.
-- **Actions**: Optional area for an additional action button.
-- **Close Button**: Required button that dismisses the Dialog.
-- **Body** : The main contents of the Dialog.
-- **Footer**: Optional area for confirmation or cancel action buttons.
-
 ### Header region
 
 The **header** region provides context for the Dialog. By default, the region supports a title, description, and a close button. Titles and descriptions may wrap to multiple lines if necessary.
@@ -113,7 +104,7 @@ The body region is the main content of the Dialog. It can contain any content th
     <Caption>Body content will scroll vertically if the content exceeds the overall Dialog height.</Caption>
   </div>
   <div>
-    <img width="650" alt="" src="https://user-images.githubusercontent.com/18661030/185478320-2a4a3053-dca3-4048-b7c4-d5a39a83acd6.png">
+    <img width="650" alt="" src="https://user-images.githubusercontent.com/18661030/185478320-2a4a3053-dca3-4048-b7c4-d5a39a83acd6.png" />
     <Caption>The body may contain additional content such as banners and form controls.</Caption>
   </div>
 </Box>
@@ -140,6 +131,14 @@ If the content area has overflow scrolling, a divider will be shown between the 
   </div>
 </Box>
 
+### Backdrop
+
+Dialog displays with a **backdrop**, which dims the rest of the page. The backdrop is visible when the Dialog is centered on the page, or attached to a sides as a sheet.
+
+By default, clicking on the **backdrop** will dismiss the Dialog. However, if the Dialog contains a form that can have unsaved changes, the **backdrop** won't dismiss the Dialog, regardless of the state of the form.
+
+<!-- video here -->
+
 ### Dimensions
 
 Dialogs should never extend beyond the viewport sizes, and may resize to fit smaller devices. The body contents should fit narrow viewports with a minimum width of `320px`. If the contents extend vertically beyond the specified height, the **body** region will scroll.
@@ -160,12 +159,6 @@ The edges of Dialog are free of text and heavy visuals to visually distinguish t
   3. Action list items in the Body region.<br />
   4. Footer buttons always appear inside the safe area. <br />
 </Caption>
-
-### Backdrop
-
-Dialog displays with a **backdrop**, which dims the rest of the page. The backdrop is visible when the Dialog is centered on the page, or attached to a sides as a sheet.
-
-By default, clicking on the **backdrop** will dismiss the Dialog. However, if the Dialog contains a form that can have unsaved changes, the **backdrop** won't dismiss the Dialog, regardless of the state of the form.
 
 ## Usage
 
