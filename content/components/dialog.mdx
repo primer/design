@@ -69,7 +69,7 @@ The title is required for all Dialogs, but may be visually hidden for custom sce
 
 The header region provides a slot for custom content in place of the default title/description, though a title is still required and may be visually hidden. Secondary action icon buttons may be placed next to the close button.
 
-<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={5}>
   <div>
     <img
       src="https://user-images.githubusercontent.com/293280/175849372-a9d33d3b-96f3-497e-bad6-70df4d91072a.png"
@@ -351,3 +351,33 @@ Full-screen Dialogs may be used to present content that needs all the available 
   src="https://user-images.githubusercontent.com/18661030/185214079-d30342c1-6061-4a31-ab65-c0cef0f00278.png"
 />
 <Caption>Full-screen dialog in portrait mode.</Caption>
+
+## Accessibility
+
+Dialog's title and close button as addressed previously are required to ensure an accessible experience for everyone. Further, keyboard and focus behavior must be considered.
+
+When a Dialog is opened, the first interactive element (the close button) is focused. Hitting `tab` will cycle through all interactive elements within the Dialog. To escape the focus trap, hitting the `esc` key or clicking on the backdrop will close the Dialog. While the Dialog is open, page scrolling is disabled and becomes `inert`.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={5}>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/185997280-fb36be9c-bfde-463b-b33c-9f25412683d2.png"
+      alt=""
+    />
+    <Caption>Dialogs can be trigger by buttons with a mouse click or keypress.</Caption>
+  </div>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/185997278-6fc2b938-6453-47d7-99ae-0411354eb06e.png"
+      alt=""
+    />
+    <Caption>The first interactive item inside a Dialog is focused when on open.</Caption>
+  </div>
+</Box>
+
+<img
+  width="960"
+  alt=""
+  src="https://user-images.githubusercontent.com/18661030/185997276-25cd8796-42e2-41f6-b5be-551f6a02349b.png"
+/>
+<Caption>When a Dialog is closed, focus is returned to the trigger button.</Caption>
