@@ -7,7 +7,8 @@ import {Box, Heading, Label, LabelGroup, Link} from '@primer/react'
 import {Caption} from '@primer/gatsby-theme-doctocat'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
-  A Dialog is a floating surface used to display transient content such as confirmation actions, selection options, and more.
+  A Dialog is a floating surface used to display transient content such as confirmation actions, selection options, and
+  more.
 </Box>
 
 <Box mb={4}>
@@ -49,11 +50,15 @@ import {Caption} from '@primer/gatsby-theme-doctocat'
 
 ## Overview
 
-Dialogs can streamline the interface by allowing extra content to be disclosed as needed. Dialogs create a new modality to the user, and can facilitate the completion of individual tasks.
+Dialogs can streamline the interface by allowing extra content to be disclosed as needed. Dialogs create a new modality to the user, and can expedite the completion of individual tasks.
 
 ## Anatomy
 
-<img width="960" alt="" src="https://user-images.githubusercontent.com/18661030/185509649-50791e2f-0a4c-44d9-8b2b-e34b3f394315.png" />
+<img
+  width="960"
+  alt=""
+  src="https://user-images.githubusercontent.com/18661030/185509649-50791e2f-0a4c-44d9-8b2b-e34b3f394315.png"
+/>
 <Caption>Anatomy of a Dialog.</Caption>
 
 ### Header region
@@ -66,22 +71,36 @@ The header region provides a slot for custom content in place of the default tit
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
-    <img src="https://user-images.githubusercontent.com/293280/175849372-a9d33d3b-96f3-497e-bad6-70df4d91072a.png" alt="" />
+    <img
+      src="https://user-images.githubusercontent.com/293280/175849372-a9d33d3b-96f3-497e-bad6-70df4d91072a.png"
+      alt=""
+    />
     <Caption>Header with the default title variant.</Caption>
   </div>
   <div>
-    <img src="https://user-images.githubusercontent.com/293280/175849374-6a71d8a0-da61-4745-a059-4560d053089b.png" alt="" />
+    <img
+      src="https://user-images.githubusercontent.com/293280/175849374-6a71d8a0-da61-4745-a059-4560d053089b.png"
+      alt=""
+    />
     <Caption>Header with large title variant.</Caption>
   </div>
 </Box>
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
-    <img width="464" alt="" src="https://user-images.githubusercontent.com/18661030/185478040-be5a3552-9ed1-40ef-a713-3d6ac8f6b697.png" />
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/185478040-be5a3552-9ed1-40ef-a713-3d6ac8f6b697.png"
+    />
     <Caption>Header with custom variant and a secondary action button.</Caption>
   </div>
   <div>
-    <img width="464" alt="" src="https://user-images.githubusercontent.com/18661030/185478144-87887a98-e541-4a23-bd1c-6cb174a453a7.png"/>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/185990665-5cf39b59-420a-41bf-8d65-d431134d2738.png"
+    />
     <Caption>Command palette with a visually hidden title.</Caption>
   </div>
 </Box>
@@ -92,11 +111,17 @@ The subheader region is an optional space for interactive controls. Use it to di
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
-    <img src="https://user-images.githubusercontent.com/293280/175849377-ef70f4e7-2978-415c-9da1-a2ba2f33bdc3.png" alt="" />
+    <img
+      src="https://user-images.githubusercontent.com/293280/175849377-ef70f4e7-2978-415c-9da1-a2ba2f33bdc3.png"
+      alt=""
+    />
     <Caption>Header displaying a subheader with a search field.</Caption>
   </div>
   <div>
-    <img src="https://user-images.githubusercontent.com/293280/175849376-ef25a1ba-b5b7-4ae0-8d9a-78095932886a.png" alt="" />
+    <img
+      src="https://user-images.githubusercontent.com/293280/175849376-ef25a1ba-b5b7-4ae0-8d9a-78095932886a.png"
+      alt=""
+    />
     <Caption>Header displaying a subheader with a local navigation.</Caption>
   </div>
 </Box>
@@ -107,34 +132,50 @@ The body region is the main content of the Dialog. It can contain any content th
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
-    <img width="650" alt="" src="https://user-images.githubusercontent.com/18661030/185506131-1436b06b-a8fb-4de8-b9b2-4715ab0a63d2.png"/>
+    <img
+      width="650"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/185506131-1436b06b-a8fb-4de8-b9b2-4715ab0a63d2.png"
+    />
     <Caption>Body content will scroll vertically if the content exceeds the overall Dialog height.</Caption>
   </div>
   <div>
-    <img width="650" alt="" src="https://user-images.githubusercontent.com/18661030/185478320-2a4a3053-dca3-4048-b7c4-d5a39a83acd6.png" />
+    <img
+      width="650"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/185478320-2a4a3053-dca3-4048-b7c4-d5a39a83acd6.png"
+    />
     <Caption>The body may contain additional content such as banners and form controls.</Caption>
   </div>
 </Box>
 
 ### Footer region
 
-The footer region may be used to show confirmation actions, navigation links, or specialized actions.
+The footer region may be used to show confirmation actions, navigation links, or specialized actions. Primary actions should be aligned to the right of the footer, and grouped why additional related actions. Secondary actions may be shown aligned to the left side.
 
 If the content area has overflow scrolling, a divider will be shown between the footer and content area. Otherwise, showing a divider is optional.
 
-<img src="https://user-images.githubusercontent.com/293280/175850630-9f3df284-c69b-4d16-9e57-ea04a0202d04.png" width="960" alt="" />
-<Caption>
-  Use buttons in a footer to let the user complete a task.
-</Caption>
+<img
+  src="https://user-images.githubusercontent.com/293280/175850630-9f3df284-c69b-4d16-9e57-ea04a0202d04.png"
+  width="960"
+  alt=""
+/>
+<Caption>Use buttons in a footer to let the user complete a task.</Caption>
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
-    <img src="https://user-images.githubusercontent.com/293280/175850639-a77d537e-2807-47d2-b456-a298d5f44918.png" alt="" />
-    <Caption>Footer with small buttons.</Caption>
+    <img
+      src="https://user-images.githubusercontent.com/293280/175850639-a77d537e-2807-47d2-b456-a298d5f44918.png"
+      alt=""
+    />
+    <Caption>Footer with small buttons aligned to the right.</Caption>
   </div>
   <div>
-    <img src="https://user-images.githubusercontent.com/293280/175850637-3b193552-b35f-4b07-b2d6-4ca546c8131a.png" alt="" />
-    <Caption>Footer with auxiliary create button.</Caption>
+    <img
+      src="https://user-images.githubusercontent.com/293280/175850637-3b193552-b35f-4b07-b2d6-4ca546c8131a.png"
+      alt=""
+    />
+    <Caption>Footer with a secondary button aligned to the left.</Caption>
   </div>
 </Box>
 
@@ -150,18 +191,30 @@ Dialogs should never extend beyond the viewport sizes, and may resize to fit sma
 
 The `height` and `width` may be set to `auto` which will set a minimum width of `192px` and respond to the contents of the Dialog. Additionally, an explicit `height` and `width` may be set with a specific set of options.
 
-<img width="1292" alt="" src="https://user-images.githubusercontent.com/18661030/185178528-e1c176ef-f407-40ab-8729-965e21d64f6d.png"/>
+<img
+  width="1292"
+  alt=""
+  src="https://user-images.githubusercontent.com/18661030/185178528-e1c176ef-f407-40ab-8729-965e21d64f6d.png"
+/>
 <Caption>Recommended height and width combinations for Dialog</Caption>
 
 ### Spacing
 
 The edges of Dialog are free of text and heavy visuals to visually distinguish the Dialog as an elevated surface, alongside its shadow. Content within the body and header should remain within the 16px safe area. However, inner components that have transparent or discrete backgrounds may bleed into the padding for visual alignment.
 
-<img alt="" src="https://user-images.githubusercontent.com/293280/174925634-603a27cf-2281-4a3a-9078-d1b8138e0d09.png" width="960" />
+<img
+  alt=""
+  src="https://user-images.githubusercontent.com/293280/174925634-603a27cf-2281-4a3a-9078-d1b8138e0d09.png"
+  width="960"
+/>
 <Caption>
-  1. A search field in the Subheader region appears closer to the edges. While the search icon remains within the safe area.<br />
-  2. Close button placed `8px` away from the edges. Note that the "×" glyph remains within the safe area.<br />
-  3. Action list items in the Body region.<br />
+  1. A search field in the Subheader region appears closer to the edges. While the search icon remains within the safe
+  area.
+  <br />
+  2. Close button placed `8px` away from the edges. Note that the "×" glyph remains within the safe area.
+  <br />
+  3. Action list items in the Body region.
+  <br />
   4. Footer buttons always appear inside the safe area. <br />
 </Caption>
 
@@ -177,11 +230,19 @@ If the answer is yes, designing the feature inside a Dialog provides an easy way
 
 <DoDontContainer>
   <Do>
-    <img width="464" alt="" src="https://user-images.githubusercontent.com/18661030/185224257-a40112ff-aaf3-4947-acf0-6b4020e023df.png" />
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/185224257-a40112ff-aaf3-4947-acf0-6b4020e023df.png"
+    />
     <Caption>Prefer a single column layout.</Caption>
   </Do>
   <Dont>
-    <img width="464" alt="" src="https://user-images.githubusercontent.com/18661030/185224316-0680b89a-8514-4336-9147-64aac722cd9a.png" />
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/185224316-0680b89a-8514-4336-9147-64aac722cd9a.png"
+    />
     <Caption>Avoid side navigation within a Dialog.</Caption>
   </Dont>
 </DoDontContainer>
@@ -193,9 +254,9 @@ Dialogs are initially hidden, and can be opened by an element with `role="button
 Dialogs must be fully functional using the keyboard and assistive technology. Pressing `Esc` must dismiss a Dialog, also returning focus to the **trigger** that opened it.
 
 <CustomVideoPlayer
-    width="100%"
-    loop
-    src="https://user-images.githubusercontent.com/18661030/185507547-0843b014-0b90-48f5-9e4f-746caa42b4e6.mp4"
+  width="100%"
+  loop
+  src="https://user-images.githubusercontent.com/18661030/185507547-0843b014-0b90-48f5-9e4f-746caa42b4e6.mp4"
 />
 <Caption>Clicking the backdrop or hitting the `esc` key should dismiss the Dialog.</Caption>
 
@@ -206,15 +267,15 @@ Dialogs must adjust their designs to fit in smaller viewports. Make sure the ove
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
     <CustomVideoPlayer
-        width="100%"
-        src="https://user-images.githubusercontent.com/18661030/185507523-74e0acff-6980-439e-84c5-422b16470c9e.mp4"
+      width="100%"
+      src="https://user-images.githubusercontent.com/18661030/185507523-74e0acff-6980-439e-84c5-422b16470c9e.mp4"
     />
     <Caption>Center aligned Dialog becomes fullscreen on narrow viewport.</Caption>
   </div>
   <div>
     <CustomVideoPlayer
-        width="100%"
-        src="https://user-images.githubusercontent.com/18661030/185507508-298f9378-3f26-4e45-9809-5aef3d8cd3e2.mp4"
+      width="100%"
+      src="https://user-images.githubusercontent.com/18661030/185507508-298f9378-3f26-4e45-9809-5aef3d8cd3e2.mp4"
     />
     <Caption>Center aligned Dialog becomes a bottom sheet on narrow viewport.</Caption>
   </div>
@@ -226,7 +287,11 @@ Dialogs must adjust their designs to fit in smaller viewports. Make sure the ove
 
 By default, Dialog appears centered in the viewport, with a visible backdrop that dims the rest of the window for focus. Centered Dialogs are surrounded by a safe area of `16px` between the frame and the viewport for all sizes.
 
-<img width="960" alt="" src="https://user-images.githubusercontent.com/18661030/185224429-9f0af3ee-3e11-4f94-a5f6-746ed8a5c300.png"/>
+<img
+  width="960"
+  alt=""
+  src="https://user-images.githubusercontent.com/18661030/185224429-9f0af3ee-3e11-4f94-a5f6-746ed8a5c300.png"
+/>
 <Caption>Dialog centered within a desktop screen.</Caption>
 
 ### Side sheets
@@ -235,11 +300,22 @@ Side sheets slide from the right or left edges of the viewport. **Left side shee
 
 Side sheets take the entire height of the viewport, and should be used sparingly. Don't use side sheets to present create/edit forms, or flows that may contain a lot of information. For that, use a page instead.
 
-<img width="960" alt="placement-desktop-1" src="https://user-images.githubusercontent.com/18661030/185214096-8ad908b4-2cbd-467d-8e74-bad6948c5a2d.png"/>
+<img
+  width="960"
+  alt="placement-desktop-1"
+  src="https://user-images.githubusercontent.com/18661030/185214096-8ad908b4-2cbd-467d-8e74-bad6948c5a2d.png"
+/>
 <Caption>Left aligned side sheet is reserved for global navigation only.</Caption>
 
-<img width="960" alt="placement-desktop-2" src="https://user-images.githubusercontent.com/18661030/185214094-419d2271-dbb9-4e78-90e6-4433ed9c42fb.png"/>
-<Caption>Right aligned side sheet can be used for global actions, but may also be considered for quick previews or configuration panels.</Caption>
+<img
+  width="960"
+  alt="placement-desktop-2"
+  src="https://user-images.githubusercontent.com/18661030/185214094-419d2271-dbb9-4e78-90e6-4433ed9c42fb.png"
+/>
+<Caption>
+  Right aligned side sheet can be used for global actions, but may also be considered for quick previews or
+  configuration panels.
+</Caption>
 
 ## Narrow-viewport placement
 
@@ -249,17 +325,29 @@ A bottom sheet is a variant supported on narrow viewports made to facilitate rea
 
 A bottom sheet always dims the rest of the screen for focus and takes up the full width of the viewport. Tapping on the backdrop dismisses the Dialog.
 
-<img width="960" alt="bottom-sheet" src="https://user-images.githubusercontent.com/18661030/185214084-43e9573a-1a3b-4b82-b121-bd03897f48ac.png"/>
+<img
+  width="960"
+  alt="bottom-sheet"
+  src="https://user-images.githubusercontent.com/18661030/185214084-43e9573a-1a3b-4b82-b121-bd03897f48ac.png"
+/>
 <Caption>Bottom sheet in portrait mode.</Caption>
 
 In landscape mode, a bottom sheet has a maximum width of `480px`, and is centered horizontally.
 
-<img width="960" alt="overlay-sheet-landscape" src="https://user-images.githubusercontent.com/18661030/185214089-a1bb1a70-914b-4a8f-b395-9c279a88a1fe.png"/>
+<img
+  width="960"
+  alt="overlay-sheet-landscape"
+  src="https://user-images.githubusercontent.com/18661030/185214089-a1bb1a70-914b-4a8f-b395-9c279a88a1fe.png"
+/>
 <Caption>Bottom sheet in landscape mode.</Caption>
 
 ### Full-screen
 
 Full-screen Dialogs may be used to present content that needs all the available space on narrow viewports. Dialogs that have one or more input fields should always use the full-screen variant.
 
-<img width="960" alt="" src="https://user-images.githubusercontent.com/18661030/185214079-d30342c1-6061-4a31-ab65-c0cef0f00278.png"/>
+<img
+  width="960"
+  alt=""
+  src="https://user-images.githubusercontent.com/18661030/185214079-d30342c1-6061-4a31-ab65-c0cef0f00278.png"
+/>
 <Caption>Full-screen dialog in portrait mode.</Caption>
