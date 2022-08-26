@@ -53,6 +53,7 @@ The functional system is based on the meaning, or purpose, that colors have in t
   src="https://user-images.githubusercontent.com/378023/156498624-0e71a46b-9e1d-40c0-9f4a-18e37184b06e.png"
 />
 
+
 You should always use Primer's functional color system in your designs to make sure that:
 
 - It supports color modes out of the box
@@ -235,6 +236,30 @@ Not all colors pair well with each other. There are combinations of backgrounds 
   alt="Combination of variables 4: bg.[COLOR-ROLE] + border.[COLOR-ROLE] + fg.default"
   src="https://user-images.githubusercontent.com/378023/156498652-b1121c86-a670-4a92-9a8d-9db3c7e0ed9a.png"
 />
+
+## Accessibility
+When designing with colors there consider the following to make your UI visually accessible.
+
+### Assure adequat color contrast
+When combining colors like foreground and background colors, you must make sure that they fulfill the [required wcag contrast ratio](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html). 
+
+The contrast requirements are:
+- 4.5:1 for normal text
+- 3:1 for large text (>24px)
+- 3:1 for UI elements and graphics
+- decorational and disabled elements have no contrast requirement
+
+It's best to use an [online contrast checker](https://webaim.org/resources/contrastchecker/) or a [figma plugin](https://primer.style/design/accessibility/tools#contrast-plugin) for that. If you work with the primer primitives, this work has already been done for you. We checked all recommended combinations, so you are all set.
+
+### Don't rely on color alone
+Color vision deficiency is different for different people. To make sure everyone can understand and use your UI you should show state with more than a change in color.
+For example by using icons or changing the content.
+
+[Picture of innput field with error message and icon]
+
+For charts and graphs you can position the labels on top or close to each section. Alternativly you can use patterns to distinguish different parts.
+
+[Picture of line chart with different line styles and point styles]
 
 ## Color outside the functional system
 
