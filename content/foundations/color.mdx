@@ -252,14 +252,31 @@ The contrast requirements are:
 Use an [online contrast checker](https://webaim.org/resources/contrastchecker/) or a [figma plugin](https://primer.style/design/accessibility/tools#contrast-plugin) to test your contrast. If you work with the primer primitives, this work has already been done for you. We checked all recommended combinations, so you are all set.
 
 ### Don't rely on color alone
-Color vision deficiency is different for different people. To make sure everyone can understand and use your UI you should show state with more than a change in color.
+<Box mb={3} display="flex" alignItems="flex-start" alignItems="center" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+  <Box as="p" mt="0">
+    <Heading sx={{mt: 0, mb: 3, fontSize: 2}} as="h4">Show state with more than color</Heading>
+    Color vision deficiency is different for different people. To make sure everyone can understand and use your UI you should show state with more than a change in color.
 For example by using icons or changing the content.
+  </Box>
+  <img
+    width="456"
+    alt="Icon supporting color to show error"
+    src="https://user-images.githubusercontent.com/813754/187186864-8a825434-978b-4e21-bac2-9c1235d75e2c.png"
+  />
+</Box>
 
-[Picture of innput field with error message and icon]
-
-For charts and graphs you can position the labels on top or close to each section. You can also use patterns to distinguish different parts.
-
-[Picture of line chart with different line styles and point styles]
+<Box mb={3} display="flex" alignItems="flex-start" alignItems="start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+  <Box as="p" mt="0">
+      <Heading sx={{mt: 0, mb: 3, fontSize: 2}} as="h4">Connect labels to graphs with lines or patterns</Heading>
+      For charts and graphs you can position the labels on top or close to each section.
+      You can also use patterns to distinguish different parts.
+  </Box>
+  <img
+      width="456"
+      alt="Graph with accessible legend"
+      src="https://user-images.githubusercontent.com/813754/187186931-84bcc541-7cea-45f2-a686-21c5428e0620.png"
+  />
+</Box>
 
 ## Color outside the functional system
 
