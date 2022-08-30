@@ -17,17 +17,26 @@ import {Box, Button, Heading, Label, LabelGroup, Link} from '@primer/react'
   src="https://user-images.githubusercontent.com/6951037/146927448-cb518377-114a-4ab8-a37e-1eeffc8732c7.png"
 />
 
-GitHub's UI offers a variety of different color modes. When designing product interfaces, you should design in light mode by default. Every pattern in Primer is built to work across all color modes out of the box.
+
+GitHub's UI offers a variety of different color modes. Every pattern in Primer is built to work across all color modes out of the box.
+
+When designing product interfaces in Figma, we recommend to design in light mode. This is best, because the primer components for Figma are only available in light mode.
+To preview your work in other modes, use the [Figma color mode plugin](https://www.figma.com/community/plugin/992128487074360945/Change-Color-Mode).
+
+## How to use color for product UI
+
+Primer delivers colors in the form of [design tokens](https://primer.style/primitives/colors). Design tokens are a layer of abstraction that allows better maintainability, consistancy and easy theming.
+
+For example you use `bg-default` for the background of the page and `fg-default` for the text color. If the user changes to a dark mode, we change the underlying color that those tokens reference, but the tokens stay the same. 
 
 <img
   width="960"
   alt="Same component shown in light mode and dark mode color palettes"
-  src="https://user-images.githubusercontent.com/6951037/127494554-07b67dbd-66d3-4d36-8350-5ec837d6d1a5.png"
+  src="https://user-images.githubusercontent.com/813754/187436947-875dbf46-1b26-42da-b96f-e7cbe315f0eb.png"
 />
 
-## How to use color for product UI
 
-Primer delivers colors in the form of [variables](https://primer.style/primitives/colors) or design tokens. Color variables are grouped based on their purpose:
+Color design tokens are grouped based on their purpose:
 
 - **Functional:** To convey a meaning or a state. For example, from a functional perspective the color green is used to reinforce positive messaging. In a functional system, green variables are named with the suffix `.success`.
 - **Presentational:** To represent a color. For example, the color steps in the Primer scale are named by color and lightness, such as `scale.blue.5`. These variables don't currently support color modes.
