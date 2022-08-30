@@ -185,19 +185,6 @@ Dialog displays with a **backdrop**, which dims the rest of the page. The backdr
 
 By default, clicking on the **backdrop** will dismiss the Dialog. However, if the Dialog contains a form that can have unsaved changes, the **backdrop** won't dismiss the Dialog, regardless of the state of the form.
 
-### Dimensions
-
-Dialogs should never extend beyond the viewport sizes, and may resize to fit smaller devices. The body contents should fit narrow viewports with a minimum width of `320px`. If the contents extend vertically beyond the specified height, the **body** region will scroll.
-
-The `height` and `width` may be set to `auto` which will set a minimum width of `192px` and respond to the contents of the Dialog. Additionally, an explicit `height` and `width` may be set with a specific set of options.
-
-<img
-  width="1292"
-  alt=""
-  src="https://user-images.githubusercontent.com/18661030/185178528-e1c176ef-f407-40ab-8729-965e21d64f6d.png"
-/>
-<Caption>Recommended height and width combinations for Dialog</Caption>
-
 ### Spacing
 
 The edges of Dialog are free of text and heavy visuals to visually distinguish the Dialog as an elevated surface, alongside its shadow. Content within the body and header should remain within the 16px safe area. However, inner components that have transparent or discrete backgrounds may bleed into the padding for visual alignment.
@@ -217,6 +204,70 @@ The edges of Dialog are free of text and heavy visuals to visually distinguish t
   <br />
   4. Footer buttons always appear inside the safe area. <br />
 </Caption>
+
+## Size
+
+Dialog offers a range of sizes from `small` to `xlarge` with a default of `medium`. Each size provides a `max-height` and will automatically shrink to its body content. Dialogs will never extend beyond the viewport, and the body content must fit a narrow viewport with a minimum width of `320px`.
+
+### Small
+
+Small Dialogs are reserved for quick interactions, such as a `ConfirmationDialog`.
+
+<!-- small img here -->
+
+<img
+  width="1292"
+  alt=""
+  src="https://user-images.githubusercontent.com/18661030/185178528-e1c176ef-f407-40ab-8729-965e21d64f6d.png"
+/>
+<Caption>Small Dialogs have a min width of 320px, and a max height of 256px.</Caption>
+
+### Medium (default)
+
+Medium is the default size for Dialog and should be used for most tasks such as completing a form or selecting an option from a list. The medium portrait size is suitable for longer lists of items that require more vertical space for the body.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <CustomVideoPlayer
+      width="100%"
+      src="https://user-images.githubusercontent.com/18661030/185507523-74e0acff-6980-439e-84c5-422b16470c9e.mp4"
+    />
+    <Caption>Medium Dialogs have a min width of 480px, and a max height of 320px.</Caption>
+  </div>
+  <div>
+    <CustomVideoPlayer
+      width="100%"
+      src="https://user-images.githubusercontent.com/18661030/185507508-298f9378-3f26-4e45-9809-5aef3d8cd3e2.mp4"
+    />
+    <Caption>Medium portrait oriented Dialogs have a min width of 480px, and a max height of 600px.</Caption>
+  </div>
+</Box>
+
+### Large
+
+Large dialogs are suitable for content that requires more horizontal space for the body compared to size medium, such as a comment box.
+
+<!-- large img here -->
+
+<img
+  width="1292"
+  alt=""
+  src="https://user-images.githubusercontent.com/18661030/185178528-e1c176ef-f407-40ab-8729-965e21d64f6d.png"
+/>
+<Caption>Large Dialogs have a min width of 640px, and a max height of 432px.</Caption>
+
+### Extra large
+
+Before using an extra large dialog, consider whether or not the content would be more appropriate for a new page.
+
+<!-- large img here -->
+
+<img
+  width="1292"
+  alt=""
+  src="https://user-images.githubusercontent.com/18661030/185178528-e1c176ef-f407-40ab-8729-965e21d64f6d.png"
+/>
+<Caption>Extra large Dialogs have a min width of 960px, and a max height of 600px.</Caption>
 
 ## Usage
 
