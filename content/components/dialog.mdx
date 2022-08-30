@@ -209,7 +209,13 @@ The edges of Dialog are free of text and heavy visuals to visually distinguish t
 
 ## Size
 
-Dialog offers a range of sizes from `small` to `xlarge` with a default of `medium`. Each size provides a `max-height` and will automatically shrink to its body content. Dialogs will never extend beyond the viewport, and the body content must fit a narrow viewport with a minimum width of `320px`.
+Dialog offers a range of sizes from `small` to `xlarge`, with the default size set to `medium`. 
+
+Each size defines a width and a maximum height. By default the dialog height will adjust to the body content. If the maximum height is reached, the body contents will scroll.
+
+A Dialog sizing is constrained by the viewport dimensions. Dialogs will not grow beyond the boundaries of the viewport.
+
+Small viewports force Dialogs to remain small. All Dialogs need to work on viewports of at least `320px` of width, and `256px` of height.
 
 ### Small
 
