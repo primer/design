@@ -72,6 +72,7 @@ The header region provides a slot for custom content in place of the default tit
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={5}>
   <div>
     <img
+      width="464"
       src="https://user-images.githubusercontent.com/293280/175849372-a9d33d3b-96f3-497e-bad6-70df4d91072a.png"
       alt=""
     />
@@ -79,6 +80,7 @@ The header region provides a slot for custom content in place of the default tit
   </div>
   <div>
     <img
+      width="464"
       src="https://user-images.githubusercontent.com/293280/175849374-6a71d8a0-da61-4745-a059-4560d053089b.png"
       alt=""
     />
@@ -298,19 +300,6 @@ If the answer is yes, designing the feature inside a Dialog provides an easy way
   </Dont>
 </DoDontContainer>
 
-### Trigger elements and keyboard focus
-
-Dialogs are initially hidden, and can be opened by an element with `role="button"`, called a **trigger**. The role `button` allows the **trigger** to be a relatively complex element, such as an action list item.
-
-Dialogs must be fully functional using the keyboard and assistive technology. Pressing `Esc` must dismiss a Dialog, also returning focus to the **trigger** that opened it.
-
-<CustomVideoPlayer
-  width="100%"
-  loop
-  src="https://user-images.githubusercontent.com/18661030/185507547-0843b014-0b90-48f5-9e4f-746caa42b4e6.mp4"
-/>
-<Caption>Clicking the backdrop or hitting the `esc` key should dismiss the Dialog.</Caption>
-
 ### Dialogs should work well on any device
 
 Dialogs must adjust their designs to fit in smaller viewports. Make sure the overlay contents work with all supported sizes and input methods.
@@ -376,6 +365,8 @@ A bottom sheet is a variant supported on narrow viewports made to facilitate rea
 
 A bottom sheet always dims the rest of the screen for focus and takes up the full width of the viewport. Tapping on the backdrop dismisses the Dialog.
 
+Use a bottom to indicate that the user is still in the context of the main page, and that the Dialog is a secondary action.
+
 <img
   width="960"
   alt="bottom-sheet"
@@ -394,7 +385,7 @@ In landscape mode, a bottom sheet has a maximum width of `480px`, and is centere
 
 ### Full-screen
 
-Full-screen Dialogs may be used to present content that needs all the available space on narrow viewports. Dialogs that have one or more input fields should always use the full-screen variant.
+Full-screen Dialogs may be used to present content that needs all the available space on narrow viewports, or to act as a new page without navigating away from the main page. Dialogs that have one or more input fields should always use the full-screen variant.
 
 <img
   width="960"
@@ -405,9 +396,22 @@ Full-screen Dialogs may be used to present content that needs all the available 
 
 ## Accessibility
 
-Dialog's title and close button as addressed previously are required to ensure an accessible experience for everyone. Further, keyboard and focus behavior must be considered.
+Dialog's title and close button are required to ensure an accessible experience for everyone. Further, keyboard and focus behavior must be considered.
 
-When a Dialog is opened, the first interactive element (the close button) is focused. Hitting `tab` will cycle through all interactive elements within the Dialog. To escape the focus trap, hitting the `esc` key or clicking on the backdrop will close the Dialog. While the Dialog is open, page scrolling is disabled and becomes `inert`.
+### Trigger elements and keyboard focus
+
+Dialogs are initially hidden, and can be opened by an element with `role="button"`, called a **trigger**. The role `button` allows the **trigger** to be a relatively complex element, such as an action list item.
+
+Dialogs must be fully functional using the keyboard and assistive technology. Pressing `Esc` must dismiss a Dialog, also returning focus to the **trigger** that opened it.
+
+<CustomVideoPlayer
+  width="100%"
+  loop
+  src="https://user-images.githubusercontent.com/18661030/185507547-0843b014-0b90-48f5-9e4f-746caa42b4e6.mp4"
+/>
+<Caption>Clicking the backdrop or hitting the `esc` key should dismiss the Dialog.</Caption>
+
+When a Dialog is opened, the first interactive element (typically the close button) is focused. For a scenario like a command palette with an `<input>` next to the close button, the `<input>` will recieve focus first. Hitting `tab` will cycle through all interactive elements within the Dialog. To escape the focus trap, hitting the `esc` key or clicking on the backdrop will close the Dialog. While the Dialog is open, page scrolling is disabled and becomes `inert`.
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={5}>
   <div>
