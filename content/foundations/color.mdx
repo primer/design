@@ -35,12 +35,12 @@ For example you use `bg-default` for the background of the page and `fg-default`
   src="https://user-images.githubusercontent.com/813754/187436947-875dbf46-1b26-42da-b96f-e7cbe315f0eb.png"
 />
 
+#### Color design tokens are grouped based on their purpose:
 
-Color design tokens are grouped based on their purpose:
-
-- **Functional:** To convey a meaning or a state. For example, from a functional perspective the color green is used to reinforce positive messaging. In a functional system, green variables are named with the suffix `.success`.
-- **Presentational:** To represent a color. For example, the color steps in the Primer scale are named by color and lightness, such as `scale.blue.5`. These variables don't currently support color modes.
+- **Presentational:** To represent a color. For example, the color steps in the Primer scale are named by color and lightness, such as `scale.blue.5`. These design tokens don't support color modes.
   As the system grows, it will provide more APIs that fit different color needs. Check the [Primer Primitives](https://github.com/primer/primitives/releases/) repository to follow along as we release new variables and systems.
+- **Functional:** To convey a meaning or a state. For example, from a functional perspective the color green is used to reinforce positive messaging. In a functional system, green variables are named with the suffix `.success`.
+- **Component:** To represent a specific use case. For example, `button.bg` references from the system to be used as the background of a button component.
 
 ### Functional system
 
