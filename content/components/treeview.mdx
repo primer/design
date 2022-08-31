@@ -95,7 +95,7 @@ Either all nodes should have leading visuals, or no nodes should have leading vi
   </Dont>
 </DoDontContainer>
 
-## Node interactions
+## Interaction
 
 Keyboard users can expand or collapse nodes without activating them by using the left and right arrow keys.
 
@@ -167,6 +167,72 @@ We have investigated the feasibility of supporting a context menu for each node,
 />
 
 Tree view nodes have different visual treatments to indicate their state and hint what kind of user input they're ready to receive. These styles are inherited from the [action list](/components/action-list) component.
+
+## Nesting
+
+Nodes are visually nested using whitespace and alignment.
+
+### Align leading icons
+
+<Box as="figure" display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} m={0} sx={{gap: 3}}>
+  <figcaption>
+    Icons at the same level are center-aligned. The chevron should not break the alignment: parent nodes and child nodes
+    keep their leading visuals aligned.
+  </figcaption>
+  <img
+    width="456"
+    role="presentation"
+    alt="19 leadingVizAlignment"
+    src="https://user-images.githubusercontent.com/2313998/187719380-a9ee41a7-c84f-4cb3-adf3-a7b9a9ce973b.png"
+  />
+</Box>
+
+### Indentation
+
+<Box as="figure" display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} m={0} sx={{gap: 3}}>
+  <figcaption>Each level of nesting increases the indentation spacing by the same amount.</figcaption>
+  <img
+    width="456"
+    role="presentation"
+    alt="20 nodesWithIndentations"
+    src="https://user-images.githubusercontent.com/2313998/187719381-25517e5c-c048-4904-a22f-e1a0282a66dc.png"
+  />
+</Box>
+
+### Nesting level indicator lines
+
+In devices with :hover support, the nesting indicator lines fade in when the user mouses over the entire component, or when there's focus inside the component. This makes sure the component remains simple when not in use.
+
+On devices without hover, the nesting indicator lines appear at all times.
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+  <img
+    width="456"
+    role="presentation"
+    alt="21 1 showLinesOnHover"
+    src="https://user-images.githubusercontent.com/2313998/187719383-2d9279e1-f275-48da-ae20-de2e3229e733.png"
+  />
+  <img
+    width="456"
+    role="presentation"
+    alt="21 2 alwaysShowLinesOnTouch"
+    src="https://user-images.githubusercontent.com/2313998/187719385-ecb7d20f-05e7-4994-bccf-bc7e4071bae8.png"
+  />
+</Box>
+
+### Handling deeply nested nodes
+
+Navigating through deeply nested nodes can be cumbersome and visually clunky. If accessing nodes deeper than 10 levels deep is a common interaction for your use-case, reconsider whether a tree view is the best pattern.
+
+Tree views are designed to be horizontally compact in order to support many levels of nesting and long node labels. This makes content truncation and horizontal overflow less likely to occur for deeply nested nodes, but infinite nesting makes those cases impossible to prevent entirely.
+
+There are some strategies to avoid a tree view that horizontally overflows it's container:
+
+- Allow the tree view's container to be manually resized
+- Once a certain depth is reached, start the tree view from a deeper parent node and provide a way to navigate back up the tree
+- Remove leading and trailing visuals
+
+If a tree view is truly the best pattern for your use case and none of the suggested strategies prevent horizontal overflow, opt for horizontal scrolling as a last resort instead of hiding overflowing content.
 
 ## Usage
 
@@ -337,7 +403,7 @@ A tree view can be a frustrating pattern if it forces users to spend a lot of ti
   />
 </Box>
 
-## Composition
+### Composition
 
 <Box as="figure" role="presentation" m={0} mb={4}>
   <Box as="figcaption" mb={3}>
@@ -364,7 +430,7 @@ A tree view can be a frustrating pattern if it forces users to spend a lot of ti
   />
 </Box>
 
-### Examples
+#### Examples
 
 <Box as="figure" role="presentation" m={0}>
   <figcaption>A tree view being rendered in a split page layout.</figcaption>
@@ -386,9 +452,7 @@ A tree view can be a frustrating pattern if it forces users to spend a lot of ti
   />
 </Box>
 
-## Layout
-
-### Provide sufficient vertical space
+#### Provide sufficient vertical space
 
 Be considerate of the amount of vertical space a tree view can take up when all of it's nodes are expanded.
 
@@ -418,72 +482,6 @@ Be considerate of the amount of vertical space a tree view can take up when all 
     </Caption>
   </Dont>
 </DoDontContainer>
-
-## Nesting
-
-Nodes are visually nested using whitespace and alignment.
-
-### Align leading icons
-
-<Box as="figure" display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} m={0} sx={{gap: 3}}>
-  <figcaption>
-    Icons at the same level are center-aligned. The chevron should not break the alignment: parent nodes and child nodes
-    keep their leading visuals aligned.
-  </figcaption>
-  <img
-    width="456"
-    role="presentation"
-    alt="19 leadingVizAlignment"
-    src="https://user-images.githubusercontent.com/2313998/187719380-a9ee41a7-c84f-4cb3-adf3-a7b9a9ce973b.png"
-  />
-</Box>
-
-### Indentation
-
-<Box as="figure" display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} m={0} sx={{gap: 3}}>
-  <figcaption>Each level of nesting increases the indentation spacing by the same amount.</figcaption>
-  <img
-    width="456"
-    role="presentation"
-    alt="20 nodesWithIndentations"
-    src="https://user-images.githubusercontent.com/2313998/187719381-25517e5c-c048-4904-a22f-e1a0282a66dc.png"
-  />
-</Box>
-
-### Nesting level indicator lines
-
-In devices with :hover support, the nesting indicator lines fade in when the user mouses over the entire component, or when there's focus inside the component. This makes sure the component remains simple when not in use.
-
-On devices without hover, the nesting indicator lines appear at all times.
-
-<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
-  <img
-    width="456"
-    role="presentation"
-    alt="21 1 showLinesOnHover"
-    src="https://user-images.githubusercontent.com/2313998/187719383-2d9279e1-f275-48da-ae20-de2e3229e733.png"
-  />
-  <img
-    width="456"
-    role="presentation"
-    alt="21 2 alwaysShowLinesOnTouch"
-    src="https://user-images.githubusercontent.com/2313998/187719385-ecb7d20f-05e7-4994-bccf-bc7e4071bae8.png"
-  />
-</Box>
-
-### Handling deeply nested nodes
-
-Navigating through deeply nested nodes can be cumbersome and visually clunky. If accessing nodes deeper than 10 levels deep is a common interaction for your use-case, reconsider whether a tree view is the best pattern.
-
-Tree views are designed to be horizontally compact in order to support many levels of nesting and long node labels. This makes content truncation and horizontal overflow less likely to occur for deeply nested nodes, but infinite nesting makes those cases impossible to prevent entirely.
-
-There are some strategies to avoid a tree view that horizontally overflows it's container:
-
-- Allow the tree view's container to be manually resized
-- Once a certain depth is reached, start the tree view from a deeper parent node and provide a way to navigate back up the tree
-- Remove leading and trailing visuals
-
-If a tree view is truly the best pattern for your use case and none of the suggested strategies prevent horizontal overflow, opt for horizontal scrolling as a last resort instead of hiding overflowing content.
 
 ## Accessibility
 
