@@ -7,7 +7,7 @@ import {Box} from '@primer/react'
 <!-- TODO: remove alt attributes from presentational images before merging -->
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
-  A tree view is a hierarchical list of items. Items may have a parent-child relationship where children can be toggled
+  A tree view is a hierarchical list of items that may have a parent-child relationship where children can be toggled
   into view by expanding or collapsing their parent item.
 </Box>
 
@@ -19,21 +19,21 @@ import {Box} from '@primer/react'
   src="https://user-images.githubusercontent.com/2313998/187719332-3ef9aa9e-476f-4e5a-93fa-5fbd203ece4a.png"
 />
 
-1. **Parent node**: A node that hides or shows child nodes by expanding or collapsing
+1. **Parent node**: A node that hides and shows child nodes by expanding and collapsing
 2. **End node**: A node with no children
 3. **Nesting level indicator lines**: Each line represents a level of nesting depth
-4. **Chevron**: Toggles a parent node expanded or collapsed and indicates state
+4. **Chevron**: Toggles a parent node expanded or collapsed and indicates expanded/collapsed state
 5. **Leading visual (optional)**: A visual cue for additional context
-6. **Node label**: A succinct title for whatever entity the node represents
+6. **Node label**: The text label for the node
 7. **Trailing visual (optional)**: Same as a leading visual, but at the end
 
 ## Content
 
 ### Node label
 
-Node labels should be a succinct title for whatever entity the node represents. For example: a file name.
+Node labels should be a succinct title for whatever entity the node represents. For example, a file name
 
-By default, labels are truncated to a single line. However, node labels may be wrapped to multiple lines in cases where a user must always be able to read the entire label.
+By default, labels are truncated to a single line. However, node labels may be wrapped to multiple lines in cases where the entire label must always be visible.
 
 When a node's text is truncated, it should still be accessible to users via a browser-native tooltip.
 
@@ -68,7 +68,7 @@ Leading and trailing visuals may be used as visual cues that communicate more in
 
 If the leading or trailing visual contains useful information, make sure it has a screen-reader accessible text label.
 
-Either all nodes should have leading visuals, or no nodes should have leading visuals.
+Either all nodes have leading visuals, or no nodes have leading visuals.
 
 <DoDontContainer>
   <Do>
@@ -79,7 +79,7 @@ Either all nodes should have leading visuals, or no nodes should have leading vi
       src="https://user-images.githubusercontent.com/2313998/187719338-9f860dfa-2110-4cf7-8d3b-583ff569605f.png"
     />
     <Caption role="presentation" color="fg.subtle">
-      Render all nodes as text-only or with leading visuals
+      Render all nodes with leading visuals or as text-only
     </Caption>
   </Do>
   <Dont>
@@ -166,7 +166,7 @@ We have investigated the feasibility of supporting a context menu for each node,
   src="https://user-images.githubusercontent.com/2313998/187719347-b795a78e-a09e-4c19-9b90-1f181927e936.png"
 />
 
-Tree view nodes have different visual treatments to indicate their state and hint what kind of user input they're ready to receive. These styles are inherited from the [action list](/components/action-list) component.
+Nodes have different visual treatments to indicate their state and hint what kind of user input they're ready to receive. These styles are inherited from the [action list](/components/action-list) component.
 
 ## Nesting
 
@@ -175,48 +175,48 @@ Nodes are visually nested using whitespace and alignment.
 ### Align leading icons
 
 <Box as="figure" display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} m={0} sx={{gap: 3}}>
-  <figcaption>
+  <Box flex={1}>
     Icons at the same level are center-aligned. The chevron should not break the alignment: parent nodes and child nodes
     keep their leading visuals aligned.
-  </figcaption>
+  </Box>
   <img
     width="456"
     role="presentation"
     alt="19 leadingVizAlignment"
-    src="https://user-images.githubusercontent.com/2313998/187719380-a9ee41a7-c84f-4cb3-adf3-a7b9a9ce973b.png"
+    src="https://user-images.githubusercontent.com/2313998/187768704-08fac391-f331-4a47-9181-073f1360677c.png"
   />
 </Box>
 
 ### Indentation
 
 <Box as="figure" display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} m={0} sx={{gap: 3}}>
-  <figcaption>Each level of nesting increases the indentation spacing by the same amount.</figcaption>
+  <Box flex={1}>Each level of nesting increments the size of the indentation.</Box>
   <img
     width="456"
     role="presentation"
     alt="20 nodesWithIndentations"
-    src="https://user-images.githubusercontent.com/2313998/187719381-25517e5c-c048-4904-a22f-e1a0282a66dc.png"
+    src="https://user-images.githubusercontent.com/2313998/187768706-1910025a-f69b-487f-987b-319f3022cd09.png"
   />
 </Box>
 
 ### Nesting level indicator lines
 
-In devices with :hover support, the nesting indicator lines fade in when the user mouses over the entire component, or when there's focus inside the component. This makes sure the component remains simple when not in use.
+In devices with `:hover` support, the nesting indicator lines fade in when the user mouses over the entire component, or when there's focus inside the component.
 
-On devices without hover, the nesting indicator lines appear at all times.
+On devices without `:hover`, the nesting indicator lines appear at all times.
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
   <img
     width="456"
     role="presentation"
     alt="21 1 showLinesOnHover"
-    src="https://user-images.githubusercontent.com/2313998/187719383-2d9279e1-f275-48da-ae20-de2e3229e733.png"
+    src="https://user-images.githubusercontent.com/2313998/187768708-805527f9-3b7c-4f6b-ae37-e232f83916b6.png"
   />
   <img
     width="456"
     role="presentation"
     alt="21 2 alwaysShowLinesOnTouch"
-    src="https://user-images.githubusercontent.com/2313998/187719385-ecb7d20f-05e7-4994-bccf-bc7e4071bae8.png"
+    src="https://user-images.githubusercontent.com/2313998/187768711-2702a7aa-e902-4568-ab99-4570e28bf646.png"
   />
 </Box>
 
@@ -252,31 +252,29 @@ A tree view solves a very specific problem. It's not a multi-purpose tool like a
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
-<Box flex={1}>
+  <Box flex={1}>
+    <Text as="p" m={0}>
+      Some good cases for a tree view are:
+    </Text>
 
-<Text as="p" m={0}>
-  Some good cases for a tree view are:
-</Text>
+    <Box as="ul" mt={0}>
+      <li>navigating the file structure of a repo</li>
+      <li>navigating a codebase's symbols (types, constants, functions, etc) organized by their scope hierarchy</li>
+    </Box>
 
-<Box as="ul" mt={0}>
-  <li>navigating the file structure of a repo</li>
-  <li>navigating a codebase's symbols (types, constants, functions, etc) organized by their scope hierarchy</li>
-</Box>
+  </Box>
 
-</Box>
+  <Box flex={1}>
+    <Text as="p" m={0}>
+      A tree view would <strong>not</strong> be appropriate for:
+    </Text>
 
-<Box flex={1}>
+    <Box as="ul" mt={0}>
+      <li>global sidebar navigation</li>
+      <li>an FAQ that collapses answers under question headings</li>
+    </Box>
 
-<Text as="p" m={0}>
-  A tree view would <strong>not</strong> be appropriate for:
-</Text>
-
-<Box as="ul" mt={0}>
-  <li>global sidebar navigation</li>
-  <li>an FAQ that collapses answers under question headings</li>
-</Box>
-
-</Box>
+  </Box>
 
 </Box>
 
@@ -305,13 +303,14 @@ A tree view solves a very specific problem. It's not a multi-purpose tool like a
 
 A tree view can be a frustrating pattern if it forces users to spend a lot of time expanding and collapsing nodes to find what they're looking for.
 
-#### Expand parent nodes of an active child
+#### Expanded by default
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
   <figcaption>
-  <p>When a node is active, all of it's parent nodes should be expanded.</p>
+    <p>When a child node is active, all of it's parent nodes should be expanded.</p>
 
-  <p>If it's likely that a user will want to interact with all or most of the nodes in the tree, render the tree with all parent nodes expanded to start.</p>
+    <p>If it's likely that a user will want to interact with all or most of the nodes in the tree, render the tree with all parent nodes expanded to start.</p>
+
   </figcaption>
 
   <img
@@ -326,8 +325,9 @@ A tree view can be a frustrating pattern if it forces users to spend a lot of ti
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
   <Box flex={1}>
-    If a user expands nested nodes and then collapses a parent node high up in the hierarchy, it could be frustrating to
-    have to re-expand the nodes that were already opened.
+    If a user expands nested parent nodes and then collapses a parent node higher in the hierarchy, persist the expanded
+    parent nodes lower in the hierarchy. It could be frustrating to have to re-expand the nodes that were already
+    opened.
   </Box>
   <CustomVideoPlayer
     width="456"
@@ -342,14 +342,14 @@ A tree view can be a frustrating pattern if it forces users to spend a lot of ti
   <Box as="figcaption" mb={3}>
     If no end nodes are in the ancestry and the parent nodes cannot be activated, you may combine parent nodes into a
     single parent node to reduce the levels of nesting. Less levels of nesting make for a more compact tree and less
-    nodes for the user to expand to get to a node that can be activated.
+    nodes for the user to expand to get to child nodes.
   </Box>
 
   <img
     width="960"
     role="presentation"
     alt="10 combiningParentNodes"
-    src="https://user-images.githubusercontent.com/2313998/187719356-387f85bf-4533-49e9-be7a-f1ab4ad64e19.png"
+    src="https://user-images.githubusercontent.com/2313998/187768688-4aeb4c79-5393-4e30-9da7-3a74b9d42257.png"
   />
 </Box>
 
@@ -360,7 +360,7 @@ A tree view can be a frustrating pattern if it forces users to spend a lot of ti
 <Box as="figure" role="presentation" m={0}>
   <Box as="figcaption" mb={3}>
     When we know the number of loading child nodes, show "skeleton" nodes until the nodes finish loading. This reassures
-    the user that their request is in progress while providing a light preview of what's loading.
+    the user that their request is in progress and provides a minimal preview of what's loading.
   </Box>
   <img
     width="960"
@@ -374,7 +374,7 @@ A tree view can be a frustrating pattern if it forces users to spend a lot of ti
 
 <Box as="figure" role="presentation" m={0}>
   <Box as="figcaption" mb={3}>
-    When we don't know the number of loading child nodes, just show a generic loading indicator.
+    When we don't know the number of loading child nodes, show a generic loading indicator.
   </Box>
   <img
     width="960"
@@ -393,7 +393,10 @@ A tree view can be a frustrating pattern if it forces users to spend a lot of ti
       like a tree node: the entire row is clickable, not just the call-to-action. The call-to-action appears clickable
       to give a visual cue that the user can interact with the message.
     </p>
-    <p>If we don't have enough information to write a useful error message, it's ok to write something generic.</p>
+    <p>
+      If we don't have enough information to write a useful error message, it's ok to write something generic like
+      "Couldn't load".
+    </p>
   </figcaption>
   <img
     width="960"
@@ -433,23 +436,23 @@ A tree view can be a frustrating pattern if it forces users to spend a lot of ti
 #### Examples
 
 <Box as="figure" role="presentation" m={0}>
-  <figcaption>A tree view being rendered in a split page layout.</figcaption>
   <img
     width="960"
     role="presentation"
     alt="16 treeViewAsFileExplorer"
-    src="https://user-images.githubusercontent.com/2313998/187719367-523ba402-d45b-43a8-beb8-592b0a6d01bb.png"
+    src="https://user-images.githubusercontent.com/2313998/187768691-94e40dad-eac6-48a7-bf1e-b9b02e927977.png"
   />
+  <Caption color="fg.subtle">A tree view being rendered in a split page layout.</Caption>
 </Box>
 
 <Box as="figure" role="presentation" m={0}>
-  <figcaption>A tree view that replaces itself with the content of the activated node.</figcaption>
   <img
     width="960"
     role="presentation"
     alt="17 treeViewOnItsOwn"
-    src="https://user-images.githubusercontent.com/2313998/187719372-2a073e6b-748b-46b8-8fb6-70f6b18e318e.png"
+    src="https://user-images.githubusercontent.com/2313998/187768696-a7f87aa4-a9a3-44f0-a0b5-9d04820a684e.png"
   />
+  <Caption color="fg.subtle">A tree view that replaces itself with the content of the activated node.</Caption>
 </Box>
 
 #### Provide sufficient vertical space
@@ -462,7 +465,7 @@ Be considerate of the amount of vertical space a tree view can take up when all 
       width="456"
       role="presentation"
       alt="18 1 DO-renderWithEnoughSpace"
-      src="https://user-images.githubusercontent.com/2313998/187719376-919597ec-ffab-4f79-a8a0-da19e2fc6336.png"
+      src="https://user-images.githubusercontent.com/2313998/187768699-d97f4119-f989-487c-9d81-aa9253dbd580.png"
     />
     <Caption color="fg.subtle">
       Render a tree view in an area with enough vertical space to comfortably browse the list, and doesn't push
@@ -474,7 +477,7 @@ Be considerate of the amount of vertical space a tree view can take up when all 
       width="456"
       role="presentation"
       alt="18 2 DONT-renderTooSmall"
-      src="https://user-images.githubusercontent.com/2313998/187719377-025c4988-f93c-4316-96ae-c07393fbbbe0.png"
+      src="https://user-images.githubusercontent.com/2313998/187768702-2881810c-7d1d-4e36-ae85-dfc35cf95cda.png"
     />
     <Caption color="fg.subtle">
       Don't render a tree view in an area that pushes down other content or forces users to scroll through small
@@ -514,13 +517,13 @@ Be considerate of the amount of vertical space a tree view can take up when all 
     </p>
     <p>
       The `Space` key is ignored because it's being reserved for toggling a tree view node's checkbox. Nodes with
-      checkboxes are not supported in the first iteration of TreeView, but they may in the future.
+      checkboxes are not supported yet, but they may in the future.
     </p>
   </Box>
   <CustomVideoPlayer
     width="456"
     loop
-    src="https://user-images.githubusercontent.com/2313998/187719387-44088bf3-5236-4b0e-955b-85918f35734f.mp4"
+    src="https://user-images.githubusercontent.com/2313998/187719392-3693e45a-f108-4b78-84ef-0cfe4c7067f9.mp4"
   />
 </Box>
 
@@ -552,15 +555,15 @@ If the first focusable element would cause a confusing experience for folks who 
 <CustomVideoPlayer
   width="456"
   loop
-  src="https://user-images.githubusercontent.com/2313998/187719392-3693e45a-f108-4b78-84ef-0cfe4c7067f9.mp4"
+  src="https://user-images.githubusercontent.com/2313998/187719387-44088bf3-5236-4b0e-955b-85918f35734f.mp4"
 />
 
 </Box>
 
 ### Minimum click target area for the chevron
 
-<Box as="caption" display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
-  <Box as="figcaption" textAlign="left">
+<Box as="figure" display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} m={0} sx={{gap: 3}}>
+  <Box as="figcaption">
     <p>
       The chevron has a generous click area to make it an easier target to hit, but it's kept compact to preserve
       horizontal space in deeply nested nodes.
@@ -571,6 +574,6 @@ If the first focusable element would cause a confusing experience for folks who 
     width="456"
     role="presentation"
     alt="24 minTouchTarget"
-    src="https://user-images.githubusercontent.com/2313998/187719389-583741e0-0a64-4f59-9581-7bc39585b782.png"
+    src="https://user-images.githubusercontent.com/2313998/187769276-d946bbbf-0fdb-4d40-8614-63b4ee17027e.png"
   />
 </Box>
