@@ -38,15 +38,25 @@ For example you use `bg-default` for the background of the page and `fg-default`
 #### Color design tokens are grouped based on their purpose:
 
 - **Presentational:** To represent a color. For example, the color steps in the Primer scale are named by color and lightness, such as `scale.blue.5`. These design tokens don't support color modes.
-  As the system grows, it will provide more APIs that fit different color needs. Check the [Primer Primitives](https://github.com/primer/primitives/releases/) repository to follow along as we release new variables and systems.
-- **Functional:** To convey a meaning or a state. For example, from a functional perspective the color green is used to reinforce positive messaging. In a functional system, green variables are named with the suffix `.success`.
+- **Functional:** To convey a meaning or a state. For example, from a functional perspective the color green is used to reinforce positive messaging. In a functional system, green design tokens are named with the suffix `.success`.
 - **Component:** To represent a specific use case. For example, `button.bg` references from the system to be used as the background of a button component.
+
+As the system grows, it will provide more APIs that fit different color needs. Check the [Primer Primitives](https://github.com/primer/primitives/releases/) repository to follow along as we release new design tokens and systems.
 
 ### Functional system
 
-The functional system is based on the meaning, or purpose, that colors have in the interface. This system is structured into two groups of variables:
+The functional system is based on the meaning, or purpose, that colors have in the interface. Use functional design tokens in designs and code to build product interfaces.
 
-- **Foundations:** Foregrounds, backgrounds, and borders that make up most of a product interface. Each variable is generated based on visual weight.
+By using Primer's functional color system you make sure that your interface:
+
+- supports color modes out of the box
+- gets all future themes updates "for free"
+- uses [accessible color combination](#combining-colors) across themes
+
+
+The functional system is structured into two groups of design tokens:
+
+- **Foundations:** Foregrounds (text and icons), backgrounds, and borders that make up most of a product interface.
 
 <img
   width="960"
@@ -54,7 +64,7 @@ The functional system is based on the meaning, or purpose, that colors have in t
   src="https://user-images.githubusercontent.com/6951037/146926823-b8489e82-978d-4aed-b186-2dcc70691fc7.png"
 />
 
-- **Color roles:** Foregrounds, backgrounds, and borders that highlight affordance or the meaning of elements in the UI.
+- **Color roles:** Foregrounds (text and icons), backgrounds, and borders that highlight affordance or the meaning of elements in the UI.
 
 <img
   width="1200"
@@ -62,23 +72,16 @@ The functional system is based on the meaning, or purpose, that colors have in t
   src="https://user-images.githubusercontent.com/378023/156498624-0e71a46b-9e1d-40c0-9f4a-18e37184b06e.png"
 />
 
-
-You should always use Primer's functional color system in your designs to make sure that:
-
-- It supports color modes out of the box
-- It gets all future themes updates "for free"
-- It provides an [accessible color combination](#combining-colors) across themes
-
 ### Foregrounds
 
-Foreground elements are **text and icons**. You can apply color to them using any of the foreground variables (or `fg` for short).
+Foreground elements are **text and icons**. You can apply color to them by using any of the `fg` (short for foreground) design tokens.
 
 | Foundations                                                                       | Usage                                                                                                                                |
 | :-------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
 | ![](https://swatch-sid.vercel.app?mode=light&token=fg.default) `fg.default`       | Primary color for text and icons in any given interface. It should be used for body content, titles and labels.                      |
 | ![](https://swatch-sid.vercel.app?mode=light&token=fg.muted) `fg.muted`           | Use for content that is secondary or that provides additional context but is not critical to understanding the flow of an interface. |
 | ![](https://swatch-sid.vercel.app?mode=light&token=fg.subtle) `fg.subtle`         | Use for placeholder text, icons or decorative foregrounds.                                                                           |
-| ![](https://swatch-sid.vercel.app?mode=light&token=fg.onEmphasis) `fg.onEmphasis` | On emphasis is the text color designed to combine with `-emphasis` backgrounds for optimal contrast.                                 |
+| ![](https://swatch-sid.vercel.app?mode=light&token=fg.onEmphasis) `fg.onEmphasis` | On emphasis is the text color designed to combine with `.emphasis` backgrounds for optimal contrast.                                 |
 
 | Color roles                                                                     | Usage                                                               |
 | :------------------------------------------------------------------------------ | :------------------------------------------------------------------ |
@@ -144,7 +147,7 @@ Borders can be used to group content or to create a visible separation between s
       alt="Table component showing the combination of bg.subtle with border.default, and border.muted"
       src="https://user-images.githubusercontent.com/6951037/145223860-4db73d78-8791-44db-b94d-c7966ce13fab.png"
     />
-    <Caption>Example of pairing foundation variables: bg.subtle with border.default, and border.muted.</Caption>
+    <Caption>Example of pairing foundation tokens: bg.subtle with border.default, and border.muted.</Caption>
   </Box>
   <Box>
     <img
@@ -167,14 +170,14 @@ Borders can be used to group content or to create a visible separation between s
       src="https://user-images.githubusercontent.com/6951037/141304060-1e3d5285-f80f-4363-8c07-e5865c6fe073.png"
     />
     <Caption>
-      fg.onEmphasis pairs with bg.[ANY_COLOR_ROLE].emphasis variables. This example shows fg.onEmphasis paired with
+      fg.onEmphasis pairs with bg.[ANY_COLOR_ROLE].emphasis tokens. This example shows fg.onEmphasis paired with
       bg.accent.emphasis.
     </Caption>
   </Box>
   <Box>
     <img
       width="464"
-      alt="Green success alert with check icon, pairing bg.success, fg.success, and border.success color variables"
+      alt="Green success alert with check icon, pairing bg.success, fg.success, and border.success color tokens"
       src="https://user-images.githubusercontent.com/6951037/141304173-5f919074-b5ae-4c0b-b5d2-8a2cd6ea2d03.png"
     />
     <Caption>An example of an alert that pairs bg.success, fg.success, and border.success.</Caption>
@@ -227,22 +230,22 @@ Not all colors pair well with each other. There are combinations of backgrounds 
 
 <img
   width="1200"
-  alt="Combination of variables 1: bg.[COLOR-ROLE] + border.[COLOR-ROLE] + fg.[COLOR-ROLE]"
+  alt="Combination of design tokens 1: bg.[COLOR-ROLE] + border.[COLOR-ROLE] + fg.[COLOR-ROLE]"
   src="https://user-images.githubusercontent.com/378023/156498633-d6e47cb1-64b4-46fb-90d6-65a5c4c6a2bc.png"
 />
 <img
   width="1200"
-  alt="Combination of variables 2: bg.[COLOR-ROLE] + border.[COLOR-ROLE].emphasis + fg.[COLOR-ROLE]"
+  alt="Combination of design tokens 2: bg.[COLOR-ROLE] + border.[COLOR-ROLE].emphasis + fg.[COLOR-ROLE]"
   src="https://user-images.githubusercontent.com/378023/156498642-f86a24b7-53ea-4b1e-ab47-0529587b08ef.png"
 />
 <img
   width="1200"
-  alt="Combination of variables 3: bg.default + border.[COLOR-ROLE].emphasis + fg.[COLOR-ROLE]"
+  alt="Combination of design tokens 3: bg.default + border.[COLOR-ROLE].emphasis + fg.[COLOR-ROLE]"
   src="https://user-images.githubusercontent.com/378023/156498649-e81a19bf-c94e-436e-9efc-258a1fd3be57.png"
 />
 <img
   width="1200"
-  alt="Combination of variables 4: bg.[COLOR-ROLE] + border.[COLOR-ROLE] + fg.default"
+  alt="Combination of design tokens 4: bg.[COLOR-ROLE] + border.[COLOR-ROLE] + fg.default"
   src="https://user-images.githubusercontent.com/378023/156498652-b1121c86-a670-4a92-9a8d-9db3c7e0ed9a.png"
 />
 
@@ -303,7 +306,7 @@ Primer colors exist in different formats and are made available throughout the P
 | An **engineer** using **Primer ViewComponents**        | [color system arguments](https://primer.style/view-components/system-arguments#color)    | `bg: :accent`           |
 | An **engineer** using **Primer React**                 | [sx props](https://primer.style/react/overriding-styles)                                 | `accent.subtle`         |
 | An **engineer** creating **custom UI**                 | [Primer CSS color utilities](https://primer.style/css/utilities/colors)                  | `color-bg-accent`       |
-| A Primer **React maintainer** creating a **component** | [Primer Primitives variables](https://primer.style/primitives/colors)                    | `accent.subtle`         |
-| A Primer **CSS maintainer** creating a **component**   | [Primer Primitives variables](https://primer.style/primitives/colors)                    | `--color-accent-subtle` |
+| A Primer **React maintainer** creating a **component** | [Primer Primitives js properties](https://primer.style/primitives/colors)                | `accent.subtle`         |
+| A Primer **CSS maintainer** creating a **component**   | [Primer Primitives css variables](https://primer.style/primitives/colors)                | `--color-accent-subtle` |
 
 Stuck choosing the right color? Feel free to reach out in the [#primer](https://github.slack.com/archives/CSGAVNZ19) Slack channel.
