@@ -2,20 +2,30 @@
 title: Tree view
 ---
 
+import {Box} from '@primer/react'
+
+<!-- TODO: remove alt attributes from presentational images before merging -->
+
 <Box sx={{fontSize: 3}} class="lead" as="p">
-    A tree view is a hierarchical list of items. Items may have a parent-child relationship where children can be toggled into view by expanding or collapsing their parent item.
+  A tree view is a hierarchical list of items. Items may have a parent-child relationship where children can be toggled
+  into view by expanding or collapsing their parent item.
 </Box>
 
 ## Anatomy
 
-!🏞[Labeled diagram of a tree view]()
-1. Parent node: A node that hides or shows child nodes by expanding or collapsing
-2. End node: A node with no children
-3. Nesting level indicator lines: Each line represents a level of nesting depth
-4. Chevron: Toggles a parent node expanded or collapsed and indicates state
-5. Leading visual (optional): A visual cue for additional context
-6. Node label: A succinct title for whatever entity the node represents
-7. Trailing visual (optional): Same as a leading visual, but at the end
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/187719332-3ef9aa9e-476f-4e5a-93fa-5fbd203ece4a.png"
+/>
+
+1. **Parent node**: A node that hides or shows child nodes by expanding or collapsing
+2. **End node**: A node with no children
+3. **Nesting level indicator lines**: Each line represents a level of nesting depth
+4. **Chevron**: Toggles a parent node expanded or collapsed and indicates state
+5. **Leading visual (optional)**: A visual cue for additional context
+6. **Node label**: A succinct title for whatever entity the node represents
+7. **Trailing visual (optional)**: Same as a leading visual, but at the end
 
 ## Content
 
@@ -27,9 +37,30 @@ By default, labels are truncated to a single line. However, node labels may be w
 
 When a node's text is truncated, it should still be accessible to users via a browser-native tooltip.
 
-!🏞[Single line text truncation]()
-!🏞[Multiple lines of text]()
-
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+  <Box as="figure" role="presentation" m={0}>
+    <img
+      width="456"
+      role="presentation"
+      alt="2 1 singleLineTruncation"
+      src="https://user-images.githubusercontent.com/2313998/187719335-efd76d7a-40dc-4bc8-8053-64211dd97b51.png"
+    />
+    <Caption role="presentation" color="fg.subtle">
+      Single line truncation
+    </Caption>
+  </Box>
+  <Box as="figure" role="presentation" m={0}>
+    <img
+      width="456"
+      role="presentation"
+      alt="2 2 multiLineLabel"
+      src="https://user-images.githubusercontent.com/2313998/187719336-d85f8886-75d1-4b74-9e7a-766dd1fbc29d.png"
+    />
+    <Caption role="presentation" color="fg.subtle">
+      Wrapping node label text
+    </Caption>
+  </Box>
+</Box>
 
 ### Leading and trailing visuals
 
@@ -39,131 +70,321 @@ If the leading or trailing visual contains useful information, make sure it has 
 
 Either all nodes should have leading visuals, or no nodes should have leading visuals.
 
-DO: Have a tree where all nodes are text-only or all nodes have leading visuals
-- !🏞[Tree view with all leading visuals OR a tree view with no leading visuals]()
-DON'T: Have a tree where only some nodes have leading visuals
-- !🏞[Tree view with mixed leading visual treatment]()
+<DoDontContainer>
+  <Do>
+    <img
+      width="456"
+      role="presentation"
+      alt="3 1 DO-consistentLeadingViz"
+      src="https://user-images.githubusercontent.com/2313998/187719338-9f860dfa-2110-4cf7-8d3b-583ff569605f.png"
+    />
+    <Caption role="presentation" color="fg.subtle">
+      Render all nodes as text-only or with leading visuals
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      role="presentation"
+      alt="3 2 DONT-mixLeadingViz"
+      src="https://user-images.githubusercontent.com/2313998/187719339-83fd7065-5b85-427f-8650-7fc0cae7214d.png"
+    />
+    <Caption role="presentation" color="fg.subtle">
+      Don't have a tree where only some nodes have leading visuals
+    </Caption>
+  </Dont>
+</DoDontContainer>
 
 ## Node interactions
 
 Keyboard users can expand or collapse nodes without activating them by using the left and right arrow keys.
 
 To give cursor users an equivalent experience, there are two click areas:
+
 - clicking the chevron only expands or collapses the node
 - clicking anywhere else will activate the node
 
 If the node cannot be activated, clicking anywhere on the node will expand it.
 
-!🏞[Hovering a node that can be activated - show chevron hover and link hover]()
-Two click areas - toggle expanded or activate link.
+<Box
+  display="flex"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Box as="figure" role="presentation" m={0}>
+    <img
+      width="456"
+      role="presentation"
+      alt="4 1 hoverActivatable"
+      src="https://user-images.githubusercontent.com/2313998/187719340-6f62c500-cd70-48b2-8fcf-18a7b6ef3151.png"
+    />
+    <Caption role="presentation" color="fg.subtle">Two click areas - toggle expanded or activate link</Caption>
+  </Box>
 
-!🏞[Hovering a node that cannot be activated]()
-One click area - toggle expanded.
+  <Box as="figure" role="presentation" m={0}>
+    <img
+      width="456"
+      role="presentation"
+      alt="4 2 hoverOnlyExpandable"
+      src="https://user-images.githubusercontent.com/2313998/187719342-d4f9f6e9-6446-4479-846f-6d7c31fd832b.png"
+    />
+    <Caption color="fg.subtle">One click area - toggle expanded</Caption>
+  </Box>
+</Box>
 
 Nodes may not contain any other interactive elements besides the chevron. Activating a node can only perform one action. For example, following a link.
 
-DO: Limit nodes to a single action
-- !🏞[Node that is a link]()
-DON'T: Put other interactive elements in a node
-- !🏞[Node with a button]()
+<DoDontContainer>
+  <Do>
+    <img
+      width="456"
+      role="presentation"
+      alt="5 1 DO-singleActionPerNode"
+      src="https://user-images.githubusercontent.com/2313998/187719344-abc7cfeb-82b0-4279-96df-ae732828c063.png"
+    />
+    <Caption color="fg.subtle">Limit nodes to a single action</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      role="presentation"
+      alt="5 2 DONT-multiActionsPerNode"
+      src="https://user-images.githubusercontent.com/2313998/187719346-0a3ad806-17a0-4414-a82b-7a1d78be7902.png"
+    />
+    <Caption color="fg.subtle">Don't put other interactive elements in a node</Caption>
+  </Dont>
+</DoDontContainer>
 
 We have investigated the feasibility of supporting a context menu for each node, and that could be something we support in the future if we find we need it.
 
 ### States
 
-!🏞[Grid of node states]()
+<img
+  width="960"
+  role="presentation"
+  alt="6 nodeStates"
+  src="https://user-images.githubusercontent.com/2313998/187719347-b795a78e-a09e-4c19-9b90-1f181927e936.png"
+/>
 
-Tree view nodes have different visual treatments to indicate their state and hint what kind of user input they're ready to receive. These styles are inherited from 
+Tree view nodes have different visual treatments to indicate their state and hint what kind of user input they're ready to receive. These styles are inherited from the [action list](/components/action-list) component.
 
 ## Usage
 
 ### Tree views are only for hierarchical lists
+
 A tree view solves a very specific problem. It's not a multi-purpose tool like an [action list](/action-list).
 
-Before reaching for a tree view, first make sure that:
-- the items in the tree view represent a list
-- the list items are likely to have a parent-child relationship with more than 1 level of nesting
-- the expand and collapse behavior aids in navigation instead of just making it more complex
+<Text as="p" m={0}>
+  Before reaching for a tree view, first make sure that:
+</Text>
 
-Some good candidates for a tree view are:
-- navigating the file structure of a repo
-- navigating a codebase's symbols (types, constants, functions, etc) organized by their scope hierarchy
+<Box as="ul" mt={0}>
+  <li>the items in the tree view represent a list</li>
+  <li>the list items are likely to have a parent-child relationship with more than 1 level of nesting</li>
+  <li>the expand and collapse behavior aids in navigation instead of just making it more complex</li>
+</Box>
 
-A tree view would not be appropriate for:
-- global sidebar navigation
-- an FAQ that collapses answers under question headings
-- any data that is only likely to have a single level of nesting
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
-DO: Use a tree view for a list
-- !🏞[Tree view as file browser]()
-DON'T: Use a tree view for expanding and collapsing sections of content
-- !🏞[Tree view as code scope expanding and collapsing]()
+<Box flex={1}>
+
+<Text as="p" m={0}>
+  Some good cases for a tree view are:
+</Text>
+
+<Box as="ul" mt={0}>
+  <li>navigating the file structure of a repo</li>
+  <li>navigating a codebase's symbols (types, constants, functions, etc) organized by their scope hierarchy</li>
+</Box>
+
+</Box>
+
+<Box flex={1}>
+
+<Text as="p" m={0}>
+  A tree view would <strong>not</strong> be appropriate for:
+</Text>
+
+<Box as="ul" mt={0}>
+  <li>global sidebar navigation</li>
+  <li>an FAQ that collapses answers under question headings</li>
+</Box>
+
+</Box>
+
+</Box>
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="456"
+      role="presentation"
+      alt="7 1 DO-useForList"
+      src="https://user-images.githubusercontent.com/2313998/187719349-c028a00f-0a27-4be2-bf67-815c2a036916.png"
+    />
+    <Caption color="fg.subtle">Use a tree view for a list</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      role="presentation"
+      alt="7 2 DONT-useForAccordion"
+      src="https://user-images.githubusercontent.com/2313998/187719350-de23e9ac-fd10-4e56-b2a4-aca93255adb7.png"
+    />
+    <Caption color="fg.subtle">Don't use a tree view for expanding and collapsing sections of content</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Expanding and collapsing nodes
 
 A tree view can be a frustrating pattern if it forces users to spend a lot of time expanding and collapsing nodes to find what they're looking for.
 
 #### Expand parent nodes of an active child
-When a node is active, all of it's parent nodes should be expanded.
 
-!🏞[Activated deeply nested node with parents expanded]()
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+  <figcaption>
+  <p>When a node is active, all of it's parent nodes should be expanded.</p>
 
-If it's likely that a user will want to interact with all or most of the nodes in the tree, render the tree with all parent nodes expanded to start.
+  <p>If it's likely that a user will want to interact with all or most of the nodes in the tree, render the tree with all parent nodes expanded to start.</p>
+  </figcaption>
+
+  <img
+    width="456"
+    role="presentation"
+    alt="8 openActiveParentNodes"
+    src="https://user-images.githubusercontent.com/2313998/187719353-6708e315-28fb-422a-b65a-942ec963c36d.png"
+  />
+</Box>
 
 #### Preserve expanded state when parent node is collapsed
 
-If a user expands nested nodes and then collapses a parent node high up in the hierarchy, it could be frustrating to have to re-expand the nodes that were already opened.
-
-!🎥[Expand nested nodes, then collapse high parent node, then expand high parent node to see that they're still expanded]()
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+  <Box flex={1}>
+    If a user expands nested nodes and then collapses a parent node high up in the hierarchy, it could be frustrating to
+    have to re-expand the nodes that were already opened.
+  </Box>
+  <CustomVideoPlayer
+    width="456"
+    loop
+    src="https://user-images.githubusercontent.com/2313998/187719354-305a5e91-0ea5-444a-a670-3903bdba3761.mp4"
+  />
+</Box>
 
 #### Optionally combine parent nodes
 
-If no end nodes are in the ancestry and the parent nodes cannot be activated, you may combine parent nodes into a single parent node to reduce the levels of nesting. Less levels of nesting make for a more compact tree and less nodes for the user to expand to get to a node that can be activated.
+<Box as="figure" role="presentation" m={0}>
+  <Box as="figcaption" mb={3}>
+    If no end nodes are in the ancestry and the parent nodes cannot be activated, you may combine parent nodes into a
+    single parent node to reduce the levels of nesting. Less levels of nesting make for a more compact tree and less
+    nodes for the user to expand to get to a node that can be activated.
+  </Box>
 
-!🏞[ASCII file tree => file tree with combined parent nodes]()
+  <img
+    width="960"
+    role="presentation"
+    alt="10 combiningParentNodes"
+    src="https://user-images.githubusercontent.com/2313998/187719356-387f85bf-4533-49e9-be7a-f1ab4ad64e19.png"
+  />
+</Box>
 
 ### Asynchronously loading child nodes
 
 #### Show placeholder nodes (preferred)
 
-When we know the number of loading child nodes, show "skeleton" nodes until the nodes finish loading. This reassures the user that their request is in progress while providing a light preview of what's loading.
-
-!🏞[Skeleton child nodes]()
+<Box as="figure" role="presentation" m={0}>
+  <Box as="figcaption" mb={3}>
+    When we know the number of loading child nodes, show "skeleton" nodes until the nodes finish loading. This reassures
+    the user that their request is in progress while providing a light preview of what's loading.
+  </Box>
+  <img
+    width="960"
+    role="presentation"
+    alt="11 skeletonLoadingNodes"
+    src="https://user-images.githubusercontent.com/2313998/187719358-d3021980-4769-455d-9b7e-b295ffe5ccc6.png"
+  />
+</Box>
 
 #### General loading indicator (fallback)
 
-When we don't know the number of loading child nodes, just show a generic loading indicator.
-
-!🏞[Generic loading indicator]()
+<Box as="figure" role="presentation" m={0}>
+  <Box as="figcaption" mb={3}>
+    When we don't know the number of loading child nodes, just show a generic loading indicator.
+  </Box>
+  <img
+    width="960"
+    role="presentation"
+    alt="12 genericLoadingNodes"
+    src="https://user-images.githubusercontent.com/2313998/187719359-bff335dc-fae5-4a82-9de9-752919309f61.png"
+  />
+</Box>
 
 #### Handling loading errors
 
-Inform users why the data cannot be retrieved and give them a path to resolve it. The error message should behave like a tree node: the entire row is clickable, not just the call-to-action. The call-to-action appears clickable to give a visual cue that the user can interact with the message.
-
-If we don't have enough information to write a useful error message, it's ok to write something generic.
-
-!🏞[Authentication issue error message that is hovered]()
+<Box as="figure" role="presentation" m={0}>
+  <figcaption>
+    <p>
+      Inform users why the data cannot be retrieved and give them a path to resolve it. The error message should behave
+      like a tree node: the entire row is clickable, not just the call-to-action. The call-to-action appears clickable
+      to give a visual cue that the user can interact with the message.
+    </p>
+    <p>If we don't have enough information to write a useful error message, it's ok to write something generic.</p>
+  </figcaption>
+  <img
+    width="960"
+    role="presentation"
+    alt="13 errorHandling"
+    src="https://user-images.githubusercontent.com/2313998/187719360-4cdb0af3-63c3-48ce-88d0-82396ca96670.png"
+  />
+</Box>
 
 ## Composition
 
-!🏞[Wireframe of sidebar + main content area]()
+<Box as="figure" role="presentation" m={0} mb={4}>
+  <Box as="figcaption" mb={3}>
+    A common pattern is to render a tree view in a split page layout where the tree view is in the left pane, and a view
+    for the selected file is rendered in the main content area.
+  </Box>
+  <img
+    width="960"
+    role="presentation"
+    alt="14 treeSplitPgLayout"
+    src="https://user-images.githubusercontent.com/2313998/187719363-72304389-9464-42c3-9ff2-c2ef9cbef5ed.png"
+  />
+</Box>
 
-A common pattern is to render a tree view in a split page layout where the tree view is in the left pane, and a view for the selected file is rendered in the main content area.
-
-<!-- However, a tree view does not have to be rendered as a split page layout. It can also be used on it's own to display a hierarchical list.
-
-However, a tree view can also be rendered without a main content area. -->
-
-!🏞[Wireframe of a tree view that replaces itself with the main content]()
-However, a tree view can also be rendered on it's own. 
+<Box as="figure" role="presentation" m={0}>
+  <Box as="figcaption" mb={3}>
+    However, a tree view can also be rendered on it's own.
+  </Box>
+  <img
+    width="960"
+    role="presentation"
+    alt="15 treeStandalone"
+    src="https://user-images.githubusercontent.com/2313998/187719365-e179970c-808c-498c-908b-bd98df9442f8.png"
+  />
+</Box>
 
 ### Examples
 
-!🏞[Tree view as file explorer]()
-A tree view being rendered in a split page layout.
+<Box as="figure" role="presentation" m={0}>
+  <figcaption>A tree view being rendered in a split page layout.</figcaption>
+  <img
+    width="960"
+    role="presentation"
+    alt="16 treeViewAsFileExplorer"
+    src="https://user-images.githubusercontent.com/2313998/187719367-523ba402-d45b-43a8-beb8-592b0a6d01bb.png"
+  />
+</Box>
 
-!🏞[Tree view as code symbol browsing]()
-A tree view that replaces itself with the content of the activated node.
+<Box as="figure" role="presentation" m={0}>
+  <figcaption>A tree view that replaces itself with the content of the activated node.</figcaption>
+  <img
+    width="960"
+    role="presentation"
+    alt="17 treeViewOnItsOwn"
+    src="https://user-images.githubusercontent.com/2313998/187719372-2a073e6b-748b-46b8-8fb6-70f6b18e318e.png"
+  />
+</Box>
 
 ## Layout
 
@@ -171,10 +392,32 @@ A tree view that replaces itself with the content of the activated node.
 
 Be considerate of the amount of vertical space a tree view can take up when all of it's nodes are expanded.
 
-DO: Render a tree view in an area with enough vertical space to comfortably look through the list, and doesn't
-- !🏞[Tree view as a sidebar]()
-DON'T: Render a tree view in an area that pushes down other content or forces users to scroll through small segments
-- !🏞[Tree view in a short dialog OR in a sidebar with other content]()
+<DoDontContainer>
+  <Do>
+    <img
+      width="456"
+      role="presentation"
+      alt="18 1 DO-renderWithEnoughSpace"
+      src="https://user-images.githubusercontent.com/2313998/187719376-919597ec-ffab-4f79-a8a0-da19e2fc6336.png"
+    />
+    <Caption color="fg.subtle">
+      Render a tree view in an area with enough vertical space to comfortably browse the list, and doesn't push
+      important content or controls below the bottom of the viewport
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      role="presentation"
+      alt="18 2 DONT-renderTooSmall"
+      src="https://user-images.githubusercontent.com/2313998/187719377-025c4988-f93c-4316-96ae-c07393fbbbe0.png"
+    />
+    <Caption color="fg.subtle">
+      Don't render a tree view in an area that pushes down other content or forces users to scroll through small
+      segments of the list
+    </Caption>
+  </Dont>
+</DoDontContainer>
 
 ## Nesting
 
@@ -182,15 +425,30 @@ Nodes are visually nested using whitespace and alignment.
 
 ### Align leading icons
 
-Icons at the same level are center-aligned. The chevron should not break the alignment: parent nodes and child nodes keep their leading visuals aligned.
-
-!🏞[Nodes w/ alignment guide lines overlaid icons]()
+<Box as="figure" display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} m={0} sx={{gap: 3}}>
+  <figcaption>
+    Icons at the same level are center-aligned. The chevron should not break the alignment: parent nodes and child nodes
+    keep their leading visuals aligned.
+  </figcaption>
+  <img
+    width="456"
+    role="presentation"
+    alt="19 leadingVizAlignment"
+    src="https://user-images.githubusercontent.com/2313998/187719380-a9ee41a7-c84f-4cb3-adf3-a7b9a9ce973b.png"
+  />
+</Box>
 
 ### Indentation
 
-Each level of nesting increases the indentation spacing by the same amount.
-
-!🏞[Nodes w/ indentation spacer indicators]()
+<Box as="figure" display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} m={0} sx={{gap: 3}}>
+  <figcaption>Each level of nesting increases the indentation spacing by the same amount.</figcaption>
+  <img
+    width="456"
+    role="presentation"
+    alt="20 nodesWithIndentations"
+    src="https://user-images.githubusercontent.com/2313998/187719381-25517e5c-c048-4904-a22f-e1a0282a66dc.png"
+  />
+</Box>
 
 ### Nesting level indicator lines
 
@@ -198,8 +456,20 @@ In devices with :hover support, the nesting indicator lines fade in when the use
 
 On devices without hover, the nesting indicator lines appear at all times.
 
-!🏞[Tree view with a hover cursor]()
-!🏞[Tree view on a fake mobile device]()
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+  <img
+    width="456"
+    role="presentation"
+    alt="21 1 showLinesOnHover"
+    src="https://user-images.githubusercontent.com/2313998/187719383-2d9279e1-f275-48da-ae20-de2e3229e733.png"
+  />
+  <img
+    width="456"
+    role="presentation"
+    alt="21 2 alwaysShowLinesOnTouch"
+    src="https://user-images.githubusercontent.com/2313998/187719385-ecb7d20f-05e7-4994-bccf-bc7e4071bae8.png"
+  />
+</Box>
 
 ### Handling deeply nested nodes
 
@@ -208,6 +478,7 @@ Navigating through deeply nested nodes can be cumbersome and visually clunky. If
 Tree views are designed to be horizontally compact in order to support many levels of nesting and long node labels. This makes content truncation and horizontal overflow less likely to occur for deeply nested nodes, but infinite nesting makes those cases impossible to prevent entirely.
 
 There are some strategies to avoid a tree view that horizontally overflows it's container:
+
 - Allow the tree view's container to be manually resized
 - Once a certain depth is reached, start the tree view from a deeper parent node and provide a way to navigate back up the tree
 - Remove leading and trailing visuals
@@ -218,32 +489,53 @@ If a tree view is truly the best pattern for your use case and none of the sugge
 
 ### Keyboard navigation
 
-| Key(s)                                   | Description                                                                                                                                                                                                                                                                                                                                      |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <kbd>Enter</kbd>                         | Performs the default action (e.g. onclick event) for the focused node which is to activate the link.                                                                                                                                                                                                                                             |
-| <kbd>Tab</kbd>                           | Moves focus outside of the tree view to the next focusable node.                                                                                                                                                                                                                                                                                 |
-| <kbd>ArrowDown</kbd>                     | <ul><li>Moves focus to the next node that is focusable without opening or closing a node.</li> <li>If focus is on the last node, does nothing.</li></ul>                                                                                                                                                                                         |
-| <kbd>ArrowUp</kbd>                       | <ul><li>Moves focus to the previous node that is focusable without opening or closing a node.</li><li>If focus is on the first node, does nothing.</li></ul>                                                                                                                                                                                     |
-| <kbd>ArrowRight</kbd>                    | <ul><li>When focus is on a closed node, opens the node; focus does not move.</li><li>When focus is on a open node, moves focus to the first child node.</li><li>When focus is on an end node, does nothing.</li></ul>                                                                                                                            |
-| <kbd>ArrowLeft</kbd>                     | <ul><li>When focus is on an open node, closes the node.</li><li>When focus is on a child node that is also either an end node or a closed node, moves focus to its parent node.</li><li>When focus is on a root node that is also either an end node or a closed node, does nothing.</li></ul>                                                   |
-| <kbd>Home</kbd>                          | Moves focus to first node without opening or closing a node.                                                                                                                                                                                                                                                                                     |
-| <kbd>End</kbd>                           | Moves focus to the last node that can be focused without expanding any nodes that are closed.                                                                                                                                                                                                                                                    |
-| <kbd>a-z, A-Z</kbd>, all printable chars | <ul><li>Focus moves to the next node with a name that starts with the typed character.</li><li>Search wraps to first node if a matching name is not found among the nodes that follow the focused node.</li><li>Search ignores nodes that are descendants of closed nodes.</li><li>Focus should not move if no nodes match the search.</li></ul> |
-| <kbd>Shift</kbd>+<kbd>8</kbd> (`*`)      | <ul><li>Expands all closed sibling nodes that are at the same level as the focused node.</li><li>Focus does not move.</li></ul>                                                                                                                                                                                                                  |
+| Key(s)                                                                                                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>                                                                                                                                                                                  | Performs the default action (e.g. onclick event) for the focused node which is to activate the link.                                                                                                                                                                                                                                             |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Tab</Box>                                                                                                                                                                                    | Moves focus outside of the tree view to the next focusable node.                                                                                                                                                                                                                                                                                 |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>                                                                                                                                                                              | <ul><li>Moves focus to the next node that is focusable without opening or closing a node.</li> <li>If focus is on the last node, does nothing.</li></ul>                                                                                                                                                                                         |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowUp</Box>                                                                                                                                                                                | <ul><li>Moves focus to the previous node that is focusable without opening or closing a node.</li><li>If focus is on the first node, does nothing.</li></ul>                                                                                                                                                                                     |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowRight</Box>                                                                                                                                                                             | <ul><li>When focus is on a closed node, opens the node; focus does not move.</li><li>When focus is on a open node, moves focus to the first child node.</li><li>When focus is on an end node, does nothing.</li></ul>                                                                                                                            |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowLeft</Box>                                                                                                                                                                              | <ul><li>When focus is on an open node, closes the node.</li><li>When focus is on a child node that is also either an end node or a closed node, moves focus to its parent node.</li><li>When focus is on a root node that is also either an end node or a closed node, does nothing.</li></ul>                                                   |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Home</Box>                                                                                                                                                                                   | Moves focus to first node without opening or closing a node.                                                                                                                                                                                                                                                                                     |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>End</Box>                                                                                                                                                                                    | Moves focus to the last node that can be focused without expanding any nodes that are closed.                                                                                                                                                                                                                                                    |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>a-z</Box>, <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>A-Z</Box>, all printable characters | <ul><li>Focus moves to the next node with a name that starts with the typed character.</li><li>Search wraps to first node if a matching name is not found among the nodes that follow the focused node.</li><li>Search ignores nodes that are descendants of closed nodes.</li><li>Focus should not move if no nodes match the search.</li></ul> |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Shift</Box> + <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>8</Box> (`*`)                    | <ul><li>Expands all closed sibling nodes that are at the same level as the focused node.</li><li>Focus does not move.</li></ul>                                                                                                                                                                                                                  |
 
 #### Typeahead behavior
 
-!🎥[Typing single character, then quickly typing multiple characters]()
-
-Focus moves to the next node with a name that starts with the typed character(s). Wait for 300ms from the last key press to stop searching.
-
-Typeahead behavior is case insensitive, and any printable character can be used, not just alphanumeric characters. The exception is the `“*”` character, which is used to expand all nodes.
-
-The `Space` key is ignored because it's being reserved for toggling a tree view node's checkbox. Nodes with checkboxes are not supported in the first iteration of TreeView, but they may in the future.
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+  <Box flex={1}>
+    <p>
+      Focus moves to the next node with a name that starts with the typed character(s). Wait for 300ms from the last key
+      press to stop searching.
+    </p>
+    <p>
+      Typeahead behavior is case insensitive, and any printable character can be used, not just alphanumeric characters.
+      The exception is the “*” character, which is used to expand all nodes.
+    </p>
+    <p>
+      The `Space` key is ignored because it's being reserved for toggling a tree view node's checkbox. Nodes with
+      checkboxes are not supported in the first iteration of TreeView, but they may in the future.
+    </p>
+  </Box>
+  <CustomVideoPlayer
+    width="456"
+    loop
+    src="https://user-images.githubusercontent.com/2313998/187719387-44088bf3-5236-4b0e-955b-85918f35734f.mp4"
+  />
+</Box>
 
 ### Focus behavior
 
-!🎥[Focus first tree view node, activate a node and move focus into main content area, return focus back to the last focused tree view node]()
+<Box
+  display="flex"
+  alignItems="center"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<Box flex={1}>
 
 #### Focus in
 
@@ -257,10 +549,30 @@ If activating a node causes new content to appear without a page refresh, focus 
 
 If the first focusable element would cause a confusing experience for folks who listen to content using a screen reader, then an alternate element may be defined
 
+</Box>
+
+<CustomVideoPlayer
+  width="456"
+  loop
+  src="https://user-images.githubusercontent.com/2313998/187719392-3693e45a-f108-4b78-84ef-0cfe4c7067f9.mp4"
+/>
+
+</Box>
+
 ### Minimum click target area for the chevron
 
-!🏞[Node with size annotations]()
-
-The chevron has a generous click area to make it an easier target to hit, but it's kept compact to preserve horizontal space in deeply nested nodes.
-
-When we detect that the user is on a device with a coarse pointer, the click target is enlarged.
+<Box as="caption" display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+  <Box as="figcaption" textAlign="left">
+    <p>
+      The chevron has a generous click area to make it an easier target to hit, but it's kept compact to preserve
+      horizontal space in deeply nested nodes.
+    </p>
+    <p>When we detect that the user is on a device with a coarse pointer, the click target is enlarged.</p>
+  </Box>
+  <img
+    width="456"
+    role="presentation"
+    alt="24 minTouchTarget"
+    src="https://user-images.githubusercontent.com/2313998/187719389-583741e0-0a64-4f59-9581-7bc39585b782.png"
+  />
+</Box>
