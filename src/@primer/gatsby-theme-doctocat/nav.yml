@@ -58,6 +58,8 @@
       url: /components/action-list
     - title: Autocomplete
       url: /components/autocomplete
+    - title: Dialog
+      url: /components/dialog
     - title: Segmented control
       url: /components/segmented-control
     - title: Toggle switch
