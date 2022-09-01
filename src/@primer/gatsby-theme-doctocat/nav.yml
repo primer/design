@@ -66,6 +66,8 @@
       url: /components/toggle-switch
     - title: Tokens
       url: /components/tokens
+    - title: Tree view
+      url: /components/treeview
 - title: Design tools
   url: /tools
   children:
