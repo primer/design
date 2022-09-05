@@ -1,0 +1,276 @@
+---
+title: Action bar
+status: Experimental
+---
+
+import {Box, Label, LabelGroup, Text} from '@primer/react'
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+  An action bar contains a collection of icon buttons placed horizontally.
+</Box>
+
+<!-- TODO: uncomment when available
+<LabelGroup>
+  <Label
+    as="a"
+    href="https://primer.style/react/ActionBar"
+    size="large"
+    variant="secondary"
+    sx={{textDecoration: 'none'}}
+  >
+    <img
+      width="16"
+      height="16"
+      alt=""
+      src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    React
+  </Label>
+  <Label
+    as="a"
+    href=""
+    size="large"
+    variant="secondary"
+    sx={{textDecoration: 'none'}}
+  >
+    <img
+      width="16"
+      height="16"
+      alt=""
+      src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    Figma
+  </Label>
+  <Label
+    as="a"
+    href="https://primer.style/view-components/components/alpha/actionbar"
+    size="large"
+    variant="secondary"
+    sx={{textDecoration: 'none'}}
+  >
+    <img
+      width="16"
+      height="16"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/171468311-184bfd70-128e-4bfc-b482-96d0de49d42a.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    Rails
+  </Label>
+</LabelGroup>
+-->
+
+## Overview
+
+Use an action bar to render multiple icon buttons in a row. Buttons can be split into groups by adding a divider. When there is not enough space, buttons that don't fit will be added to an overflow menu.
+
+## Anatomy
+
+<img width="960" alt="A diagram of an action bar with a few buttons, a divider and at the end a button that opens an overflow menu." src="https://user-images.githubusercontent.com/378023/188037013-e0c071ee-19f5-4a1c-9deb-3bc695d71cec.png" />
+
+## Content
+
+### Buttons
+
+An action bar should only contain icon buttons with the `invisible` variant (no border/background).
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/187869924-a28f1932-f2ac-41a2-8191-8ae7ac7b4c96.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use only invisible icon buttons in an action bar.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/187869945-9ad1403b-5803-4f74-8059-ca2383b17c48.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use other variants or components in an action bar.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Dividers
+
+Dividers can be added to visually group related buttons.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/187867904-7790eed2-35bd-4434-9fbe-89778a69d13f.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use a divider between buttons.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/187869152-6f6fb191-bdf3-4e77-9ad5-53685190f5a3.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use a divider at the beginning or end of the action bar.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Overflow menu
+
+When the buttons don't fit in the available space, an overflow button ("kebab" icon) is added at the end of the action bar. Signaling that there are more actions available. Clicking on the overflow button opens a menu with the remaining actions that didn't fit.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/188367082-eb264f25-75e4-4ab3-8eb8-a32e4e3b3997.png"
+  role="presentation"
+  width="960"
+/>
+
+Since the overflow button is added automatically avoid using an icon button with a "kebab" icon in action bars.
+
+<CustomVideoPlayer
+  width="720px"
+  loop
+  src="https://user-images.githubusercontent.com/378023/188359460-bc88bac8-9c69-4aea-8ce0-bc427bedc3a3.mov"
+/>
+<Caption>Overflow button appears when not enough space and resizing the action bar updates the overflow menu.</Caption>
+
+## States
+
+#### Button states
+
+Buttons in action bars are solely used for triggering actions. Consider using a [segmented control](https://primer.style/design/components/segmented-control) when a button should have a selected state.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/187873600-b77626d4-a832-4297-90bc-b0cb1060b9c1.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Buttons in action bars have a hover and pressed state. Or a focused state when using the keyboard to navigate.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/187875081-42478d03-e650-414c-81c2-6d04e8e3a398.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't add a selected state or any other information like a notification dot or a counter.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Tooltips
+
+When hovering over a button for a bit, a tooltip will appear that describes the action.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/188030590-f1bceb3a-184a-438d-9885-db7c9ecc8c36.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Describe what action will be taken when clicking on the button.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/188030603-4bb5c238-edf4-41ed-9113-0d59649f0d5b.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use a tooltip in action bars to convey a current state.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Options
+
+### Size
+
+Action bars can have 3 different sizes:
+
+<img
+  src="https://user-images.githubusercontent.com/378023/188034827-840e6fda-11ad-45ae-80ac-8eeae20ab618.png"
+  role="presentation"
+  width="960"
+/>
+
+- Small (`28px`)
+- Medium (`32px`) (default)
+- Large (`40px`)
+
+## Layout
+
+Action bars can be used inline next to other content or also full width taking up the entire space.
+
+<Box as="p">
+  <img
+    src="https://user-images.githubusercontent.com/378023/188048756-73d282d7-05f9-4a97-b02a-78afbb10870b.png"
+    role="presentation"
+    width="960"
+  />
+</Box>
+
+### Spacing
+
+Make sure to add extra spacing around the action bar.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/188040639-ef9bf330-ff9f-4167-957c-ff8fd7ea7b8d.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Extra padding of 8px is added when nesting an action bar in a box component.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/188040662-8df33335-3f24-479f-ad88-f75e2c153475.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Avoid having the action bar touch something else. Even though the action bar buttons have no borders in their resting state, when hovering/pressing a button it will show a background color.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Accessibility
+
+### Role
+
+An action bar has an ARIA role of [`toolbar`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role).
+
+### Keyboard navigation
+
+| Key | description |
+| -- | -- |
+| `Tab` | Moves focus into and out of the action bar. Note that there should only be **one tab-stop** and pressing tab again should focus the next focusable element after the action bar. Also the first button is focused if the action bar is receiving focus for the first time after page load. Otherwise, the most recently focused button receives focus. |
+| `→` | Right arrow moves focus to the **next** button. If the last button has focus, focus loops back to the first button. |
+| `←` | Left arrow moves focus to the **previous** button. If the first button has focus, focus moves to the last button. |
+| `Home` | Moves focus to the **first** button. |
+| `End` | Moves focus to the **last** button. |
+| `Enter` or `Space` | Triggers the button **action**. |
+
+<!-- TODO: Add video -->
+
+### Touch targets
+
+<Box
+  as="figure"
+  display="flex"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Text as="p" mt="0">
+    Ensure action bar buttons have a large enough touch target size (44px by 44px). The buttons should respond to hovers, clicks, and taps anywhere in the touch target area, even if it isn't directly on the control. To avoid overlapping of touch targets, additional space between each button is needed (for example a 12px gap for medium sized buttons).
+  </Text>
+  <img
+    src="https://user-images.githubusercontent.com/378023/188054007-772ce08e-dc44-4650-9814-f69fad77bd45.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
