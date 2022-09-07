@@ -68,7 +68,7 @@ Leading and trailing visuals may be used as visual cues that communicate more in
 
 If the leading or trailing visual contains useful information, make sure it has a screen-reader accessible text label. Note that the file and folder icons are not considered useful information, as the TreeView's underlying markup will communicate their presence.
 
-Either all nodes have leading visuals, or no nodes have leading visuals.
+Either all nodes have leading visuals, or no nodes have leading visuals. Leading visuals must be accompanied by a text label.
 
 <DoDontContainer>
   <Do>
@@ -79,7 +79,7 @@ Either all nodes have leading visuals, or no nodes have leading visuals.
       src="https://user-images.githubusercontent.com/2313998/187719338-9f860dfa-2110-4cf7-8d3b-583ff569605f.png"
     />
     <Caption role="presentation" color="fg.subtle">
-      Render all nodes with leading visuals or as text-only
+      Render all nodes with leading visuals and text labels or just with text labels
     </Caption>
   </Do>
   <Dont>
@@ -304,7 +304,7 @@ A tree view can be a frustrating pattern if it forces users to spend a lot of ti
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
   <figcaption>
     <p>When a child node is active, all of it's parent nodes should be expanded.</p>
-    <p>If it's likely that a user will want to interact with all or most of the nodes in the tree, render the tree with all parent nodes expanded to start.</p>
+    <p>If it's likely that a user will want to interact with all or most of the nodes in the tree, render the tree with all parent nodes expanded to start. For example: when reviewing a pull request, all of the changed files are shown to make it easy for reviewers to scan and navigate the changed files.</p>
   </figcaption>
 
   <img
@@ -494,7 +494,8 @@ Be considerate of the amount of vertical space a tree view can take up when all 
 <Box m={0}>
   <Box as="p">
     Tree views need an accessible name to be supplied, ideally via `aria-labelledby` pointing at an appropriate heading
-    before the tree. If the tree view has enough surrounding context that it doesn't need a visible label, apply `sr-only` to the heading to hide it visually, but preserve the underlying programatic association.
+    before the tree. If the tree view has enough surrounding context that it doesn't need a visible label, apply
+    `sr-only` to the heading to hide it visually, but preserve the underlying programatic association.
   </Box>
   <img
     width="960"
