@@ -494,8 +494,7 @@ Be considerate of the amount of vertical space a tree view can take up when all 
 <Box m={0}>
   <Box as="p">
     Tree views need an accessible name to be supplied, ideally via `aria-labelledby` pointing at an appropriate heading
-    before the tree. If the tree view has enough surrounding context that it doesn't need a visible label, `aria-label`
-    may be used instead.
+    before the tree. If the tree view has enough surrounding context that it doesn't need a visible label, apply `sr-only` to the heading to hide it visually, but preserve the underlying programatic association.
   </Box>
   <img
     width="960"
