@@ -1,0 +1,89 @@
+---
+title: Components
+---
+
+import {Box, Link, Text} from '@primer/react'
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
+  <div>
+    <Link href="/design/components/action-list" sx={{fontWeight: 'bold'}}>
+      <img
+        role="presentation"
+        src="https://user-images.githubusercontent.com/293280/123880841-54bb9280-d8f8-11eb-9a6f-4c33c8196fbf.png"
+      />
+    </Link>
+  </div>
+  <div>
+    <Link href="/design/components/action-list" sx={{fontWeight: 'bold'}}>
+      Action list
+    </Link>
+    <Text as="p">
+      An action list is a vertical list of interactive actions or options. It’s composed of items presented in a
+      consistent single-column format, with room for icons, descriptions, side information, and other rich visuals.
+    </Text>
+  </div>
+  <div>
+    <Link href="/design/components/autocomplete">
+      <img
+        role="presentation"
+        src="https://user-images.githubusercontent.com/2313998/138136338-046aa39b-51bc-4009-b465-b9d47500ee88.png"
+      />
+    </Link>
+  </div>
+  <div>
+    <Link href="/design/components/autocomplete" sx={{fontWeight: 'bold'}}>
+      Autocomplete
+    </Link>
+    <Text as="p">
+      Autocomplete inputs allow users to quickly filter through a list of options to pick one or more values for a
+      field.
+    </Text>
+  </div>
+  <div>
+    <Link href="/design/components/dialog" sx={{fontWeight: 'bold'}}>
+      <img
+        role="presentation"
+        src="https://user-images.githubusercontent.com/18661030/187487523-49383638-cbf8-4b27-89f3-b9a288aebfe7.png"
+      />
+    </Link>
+  </div>
+  <div>
+    <Link href="/design/components/dialog" sx={{fontWeight: 'bold'}}>
+      Dialog
+    </Link>
+    <Text as="p">
+      A Dialog is a floating surface used to display transient content such as confirmation actions, selection options,
+      and more.
+    </Text>
+  </div>
+  <div>
+    <Link href="/design/components/toggle-switch">
+      <img
+        role="presentation"
+        src="https://user-images.githubusercontent.com/2313998/159758160-9d6b52ec-34f3-4fd8-b4ae-25b523dd3c0f.png"
+      />
+    </Link>
+  </div>
+  <div>
+    <Link href="/design/components/toggle-switch" sx={{fontWeight: 'bold'}}>
+      Toggle switch
+    </Link>
+    <Text as="p">A toggle switch is used to immediately toggle a setting on or off.</Text>
+  </div>
+  <div>
+    <Link href="/design/components/tokens">
+      <img
+        role="presentation"
+        src="https://user-images.githubusercontent.com/2313998/138136341-c85ccaf9-f83f-4933-9fde-9a7b9c630fe4.png"
+      />
+    </Link>
+  </div>
+  <div>
+    <Link href="/design/components/tokens" sx={{fontWeight: 'bold'}}>
+      Tokens
+    </Link>
+    <Text as="p">
+      A token is a compact representation of an object, and is typically used to show a collection of related metadata.
+    </Text>
+  </div>
+</Box>

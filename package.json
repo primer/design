@@ -22,6 +22,7 @@
     "gatsby-plugin-typescript": "^2.12.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^6.3.0",
     "yarn": "^1.22.18"
   },
   "devDependencies": {
