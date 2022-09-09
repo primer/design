@@ -1208,6 +1208,21 @@
     html-entities "^2.3.3"
     strip-ansi "^6.0.0"
 
+"@github/combobox-nav@^2.1.5":
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/@github/combobox-nav/-/combobox-nav-2.1.5.tgz#905598cc681e016eddfcd8adcb39e4d81c907577"
+  integrity sha512-dmG1PuppNKHnBBEcfylWDwj9SSxd/E/qd8mC1G/klQC3s7ps5q6JZ034mwkkG0LKfI+Y+UgEua/ROD776N400w==
+
+"@github/markdown-toolbar-element@^2.1.0":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@github/markdown-toolbar-element/-/markdown-toolbar-element-2.1.1.tgz#08a0696be1006b42b6b29560104f1bca20341b06"
+  integrity sha512-J++rpd5H9baztabJQB82h26jtueOeBRSTqetk9Cri+Lj/s28ndu6Tovn0uHQaOKtBWDobFunk9b5pP5vcqt7cA==
+
+"@github/paste-markdown@^1.3.1":
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/@github/paste-markdown/-/paste-markdown-1.3.5.tgz#de587494df7058700a29a53addbdbd51c317a0d3"
+  integrity sha512-R86Vns99qRCqSUvvhjPGDQYp8sAutueMfKtep5F3d2vyJz2Es3ratU7Q3Q6/RJ0ac48sj99shtuUfUufoTcKlQ==
+
 "@github/prettier-config@^0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@github/prettier-config/-/prettier-config-0.0.4.tgz#cbfddb36a7f29a81c5af155dc5827e95b23b9ccd"
@@ -1852,7 +1867,12 @@
   resolved "https://registry.yarnpkg.com/@primer/primitives/-/primitives-7.8.4.tgz#484486ee47050f18b2e82c33e9df247a5886c82a"
   integrity sha512-cXmnhKBvrwbP3FYR9oxNYx3s8y2svsQLbDNZuoGcsZJLQ6RD3HfQ9ZtXgbyTbTYTyfPvkyd0pkQLI7tRJSc5kg==
 
-"@primer/react@^35.2.2", "@primer/react@^35.5.0":
+"@primer/primitives@7.9.0":
+  version "7.9.0"
+  resolved "https://registry.yarnpkg.com/@primer/primitives/-/primitives-7.9.0.tgz#c8a27287488c8308b1715a7d73214629c331544a"
+  integrity sha512-ZHHfwB0z0z6nDJp263gyGIClYDy+rl0nwqyi4qhcv3Cxhkmtf+If2KVjr6FQqBBFfi1wQwUzaax2FBvfEMFBnw==
+
+"@primer/react@^35.2.2":
   version "35.5.0"
   resolved "https://registry.yarnpkg.com/@primer/react/-/react-35.5.0.tgz#b4615786bc8f50cca5b13f83f944ad87a5891c27"
   integrity sha512-jqF3T1c/F0pCjfuGTRfB8QphEC6u9ZR+vao4MZDk1vQN9QiPCep07i6f6ijy9F7kNlhe/IGVz49tQaX5KDxM8w==
@@ -1874,6 +1894,35 @@
     deepmerge "^4.2.2"
     focus-visible "^5.2.0"
     history "^5.0.0"
+    styled-system "^5.1.5"
+
+"@primer/react@^35.8.0":
+  version "35.8.0"
+  resolved "https://registry.yarnpkg.com/@primer/react/-/react-35.8.0.tgz#f84c35430b8f8b6d74ffe548ba6a444db22fa6b1"
+  integrity sha512-zgKr/yaGuc28sfVNPG6AtsCh8yNHD32TsxzrY5YNkTioCr3LMDoy6Bc6y9fnlGtLnUP6yvQy/EzJKBxZDkgkuQ==
+  dependencies:
+    "@github/combobox-nav" "^2.1.5"
+    "@github/markdown-toolbar-element" "^2.1.0"
+    "@github/paste-markdown" "^1.3.1"
+    "@primer/behaviors" "^1.1.1"
+    "@primer/octicons-react" "^17.3.0"
+    "@primer/primitives" "7.9.0"
+    "@radix-ui/react-polymorphic" "^0.0.14"
+    "@react-aria/ssr" "^3.1.0"
+    "@styled-system/css" "^5.1.5"
+    "@styled-system/props" "^5.1.5"
+    "@styled-system/theme-get" "^5.1.2"
+    "@types/styled-components" "^5.1.11"
+    "@types/styled-system" "^5.1.12"
+    "@types/styled-system__css" "^5.0.16"
+    "@types/styled-system__theme-get" "^5.0.1"
+    classnames "^2.3.1"
+    color2k "^1.2.4"
+    deepmerge "^4.2.2"
+    focus-visible "^5.2.0"
+    fzy.js "0.4.1"
+    history "^5.0.0"
+    react-intersection-observer "9.4.0"
     styled-system "^5.1.5"
 
 "@radix-ui/react-polymorphic@^0.0.14":
@@ -6543,6 +6592,11 @@ fuse.js@^3.4.5:
   resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.6.1.tgz#7de85fdd6e1b3377c23ce010892656385fd9b10c"
   integrity sha512-hT9yh/tiinkmirKrlv4KWOjztdoZo1mx9Qh4KvWqC7isoXwdUY3PNWUxceF4/qO9R6riA2C29jdTOeQOIROjgw==
 
+fzy.js@0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/fzy.js/-/fzy.js-0.4.1.tgz#695bf87cc0bbdda9cbcf22bc318a74c4aca6b758"
+  integrity sha512-4sPVXf+9oGhzg2tYzgWe4hgAY0wEbkqeuKVEgdnqX8S8VcLosQsDjb0jV+f5uoQlf8INWId1w0IGoufAoik1TA==
+
 gatsby-cli@^3.14.2:
   version "3.14.2"
   resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-3.14.2.tgz#1d4ebeb199c3a910d80abc13f458888c8cd7f2f8"
@@ -7706,7 +7760,7 @@ highlight.js@^10.4.1:
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.7.3.tgz#697272e3991356e40c3cac566a74eef681756531"
   integrity sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==
 
-history@^5.0.0, history@^5.2.0:
+history@^5.0.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/history/-/history-5.3.0.tgz#1548abaa245ba47992f063a0783db91ef201c73b"
   integrity sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==
@@ -11956,6 +12010,11 @@ react-helmet@^6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
+react-intersection-observer@9.4.0:
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.4.0.tgz#f6b6e616e625f9bf255857c5cba9dbf7b1825ec7"
+  integrity sha512-v0403CmomOVlzhqFXlzOxg0ziLcVq8mfbP0AwAcEQWgZmR2OulOT79Ikznw4UlB3N+jlUYqLMe4SDHUOyp0t2A==
+
 react-is@17.0.2, react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
@@ -12028,21 +12087,6 @@ react-remove-scroll@^2.5.2:
     tslib "^2.1.0"
     use-callback-ref "^1.3.0"
     use-sidecar "^1.1.2"
-
-react-router-dom@^6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.3.0.tgz#a0216da813454e521905b5fa55e0e5176123f43d"
-  integrity sha512-uaJj7LKytRxZNQV8+RbzJWnJ8K2nPsOOEuX7aQstlMZKQT0164C+X2w6bnkqU3sjtLvpd5ojrezAyfZ1+0sStw==
-  dependencies:
-    history "^5.2.0"
-    react-router "6.3.0"
-
-react-router@6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.3.0.tgz#3970cc64b4cb4eae0c1ea5203a80334fdd175557"
-  integrity sha512-7Wh1DzVQ+tlFjkeo+ujvjSqSJmkt1+8JO+T5xklPlgrh70y7ogx75ODRW0ThWhY7S+6yEDks8TYrtQe/aoboBQ==
-  dependencies:
-    history "^5.2.0"
 
 react-side-effect@^2.1.0:
   version "2.1.2"

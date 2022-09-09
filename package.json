@@ -13,7 +13,7 @@
     "@github/prettier-config": "^0.0.4",
     "@primer/gatsby-theme-doctocat": "^4.0.0",
     "@primer/octicons-react": "^17.3.0",
-    "@primer/react": "^35.5.0",
+    "@primer/react": "^35.8.0",
     "eslint": "^8.21.0",
     "eslint-plugin-github": "^4.3.7",
     "gatsby": "^3.7.2",
@@ -22,7 +22,6 @@
     "gatsby-plugin-typescript": "^2.12.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^6.3.0",
     "yarn": "^1.22.18"
   },
   "devDependencies": {
