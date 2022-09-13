@@ -5,7 +5,7 @@ status: Alpha
 
 import {useState} from 'react'
 
-import {StoryMenu} from '../../src/StoryMenu'
+import {StorybookEmbed} from '../../src/StorybookEmbed'
 
 import {UnderlineNav, ActionMenu} from '@primer/react'
 
@@ -33,12 +33,17 @@ import {UnderlineNav, ActionMenu} from '@primer/react'
 
 ## React
 
-<iframe
-  id="storybook-preview-iframe"
-  src="https://primer.style/react/storybook/?path=/story/composite-components-button--default-button&shortcuts=false&singleStory=true&panel=false"
-  width="800"
-  height="260"
-></iframe>
+<StorybookEmbed
+  componentId="composite-components-button"
+  stories={{
+    'default-button': {
+      name: 'Default'
+    },
+    'primary-button': {
+      name: 'Primary'
+    }
+  }}
+/>
 
 ## Rails
 
