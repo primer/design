@@ -9,7 +9,7 @@ import {StorybookEmbed} from '../../src/StorybookEmbed'
 
 import {UnderlineNav, ActionMenu} from '@primer/react'
 
-<UnderlineNav aria-label="Main">
+<UnderlineNav aria-label="Main" sx={{position: 'sticky', top: '66px', background: '#ffffff', borderBottom: 'none'}}>
   <UnderlineNav.Link href="#usage" selected={location.hash === '#usage'}>
     Usage
   </UnderlineNav.Link>
