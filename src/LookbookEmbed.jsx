@@ -17,7 +17,7 @@ export function LookbookEmbed({framework = 'rails', status, component, previews}
   const options = [statusString, componentString, previewString].join('/')
   console.log(options)
 
-  const url = `${base}${new URLSearchParams(options)}`
+  const url = `${base}${options}`
 
   return (
     <>
