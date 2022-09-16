@@ -1,0 +1,16 @@
+{
+  "button": [
+    {
+      "name": "scheme",
+      "type": ":default | :primary | :danger | :outline | :invisible",
+      "default": ":default",
+      "description": "Changes the look and feel of the button which is different for each variant"
+    },
+    {
+      "name": "size",
+      "type": ":small | :medium | :large",
+      "default": ":medium",
+      "description": "Changes the size of the button component"
+    }
+  ]
+}
