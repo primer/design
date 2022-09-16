@@ -7,6 +7,8 @@ import {useState} from 'react'
 
 import {StorybookEmbed} from '../../src/StorybookEmbed'
 
+import {LookbookEmbed} from '../../src/LookbookEmbed'
+
 import {SubNav} from '../../src/SubNav'
 
 import {UnderlineNav, ActionMenu} from '@primer/react'
@@ -32,5 +34,15 @@ import {UnderlineNav, ActionMenu} from '@primer/react'
 />
 
 ## Rails
+
+<LookbookEmbed
+  status="beta"
+  component="button"
+  previews={{
+    playground: {
+      name: 'Default'
+    }
+  }}
+/>
 
 ## Accessibility
