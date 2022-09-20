@@ -14,6 +14,7 @@
     "@primer/gatsby-theme-doctocat": "^4.0.0",
     "@primer/octicons-react": "^17.3.0",
     "@primer/react": "^35.5.0",
+    "@primer/view-components": "0.0.0-20220920204303",
     "@reach/router": "^1.3.4",
     "eslint": "^8.21.0",
     "eslint-plugin-github": "^4.3.7",

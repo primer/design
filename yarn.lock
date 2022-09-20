@@ -1208,10 +1208,57 @@
     html-entities "^2.3.3"
     strip-ansi "^6.0.0"
 
+"@github/auto-complete-element@^3.3.4":
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/@github/auto-complete-element/-/auto-complete-element-3.3.4.tgz#b762f13342b8ea5e03609f75b5a8d417080355eb"
+  integrity sha512-b9SBCLIQGfCI3G0pGYE8rBSUDON5iFKUgHXgAtVdgZii0dnLFxNl5tn1R/RaBEFdzBQPDl9vqu41TF/Hs3w8FA==
+  dependencies:
+    "@github/combobox-nav" "^2.0.2"
+
+"@github/catalyst@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@github/catalyst/-/catalyst-1.6.0.tgz#378734d1d2b6a85af169d7e66c1a2a604bf1e82c"
+  integrity sha512-u8A+DameixqpeyHzvnJWTGj+wfiskQOYHzSiJscCWVfMkIT3rxnbHMtGh3lMthaRY21nbUOK71WcsCnCrXhBJQ==
+
+"@github/clipboard-copy-element@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@github/clipboard-copy-element/-/clipboard-copy-element-1.1.2.tgz#7a6e8042749471504d4e7cfcc47097a781db2bdb"
+  integrity sha512-L6CMrcA5we0udafvoSuRCE/Ci/3xrLWKYRGup2IlhxF771bQYsQ2EB1of182pI8ZWM4oxgwzu37+igMeoZjN/A==
+
+"@github/combobox-nav@^2.0.2":
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/@github/combobox-nav/-/combobox-nav-2.1.5.tgz#905598cc681e016eddfcd8adcb39e4d81c907577"
+  integrity sha512-dmG1PuppNKHnBBEcfylWDwj9SSxd/E/qd8mC1G/klQC3s7ps5q6JZ034mwkkG0LKfI+Y+UgEua/ROD776N400w==
+
+"@github/details-menu-element@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/@github/details-menu-element/-/details-menu-element-1.0.12.tgz#baf9cd5bcf8e40621a085380364090921eb3fae4"
+  integrity sha512-Icbq+xw7Qjb6byfRtC5cjk/eAxb+Wc4F/WS+L6VTHLYEfi8q/akDtHgViGeu854IMiJ/qDosfOGXGgSrleud2w==
+
+"@github/image-crop-element@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@github/image-crop-element/-/image-crop-element-5.0.0.tgz#6ae2c31f1e7dc355c41c3140554fb76ca7a71ef7"
+  integrity sha512-Vgm2OwWAs1ESoib/t5sjxsAYo6YTOxxAjWDRxswX7qrqoyCejTZ3hshdo4Ep5e+Mz/GVTZC3rdMtg06dk/eT4g==
+
+"@github/mini-throttle@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@github/mini-throttle/-/mini-throttle-2.1.0.tgz#583a1d5e383caa21a1c067a649f15f7ab575dccf"
+  integrity sha512-iEeR2OdVCPkdIPUszL8gJnKNu4MR8ANh7y0u/LPyaatYezgaWxUZEzhFntloqQq+HE6MZkFy+cl+xzCNuljOdw==
+
 "@github/prettier-config@^0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@github/prettier-config/-/prettier-config-0.0.4.tgz#cbfddb36a7f29a81c5af155dc5827e95b23b9ccd"
   integrity sha512-ZOJ+U771Mw68qp2GPbcqPt2Xg0LEl0YwiIFHXwVLAFm2TgDnsgcCHhXO8PIxOWPqSFO4S7xIMD9CBobfaWGASA==
+
+"@github/tab-container-element@^3.1.2":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@github/tab-container-element/-/tab-container-element-3.2.0.tgz#d2d33da09ee3d7f4245a9f77479fe4969b137ae5"
+  integrity sha512-to5ZJuywKK3KX53X1ifOcWjvUTQcBGdQ6Qkhm8L97xQ3ovICag1048M3YMpc+QSdr8xWeCBMnLeMnENqotB0Og==
+
+"@github/time-elements@^3.1.2":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@github/time-elements/-/time-elements-3.1.4.tgz#0ba8504de06280f81a25e4d718491b22fc6b483e"
+  integrity sha512-DTe/w0uKVeciKzGtYadNdfS8D86pXdGF+OrKg+vi8PKlotJ45zAc26zNpmmfCcMblBBg2+uoi3OxmUm7am/0sg==
 
 "@graphql-tools/batch-execute@^7.1.2":
   version "7.1.2"
@@ -1775,6 +1822,11 @@
   resolved "https://registry.yarnpkg.com/@primer/behaviors/-/behaviors-1.1.3.tgz#4945f79c39f8b4495ec868b053264830f687c7bc"
   integrity sha512-WpCcjAkXG7Lv3ZbaCUgASWKHnCi/pmuSEiyTmHHb6f5xhwk1mliixNL5ZZHtDN6RCcT3VnXUsyek4GopG2lbZQ==
 
+"@primer/behaviors@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@primer/behaviors/-/behaviors-1.2.0.tgz#35952a30d049ec546440af09c2058c47abe63115"
+  integrity sha512-SeD00vXuTNFviLdJiehRsV5T7uk39TcZF1yhiyPTVFDNuJC8hrkC9NdCMZyF2DXtH+yaaWGM5/gp4F0KYhRa3g==
+
 "@primer/component-metadata@^0.4.0":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@primer/component-metadata/-/component-metadata-0.4.1.tgz#86c4cda1bc6504cd5f9d523fac16c5e00556d881"
@@ -1875,6 +1927,21 @@
     focus-visible "^5.2.0"
     history "^5.0.0"
     styled-system "^5.1.5"
+
+"@primer/view-components@0.0.0-20220920204303":
+  version "0.0.0-20220920204303"
+  resolved "https://registry.yarnpkg.com/@primer/view-components/-/view-components-0.0.0-20220920204303.tgz#2dfb60fe78748f3548a16feb50f26151629305e6"
+  integrity sha512-pd21J6ptippdpbV1rc1NBPABdp8iZ2ajKg8mDwZvInXxwhpwkbEUq87BcrONxsjNpXipv+D89EK/oAY+9Esgqg==
+  dependencies:
+    "@github/auto-complete-element" "^3.3.4"
+    "@github/catalyst" "^1.6.0"
+    "@github/clipboard-copy-element" "^1.1.2"
+    "@github/details-menu-element" "^1.0.12"
+    "@github/image-crop-element" "^5.0.0"
+    "@github/mini-throttle" "^2.1.0"
+    "@github/tab-container-element" "^3.1.2"
+    "@github/time-elements" "^3.1.2"
+    "@primer/behaviors" "^1.2.0"
 
 "@radix-ui/react-polymorphic@^0.0.14":
   version "0.0.14"

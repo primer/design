@@ -3,7 +3,7 @@ import Table from '@primer/gatsby-theme-doctocat/src/components/table.js'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code.js'
 import {Box} from '@primer/react'
 import styled from 'styled-components'
-import propValues from './MockRailsProps.json'
+import propValues from '@primer/view-components/static/arguments.json'
 
 // const TokenTable = styled(Table)`
 //   display: table;
@@ -15,6 +15,8 @@ interface PropsTableProps {
 }
 
 const PropsTable: FC<PropsTableProps> = ({component = 'button'}) => {
+  const lookupComponent = propValues?.find(e => e['component'] == component)
+  // console.log(lookupComponent)
   return (
     <Table>
       <thead>
@@ -34,7 +36,7 @@ const PropsTable: FC<PropsTableProps> = ({component = 'button'}) => {
         </tr>
       </thead>
       <tbody>
-        {propValues[component].map(propValue => {
+        {lookupComponent?.parameters.map(propValue => {
           return (
             <tr>
               <td id={propValue.name} key={propValue.name}>
