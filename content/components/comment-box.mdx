@@ -6,7 +6,7 @@ status: Experimental
 import {Box, Label, LabelGroup, Text} from '@primer/react'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
-  A comment box allows users to write and preview comments, format Markdown, autocomplete user names or references and attach files.
+  A comment box allows users to write and preview comments.
 </Box>
 
 <!-- TODO: uncomment when available
@@ -64,13 +64,13 @@ import {Box, Label, LabelGroup, Text} from '@primer/react'
 
 ## Anatomy
 
-<img width="960" alt="A diagram of an comment box with a label, a TabNav, an input and an ActionBar." src="https://user-images.githubusercontent.com/378023/191439493-2122cae7-c03a-4c8b-b583-1919ccb34d94.png" />
+<img width="960" alt="A diagram of an comment box with a label, a tab nav, a toolbar and an input with a placeholder text." src="https://user-images.githubusercontent.com/378023/191696249-e3fc3240-5b7f-49e5-9973-6698e705ecd6.png" />
 
 ## Content
 
 ### Label
 
-A label is shown above the comment box to inform users what kind of text input is following. The default label is "Add a comment".
+A label is shown above the comment box to establish the context and inform users about the purpose of the text input that follows. The default label is "Add a comment".
 
 <DoDontContainer>
   <Do>
@@ -91,9 +91,9 @@ A label is shown above the comment box to inform users what kind of text input i
   </Dont>
 </DoDontContainer>
 
-### Placeholder
+### Placeholder (optional)
 
-In most cases a placeholder text is not needed and the label will suffice.
+In most cases a placeholder text is not needed and a label alone will suffice.
 
 <DoDontContainer>
   <Do>
@@ -102,7 +102,7 @@ In most cases a placeholder text is not needed and the label will suffice.
       role="presentation"
       width="456"
     />
-    <Caption>Only add a placholder text to give users an additional hint.</Caption>
+    <Caption>Only add a placholder text to give users additional hints.</Caption>
   </Do>
   <Dont>
     <img
@@ -116,11 +116,7 @@ In most cases a placeholder text is not needed and the label will suffice.
 
 ### Tab nav
 
-The tab nav can be used to toggle between write and preview mode.
-
-#### Write mode
-
-When typing in write mode, the text is rendered as plain text.
+A tab nav is used to toggle between write and preview mode. In **write mode** the entered text is rendered as typed (plain text).
 
 <img
   src="https://user-images.githubusercontent.com/378023/191464893-2e6c1d21-b084-4396-a996-895f8d405bd7.png"
@@ -128,9 +124,7 @@ When typing in write mode, the text is rendered as plain text.
   width="960"
 />
 
-#### Preview mode
-
-When toggling to the preview mode, the toolbar disappears and the text is rendered as HTML. Markdown formatting is supported as well.
+When switching to **preview mode** the toolbar disappears and the text is rendered as HTML. Markdown formatting, autolinking and other features are supported as well.
 
 <img
   src="https://user-images.githubusercontent.com/378023/191464912-fb6dcdb1-f3d7-4d0c-bfdd-e44fab9e6b57.png"
@@ -146,7 +140,6 @@ The toolbar provides the comment box with shortcuts to...
 - @-mention users or reference issues and pull requests
 - insert saved replies
 - attach images and files
-- and more
 
 <img
   src="https://user-images.githubusercontent.com/378023/191506569-91762edb-3d62-4448-919d-34c3ab04ee2d.png"
@@ -156,7 +149,7 @@ The toolbar provides the comment box with shortcuts to...
 
 ### Input
 
-After typing multiple lines, the input will automatically resize to fit the content until a certain max height is reached. The input can also be manually resized by dragging the handle in the bottom right corner.
+The input will automatically resize to fit the content until a certain max height is reached. The input can also be manually resized by dragging the handle in the bottom right corner.
 
 <img
   src="https://user-images.githubusercontent.com/378023/191506579-c95ce6c1-0efe-4fcc-b47c-f7a29eb545a0.png"
@@ -174,7 +167,7 @@ The comment box's toolbar uses an [action bar](https://primer.style/design/compo
   width="960"
 />
 
-When the available space becomes quite narrow, the tab nav takes up full width and the toolbar moves to its own row.
+When the available space becomes narrow, the tab nav takes up full width and the toolbar moves to its own row underneath.
 
 <img
   src="https://user-images.githubusercontent.com/378023/191652075-ed8d6b89-f33f-4807-a61e-78e8ad3a9ce2.png"
@@ -188,7 +181,7 @@ When the available space becomes quite narrow, the tab nav takes up full width a
 
 | Key | description |
 | -- | -- |
-| `Tab` | Moves focus between the different part of the comment box: 1. tab nav 2. toolbar 3. input. |
+| `Tab` | Moves focus between the different parts of the comment box. The order is as follows: 1. tab nav 2. toolbar 3. input. |
 
 <img
   src="https://user-images.githubusercontent.com/378023/191671398-79f3cd98-bf0f-45ad-896c-a4c010a7cedb.png"
@@ -196,4 +189,4 @@ When the available space becomes quite narrow, the tab nav takes up full width a
   width="960"
 />
 
-Note that tab nav and [action bar](https://primer.style/design/components/action-bar) have their own keyboard navigation.
+Note that tab nav and toolbar ([action bar](https://primer.style/design/components/action-bar#keyboard-navigation)) have their own keyboard navigation.
