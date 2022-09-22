@@ -1,0 +1,199 @@
+---
+title: Comment box
+status: Experimental
+---
+
+import {Box, Label, LabelGroup, Text} from '@primer/react'
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+  A comment box allows users to write and preview comments, format Markdown, autocomplete user names or references and attach files.
+</Box>
+
+<!-- TODO: uncomment when available
+<LabelGroup>
+  <Label
+    as="a"
+    href="https://primer.style/react/CommentBox"
+    size="large"
+    variant="secondary"
+    sx={{textDecoration: 'none'}}
+  >
+    <img
+      width="16"
+      height="16"
+      alt=""
+      src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    React
+  </Label>
+  <Label
+    as="a"
+    href=""
+    size="large"
+    variant="secondary"
+    sx={{textDecoration: 'none'}}
+  >
+    <img
+      width="16"
+      height="16"
+      alt=""
+      src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    Figma
+  </Label>
+  <Label
+    as="a"
+    href="https://primer.style/view-components/components/alpha/CommentBox"
+    size="large"
+    variant="secondary"
+    sx={{textDecoration: 'none'}}
+  >
+    <img
+      width="16"
+      height="16"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/171468311-184bfd70-128e-4bfc-b482-96d0de49d42a.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    Rails
+  </Label>
+</LabelGroup>
+-->
+
+## Anatomy
+
+<img width="960" alt="A diagram of an comment box with a label, a TabNav, an input and an ActionBar." src="https://user-images.githubusercontent.com/378023/191439493-2122cae7-c03a-4c8b-b583-1919ccb34d94.png" />
+
+## Content
+
+### Label
+
+A label is shown above the comment box to inform users what kind of text input is following. The default label is "Add a comment".
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/191459919-0301444a-18cc-474e-8db7-1480976e4128.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>The label can be changed depending on the context.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/191459943-1bc24fb4-224e-4598-94b6-f15b80401946.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use the label to notify users of any kind of state or event, like when an error occurred.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Placeholder
+
+In most cases a placeholder text is not needed and the label will suffice.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/191459984-243b1223-5029-4915-afc9-53b89e6e8ce3.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Only add a placholder text to give users an additional hint.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/191460009-bc05c1ad-f47c-45cb-8e5d-aa9ac22ac215.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use a placholder text as a replacement for a label.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Tab nav
+
+The tab nav can be used to toggle between write and preview mode.
+
+#### Write mode
+
+When typing in write mode, the text is rendered as plain text.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/191464893-2e6c1d21-b084-4396-a996-895f8d405bd7.png"
+  alt=""
+  width="960"
+/>
+
+#### Preview mode
+
+When toggling to the preview mode, the toolbar disappears and the text is rendered as HTML. Markdown formatting is supported as well.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/191464912-fb6dcdb1-f3d7-4d0c-bfdd-e44fab9e6b57.png"
+  alt=""
+  width="960"
+/>
+
+### Toolbar
+
+The toolbar provides the comment box with shortcuts to...
+
+- format Markdown
+- @-mention users or reference issues and pull requests
+- insert saved replies
+- attach images and files
+- and more
+
+<img
+  src="https://user-images.githubusercontent.com/378023/191506569-91762edb-3d62-4448-919d-34c3ab04ee2d.png"
+  alt=""
+  width="960"
+/>
+
+### Input
+
+After typing multiple lines, the input will automatically resize to fit the content until a certain max height is reached. The input can also be manually resized by dragging the handle in the bottom right corner.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/191506579-c95ce6c1-0efe-4fcc-b47c-f7a29eb545a0.png"
+  alt=""
+  width="960"
+/>
+
+## Responsiveness
+
+The comment box's toolbar uses an [action bar](https://primer.style/design/components/action-bar) under the hood that is responsive by default. Toolbar items that don't fit in the available space are moved to an [overflow menu](https://primer.style/design/components/action-bar#overflow-menu).
+
+<img
+  src="https://user-images.githubusercontent.com/378023/191652073-193a7314-89ba-49ca-8c2c-d914b7d14fc7.png"
+  alt=""
+  width="960"
+/>
+
+When the available space becomes quite narrow, the tab nav takes up full width and the toolbar moves to its own row.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/191652075-ed8d6b89-f33f-4807-a61e-78e8ad3a9ce2.png"
+  alt=""
+  width="960"
+/>
+
+## Accessibility
+
+### Keyboard navigation
+
+| Key | description |
+| -- | -- |
+| `Tab` | Moves focus between the different part of the comment box: 1. tab nav 2. toolbar 3. input. |
+
+<img
+  src="https://user-images.githubusercontent.com/378023/191671398-79f3cd98-bf0f-45ad-896c-a4c010a7cedb.png"
+  alt=""
+  width="960"
+/>
+
+Note that tab nav and [action bar](https://primer.style/design/components/action-bar) have their own keyboard navigation.
