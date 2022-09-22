@@ -1,0 +1,38 @@
+---
+title: Relative Time
+status: Experimental
+---
+
+import {Box, Label, LabelGroup, Text} from '@primer/react'
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+  A relative time displays the relative time difference between the source date-time and the provided date-time.
+</Box>
+
+## Content
+
+### Past date-time
+
+For past date-times the relative time outputs different formats depending on the time difference:
+
+#### Less than 1 month
+
+It shows relative date phrases in the format of `X days ago` or `X hours ago`:
+
+#### After a month has passed
+
+It shows the date in the format `MMM D` or `MMM D, YYYY` depending on the current year.
+
+### Future date-time
+
+It strictly shows relative date phrases in the format of `in X days` or `in X hours`. This will never switch to displaying the date, even after a month has passed.
+
+## Usage
+
+## Responsiveness
+
+There are cases where relative dates needs to be placed in a spot that is too narrow to display a long relative date. In these cases, the output can be adapted to fit in the narrow area without sacrificing usability.
+
+## Accessibility
+
+A relative time is treated like a [time](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) element when it shows a date, and it contains an [abbreviation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr) element when it shows a relative date phrase.

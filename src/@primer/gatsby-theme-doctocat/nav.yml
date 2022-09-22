@@ -62,6 +62,8 @@
       url: /components/autocomplete
     - title: Dialog
       url: /components/dialog
+    - title: Relative time
+      url: /components/relative-time
     - title: Segmented control
       url: /components/segmented-control
     - title: Toggle switch
