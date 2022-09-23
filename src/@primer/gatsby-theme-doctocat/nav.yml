@@ -1,6 +1,8 @@
 - title: Foundations
   url: /foundations
   children:
+    - title: Getting started
+      url: /foundations/getting-started
     - title: Color
       url: /foundations/color
     - title: Typography
