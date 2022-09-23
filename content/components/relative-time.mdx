@@ -3,36 +3,142 @@ title: Relative Time
 status: Experimental
 ---
 
-import {Box, Label, LabelGroup, Text} from '@primer/react'
+import {Box, Text} from '@primer/react'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
   A relative time displays the relative time difference between the source date-time and the provided date-time.
 </Box>
 
+## Anatomy
+
+![A diagram of a relative time output.]()
+
 ## Content
+
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+<div>
 
 ### Past date-time
 
-For past date-times the relative time outputs different formats depending on the time difference:
+For past date-times the relative time outputs different formats depending on the time difference.
 
-#### Less than 1 month
+#### Within a month
 
-It shows relative date phrases in the format of `X days ago` or `X hours ago`:
+It shows relative date phrases in the format of `X seconds/minutes/days ago`. If the time difference is less than 1 minute, it shows `just now`.
 
-#### After a month has passed
+#### After a month
 
-It shows the date in the format `MMM D` or `MMM D, YYYY` depending on the current year.
+It shows the date in the format `on D MMM` or `on D MMM, YYYY` depending on the current year.
+
+</div>
+
+<Box flexShrink={0}>
+  <img
+    src="https://user-images.githubusercontent.com/912236/191943024-037847be-abc4-4242-95d4-93c3a21b2b56.png"
+    role="presentation"
+    width="464"
+  />
+</Box>
+</Box>
 
 ### Future date-time
 
-It strictly shows relative date phrases in the format of `in X days` or `in X hours`. This will never switch to displaying the date, even after a month has passed.
+It strictly shows relative date phrases in the format of `in X seconds/minutes/hours/days/months/years`. This will never switch to displaying the date, even after a month has passed.
+
+### Micro
+
+The `micro` variant shows a smaller version of the relative time. It is useful for displaying the relative time in a more compact space or in a mobile environment. It shows the relative time in the format of `Xs/h/d`, `D MMM` after a month or `D MMM, YYYY` after a year.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/912236/191981619-4b2a5625-aa28-44d4-a650-fcda9f349b6f.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use micro to display time in a more compact space or in a mobile environment.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/912236/191981619-4b2a5625-aa28-44d4-a650-fcda9f349b6f.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use the micro option when you can display time in a more prominent space.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/912236/191981619-4b2a5625-aa28-44d4-a650-fcda9f349b6f.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use the micro option in isolation.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/912236/191981619-4b2a5625-aa28-44d4-a650-fcda9f349b6f.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use it in a full sentence. Use the default format instead.</Caption>
+  </Dont>
+</DoDontContainer>
 
 ## Usage
 
-## Responsiveness
+A relative time is intended to be used within a sentence, following the action that it's relative to.
 
-There are cases where relative dates needs to be placed in a spot that is too narrow to display a long relative date. In these cases, the output can be adapted to fit in the narrow area without sacrificing usability.
+<img
+  width="960"
+  alt=""
+  src="https://user-images.githubusercontent.com/912236/191977760-bccc2197-6ecb-4487-9c5d-0d3732cc7f9e.png"
+/>
+
+### Isolated
+
+A relative time can be used in isolatation when the content and the elements sourronding make it clear what the time is relative to. For instance, when used in a list or a table where the header or titles references the action that was performed.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img
+      width="460"
+      alt=""
+      src="https://user-images.githubusercontent.com/912236/191966258-30d0b3fc-1044-4d86-aa28-9022907650a8.png"
+    />
+    <Caption>A tabe where each item title contains the action.</Caption>
+  </div>
+  <div>
+    <img
+      width="460"
+      alt=""
+      src="https://user-images.githubusercontent.com/912236/191965093-80c1858f-5d36-4caf-aecf-fd333c2c104c.png"
+    />
+    <Caption>A timeline where the title implies the main action.</Caption>
+  </div>
+</Box>
+
+### Links
+
+A relative time is used as plain text in most of the cases. However, it can be used as a link to point to a section within a view that contains relevant information.
+
+<img
+  width="960"
+  alt=""
+  src="https://user-images.githubusercontent.com/912236/191949470-a7b633fd-c3fa-48b5-a75b-e91cafdcea61.png"
+/>
+<Caption>A relative time as a link for comments in a thread.</Caption>
 
 ## Accessibility
 
-A relative time is treated like a [time](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) element when it shows a date, and it contains an [abbreviation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr) element when it shows a relative date phrase.
+A relative time is treated like a [time](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) element when it shows a local numerical date, and it contains an [abbreviation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr) element when it shows a relative date phrase.
