@@ -16,7 +16,6 @@ interface PropsTableProps {
 
 const PropsTable: FC<PropsTableProps> = ({component = 'button'}) => {
   const lookupComponent = propValues?.find(e => e['component'] == component)
-  // console.log(lookupComponent)
   return (
     <Table>
       <thead>

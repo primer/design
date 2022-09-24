@@ -5,11 +5,10 @@ const baseUrls = {
   rails: 'https://primer.style/view-components/lookbook/preview/primer/'
 }
 
-// https://primer.style/view-components/lookbook/preview/primer/beta/button/playground/
-
 export function LookbookEmbed({framework = 'rails', status, component, previews}) {
   const [colorScheme, setColorScheme] = useState('light')
   const base = baseUrls[framework]
+  const baseInspect = 'https://primer.style/view-components/lookbook/inspect/primer/'
   const [preview, setPreview] = React.useState(Object.keys(previews)[0])
   const statusString = `${status}`
   const componentString = `${component}`
@@ -91,11 +90,7 @@ export function LookbookEmbed({framework = 'rails', status, component, previews}
             </ActionList>
           </ActionMenu.Overlay>
         </ActionMenu> */}
-        <Link
-          href={`${base}${status}${component}${preview}&${new URLSearchParams({globals: options.globals})}`}
-          target="_blank"
-          sx={{marginLeft: 'auto'}}
-        >
+        <Link href={`${baseInspect}${options}`} target="_blank" sx={{marginLeft: 'auto'}}>
           View in Lookbook
         </Link>
       </Box>
