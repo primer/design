@@ -9,8 +9,8 @@ export function SubNav() {
       aria-label="Page navigation"
       sx={{position: 'sticky', top: '66px', background: '#ffffff', borderBottom: 'none'}}
     >
-      <UnderlineNav.Link href="#usage" selected={hash === '#usage'}>
-        Usage
+      <UnderlineNav.Link href="#overview" selected={hash === '#overview'}>
+        Overview
       </UnderlineNav.Link>
       <UnderlineNav.Link href="#styles" selected={hash === '#styles'}>
         Styles
