@@ -28,7 +28,7 @@ After a month has passed, the output shows a relative date in the format `on D M
 
 ### Future
 
-As well as the past dates, future dates outputs different formats depending on the time difference.
+As well as past dates, future dates output different formats depending on the time difference.
 
 If the future date is due to happen within the current month, the relative time outputs the format of `in X seconds/minutes/hours/days`. If the time difference is less than 1 minute, it shows `just now`.
 
@@ -36,7 +36,7 @@ If the future date is due to happen within the following months, the relative ti
 
 ### Micro
 
-The `micro` variant shows a smaller version of the relative time. It is useful for displaying the relative time in a more compact space or in a mobile environment. The output shows the relative time in the format of `Xs/h/d`, `D MMM` after a month or `D MMM, YYYY` after a year.
+The `micro` variant shows a smaller version of the relative time. It is useful for displaying the relative time in a more compact space or in a mobile environment. The output shows the relative time in the format of `Xs/h/d`, `D MMM` after a month, or `D MMM, YYYY` after a year.
 
 <DoDontContainer>
   <Do>
@@ -69,7 +69,7 @@ A relative time is intended to be used within a sentence, following the action t
 
 ### Isolated
 
-A relative time can be used in isolatation when the content and the sourronding elements make it clear what the time is relative to.
+A relative time can be used in isolation when the content and the surrounding elements make it clear what the time is relative to.
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
@@ -101,7 +101,7 @@ When used in isolation, the default format can change to `micro` when the space 
 
 ### Links
 
-A relative time is used as plain text in most of the cases. However, it can be used as an anchor link to point to an element within a view that contains relevant or nested information.
+A relative time is used as plain text in most cases. However, it can be used as an anchor link to point to an element within a view that contains relevant or nested information.
 
 <img
   width="960"
