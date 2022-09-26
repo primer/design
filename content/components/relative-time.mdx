@@ -9,53 +9,34 @@ import {Box, Text} from '@primer/react'
   A relative time displays the relative time difference between the source date-time and the provided date-time.
 </Box>
 
-## Anatomy
-
-<!-- ![A diagram of a relative time output.]() -->
-
 ## Content
 
-<Box
-  as="figure"
-  display="flex"
-  alignItems="flex-start"
-  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
-  m={0}
-  mb={3}
-  sx={{gap: 3}}
->
-<div>
+### Past
 
-### Past date-time
+For past dates, the relative time outputs different formats depending on the time difference.
 
-For past date-times the relative time outputs different formats depending on the time difference.
+Within the current month, the output shows a relative date in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`.
 
-#### Within a month
+After a month has passed, the output shows a relative date in the format `on D MMM` or `on D MMM, YYYY` depending on the current year.
 
-It shows relative date phrases in the format of `X seconds/minutes/days ago`. If the time difference is less than 1 minute, it shows `just now`.
+<img
+  width="960"
+  src="https://user-images.githubusercontent.com/912236/192233477-8c30b28b-5f48-44c6-b373-39a482f745a1.png"
+  role="presentation"
+/>
+<Caption>A list of items using the past relative outputs.</Caption>
 
-#### After a month
+### Future
 
-It shows the date in the format `on D MMM` or `on D MMM, YYYY` depending on the current year.
+As well as the past dates, future dates outputs different formats depending on the time difference.
 
-</div>
+If the future date is due to happen within the current month, the relative time outputs the format of `in X seconds/minutes/hours/days`. If the time difference is less than 1 minute, it shows `just now`.
 
-<Box flexShrink={0}>
-  <img
-    src="https://user-images.githubusercontent.com/912236/191997421-6116e8e0-8dc6-4f0a-9bab-319f7323f1d0.png"
-    role="presentation"
-    width="464"
-  />
-</Box>
-</Box>
-
-### Future date-time
-
-It strictly shows relative date phrases in the format of `in X seconds/minutes/hours/days/months/years`. This will never switch to displaying the date, even after a month has passed.
+If the future date is due to happen within the following months, the relative time outputs the format of `on D MMM` or `on D MMM, YYYY` when following years.
 
 ### Micro
 
-The `micro` variant shows a smaller version of the relative time. It is useful for displaying the relative time in a more compact space or in a mobile environment. It shows the relative time in the format of `Xs/h/d`, `D MMM` after a month or `D MMM, YYYY` after a year.
+The `micro` variant shows a smaller version of the relative time. It is useful for displaying the relative time in a more compact space or in a mobile environment. The output shows the relative time in the format of `Xs/h/d`, `D MMM` after a month or `D MMM, YYYY` after a year.
 
 <DoDontContainer>
   <Do>
@@ -75,25 +56,6 @@ The `micro` variant shows a smaller version of the relative time. It is useful f
     <Caption>Avoid using the micro option when there's a prominent space. Use the default option instead.</Caption>
   </Dont>
 </DoDontContainer>
-
-<!-- <DoDontContainer>
-  <Do>
-    <img
-      src="https://user-images.githubusercontent.com/912236/191981619-4b2a5625-aa28-44d4-a650-fcda9f349b6f.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Use the micro option in isolation.</Caption>
-  </Do>
-  <Dont>
-    <img
-      src="https://user-images.githubusercontent.com/912236/191981619-4b2a5625-aa28-44d4-a650-fcda9f349b6f.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Don't use it in a full sentence. Use the default format instead.</Caption>
-  </Dont>
-</DoDontContainer> -->
 
 ## Usage
 
@@ -128,9 +90,18 @@ A relative time can be used in isolatation when the content and the sourronding 
   </div>
 </Box>
 
+When used in isolation, the default format can change to `micro` when the space is limited.
+
+<CustomVideoPlayer
+  width="100%"
+  loop
+  src="https://user-images.githubusercontent.com/912236/192255353-88749767-f1d1-49af-8145-86b60f5215b8.mp4"
+/>
+<Caption>The micro format is used for responsive layouts.</Caption>
+
 ### Links
 
-A relative time is used as plain text in most of the cases. However, it can be used as a link to point to a section within a view that contains relevant information.
+A relative time is used as plain text in most of the cases. However, it can be used as an anchor link to point to an element within a view that contains relevant or nested information.
 
 <img
   width="960"
