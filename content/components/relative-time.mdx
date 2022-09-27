@@ -19,6 +19,13 @@ Within the current month, the output shows a relative date in the format of `X s
 
 After a month has passed, the output shows a relative date in the format `on D MMM` or `on D MMM, YYYY` depending on the current year.
 
+| Time difference | Format                           | Examples                                                                                   |
+| --------------- | -------------------------------- | ------------------------------------------------------------------------------------------ |
+| < 1 minute      | just now                         | `just now`                                                                                 |
+| < 1 month       | X seconds/minutes/hours/days ago | `a minute ago`, `5 minutes ago`, `one hour ago`, `3 hours ago`, `yesterday`, `20 days ago` |
+| > 1 month       | on D MMM                         | `on 18 Nov`                                                                                |
+| Past year       | on D MMM, YYYY                   | `on 26 Aug, 2021`                                                                          |
+
 <img
   width="960"
   src="https://user-images.githubusercontent.com/912236/192233477-8c30b28b-5f48-44c6-b373-39a482f745a1.png"
@@ -34,9 +41,22 @@ If the future date is due to happen within the current month, the relative time 
 
 If the date is in the following months, the format `on D MMM` is used. If the date is in the next year or further, the format `on D MMM, YYYY` is used.
 
+| Time difference | Format                                 | Examples                                                                            |
+| --------------- | -------------------------------------- | ----------------------------------------------------------------------------------- |
+| < 1 minute      | just now                               | `just now`                                                                          |
+| < 1 month       | X seconds / minutes / hours / days ago | `in a minute`, `in 2 minutes`, `in an hour`, `in 7 hours`, `tomorrow`, `in 14 days` |
+| > 1 month       | on D MMM                               | `on 18 Nov`                                                                         |
+| Next year       | on D MMM, YYYY                         | `on 26 Aug, 2021`                                                                   |
+
 ### Micro format
 
 The `micro` format shows a short version of the relative time. It's useful to display the relative time in a more compact space or in a mobile environment. For both past and future dates, the output shows the relative time in the format of `Xs/h/d`. If the date is in the following or past months, the format `D MMM` is used. If the date is in the following or past years, the format `D MMM, YYYY` is used.
+
+| Time difference   | Format      | Examples                              |
+| ----------------- | ----------- | ------------------------------------- |
+| < 1 month         | Xs/h/d      | `1s`, `20s`, `5m`, `40m`, `1d`, `20d` |
+| > 1 month         | D MMM       | `18 Nov`                              |
+| Past or next year | D MMM, YYYY | `26 Aug, 2021`                        |
 
 <DoDontContainer>
   <Do>
