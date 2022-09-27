@@ -1,4 +1,4 @@
-name: Deploy to production environment
+name: Deploy 
 
 on:
   push:
@@ -11,55 +11,14 @@ permissions:
   id-token: write
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout main
-        uses: actions/checkout@v2
-        with:
-          version: 12
+  build_deploy:
+    if: ${{ github.event.pull_request.head.repo.full_name == 'primer/design' }}
+    name: Production
+    # SHA for security hardening. Points at last verified HEAD of main branch.
 
-      - name: Set up Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '12'
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        run: yarn
-
-      - name: Build
-        run: yarn build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Archive build output
-        run: 'tar --dereference --directory public/ -cvf artifact.tar .'
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: github-pages
-          path: artifact.tar
-
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: paper-spa/deploy-pages@main
-        with:
-          preview: false
+    uses: primer/.github/.github/workflows/deploy.yml@0cec9b9914f358846163f2428663b58da41028c9
+    with:
+      node_version: 12
+      install: yarn
+      build: yarn build
+      output_dir: public
