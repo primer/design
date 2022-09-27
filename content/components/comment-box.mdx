@@ -149,13 +149,28 @@ The toolbar provides the comment box with shortcuts to...
 
 ### Input
 
-The input will automatically resize to fit the content until a certain max height is reached. The input can also be manually resized by dragging the handle in the bottom right corner.
+The input is used to write the comment. While typing it will automatically resize to fit the content until a certain max height is reached. The input can also be manually resized by dragging the handle in the bottom right corner.
 
 <img
   src="https://user-images.githubusercontent.com/378023/191506579-c95ce6c1-0efe-4fcc-b47c-f7a29eb545a0.png"
   alt=""
   width="960"
 />
+
+It has the following heights:
+
+- **Min height**: 3 lines of text
+- **Default height**: 5 lines of text
+- **Max height**: `75vh`. This is 3/4 of the viewport height. Leaving 1/4 to scroll the page.
+
+Additionally the input can be configured to have a custom initial height:
+
+Option | value
+--- | ---
+`small` | 3 lines
+`medium` | 5 lines (default)
+`large` | 15 lines
+`xlarge` | 30 lines
 
 ## Messages
 
