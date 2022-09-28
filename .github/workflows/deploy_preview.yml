@@ -1,4 +1,4 @@
-name: Deploy to preview environment
+name: Deploy
 
 on:
   pull_request:
@@ -9,55 +9,15 @@ permissions:
   id-token: write
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout PR
-        uses: actions/checkout@v2
-        with:
-          version: 12
-
-      - name: Set up Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '12'
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        run: yarn
-
-      - name: Build
-        run: yarn build:preview
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Archive build output
-        run: 'tar --dereference --directory public/ -cvf artifact.tar .'
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: github-pages
-          path: artifact.tar
-
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: paper-spa/deploy-pages@main
-        with:
-          preview: true
+  deploy-preview:
+    if: ${{ github.event.pull_request.head.repo.full_name == 'primer/design' }}
+    name: Preview
+    # SHA for security hardening. Points at last verified HEAD of main branch.
+    uses: primer/.github/.github/workflows/deploy_preview.yml@0cec9b9914f358846163f2428663b58da41028c9 
+    secrets:
+      gh_token: ${{ secrets.GITHUB_TOKEN }}
+    with:
+      node_version: 12
+      install: yarn
+      build: yarn build:preview
+      output_dir: public
