@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   build_deploy:
-    if: ${{ github.event.pull_request.head.repo.full_name == 'primer/design' }}
+    if: ${{ github.repository == 'primer/design' }}
     name: Production
     # SHA for security hardening. Points at last verified HEAD of main branch.
     uses: primer/.github/.github/workflows/deploy.yml@0cec9b9914f358846163f2428663b58da41028c9
