@@ -1,0 +1,288 @@
+---
+title: Layout
+---
+
+<!--
+
+- Overview
+  - Layout organizes content, needs to be visually and semantically clear, needs to support assistive technology
+  - consistent layout is important for users
+
+- Responsive foundations
+  - Viewport ranges
+  - Breakpoints
+
+- Layout anatomy
+  - Types of pages
+    - Full, split, intestitial
+  - Page regions
+    - header, pane, content, footer
+
+- Responsive behavior
+
+
+-->
+
+import {Box, Heading} from '@primer/react'
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+  Github is a diverse and complex platform. These layout guidelines aim to provide a set of standards that enables consistent and responsive experiences.
+</Box>
+
+## Overview
+
+<!-- Needs review -->
+
+Humans process visual information by breaking down shapes and colors. The visual processing system parses colors and textures in parallel, while parsing shapes and forms one at a time. For this reason, user interfaces are organized following the person’s natural reading order. In languages that use Latin script, the horizontal flow has a left-to-right direction and vertical flow top-to-bottom. 
+
+As a consequence, users have expectations on where to find certain elements on a page. Having a consistent layout allows them to focus on their task, and it gives them a better mental model to navigate around GitHub with ease.
+
+GitHub needs to be designed to support a variety of device types and assistive technologies. A layout that is constructed following the reading order enables pages to adapt their experiences to meet the needs of the user and their devices.
+
+A familiar visual organization that is constructed following the reading order not only affects the way people visually parse an interface, but is aligned with the page’s semantic markup, and enables assistive technology to accurately represent the reading sequence.
+
+<!-- / Needs review -->
+
+### Takeways
+
+- **Compact**  
+Strive for dense user interfaces.
+<!-- "dense UIs" alone is confusing. might look like we want to create busy experiences -->
+
+- **Responsive**  
+Users can access GitHub from any browser/device. Pages should adapt to smaller screens, and take advantage of space in larger ones.
+
+- **Consistent**  
+Consistent interfaces let users focus on their tasks, improves wayfinding and feature discoverability.
+
+## Responsive foundations
+
+Primer provides two levels of abstraction for handling responsive designs:
+- **Viewport ranges**, for defining the layout and navigation affordance of a page at a high level.
+- **Breakpoints**, for fine-tuning custom experiences.
+
+### Viewport ranges
+
+Viewport ranges target common scenarios when designing responsive layouts. They are based on the viewport width, and are opinionated about the number of layout columns that can fit in a given range.
+
+Viewport ranges enable designs to break down complex multi-column experiences into simpler layouts according to the the available space.
+
+Because they provide a clear separation between mobile and desktop patterns, viewport ranges allow pages to remain powerful on desktop-friendly scenarios, while allowing a targetted streamlined experience in small devices.
+
+<p><img width="960" alt="Viewport ranges" src="https://user-images.githubusercontent.com/293280/192598220-9c6e2aba-7fa3-4a31-8934-177ddc536c39.png" /></p>
+
+Viewport range | Width range   | Columns  | Description
+---------------|---------------|----------|------------
+`narrow`       | < 768px       | 1        | Supports a single-column layout. Also known as “mobile”.
+`regular`      | >= 768px      | Up to 2  | All desktop-friendly patterns start at this range.
+`wide`         | >= 1400px     | Up to 3  | Optional range when a 3rd layout column is needed.
+
+### Breakpoints
+
+Breakpoints enable designers to fine-tune their responsive experiences, adjusting any specific responsive scenarios that are not addressed by viewport ranges.
+
+Historically, Primer has utilized breakpoints as the base of [mobile-first responsive CSS utilities](https://github.com/primer/css/blob/b5e009778ec01b6e983cba6cbf89cebfdc5a4124/docs/content/support/breakpoints.md). While these utilities values remain available, breakpoints are no longer tied to a `min-width` mobile-first media query approach.
+
+Breakpoint sizes should be simply seen as a unit in a ruler. The numbers are not opinionated into how they should be used when applied to a media query. That is, they don't refer to ranges that go upwards or downwards.
+
+While viewport ranges should be used for distinguishing responsive layout adaptations, custom media queries can be used internally for adjusting any specific responsive scenarios that require a fine-tune level of control.
+
+Breakpoint | Size
+-----------|-------
+`xsmall`   | 320px
+`small`    | 544px
+`medium`   | 768px
+`large`    | 1012px
+`xlarge`   | 1280px
+`xxlarge`  | 1400px
+
+For more information about viewport ranges and breakpoints, check the [Responsive API design guidelines ADR](https://github.com/github/primer/blob/main/adrs/2022-04-15-responsive-design-api-guidelines.md) (currently only available for hubbers). 
+
+## Anatomy of a page
+
+<p><img src="https://user-images.githubusercontent.com/293280/192653282-e728781c-6024-4d11-9388-12ad91ae388a.png" alt="Anatomy of a page" /></p>
+
+### App header
+
+**App header** is GitHub’s topmost bar. This header contains global navigation and actions, but also contextual navigation elements such as **Context region** and **Local navigation**.
+
+It may also contain other system-level elements, such as system-level notification banners. 
+
+App header is never fixed to the top of the viewport. It scrolls with the rest of the page.
+
+### Context region
+
+Context region informs the current section where the person is located. For example, in any page that belongs to a repository, it shows `:owner / :repository`.
+
+Context region is not a full-path breadcrumb. Instead, it works alongside elements such as Local navigation and other in-page navigation components to give the user a full mental model of where they are located.
+
+Don’t include custom interactive elements such as dropdown selectors or other buttons in the Context region.
+
+#### Repository context
+
+<DoDontContainer>
+<Do indented>
+
+`:owner / :repository`
+
+<Caption>Do represent repositories as direct sub-items of an organization or user in the Context region.</Caption> 
+</Do>
+<Dont indented>
+
+`:owner / :repository / Issues`
+
+<Caption>Don’t use a Context region to show the full page’s path. A selected “Issues” item in the local navigation should provide enough context already.</Caption>
+</Dont>
+</DoDontContainer>
+
+#### Owner context (organization or users)
+
+<DoDontContainer>
+<Do indented>
+
+`:owner`
+
+<Caption>Do reference top-level sections from an organization or an user with a single Context region item.</Caption>
+</Do>
+<Dont indented>
+
+`:owner / Projects`
+
+<Caption>Don’t use a Context region to show the full page’s path. A selected “Projects” item in the local navigation should provide enough context already.</Caption>
+</Dont>
+</DoDontContainer>
+
+#### Other owned categories
+
+<DoDontContainer>
+<Do indented>
+
+`:owner / Projects / :project`
+
+<Caption>Do represent objects other than repositories as sub-items of a category.</Caption> 
+</Do>
+<Dont indented>
+
+`:owner / Projects / :project / Insights`
+
+<Caption>Don’t display the full page’s path The page should have contextual navigation elements to provide such context.</Caption>
+</Dont>
+</DoDontContainer>
+
+### App footer
+
+**App footer** contains useful links and information about GitHub.
+
+
+AppHeader
+Page context
+Global actions area is fixed
+Never sticky
+AppFrame
+Holds system messages
+Where the page itself gets displayed
+AppFooter
+Always after the fold
+Can support auxiliary messaging
+Request for feedback
+Documentation about the current feature
+Optional for interactive pages that require infinite scrolling
+
+
+## Page types
+
+Page layouts can have many different forms and needs. The list below contain common page types that can be used as a starting point for designing new experiences.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <Box justifyContent="center">
+      <img
+        width="464"
+        alt=""
+        src="https://user-images.githubusercontent.com/293280/192611087-ac352e78-7c71-486b-955e-4f4f46968ca6.png"
+      />
+  </Box>
+  <Box>
+      <Heading as="h3" sx={{fontSize: 3, mb: 2}}>Full pages</Heading>
+
+This is the classic type of a page design of GitHub, where both content and pane regions appear horizontally centered to the viewport.
+
+Page layouts generally limit their maximum width to `xlarge` (1280px) so the content region doesn’t render paragraphs with too many words per line.
+
+  </Box>
+  <Box justifyContent="center">
+      <img
+        width="464"
+        alt=""
+        src="https://user-images.githubusercontent.com/293280/192611444-fea0ed57-ec9e-4e1d-aa1f-ad750670fd0a.png"
+      />
+  </Box>
+  <Box>
+      <Heading as="h3" sx={{fontSize: 3, mb: 2}}>Split pages</Heading>
+
+Split page layouts are a good options for pages that have side navigation, filtering, or any type of list-detail pattern.
+
+Split pages separate the viewport in two, allowing the pane to have an independent scrollable area. This is useful when the page has a long list of items, and the user needs to scroll through the list without losing the context of the selected item.
+
+The pane region of a split page layout is always flushed to the left. 
+
+The content region of a split page layout may have a maximum width. In those scenarios, the content region tries to remain centered horizontally to the viewport if there's space.
+
+  </Box>
+  <Box justifyContent="center">
+      <img
+        width="464"
+        alt=""
+        src="https://user-images.githubusercontent.com/293280/192609976-843e7562-81be-47c6-a1e1-0245e48da03a.png"
+      />
+  </Box>
+  <Box>
+      <Heading as="h3" sx={{fontSize: 3, mb: 2}}>Interstitial pages</Heading>
+
+Used for signing-in experiences, password verification, loading states, or other long operations.
+
+Interstitial pages usually have an `xsmall` (320px) maximum width.
+
+  </Box>
+</Box>
+
+## Layout regions
+
+Layout regions are the main structural building blocks of a page layout. They are the areas where content and components are placed, and group elements that share a common purpose.
+
+Layout regions make it easy to adapt the page to different viewport ranges. For more information about responsive behavior, see xxxxxxx.
+
+### Header region
+
+Headers appear at the top of the page, and include a page title, alongside optional actions, summary, local navigation, and metadata.
+
+### Content region
+
+The content region is used for displaying the main subject of the page. Other regions support the content with additional information, either about, or related to it.
+
+### Left pane region
+
+Display navigation, filtering, or an overview for entities such as users, bots, apps, etc.
+
+### Right pane region
+
+Display item details, metadata, and other auxiliary information.
+
+### Footer region
+
+Use it to display less important information, such as references, or links to other pages.
+
+<!--
+- includes title, page actions, summary, and other elements that are relevant to the page as a whole.
+- split pages = split headers | single header
+
+
+<img width="960" alt="" src="https://user-images.githubusercontent.com/293280/192630973-02953219-9f22-4d5b-98b6-5513b028f507.png" />
+<Caption>A split page layout displays title and subtitle horizontally on regular viewports.</Caption>
+-->
+
+## Responsive behavior
+
+
+
+
+## Scrolling behavior
