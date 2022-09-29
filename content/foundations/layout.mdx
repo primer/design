@@ -2,58 +2,39 @@
 title: Layout
 ---
 
-<!--
-
-- Overview
-  - Layout organizes content, needs to be visually and semantically clear, needs to support assistive technology
-  - consistent layout is important for users
-
-- Responsive foundations
-  - Viewport ranges
-  - Breakpoints
-
-- Layout anatomy
-  - Types of pages
-    - Full, split, intestitial
-  - Page regions
-    - header, pane, content, footer
-
-- Responsive behavior
-
-
--->
-
 import {Box, Heading} from '@primer/react'
 
 <Box sx={{fontSize: 3}} class="lead" as="p">
-  Github is a diverse and complex platform. These layout guidelines aim to provide a set of standards that enables consistent and responsive experiences.
+  Github is a diverse and complex platform. These layout guidelines aim to provide a set of standards that enables consistent, accessible, and responsive experiences.
 </Box>
 
 ## Overview
 
-<!-- Needs review -->
+Humans process visual information by breaking down shapes and colors. The visual processing system parses colors and textures in parallel, while parsing shapes and forms one at a time.
 
-Humans process visual information by breaking down shapes and colors. The visual processing system parses colors and textures in parallel, while parsing shapes and forms one at a time. For this reason, user interfaces are organized following the person’s natural reading order. In languages that use Latin script, the horizontal flow has a left-to-right direction and vertical flow top-to-bottom. 
+As a consequence, users have expectations on where to find certain elements on a page. To find what they are looking for, people rely on their natural reading order (top-to-bottom, left-to-right in Latin script), and their existing mental models of using computer interactions.
 
-As a consequence, users have expectations on where to find certain elements on a page. Having a consistent layout allows them to focus on their task, and it gives them a better mental model to navigate around GitHub with ease.
+A quick glance at a layout should provide a clear understanding of the content hierarchy and its relationship, based on these considerations. Having a consistent layout allows people to focus on their tasks rather than on learning new models. It helps them to navigate around the platform with ease and confidence.
 
-GitHub needs to be designed to support a variety of device types and assistive technologies. A layout that is constructed following the reading order enables pages to adapt their experiences to meet the needs of the user and their devices.
+Constructing a layout that is visually and semantically clear not only affects the way people perceive the content, but is also aligned with an accessible implementation. Assistive technologies such as screen readers and keyboard navigation rely on semantic markup to understand the page structure and provide a meaningful interaction.
 
-A familiar visual organization that is constructed following the reading order not only affects the way people visually parse an interface, but is aligned with the page’s semantic markup, and enables assistive technology to accurately represent the reading sequence.
-
-<!-- / Needs review -->
+Designing with these considerations in mind helps to create an experience that is consistent, accessible, and responsive.
 
 ### Takeways
 
-- **Compact**  
-Strive for dense user interfaces.
-<!-- "dense UIs" alone is confusing. might look like we want to create busy experiences -->
+#### Strive for a focused experience
 
-- **Responsive**  
-Users can access GitHub from any browser/device. Pages should adapt to smaller screens, and take advantage of space in larger ones.
+A page should enable the person to focus on the content. We should respect the user’s attention, and provide an experience that is clean, calm, and uncluttered.
 
-- **Consistent**  
-Consistent interfaces let users focus on their tasks, improves wayfinding and feature discoverability.
+#### Design fully-functional responsive experiences
+
+Pages should adapt to smaller screens, without loss of functionality. Multi-column page layouts need to be designed for scenarios where not all columns fit the viewport at once. Break down layout into multiple views for mobile-friendly experiences.
+
+#### Consider consistency inside and outside GitHub
+
+Leverage existing mental models people have from using GitHub, the web, and other computer software. Use familiar patterns and conventions to create an experience that can be rationally understood.
+
+<!-- Comment about permalinks? -->
 
 ## Responsive foundations
 
@@ -171,9 +152,13 @@ Don’t include custom interactive elements such as dropdown selectors or other 
 
 ### App footer
 
-**App footer** contains useful links and information about GitHub.
+**App footer** contains useful links and legal information about GitHub. It remains “after the fold” in smaller pages to keep the focus on the main content.
 
+The App footer should be visible in most core experiences. If the page is 
 
+For experiences that require 
+
+<!--
 AppHeader
 Page context
 Global actions area is fixed
@@ -187,7 +172,7 @@ Can support auxiliary messaging
 Request for feedback
 Documentation about the current feature
 Optional for interactive pages that require infinite scrolling
-
+-->
 
 ## Page types
 
@@ -249,7 +234,7 @@ Interstitial pages usually have an `xsmall` (320px) maximum width.
 
 Layout regions are the main structural building blocks of a page layout. They are the areas where content and components are placed, and group elements that share a common purpose.
 
-Layout regions make it easy to adapt the page to different viewport ranges. For more information about responsive behavior, see xxxxxxx.
+Layout regions make it easy to adapt the page to different viewport ranges. For more information about responsive behavior, see [Responsive behavior](#responsive-behavior) below.
 
 ### Header region
 
