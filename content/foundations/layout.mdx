@@ -66,7 +66,7 @@ Historically, Primer has utilized breakpoints as the base of [mobile-first respo
 
 Breakpoint sizes should be simply seen as a unit in a ruler. The numbers are not opinionated into how they should be used when applied to a media query. That is, they don't refer to ranges that go upwards or downwards.
 
-While viewport ranges should be used for distinguishing responsive layout adaptations, custom media queries can be used internally for adjusting any specific responsive scenarios that require a fine-tune level of control.
+While viewport ranges should be used for distinguishing responsive layout adaptations, custom media queries built with these breakpoints values can be used internally for adjusting any specific responsive scenarios that require a fine-tune level of control.
 
 Breakpoint | Size
 -----------|-------
@@ -85,9 +85,9 @@ For more information about viewport ranges and breakpoints, check the [Responsiv
 
 ### App header
 
-**App header** is GitHub’s topmost bar. This header contains global navigation and actions, but also contextual navigation elements such as **Context region** and **Local navigation**.
+App header is GitHub’s topmost bar. This header contains global navigation and actions, but also contextual navigation elements such as **Context region** and **Local navigation**.
 
-It may also contain other system-level elements, such as system-level notification banners. 
+It may also contain other system-level elements, such as notification banners. 
 
 App header is never fixed to the top of the viewport. It scrolls with the rest of the page.
 
@@ -112,7 +112,7 @@ Don’t include custom interactive elements such as dropdown selectors or other 
 
 `:owner / :repository / Issues`
 
-<Caption>Don’t use a Context region to show the full page’s path. A selected “Issues” item in the local navigation should provide enough context already.</Caption>
+<Caption>Don’t use a Context region to show the full page’s path. A selected “Issues” item in the local navigation should provide enough complementary context.</Caption>
 </Dont>
 </DoDontContainer>
 
@@ -123,13 +123,13 @@ Don’t include custom interactive elements such as dropdown selectors or other 
 
 `:owner`
 
-<Caption>Do reference top-level sections from an organization or an user with a single Context region item.</Caption>
+<Caption>Do represent top-level sections with a single Context region item.</Caption>
 </Do>
 <Dont indented>
 
 `:owner / Projects`
 
-<Caption>Don’t use a Context region to show the full page’s path. A selected “Projects” item in the local navigation should provide enough context already.</Caption>
+<Caption>Don’t use a Context region to show the full page’s path. A selected “Projects” item in the local navigation should provide enough complementary context.</Caption>
 </Dont>
 </DoDontContainer>
 
@@ -146,33 +146,15 @@ Don’t include custom interactive elements such as dropdown selectors or other 
 
 `:owner / Projects / :project / Insights`
 
-<Caption>Don’t display the full page’s path The page should have contextual navigation elements to provide such context.</Caption>
+<Caption>Don’t display the full page’s path. The page should use local or in-page navigation elements to provide such context.</Caption>
 </Dont>
 </DoDontContainer>
 
 ### App footer
 
-**App footer** contains useful links and legal information about GitHub. It remains “after the fold” in smaller pages to keep the focus on the main content.
+App footer contains useful links and legal information about GitHub. It remains “after the fold” in smaller pages to keep the focus on the main content.
 
-The App footer should be visible in most core experiences. If the page is 
-
-For experiences that require 
-
-<!--
-AppHeader
-Page context
-Global actions area is fixed
-Never sticky
-AppFrame
-Holds system messages
-Where the page itself gets displayed
-AppFooter
-Always after the fold
-Can support auxiliary messaging
-Request for feedback
-Documentation about the current feature
-Optional for interactive pages that require infinite scrolling
--->
+The App footer should be present in all core pages. Experiences that require rich interactions, such as when manipulating large amounts of data, may opt-out of the App footer.
 
 ## Page types
 
@@ -206,9 +188,9 @@ Page layouts generally limit their maximum width to `xlarge` (1280px) so the con
 
 Split page layouts are a good options for pages that have side navigation, filtering, or any type of list-detail pattern.
 
-Split pages separate the viewport in two, allowing the pane to have an independent scrollable area. This is useful when the page has a long list of items, and the user needs to scroll through the list without losing the context of the selected item.
+Split pages separate the viewport in two, allowing the pane to have an independent scrollable area. This is useful when the pane has a long list of items, and the user needs to scroll through the list without losing the context of the selected item.
 
-The pane region of a split page layout is always flushed to the left. 
+The pane region of a split page layout is always flushed to the left. Don’t use right-aligned flushed panes as their scrollbar may conflict with the page scrollbar.
 
 The content region of a split page layout may have a maximum width. In those scenarios, the content region tries to remain centered horizontally to the viewport if there's space.
 
