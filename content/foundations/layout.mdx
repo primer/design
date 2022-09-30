@@ -8,6 +8,8 @@ import {Box, Heading} from '@primer/react'
   Github is a diverse and complex platform. These layout guidelines aim to provide a set of standards that enables consistent, accessible, and responsive experiences.
 </Box>
 
+<p><img src="https://user-images.githubusercontent.com/293280/193166608-82aa77e2-4369-4c27-a504-f2d3bbe0d7a3.png" alt="" width="960" /></p>
+
 ## Overview
 
 Humans process visual information by breaking down shapes and colors. The visual processing system parses colors and textures in parallel, while parsing shapes and forms one at a time.
@@ -232,7 +234,7 @@ Display navigation, filtering, or an overview for entities such as users, bots, 
 
 ### Right pane region
 
-Display item details, metadata, and other auxiliary information.
+Display item metadata, details, and other auxiliary information.
 
 ### Footer region
 
@@ -249,7 +251,53 @@ Use it to display less important information, such as references, or links to ot
 
 ## Responsive behavior
 
+Narrow viewport options
+- Stack vertically
+- Split into different pages
+- Show pane as bottom sheet
 
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <Box justifyContent="center">
+      <img
+        width="464"
+        alt=""
+        src="https://user-images.githubusercontent.com/293280/193164769-c5d1a0c3-9219-4068-ab7c-e7581b0faf7c.png"
+      />
+  </Box>
+  <Box>
+      <Heading as="h3" sx={{fontSize: 3, mb: 2}}>Stack vertically</Heading>
+
+
+
+  </Box>
+  <Box justifyContent="center">
+      <img
+        width="464"
+        alt=""
+        src="https://user-images.githubusercontent.com/293280/193164767-3818b146-b035-4085-91fa-4a6482b5735b.png"
+      />
+  </Box>
+  <Box>
+      <Heading as="h3" sx={{fontSize: 3, mb: 2}}>Split into different pages</Heading>
+
+List-detail patterns, such as settings pages, can be split into different pages when the viewport is narrow.
+
+  </Box>
+  <Box justifyContent="center">
+      <img
+        width="464"
+        alt=""
+        src="https://user-images.githubusercontent.com/293280/193164765-d3d0e01f-5250-4d06-9570-d33b5229d6ce.png"
+      />
+  </Box>
+  <Box>
+      <Heading as="h3" sx={{fontSize: 3, mb: 2}}>Show pane as bottom sheet</Heading>
+
+Auxiliary panes can be displayed as bottom sheets.
+
+  </Box>
+</Box>
 
 
 ## Scrolling behavior
