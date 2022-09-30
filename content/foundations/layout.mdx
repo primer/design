@@ -240,36 +240,11 @@ Display item metadata, details, and other auxiliary information.
 
 Use it to display less important information, such as references, or links to other pages.
 
-<!--
-- includes title, page actions, summary, and other elements that are relevant to the page as a whole.
-- split pages = split headers | single header
-
-
-<img width="960" alt="" src="https://user-images.githubusercontent.com/293280/192630973-02953219-9f22-4d5b-98b6-5513b028f507.png" />
-<Caption>A split page layout displays title and subtitle horizontally on regular viewports.</Caption>
--->
-
 ## Responsive behavior
 
-Narrow viewport options
-- Stack vertically
-- Split into different pages
-- Show pane as bottom sheet
+Narrow viewports support a single column when displaying page layouts. The list below contain common responsive adaptations to make sure experiences can remain usable on smaller screens.
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-  <Box justifyContent="center">
-      <img
-        width="464"
-        alt=""
-        src="https://user-images.githubusercontent.com/293280/193167624-f66af4a2-49b9-4610-bf76-36f77a5521e8.png"
-      />
-  </Box>
-  <Box>
-      <Heading as="h3" sx={{fontSize: 3, mb: 2}}>Stack vertically</Heading>
-
-
-
-  </Box>
   <Box justifyContent="center">
       <img
         width="464"
@@ -282,6 +257,8 @@ Narrow viewport options
 
 List-detail patterns, such as settings pages, can be split into different pages when the viewport is narrow.
 
+In this behavior, only one of pane or content regions is shown. The user can switch between the two by selecting an item from the list to drill-in into its details, or navigate back using a parent link in the page header.
+
   </Box>
   <Box justifyContent="center">
       <img
@@ -293,10 +270,22 @@ List-detail patterns, such as settings pages, can be split into different pages 
   <Box>
       <Heading as="h3" sx={{fontSize: 3, mb: 2}}>Show pane as bottom sheet</Heading>
 
-Auxiliary panes can be displayed as bottom sheets.
+Panes can be displayed as bottom sheets when they’re used to display auxiliary information, such as metadata, details or actions. Use narrow viewport-specific button triggers to open the pane as a bottom sheet.
+
+  </Box>
+  <Box justifyContent="center">
+      <img
+        width="464"
+        alt=""
+        src="https://user-images.githubusercontent.com/293280/193167624-f66af4a2-49b9-4610-bf76-36f77a5521e8.png"
+      />
+  </Box>
+  <Box>
+      <Heading as="h3" sx={{fontSize: 3, mb: 2}}>Stack vertically</Heading>
+
+In scenarios where the pane is used to display an overview of the content, it can be stacked vertically on top of the content region. Metadata and auxiliary information can appear stacked below the content region.
+
+Additionally, a small pane summary may appear above the content, with a trigger used to display the full details as a bottom sheet.
 
   </Box>
 </Box>
-
-
-## Scrolling behavior
