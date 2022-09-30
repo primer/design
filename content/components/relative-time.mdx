@@ -15,9 +15,13 @@ import {Box, Text} from '@primer/react'
 
 For past dates, the relative time outputs different formats depending on the time difference.
 
-Within the current month, the output shows a relative date in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`.
+Within the current month, the output shows a relative time[^1] in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`.
 
-If the date is in past months, the format `on D MMM` is used. If the date is in the past years, the format `on D MMM, YYYY` is used.
+[^1]: Relative time data is derived from the [Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat) API.
+
+If the date is in past months, the date time[^2] format `on D MMM` is used. If the date is in the past years, the format `on D MMM, YYYY` is used.
+
+[^2]: Date time data is derived from the [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat) API.
 
 | Time difference | Format                           | Examples                                                                                   |
 | --------------- | -------------------------------- | ------------------------------------------------------------------------------------------ |
@@ -26,12 +30,13 @@ If the date is in past months, the format `on D MMM` is used. If the date is in 
 | > 1 month       | on D MMM                         | `on 18 Nov`                                                                                |
 | Past year       | on D MMM, YYYY                   | `on 26 Aug, 2021`                                                                          |
 
-<img
-  width="960"
-  src="https://user-images.githubusercontent.com/912236/192233477-8c30b28b-5f48-44c6-b373-39a482f745a1.png"
-  role="presentation"
-/>
-<Caption>A list of items using relative time outputs.</Caption>
+<p>
+  <img
+    width="960"
+    alt="Relative time examples"
+    src="https://user-images.githubusercontent.com/912236/192233477-8c30b28b-5f48-44c6-b373-39a482f745a1.png"
+  />
+</p>
 
 ### Future dates
 
@@ -98,7 +103,7 @@ A relative time can be used as an independent element when the content and the s
       alt=""
       src="https://user-images.githubusercontent.com/912236/191997579-7a5be204-91ed-4163-97fc-18cd6e82a0c7.png"
     />
-    <Caption>Used in a table where each item title references the action that was performed.</Caption>
+    <Caption>Use it in a list item where each item title references the action that was performed.</Caption>
   </div>
   <div>
     <img
@@ -106,29 +111,29 @@ A relative time can be used as an independent element when the content and the s
       alt=""
       src="https://user-images.githubusercontent.com/912236/191965093-80c1858f-5d36-4caf-aecf-fd333c2c104c.png"
     />
-    <Caption>Used in a timeline where the section title references the action.</Caption>
+    <Caption>Use it in a timeline item where the section title references the action.</Caption>
   </div>
 </Box>
 
-When used in isolation, the default format can change to `micro` when the space is limited.
+#### Responsive design
+
+When used as standalone element, the default format can change to `micro` to fit in a narrow area.
 
 <CustomVideoPlayer
   width="100%"
   loop
   src="https://user-images.githubusercontent.com/912236/192255353-88749767-f1d1-49af-8145-86b60f5215b8.mp4"
 />
-<Caption>The micro format is used for responsive layouts.</Caption>
 
 ### Links
 
-A relative time is used as plain text in most cases. However, it can be used as an anchor link to point to an element within a view that contains relevant or nested information.
+A relative time is used as plain text in most cases. However, it can be used as an anchor link to point to an element within a view that contains relevant or nested information. For example, as a link to a comment in a conversation.
 
 <img
   width="960"
-  alt=""
+  alt="A relative time as a link to a comment in a conversation."
   src="https://user-images.githubusercontent.com/912236/192507200-d764ff4e-2fae-4f72-b179-be39b41b7210.png"
 />
-<Caption>A relative time as a link for comments in a thread.</Caption>
 
 ## Accessibility
 
