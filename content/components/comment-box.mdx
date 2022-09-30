@@ -157,20 +157,13 @@ The input is used to write the comment. While typing it will automatically resiz
   width="960"
 />
 
-It has the following heights:
-
-- **Min height**: 3 lines of text
-- **Default height**: 5 lines of text
-- **Max height**: `75vh`. This is 3/4 of the viewport height. Leaving 1/4 to scroll the page.
-
-Additionally the input can be configured to have a custom initial height:
+The default and minimum height is `100px`. For cases where users typically add a lot of content, like issues or pull request descriptions, the input can be configured to have an increased initial height:
 
 Option | value
 --- | ---
-`small` | 3 lines
-`medium` | 5 lines (default)
-`large` | 15 lines
-`xlarge` | 30 lines
+`small` (default) | `100px`
+`medium` | `300px` 
+`large` | `500px`
 
 ## Messages
 
