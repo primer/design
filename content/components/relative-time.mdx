@@ -15,13 +15,13 @@ import {Box, Text} from '@primer/react'
 
 For past dates, the relative time outputs different formats depending on the time difference.
 
-Within the current month, the output shows a relative time[^1] in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`.
+Within a month's time, the output shows a relative time[^1] in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`.
 
-[^1]: Relative time data is derived from the [Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat) API.
+[^1]: Relative time data is derived from the [Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) API.
 
 If the date is in past months, the date time[^2] format `on D MMM` is used. If the date is in the past years, the format `on D MMM, YYYY` is used.
 
-[^2]: Date time data is derived from the [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat) API.
+[^2]: Date time data is derived from the [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) API.
 
 | Time difference | Format                           | Examples                                                                                   |
 | --------------- | -------------------------------- | ------------------------------------------------------------------------------------------ |
@@ -42,7 +42,7 @@ If the date is in past months, the date time[^2] format `on D MMM` is used. If t
 
 Future dates also use different formats depending on the time difference.
 
-If the future date is due to happen within the current month, the relative time outputs the format of `in X seconds/minutes/hours/days`. If the time difference is less than 1 minute, it shows `just now`.
+If the future date is due to happen within the a month's time, the relative time outputs the format of `in X seconds/minutes/hours/days`. If the time difference is less than 1 minute, it shows `just now`.
 
 If the date is in the following months, the format `on D MMM` is used. If the date is in the next year or further, the format `on D MMM, YYYY` is used.
 
