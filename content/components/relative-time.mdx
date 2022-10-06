@@ -1,13 +1,10 @@
 ---
 title: Relative time
 status: Experimental
+description: A relative time displays the time difference between the current time and the specified date-time.
 ---
 
-import {Box, Text} from '@primer/react'
-
-<Box sx={{fontSize: 3}} class="lead" as="p">
-  A relative time displays the time difference between the current time and the specified date-time.
-</Box>
+import {Box} from '@primer/react'
 
 ## Content
 
@@ -23,12 +20,12 @@ If the date is in past months, the date time[^2] format `on D MMM` is used. If t
 
 [^2]: Date time data is derived from the [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) API.
 
-| Time difference | Format                           | Examples                                                                                   |
-| --------------- | -------------------------------- | ------------------------------------------------------------------------------------------ |
-| < 1 minute      | just now                         | `just now`                                                                                 |
+| Time difference | Format                           | Examples                                                                                  |
+| --------------- | -------------------------------- | ----------------------------------------------------------------------------------------- |
+| < 1 minute      | just now                         | `just now`                                                                                |
 | < 1 month       | X seconds/minutes/hours/days ago | `a minute ago`, `5 minutes ago`, `an hour ago`, `3 hours ago`, `yesterday`, `20 days ago` |
-| > 1 month       | on D MMM                         | `on 18 Nov`                                                                                |
-| Past year       | on D MMM, YYYY                   | `on 26 Aug, 2021`                                                                          |
+| > 1 month       | on D MMM                         | `on 18 Nov`                                                                               |
+| Past year       | on D MMM, YYYY                   | `on 26 Aug, 2021`                                                                         |
 
 <p>
   <img
@@ -46,12 +43,12 @@ If the future date is due to happen within the a month's time, the relative time
 
 If the date is in the following months, the format `on D MMM` is used. If the date is in the next year or further, the format `on D MMM, YYYY` is used.
 
-| Time difference | Format                                 | Examples                                                                            |
-| --------------- | -------------------------------------- | ----------------------------------------------------------------------------------- |
-| < 1 minute      | just now                               | `just now`                                                                          |
+| Time difference | Format                                | Examples                                                                            |
+| --------------- | ------------------------------------- | ----------------------------------------------------------------------------------- |
+| < 1 minute      | just now                              | `just now`                                                                          |
 | < 1 month       | in X seconds / minutes / hours / days | `in a minute`, `in 2 minutes`, `in an hour`, `in 7 hours`, `tomorrow`, `in 14 days` |
-| > 1 month       | on D MMM                               | `on 18 Nov`                                                                         |
-| Next year       | on D MMM, YYYY                         | `on 26 Aug, 2021`                                                                   |
+| > 1 month       | on D MMM                              | `on 18 Nov`                                                                         |
+| Next year       | on D MMM, YYYY                        | `on 26 Aug, 2021`                                                                   |
 
 ### Micro format
 

@@ -1,66 +1,10 @@
 ---
 title: Action bar
 status: Experimental
+description: An action bar contains a collection of horizontally aligned icon buttons.
 ---
 
-import {Box, Label, LabelGroup, Text} from '@primer/react'
-
-<Box sx={{fontSize: 3}} class="lead" as="p">
-  An action bar contains a collection of horizontally aligned icon buttons.
-</Box>
-
-<!-- TODO: uncomment when available
-<LabelGroup>
-  <Label
-    as="a"
-    href="https://primer.style/react/ActionBar"
-    size="large"
-    variant="secondary"
-    sx={{textDecoration: 'none'}}
-  >
-    <img
-      width="16"
-      height="16"
-      alt=""
-      src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png"
-      style="vertical-align: middle; margin-right: 4px;"
-    />
-    React
-  </Label>
-  <Label
-    as="a"
-    href=""
-    size="large"
-    variant="secondary"
-    sx={{textDecoration: 'none'}}
-  >
-    <img
-      width="16"
-      height="16"
-      alt=""
-      src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png"
-      style="vertical-align: middle; margin-right: 4px;"
-    />
-    Figma
-  </Label>
-  <Label
-    as="a"
-    href="https://primer.style/view-components/components/alpha/actionbar"
-    size="large"
-    variant="secondary"
-    sx={{textDecoration: 'none'}}
-  >
-    <img
-      width="16"
-      height="16"
-      alt=""
-      src="https://user-images.githubusercontent.com/18661030/171468311-184bfd70-128e-4bfc-b482-96d0de49d42a.png"
-      style="vertical-align: middle; margin-right: 4px;"
-    />
-    Rails
-  </Label>
-</LabelGroup>
--->
+import {Box, Text} from '@primer/react'
 
 ## Overview
 
@@ -68,7 +12,11 @@ Use an action bar to render multiple icon buttons in a row. Buttons can be split
 
 ## Anatomy
 
-<img width="960" alt="A diagram of an action bar with a few buttons, a divider and at the end a button that opens an overflow menu." src="https://user-images.githubusercontent.com/378023/193506131-be8bead4-d1ab-4c79-8ac1-054e75bac9be.png" />
+<img
+  width="960"
+  alt="A diagram of an action bar with a few buttons, a divider and at the end a button that opens an overflow menu."
+  src="https://user-images.githubusercontent.com/378023/193506131-be8bead4-d1ab-4c79-8ac1-054e75bac9be.png"
+/>
 
 ## Content
 
@@ -161,7 +109,9 @@ Buttons in action bars are solely used for triggering actions. Consider using a 
       role="presentation"
       width="456"
     />
-    <Caption>Buttons in action bars have a hover and pressed state, and a focused state when using a keyboard to navigate.</Caption>
+    <Caption>
+      Buttons in action bars have a hover and pressed state, and a focused state when using a keyboard to navigate.
+    </Caption>
   </Do>
   <Dont>
     <img
@@ -243,7 +193,10 @@ Make sure to add extra spacing around the action bar.
       role="presentation"
       width="456"
     />
-    <Caption>Avoid having the action bar touch something else. Even though the action bar buttons have no borders in their resting state, when hovering/pressing a button it will show a background color.</Caption>
+    <Caption>
+      Avoid having the action bar touch something else. Even though the action bar buttons have no borders in their
+      resting state, when hovering/pressing a button it will show a background color.
+    </Caption>
   </Dont>
 </DoDontContainer>
 
@@ -255,14 +208,14 @@ An action bar has an ARIA role of [`toolbar`](https://developer.mozilla.org/en-U
 
 ### Keyboard navigation
 
-| Key | description |
-| -- | -- |
-| `Tab` | Moves focus into and out of the action bar. Note that there should only be **one tab-stop** and pressing tab again should focus the next focusable element after the action bar. Also the first button is focused if the action bar is receiving focus for the first time after page load. Otherwise, the most recently focused button receives focus. |
-| `→` | Right arrow moves focus to the **next** button. If the last button has focus, focus loops back to the first button. |
-| `←` | Left arrow moves focus to the **previous** button. If the first button has focus, focus moves to the last button. |
-| `Home` | Moves focus to the **first** button. |
-| `End` | Moves focus to the **last** button. |
-| `Enter` or `Space` | Triggers the button **action**. |
+| Key                | description                                                                                                                                                                                                                                                                                                                                            |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Tab`              | Moves focus into and out of the action bar. Note that there should only be **one tab-stop** and pressing tab again should focus the next focusable element after the action bar. Also the first button is focused if the action bar is receiving focus for the first time after page load. Otherwise, the most recently focused button receives focus. |
+| `→`                | Right arrow moves focus to the **next** button. If the last button has focus, focus loops back to the first button.                                                                                                                                                                                                                                    |
+| `←`                | Left arrow moves focus to the **previous** button. If the first button has focus, focus moves to the last button.                                                                                                                                                                                                                                      |
+| `Home`             | Moves focus to the **first** button.                                                                                                                                                                                                                                                                                                                   |
+| `End`              | Moves focus to the **last** button.                                                                                                                                                                                                                                                                                                                    |
+| `Enter` or `Space` | Triggers the button **action**.                                                                                                                                                                                                                                                                                                                        |
 
 <!-- TODO: Add video -->
 
@@ -277,7 +230,10 @@ An action bar has an ARIA role of [`toolbar`](https://developer.mozilla.org/en-U
   sx={{gap: 3}}
 >
   <Text as="p" mt="0">
-    Ensure action bar buttons have a large enough touch target size (44px by 44px). The buttons should respond to hovers, clicks, and taps anywhere in the touch target area, even if it isn't directly on the control. To avoid overlapping of touch targets, additional space between each button is needed (for example a 12px gap for medium sized buttons).
+    Ensure action bar buttons have a large enough touch target size (44px by 44px). The buttons should respond to
+    hovers, clicks, and taps anywhere in the touch target area, even if it isn't directly on the control. To avoid
+    overlapping of touch targets, additional space between each button is needed (for example a 12px gap for medium
+    sized buttons).
   </Text>
   <img
     src="https://user-images.githubusercontent.com/378023/193507314-1f1cc55d-ca4e-4832-a6de-785546e079ca.png"
