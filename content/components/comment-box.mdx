@@ -68,7 +68,7 @@ import {Box, Label, LabelGroup, Text} from '@primer/react'
 
 ## Content
 
-### Label
+### Label (required)
 
 A label is shown above the comment box to establish the context and inform users about the purpose of the text input that follows. The default label is "Add a comment".
 
@@ -87,13 +87,15 @@ A label is shown above the comment box to establish the context and inform users
       role="presentation"
       width="456"
     />
-    <Caption>Don't hide the label. Also don't change the label to notify users of any kind of state or event, like when an error occurred.</Caption>
+    <Caption>Don't hide the label. Also don't use the label to notify users of any kind of state or event, like when an error occurred.</Caption>
   </Dont>
 </DoDontContainer>
 
-### Placeholder text
+### Placeholder text (recommended)
 
-The placeholder text is meant to give users addtional hints. Keep in mind that it will disappear as soon as users start typing. The default placeholder text is "Type here..."
+The placeholder text is meant to give users addtional hints. Keep in mind that it will disappear as soon as users start typing. The default placeholder text is "Type here...".
+
+Note: A placeholder text is not required, but still recommended. It helps to improve usablity and make sure users know where to type.
 
 <DoDontContainer>
   <Do>
