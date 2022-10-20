@@ -1,0 +1,347 @@
+---
+title: Button
+status: Alpha
+---
+
+import {useState} from 'react'
+
+import {StorybookEmbed} from '../../src/StorybookEmbed'
+
+import {LookbookEmbed} from '../../src/LookbookEmbed'
+
+import PropsTable from '../../src/PropsTable'
+
+import {SubNav} from '../../src/SubNav'
+
+import {Box, Heading} from '@primer/react'
+
+<SubNav />
+
+## Overview
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+  Description
+</Box>
+
+### Anatomy
+
+<img
+  width="960"
+  alt=""
+  src="https://user-images.githubusercontent.com/18661030/192066714-591f02a3-eac0-4df7-bc52-4390a673ace1.png"
+/>
+<Caption>Anatomy of a Button.</Caption>
+
+### Options
+
+<img
+  width="960"
+  alt=""
+  src="https://user-images.githubusercontent.com/18661030/192066712-1d89f6bb-bc10-4f83-b14b-3f20fe37ec1a.png"
+/>
+<Caption>Buttons can be a secondary, primary, danger, or invisible variant.</Caption>
+
+### Usage
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/192066709-a5c80b89-4af4-44c7-ae47-ed336e9de271.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Keep button labels succinct with no line breaks.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/192066707-4097dc30-ea23-45f2-b675-5740a8e8d327.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Buttons should never contain line breaks and lose their button shape.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/192066705-57cf1434-b82a-4ba7-9ae5-69d765a36460.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use sentence case for labels.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/192066704-4dbb8db3-58a2-4c44-9942-dcaafa51e3e8.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use all-caps or other text formats.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/192066703-8b34b950-3fb3-4f96-9bd5-ef6c5f54d0f9.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Show focus styles on keyboard `:focus`</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/192066701-68eebde2-2986-4b9b-ab40-cf3e309fbc13.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't remove default button `:focus` styles.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/192066700-8ac71141-65bb-46ab-b205-3496f25c6ab9.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Place primary buttons at the end of a button group</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/192066699-7bbb6258-cddf-4e3d-a230-15cb95f9cce1.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don’t place primary buttons at the start of a button group</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/192066698-9ee98237-b41c-4d7f-88fd-d130283dfbf8.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use a primary button with a secondary button</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/192066697-87463b2c-4d54-4cfb-8296-a392363a4c27.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don’t place multiple primary buttons together</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Styles
+
+### Leading and trailing visuals
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={6}>
+  <Box justifyContent="center">
+    <img
+      width="464"
+      alt="addme"
+      src="https://user-images.githubusercontent.com/18661030/192066692-44e59408-c557-46cb-b34a-f80efe2373bc.png"
+    />
+  </Box>
+  <Box>
+    <Heading sx={{fontSize: 3}}>Trailing action</Heading>
+    <Box as="p">
+      Trailing actions such as dropdown carets are always locked to the end of a button, which is particularly obvious
+      for full width scenarios.
+    </Box>
+    <Box as="p">
+      If a button is a call-to-action (Submit, Save, Do this™, etc), its contents (visuals + button label) appear
+      center-aligned inside the button container.
+    </Box>
+    <Box as="p">
+      If a button is used for selecting items (Weeks ▾, Iteration ▾, Sort ▾, Select™ ▾, etc), its contents (visuals +
+      button label) appear left-aligned inside the button container.
+    </Box>
+  </Box>
+</Box>
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={6}>
+  <Box justifyContent="center">
+    <img
+      width="464"
+      alt="addme"
+      src="https://user-images.githubusercontent.com/18661030/192066679-3e02b910-8d29-471d-b08d-e88b916c202d.png"
+    />
+  </Box>
+  <Box>
+    <Heading sx={{fontSize: 3}}>Leading visual</Heading>
+    <Box as="p">
+      Leading visuals provide additional context for a button label, such as a “search” icon next to the label for a
+      search field submit.
+    </Box>
+    <Box as="p">Leading visuals always apear locked to the button label, even if the button is full width.</Box>
+  </Box>
+</Box>
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={6}>
+  <Box justifyContent="center">
+    <img
+      width="464"
+      alt="addme"
+      src="https://user-images.githubusercontent.com/18661030/192066682-cc57f88d-cd6d-4a38-9c8b-ccf6f8f56076.png"
+    />
+  </Box>
+  <Box>
+    <Heading sx={{fontSize: 3}}>Trailing visual</Heading>
+    <Box as="p">Trailing visuals such as counters display additional information about the action or task at hand.</Box>
+    <Box as="p">Trailing visuals always apear locked to the button label, even if the button is full width.</Box>
+  </Box>
+</Box>
+
+### Sizing and spacing
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={6}>
+  <Box justifyContent="center">
+    <img
+      width="464"
+      alt="addme"
+      src="https://user-images.githubusercontent.com/18661030/192066683-4e09306f-543c-4531-a08c-e75ef2a14f23.png"
+    />
+  </Box>
+  <Box>
+    <Heading sx={{fontSize: 3}}>Medium (default)</Heading>
+    <Box as="p">
+      Primer buttons are medium sized by default. Medium is suitable for most interfaces and is considered the preferred
+      size.
+    </Box>
+  </Box>
+</Box>
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={6}>
+  <Box justifyContent="center">
+    <img
+      width="464"
+      alt="addme"
+      src="https://user-images.githubusercontent.com/18661030/192066684-7dc0d988-d606-43cb-874f-d546c8ad6874.png"
+    />
+  </Box>
+  <Box>
+    <Heading sx={{fontSize: 3}}>Small</Heading>
+    <Box as="p">Small buttons may be used when space is limited and if the action is less significant.</Box>
+  </Box>
+</Box>
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={6}>
+  <Box justifyContent="center">
+    <img
+      width="464"
+      alt="addme"
+      src="https://user-images.githubusercontent.com/18661030/192066685-eedc59dd-f2b8-43f9-a88e-7174dfad071e.png"
+    />
+  </Box>
+  <Box>
+    <Heading sx={{fontSize: 3}}>Large</Heading>
+    <Box as="p">
+      Large buttons increase the significance of an action and should be used sparingly. More often than not a medium
+      sized button will be more appropriate.
+    </Box>
+  </Box>
+</Box>
+
+### Color
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={5}>
+  <div>
+    <img
+      width="464"
+      src="https://user-images.githubusercontent.com/18661030/192066686-f26c8ee3-f526-4fa1-a317-e0eb4b45359d.png"
+      alt=""
+    />
+    <Caption>
+      Primary buttons represent the highest priority action in a page. There should only ever be one primary button (if
+      any) in a button group, and typically only one primary button should be present in page.
+    </Caption>
+  </div>
+  <div>
+    <img
+      width="464"
+      src="https://user-images.githubusercontent.com/18661030/192066688-0bb1cfe5-149d-4bc9-8a7a-ed61eeadb85e.png"
+      alt=""
+    />
+    <Caption>
+      Secondary buttons are the default button color scheme and are suitable for more interactions. They can be paired
+      with a primary button to perform a secondary action, or used on their own.
+    </Caption>
+  </div>
+</Box>
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/192066690-8a470bf4-d0b6-4796-a2e3-8356d5923fba.png"
+    />
+    <Caption>
+      Invisible buttons have a transparent background with translucent hover and active states, making them useful for
+      compound components like ActionList.
+    </Caption>
+  </div>
+  <div>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/192066691-500770e0-9191-4318-8800-9e40642d80fb.png"
+    />
+    <Caption>
+      Danger buttons should be used sparingly to warn of a destructive action, typically resulting in the opening of a
+      confirmation dialog.
+    </Caption>
+  </div>
+</Box>
+
+## React
+
+<StorybookEmbed
+  componentId="composite-components-button"
+  stories={{
+    'default-button': {
+      name: 'Default'
+    },
+    'primary-button': {
+      name: 'Primary'
+    }
+  }}
+/>
+
+## Rails
+
+<LookbookEmbed
+  status="beta"
+  component="button"
+  previews={{
+    default: {
+      name: 'Default'
+    },
+    primary: {
+      name: 'Primary'
+    },
+    danger: {
+      name: 'Danger'
+    },
+    invisible: {
+      name: 'Invisible'
+    },
+    all_schemes: {
+      name: 'All schemes'
+    }
+  }}
+/>
+
+### Props
+
+<PropsTable component="Button" />
+
+## Accessibility
