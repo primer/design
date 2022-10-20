@@ -1,0 +1,137 @@
+---
+title: Relative time
+status: Experimental
+description: A relative time displays the time difference between the current time and the specified date-time.
+---
+
+import {Box} from '@primer/react'
+
+## Content
+
+### Past dates
+
+For past dates, the relative time outputs different formats depending on the time difference.
+
+Within a month's time, the output shows a relative time[^1] in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`.
+
+[^1]: Relative time data is derived from the [Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) API.
+
+If the date is in past months, the date time[^2] format `on D MMM` is used. If the date is in the past years, the format `on D MMM, YYYY` is used.
+
+[^2]: Date time data is derived from the [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) API.
+
+| Time difference | Format                           | Examples                                                                                  |
+| --------------- | -------------------------------- | ----------------------------------------------------------------------------------------- |
+| < 1 minute      | just now                         | `just now`                                                                                |
+| < 1 month       | X seconds/minutes/hours/days ago | `a minute ago`, `5 minutes ago`, `an hour ago`, `3 hours ago`, `yesterday`, `20 days ago` |
+| > 1 month       | on D MMM                         | `on 18 Nov`                                                                               |
+| Past year       | on D MMM, YYYY                   | `on 26 Aug, 2021`                                                                         |
+
+<p>
+  <img
+    width="960"
+    alt="Relative time examples"
+    src="https://user-images.githubusercontent.com/912236/192233477-8c30b28b-5f48-44c6-b373-39a482f745a1.png"
+  />
+</p>
+
+### Future dates
+
+Future dates also use different formats depending on the time difference.
+
+If the future date is due to happen within the a month's time, the relative time outputs the format of `in X seconds/minutes/hours/days`. If the time difference is less than 1 minute, it shows `just now`.
+
+If the date is in the following months, the format `on D MMM` is used. If the date is in the next year or further, the format `on D MMM, YYYY` is used.
+
+| Time difference | Format                                | Examples                                                                            |
+| --------------- | ------------------------------------- | ----------------------------------------------------------------------------------- |
+| < 1 minute      | just now                              | `just now`                                                                          |
+| < 1 month       | in X seconds / minutes / hours / days | `in a minute`, `in 2 minutes`, `in an hour`, `in 7 hours`, `tomorrow`, `in 14 days` |
+| > 1 month       | on D MMM                              | `on 18 Nov`                                                                         |
+| Next year       | on D MMM, YYYY                        | `on 26 Aug, 2021`                                                                   |
+
+### Micro format
+
+The `micro` format shows a short version of the relative time. It's useful to display the relative time in a more compact space or in a mobile environment. For both past and future dates, the output shows the relative time in the format of `Xs/h/d`. If the date is in the following or past months, the format `D MMM` is used. If the date is in the following or past years, the format `D MMM, YYYY` is used.
+
+| Time difference   | Format      | Examples                              |
+| ----------------- | ----------- | ------------------------------------- |
+| < 1 month         | Xs/h/d      | `1s`, `20s`, `5m`, `40m`, `1d`, `20d` |
+| > 1 month         | D MMM       | `18 Nov`                              |
+| Past or next year | D MMM, YYYY | `26 Aug, 2021`                        |
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/912236/191981619-4b2a5625-aa28-44d4-a650-fcda9f349b6f.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use the micro format to display time in a more compact space or in a mobile environment.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/912236/191997424-821afe8a-39d9-47c4-9203-ebaee182f3b1.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use the micro format when there's a prominent space. Use the default option instead.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Usage
+
+A relative time can be used within a sentence, following the action that it's relative to.
+
+<img
+  width="960"
+  alt=""
+  src="https://user-images.githubusercontent.com/912236/191977760-bccc2197-6ecb-4487-9c5d-0d3732cc7f9e.png"
+/>
+
+### Standalone
+
+A relative time can be used as an independent element when the content and the surrounding elements make it clear what the time is related to.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img
+      width="460"
+      alt=""
+      src="https://user-images.githubusercontent.com/912236/191997579-7a5be204-91ed-4163-97fc-18cd6e82a0c7.png"
+    />
+    <Caption>Use it in a list item where each item title references the action that was performed.</Caption>
+  </div>
+  <div>
+    <img
+      width="460"
+      alt=""
+      src="https://user-images.githubusercontent.com/912236/191965093-80c1858f-5d36-4caf-aecf-fd333c2c104c.png"
+    />
+    <Caption>Use it in a timeline item where the section title references the action.</Caption>
+  </div>
+</Box>
+
+#### Responsive design
+
+When used as standalone element, the default format can change to `micro` to fit in a narrow area.
+
+<CustomVideoPlayer
+  width="100%"
+  loop
+  src="https://user-images.githubusercontent.com/912236/192255353-88749767-f1d1-49af-8145-86b60f5215b8.mp4"
+/>
+
+### Links
+
+A relative time is used as plain text in most cases. However, it can be used as an anchor link to point to an element within a view that contains relevant or nested information. For example, as a link to a comment in a conversation.
+
+<img
+  width="960"
+  alt="A relative time as a link to a comment in a conversation."
+  src="https://user-images.githubusercontent.com/912236/192507200-d764ff4e-2fae-4f72-b179-be39b41b7210.png"
+/>
+
+## Accessibility
+
+A relative time is treated like a [time](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) element when it shows a local numerical date, and it contains an [abbreviation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr) element when it shows a relative date phrase.
