@@ -64,6 +64,8 @@
       url: /components/action-list
     - title: Autocomplete
       url: /components/autocomplete
+    - title: Comment box
+      url: /components/comment-box
     - title: Dialog
       url: /components/dialog
     - title: Relative time
