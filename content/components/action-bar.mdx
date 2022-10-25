@@ -10,19 +10,38 @@ import {Box, Text} from '@primer/react'
 
 Use an action bar to render multiple buttons in a row. Buttons can be split into groups by adding a divider. When there is not enough space, buttons that don't fit will be added to an overflow menu.
 
+<img
+  width="960"
+  alt=""
+  src="https://user-images.githubusercontent.com/378023/197716033-86fdac40-2b14-438c-a712-b003b76dabd3.png"
+/>
+
 ## Anatomy
 
 <img
   width="960"
   alt="A diagram of an action bar with a few buttons, a divider and at the end a button that opens an overflow menu."
-  src="https://user-images.githubusercontent.com/378023/197699302-6c464b0a-b1b1-4b08-9b40-3127b97a5c24.png"
+  src="https://user-images.githubusercontent.com/378023/197725973-a47ef5ca-0177-4150-aa2e-eae92a30e5f0.png"
 />
 
-## Content
+### Item
 
-### Buttons
+Each action is wrapped with an Action bar item. An item consists of:
 
-An action bar should only contain icon buttons with the `invisible` variant (no border/background).
+- `visual` an icon to best represent the item
+- `label` text describing the action of the item
+
+Note that depending on the variant used, the visual or label might be hidden.
+
+### Dividers
+
+Dividers can be added to visually group related items.
+
+## Options
+
+### Icon buttons
+
+An action bar should only use icon buttons with the `invisible` variant (no border/background).
 
 <DoDontContainer>
   <Do>
@@ -31,7 +50,7 @@ An action bar should only contain icon buttons with the `invisible` variant (no 
       role="presentation"
       width="456"
     />
-    <Caption>Use only invisible icon buttons in an action bar.</Caption>
+    <Caption>Use only `invisible` icon buttons in an action bar.</Caption>
   </Do>
   <Dont>
     <img
