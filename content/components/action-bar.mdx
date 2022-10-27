@@ -1,14 +1,10 @@
 ---
 title: Action bar
 status: Experimental
-description: An action bar contains a collection of horizontally aligned icon buttons.
+description: An action bar contains a collection of horizontally aligned actions.
 ---
 
 import {Box, Text} from '@primer/react'
-
-## Overview
-
-Use an action bar to render multiple buttons in a row. Buttons can be split into groups by adding a divider. When there is not enough space, buttons that don't fit will be added to an overflow menu.
 
 <img
   width="960"
@@ -18,76 +14,66 @@ Use an action bar to render multiple buttons in a row. Buttons can be split into
 
 ## Anatomy
 
+And action bar is mostly a wrapper for different kind of actions. It makes sure alliment and responsiveness works without much configurations.
+
 <img
   width="960"
   alt="A diagram of an action bar with a few buttons, a divider and at the end a button that opens an overflow menu."
-  src="https://user-images.githubusercontent.com/378023/197725973-a47ef5ca-0177-4150-aa2e-eae92a30e5f0.png"
+  src="https://user-images.githubusercontent.com/378023/198211386-3e48eeb4-8cc6-41c0-85dd-1596aaf0d3ab.png"
 />
 
-### Item
+### Items
 
-Each action is wrapped with an Action bar item. An item consists of:
+<Box
+  as="figure"
+  display={["block", "block", "block", "block", "grid"]}
+  gridTemplateColumns="1fr 1fr"
+  gridGap={7}
+  m={0}
+  mb={3}
+>
+  <Box>
+    <img
+      src="https://user-images.githubusercontent.com/378023/198209541-7e647879-2096-46a3-b7bd-6d390ff72e41.png"
+      role="presentation"
+      width="456"
+    />
+  </Box>
+  <Text as="p" mt="0">
+Each Action bar item is componsed of a visual and a label.
 
-- `visual` an icon to best represent the item
-- `label` text describing the action of the item
+- `visual`: An icon to best represent the item
+- `label`: Text describing the action of the item
 
-Note that depending on the variant used, the visual or label might be hidden.
+Note that depending on the variant used, the visual or label might not be visible.
+  </Text>
+</Box>
 
 ### Dividers
 
-Dividers can be added to visually group related items.
-
-## Options
-
-### Icon buttons
-
-An action bar should only use icon buttons with the `invisible` variant (no border/background).
-
-<DoDontContainer>
-  <Do>
+<Box
+  as="figure"
+  display={["block", "block", "block", "block", "grid"]}
+  gridTemplateColumns="1fr 1fr"
+  gridGap={7}
+  m={0}
+  mb={3}
+>
+  <Box>
     <img
-      src="https://user-images.githubusercontent.com/378023/193506398-6d6da18a-b70d-4cd4-b6e4-fd472a24934f.png"
+      src="https://user-images.githubusercontent.com/378023/198211711-acca35ec-03d3-4ce1-9d02-05d65909e62f.png"
       role="presentation"
       width="456"
     />
-    <Caption>Use only `invisible` icon buttons in an action bar.</Caption>
-  </Do>
-  <Dont>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506488-44543352-f513-469e-8783-5d1cc7f44eaf.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Don't use other variants or components in an action bar.</Caption>
-  </Dont>
-</DoDontContainer>
+  </Box>
+  <Text as="p" mt="0">
+    Use a divider to visually seperate items of the same type. No divider is needed between icons and buttons since they are already distinctive enough.
+  </Text>
+</Box>
 
-### Dividers
+## Responsive behaviour
 
-Dividers can be added to visually group related buttons.
-
-<DoDontContainer>
-  <Do>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506858-6542a6ba-4bac-400d-bba9-8601fbc032ed.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Use a divider between buttons.</Caption>
-  </Do>
-  <Dont>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506894-dc0a65a0-0f81-444a-aa8c-f3b0f74aecb5.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Don't use a divider at the beginning or end of the action bar.</Caption>
-  </Dont>
-</DoDontContainer>
-
-### Overflow menu
-
-When the buttons don't fit in the available space, an overflow button ("kebab" icon) is added at the end of the action bar signaling that there are more actions available. Clicking on the overflow button opens a menu with the remaining actions that didn't fit.
+When action bar items don't fit in the available space, an overflow button ("kebab" icon) is added at the end of the action bar signaling that there are more actions available. Clicking on the overflow button opens a menu with the remaining actions that didn't fit.
 
 <img
   src="https://user-images.githubusercontent.com/378023/193507064-4efe3f63-7b30-4656-8304-3dea3e3f1e03.png"
@@ -97,7 +83,7 @@ When the buttons don't fit in the available space, an overflow button ("kebab" i
 
 #### Sorting
 
-Buttons that don't fit are added to the top of the menu. Meaning that the last button in the action bar will also be the last button when inside the menu:
+Actions that don't fit are added to the top of the menu. Meaning that the last action in the action bar will also be the last action when inside the menu:
 
 <img
   src="https://user-images.githubusercontent.com/378023/188835345-0cfd3376-1658-496f-a78b-f5977aa2198c.png"
@@ -115,57 +101,103 @@ Buttons that don't fit are added to the top of the menu. Meaning that the last b
 />
 <Caption>Overflow button appears when not enough space and resizing the action bar updates the overflow menu.</Caption>
 
-## States
-
-### Button states
-
-Buttons in action bars are solely used for triggering actions. Consider using a [segmented control](https://primer.style/design/components/segmented-control) when a button should have a selected state.
-
-<DoDontContainer>
-  <Do>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506579-a665b941-5b4e-4e44-9439-cfb4e7e93ef3.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>
-      Buttons in action bars have a hover and pressed state, and a focused state when using a keyboard to navigate.
-    </Caption>
-  </Do>
-  <Dont>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506649-07cb8b8b-3658-477a-b7a2-f00ad9825f26.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Don't add a selected state or any other information like a notification dot or a counter.</Caption>
-  </Dont>
-</DoDontContainer>
-
-### Tooltips
-
-When hovering over a button, a tooltip will appear that describes the action.
-
-<DoDontContainer>
-  <Do>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506950-1702cff8-c751-4bc2-a37a-a837d1e69320.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Describe what action will be taken when clicking on the button.</Caption>
-  </Do>
-  <Dont>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506979-07aa35d2-48f5-4b09-aa3e-c575be0e578e.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Don't use a tooltip in action bars to convey a current state.</Caption>
-  </Dont>
-</DoDontContainer>
-
 ## Options
+
+### Item
+
+An Action bar item can be configured with different variants to adjust its rendering based on the environment or use case.
+
+#### Icons
+
+A variant of `icon` renders an action as an icon. It is a great option when lots of actions should be shown together like in a toolbar.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/193506398-6d6da18a-b70d-4cd4-b6e4-fd472a24934f.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Only use "invisible" icon buttons.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/197961141-fe53a86e-e0d9-47ae-ab38-ee95b3f7da1e.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use other icon button variants.</Caption>
+  </Dont>
+</DoDontContainer>
+
+#### Buttons
+
+When there are only 2-3 actions and enough space, consider using the `button` variant. For destructive actions the `dangerButton` variant should be used.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/198218571-fa10363c-157c-482a-8741-33813f60590e.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use default or danger buttons when space allows.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/198218602-549746b6-77c9-4f7b-a758-6a3a962847ae.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use other variants.</Caption>
+  </Dont>
+</DoDontContainer>
+
+#### Buttons with icons
+
+Use the `buttonWithIcon` or `dangerButtonWithIcon` variants to add leading visuals to buttons.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/198222542-e7d63612-106a-4925-aa45-46ece6df9b7f.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use leading visuals to emphasis an action's meaning.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/198222589-3eff32b1-841a-4ebe-b68d-722b39aa2dbc.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>If one of the buttons has a leading visual, then all other buttons should have one too.</Caption>
+  </Dont>
+</DoDontContainer>
+
+#### Icons and buttons mixed
+
+It's also ok to mix icons and buttons.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/198227074-563182c4-063d-4c97-bbc5-8c8fc2ed334f.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use buttons to make them stand out more against the rest of the icons.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/198227092-797e8b83-491b-483d-ad08-5ffd9c641e2a.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't add leading visuals to buttons if the action bar also has icons.</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Size
 
@@ -237,6 +269,29 @@ An action bar has an ARIA role of [`toolbar`](https://developer.mozilla.org/en-U
 | `Enter` or `Space` | Triggers the button **action**.                                                                                                                                                                                                                                                                                                                        |
 
 <!-- TODO: Add video -->
+
+### Tooltips
+
+When hovering over a button, a tooltip will appear that describes the action.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/193506950-1702cff8-c751-4bc2-a37a-a837d1e69320.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Describe what action will be taken when clicking on the button.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/193506979-07aa35d2-48f5-4b09-aa3e-c575be0e578e.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use a tooltip in action bars to convey a current state.</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Touch targets
 
