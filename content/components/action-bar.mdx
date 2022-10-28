@@ -32,13 +32,6 @@ And action bar is mostly a wrapper for different kind of actions. It makes sure 
   m={0}
   mb={3}
 >
-  <Box>
-    <img
-      src="https://user-images.githubusercontent.com/378023/198209541-7e647879-2096-46a3-b7bd-6d390ff72e41.png"
-      role="presentation"
-      width="456"
-    />
-  </Box>
   <Text as="p" mt="0">
 Each Action bar item is componsed of a visual and a label.
 
@@ -47,6 +40,13 @@ Each Action bar item is componsed of a visual and a label.
 
 Note that depending on the variant used, the visual or label might not be visible.
   </Text>
+  <Box>
+    <img
+      src="https://user-images.githubusercontent.com/378023/198209541-7e647879-2096-46a3-b7bd-6d390ff72e41.png"
+      role="presentation"
+      width="456"
+    />
+  </Box>
 </Box>
 
 ### Dividers
@@ -59,6 +59,9 @@ Note that depending on the variant used, the visual or label might not be visibl
   m={0}
   mb={3}
 >
+  <Text as="p" mt="0">
+    Use a divider to visually seperate items of the same type. No divider is needed between icons and buttons since they are already distinctive enough.
+  </Text>
   <Box>
     <img
       src="https://user-images.githubusercontent.com/378023/198211711-acca35ec-03d3-4ce1-9d02-05d65909e62f.png"
@@ -66,17 +69,14 @@ Note that depending on the variant used, the visual or label might not be visibl
       width="456"
     />
   </Box>
-  <Text as="p" mt="0">
-    Use a divider to visually seperate items of the same type. No divider is needed between icons and buttons since they are already distinctive enough.
-  </Text>
 </Box>
 
-## Responsive behaviour
+### Overflow menu
 
-When action bar items don't fit in the available space, an overflow button ("kebab" icon) is added at the end of the action bar signaling that there are more actions available. Clicking on the overflow button opens a menu with the remaining actions that didn't fit.
+When action bar items don't fit in the available space, an overflow button ("kebab" icon) is added at the end of the action bar signaling that there are more actions available. Clicking on the overflow button opens the overflow menu with the remaining actions that didn't fit.
 
 <img
-  src="https://user-images.githubusercontent.com/378023/193507064-4efe3f63-7b30-4656-8304-3dea3e3f1e03.png"
+  src="https://user-images.githubusercontent.com/378023/198549383-0e5f42fc-a456-481c-9c44-b9fd6202b70f.png"
   alt=""
   width="960"
 />
@@ -103,13 +103,43 @@ Actions that don't fit are added to the top of the menu. Meaning that the last a
 
 ## Options
 
-### Item
+### Gap
+
+Action bar items use a `8px` gap by default. There is also a more spacious `12px` option available. Note that there is no gap between icons as they already have enough padding and no border.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/198517276-cf43dc64-dd8f-4af1-b6b0-133c211d99a4.png"
+  role="presentation"
+  width="960"
+/>
+
+### Size
+
+An action bar can have 3 different sizes: Small (`28px`), default (`32px`) and large (`40px`).
+
+<img
+  src="https://user-images.githubusercontent.com/378023/198517281-6e615d34-ca51-4a56-8d49-888d09bce426.png"
+  role="presentation"
+  width="960"
+/>
+
+### Max visible
+
+Sometimes there would be enough space to show all action bar items. But to not overwhelm users with too many actions, an action bar can be configured to limit the amount of items that are visible. In the example below the `maxVisible` is set to `2`. So the rest of the actions are available from the overflow menu.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/198553327-e0e596ab-ddd7-4485-9203-480958dd581c.png"
+  role="presentation"
+  width="960"
+/>
+
+### Item variant
 
 An Action bar item can be configured with different variants to adjust its rendering based on the environment or use case.
 
-#### Icons
+#### Icon only
 
-A variant of `icon` renders an action as an icon. It is a great option when lots of actions should be shown together like in a toolbar.
+A variant of `icon` renders an action only as an icon. It is a great option when lots of actions should be shown together like in a toolbar.
 
 <DoDontContainer>
   <Do>
@@ -130,7 +160,7 @@ A variant of `icon` renders an action as an icon. It is a great option when lots
   </Dont>
 </DoDontContainer>
 
-#### Buttons
+#### Button
 
 When there are only 2-3 actions and enough space, consider using the `button` variant. For destructive actions the `dangerButton` variant should be used.
 
@@ -149,11 +179,11 @@ When there are only 2-3 actions and enough space, consider using the `button` va
       role="presentation"
       width="456"
     />
-    <Caption>Don't use other variants.</Caption>
+    <Caption>Don't use other variants. Primary buttons can still be used next to an action bar, just not part of it.</Caption>
   </Dont>
 </DoDontContainer>
 
-#### Buttons with icons
+#### Button with icon
 
 Use the `buttonWithIcon` or `dangerButtonWithIcon` variants to add leading visuals to buttons.
 
@@ -199,27 +229,13 @@ It's also ok to mix icons and buttons.
   </Dont>
 </DoDontContainer>
 
-### Size
-
-Action bars can have 3 different sizes:
-
-<img
-  src="https://user-images.githubusercontent.com/378023/193507132-f3ad4632-e257-4301-bd48-0669f4347ddc.png"
-  role="presentation"
-  width="960"
-/>
-
-- Small (`28px`)
-- Medium (`32px`) (default)
-- Large (`40px`)
-
 ## Layout
 
 Action bars can be used inline next to other content or also full width taking up the entire space.
 
 <Box as="p">
   <img
-    src="https://user-images.githubusercontent.com/378023/193507204-7d2e1e10-8906-49b4-9c80-10d69fce3e92.png"
+    src="https://user-images.githubusercontent.com/378023/198554544-b1c784e6-6d1e-47df-8b02-94b0fe8b935e.png"
     role="presentation"
     width="960"
   />
