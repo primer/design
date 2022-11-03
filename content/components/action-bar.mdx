@@ -18,7 +18,7 @@ And action bar is a wrapper for different kinds of actions. It handles alignment
 
 <img
   width="960"
-  alt="A diagram of an action bar with a few buttons, a divider and at the end a button that opens an overflow menu."
+  alt="A diagram of an action bar with a few buttons, a divider and an overflow menu."
   src="https://user-images.githubusercontent.com/378023/198211386-3e48eeb4-8cc6-41c0-85dd-1596aaf0d3ab.png"
 />
 
@@ -33,12 +33,12 @@ And action bar is a wrapper for different kinds of actions. It handles alignment
   mb={3}
 >
   <Text as="p" mt="0">
-Each Action bar item is componsed of a visual and a label.
+Each action bar item requires a visual and a label.
 
 - `visual`: An icon to represent the action
 - `label`: Text describing the action of the item
 
-Note that depending on the variant used, the visual or label might not be visible.
+Note that depending on the variant used, the visual or label might not be visible at all times.
   </Text>
   <Box>
     <img
@@ -60,7 +60,7 @@ Note that depending on the variant used, the visual or label might not be visibl
   mb={3}
 >
   <Text as="p" mt="0">
-    Use a divider to visually seperate items of the same type. No divider is needed between icons and buttons since they are already distinctive enough.
+    Use a divider to visually separate items of the same type. No divider is needed between an icon and a button since they are already distinctive enough.
   </Text>
   <Box>
     <img
@@ -125,7 +125,7 @@ An action bar can have 3 different sizes: Small (`28px`), default (`32px`) and l
 
 ### Max visible
 
-An action bar can be configured to limit the amount of items that are visible, even if more enough space is available. This helps to not overwhelm users with too many actions. In the example below the `maxVisible` is set to `2`. So the rest of the actions are available from the overflow menu.
+An action bar can be configured to limit the amount of items that are visible, even if enough space is available. This helps to not overwhelm users with too many actions. In the example below the `maxVisible` is set to `2`. So the rest of the actions are available from the overflow menu.
 
 <img
   src="https://user-images.githubusercontent.com/378023/198553327-e0e596ab-ddd7-4485-9203-480958dd581c.png"
