@@ -1,0 +1,81 @@
+---
+title: Responsive design
+description: Supporting responsive experiences is an essential part of developing for the Web today. Every page and feature at GitHub needs to be responsive to the user’s device and their preferences.
+---
+
+## Definition
+
+Nielsen Norman Group [defines Responsive Web Design](https://www.nngroup.com/articles/responsive-web-design-definition/) as “a web development approach that creates dynamic changes to the appearance of a website, depending on the screen size and orientation of the device being used to view it”.
+
+“Adaptive design”, on the other hand, has been a term historically used to identify an approach where entirely separated fixed layouts were created to support mobile devices (MDN has good documentation [on how we got here](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design#historic_website_layouts)).
+
+“Responsive design” at GitHub is inherently adaptive, in the sense that it should not only adjust layout and spacing when resizing a page, but support patterns and component variants that match the paradigms and affordances of the person’s device:
+
+- Responsive to the form factor: adapt to viewport size, pointing device support, and to the device metaphors and affordances.
+- Responsive to the user preferences: respect browser’s default font size, reduced motion, color scheme, contrast preferences, etc.
+
+<!-- (`fine` for desktop, or `coarse`, for touch) -->
+
+### Responsive to the form factor
+
+
+
+Users can access GitHub from a variety of devices, all with different form factors and capabilities. Browsers can be found in smartphones, laptops, and desktop computers, but also in  to tiny  GitHub needs to adapt its 
+
+, and to the context in which they are using it.
+
+A page and its content needs to work without loss of information or functionality
+
+To make sure pages remain accessible in different scenarios, pages need to be designed to support small viewports without loss of information or functionality. This includes small devices, and scenarios where a computer has browser zoom enabled.
+
+#### Viewport size
+
+Pages should adapt to the viewport size, without loss of information or functionality, starting at the following dimensions:
+
+- **Minimum viewport width**: 320px
+- **Minimum viewport height**: 256px
+
+When designing a mobile-friendly rendering of a page, we recommend using a viewport width of **375px**, as this is the most common size among small smartphones. However, the page should still be tested and be fully functional at smaller widths.
+
+Providing support at these sizes enable people with low vision to use GitHub with a browser zoom enabled, up to 400% on a 1280px wide screen. [Read more about the Reflow accessibility requirement](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html).
+
+#### Pointing device
+
+Image: an active list item with a hover state on a computer with a mouse cursor (`fine`), compared to the same item on a touch device (`coarse`).
+
+&nbsp; | `pointer: coarse`| `pointer: fine`
+---------------|------------------|-----------------
+**`hover: none`**  | Smartphones, touch screens | Stylus-based screens
+**`hover: hover`** | Virtual reality, video-game controllers | Mouse, touch pad
+
+Fine / coarse
+
+Hover support
+
+ActionList + Button touch target example
+
+Distance between interactive elements
+
+### Responsive to the user preferences
+
+People may set system preferences to change the way they prefer to interact with their devices. By default, GitHub must respect these preferences. Providing a way to override these preferences is recommended.
+
+On the web, these user preference media features include:
+
+- [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
+- [`prefers-contrast`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast)
+- [`prefers-reduced-motion`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
+- [`forced-colors`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors)
+- [`inverted-colors`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/inverted-colors)
+
+#### Browser default font size
+
+Users may set their operating system or browsers to use larger or smaller fonts.
+
+GitHub should respect these preferences by adopting Primer’s `rem`-unit based relative sizing throughout.
+
+## See also
+
+- [Viewport ranges](/foundations/layout#viewport-ranges)
+- [Responsive breakpoints](/foundations/layout#breakpoints)
+- [Responsive layout behavior](/foundations/layout#responsive-behavior)

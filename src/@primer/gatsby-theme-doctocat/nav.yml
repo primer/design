@@ -3,14 +3,18 @@
   children:
     - title: Introduction
       url: /foundations/introduction
+    - title: The Zen of GitHub
+      url: /foundations/the-zen-of-github
+    - title: Content
+      url: /foundations/content
     - title: Color
       url: /foundations/color
+    - title: Responsive design
+      url: /foundations/responsive-design
     - title: Layout
       url: /foundations/layout
     - title: Typography
       url: /foundations/typography
-    - title: Content
-      url: /foundations/content
 - title: Accessibility
   url: /accessibility
   children:
