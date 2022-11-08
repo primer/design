@@ -15,6 +15,31 @@ import {Box, Text} from '@primer/react'
 
 ![A diagram of a segmented control with three buttons. The labeled parts of the segmented control are: the selected third button, the icon in the second button, and the text label in the second button.](https://user-images.githubusercontent.com/2313998/182705417-c0e1dddb-6c6b-4746-9a02-0e3a9eb17017.png)
 
+## Usage
+
+A segmented control should only be used to change a value; it's similar to a group of radio inputs.
+
+A segmented control should not be used as a form of navigation: use tabs instead. If your primary use case is to hide or show content, that's a good hint that you should reach for tabs or another navigation pattern instead.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/200646211-c7dd9308-76f8-46b5-a189-4ff332e3921f.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use tabs for navigation or toggling content visibility.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/200646212-f17f7da8-276a-4f0e-80eb-d561fe250caf.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use a segmented control for navigation or toggling content visibility.</Caption>
+  </Dont>
+</DoDontContainer>
+
 ## Content
 
 ### Buttons
