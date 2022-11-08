@@ -27,5 +27,8 @@
   "devDependencies": {
     "path-browserify": "^1.0.1"
   },
+  "resolutions": {
+    "sharp": "^0.31.2"
+  },
   "private": true
 }
