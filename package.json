@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@github/prettier-config": "^0.0.4",
-    "@primer/gatsby-theme-doctocat": "^4.2.0",
+    "@primer/gatsby-theme-doctocat": "^4.2.2",
     "@primer/octicons-react": "^17.3.0",
     "@primer/react": "^35.5.0",
     "eslint": "^8.21.0",
