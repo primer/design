@@ -19,37 +19,41 @@ Use an action bar to render multiple icon buttons in a row. Buttons can be split
 #### Buttons
 An action bar should only contain icon buttons with the invisible variant (no border/background).
 
-`DO` Use only invisible icon buttons in an action bar
+`DO`
 ![image](https://user-images.githubusercontent.com/586552/200722583-48b3f80e-6832-480c-a916-ae48401c3990.png)
- 
-`DON'T` Don't use other variants or components in an action bar.
+*Use only invisible icon buttons in an action bar*
+
+`DON'T`
 ![image](https://user-images.githubusercontent.com/378023/193506488-44543352-f513-469e-8783-5d1cc7f44eaf.png)
- 
+ *Don't use other variants or components in an action bar.*
+
 #### Button states
 Buttons in action bars are solely used for triggering actions. Consider using a [segmented control](~https://primer.style/design/components/segmented-control~) when a button should have a selected state.
  
-`DO` Buttons in action bars should have a hover and pressed state, and a focused state when using a keyboard to navigate.
+`DO`
 ![image](https://user-images.githubusercontent.com/586552/200724597-b4431ab8-dcca-4511-b399-4bab9775d4bb.png)
+*Buttons in action bars should have a hover and pressed state, and a focused state when using a keyboard to navigate.*
 
-`DON'T` Don't add a selected state or any other information like a notification dot or a counter.
+`DON'T` 
 ![image](https://user-images.githubusercontent.com/586552/200724641-25cfa774-0fae-4ea1-860c-529322c40e1b.png)
+*Don't add a selected state or any other information like a notification dot or a counter.*
 
 #### Dividers
 Dividers can be added to visually group related buttons.
 
-`DO` Use a divider between buttons.
+`DO`
 ![image](https://user-images.githubusercontent.com/586552/200728895-327e1144-951e-4363-ba60-658b0b524d26.png)
+*Use a divider between buttons.*
 
-`DON'T` Don’t use a divider at the beginning or end of the action bar.
+`DON'T`
 ![image](https://user-images.githubusercontent.com/586552/200728920-a13b1834-4a3e-4578-ae64-25a648ea8c64.png)
-
+*Don’t use a divider at the beginning or end of the action bar.*
 
 #### Overflow menu
 If the buttons don’t fit in the available space, an overflow button (“kebab” icon) can be added at the end of the action bar signaling that there are more actions available. Clicking on the overflow button opens a menu with the remaining actions that didn’t fit.
 
 ![image](https://user-images.githubusercontent.com/378023/193507064-4efe3f63-7b30-4656-8304-3dea3e3f1e03.png)
 
-##### Sorting
 Buttons that don’t fit are added to the top of the menu. This means that the last button in the action bar will also be the last button when inside the menu.
 
 ![image](https://user-images.githubusercontent.com/378023/188835345-0cfd3376-1658-496f-a78b-f5977aa2198c.png)
@@ -61,11 +65,13 @@ Overflow button appears when there is not enough space and resizing the action b
 #### Tooltips
 When hovering over a button, a tooltip will appear that describes the action.
  
-`DO` Describe what action will be taken when clicking on the button.
+`DO`
 ![image](https://user-images.githubusercontent.com/586552/200725003-654abdfd-b2ad-444a-aec2-5685845f6f66.png)
+*Describe what action will be taken when clicking on the button.*
 
-`DON'T` Don't use a tooltip in action bars to convey a current state.
+`DON'T`
 ![image](https://user-images.githubusercontent.com/378023/193506979-07aa35d2-48f5-4b09-aa3e-c575be0e578e.png)
+*Don't use a tooltip in action bars to convey a current state.* 
 
 #### Spacing
 - Make sure to add extra spacing around the action bar.
