@@ -35,6 +35,7 @@ An action list can be composed of:
 ### Options
 
 #### Sizes
+![image](https://user-images.githubusercontent.com/293280/125997468-fa064d6b-ace3-4dec-920d-178478d67ba9.png)
 - Action list items support three different sizes: small, medium, and large. The small size is the default and most common option. Medium sizes work well for relaxed local navigation, while large sizes can support items that need more breathing room.
 - Sizes only grow vertically. This behavior keeps the content aligned among items, and retains horizontal space for density.
 - On touch devices, the large size is used at all times to ensure usability when tapping.
@@ -45,6 +46,12 @@ An action list can be composed of:
 - When listing system sections, features, or options, use leading visuals to improve the items' scannability. In user-generated objects, they can help to indicate the item's content type and status.
 - Depending on the context, displaying a leading visual may not be necessary. For example, a list of branches in a select panel may not need repeated icons if the surrounding UI provides enough hints about its content type.
 
+![image](https://user-images.githubusercontent.com/293280/125997571-d8b92b5e-5241-4f33-b223-825335b18f3d.png)
+*Use leading visuals to represent system sections, features, or options.*
+
+![image](https://user-images.githubusercontent.com/293280/125997693-e0d9e379-19c1-4382-adbb-2a1882937373.png)
+*Use leading visuals in important menu items.*
+
 #### Trailing visuals, texts, and actions
 - Trailing visual and trailing text can display auxiliary information. They're placed at the right of the item, and can denote status, keyboard shortcuts, or be used to set expectations about what the action does.
 - Note these side visuals don't have dedicated interaction targets.
@@ -52,6 +59,18 @@ An action list can be composed of:
 - Custom trailing elements are supported, such as counters, labels, and other custom visuals that may help identify the item.
 - When using a trailing text for displaying keyboard shortcuts, always confirm the characters match with the user's operating system. For example, to indicate a bold action in a Markdown toolbar, use "Ctrl+B" on Linux and Windows, and "⌘B" on Mac. [See reference for Mac keyboard glyphs](https://support.apple.com/en-us/HT201236).
 - Trailing action buttons can be used to present a secondary interaction related to the contents of the main item, such as opening a menu or dialog. They may appear when an item is hovered, and can be keyboard focused individually.
+
+![image](https://user-images.githubusercontent.com/293280/125998961-24f90611-fe5f-4169-8943-eef68a6755a9.png)
+
+*A right arrow as a trailing visual indicates there are more options to choose after selecting an item.*
+
+![image](https://user-images.githubusercontent.com/293280/125999062-bc489a21-cdc6-455a-8363-b7c8c7faeb3a.png)
+
+*Trailing text with custom styling to indicate diff change.*
+
+![image](https://user-images.githubusercontent.com/18661030/193155140-ae9cca41-280b-4cc2-a0c0-1a830b12b5c9.png)
+
+*Trailing action buttons present a secondary action*
 
 #### Item dividers
 - Item dividers allow users to parse heavier amounts of information. They're placed between items and are useful in complex lists, particularly when descriptions or multi-line text is present.
@@ -63,14 +82,13 @@ An action list can be composed of:
 - When listing selectable items alongside non-selectable items in a menu, use dividers to differentiate between the item types.
 - Don't mix different types of selections in the same list.
 
-Danger items
+#### Danger items
 
 An action list item can have a special "danger" style, to be used in cases that require extra attention from the user.
 
 For destructive or irremediable actions, show a confirmation dialog for extra friction. If the action is not destructive, present the user a way to undo the action instead of asking for confirmation. [Never use a warning when you mean undo](https://alistapart.com/article/neveruseawarning/).
 
 Place danger items at the end of the list.
-
 
 ### Application
 #### In overlays
