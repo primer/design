@@ -27,11 +27,11 @@ To guarantee maximum compatibility, pages should adapt to the [browser’s viewp
 
 Providing support at these smaller sizes enable people with low vision to use GitHub with a browser zoom enabled, up to 400% on a 1280px wide screen. [Read more about this accessibility requirement](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html).
 
-To understand how to break down a page into regions for a responsive adaptation, check out [Responsive foundations](/foundations/layout#responsive-foundations) and [Responsive behavior](/foundations/layout#responsive-behavior) sections in the [Layout](/foundations/layout) page.
+To understand how to break down a page to work on smaller viewports, check out [Responsive foundations](/foundations/layout#responsive-foundations) and [Responsive behavior](/foundations/layout#responsive-behavior) sections in the [Layout](/foundations/layout) page.
 
 <!--
 
-Link to Figma Templates
+Todo: Link to Figma Templates
 
 > When designing a mobile-friendly rendering of a page, we recommend using a viewport width of **375px**, as this is the most common size among small smartphones. However, the page should still be tested and be fully functional at smaller widths for accessibility reasons, all the way to **320px**.
 
@@ -39,43 +39,52 @@ Link to Figma Templates
 
 ### Pointing device
 
+Instead of trying to infer the input mechanism from screen size, use the device characteristics through [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries) to adapt the experience accordingly.
+
+The table below shows possible device scenarios according to `pointer` and `hover` media features:
+
+&nbsp;             | `pointer: coarse`                                | `pointer: fine`
+-------------------|:------------------------------------------------:|:---------------------:
+**`hover: none`**  | Smartphones, touch screens                       | Stylus-based screens
+**`hover: hover`** | Virtual reality headsets, video-game controllers | Mouse, touch pad
+
 #### Pointer types
 - A `coarse` pointer means the primary input mechanism isn’t very accurate. A finger on a touchscreen is a coarse pointer.
+
+  - When designing for coarse/touch, make sure that the target size is large enough to be easily tapped. [Read more about this accessibility requirement](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html).
+
+  - **Minimum coarse/touch target**: 44px
+
+
 - A `fine` pointer means the primary input mechanism supports accurate control. A mouse or a stylus is a fine pointer.
 
-- **Minimum fine/mouse target**: 20px
-- **Minimum coarse/touch target**: 44px
+  - **Recommended minimum fine/mouse target**: 20px
 
-When designing for coarse/touch, make sure that the target size is large enough to be easily tapped. [Read more about this accessibility requirement](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html).
+<!--
 
-<!-- Image: an active list item with a hover state on a computer with a mouse cursor (`fine`), compared to the same item on a touch device (`coarse`). -->
+Todo: Touch-friendly strategy section.
 
-[ touch-friendly strategy ]
+Examples of touch adaptation with out-of-boudaries touch targets, when applied to Button and IconButton components, following comparison with ActionListItem, which increases its height instead.
+
+Image source:
+https://www.figma.com/file/YlBTqHTbdRwYQt0bfIHvGw/Interface-guidelines?node-id=457%3A89625
+
+-->
+
 
 #### Hover support
 
 Browsers report if the primary input mechanism can hover over elements with the `hover` media feature.
 
-[ hover strategy ]
+Devices that don’t support hovering such as smartphones and tablets may need adapted experiences so that the user can interact with the page without hovering over elements.
 
-#### Matrix of pointing device support
+Features that rely on hover such as tooltips or hovercards may not be available on these devices. Make sure the information presented is still accessible through other means, such as a direct link to a page with the information.
 
-&nbsp; | `pointer: coarse`| `pointer: fine`
----------------|------------------|-----------------
-**`hover: none`**  | Smartphones, touch screens | Stylus-based screens
-**`hover: hover`** | Virtual reality headsets, video-game controllers | Mouse, touch pad
+<!--
 
-Fine / coarse
+Todo: Do we include examples of device metaphors and afforances here as well?
 
-Hover support
-
-ActionList + Button touch target example
-
-Distance between interactive elements
-
-### Device metaphors and affordances
-
-- bottom sheet
+-->
 
 ## Responsive to the user preferences
 
