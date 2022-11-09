@@ -20,11 +20,15 @@ Use an action bar to render multiple icon buttons in a row. Buttons can be split
 An action bar should only contain icon buttons with the invisible variant (no border/background).
 
 `DO`
+
 ![image](https://user-images.githubusercontent.com/586552/200722583-48b3f80e-6832-480c-a916-ae48401c3990.png)
+
 *Use only invisible icon buttons in an action bar*
 
 `DON'T`
+
 ![image](https://user-images.githubusercontent.com/378023/193506488-44543352-f513-469e-8783-5d1cc7f44eaf.png)
+ 
  *Don't use other variants or components in an action bar.*
 
 #### Button states
