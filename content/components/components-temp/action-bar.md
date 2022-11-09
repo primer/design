@@ -1,5 +1,6 @@
-# ActionBar
+# Action bar
 Type: Regular
+
 [React](#) | [Rails](#) | [Figma](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=17042%3A65285)
 
 ## Overview
