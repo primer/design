@@ -31,22 +31,29 @@ An action bar should only contain icon buttons with the invisible variant (no bo
 Buttons in action bars are solely used for triggering actions. Consider using a [segmented control](~https://primer.style/design/components/segmented-control~) when a button should have a selected state.
  
 `DO`
+
 ![image](https://user-images.githubusercontent.com/586552/200724597-b4431ab8-dcca-4511-b399-4bab9775d4bb.png)
 *Buttons in action bars should have a hover and pressed state, and a focused state when using a keyboard to navigate.*
 
 `DON'T` 
+
 ![image](https://user-images.githubusercontent.com/586552/200724641-25cfa774-0fae-4ea1-860c-529322c40e1b.png)
+
 *Don't add a selected state or any other information like a notification dot or a counter.*
 
 #### Dividers
 Dividers can be added to visually group related buttons.
 
 `DO`
+
 ![image](https://user-images.githubusercontent.com/586552/200728895-327e1144-951e-4363-ba60-658b0b524d26.png)
+
 *Use a divider between buttons.*
 
 `DON'T`
+
 ![image](https://user-images.githubusercontent.com/586552/200728920-a13b1834-4a3e-4578-ae64-25a648ea8c64.png)
+
 *Don’t use a divider at the beginning or end of the action bar.*
 
 #### Overflow menu
@@ -66,11 +73,15 @@ Overflow button appears when there is not enough space and resizing the action b
 When hovering over a button, a tooltip will appear that describes the action.
  
 `DO`
+
 ![image](https://user-images.githubusercontent.com/586552/200725003-654abdfd-b2ad-444a-aec2-5685845f6f66.png)
+
 *Describe what action will be taken when clicking on the button.*
 
 `DON'T`
+
 ![image](https://user-images.githubusercontent.com/378023/193506979-07aa35d2-48f5-4b09-aa3e-c575be0e578e.png)
+
 *Don't use a tooltip in action bars to convey a current state.* 
 
 #### Spacing
