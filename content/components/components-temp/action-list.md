@@ -47,6 +47,8 @@ An action list can be composed of:
 - Depending on the context, displaying a leading visual may not be necessary. For example, a list of branches in a select panel may not need repeated icons if the surrounding UI provides enough hints about its content type.
 
 ![image](https://user-images.githubusercontent.com/293280/125997571-d8b92b5e-5241-4f33-b223-825335b18f3d.png)
+
+
 *Use leading visuals to represent system sections, features, or options.*
 
 ![image](https://user-images.githubusercontent.com/293280/125997693-e0d9e379-19c1-4382-adbb-2a1882937373.png)
