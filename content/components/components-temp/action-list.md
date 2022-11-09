@@ -30,6 +30,7 @@ An action list can be composed of:
 - Section dividers (subtle or filled styles)
 
 ![image](https://user-images.githubusercontent.com/293280/125995889-12a2de9a-7e15-4638-87dd-6796a983f733.png)
+
 ![image](https://user-images.githubusercontent.com/293280/125996049-e2af9cc7-c736-4adc-9800-a1d742b7929e.png)
 
 ### Options
@@ -47,7 +48,6 @@ An action list can be composed of:
 - Depending on the context, displaying a leading visual may not be necessary. For example, a list of branches in a select panel may not need repeated icons if the surrounding UI provides enough hints about its content type.
 
 ![image](https://user-images.githubusercontent.com/293280/125997571-d8b92b5e-5241-4f33-b223-825335b18f3d.png)
-
 
 *Use leading visuals to represent system sections, features, or options.*
 
@@ -79,10 +79,14 @@ An action list can be composed of:
 - When considering whether to use item dividers, make sure they truly make the presented information easier to parse, instead of only increasing visual clutter.
 - When using item dividers, increasing the action list item size may also help with legibility.
 
+![image](https://user-images.githubusercontent.com/293280/126000062-3fc62e04-670d-4346-b65b-57c2e70ceeb0.png)
+
 #### Selection states
 - Action list items can be selected. Single selections are represented with a <code>[check](https://primer.style/octicons/check-16)</code> octicon, while multiple selections are represented with a checkbox component. These selection visuals are always placed at the beginning of the item.
 - When listing selectable items alongside non-selectable items in a menu, use dividers to differentiate between the item types.
 - Don't mix different types of selections in the same list.
+
+![image](https://user-images.githubusercontent.com/293280/125999384-b2a322db-8ec3-4a69-a414-10050544813b.png)
 
 #### Danger items
 
@@ -94,13 +98,21 @@ Place danger items at the end of the list.
 
 ### Application
 #### In overlays
- - Action menus
+
+- Action menus
    -  Action menus are used for disambiguation, navigation, or to display secondary options. They appear when users interact with buttons, actions, or other controls.
+
+     ![image](https://user-images.githubusercontent.com/293280/123880964-95b3a700-d8f8-11eb-9775-cbaf165207ed.png)
+
 - Action menus with selection
   - ActionMenu can be used for making a single selection among a small list of options. The list is usually predefined with system values, but in some cases it can include user-provided data when those are known not to grow into too many items.
+
+   ![image](https://user-images.githubusercontent.com/293280/123881067-cdbaea00-d8f8-11eb-98e4-e57c64489308.png)
+
 - Select panels 
    - Select panels allow manipulating long lists of options, with filtering and other advanced interactions. They can be used for single or multi-selection.
 
+    ![image](https://user-images.githubusercontent.com/293280/123876997-4158f900-d8f1-11eb-85cb-461d9bbee0cb.png)
 
 
 ### Related Components
