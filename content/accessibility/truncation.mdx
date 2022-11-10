@@ -6,9 +6,39 @@ title: Truncation
 
 Truncation means shortening a text when it reaches a larger length than required, usually shorten with ellipses.
 
-## Guidelines
+### Dyslexia and other cognitive disabilities
+
+The experience of users with dyslexia and other cognitive disabilities will be impacted, since text truncation is related to a reading task. Those users could be confused by text that is only shown partially regardless of their reading ability, or their ability to guess the missing part.
+
+### Truncation for interactive elements
+
+TBD
+
+### Truncation for non-interactive elements
+
+TBD
+
+## Truncation options
+
+### CSS Truncation
+
+CSS provides mechanisms allowing you to visually hide or truncate content without needing to touch the underlying HTML. Many of them thus will not affect screen reader users' experience at all.
+
+- `text-overflow: ellipsis` (combined with `overflow: hidden` and `white-space: nowrap`): This combination of attributes allows for easy visual truncation of long text which might overflow outside its container.
+However, since the text which doesn't fit never actually gets removed from the DOM, screen reader users will hear the entire thing when they navigate to it.
+
+Truncation can be achieve applying the [Primer CSS class for truncation](https://primer.style/css/components/truncate) to the text element,
+so when a text reaches lengths larger than existing container, it shortens with ellipses.
+
+### Progressive disclosure
+
+[Progressive disclosure](https://primer.style/design/ui-patterns/progressive-disclosure) is an interaction design pattern that hides/shows information.
+
+### Using a tooltip
 
 TBD
 
 ## Additional resources
+- [Success Criterion 1.4.4: Resize Text (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/resize-text)
+- [Success Criterion 1.4.10: Reflow (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html)
 - [Primer CSS `truncate` class](https://primer.style/css/components/truncate)
