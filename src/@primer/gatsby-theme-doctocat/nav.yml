@@ -60,6 +60,8 @@
 - title: Components
   url: /components
   children:
+    - title: Action menu
+      url: /components/action-menu
     - title: Action bar
       url: /components/action-bar
     - title: Action list
