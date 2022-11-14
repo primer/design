@@ -66,8 +66,16 @@
       url: /components/action-bar
     - title: Action list
       url: /components/action-list
+    - title: Anchored overlay
+      url: /components/anchored-overlay
     - title: Autocomplete
       url: /components/autocomplete
+    - title: Avatar
+      url: /components/avatar
+    - title: AvatarPair
+      url: /components/avatar-pair
+    - title: AvatarStack
+      url: /components/avatar-stack
     - title: Comment box
       url: /components/comment-box
     - title: Dialog
