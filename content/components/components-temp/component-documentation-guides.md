@@ -66,6 +66,6 @@ ing, etc
 - Touch targets
 - Any specific usage guidelines with regards to assistive technology 
 - [Accessibility documentation example](#)
-
+t
 #### Related components and patterns
 
