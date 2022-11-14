@@ -40,7 +40,7 @@ Take a look at the [Component documentation guides](../components-temp/component
   - [Interface guidelines UI pattern documentation](https://primer.style/design/ui-patterns)
   - [Interface guidelines Accessibility documentation](https://primer.style/design/accessibility)
   - Related components that may have guidelines applicable to your component 
-  - Take a look at an existing component that was documented using this approach, such as [Action Bar](#) 
+  - Take a look at an existing component that was documented using this approach, such as [Action menu](../action-menu.mdx) 
 
 #### Recommendations for tackling this work quickly and efficiently
 - Work in pairs or with a small group. Dedicate 1-2 components per person, with each person in the group is responsible for reviewing the others' PRs.  

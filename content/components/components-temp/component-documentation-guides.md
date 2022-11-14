@@ -22,15 +22,15 @@ When documenting components, consider the core elements needed to convey its mai
 ### Types of components 
 #### Regular
 - Standard components used to build Primer UI
-- Example:  [ActionList](#)
+- Example:  [ActionList](../action-list.mdx)
 
 #### Internal
 - Components used by other components that do not exist on their own. 
-- Example:  [Overlay](#)
+- Example:  [Overlay](https://primer.style/react/Overlay)
 
 #### Behavioral
 - Components with no real anatomy or structure, rather behaviors
-- Example:  [Truncate](#)
+- Example:  [Truncate](https://primer.style/react/Truncate)
 
 ### Component documentation structure
 #### Description
@@ -40,32 +40,37 @@ When documenting components, consider the core elements needed to convey its mai
 
     [Description documentation example](#)
 
-#### Usage (Overview)
+#### Usage 
 - When to use
 - Best practices
 - Do/Don't examples
-- [Usage documentation example](#)
+  
+  [Usage documentation example](#)
 
 #### Options
 - Different sizes, typography options, layout variations, spac
 ing, etc
 - Different applications of the component in context
-- [Options documentation example](#)
+
+  [Options documentation example](#)
 
 #### Anatomy 
 - Describe the elements that make up the component, including typography, spacing, and styles. This can also include sub components, if there are any
-- [Anatomy documentation example](#)
+  
+  [Anatomy documentation example](#)
 
 #### Interactions
 - If there are specific behaviors or interactions that the consumer of this documentation should be aware of, it's important to document that. Is it clickable or static, does it have any specific interactions based on state? Are there multiple types of behavior, and when does each get applied? 
-- [Interactions documentation example](#)
+  
+  [Interactions documentation example](#)
 
 #### Accessibility
 - Usage
 - Keyboard navigation
 - Touch targets
 - Any specific usage guidelines with regards to assistive technology 
-- [Accessibility documentation example](#)
-t
+  
+  [Accessibility documentation example](../anchored-overlay.mdx)
+
 #### Related components and patterns
 
