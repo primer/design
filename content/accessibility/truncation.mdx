@@ -53,13 +53,20 @@ Or we truncate the name of a company, and we don't control where the truncation 
 
 ### CSS Truncation
 
-CSS provides mechanisms allowing you to visually hide or truncate content without needing to touch the underlying HTML. Many of them thus will not affect screen reader users' experience at all.
+CSS provides mechanisms allowing you to visually hide or truncate content without needing to touch the underlying HTML.
+CSS truncation will not removed the truncated text from the DOM, so it could look unreadable for a sighted user, but screen reader users will still be able to read it.
 
-- `text-overflow: ellipsis` (combined with `overflow: hidden` and `white-space: nowrap`): This combination of attributes allows for easy visual truncation of long text which might overflow outside its container.
-However, since the text which doesn't fit never actually gets removed from the DOM, screen reader users will hear the entire thing when they navigate to it.
+This method is purely controlled by the browser, and gives us no power on deciding where to truncate the text.
 
-Truncation can be achieve applying the [Primer CSS class for truncation](https://primer.style/css/components/truncate) to the text element,
-so when a text reaches lengths larger than existing container, it shortens with ellipses.
+We should not truncate large bodies of text using css. but there are times when we can truncate using CSS. If you're working with a user interface control where the truncated text is not controlled by designers and developers, for example a single line of text where cannot fit all the text on it, actually CSS truncation is the right thing to do because you're gonna show the full thing in an accessible tooltip.
+
+If you're working with a user interface control where GitHub designers and developers have decided exactly what text it will have and exactly what its purpose is, meaning that is a generated conten and it's known ahead of time, then we should avoid truncating it.
+
+#### How to truncate via CSS
+
+- `text-overflow: ellipsis` (combined with `overflow: hidden` and `white-space: nowrap`): This combination of attributes allows for easy visual truncation of long text which might overflow outside its container. However, since the text which doesn't fit never actually gets removed from the DOM, screen reader users will hear the entire thing when they navigate to it.
+
+Truncation can be achieve applying the [Primer CSS class for truncation](https://primer.style/css/components/truncate) to the text element, so when a text reaches lengths larger than existing container, it shortens with ellipses.
 
 ### Progressive disclosure
 
