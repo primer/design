@@ -1775,21 +1775,21 @@
   resolved "https://registry.yarnpkg.com/@primer/behaviors/-/behaviors-1.1.3.tgz#4945f79c39f8b4495ec868b053264830f687c7bc"
   integrity sha512-WpCcjAkXG7Lv3ZbaCUgASWKHnCi/pmuSEiyTmHHb6f5xhwk1mliixNL5ZZHtDN6RCcT3VnXUsyek4GopG2lbZQ==
 
-"@primer/component-metadata@^0.4.0":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@primer/component-metadata/-/component-metadata-0.4.1.tgz#86c4cda1bc6504cd5f9d523fac16c5e00556d881"
-  integrity sha512-iy5ZEeIRN6pFFG7px2ruuA726yVB/n4lsgM3msfdg9qJzfS9qE2JCqq2OuvQ+yXUTxb3JKROaDSH403kdpFR4Q==
+"@primer/component-metadata@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@primer/component-metadata/-/component-metadata-0.5.1.tgz#2f41dcc0ff9fcc9ad16c9241a20abdf86ba8468b"
+  integrity sha512-+3tuJScHWRifOAyMV+cn1I533j+PcprvPXbKnH1W7N+vhaGyaaHTao8Dkyyhxbhklmumcf8XR+Lz6dK1ojDrCg==
 
-"@primer/gatsby-theme-doctocat@^4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-4.2.0.tgz#230f4f241e0035cd23e8da7e8ae5e48097aaf9d4"
-  integrity sha512-WgptcLQHZ565IQbp9WETRCVCiapnkk1HURyWk26XhAZfeDHNFoKKNgZRzW1wzZU/nkRuzw6jCgUduZG6wICpBw==
+"@primer/gatsby-theme-doctocat@^4.2.3":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-4.2.3.tgz#70b79c1ee713d4e69d0c23daee716f82c0462c4f"
+  integrity sha512-c6422dJwaolMaA/1zCpNdJnZvAY2sL+fv51pNWN0BC6DiMsX1o83dUjTcpTs9XKSJPbhmNEWfKpSXW4lA6ht1A==
   dependencies:
     "@babel/preset-env" "^7.5.5"
     "@babel/preset-react" "^7.0.0"
     "@mdx-js/mdx" "^1.0.21"
     "@mdx-js/react" "^1.0.21"
-    "@primer/component-metadata" "^0.4.0"
+    "@primer/component-metadata" "^0.5.1"
     "@primer/octicons-react" "^17.5.0"
     "@primer/react" "^35.2.2"
     "@styled-system/theme-get" "^5.0.12"
@@ -1827,7 +1827,6 @@
     react-addons-text-content "^0.0.4"
     react-element-to-jsx-string "^14.0.3"
     react-focus-on "^3.3.0"
-    react-frame-component "^5.2.1"
     react-helmet "^6.1.0"
     react-live "^2.1.2"
     react-measure "^2.3.0"
@@ -1837,12 +1836,7 @@
     styled-system "^5.0.18"
     worker-loader "^3.0.2"
 
-"@primer/octicons-react@^17.3.0":
-  version "17.4.0"
-  resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-17.4.0.tgz#b4e838dab01e5dbdb229f4b9abfe424ae06f1fd2"
-  integrity sha512-3h+/5CqwvQ9lUzlY+g25v6KoM5eVq1/3OjNslphKqiw/fqLzNHWwkWQQx89MZyRVXtaPs0dcRdGb2pqKUXCRqQ==
-
-"@primer/octicons-react@^17.5.0":
+"@primer/octicons-react@^17.3.0", "@primer/octicons-react@^17.5.0":
   version "17.6.0"
   resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-17.6.0.tgz#641c7ac1d78e4e97fa1afff72d02501b26b353b5"
   integrity sha512-jn1fWag3eU6BvOltMS2MqLPNh39D45cpegsTO2Qhb8SlJoUsj/ZO1qbJgYd9ibvZo8evDyXx3syh4kDbxJQFsg==
@@ -11940,11 +11934,6 @@ react-focus-on@^3.3.0:
     tslib "^2.3.1"
     use-callback-ref "^1.3.0"
     use-sidecar "^1.1.2"
-
-react-frame-component@^5.2.1:
-  version "5.2.3"
-  resolved "https://registry.yarnpkg.com/react-frame-component/-/react-frame-component-5.2.3.tgz#2d5d1e29b23d5b915c839b44980d03bb9cafc453"
-  integrity sha512-r+h0o3r/uqOLNT724z4CRVkxQouKJvoi3OPfjqWACD30Y87rtEmeJrNZf1WYPGknn1Y8200HAjx7hY/dPUGgmA==
 
 react-helmet@^6.1.0:
   version "6.1.0"
