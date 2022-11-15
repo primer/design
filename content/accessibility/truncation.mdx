@@ -4,7 +4,7 @@ title: Truncation
 
 ## Overview
 
-Truncation means shortening a text when it reaches a larger length than required, usually shorten with ellipses.
+Truncation means shortening a text when it reaches a larger length than required, usually shortened with ellipses.
 
 There are several parts of our platform where we will have some text, which can probably contain focusable elements like links,
 and we won't have enough space to show it completely, so we wan't to truncate it. How do we truncate it in the most accessible way?
@@ -20,7 +20,7 @@ Implicit truncation means that a certain text is truncated and the user has to t
 
 ### Explicit truncation
 
-Explicit truncation means that a certain text is truncated and it includes an actual control in the interface that can be clicked on or pressed with the keyboard, letting the user expand what is displayed.
+Explicit truncation means that a certain text is truncated and it includes a physical control in the interface that can be clicked on or pressed with the keyboard, letting the user expand what is displayed.
 
 ## General Rules
 
@@ -32,7 +32,7 @@ Some of the potential issues are:
 - the focusable elements could be completely hidden and they will randomly appear when the user navigates into them.
 - the focus seems to disappear.
 - focusable elements can be truncated in the middle.
-- "unsecure" links can be focused via keyboard whith no visual focus.
+- "insecure" links can be focused via keyboard with no visual focus.
 
 ### Security
 
@@ -41,12 +41,12 @@ For example, truncating a URL is a security bad practice, because the user doesn
 
 ### Untrue information
 
-In some situations we don't control in which part of the text the truncation is happening, so we wan't to avoid to truncate a text if that could be considered as 
-"untrue information.
+In some situations we don't control in which part of the text the truncation is happening, so we want to avoid truncated text if that could be considered as 
+"untrue information".
 Ideally never truncate in the middle of a word, and even more ideally never truncate in the middle of a sentence or paragraph.
 
-For example, if a text include mentions, truncation can happend at the middle of one, confusing the user who's reading the text.
-Or we truncate the name of a company, and we don't control where the truncation is happening, it might be that several companies with the similar beginning at their name have the same visual truncation, and that would be very confusing for the user.
+For example, if a text includes mentions, truncation can happen at the middle of the mention, confusing the user who's reading the text.
+Or we truncate the name of a company, and we don't control where the truncation is happening, it might be that several companies with the similar beginning of their name have the same visual truncation, and that would be very confusing for the user.
 
 ## Truncation options
 
@@ -57,9 +57,9 @@ CSS truncation will not removed the truncated text from the DOM, so it could loo
 
 This method is purely controlled by the browser, and gives us no power on deciding where to truncate the text.
 
-We should not truncate large bodies of text using css. but there are times when we can truncate using CSS. If you're working with a user interface control where the truncated text is not controlled by designers and developers, for example a single line of text where cannot fit all the text on it, actually CSS truncation is the right thing to do because you're gonna show the full thing in an accessible tooltip.
+We should not truncate large bodies of text using css. but there are times when we can truncate using CSS. If you're working with a user interface control where the truncated text is not controlled by designers and developers, for example a single line of text where cannot fit all the text on it, actually CSS truncation is the right thing to do because you're going to show the full thing in an accessible tooltip.
 
-If you're working with a user interface control where GitHub designers and developers have decided exactly what text it will have and exactly what its purpose is, meaning that is a generated conten and it's known ahead of time, then we should avoid truncating it.
+If you're working with a user interface control where GitHub designers and developers have decided exactly what text it will have and exactly what its purpose is, meaning that is a generated content and it's known ahead of time, then we should avoid truncating it.
 
 #### How to truncate via CSS
 
@@ -73,7 +73,7 @@ Truncation can be achieve applying the [Primer CSS class for truncation](https:/
 
 ### Using a tooltip
 
-When working with a user interface control where the truncated text is not controlled by designers and developers, for example focusable controls with user generated or unpredictable content in them, the CSS truncation together with an accessible tooltip is a reasonable option.
+When working with a user interface control where the truncated text is not controlled by designers and developers, for example focusable controls with user generated or unpredictable content in them, CSS truncation together with an accessible tooltip is a reasonable option.
 
 However, tooltips are rarely appropriate, and its misuse can result in a myriad of accessibility issues, so always consider not using a tooltip for an improved user experience.
 
