@@ -20,8 +20,7 @@ Implicit truncation means that a certain text is truncated and the user has to t
 
 ### Explicit truncation
 
-Explicit truncation means that a certain text is truncated and it includes an actual control in the interface that can be clicked on or pressed with the keyboard,
-letting the user expand what is displayed.
+Explicit truncation means that a certain text is truncated and it includes an actual control in the interface that can be clicked on or pressed with the keyboard, letting the user expand what is displayed.
 
 ## General Rules
 
@@ -68,17 +67,29 @@ If you're working with a user interface control where GitHub designers and devel
 
 Truncation can be achieve applying the [Primer CSS class for truncation](https://primer.style/css/components/truncate) to the text element, so when a text reaches lengths larger than existing container, it shortens with ellipses.
 
-### Progressive disclosure
-
-In progress...
+### Progressive disclosure 
 
 [Primer Progressive Disclosure](https://primer.style/design/ui-patterns/progressive-disclosure) is an interaction design pattern that can be used for explicit truncation.
 
 ### Using a tooltip
 
-In progress...
+When working with a user interface control where the truncated text is not controlled by designers and developers, for example focusable controls with user generated or unpredictable content in them, the CSS truncation together with an accessible tooltip is a reasonable option.
+
+However, tooltips are rarely appropriate, and its misuse can result in a myriad of accessibility issues, so always consider not using a tooltip for an improved user experience.
+
+Learn more about [tooltip alternatives
+](https://primer.style/design/accessibility/tooltip-alternatives).
+
+## Dyslexia and other cognitive disabilities
+
+The experience of users with dyslexia and other cognitive disabilities will be impacted, since text truncation is related to a reading task. Those users could be confused by text that is only shown partially regardless of their reading ability, or their ability to guess the missing part.
 
 ## Additional resources
 - [Success Criterion 1.4.4: Resize Text (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/resize-text)
 - [Success Criterion 1.4.10: Reflow (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html)
-- [Primer CSS `truncate` class](https://primer.style/css/components/truncate)
+
+
+
+
+
+
