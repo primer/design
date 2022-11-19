@@ -1,22 +1,24 @@
 ---
-title: Responsive design
+title: Responsive
 description: Supporting responsive experiences is an essential part of developing for the Web. Every page and feature at GitHub needs to adapt to the user’s device and their preferences.
 ---
 
 ## Definition
 
-Nielsen Norman Group [defines Responsive Web Design](https://www.nngroup.com/articles/responsive-web-design-definition/) as “a web development approach that creates dynamic changes to the appearance of a website, depending on the screen size and orientation of the device being used to view it”.
+[Responsive web design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design) is the practice of building a website suitable to work on every device and every screen size, no matter how large or small, mobile or desktop. Responsive web design is an accessibility requirement, focused around providing an intuitive and gratifying experience for everyone.
 
-“Adaptive design”, on the other hand, has been a term historically used to identify an approach where entirely separated fixed layouts were created to support mobile devices (MDN has good documentation [on how we got here](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design#historic_website_layouts)).
+At GitHub, being Responsive means our experiences are inherently adaptive. Interfaces should not only adjust layout and spacing when resizing a page, but work efficiently to provide an [efficient experience](/foundations/introduction#design-for-efficiency) that is tailored to match the paradigms and affordances of the person’s device:
 
-“Responsive design” at GitHub is inherently adaptive, in the sense that it should not only adjust layout and spacing when resizing a page, but support patterns and component variants that match the paradigms and affordances of the person’s device:
-
-- Responsive to the form factor: adapt to viewport size, pointing device support, and to the device metaphors and affordances.
+- Responsive to the [form factor](https://en.wikipedia.org/wiki/Form_factor_(design)): adapt to viewport size, pointing device support, and to the device metaphors, power, and affordances.
 - Responsive to the user preferences: respect browser’s default font size, reduced motion, color scheme, contrast preferences, etc.
 
 ## Responsive to the device’s form factor
 
 Designing for the web means that people can open your page from virtually any type of device. When designing for GitHub, picture our users using desktops, tablets, and smartphones, but also [custom-built tiny cyberdecks](https://www.reddit.com/r/cyberDeck/top/?t=year) and [VR headsets](https://en.wikipedia.org/wiki/Virtual_reality_headset).
+
+### Device power
+
+To ensure universal access from a global audience, GitHub experiences need to be fast and performant, even on low-powered devices and slow connections.
 
 ### Viewport size
 
@@ -39,24 +41,20 @@ Todo: Link to Figma Templates
 
 ### Pointing device
 
-Instead of trying to infer the input mechanism from screen size, use the device characteristics through [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries) to adapt the experience accordingly.
-
-The table below shows possible device scenarios according to `pointer` and `hover` media features:
+Use the device characteristics through [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries) to adapt the experience accordingly for different device scenarios. The table below shows some possible device scenarios using `pointer` and `hover` media features:
 
 &nbsp;             | `pointer: coarse`                                | `pointer: fine`
 -------------------|:------------------------------------------------:|:---------------------:
 **`hover: none`**  | Smartphones, touch screens                       | Stylus-based screens
 **`hover: hover`** | Virtual reality headsets, video-game controllers | Mouse, touch pad
 
-#### Pointer types
-- A `coarse` pointer means the primary input mechanism isn’t very accurate. A finger on a touchscreen is a coarse pointer.
+#### Minimum target
 
-  - When designing for coarse/touch, make sure that the target size is large enough to be easily tapped. [Read more about this accessibility requirement](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html).
+When designing for coarse/touch, make sure that the target size is large enough to be easily tapped. [Read more about this accessibility requirement](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html).
 
   - **Minimum coarse/touch target**: 44px
 
-
-- A `fine` pointer means the primary input mechanism supports accurate control. A mouse or a stylus is a fine pointer.
+For mouse or stylus, a recommended target is smaller:
 
   - **Recommended minimum fine/mouse target**: 20px
 
