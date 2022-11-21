@@ -16,11 +16,11 @@ Aside from components we deem to be high touch and therefore requiring more in-d
 Description
 - brief text describing what the component is
 - link to available implementations
-- visual, if applicable 
+- image, if applicable
 
 Usage
 - proper usage guides
-- visual examples
+- visual examples, such as an image or gif demonstrating what the component is
 
 ## Add more documentation if it's readily available
 If more information (than required above) is easily accessible and doesn't require a huge time investment to include, it should be added to to MVP documentation. Some examples of this include listing out related components, cross-linking to Accessibility guidelines, and more. 
