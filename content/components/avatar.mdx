@@ -1,6 +1,7 @@
 ---
 title: Avatar
-status: Experimental
+figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=13007%3A40428
+react: https://primer.style/react/Avatar
 description: Avatars are images that represent users or organizations at GitHub. 
 ---
 
@@ -13,24 +14,44 @@ Use avatars to represent users, organizations, bots, or teams. On GitHub, avatar
 <img
   width="960"
   alt="An image showing two different avatars, a user and an organization."
-  src="https://user-images.githubusercontent.com/586552/201956636-4257c8e7-7195-416a-a13c-1f2036912d17.png"
+  src="https://user-images.githubusercontent.com/586552/203206390-f57e83e5-6950-4036-8e67-869ca99f510c.png"
 />
 
 ## Options
 
 ### Size
 
-- Avatars start at 16px and increment by base-4 until 32px.
-- At 32px, the scale switches to base-8 up to 48px.
-- 64px is the largest size in this scale.
+<Box
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 2}}
+>
+  <img
+    width="522"
+    alt="An image showing avatars ranging in size from 16px to 64px."
+    src="https://user-images.githubusercontent.com/586552/203205599-5db3ea1d-c120-4ed4-960b-554fff050419.png"
+  />
+  <Box as="ul" mt="0">
+    <Box as="li" mt="0">
+     Avatars start at 16px and increment by base-4 until 32px.
+    </Box>
+    <Box as="li">
+      At 32px, the scale switches to base-8 up to 48px.
+    </Box>
+    <Box as="li">
+      64px is the largest size in this scale.
+    </Box>
+  </Box>
+</Box>
 
-## Shape
+### Shape
 
 Avatars appear as two different shapes, each with their own functional purpose.
 - **Circle avatars** represent individual people. 
 - **Square avatars** represent non-human entities, such as bots, teams, or organizations
 
-### Related components
+## Related components
 
-- [Avatar pair](http://primer/design/components/avatar-pair)
-- [Avatar stack](http://primer/design/components/avatar-stack)
+- [Avatar pair](../avatar-pair.mdx)
+- [Avatar stack](../avatar-stack.mdx)
