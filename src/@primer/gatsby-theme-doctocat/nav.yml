@@ -70,6 +70,8 @@
       url: /components/comment-box
     - title: Dialog
       url: /components/dialog
+    - title: Filter input
+      url: /components/filter-input
     - title: Relative time
       url: /components/relative-time
     - title: Segmented control
