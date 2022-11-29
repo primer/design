@@ -46,47 +46,12 @@ Therefore you should always use a search icon as a leading visual in the input.
   </Dont>
 </DoDontContainer>
 
-## Options
+### Submit
 
-### Qualifiers
+There are two ways this component can trigger submission of the input value.
 
-The filter input comes with a list of predefined qualifiers to ensure different products align on the same terminology as well as the design of suggestions.
-
-<img
-  src="https://user-images.githubusercontent.com/980622/204522022-c1141b98-7f13-48fe-a85f-9e8f90edb8f1.png"
-  role="presentation"
-  width="960"
-/>
-
-#### Predefined
-
-Even though custom qualifiers can be added it's important to check if your new qualifier could fit in one of the predefined qualifiers below.
-
-| Qualifier         | Origin | Suggestions                                                                                     | Format                     | Preview                                                                                                     |
-| ----------------- | ------ | ----------------------------------------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `created`         | static | `Today`, `This week`, `This month`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `>YYYY-MM-DD`, `YYY-MM-DD` | [View](https://user-images.githubusercontent.com/980622/204581689-408f3613-f75e-41b6-b8ab-d1e2f77cc898.png) |
-| `assignee`        | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581662-a51a8c97-1384-4466-8aa4-f256ee345bfe.png) |
-| `author`          | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581674-c431373b-836a-4433-8faa-6560e222d8b4.png) |
-| `fork`            | static | `Yes`, `No`                                                                                     | `true`, `false`            | [View](https://user-images.githubusercontent.com/980622/204581707-603a1bbd-ea95-4640-ac1a-37e6934a7f72.png) |
-| `is`              | static | `Action`, `Code`, `Command`, `Commit`...                                                        | `name`                     | [View](https://user-images.githubusercontent.com/980622/204581711-6ce9a24b-13c0-4505-8af0-55cca4100997.png) |
-| `label`           | api    | `Title`, `Description` and `color`.                                                             | `title`                    | [View](https://user-images.githubusercontent.com/980622/204581716-2d0dc9d4-9389-467e-945e-b1572a08a15b.png) |
-| `language`        | static | `C`, `C##`, `C++`, `CoffeeScript`...                                                            | `language`                 | [View](https://user-images.githubusercontent.com/980622/204581727-498d982e-644d-41f5-beca-98d859dba9ad.png) |
-| `location`        | static | `Amsterdam, Netherlands`, `Bern, Switzerland`...                                                | `"Amsterdam, Netherlands"` | [View](https://user-images.githubusercontent.com/980622/204581735-38202a82-9dea-4c00-94d1-7fdb4128d051.png) |
-| `license`         | static | `BSD Zero Clause License`, `Academic Free License v3.0`...                                      | `cc0-1.0`                  | [View](https://user-images.githubusercontent.com/980622/204581731-1f93dbd7-014d-4caf-ba11-c5407b9ab2f4.png) |
-| `mentions`        | api    | `avatar`, `username` and `Full Name`.                                                           | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581742-78e7713a-211c-44c1-b220-b2ead1a20c67.png) |
-| `org`             | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581751-250d1cdb-fb2f-49d4-91ee-c7b2b2f7244a.png) |
-| `repo`            | api    | `avatar`, `username/repo-name`                                                                  | `username/repo-name`       | [View](https://user-images.githubusercontent.com/980622/204581761-6227d6c8-af48-427b-b5db-7080fd4628d8.png) |
-| `path`            | api    | `path`                                                                                          | `path`                     | [View](https://user-images.githubusercontent.com/980622/204581757-7a89441f-e927-4df9-93cb-c4cf49cb5698.png) |
-| `state` (generic) | static | `open`, `merged`, `closed`, `draft`                                                             | `open`                     | [View](https://user-images.githubusercontent.com/980622/204581782-d29573ae-5c2a-4726-a8f6-6c56fa042810.png) |
-| `state` (pr)      | static | `open`, `merged`, `closed`, `draft`                                                             | `open`                     | [View](https://user-images.githubusercontent.com/980622/204581777-25a6c908-e7e9-4815-8641-b80968a2fd36.png) |
-| `state` (issue)   | static | `open`, `closed`, `draft`                                                                       | `open`                     | [View](https://user-images.githubusercontent.com/980622/204581773-3e4e3202-1e2d-4d2e-a741-505dc71c11ee.png) |
-| `comments`        | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | [View](https://user-images.githubusercontent.com/980622/204581683-cfce78db-8adf-40f4-8b4b-39de11fd33af.png) |
-| `followers`       | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | [View](https://user-images.githubusercontent.com/980622/204581704-fde0c66f-7770-4775-88d6-7c70d4f846ce.png) |
-| `stars`           | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | [View](https://user-images.githubusercontent.com/980622/204581769-da69ef6f-4fe3-4e04-90c0-db661a1b141c.png) |
-| `updated`         | static | `Today`, `This week`, `This month`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `>YYYY-MM-DD`, `YYY-MM-DD` | [View](https://user-images.githubusercontent.com/980622/204581785-61de646f-491a-41cf-b87a-dc02afbd8847.png) |
-| `extension`       | static | `md, Markdown`, `json, JavaScript Object Notation`...                                           | `md`                       | [View](https://user-images.githubusercontent.com/980622/204581698-e7c6401d-66f4-4d3b-8c23-1e6c3012654f.png) |
-
-⚠️ This list will change a lot over the next month to accomodate different teams.
+1. Provide a search button next to the filter input
+2. Auto update results as the value changes
 
 ### Sorting
 
@@ -122,6 +87,98 @@ For static items that only return a handful of suggestions we often can just ord
   role="presentation"
   width="960"
 />
+
+## Qualifiers
+
+The filter input comes with a list of predefined qualifiers and prestyled suggestions. This ensures everyone aligns on the same qualifiers as well as on the styling of suggestions.
+
+<img
+  src="https://user-images.githubusercontent.com/980622/204522022-c1141b98-7f13-48fe-a85f-9e8f90edb8f1.png"
+  role="presentation"
+  width="960"
+/>
+
+Even though custom qualifiers can be added it's important to check if your new qualifier could fit in one of the predefined qualifiers below.
+
+| Qualifier         | Origin | Suggestions                                                                                     | Format                     | Preview                                                                                                     |
+| ----------------- | ------ | ----------------------------------------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `created`         | static | `Today`, `This week`, `This month`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `>YYYY-MM-DD`, `YYY-MM-DD` | [View](https://user-images.githubusercontent.com/980622/204581689-408f3613-f75e-41b6-b8ab-d1e2f77cc898.png) |
+| `assignee`        | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581662-a51a8c97-1384-4466-8aa4-f256ee345bfe.png) |
+| `author`          | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581674-c431373b-836a-4433-8faa-6560e222d8b4.png) |
+| `fork`            | static | `Yes`, `No`                                                                                     | `true`, `false`            | [View](https://user-images.githubusercontent.com/980622/204581707-603a1bbd-ea95-4640-ac1a-37e6934a7f72.png) |
+| `is`              | static | `Action`, `Code`, `Command`, `Commit`...                                                        | `name`                     | [View](https://user-images.githubusercontent.com/980622/204581711-6ce9a24b-13c0-4505-8af0-55cca4100997.png) |
+| `label`           | api    | `Title`, `Description` and `color`.                                                             | `title`                    | [View](https://user-images.githubusercontent.com/980622/204581716-2d0dc9d4-9389-467e-945e-b1572a08a15b.png) |
+| `language`        | static | `C`, `C##`, `C++`, `CoffeeScript`...                                                            | `language`                 | [View](https://user-images.githubusercontent.com/980622/204581727-498d982e-644d-41f5-beca-98d859dba9ad.png) |
+| `location`        | static | `Amsterdam, Netherlands`, `Bern, Switzerland`...                                                | `"Amsterdam, Netherlands"` | [View](https://user-images.githubusercontent.com/980622/204581735-38202a82-9dea-4c00-94d1-7fdb4128d051.png) |
+| `license`         | static | `BSD Zero Clause License`, `Academic Free License v3.0`...                                      | `cc0-1.0`                  | [View](https://user-images.githubusercontent.com/980622/204581731-1f93dbd7-014d-4caf-ba11-c5407b9ab2f4.png) |
+| `mentions`        | api    | `avatar`, `username` and `Full Name`.                                                           | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581742-78e7713a-211c-44c1-b220-b2ead1a20c67.png) |
+| `org`             | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581751-250d1cdb-fb2f-49d4-91ee-c7b2b2f7244a.png) |
+| `repo`            | api    | `avatar`, `username/repo-name`                                                                  | `username/repo-name`       | [View](https://user-images.githubusercontent.com/980622/204581761-6227d6c8-af48-427b-b5db-7080fd4628d8.png) |
+| `path`            | api    | `path`                                                                                          | `path`                     | [View](https://user-images.githubusercontent.com/980622/204581757-7a89441f-e927-4df9-93cb-c4cf49cb5698.png) |
+| `state` (generic) | static | `open`, `merged`, `closed`, `draft`                                                             | `open`                     | [View](https://user-images.githubusercontent.com/980622/204581782-d29573ae-5c2a-4726-a8f6-6c56fa042810.png) |
+| `state` (pr)      | static | `open`, `merged`, `closed`, `draft`                                                             | `open`                     | [View](https://user-images.githubusercontent.com/980622/204581777-25a6c908-e7e9-4815-8641-b80968a2fd36.png) |
+| `state` (issue)   | static | `open`, `closed`, `draft`                                                                       | `open`                     | [View](https://user-images.githubusercontent.com/980622/204581773-3e4e3202-1e2d-4d2e-a741-505dc71c11ee.png) |
+| `comments`        | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | [View](https://user-images.githubusercontent.com/980622/204581683-cfce78db-8adf-40f4-8b4b-39de11fd33af.png) |
+| `followers`       | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | [View](https://user-images.githubusercontent.com/980622/204581704-fde0c66f-7770-4775-88d6-7c70d4f846ce.png) |
+| `stars`           | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | [View](https://user-images.githubusercontent.com/980622/204581769-da69ef6f-4fe3-4e04-90c0-db661a1b141c.png) |
+| `updated`         | static | `Today`, `This week`, `This month`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `>YYYY-MM-DD`, `YYY-MM-DD` | [View](https://user-images.githubusercontent.com/980622/204581785-61de646f-491a-41cf-b87a-dc02afbd8847.png) |
+| `extension`       | static | `md, Markdown`, `json, JavaScript Object Notation`...                                           | `md`                       | [View](https://user-images.githubusercontent.com/980622/204581698-e7c6401d-66f4-4d3b-8c23-1e6c3012654f.png) |
+
+⚠️ This list will change a lot over the next month to accomodate different teams.
+
+### Generics
+
+The `state:` qualifier has multiple variants to improve the experience for specific items:
+
+- `state`: For both pull requests and issues (no icons)
+- `state-pr`: For only pull requests (with icons)
+- `state-issue`: For only issues (with icons)
+
+Therefore it's important to use the correct qualifier as soon as you can determine if you're filtering to pull requests or issues.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/204605560-47a3e722-7459-4ba9-b25b-3a7a03a44241.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use the `state-pr` variant when filtering pull requests.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/204605557-0a7f7be6-9c11-4a6e-a790-59c8a3b31f4d.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use the `state` variant when filtering pull requests.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Deprecate where possible
+
+There are many qualifiers on our platform that could be unified or deleted. For example `type:` can now be replaced by `is:`.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/204615265-4daccef5-e19f-4068-91cd-842c637d6bc9.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use a predefined qualifier where possible.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/204615272-67fddc1d-0d51-436e-8069-83147b104d40.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use a custom qualifiers instead of a predefined one.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Options
 
 ### Size
 
