@@ -21,49 +21,28 @@ A input that provides suggestions through qualifiers and highlights complex filt
 
 ## Content
 
-### Buttons
+### Icon
 
-An action bar should only contain icon buttons with the `invisible` variant (no border/background).
-
-<DoDontContainer>
-  <Do>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506398-6d6da18a-b70d-4cd4-b6e4-fd472a24934f.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Use only invisible icon buttons in an action bar.</Caption>
-  </Do>
-  <Dont>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506488-44543352-f513-469e-8783-5d1cc7f44eaf.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Don't use other variants or components in an action bar.</Caption>
-  </Dont>
-</DoDontContainer>
-
-### Dividers
-
-Dividers can be added to visually group related buttons.
+A filter input allows free form text searching as well as using qualifiers to apply filters to narrow down your search.
+Since this filter input has to always support free form text searching using a filter icon could give the impression free form text search isn't available.
+Therefore you should always use a search icon as a leading visual in the input.
 
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/378023/193506858-6542a6ba-4bac-400d-bba9-8601fbc032ed.png"
+      src="https://user-images.githubusercontent.com/980622/204516414-4e6e00ba-38f7-49e5-8a80-9e3bc91ccd97.png"
       role="presentation"
       width="456"
     />
-    <Caption>Use a divider between buttons.</Caption>
+    <Caption>Use only a search icon in a filter input.</Caption>
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/378023/193506894-dc0a65a0-0f81-444a-aa8c-f3b0f74aecb5.png"
+      src="https://user-images.githubusercontent.com/980622/204516427-75b0a18d-9f61-4541-931c-ba0e8175fa07.png"
       role="presentation"
       width="456"
     />
-    <Caption>Don't use a divider at the beginning or end of the action bar.</Caption>
+    <Caption>Don't use a filter icon in a filter input.</Caption>
   </Dont>
 </DoDontContainer>
 
@@ -77,77 +56,82 @@ When the buttons don't fit in the available space, an overflow button ("kebab" i
   width="960"
 />
 
-#### Sorting
+## Options
 
-Buttons that don't fit are added to the top of the menu. Meaning that the last button in the action bar will also be the last button when inside the menu:
+### Qualifiers
+
+All qualifiers are predefined to ensure different products align on the same terminology as well as the design of suggestions.
 
 <img
-  src="https://user-images.githubusercontent.com/378023/188835345-0cfd3376-1658-496f-a78b-f5977aa2198c.png"
-  alt=""
+  src="https://user-images.githubusercontent.com/980622/204522022-c1141b98-7f13-48fe-a85f-9e8f90edb8f1.png"
+  role="presentation"
   width="960"
 />
 
-#### Demo
+#### Predefined
 
-<CustomVideoPlayer
-  width="720px"
-  loop
-  src="https://user-images.githubusercontent.com/378023/188359460-bc88bac8-9c69-4aea-8ce0-bc427bedc3a3.mov"
-  poster="https://user-images.githubusercontent.com/378023/188529873-eafbad89-9eeb-4342-905d-15d89d288ffd.png"
+Even though custom qualifiers can be added it's important to check if your new qualifier could fit in one of the predefined qualifiers below.
+
+| Qualifier         | Origin | Suggestions                                                                                     | Format                     | Preview |
+| ----------------- | ------ | ----------------------------------------------------------------------------------------------- | -------------------------- | ------- |
+| `created`         | static | `Today`, `This week`, `This month`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `>YYYY-MM-DD`, `YYY-MM-DD` | View    |
+| `assignee`        | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | View    |
+| `author`          | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | View    |
+| `fork`            | static | `Yes`, `No`                                                                                     | `true`, `false`            | View    |
+| `is`              | static | `Action`, `Code`, `Command`, `Commit`...                                                        | `name`                     | View    |
+| `label`           | api    | `Title`, `Description` and `color`.                                                             | `title`                    | View    |
+| `language`        | static | `C`, `C##`, `C++`, `CoffeeScript`...                                                            | `language`                 | View    |
+| `location`        | static | `Amsterdam, Netherlands`, `Bern, Switzerland`...                                                | `"Amsterdam, Netherlands"` | View    |
+| `license`         | static | `BSD Zero Clause License`, `Academic Free License v3.0`...                                      | `cc0-1.0`                  | View    |
+| `mentions`        | api    | `avatar`, `username` and `Full Name`.                                                           | `username`                 | View    |
+| `org`             | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | View    |
+| `repo`            | api    | `avatar`, `username/repo-name`                                                                  | `username/repo-name`       | View    |
+| `path`            | api    | `path`                                                                                          | `path`                     | View    |
+| `state` (generic) | static | `open`, `merged`, `closed`, `draft`                                                             | `open`                     | View    |
+| `state` (pr)      | static | `open`, `merged`, `closed`, `draft`                                                             | `open`                     | View    |
+| `state` (issue)   | static | `open`, `closed`, `draft`                                                                       | `open`                     | View    |
+| `comments`        | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | View    |
+| `followers`       | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | View    |
+| `stars`           | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | View    |
+| `updated`         | static | `Today`, `This week`, `This month`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `>YYYY-MM-DD`, `YYY-MM-DD` | View    |
+| `extension`       | static | `md, Markdown`, `json, JavaScript Object Notation`...                                           | `md`                       | View    |
+
+⚠️ This list will change a lot over the next month to accomodate different teams.
+
+### Sorting
+
+There are two different states that should be considered when providing suggestions:
+
+1. **Default**: You've entered a matching qualifier and get default suggestions. For example: `author:`.
+2. **Narrow down**: You've entered a value after your qualifier to narrow down the suggestions. For example: `author:max`
+
+<img
+  src="https://user-images.githubusercontent.com/980622/204564567-1e972877-f05e-4a3e-873f-ffb5d0eb5ded.png"
+  role="presentation"
+  width="960"
 />
-<Caption>Overflow button appears when not enough space and resizing the action bar updates the overflow menu.</Caption>
 
-## States
+We should always strive to provide as relevant results as possible when dealing with `user`, `organization`, `repository`, `issue`, `pull request` items. This can be done through a mix of considerations:
 
-### Button states
+1. Objects you've interacted with
+2. Organizations you're part of and it's members
+3. Repositories you're part of and it's members
+4. [Approximate string matching](https://en.wikipedia.org/wiki/Approximate_string_matching) (fuzzy)
 
-Buttons in action bars are solely used for triggering actions. Consider using a [segmented control](https://primer.style/design/components/segmented-control) when a button should have a selected state.
+Let's take the `author:` as an example. During this `default` state we aren't searching through the authors yet and want to provide a default list with users.
+In this case it's crucial we make those suggestions as relevant as possible therefore we rank them based on how often/recently you've interacted with them.
 
-<DoDontContainer>
-  <Do>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506579-a665b941-5b4e-4e44-9439-cfb4e7e93ef3.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>
-      Buttons in action bars have a hover and pressed state, and a focused state when using a keyboard to navigate.
-    </Caption>
-  </Do>
-  <Dont>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506649-07cb8b8b-3658-477a-b7a2-f00ad9825f26.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Don't add a selected state or any other information like a notification dot or a counter.</Caption>
-  </Dont>
-</DoDontContainer>
+Once we start narrowing down those results by using `author:max` we enter the `narrow down` state and apply approximate string matching on those suggestions. In this case we still rank users that I've recently interacted with or that are part of my organization/repositories higher.
 
-### Tooltips
+Sadly not all all infrastructure can currently apply this logic and therefore often we'll have to fall back on alphabetical ordering.
 
-When hovering over a button, a tooltip will appear that describes the action.
+For static items that only return a handful of suggestions we often can just order items through common sense:
 
-<DoDontContainer>
-  <Do>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506950-1702cff8-c751-4bc2-a37a-a837d1e69320.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Describe what action will be taken when clicking on the button.</Caption>
-  </Do>
-  <Dont>
-    <img
-      src="https://user-images.githubusercontent.com/378023/193506979-07aa35d2-48f5-4b09-aa3e-c575be0e578e.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Don't use a tooltip in action bars to convey a current state.</Caption>
-  </Dont>
-</DoDontContainer>
-
-## Options
+<img
+  src="https://user-images.githubusercontent.com/980622/204575372-8a3119fa-0d85-4e95-8cb3-90e7c74ddaf4.png"
+  role="presentation"
+  width="960"
+/>
 
 ### Size
 
