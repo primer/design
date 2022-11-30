@@ -82,6 +82,10 @@
       url: /components/branch-name
     - title: Breadcrumb
       url: /components/breadcrumb
+    - title: Checkbox
+      url: /components/checkbox
+    - title: Checkbox group
+      url: /components/checkbox-group
     - title: Comment box
       url: /components/comment-box
     - title: Details
