@@ -178,6 +178,30 @@ Therefore it's important to use the correct qualifier as soon as you can determi
   </Dont>
 </DoDontContainer>
 
+### No matches
+
+When no matches are found we stop suggesting items through the popover and don't show that there aren't any matches.
+In rare cases the user could be searching for `format:format` within the content of items they are filtering to and this will still allow them to do so.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205033807-07f8816a-8118-45f3-b431-cdbe8e427f38.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Stop suggesting if no matches are found.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205033803-c256f091-aa53-40d7-a63c-912cdf28912a.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't show a empty state when no matches are found.</Caption>
+  </Dont>
+</DoDontContainer>
+
 ### Deprecate where possible
 
 There are many qualifiers on our platform that could be unified or deleted. For example `type:` can now be replaced by `is:`.
