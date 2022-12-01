@@ -229,6 +229,31 @@ In rare cases the user could be searching for `format:format` within the content
   </Dont>
 </DoDontContainer>
 
+### Values with spaces
+
+Some qualifiers like `location:` might have values which contain spaces. eg: `Amsterdam, Netherlands`. In this we encapsulate the value between straight quotes (not smart quotes).
+
+Without this it would be hard for the parser to understand where the value ends.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205074856-ae4b1b8b-7276-4d6d-8177-baa465241b30.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use straight quotes around values with spaces.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205074852-1b3376d9-aee1-4ba3-994b-84305604e0bf.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use quotes around values with spaces.</Caption>
+  </Dont>
+</DoDontContainer>
+
 ### Deprecate where possible
 
 There are many qualifiers on our platform that could be unified or deleted. For example `type:` can now be replaced by `is:`.
