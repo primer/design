@@ -88,6 +88,10 @@
       url: /components/checkbox-group
     - title: Comment box
       url: /components/comment-box
+    - title: Counter
+      url: /components/counter
+    - title: Counter label
+      url: /components/counter-label
     - title: Details
       url: /components/details
     - title: Dialog
