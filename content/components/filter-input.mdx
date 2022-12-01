@@ -182,7 +182,7 @@ Therefore it's important to use the correct qualifier as soon as you can determi
 
 If invalid values are used we don't show highlighting.
 
-While this applies to all qualifiers we do understand that for the ones that depend on our api endpoints (`users`, `repositories`, `organisations`...) we can't always accurately match every result and therefore while not ideal we can always highlight those. Note: When we do this we recommend creating a path forward to address those in a later stage.
+While this applies to all qualifiers we do understand that for the ones that depend on our api endpoints (`users`, `repositories`, `organisations`...) we can't always accurately match every result and therefore while not ideal we can always highlight those. For example when not SSO'd within a organisation some repositories might not be returned.
 
 Also consider that users might copy paste strings containing qualifiers. In this case you need to run through every qualifier to set the highlight if needed.
 
