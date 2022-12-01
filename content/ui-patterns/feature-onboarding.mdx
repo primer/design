@@ -5,8 +5,6 @@ description: Onboarding is a virtual unboxing experience that helps users get st
 
 import {Box} from '@primer/react'
 
-Check out the feature onboarding Figma [sticker sheet](https://www.figma.com/file/FJtZyBeBfwDkByHPfDSN6k/Feature-onboarding?node-id=857%3A6).
-
 When designing a feature onboarding flow, remember to:
 
 - ✅ Think creatively utilizing different ways to onboard users, including patterns that are not explicitly mentioned in this document.
@@ -133,11 +131,11 @@ Treat feature onboarding as a story or a journey with a beginning, middle, and e
 
 ## Teaching bubble
 
-A teaching bubble is a [Primer popover](https://primer.style/css/components/popover) that calls attention to a feature in a specific part of the page. Generally, teaching bubbles should be used to educate the user and enrich the task at hand.
+A teaching bubble is a [popover](https://primer.style/css/components/popover) that calls attention to a feature in a specific part of the page. Generally, teaching bubbles should be used to educate the user and enrich the task at hand.
 
 ### Usage guidelines
 
-Teaching bubble Figma [sticker sheet](https://www.figma.com/file/FJtZyBeBfwDkByHPfDSN6k/Feature-onboarding?node-id=857%3A34).
+Teaching bubble Figma [sticker sheet](https://www.figma.com/file/Y2xJLFBrU7yyiDLlEkQXcF/Primer-Interfaces?node-id=2%3A1295&t=2xX6FwLSJ0Cq9Qkp-1).
 
 <DoDontContainer>
 <Do>
@@ -378,30 +376,31 @@ Include relevant links to capture feedback, marketing pages or changelog entries
 
 See Primer documentation on [colored labels](https://primer.style/css/components/labels#colored-labels) and [muted links](https://primer.style/css/components/labels) for detailed implementation guidelines. There is also a Figma [sticker sheet](https://www.figma.com/file/FJtZyBeBfwDkByHPfDSN6k/Feature-onboarding?node-id=860%3A6107) you can use.
 
-<table>
-  <tr>
-    <td></td>
-    <th>Example</th>
-    <th>Notes</th>
-  </tr>
-  <tr>
-    <th>New</th>
-    <td>
-      <img
-        src="https://user-images.githubusercontent.com/6744014/89243986-364ef900-d5ba-11ea-84b7-821dc8b3d535.png"
-        alt="Example of the NEW flair that highlights a new feature"
-      />
-    </td>
-    <td>Generally, a feature may be considered “new” for 2 months.</td>
-  </tr>
-  <tr>
-    <th>Beta</th>
-    <td>
-      <img
-        src="https://user-images.githubusercontent.com/6744014/89243980-34853580-d5ba-11ea-9570-87de12a3b11c.png"
-        alt="Example of the BETA flair that highlights a beta feature"
-      />
-    </td>
-    <td>Beta flairs accompany features listed in the feature previews dialog.</td>
-  </tr>
-</table>
+## Lifecyle
+
+Depending on the size and impact of your ship you might only release to a fraction of users.
+There are currently 4 main phases: Alpha, Beta (Private | Public | Limited public), General audience (GA) and Deprecation.
+
+During each phase it's crucial we inform or collect info from our users to understand better how this change is perceived.
+
+| Preview                                                                                                                       | Phases                          | Users                 | Required                       |
+| ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | --------------------- | ------------------------------ |
+| <img width="177" src="https://user-images.githubusercontent.com/980622/205132473-cf383aec-23bd-4aff-8cb3-fa55d6605017.png" /> | Alpha                           | Internal              | Include a `Give feedback` link |
+| <img width="177" src="https://user-images.githubusercontent.com/980622/205132479-f06472d3-f284-483d-83c4-d4fcb6e34827.png" /> | (Private, Limited, Public) Beta | Internal and external | Include a `Give feedback` link |
+| <img width="177" src="https://user-images.githubusercontent.com/980622/205132482-4fbc72e8-f206-4a42-8f90-ffbd5f76f565.png" /> | General audience                | Everyone              | Include a `Give feedback` link |
+| <img width="177" src="https://user-images.githubusercontent.com/980622/205132483-d0e172a7-5c14-4687-a47f-ea31914208a2.png" /> | Deprecation                     | Everyone              | Include a `Learn more` link    |
+
+### Color and terminology
+
+It's important to stick to the correct terminology and label color when referring to those phases
+
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/980622/205090973-2c05a0d8-3406-4d54-9e6d-00b29e236395.png" />
+    <Caption>Use the correct label and link color</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/980622/205090963-c5889708-12bc-44ca-8a9e-801612c92656.png" />
+    <Caption>Don't change the label or link color</Caption>
+  </Dont>
+</DoDontContainer>
