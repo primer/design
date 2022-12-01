@@ -178,6 +178,33 @@ Therefore it's important to use the correct qualifier as soon as you can determi
   </Dont>
 </DoDontContainer>
 
+### Highlighting
+
+If invalid values are used we don't show highlighting.
+
+While this applies to all qualifiers we do understand that for the ones that depend on our api endpoints (`users`, `repositories`, `organisations`...) we can't always accurately match every result and therefore while not ideal we can always highlight those. Note: When we do this we recommend creating a path forward to address those in a later stage.
+
+Also consider that users might copy paste strings containing qualifiers. In this case you need to run through every qualifier to set the highlight if needed.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205069299-569989df-e6b7-410f-bcf6-5106774887a0.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Remove highlighting on values when they are invalid.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205069297-b9e03b40-0d52-4079-966d-e6d089440ab6.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't show highlighting on invalid values.</Caption>
+  </Dont>
+</DoDontContainer>
+
 ### No matches
 
 When no matches are found we stop suggesting items through the popover and don't show that there aren't any matches.
@@ -186,7 +213,7 @@ In rare cases the user could be searching for `format:format` within the content
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/980622/205033807-07f8816a-8118-45f3-b431-cdbe8e427f38.png"
+      src="https://user-images.githubusercontent.com/980622/205070358-9e160253-d3d5-4354-809b-ff52071eea1e.png"
       role="presentation"
       width="456"
     />
@@ -194,7 +221,7 @@ In rare cases the user could be searching for `format:format` within the content
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/980622/205047719-d535a7b6-a62b-4a8d-b610-965aac0597bc.png"
+      src="https://user-images.githubusercontent.com/980622/205070353-845bf3b5-de35-4c17-86f5-9d4f953b935a.png"
       role="presentation"
       width="456"
     />
@@ -234,7 +261,7 @@ We do this to ensure that qualifiers are easy scannable and have enough context.
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/980622/205044038-5273731c-29f7-4a6d-b50c-2416aa0bdd04.png"
+      src="https://user-images.githubusercontent.com/980622/205068312-041f8244-7b38-47a6-939a-f221b188786a.png"
       role="presentation"
       width="456"
     />
@@ -242,7 +269,7 @@ We do this to ensure that qualifiers are easy scannable and have enough context.
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/980622/205044846-d4a8bf88-30e4-4f25-b413-88b161aa9e17.png"
+      src="https://user-images.githubusercontent.com/980622/205068307-5ee7f056-2c38-4c31-8f7c-5df6dbb0562c.png"
       role="presentation"
       width="456"
     />
