@@ -68,6 +68,8 @@
       url: /components/autocomplete
     - title: Comment box
       url: /components/comment-box
+    - title: Data table
+      url: /components/data-table
     - title: Dialog
       url: /components/dialog
     - title: Relative time
