@@ -21,13 +21,13 @@ The table header shows contextual information about the table and render control
 - **Title:** A concise label that describes the table and its contents
 - **Subtitle:** A brief description to adds more context for the table when the title alone is not enough
 - **Actions:** Controls that affect the entire table
-- **Filter:** An input used to filter table data to make it easier for the user to focus only on the rows relevant to their task
+- **Filter:** An input used to filter table data to make it easier for the user to focus only on the rows relevant to their task. Even though the filter affects the entire table, it's not considered an "action".
 
 ### Column headers
 
 A very short label that describes the data in the column.
 
-Column headers are buttons that sort rows by the column data in ascending or descending order. Sort functionality may be disabled.
+Column headers are buttons that sort rows by the column data in ascending or descending order. Sort functionality may be disabled on a column-by-column basis.
 
 The column that contains row actions does not have a visible column header.
 
@@ -363,9 +363,11 @@ If all columns have width constraints set and the row doesn't fill the table con
 
 #### Density
 
-- Condensed
-- Normal
-- Spacious
+Options:
+
+- **Condensed:** Optimize for showing more information in a smaller area.
+- **Normal (default):** Shows a lot of information in a small area, but provides enough whitespace that the cells won't risk visually running together.
+- **Spacious:** Optimizes readability for tables with visually busy cell content.
 
 </Box>
 
@@ -383,8 +385,8 @@ If all columns have width constraints set and the row doesn't fill the table con
 
 #### Text alignment
 
-- Left (default)
-- Right
+- **Left (default):** Matches natural reading direction of text in right-to-left writing systems.
+- **Right:** Optimizes for comparing column data that is easier to compare when it's right-aligned. Most commonly used for numeric data.
 
 </Box>
 
@@ -587,13 +589,7 @@ The table must have a title, and can optionally have a subtitle to describe more
 </Box>
 </Box>
 
-### Keyboard navigation
-
-TBD - I need help from an a11y designer
-
-<!-- TODO: get guidance from Eric -->
-
 ## Related components and patterns
 
-- [ActionBar](https://primer.style/design/components/action-bar) (may be removed) <!-- TODO: remove this if we decide not to use ActionBars for table actions or row actions -->
+- [ActionBar](https://primer.style/design/components/action-bar)
 - [Pagination (React implementatiopn)](https://primer.style/react/Pagination)
