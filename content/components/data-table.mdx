@@ -483,11 +483,20 @@ If one of the actions is heavily used, pull it out for easier access. Do not pul
 
 ### Sorting
 
-The column header starts unsorted. The first click sorts in ascending order, the second click sorts in descending order, and the third click removes the sort.
-When the sort is removed, the rows should be in the order they were in when the table was first rendered
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
-VIDEO COMING SOON
-![🏞 video cycling through the sort options]()
+<Box as="p" flex={1}>
+  The column header starts unsorted. The first click sorts in ascending order, the second click sorts in descending
+  order, and the third click removes the sort. When the sort is removed, the rows should be in the order they were in
+  when the table was first rendered
+</Box>
+
+<CustomVideoPlayer
+  width="456"
+  loop
+  src="https://user-images.githubusercontent.com/2313998/205755293-c03ee5f6-faa8-4f73-89e5-4bf33cc06086.mp4"
+/>
+</Box>
 
 #### States
 
