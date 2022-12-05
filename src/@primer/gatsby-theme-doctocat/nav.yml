@@ -60,12 +60,12 @@
 - title: Components
   url: /components
   children:
-    - title: Action menu
-      url: /components/action-menu
     - title: Action bar
       url: /components/action-bar
     - title: Action list
       url: /components/action-list
+    - title: Action menu
+      url: /components/action-menu
     - title: Anchored overlay
       url: /components/anchored-overlay
     - title: Autocomplete
