@@ -72,6 +72,8 @@
       url: /components/comment-box
     - title: Dialog
       url: /components/dialog
+    - title: Form control
+      url: /components/form-control
     - title: Relative time
       url: /components/relative-time
     - title: Segmented control
