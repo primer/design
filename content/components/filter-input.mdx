@@ -95,7 +95,7 @@ We should always strive to provide as relevant results as possible when dealing 
 3. Repositories you're part of and it's members
 4. [Approximate string matching](https://en.wikipedia.org/wiki/Approximate_string_matching) (fuzzy)
 
-Let's take the `author:` as an example. During this `default` state we aren't searching through the authors yet and want to provide a default list with users.
+Let's take the `author:` as an example. While in the `default` state we aren't searching through the authors and want to provide a default list with users.
 In this case it's crucial we make those suggestions as relevant as possible therefore we rank them based on how often/recently you've interacted with them.
 
 Once we start narrowing down those results by using `author:max` we enter the `narrow down` state and apply _approximate string matching_ on those suggestions. In this case we still rank users that I've recently interacted with or that are part of my organization/repositories higher.
