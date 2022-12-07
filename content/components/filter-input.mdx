@@ -98,7 +98,7 @@ We should always strive to provide as relevant results as possible when dealing 
 Let's take the `author:` as an example. During this `default` state we aren't searching through the authors yet and want to provide a default list with users.
 In this case it's crucial we make those suggestions as relevant as possible therefore we rank them based on how often/recently you've interacted with them.
 
-Once we start narrowing down those results by using `author:max` we enter the `narrow down` state and apply approximate string matching on those suggestions. In this case we still rank users that I've recently interacted with or that are part of my organization/repositories higher.
+Once we start narrowing down those results by using `author:max` we enter the `narrow down` state and apply _approximate string matching_ on those suggestions. In this case we still rank users that I've recently interacted with or that are part of my organization/repositories higher.
 
 Not all our infrastructure supports this logic yet. If not available we fall back on alphabetical ordering.
 
