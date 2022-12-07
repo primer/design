@@ -101,7 +101,7 @@ In this case it's crucial we make those suggestions as relevant as possible ther
 
 Once we start narrowing down those results by using `author:max` we enter the `narrow down` state and apply approximate string matching on those suggestions. In this case we still rank users that I've recently interacted with or that are part of my organization/repositories higher.
 
-Sadly not all our infrastructure can currently apply this logic and therefore often we'll have to fall back on alphabetical ordering.
+Not all our infrastructure supports this logic yet. If not available we fall back on alphabetical ordering.
 
 For static items that only return a handful of suggestions we often can just order items through common sense:
 
