@@ -9,13 +9,13 @@ import {Box, Text} from '@primer/react'
 
 ## Overview
 
-A input that provides suggestions through qualifiers and highlights complex filter syntax.
+An input that provides suggestions through qualifiers and highlights complex filter syntax.
 
 ## Anatomy
 
 <img
   width="960"
-  alt="A diagram of an action bar with a few buttons, a divider and at the end a button that opens an overflow menu."
+  alt="The filter input annotated with specific naming for individual items. The input has a `label:bug state:open assignee:` value and shows multiple suggestions for users."
   src="https://user-images.githubusercontent.com/980622/204337049-f8dad70b-efdb-4cea-a33b-eba2c050fb84.png"
 />
 
@@ -32,6 +32,7 @@ The filter input always supports free form text search. This is why you should u
       src="https://user-images.githubusercontent.com/980622/204516414-4e6e00ba-38f7-49e5-8a80-9e3bc91ccd97.png"
       role="presentation"
       width="456"
+      alt="A input that has a magnifying glass icon on the left side."
     />
     <Caption>Use the search icon in a filter input.</Caption>
   </Do>
@@ -40,6 +41,7 @@ The filter input always supports free form text search. This is why you should u
       src="https://user-images.githubusercontent.com/980622/204516427-75b0a18d-9f61-4541-931c-ba0e8175fa07.png"
       role="presentation"
       width="456"
+      alt="A input that has a filter icon on the left side which consists out of 3 lines getting incrementally smaller."
     />
     <Caption>Don't use a filter icon in a filter input.</Caption>
   </Dont>
@@ -62,6 +64,7 @@ The clear button only appears when there is at least one character entered in th
       src="https://user-images.githubusercontent.com/980622/204872106-ff9e6eb7-dc9a-421a-a82e-4a3df9115795.png"
       role="presentation"
       width="456"
+      alt="A input without a value."
     />
     <Caption>Hide the clear button when the input is empty.</Caption>
   </Do>
@@ -70,6 +73,7 @@ The clear button only appears when there is at least one character entered in th
       src="https://user-images.githubusercontent.com/980622/204872101-33720780-4f9a-4141-bffc-4d008dde755e.png"
       role="presentation"
       width="456"
+      alt="A input without a value showing a clear button in it on the right."
     />
     <Caption>Don't show the clear button when the input is empty.</Caption>
   </Dont>
@@ -86,6 +90,7 @@ There are two different states that should be considered when providing suggesti
   src="https://user-images.githubusercontent.com/980622/204564567-1e972877-f05e-4a3e-873f-ffb5d0eb5ded.png"
   role="presentation"
   width="960"
+  alt="Two examples of the filter input. One has the value `author:` and is suggesting a few users to pick from. The other one has the value `author:max` and is suggesting a few users with `max` in their name or username."
 />
 
 We should always strive to provide as relevant results as possible when dealing with `user`, `organization`, `repository`, `issue`, `pull request` items. This can be done through a mix of considerations:
@@ -108,6 +113,7 @@ For static items that only return a handful of suggestions we often can just ord
   src="https://user-images.githubusercontent.com/980622/204575372-8a3119fa-0d85-4e95-8cb3-90e7c74ddaf4.png"
   role="presentation"
   width="960"
+  alt="Two example of qualifiers that return static data. The `created` qualifier suggests: `Today`, `This week`, `This month`, `Oct 19, 2007`, `Before June 4, 2018` and `After June 4, 2018`. The `stars` qualifier suggests: `More than 10`, `Less than 10`, `Between 10 and 100` and `100`"
 />
 
 ## Qualifiers
@@ -117,6 +123,7 @@ The filter input comes with a list of predefined qualifiers and prestyled sugges
 <img
   src="https://user-images.githubusercontent.com/980622/204522022-c1141b98-7f13-48fe-a85f-9e8f90edb8f1.png"
   role="presentation"
+  alt="Multiple examples of qualifiers and the suggestions they provide. Qualifiers `language`, `author` and `state` are used as examples."
   width="960"
 />
 
@@ -164,6 +171,7 @@ Therefore it's important to use the correct qualifier as soon as you can determi
       src="https://user-images.githubusercontent.com/980622/204605560-47a3e722-7459-4ba9-b25b-3a7a03a44241.png"
       role="presentation"
       width="456"
+      alt="A input with value `is:pr state:` showing suggestions with colorful icons: `Open`, `Merged`, `Closed` and `Draft`"
     />
     <Caption>Use the `state-pr` variant when filtering pull requests.</Caption>
   </Do>
@@ -172,6 +180,7 @@ Therefore it's important to use the correct qualifier as soon as you can determi
       src="https://user-images.githubusercontent.com/980622/204605557-0a7f7be6-9c11-4a6e-a790-59c8a3b31f4d.png"
       role="presentation"
       width="456"
+      alt="A input with value `is:pr state:` showing suggestions without icons: `Open`, `Merged`, `Closed` and `Draft`"
     />
     <Caption>Don't use the `state` variant when filtering pull requests.</Caption>
   </Dont>
@@ -191,14 +200,17 @@ Also consider that users might copy paste strings containing qualifiers. In this
       src="https://user-images.githubusercontent.com/980622/205069299-569989df-e6b7-410f-bcf6-5106774887a0.png"
       role="presentation"
       width="456"
+      alt="A input with value `is:bananas` where `bananas` isn't highlighted."
     />
     <Caption>Remove highlighting on values when they are invalid.</Caption>
+
   </Do>
   <Dont>
     <img
       src="https://user-images.githubusercontent.com/980622/205069297-b9e03b40-0d52-4079-966d-e6d089440ab6.png"
       role="presentation"
       width="456"
+      alt="A input with value `is:bananas` where `bananas` is highlighted."
     />
     <Caption>Don't show highlighting on invalid values.</Caption>
   </Dont>
@@ -215,6 +227,7 @@ In rare cases the user could be searching for `format:format` within the content
       src="https://user-images.githubusercontent.com/980622/205070358-9e160253-d3d5-4354-809b-ff52071eea1e.png"
       role="presentation"
       width="456"
+      alt="A input with value `author:username-not-found`"
     />
     <Caption>Stop suggesting if no matches are found.</Caption>
   </Do>
@@ -223,6 +236,7 @@ In rare cases the user could be searching for `format:format` within the content
       src="https://user-images.githubusercontent.com/980622/205070353-845bf3b5-de35-4c17-86f5-9d4f953b935a.png"
       role="presentation"
       width="456"
+      alt="A input with value `author:username-not-found` and a suggestion showing `Not found, Try a different username`"
     />
     <Caption>Don't show a empty state when no matches are found.</Caption>
   </Dont>
@@ -240,6 +254,7 @@ Without this it would be hard for the parser to understand where the value ends.
       src="https://user-images.githubusercontent.com/980622/205074856-ae4b1b8b-7276-4d6d-8177-baa465241b30.png"
       role="presentation"
       width="456"
+      alt="A input with value `location:"Amsterdam, Netherlands"`."
     />
     <Caption>Use straight quotes around values with spaces.</Caption>
   </Do>
@@ -247,6 +262,7 @@ Without this it would be hard for the parser to understand where the value ends.
     <img
       src="https://user-images.githubusercontent.com/980622/205074852-1b3376d9-aee1-4ba3-994b-84305604e0bf.png"
       role="presentation"
+      alt="A input with value `location:Amsterdam, Netherlands`."
       width="456"
     />
     <Caption>Don't use quotes around values with spaces.</Caption>
@@ -263,6 +279,7 @@ Remember that deprecating means that we stop suggesting those options to users b
     <img
       src="https://user-images.githubusercontent.com/980622/205077546-5f36d476-0d8f-4613-a928-c959f4759413.png"
       role="presentation"
+      alt="A input with value `is:` suggesting options: `Issue` and `Pull request`. The options also include icons."
       width="456"
     />
     <Caption>Use a predefined qualifier where possible.</Caption>
@@ -271,9 +288,11 @@ Remember that deprecating means that we stop suggesting those options to users b
     <img
       src="https://user-images.githubusercontent.com/980622/205077302-f48f4553-d091-45b4-b6ed-ef29f7246119.png"
       role="presentation"
+      alt="A input with value `type:` suggesting options: `Issue` and `Pull request`. The options are missing icons."
       width="456"
     />
     <Caption>Use a custom qualifiers instead of a predefined one.</Caption>
+
   </Dont>
 </DoDontContainer>
 
@@ -288,6 +307,7 @@ We do this to ensure that qualifiers are easy scannable and have enough context.
       src="https://user-images.githubusercontent.com/980622/205068312-041f8244-7b38-47a6-939a-f221b188786a.png"
       role="presentation"
       width="456"
+      alt="A empty filter input showing initial suggestions: `Assignee`, `Is`, `Repository`, `State` and `Total comments`"
     />
     <Caption>List qualifiers in a readable way and without their options.</Caption>
   </Do>
@@ -296,6 +316,7 @@ We do this to ensure that qualifiers are easy scannable and have enough context.
       src="https://user-images.githubusercontent.com/980622/205068307-5ee7f056-2c38-4c31-8f7c-5df6dbb0562c.png"
       role="presentation"
       width="456"
+      alt="A empty filter input showing initial suggestions with all the possible combinations: `assignee: username, username`, `is: pr, issue, project`, `repo: github/github, github/primer`, `state: open, closed, draft`, `comments: >400, 100...200`"
     />
     <Caption>Don't list qualifiers as their raw value with possible options.</Caption>
   </Dont>
@@ -310,6 +331,7 @@ Filter inputs can have 3 different sizes:
 <img
   src="https://user-images.githubusercontent.com/980622/204341476-89ad64b4-3232-42dd-894a-003877738cb7.png"
   role="presentation"
+  alt="The filter input in three different sizes. The heights are as following: 28px, 32px and 40px."
   width="960"
 />
 
