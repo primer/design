@@ -15,7 +15,7 @@ An input that provides suggestions through qualifiers and highlights complex fil
 
 <img
   width="960"
-  alt="The filter input annotated with specific naming for individual items. The input has a `label:bug state:open assignee:` value and shows multiple suggestions for users."
+  alt="The filter input annotated with specific naming for individual items. The input has a 'label:bug state:open assignee:' value and shows multiple suggestions for users."
   src="https://user-images.githubusercontent.com/980622/204337049-f8dad70b-efdb-4cea-a33b-eba2c050fb84.png"
 />
 
@@ -113,7 +113,7 @@ For static items that only return a handful of suggestions we often can just ord
   src="https://user-images.githubusercontent.com/980622/204575372-8a3119fa-0d85-4e95-8cb3-90e7c74ddaf4.png"
   role="presentation"
   width="960"
-  alt="Two example of qualifiers that return static data. The `created` qualifier suggests: `Today`, `This week`, `This month`, `Oct 19, 2007`, `Before June 4, 2018` and `After June 4, 2018`. The `stars` qualifier suggests: `More than 10`, `Less than 10`, `Between 10 and 100` and `100`"
+  alt="Two example of qualifiers that return static data. The 'created' qualifier suggests: 'Today', 'This week', 'This month', 'Oct 19, 2007', 'Before June 4, 2018' and 'After June 4, 2018'. The 'stars' qualifier suggests: 'More than 10', 'Less than 10', 'Between 10 and 100' and '100'"
 />
 
 ## Qualifiers
@@ -123,7 +123,7 @@ The filter input comes with a list of predefined qualifiers and prestyled sugges
 <img
   src="https://user-images.githubusercontent.com/980622/204522022-c1141b98-7f13-48fe-a85f-9e8f90edb8f1.png"
   role="presentation"
-  alt="Multiple examples of qualifiers and the suggestions they provide. Qualifiers `language`, `author` and `state` are used as examples."
+  alt="Multiple examples of qualifiers and the suggestions they provide. Qualifiers 'language', 'author' and 'state' are used as examples."
   width="960"
 />
 
@@ -171,7 +171,7 @@ Therefore it's important to use the correct qualifier as soon as you can determi
       src="https://user-images.githubusercontent.com/980622/204605560-47a3e722-7459-4ba9-b25b-3a7a03a44241.png"
       role="presentation"
       width="456"
-      alt="A input with value `is:pr state:` showing suggestions with colorful icons: `Open`, `Merged`, `Closed` and `Draft`"
+      alt="A input with value 'is:pr state:' showing suggestions with colorful icons: 'Open', 'Merged', 'Closed' and 'Draft'"
     />
     <Caption>Use the `state-pr` variant when filtering pull requests.</Caption>
   </Do>
@@ -180,7 +180,7 @@ Therefore it's important to use the correct qualifier as soon as you can determi
       src="https://user-images.githubusercontent.com/980622/204605557-0a7f7be6-9c11-4a6e-a790-59c8a3b31f4d.png"
       role="presentation"
       width="456"
-      alt="A input with value `is:pr state:` showing suggestions without icons: `Open`, `Merged`, `Closed` and `Draft`"
+      alt="A input with value 'is:pr state:' showing suggestions without icons: 'Open', 'Merged', 'Closed' and 'Draft'"
     />
     <Caption>Don't use the `state` variant when filtering pull requests.</Caption>
   </Dont>
@@ -190,7 +190,7 @@ Therefore it's important to use the correct qualifier as soon as you can determi
 
 If invalid values are used we don't show highlighting.
 
-While this applies to all qualifiers we do understand that for the ones that depend on our api endpoints (`users`, `repositories`, `organisations`...) we can't always accurately match every result and therefore while not ideal we can always highlight those. For example when not single signed-on to a organisation some repositories might not be returned.
+While this applies to all qualifiers we do understand that for the ones that depend on our api endpoints ('users', 'repositories', 'organisations'...) we can't always accurately match every result and therefore while not ideal we can always highlight those. For example when not single signed-on to a organisation some repositories might not be returned.
 
 Also consider that users might copy paste strings containing qualifiers. In this case you need to run through every qualifier to set the highlight if needed.
 
@@ -200,7 +200,7 @@ Also consider that users might copy paste strings containing qualifiers. In this
       src="https://user-images.githubusercontent.com/980622/205069299-569989df-e6b7-410f-bcf6-5106774887a0.png"
       role="presentation"
       width="456"
-      alt="A input with value `is:bananas` where `bananas` isn't highlighted."
+      alt="A input with value 'is:bananas' where 'bananas' isn't highlighted."
     />
     <Caption>Remove highlighting on values when they are invalid.</Caption>
 
@@ -210,7 +210,7 @@ Also consider that users might copy paste strings containing qualifiers. In this
       src="https://user-images.githubusercontent.com/980622/205069297-b9e03b40-0d52-4079-966d-e6d089440ab6.png"
       role="presentation"
       width="456"
-      alt="A input with value `is:bananas` where `bananas` is highlighted."
+      alt="A input with value 'is:bananas' where 'bananas' is highlighted."
     />
     <Caption>Don't show highlighting on invalid values.</Caption>
   </Dont>
@@ -227,7 +227,7 @@ In rare cases the user could be searching for `format:format` within the content
       src="https://user-images.githubusercontent.com/980622/205070358-9e160253-d3d5-4354-809b-ff52071eea1e.png"
       role="presentation"
       width="456"
-      alt="A input with value `author:username-not-found`"
+      alt="A input with value 'author:username-not-found'"
     />
     <Caption>Stop suggesting if no matches are found.</Caption>
   </Do>
@@ -236,7 +236,7 @@ In rare cases the user could be searching for `format:format` within the content
       src="https://user-images.githubusercontent.com/980622/205070353-845bf3b5-de35-4c17-86f5-9d4f953b935a.png"
       role="presentation"
       width="456"
-      alt="A input with value `author:username-not-found` and a suggestion showing `Not found, Try a different username`"
+      alt="A input with value 'author:username-not-found' and a suggestion showing 'Not found, Try a different username'"
     />
     <Caption>Don't show a empty state when no matches are found.</Caption>
   </Dont>
@@ -244,7 +244,7 @@ In rare cases the user could be searching for `format:format` within the content
 
 ### Values with spaces
 
-Some qualifiers like `location:` might have values which contain spaces. eg: `Amsterdam, Netherlands`. In this we encapsulate the value between straight quotes (not smart quotes).
+Some qualifiers like `location:` might have values which contain spaces. eg: 'Amsterdam, Netherlands'. In this we encapsulate the value between straight quotes (not smart quotes).
 
 Without this it would be hard for the parser to understand where the value ends.
 
@@ -254,7 +254,7 @@ Without this it would be hard for the parser to understand where the value ends.
       src="https://user-images.githubusercontent.com/980622/205074856-ae4b1b8b-7276-4d6d-8177-baa465241b30.png"
       role="presentation"
       width="456"
-      alt="A input with value `location:"Amsterdam, Netherlands"`."
+      alt="A input with value 'location:'Amsterdam, Netherlands''."
     />
     <Caption>Use straight quotes around values with spaces.</Caption>
   </Do>
@@ -262,7 +262,7 @@ Without this it would be hard for the parser to understand where the value ends.
     <img
       src="https://user-images.githubusercontent.com/980622/205074852-1b3376d9-aee1-4ba3-994b-84305604e0bf.png"
       role="presentation"
-      alt="A input with value `location:Amsterdam, Netherlands`."
+      alt="A input with value 'location:Amsterdam, Netherlands'."
       width="456"
     />
     <Caption>Don't use quotes around values with spaces.</Caption>
@@ -279,7 +279,7 @@ Remember that deprecating means that we stop suggesting those options to users b
     <img
       src="https://user-images.githubusercontent.com/980622/205077546-5f36d476-0d8f-4613-a928-c959f4759413.png"
       role="presentation"
-      alt="A input with value `is:` suggesting options: `Issue` and `Pull request`. The options also include icons."
+      alt="A input with value 'is:' suggesting options: 'Issue' and 'Pull request'. The options also include icons."
       width="456"
     />
     <Caption>Use a predefined qualifier where possible.</Caption>
@@ -288,7 +288,7 @@ Remember that deprecating means that we stop suggesting those options to users b
     <img
       src="https://user-images.githubusercontent.com/980622/205077302-f48f4553-d091-45b4-b6ed-ef29f7246119.png"
       role="presentation"
-      alt="A input with value `type:` suggesting options: `Issue` and `Pull request`. The options are missing icons."
+      alt="A input with value 'type:' suggesting options: 'Issue' and 'Pull request'. The options are missing icons."
       width="456"
     />
     <Caption>Use a custom qualifiers instead of a predefined one.</Caption>
@@ -307,7 +307,7 @@ We do this to ensure that qualifiers are easy scannable and have enough context.
       src="https://user-images.githubusercontent.com/980622/205068312-041f8244-7b38-47a6-939a-f221b188786a.png"
       role="presentation"
       width="456"
-      alt="A empty filter input showing initial suggestions: `Assignee`, `Is`, `Repository`, `State` and `Total comments`"
+      alt="A empty filter input showing initial suggestions: 'Assignee', 'Is', 'Repository', 'State' and 'Total comments'"
     />
     <Caption>List qualifiers in a readable way and without their options.</Caption>
   </Do>
@@ -316,7 +316,7 @@ We do this to ensure that qualifiers are easy scannable and have enough context.
       src="https://user-images.githubusercontent.com/980622/205068307-5ee7f056-2c38-4c31-8f7c-5df6dbb0562c.png"
       role="presentation"
       width="456"
-      alt="A empty filter input showing initial suggestions with all the possible combinations: `assignee: username, username`, `is: pr, issue, project`, `repo: github/github, github/primer`, `state: open, closed, draft`, `comments: >400, 100...200`"
+      alt="A empty filter input showing initial suggestions with all the possible combinations: 'assignee: username, username', 'is: pr, issue, project', 'repo: github/github, github/primer', 'state: open, closed, draft', 'comments: >400, 100...200'"
     />
     <Caption>Don't list qualifiers as their raw value with possible options.</Caption>
   </Dont>
