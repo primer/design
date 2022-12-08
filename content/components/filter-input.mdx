@@ -1,0 +1,366 @@
+---
+title: Filter input
+status: Experimental
+description: A input that provides suggestions through qualifiers and highlights complex filter syntax.
+figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=1927%3A0
+---
+
+import {Box, Text} from '@primer/react'
+
+<Note>
+  This component is not available in production yet however multiple teams are currently contributing to this.
+</Note>
+
+## Overview
+
+An input that provides suggestions through qualifiers and highlights complex filter syntax.
+
+## Anatomy
+
+<img
+  width="960"
+  alt="The filter input annotated with specific naming for individual items. The input has a 'label:bug state:open assignee:' value and shows multiple suggestions for users."
+  src="https://user-images.githubusercontent.com/980622/204337049-f8dad70b-efdb-4cea-a33b-eba2c050fb84.png"
+/>
+
+## Content
+
+### Icon
+
+A filter input allows free form text searching as well as using qualifiers to narrow down your search.
+The filter input always supports free form text search. This is why you should use the search icon as a leading visual. A filter icon could give the impression that free form text search isn't available.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/204516414-4e6e00ba-38f7-49e5-8a80-9e3bc91ccd97.png"
+      role="presentation"
+      width="456"
+      alt="An input that has a magnifying glass icon on the left side."
+    />
+    <Caption>Use the search icon in a filter input.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/204516427-75b0a18d-9f61-4541-931c-ba0e8175fa07.png"
+      role="presentation"
+      width="456"
+      alt="An input that has a filter icon on the left side which consists of 3 lines getting incrementally smaller."
+    />
+    <Caption>Don't use a filter icon in a filter input.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Submit
+
+There are two ways this component can trigger submission of the input value.
+
+1. Provide a search button next to the filter input
+2. Auto update results as the value changes
+
+### Clear button
+
+The clear button only appears when there is at least one character entered in the input. When the input is empty the clear button disappears again.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/204872106-ff9e6eb7-dc9a-421a-a82e-4a3df9115795.png"
+      role="presentation"
+      width="456"
+      alt="An input without a value."
+    />
+    <Caption>Hide the clear button when the input is empty.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/204872101-33720780-4f9a-4141-bffc-4d008dde755e.png"
+      role="presentation"
+      width="456"
+      alt="An input without a value showing a clear button on the right."
+    />
+    <Caption>Don't show the clear button when the input is empty.</Caption>
+  </Dont>
+</DoDontContainer>
+
+Use an icon instead of a link for clearing the input. This avoids confusion with the value of the input. Especially when the input has a long value that gets close to the clear button a link could be problematic.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/206299392-9399c13b-ee1c-4bc9-9c9c-d177fb76a06b.png"
+      role="presentation"
+      width="456"
+      alt="An input with a value must shows a clear button on the right."
+    />
+    <Caption>Use a circular clear button with an x icon to clear the input.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/206299390-808585c6-8d78-4dc6-949b-7aa20cccc4c4.png"
+      role="presentation"
+      width="456"
+      alt="An input without a value incorrectly showing a 'clear' link on the right."
+    />
+    <Caption>Don't use a link for clearing as this could be confused with the text inside the input.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Sorting
+
+There are two different states that should be considered when providing suggestions:
+
+1. **Default**: You've entered a matching qualifier and get default suggestions. For example: `author:`.
+2. **Narrow down**: You've entered a value after your qualifier to narrow down the suggestions. For example: `author:max`
+
+<img
+  src="https://user-images.githubusercontent.com/980622/204564567-1e972877-f05e-4a3e-873f-ffb5d0eb5ded.png"
+  role="presentation"
+  width="960"
+  alt="Two examples of the filter input. One has the value `author:` and is suggesting a few users to pick from. The other one has the value `author:max` and is suggesting a few users with `max` in their name or username."
+/>
+
+We should always strive to provide as relevant results as possible when dealing with `user`, `organization`, `repository`, `issue`, `pull request` items. This can be done through a mix of considerations:
+
+1. Objects you've interacted with
+2. Organizations you're part of and it's members
+3. Repositories you're part of and it's members
+4. [Approximate string matching](https://en.wikipedia.org/wiki/Approximate_string_matching) (fuzzy)
+
+Let's take the `author:` as an example. While in the `default` state we aren't searching through the authors and want to provide a default list with users.
+It's crucial we make the suggestions as relevant as possible therefore we rank them based on how often/recently you've interacted with them.
+
+Once we start narrowing down those results by using `author:max` we enter the `narrow down` state and apply _approximate string matching_ on those suggestions. In this case we still rank users that I've recently interacted with or that are part of my organization/repositories higher.
+
+Not all our infrastructure supports this logic yet. If not available we fall back on alphabetical ordering.
+
+For static items that only return a handful of suggestions we often can just order items through common sense:
+
+<img
+  src="https://user-images.githubusercontent.com/980622/204575372-8a3119fa-0d85-4e95-8cb3-90e7c74ddaf4.png"
+  role="presentation"
+  width="960"
+  alt="Two example of qualifiers that return static data. The 'created' qualifier suggests: 'Today', 'This week', 'This month', 'Oct 19, 2007', 'Before June 4, 2018' and 'After June 4, 2018'. The 'stars' qualifier suggests: 'More than 10', 'Less than 10', 'Between 10 and 100' and '100'"
+/>
+
+## Qualifiers
+
+The filter input comes with a list of predefined qualifiers and prestyled suggestions. This ensures everyone aligns on the same qualifiers as well as on the styling of suggestions.
+
+<img
+  src="https://user-images.githubusercontent.com/980622/204522022-c1141b98-7f13-48fe-a85f-9e8f90edb8f1.png"
+  role="presentation"
+  alt="Multiple examples of qualifiers and the suggestions they provide. Qualifiers 'language', 'author' and 'state' are used as examples."
+  width="960"
+/>
+
+Even though custom qualifiers can be added it's important to check if your new qualifier could fit in one of the predefined qualifiers below.
+
+| Qualifier         | Origin | Suggestions                                                                                     | Format                     | Preview                                                                                                     |
+| ----------------- | ------ | ----------------------------------------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `created`         | static | `Today`, `This week`, `This month`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `>YYYY-MM-DD`, `YYY-MM-DD` | [View](https://user-images.githubusercontent.com/980622/204581689-408f3613-f75e-41b6-b8ab-d1e2f77cc898.png) |
+| `assignee`        | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581662-a51a8c97-1384-4466-8aa4-f256ee345bfe.png) |
+| `author`          | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581674-c431373b-836a-4433-8faa-6560e222d8b4.png) |
+| `fork`            | static | `Yes`, `No`                                                                                     | `true`, `false`            | [View](https://user-images.githubusercontent.com/980622/204581707-603a1bbd-ea95-4640-ac1a-37e6934a7f72.png) |
+| `is`              | static | `Action`, `Code`, `Command`, `Commit`...                                                        | `name`                     | [View](https://user-images.githubusercontent.com/980622/204581711-6ce9a24b-13c0-4505-8af0-55cca4100997.png) |
+| `label`           | api    | `Title`, `Description` and `color`.                                                             | `title`                    | [View](https://user-images.githubusercontent.com/980622/204581716-2d0dc9d4-9389-467e-945e-b1572a08a15b.png) |
+| `language`        | static | `C`, `C##`, `C++`, `CoffeeScript`...                                                            | `language`                 | [View](https://user-images.githubusercontent.com/980622/204581727-498d982e-644d-41f5-beca-98d859dba9ad.png) |
+| `location`        | static | `Amsterdam, Netherlands`, `Bern, Switzerland`...                                                | `"Amsterdam, Netherlands"` | [View](https://user-images.githubusercontent.com/980622/204581735-38202a82-9dea-4c00-94d1-7fdb4128d051.png) |
+| `license`         | static | `BSD Zero Clause License`, `Academic Free License v3.0`...                                      | `cc0-1.0`                  | [View](https://user-images.githubusercontent.com/980622/204581731-1f93dbd7-014d-4caf-ba11-c5407b9ab2f4.png) |
+| `mentions`        | api    | `avatar`, `username` and `Full Name`.                                                           | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581742-78e7713a-211c-44c1-b220-b2ead1a20c67.png) |
+| `org`             | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581751-250d1cdb-fb2f-49d4-91ee-c7b2b2f7244a.png) |
+| `repo`            | api    | `avatar`, `username/repo-name`                                                                  | `username/repo-name`       | [View](https://user-images.githubusercontent.com/980622/204581761-6227d6c8-af48-427b-b5db-7080fd4628d8.png) |
+| `path`            | api    | `path`                                                                                          | `path`                     | [View](https://user-images.githubusercontent.com/980622/204581757-7a89441f-e927-4df9-93cb-c4cf49cb5698.png) |
+| `state` (generic) | static | `open`, `merged`, `closed`, `draft`                                                             | `open`                     | [View](https://user-images.githubusercontent.com/980622/204581782-d29573ae-5c2a-4726-a8f6-6c56fa042810.png) |
+| `state` (pr)      | static | `open`, `merged`, `closed`, `draft`                                                             | `open`                     | [View](https://user-images.githubusercontent.com/980622/204581777-25a6c908-e7e9-4815-8641-b80968a2fd36.png) |
+| `state` (issue)   | static | `open`, `closed`, `draft`                                                                       | `open`                     | [View](https://user-images.githubusercontent.com/980622/204581773-3e4e3202-1e2d-4d2e-a741-505dc71c11ee.png) |
+| `comments`        | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | [View](https://user-images.githubusercontent.com/980622/204581683-cfce78db-8adf-40f4-8b4b-39de11fd33af.png) |
+| `followers`       | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | [View](https://user-images.githubusercontent.com/980622/204581704-fde0c66f-7770-4775-88d6-7c70d4f846ce.png) |
+| `stars`           | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | [View](https://user-images.githubusercontent.com/980622/204581769-da69ef6f-4fe3-4e04-90c0-db661a1b141c.png) |
+| `updated`         | static | `Today`, `This week`, `This month`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `>YYYY-MM-DD`, `YYY-MM-DD` | [View](https://user-images.githubusercontent.com/980622/204581785-61de646f-491a-41cf-b87a-dc02afbd8847.png) |
+| `extension`       | static | `md, Markdown`, `json, JavaScript Object Notation`...                                           | `md`                       | [View](https://user-images.githubusercontent.com/980622/204581698-e7c6401d-66f4-4d3b-8c23-1e6c3012654f.png) |
+
+⚠️ This list will change a lot over the next month to accomodate different teams.
+
+### Generics
+
+The `state:` qualifier has multiple variants to improve the experience for specific items:
+
+- `state`: For both pull requests and issues (no icons)
+- `state-pr`: For only pull requests (with icons)
+- `state-issue`: For only issues (with icons)
+
+Therefore it's important to use the correct qualifier as soon as you can determine if you're filtering to pull requests or issues.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/204605560-47a3e722-7459-4ba9-b25b-3a7a03a44241.png"
+      role="presentation"
+      width="456"
+      alt="An input with value 'is:pr state:' showing suggestions with colored icons: 'Open', 'Merged', 'Closed' and 'Draft'"
+    />
+    <Caption>Use the `state-pr` variant when filtering pull requests.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/204605557-0a7f7be6-9c11-4a6e-a790-59c8a3b31f4d.png"
+      role="presentation"
+      width="456"
+      alt="An input with value 'is:pr state:' showing suggestions without icons: 'Open', 'Merged', 'Closed' and 'Draft'"
+    />
+    <Caption>Don't use the `state` variant when filtering pull requests.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Highlighting
+
+If invalid values are used we don't show highlighting.
+
+While this applies to all qualifiers we do understand that for the ones that depend on our api endpoints (`users`, `repositories`, `organisations`...) we can't always accurately match every result and therefore while not ideal we always highlight those. For example when not single signed-on to a organisation some repositories might not be returned.
+Also consider that users might copy paste strings containing qualifiers. In this case you need to run through every qualifier to set the highlight if needed.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205069299-569989df-e6b7-410f-bcf6-5106774887a0.png"
+      role="presentation"
+      width="456"
+      alt="An input with the value 'is:bananas' where 'bananas' isn't highlighted."
+    />
+    <Caption>Remove highlighting on values when they are invalid.</Caption>
+
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205069297-b9e03b40-0d52-4079-966d-e6d089440ab6.png"
+      role="presentation"
+      width="456"
+      alt="An input with the value 'is:bananas' where 'bananas' is highlighted."
+    />
+    <Caption>Don't show highlighting on invalid values.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### No matches
+
+When no matches are found we stop suggesting items through the popover and don't show anything.
+In rare cases the user could be searching for `format:format` within the content of items they are filtering to and this will still allow them to do so.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205070358-9e160253-d3d5-4354-809b-ff52071eea1e.png"
+      role="presentation"
+      width="456"
+      alt="An input with the value 'author:username-not-found'"
+    />
+    <Caption>Stop suggesting if no matches are found.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205070353-845bf3b5-de35-4c17-86f5-9d4f953b935a.png"
+      role="presentation"
+      width="456"
+      alt="An input with the value 'author:username-not-found' and a suggestion showing 'Not found, try a different username'"
+    />
+    <Caption>Don't show an empty state when no matches are found.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Values with spaces
+
+Some qualifiers like `location:` might have values which contain spaces. eg: 'Amsterdam, Netherlands'. In this case we encapsulate the value between straight quotes (not smart quotes).
+
+Without this it would be hard for the parser to understand where the value ends.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205074856-ae4b1b8b-7276-4d6d-8177-baa465241b30.png"
+      role="presentation"
+      width="456"
+      alt="An input with the value `location:'Amsterdam, Netherlands'` using straight quotes around the location value."
+    />
+    <Caption>Use straight quotes around values with spaces.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205074852-1b3376d9-aee1-4ba3-994b-84305604e0bf.png"
+      role="presentation"
+      alt="An input with the value 'location:Amsterdam, Netherlands' without using quotes around the location value. This is invalid."
+      width="456"
+    />
+    <Caption>Don't use values with spaces without quotes.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Deprecate where possible
+
+There are many qualifiers on our platform that could be unified or deleted. For example `type:` can now be replaced by `is:`.
+Remember that deprecating means that we stop suggesting those options to users but we still keep them available in the backend until we see usage declining to low volumes.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205077546-5f36d476-0d8f-4613-a928-c959f4759413.png"
+      role="presentation"
+      alt="An input with the value 'is:' suggesting options: 'Issue' and 'Pull request'. The options also include icons."
+      width="456"
+    />
+    <Caption>Use a predefined qualifier where possible.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205077302-f48f4553-d091-45b4-b6ed-ef29f7246119.png"
+      role="presentation"
+      alt="An input with the value 'type:' suggesting options: 'Issue' and 'Pull request'. The options are missing icons."
+      width="456"
+    />
+    <Caption>Use a custom qualifiers instead of a predefined one.</Caption>
+
+  </Dont>
+</DoDontContainer>
+
+### Formatting
+
+Always list qualifiers in a readable way and don't include all their options by using descriptions.
+We do this to ensure that qualifiers are easy to scan and have enough context.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205068312-041f8244-7b38-47a6-939a-f221b188786a.png"
+      role="presentation"
+      width="456"
+      alt="An empty filter input showing initial suggestions: 'Assignee', 'Is', 'Repository', 'State' and 'Total comments'"
+    />
+    <Caption>List qualifiers in a readable way and without their options.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/205068307-5ee7f056-2c38-4c31-8f7c-5df6dbb0562c.png"
+      role="presentation"
+      width="456"
+      alt="An empty filter input showing initial suggestions with all the possible combinations: 'assignee: username, username', 'is: pr, issue, project', 'repo: github/github, github/primer', 'state: open, closed, draft', 'comments: >400, 100...200'"
+    />
+    <Caption>Don't list qualifiers as their raw value with possible options.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Options
+
+### Size
+
+Filter inputs can have 3 different sizes:
+
+<img
+  src="https://user-images.githubusercontent.com/980622/204341476-89ad64b4-3232-42dd-894a-003877738cb7.png"
+  role="presentation"
+  alt="The filter input in three different sizes. The heights are as following: 28px, 32px and 40px."
+  width="960"
+/>
+
+- Small (`28px`)
+- Medium (`32px`) (default)
+- Large (`40px`)
