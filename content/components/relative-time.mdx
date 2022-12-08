@@ -1,5 +1,5 @@
 ---
-title: Relative time
+title: Dates & Times
 status: Experimental
 description: A relative time displays the time difference between the current time and the specified date-time.
 ---
@@ -8,17 +8,17 @@ import {Box} from '@primer/react'
 
 ## Overview
 
-All dates displayed should use the Relaive Time component, which is able to localise dates into the users given locale.
+All dates and times displayed should use the Relaive Time component, which is able to format and localise dates into the users given locale, as well display times relative to the current date, while also updating in real time.
 
-Dates almost always appear relative to the current date, using short-hand formats to help users quickly determine how old something is. For this we use Relative Time which displays dates rounded to a nearest unit, for example "a minute ago" or "20 days ago". For dates that are more than 1 month from the current date it can be more useful to display the date-time, as these items are less "current" and more "historical".
+Dates and times almost always appear relative to the current date, using short-hand formats to help users quickly determine how old something is or how soon something will be. For this we use Relative Time which displays dates rounded to a nearest unit, for example "a minute ago" or "20 days ago". For dates that are more than 1 month from the current date it can be more useful to display the date-time, as these items are less "current" and more "historical".
 
-Some dates represent the start or (expected) end of an actively running task, for these the elapsed or remaining time should be displayed, as this information is more useful than when a task started.
+Some dates and times represent the start or (expected) end of an actively running task, for these the elapsed or remaining time should be displayed, as this information is more useful than when a task started. This format should display all units that are greater than zero, for example "2 minutes, 24 seconds" or "8 hours, 15 seconds". For ephemeral tasks where timing needs to be quickly consumed, or where a lot of times may be displayed together, a compact time notation can be used, for example "2m 24s" or "8h 15s".
 
-Some dates are especially sensitive and always should be displayed in a precise date-time format, such as the creation or expiration of certificates and keys. When a user needs to take action before a particular time (such as an expiry date) then the precise date time should be displayed.
+Some dates are especially sensitive and always should be displayed in a precise date-time format, such as the creation or expiration of certificates and keys. When a user needs to take action before a particular time (such as an expiry date) then the precise date time should be displayed. These should display the weekday, the date, the month and the year (if the year is not the current year), for example "Thursday, 26 August 2021" or "Saturday, 31 December 2022".
 
 ### Past dates
 
-For past dates, the relative time outputs different formats depending on the time difference.
+For past dates, the Relative Time component outputs different formats depending on the time difference.
 
 Within a month's time, the output shows a relative time[^1] in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`.
 
@@ -89,7 +89,7 @@ The `micro` format shows a shorter version of the relative time. This can be use
 
 ### Elapsed or remaining dates
 
-For dates which represent the start or (expected) end of a currently running task or job, it is more useful to display the elapsed time since the task began, or remaining time until the task ends. This takes the format of `Xy Xm Xd Xh Xm Xs`, eliding `0s`. For some tasks where the expected end time is further away and second precision is not needed, it may be useful to display less precise data, such as down-to-the-day, taking the format of `Xy Xm Xd`.
+For dates which represent the start or (expected) end of a currently running task or job, it is more useful to display the elapsed time since the task began, or remaining time until the task ends. This takes the long format of `X years, X months, X days, X hours, X minutes, X seconds` or the compact format of `Xy Xm Xd Xh Xm Xs`. Any `0` values will not be displayed. For some tasks where the expected end time is further away and second precision is not needed, it may be useful to display less precise data, such as down-to-the-day, taking the format of `Xy Xm Xd`.
 
 | Precision         | Format             | Examples                              |
 | ----------------- | ------------------ | ------------------------------------- |
@@ -98,7 +98,7 @@ For dates which represent the start or (expected) end of a currently running tas
 
 ### Precise dates
 
-For dates which represent a precise date and time which the user should be aware of, dates should be displayed in a precise format that includes the weekday, date, month and if appropriate the hours minutes and seconds. This will take the format of `weekday, MMM D, YYYY, HH:MM:SS [AP]M`.
+For dates which represent a precise date and time which the user should be aware of, dates should be displayed in a precise format that includes the weekday, date, month and if appropriate the hours minutes and seconds. This will take the format of `weekday, MMM D, YYYY, HH:MM:SS [AP]M`. The placement of these items may be different depending on locale.
 
 ## Usage
 
