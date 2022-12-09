@@ -14,11 +14,11 @@ Dates and times almost always appear relative to the current date, using short-h
 
 Some dates and times represent the start or (expected) end of an actively running task, for these the elapsed or remaining time should be displayed, as this information is more useful than when a task started. This format should display all units that are greater than zero, for example, "2 minutes, 24 seconds" or "8 hours, 15 seconds". For ephemeral tasks where timing needs to be quickly consumed, or where a lot of times may be displayed together, a compact time notation can be used, for example, "2m 24s" or "8h 15s".
 
-Some dates are especially sensitive and always should be displayed in a precise date-time format, such as the creation or expiration of certificates and keys. When a user needs to take action before a particular time (such as an expiry date) then the precise date time should be displayed. These should display the weekday, the date, the month and the year (if the year is not the current year), for example "Thursday, 26 August 2021" or "Saturday, 31 December 2022".
+Some dates are especially sensitive and always should be displayed in a precise date-time format, such as the creation or expiration of certificates and keys. When a user needs to take action before a particular time (such as an expiry date) then the precise date time should be displayed. These should display the weekday, the date, the month, and the year (if the year is not the current year), for example, "Thursday, 26 August 2021" or "Saturday, 31 December 2022".
 
 ### Past dates
 
-For past dates, the Relative Time component outputs different formats depending on the time difference.
+For past dates, the relative time component outputs different formats depending on the time difference.
 
 Within a month's time, the output shows a relative time[^1] in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`.
 
