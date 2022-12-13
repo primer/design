@@ -1,0 +1,49 @@
+---
+title: Action menu
+react: https://primer.style/react/ActionMenu
+figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=17091%3A66640
+description: Action menu is a component based on action list for creating a menu of actions that expands through a trigger button.
+---
+
+import {Box, Button, Heading, Link} from '@primer/react'
+
+## Usage
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
+<div>
+<Link href="https://primer.style/react/ActionMenu">
+<img alt="Action menu" src="https://user-images.githubusercontent.com/293280/123880964-95b3a700-d8f8-11eb-9775-cbaf165207ed.png" />
+</Link>
+</div>
+<div>
+
+<Heading sx={{fontSize: 3}}>To perform an action</Heading>
+<Box as="p">
+
+Action menus are used for disambiguation, navigation, or to display secondary options. They appear when users interact with buttons, actions, or other controls.
+
+</Box>
+</div>
+<div>
+<Link href="https://primer.style/react/ActionMenu#with-selection">
+<img alt="Action Menu with selection" src="https://user-images.githubusercontent.com/293280/123881067-cdbaea00-d8f8-11eb-98e4-e57c64489308.png" />
+</Link>
+</div>
+<div>
+<Heading sx={{fontSize: 3}}>To make one or more selections</Heading>
+<Box as="p">
+
+Action menu can be used for making a selection among a small list of options. The list is usually predefined with system values, but in some cases it can include user-provided data when those are known not to grow into too many items.
+
+</Box>
+</div>
+</Box>
+
+## Related components
+- [Action list](/components/action-list)
+- [Select panel](https://primer.style/react/SelectPanel)
+
+## Accessibility
+- [Focus management](../accessibility/focus-management)
+
+

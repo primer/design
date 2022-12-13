@@ -66,10 +66,34 @@
       url: /components/action-bar
     - title: Action list
       url: /components/action-list
+    - title: Action menu
+      url: /components/action-menu
+    - title: Anchored overlay
+      url: /components/anchored-overlay
     - title: Autocomplete
       url: /components/autocomplete
+    - title: Avatar
+      url: /components/avatar
+    - title: Avatar pair
+      url: /components/avatar-pair
+    - title: Avatar stack
+      url: /components/avatar-stack
+    - title: Box
+      url: /components/box
+    - title: Branch name
+      url: /components/branch-name
+    - title: Breadcrumb
+      url: /components/breadcrumb
+    - title: Checkbox
+      url: /components/checkbox
+    - title: Checkbox group
+      url: /components/checkbox-group
     - title: Comment box
       url: /components/comment-box
+    - title: Counter label
+      url: /components/counter-label
+    - title: Details
+      url: /components/details
     - title: Dialog
       url: /components/dialog
     - title: Filter input
