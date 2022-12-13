@@ -20,7 +20,7 @@ An input that provides suggestions through qualifiers and highlights complex fil
 <img
   width="960"
   alt="The filter input annotated with specific naming for individual items. The input has a 'label:bug state:open assignee:' value and shows multiple suggestions for users."
-  src="https://user-images.githubusercontent.com/980622/204337049-f8dad70b-efdb-4cea-a33b-eba2c050fb84.png"
+  src="https://user-images.githubusercontent.com/980622/207303787-02ef7089-d3c5-4135-bdca-d83eccd032f4.png"
 />
 
 ## Content
@@ -114,7 +114,7 @@ There are two different states that should be considered when providing suggesti
 2. **Narrow down**: You've entered a value after your qualifier to narrow down the suggestions. For example: `author:max`
 
 <img
-  src="https://user-images.githubusercontent.com/980622/204564567-1e972877-f05e-4a3e-873f-ffb5d0eb5ded.png"
+  src="https://user-images.githubusercontent.com/980622/207305358-37b63ef8-f85a-4616-8c1c-9bc8b077b42f.png"
   role="presentation"
   width="960"
   alt="Two examples of the filter input. One has the value `author:` and is suggesting a few users to pick from. The other one has the value `author:max` and is suggesting a few users with `max` in their name or username."
@@ -137,7 +137,7 @@ Not all our infrastructure supports this logic yet. If not available we fall bac
 For static items that only return a handful of suggestions we often can just order items through common sense:
 
 <img
-  src="https://user-images.githubusercontent.com/980622/204575372-8a3119fa-0d85-4e95-8cb3-90e7c74ddaf4.png"
+  src="https://user-images.githubusercontent.com/980622/207307327-b31cef7a-39cc-4d18-a801-033746d710ef.png"
   role="presentation"
   width="960"
   alt="Two example of qualifiers that return static data. The 'created' qualifier suggests: 'Today', 'This week', 'This month', 'Oct 19, 2007', 'Before June 4, 2018' and 'After June 4, 2018'. The 'stars' qualifier suggests: 'More than 10', 'Less than 10', 'Between 10 and 100' and '100'"
@@ -148,7 +148,7 @@ For static items that only return a handful of suggestions we often can just ord
 The filter input comes with a list of predefined qualifiers and prestyled suggestions. This ensures everyone aligns on the same qualifiers as well as on the styling of suggestions.
 
 <img
-  src="https://user-images.githubusercontent.com/980622/204522022-c1141b98-7f13-48fe-a85f-9e8f90edb8f1.png"
+  src="https://user-images.githubusercontent.com/980622/207306454-20315d1b-74c3-4188-a854-5c62bb955886.png"
   role="presentation"
   alt="Multiple examples of qualifiers and the suggestions they provide. Qualifiers 'language', 'author' and 'state' are used as examples."
   width="960"
@@ -195,7 +195,7 @@ Therefore it's important to use the correct qualifier as soon as you can determi
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/980622/204605560-47a3e722-7459-4ba9-b25b-3a7a03a44241.png"
+      src="https://user-images.githubusercontent.com/980622/207307872-9c518626-32f4-46cf-afc8-7b0518fe5e6a.png"
       role="presentation"
       width="456"
       alt="An input with value 'is:pr state:' showing suggestions with colored icons: 'Open', 'Merged', 'Closed' and 'Draft'"
@@ -204,7 +204,7 @@ Therefore it's important to use the correct qualifier as soon as you can determi
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/980622/204605557-0a7f7be6-9c11-4a6e-a790-59c8a3b31f4d.png"
+      src="https://user-images.githubusercontent.com/980622/207307868-b3d78303-3ba0-4d3d-ade4-dd893d9065a7.png"
       role="presentation"
       width="456"
       alt="An input with value 'is:pr state:' showing suggestions without icons: 'Open', 'Merged', 'Closed' and 'Draft'"
@@ -250,7 +250,7 @@ In rare cases the user could be searching for `format:format` within the content
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/980622/205070358-9e160253-d3d5-4354-809b-ff52071eea1e.png"
+      src="https://user-images.githubusercontent.com/980622/207312271-d793aa58-7150-4911-bf1b-75a3ca2dfca1.png"
       role="presentation"
       width="456"
       alt="An input with the value 'author:username-not-found'"
@@ -259,7 +259,7 @@ In rare cases the user could be searching for `format:format` within the content
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/980622/205070353-845bf3b5-de35-4c17-86f5-9d4f953b935a.png"
+      src="https://user-images.githubusercontent.com/980622/207312268-a306f286-d8b0-43c2-82d7-c19c3715daa7.png"
       role="presentation"
       width="456"
       alt="An input with the value 'author:username-not-found' and a suggestion showing 'Not found, try a different username'"
@@ -303,7 +303,7 @@ Remember that deprecating means that we stop suggesting those options to users b
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/980622/205077546-5f36d476-0d8f-4613-a928-c959f4759413.png"
+      src="https://user-images.githubusercontent.com/980622/207309519-affaf0ce-ab7d-471f-a52c-7c59242045e8.png"
       role="presentation"
       alt="An input with the value 'is:' suggesting options: 'Issue' and 'Pull request'. The options also include icons."
       width="456"
@@ -312,7 +312,7 @@ Remember that deprecating means that we stop suggesting those options to users b
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/980622/205077302-f48f4553-d091-45b4-b6ed-ef29f7246119.png"
+      src="https://user-images.githubusercontent.com/980622/207309517-48fa4064-48c5-4131-9759-ac1c4ff9ff87.png"
       role="presentation"
       alt="An input with the value 'type:' suggesting options: 'Issue' and 'Pull request'. The options are missing icons."
       width="456"
@@ -330,7 +330,7 @@ We do this to ensure that qualifiers are easy to scan and have enough context.
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/980622/205068312-041f8244-7b38-47a6-939a-f221b188786a.png"
+      src="https://user-images.githubusercontent.com/980622/207311524-8ccb8373-b77d-424f-992f-d4d7c80860aa.png"
       role="presentation"
       width="456"
       alt="An empty filter input showing initial suggestions: 'Assignee', 'Is', 'Repository', 'State' and 'Total comments'"
@@ -339,7 +339,7 @@ We do this to ensure that qualifiers are easy to scan and have enough context.
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/980622/205068307-5ee7f056-2c38-4c31-8f7c-5df6dbb0562c.png"
+      src="https://user-images.githubusercontent.com/980622/207311528-dbe0c3d2-bb3a-4d7d-a115-8d285aa9697a.png"
       role="presentation"
       width="456"
       alt="An empty filter input showing initial suggestions with all the possible combinations: 'assignee: username, username', 'is: pr, issue, project', 'repo: github/github, github/primer', 'state: open, closed, draft', 'comments: >400, 100...200'"
