@@ -179,6 +179,7 @@ Even though custom qualifiers can be added it's important to check if your new q
 | [star](https://primer.style/octicons/star-16)                                     | `stars`           | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                                      | `>100`, `10..100`, `100`                                                                              | [View](https://user-images.githubusercontent.com/980622/207335933-795de5c6-8bb6-414a-bf83-4e34aaa08972.png) |
 | [calendar](https://primer.style/octicons/calendar-16)                             | `updated`         | static | `Today`, `Yesterday`, `Last 7 days`, `Last 30 days`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `@today`, `@today-1d`,`@today-1w`,`>@today-1m`, `>YYYY-MM-DD`, `YYYY-MM-DD`, `YYYY-MM-DD..YYYY-MM-DD` | [View](https://user-images.githubusercontent.com/980622/207335954-d669b842-5437-47d3-8589-a3ed67b834c4.png) |
 | [file-code](https://primer.style/octicons/file-code-16)                           | `extension`       | static | `md, Markdown`, `json, JavaScript Object Notation`...                                                            | `md`                                                                                                  | [View](https://user-images.githubusercontent.com/980622/207335860-7237c64b-f159-4c25-9591-0bbaae7dde51.png) |
+| [people](https://primer.style/octicons/people-16)                                 | `team`            | api    | `avatars`, `name` and `total members`                                                                            | `name`                                                                                                | [View](https://user-images.githubusercontent.com/980622/207593729-5f39a33f-277a-4329-bfc1-d75f63bba34e.png) |
 
 ⚠️ This list will change a lot over the next month to accomodate different teams.
 
@@ -347,6 +348,17 @@ We do this to ensure that qualifiers are easy to scan and have enough context.
     <Caption>Don't list qualifiers as their raw value with possible options.</Caption>
   </Dont>
 </DoDontContainer>
+
+### Dynamic values
+
+Sometimes static values can be limiting when filtering results. For example, let's say you want to get all items created in the past 7 days. Using a static value, you would have to create a range of dates manually, such as `2022-01-01..2023-01-07`. However, when you come back the next day (the 8th of January), you would have to update this range manually again to `2022-01-02..2023-01-08`. This is not very convenient. That's why dynamic values can be useful in these situations. Using the same example, if you use the dynamic value `@today-7d`, you will get all items created in the past 7 days. When you come back the next day, the range of dates will automatically update to reflect the current date, so you don't have to do it manually.
+
+| Value    | Translation                  |
+| -------- | ---------------------------- |
+| `@today` | Current date (excludes time) |
+| `@me`    | Current signed in user       |
+
+⚠️ At the moment, we are conducting a review of dynamic values with multiple stakeholders, so changes may be made.
 
 ## Options
 
