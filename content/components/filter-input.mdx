@@ -20,7 +20,7 @@ An input that provides suggestions through qualifiers and highlights complex fil
 <img
   width="960"
   alt="The filter input annotated with specific naming for individual items. The input has a 'label:bug state:open assignee:' value and shows multiple suggestions for users."
-  src="https://user-images.githubusercontent.com/980622/204337049-f8dad70b-efdb-4cea-a33b-eba2c050fb84.png"
+  src="https://user-images.githubusercontent.com/980622/207303787-02ef7089-d3c5-4135-bdca-d83eccd032f4.png"
 />
 
 ## Content
@@ -114,7 +114,7 @@ There are two different states that should be considered when providing suggesti
 2. **Narrow down**: You've entered a value after your qualifier to narrow down the suggestions. For example: `author:max`
 
 <img
-  src="https://user-images.githubusercontent.com/980622/204564567-1e972877-f05e-4a3e-873f-ffb5d0eb5ded.png"
+  src="https://user-images.githubusercontent.com/980622/207305358-37b63ef8-f85a-4616-8c1c-9bc8b077b42f.png"
   role="presentation"
   width="960"
   alt="Two examples of the filter input. One has the value `author:` and is suggesting a few users to pick from. The other one has the value `author:max` and is suggesting a few users with `max` in their name or username."
@@ -137,7 +137,7 @@ Not all our infrastructure supports this logic yet. If not available we fall bac
 For static items that only return a handful of suggestions we often can just order items through common sense:
 
 <img
-  src="https://user-images.githubusercontent.com/980622/204575372-8a3119fa-0d85-4e95-8cb3-90e7c74ddaf4.png"
+  src="https://user-images.githubusercontent.com/980622/207307327-b31cef7a-39cc-4d18-a801-033746d710ef.png"
   role="presentation"
   width="960"
   alt="Two example of qualifiers that return static data. The 'created' qualifier suggests: 'Today', 'This week', 'This month', 'Oct 19, 2007', 'Before June 4, 2018' and 'After June 4, 2018'. The 'stars' qualifier suggests: 'More than 10', 'Less than 10', 'Between 10 and 100' and '100'"
@@ -148,7 +148,7 @@ For static items that only return a handful of suggestions we often can just ord
 The filter input comes with a list of predefined qualifiers and prestyled suggestions. This ensures everyone aligns on the same qualifiers as well as on the styling of suggestions.
 
 <img
-  src="https://user-images.githubusercontent.com/980622/204522022-c1141b98-7f13-48fe-a85f-9e8f90edb8f1.png"
+  src="https://user-images.githubusercontent.com/980622/207306454-20315d1b-74c3-4188-a854-5c62bb955886.png"
   role="presentation"
   alt="Multiple examples of qualifiers and the suggestions they provide. Qualifiers 'language', 'author' and 'state' are used as examples."
   width="960"
@@ -156,29 +156,30 @@ The filter input comes with a list of predefined qualifiers and prestyled sugges
 
 Even though custom qualifiers can be added it's important to check if your new qualifier could fit in one of the predefined qualifiers below.
 
-| Qualifier         | Origin | Suggestions                                                                                     | Format                     | Preview                                                                                                     |
-| ----------------- | ------ | ----------------------------------------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `created`         | static | `Today`, `This week`, `This month`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `>YYYY-MM-DD`, `YYY-MM-DD` | [View](https://user-images.githubusercontent.com/980622/204581689-408f3613-f75e-41b6-b8ab-d1e2f77cc898.png) |
-| `assignee`        | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581662-a51a8c97-1384-4466-8aa4-f256ee345bfe.png) |
-| `author`          | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581674-c431373b-836a-4433-8faa-6560e222d8b4.png) |
-| `fork`            | static | `Yes`, `No`                                                                                     | `true`, `false`            | [View](https://user-images.githubusercontent.com/980622/204581707-603a1bbd-ea95-4640-ac1a-37e6934a7f72.png) |
-| `is`              | static | `Action`, `Code`, `Command`, `Commit`...                                                        | `name`                     | [View](https://user-images.githubusercontent.com/980622/204581711-6ce9a24b-13c0-4505-8af0-55cca4100997.png) |
-| `label`           | api    | `Title`, `Description` and `color`.                                                             | `title`                    | [View](https://user-images.githubusercontent.com/980622/204581716-2d0dc9d4-9389-467e-945e-b1572a08a15b.png) |
-| `language`        | static | `C`, `C##`, `C++`, `CoffeeScript`...                                                            | `language`                 | [View](https://user-images.githubusercontent.com/980622/204581727-498d982e-644d-41f5-beca-98d859dba9ad.png) |
-| `location`        | static | `Amsterdam, Netherlands`, `Bern, Switzerland`...                                                | `"Amsterdam, Netherlands"` | [View](https://user-images.githubusercontent.com/980622/204581735-38202a82-9dea-4c00-94d1-7fdb4128d051.png) |
-| `license`         | static | `BSD Zero Clause License`, `Academic Free License v3.0`...                                      | `cc0-1.0`                  | [View](https://user-images.githubusercontent.com/980622/204581731-1f93dbd7-014d-4caf-ba11-c5407b9ab2f4.png) |
-| `mentions`        | api    | `avatar`, `username` and `Full Name`.                                                           | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581742-78e7713a-211c-44c1-b220-b2ead1a20c67.png) |
-| `org`             | api    | `avatar`, `username` and `Full Name`                                                            | `username`                 | [View](https://user-images.githubusercontent.com/980622/204581751-250d1cdb-fb2f-49d4-91ee-c7b2b2f7244a.png) |
-| `repo`            | api    | `avatar`, `username/repo-name`                                                                  | `username/repo-name`       | [View](https://user-images.githubusercontent.com/980622/204581761-6227d6c8-af48-427b-b5db-7080fd4628d8.png) |
-| `path`            | api    | `path`                                                                                          | `path`                     | [View](https://user-images.githubusercontent.com/980622/204581757-7a89441f-e927-4df9-93cb-c4cf49cb5698.png) |
-| `state` (generic) | static | `open`, `merged`, `closed`, `draft`                                                             | `open`                     | [View](https://user-images.githubusercontent.com/980622/204581782-d29573ae-5c2a-4726-a8f6-6c56fa042810.png) |
-| `state` (pr)      | static | `open`, `merged`, `closed`, `draft`                                                             | `open`                     | [View](https://user-images.githubusercontent.com/980622/204581777-25a6c908-e7e9-4815-8641-b80968a2fd36.png) |
-| `state` (issue)   | static | `open`, `closed`, `draft`                                                                       | `open`                     | [View](https://user-images.githubusercontent.com/980622/204581773-3e4e3202-1e2d-4d2e-a741-505dc71c11ee.png) |
-| `comments`        | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | [View](https://user-images.githubusercontent.com/980622/204581683-cfce78db-8adf-40f4-8b4b-39de11fd33af.png) |
-| `followers`       | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | [View](https://user-images.githubusercontent.com/980622/204581704-fde0c66f-7770-4775-88d6-7c70d4f846ce.png) |
-| `stars`           | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                     | `>100`, `10..100`, `100`   | [View](https://user-images.githubusercontent.com/980622/204581769-da69ef6f-4fe3-4e04-90c0-db661a1b141c.png) |
-| `updated`         | static | `Today`, `This week`, `This month`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `>YYYY-MM-DD`, `YYY-MM-DD` | [View](https://user-images.githubusercontent.com/980622/204581785-61de646f-491a-41cf-b87a-dc02afbd8847.png) |
-| `extension`       | static | `md, Markdown`, `json, JavaScript Object Notation`...                                           | `md`                       | [View](https://user-images.githubusercontent.com/980622/204581698-e7c6401d-66f4-4d3b-8c23-1e6c3012654f.png) |
+| Icon                                                                              | Qualifier         | Origin | Suggestions                                                                                                      | Format                                                                                                | Preview                                                                                                     |
+| --------------------------------------------------------------------------------- | ----------------- | ------ | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| [person](https://primer.style/octicons/person-16)                                 | `assignee`        | api    | `avatar`, `username` and `Full Name`                                                                             | `username`                                                                                            | [View](https://user-images.githubusercontent.com/980622/207335821-6dcb45dc-1b79-4270-8a78-825acadce8f0.png) |
+| [person](https://primer.style/octicons/person-16)                                 | `author`          | api    | `avatar`, `username` and `Full Name`                                                                             | `username`                                                                                            | [View](https://user-images.githubusercontent.com/980622/207335836-1f7766cd-acc6-41c5-921e-9764357d2589.png) |
+| [calendar](https://primer.style/octicons/calendar-16)                             | `created`         | static | `Today`, `Yesterday`, `Last 7 days`, `Last 30 days`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `@today`, `@today-1d`,`@today-1w`,`>@today-1m`, `>YYYY-MM-DD`, `YYYY-MM-DD`, `YYYY-MM-DD..YYYY-MM-DD` | [View](https://user-images.githubusercontent.com/980622/207335851-a5f464cc-2e70-4050-8e48-82f71c837389.png) |
+| [repo-forked](https://primer.style/octicons/repo-forked-16)                       | `fork`            | static | `Yes`, `No`                                                                                                      | `true`, `false`                                                                                       | [View](https://user-images.githubusercontent.com/980622/207335873-2f6e8519-c2cf-41fb-8560-572c2ee660e2.png) |
+| [apps](https://primer.style/octicons/apps-16)                                     | `is`              | static | `Action`, `Code`, `Command`, `Commit`...                                                                         | `name`                                                                                                | [View](https://user-images.githubusercontent.com/980622/207335878-9877e103-c235-4e03-a306-12cbc4e77f35.png) |
+| [tag](https://primer.style/octicons/tag-16)                                       | `label`           | api    | `Title`, `Description` and `color`.                                                                              | `title`                                                                                               | [View](https://user-images.githubusercontent.com/980622/207335883-08f7a9ba-5529-4486-9c24-da8debf562b2.png) |
+| [code](https://primer.style/octicons/code-16)                                     | `language`        | static | `C`, `C##`, `C++`, `CoffeeScript`...                                                                             | `language`                                                                                            | [View](https://user-images.githubusercontent.com/980622/207335891-e63e53e9-b30c-4636-91d2-b9eba239a223.png) |
+| [globe](https://primer.style/octicons/globe-16)                                   | `location`        | static | `Amsterdam, Netherlands`, `Bern, Switzerland`...                                                                 | `"Amsterdam, Netherlands"`                                                                            | [View](https://user-images.githubusercontent.com/980622/207335903-928f9bc7-4772-4166-8a83-8d62a60ff48f.png) |
+| [file-badge](https://primer.style/octicons/file-badge-16)                         | `license`         | static | `BSD Zero Clause License`, `Academic Free License v3.0`...                                                       | `cc0-1.0`                                                                                             | [View](https://user-images.githubusercontent.com/980622/207335897-9311c884-0c66-4d10-81b0-a7111405444b.png) |
+| [mention](https://primer.style/octicons/mention-16)                               | `mentions`        | api    | `avatar`, `username` and `Full Name`.                                                                            | `username`                                                                                            | [View](https://user-images.githubusercontent.com/980622/207335907-b58c2ae4-59bf-4594-abca-c85f838b1f3d.png) |
+| [organization](https://primer.style/octicons/organization-16)                     | `org`             | api    | `avatar`, `username` and `Full Name`                                                                             | `username`                                                                                            | [View](https://user-images.githubusercontent.com/980622/207335912-324815e0-eed5-492d-ad69-e070e6d2ffb7.png) |
+| [repo](https://primer.style/octicons/repo-16)                                     | `repo`            | api    | `avatar`, `username/repo-name`                                                                                   | `username/repo-name`                                                                                  | [View](https://user-images.githubusercontent.com/980622/207335923-f63517ed-eda2-4ed8-a434-7ff25a123d54.png) |
+| [file-directory](https://primer.style/octicons/file-directory-16)                 | `path`            | api    | `path`                                                                                                           | `path`                                                                                                | [View](https://user-images.githubusercontent.com/980622/207335918-83e9b028-e7f5-48e1-99b0-b68ac7c12d85.png) |
+| [issue-draft](https://primer.style/octicons/issue-draft-16)                       | `state` (generic) | static | `open`, `merged`, `closed`, `draft`                                                                              | `open`                                                                                                | [View](https://user-images.githubusercontent.com/980622/207335939-ec2d1c4c-e564-4509-93ca-a4ba05b5c167.png) |
+| [git-pull-request-draft](https://primer.style/octicons/git-pull-request-draft-16) | `state` (pr)      | static | `open`, `merged`, `closed`, `draft`                                                                              | `open`                                                                                                | [View](https://user-images.githubusercontent.com/980622/207335949-e65f3708-65eb-4087-a8f4-c657a0bcd5d6.png) |
+| [issue-draft](https://primer.style/octicons/issue-draft-16)                       | `state` (issue)   | static | `open`, `closed`, `draft`                                                                                        | `open`                                                                                                | [View](https://user-images.githubusercontent.com/980622/207335944-80089848-ffc4-4fbc-8d6b-ed7b00d11fab.png) |
+| [comment-discussion](https://primer.style/octicons/comment-discussion-16)         | `comments`        | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`,                                                     | `>100`, `10..100`, `100`                                                                              | [View](https://user-images.githubusercontent.com/980622/207335844-4b89c9db-1add-4b39-951d-5bee28c2b2d6.png) |
+| [people](https://primer.style/octicons/people-16)                                 | `followers`       | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                                      | `>100`, `10..100`, `100`                                                                              | [View](https://user-images.githubusercontent.com/980622/207335866-81c6cfc6-e619-4624-8fbd-f09d92373b0a.png) |
+| [star](https://primer.style/octicons/star-16)                                     | `stars`           | static | `More than 10`, `Less than 10`, `Between 10 and 100`, `100`                                                      | `>100`, `10..100`, `100`                                                                              | [View](https://user-images.githubusercontent.com/980622/207335933-795de5c6-8bb6-414a-bf83-4e34aaa08972.png) |
+| [calendar](https://primer.style/octicons/calendar-16)                             | `updated`         | static | `Today`, `Yesterday`, `Last 7 days`, `Last 30 days`, `Oct 19, 2007`, `Before June 4, 2018`, `After June 4, 2018` | `@today`, `@today-1d`,`@today-1w`,`>@today-1m`, `>YYYY-MM-DD`, `YYYY-MM-DD`, `YYYY-MM-DD..YYYY-MM-DD` | [View](https://user-images.githubusercontent.com/980622/207335954-d669b842-5437-47d3-8589-a3ed67b834c4.png) |
+| [file-code](https://primer.style/octicons/file-code-16)                           | `extension`       | static | `md, Markdown`, `json, JavaScript Object Notation`...                                                            | `md`                                                                                                  | [View](https://user-images.githubusercontent.com/980622/207335860-7237c64b-f159-4c25-9591-0bbaae7dde51.png) |
+| [people](https://primer.style/octicons/people-16)                                 | `team`            | api    | `avatars`, `name` and `total members`                                                                            | `name`                                                                                                | [View](https://user-images.githubusercontent.com/980622/207593729-5f39a33f-277a-4329-bfc1-d75f63bba34e.png) |
 
 ⚠️ This list will change a lot over the next month to accomodate different teams.
 
@@ -195,7 +196,7 @@ Therefore it's important to use the correct qualifier as soon as you can determi
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/980622/204605560-47a3e722-7459-4ba9-b25b-3a7a03a44241.png"
+      src="https://user-images.githubusercontent.com/980622/207307872-9c518626-32f4-46cf-afc8-7b0518fe5e6a.png"
       role="presentation"
       width="456"
       alt="An input with value 'is:pr state:' showing suggestions with colored icons: 'Open', 'Merged', 'Closed' and 'Draft'"
@@ -204,7 +205,7 @@ Therefore it's important to use the correct qualifier as soon as you can determi
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/980622/204605557-0a7f7be6-9c11-4a6e-a790-59c8a3b31f4d.png"
+      src="https://user-images.githubusercontent.com/980622/207307868-b3d78303-3ba0-4d3d-ade4-dd893d9065a7.png"
       role="presentation"
       width="456"
       alt="An input with value 'is:pr state:' showing suggestions without icons: 'Open', 'Merged', 'Closed' and 'Draft'"
@@ -250,7 +251,7 @@ In rare cases the user could be searching for `format:format` within the content
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/980622/205070358-9e160253-d3d5-4354-809b-ff52071eea1e.png"
+      src="https://user-images.githubusercontent.com/980622/207312763-f4b5c848-cb18-4172-8e25-35a510c1e1b7.png"
       role="presentation"
       width="456"
       alt="An input with the value 'author:username-not-found'"
@@ -259,7 +260,7 @@ In rare cases the user could be searching for `format:format` within the content
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/980622/205070353-845bf3b5-de35-4c17-86f5-9d4f953b935a.png"
+      src="https://user-images.githubusercontent.com/980622/207312759-97e6a6ce-5fa3-4a6f-bd23-a7f0d98f754d.png"
       role="presentation"
       width="456"
       alt="An input with the value 'author:username-not-found' and a suggestion showing 'Not found, try a different username'"
@@ -303,7 +304,7 @@ Remember that deprecating means that we stop suggesting those options to users b
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/980622/205077546-5f36d476-0d8f-4613-a928-c959f4759413.png"
+      src="https://user-images.githubusercontent.com/980622/207309519-affaf0ce-ab7d-471f-a52c-7c59242045e8.png"
       role="presentation"
       alt="An input with the value 'is:' suggesting options: 'Issue' and 'Pull request'. The options also include icons."
       width="456"
@@ -312,7 +313,7 @@ Remember that deprecating means that we stop suggesting those options to users b
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/980622/205077302-f48f4553-d091-45b4-b6ed-ef29f7246119.png"
+      src="https://user-images.githubusercontent.com/980622/207309517-48fa4064-48c5-4131-9759-ac1c4ff9ff87.png"
       role="presentation"
       alt="An input with the value 'type:' suggesting options: 'Issue' and 'Pull request'. The options are missing icons."
       width="456"
@@ -330,7 +331,7 @@ We do this to ensure that qualifiers are easy to scan and have enough context.
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/980622/205068312-041f8244-7b38-47a6-939a-f221b188786a.png"
+      src="https://user-images.githubusercontent.com/980622/207311524-8ccb8373-b77d-424f-992f-d4d7c80860aa.png"
       role="presentation"
       width="456"
       alt="An empty filter input showing initial suggestions: 'Assignee', 'Is', 'Repository', 'State' and 'Total comments'"
@@ -339,7 +340,7 @@ We do this to ensure that qualifiers are easy to scan and have enough context.
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/980622/205068307-5ee7f056-2c38-4c31-8f7c-5df6dbb0562c.png"
+      src="https://user-images.githubusercontent.com/980622/207311528-dbe0c3d2-bb3a-4d7d-a115-8d285aa9697a.png"
       role="presentation"
       width="456"
       alt="An empty filter input showing initial suggestions with all the possible combinations: 'assignee: username, username', 'is: pr, issue, project', 'repo: github/github, github/primer', 'state: open, closed, draft', 'comments: >400, 100...200'"
@@ -347,6 +348,17 @@ We do this to ensure that qualifiers are easy to scan and have enough context.
     <Caption>Don't list qualifiers as their raw value with possible options.</Caption>
   </Dont>
 </DoDontContainer>
+
+### Dynamic values
+
+Sometimes static values can be limiting when filtering results. For example, let's say you want to get all items created in the past 7 days. Using a static value, you would have to create a range of dates manually, such as `2022-01-01..2023-01-07`. However, when you come back the next day (the 8th of January), you would have to update this range manually again to `2022-01-02..2023-01-08`. This is not very convenient. That's why dynamic values can be useful in these situations. Using the same example, if you use the dynamic value `@today-7d`, you will get all items created in the past 7 days. When you come back the next day, the range of dates will automatically update to reflect the current date, so you don't have to do it manually.
+
+| Value    | Translation                  |
+| -------- | ---------------------------- |
+| `@today` | Current date (excludes time) |
+| `@me`    | Current signed in user       |
+
+⚠️ At the moment, we are conducting a review of dynamic values with multiple stakeholders, so changes may be made.
 
 ## Options
 
