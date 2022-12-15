@@ -1,16 +1,24 @@
 ---
-title: Relative time
+title: Dates & Times
 status: Experimental
 description: A relative time displays the time difference between the current time and the specified date-time.
 ---
 
 import {Box} from '@primer/react'
 
-## Content
+## Overview
+
+All dates and times displayed should use the relative time component, which is able to format and localise dates into the users given locale, as well as display times relative to the current date, while also updating in real-time.
+
+Dates and times almost always appear relative to the current date, using short-hand formats to help users quickly determine how old something is or how soon something will be. For this, we use Relative Time which displays dates rounded to the nearest unit, for example, "a minute ago" or "20 days ago". For dates that are more than 1 month from the current date, it can be more useful to display the date-time, as these items are less "current" and more "historical".
+
+Some dates and times represent the start or (expected) end of an actively running task, for these the elapsed or remaining time should be displayed, as this information is more useful than when a task started. This format should display all units that are greater than zero, for example, "2 minutes, 24 seconds" or "8 hours, 15 seconds". For ephemeral tasks where timing needs to be quickly consumed, or where a lot of times may be displayed together, a compact time notation can be used, for example, "2m 24s" or "8h 15s".
+
+Some dates are especially sensitive and always should be displayed in a precise date-time format, such as the creation or expiration of certificates and keys. When a user needs to take action before a particular time (such as an expiry date) then the precise date time should be displayed. These should display the weekday, the date, the month, and the year (if the year is not the current year), for example, "Thursday, 26 August 2021" or "Saturday, 31 December 2022".
 
 ### Past dates
 
-For past dates, the relative time outputs different formats depending on the time difference.
+For past dates, the relative time component outputs different formats depending on the time difference.
 
 Within a month's time, the output shows a relative time[^1] in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`.
 
@@ -52,7 +60,7 @@ If the date is in the following months, the format `on D MMM` is used. If the da
 
 ### Micro format
 
-The `micro` format shows a short version of the relative time. It's useful to display the relative time in a more compact space or in a mobile environment. For both past and future dates, the output shows the relative time in the format of `Xs/h/d`. If the date is in the following or past months, the format `D MMM` is used. If the date is in the following or past years, the format `D MMM, YYYY` is used.
+The `micro` format shows a shorter version of the relative time. This can be used in cases where it's useful to display the relative time in a more compact space or in a mobile environment. For both past and future dates, the output shows the relative time in the format of `Xs/h/d`. If the date is in the following or past months, the format `D MMM` is used. If the date is in the following or past years, the format `D MMM, YYYY` is used.
 
 | Time difference   | Format      | Examples                              |
 | ----------------- | ----------- | ------------------------------------- |
@@ -78,6 +86,19 @@ The `micro` format shows a short version of the relative time. It's useful to di
     <Caption>Don't use the micro format when there's a prominent space. Use the default option instead.</Caption>
   </Dont>
 </DoDontContainer>
+
+### Elapsed or remaining dates
+
+For dates which represent the start or (expected) end of a currently running task or job, it is more useful to display the elapsed time since the task began, or remaining time until the task ends. This takes the long format of `X years, X months, X days, X hours, X minutes, X seconds` or the compact format of `Xy Xm Xd Xh Xm Xs`. Any `0` values will not be displayed. For some tasks where the expected end time is further away and second precision is not needed, it may be useful to display less precise data, such as down-to-the-day, taking the format of `Xy Xm Xd`.
+
+| Precision         | Format             | Examples                              |
+| ----------------- | ------------------ | ------------------------------------- |
+| second            | Xy Xm Xd Xh Xm Xs  | `4s`, `5m 32s`, `1d 4h 32s`           |
+| day               | Xy Xm Xd           | `2y 3m`, `2y 8m 5d`, `2m 2d`, `1y 4d` |
+
+### Precise dates
+
+For dates which represent a precise date and time which the user should be aware of, dates should be displayed in a precise format that includes the weekday, date, month and if appropriate the hours minutes and seconds. This will take the format of `weekday, MMM D, YYYY, HH:MM:SS [AP]M`. The placement of these items may be different depending on locale.
 
 ## Usage
 
@@ -134,4 +155,4 @@ A relative time is used as plain text in most cases. However, it can be used as 
 
 ## Accessibility
 
-A relative time is treated like a [time](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) element when it shows a local numerical date, and it contains an [abbreviation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr) element when it shows a relative date phrase.
+A relative time is treated like a [time](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) element. It contains a [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title) showing the precise localised date.
