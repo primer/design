@@ -94,6 +94,8 @@
       url: /components/comment-box
     - title: Counter label
       url: /components/counter-label
+    - title: Data table
+      url: /components/data-table
     - title: Details
       url: /components/details
     - title: Dialog
