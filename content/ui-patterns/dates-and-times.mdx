@@ -1,6 +1,5 @@
 ---
 title: Dates & Times
-status: Experimental
 description: A relative time displays the time difference between the current time and the specified date-time.
 ---
 
@@ -91,10 +90,10 @@ The `micro` format shows a shorter version of the relative time. This can be use
 
 For dates which represent the start or (expected) end of a currently running task or job, it is more useful to display the elapsed time since the task began, or remaining time until the task ends. This takes the long format of `X years, X months, X days, X hours, X minutes, X seconds` or the compact format of `Xy Xm Xd Xh Xm Xs`. Any `0` values will not be displayed. For some tasks where the expected end time is further away and second precision is not needed, it may be useful to display less precise data, such as down-to-the-day, taking the format of `Xy Xm Xd`.
 
-| Precision         | Format             | Examples                              |
-| ----------------- | ------------------ | ------------------------------------- |
-| second            | Xy Xm Xd Xh Xm Xs  | `4s`, `5m 32s`, `1d 4h 32s`           |
-| day               | Xy Xm Xd           | `2y 3m`, `2y 8m 5d`, `2m 2d`, `1y 4d` |
+| Precision | Format            | Examples                              |
+| --------- | ----------------- | ------------------------------------- |
+| second    | Xy Xm Xd Xh Xm Xs | `4s`, `5m 32s`, `1d 4h 32s`           |
+| day       | Xy Xm Xd          | `2y 3m`, `2y 8m 5d`, `2m 2d`, `1y 4d` |
 
 ### Precise dates
 
