@@ -55,8 +55,29 @@ The filter input always supports free form text search. This is why you should u
 
 There are two ways this component can trigger submission of the input value.
 
-1. Provide a search button next to the filter input
-2. Auto update results as the value changes
+1. Auto update results as the value changes (recommended)
+2. Provide a search button next to the filter input
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/208663121-13da38c6-a38a-4b83-b8a0-ae72fd6ca803.png"
+      role="presentation"
+      width="456"
+      alt="A focused filter input with value 'label:bug state:open abc' indicating that when it should instantly filter results on the page and debounce this if using API calls."
+    />
+    <Caption>Auto update results based when the input value changes.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/208663115-a8ed1b8e-e2f9-4ce4-9fdd-7ffaa639e447.png"
+      role="presentation"
+      width="456"
+      alt="A focused filter input with value 'label:bug state:open abc' suggesting a `Submit/Start search` item."
+    />
+    <Caption>Don't add a item to submit the current value.</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Clear button
 
@@ -103,6 +124,34 @@ Use an icon instead of a link for clearing the input. This avoids confusion with
       alt="An input without a value incorrectly showing a 'clear' link on the right."
     />
     <Caption>Don't use a link for clearing as this could be confused with the text inside the input.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Avoid duplication
+
+When suggesting content avoid repetitive icons or descriptions to increase readability and reduce noise for screen readers.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/208691915-5bc8d7a7-c706-42a9-a7db-b80d25696ca6.png"
+      role="presentation"
+      width="456"
+      alt="An input with a value 'pinned:' suggesting 'Application', 'Form submissions', 'Performance', 'Feature requests', 'Large data sets' and 'Issues'. None of the items has a icon or additional descriptions."
+    />
+    <Caption>
+      An input with a value 'pinned:' suggesting 'Application', 'Form submissions', 'Performance', 'Feature requests',
+      'Large data sets' and 'Issues'. All items include a pin board icon and a `Pinned` description.
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/208691913-0d95c706-13fe-4ef9-b730-7a70c9991fcb.png"
+      role="presentation"
+      width="456"
+      alt="An input without a value incorrectly showing a 'clear' link on the right."
+    />
+    <Caption>Don't repeat icons or descriptions that add no additional value.</Caption>
   </Dont>
 </DoDontContainer>
 
@@ -318,7 +367,7 @@ Remember that deprecating means that we stop suggesting those options to users b
       alt="An input with the value 'type:' suggesting options: 'Issue' and 'Pull request'. The options are missing icons."
       width="456"
     />
-    <Caption>Use a custom qualifiers instead of a predefined one.</Caption>
+    <Caption>Use a custom qualifier instead of a predefined one.</Caption>
 
   </Dont>
 </DoDontContainer>
