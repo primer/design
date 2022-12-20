@@ -49,6 +49,8 @@
   children:
     - title: Button usage
       url: /ui-patterns/button-usage
+    - title: Dates and times
+      url: /ui-patterns/dates-and-times
     - title: Empty states
       url: /ui-patterns/empty-states
     - title: Feature onboarding
@@ -102,8 +104,6 @@
       url: /components/dialog
     - title: Filter input
       url: /components/filter-input
-    - title: Relative time
-      url: /components/relative-time
     - title: Segmented control
       url: /components/segmented-control
     - title: Toggle switch
