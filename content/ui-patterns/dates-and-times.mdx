@@ -9,13 +9,17 @@ import {Box} from '@primer/react'
 
 All dates and times displayed should use the relative time component, which is able to format and localise dates into the users given locale, as well as display times relative to the current date, while also updating in real-time.
 
-Dates and times almost always appear relative to the current date, using short-hand formats to help users quickly determine how old something is or how soon something will be. For this, we use Relative Time which displays dates rounded to the nearest unit, for example, "a minute ago" or "20 days ago". For dates that are more than 1 month from the current date, it can be more useful to display the date-time, as these items are less "current" and more "historical".
+Dates and times almost always appear [relative](#relative-dates) to the current date, using short-hand formats to help users quickly determine how old something is or how soon something will be. For this, we use the relative time component which displays dates rounded to the nearest unit, for example, "a minute ago" or "20 days ago". For dates that are more than 1 month from the current date, it can be more useful to display the date-time, as these items are less "current" and more "historical".
 
-Some dates and times represent the start or (expected) end of an actively running task, for these the elapsed or remaining time should be displayed, as this information is more useful than when a task started. This format should display all units that are greater than zero, for example, "2 minutes, 24 seconds" or "8 hours, 15 seconds". For ephemeral tasks where timing needs to be quickly consumed, or where a lot of times may be displayed together, a compact time notation can be used, for example, "2m 24s" or "8h 15s".
+Some dates are especially sensitive and always should be displayed in a [precise](#precise-dates) date-time format, such as the creation or expiration of certificates and keys. When a user needs to take action before a particular time (such as an expiry date) then the precise date time should be displayed. These should display the weekday, the date, the month, and the year (if the year is not the current year), for example, "Thursday, 26 August 2021" or "Saturday, 31 December 2022".
 
-Some dates are especially sensitive and always should be displayed in a precise date-time format, such as the creation or expiration of certificates and keys. When a user needs to take action before a particular time (such as an expiry date) then the precise date time should be displayed. These should display the weekday, the date, the month, and the year (if the year is not the current year), for example, "Thursday, 26 August 2021" or "Saturday, 31 December 2022".
+Some dates and times represent the start or (expected) end of an actively running task, for these the [elapsed or remaining](#elapsed-or-remaining-dates) time should be displayed, as this information is more useful than when a task started. This format should display all units that are greater than zero, for example, "2 minutes, 24 seconds" or "8 hours, 15 seconds". For ephemeral tasks where timing needs to be quickly consumed, or where a lot of times may be displayed together, a compact time notation can be used, for example, "2m 24s" or "8h 15s".
 
-### Past dates
+## Usage
+
+### Relative dates
+
+#### Past dates
 
 For past dates, the relative time component outputs different formats depending on the time difference.
 
@@ -42,7 +46,7 @@ If the date is in past months, the date time[^2] format `on D MMM` is used. If t
   />
 </p>
 
-### Future dates
+#### Future dates
 
 Future dates also use different formats depending on the time difference.
 
@@ -57,17 +61,48 @@ If the date is in the following months, the format `on D MMM` is used. If the da
 | > 1 month       | on D MMM                              | `on 18 Nov`                                                                         |
 | Next year       | on D MMM, YYYY                        | `on 26 Aug, 2021`                                                                   |
 
-### Micro format
+#### Standalone
 
-The `micro` format shows a shorter version of the relative time. This can be used in cases where it's useful to display the relative time in a more compact space or in a mobile environment. For both past and future dates, the output shows the relative time in the format of `Xs/h/d`. If the date is in the following or past months, the format `D MMM` is used. If the date is in the following or past years, the format `D MMM, YYYY` is used.
+The relative dates can be used within a sentence, following the action that it's relative to, or as an independent elements when the content and the surrounding elements make it clear what the time is related to.
 
-| Time difference   | Format      | Examples                              |
-| ----------------- | ----------- | ------------------------------------- |
-| < 1 month         | Xs/h/d      | `1s`, `20s`, `5m`, `40m`, `1d`, `20d` |
-| > 1 month         | D MMM       | `18 Nov`                              |
-| Past or next year | D MMM, YYYY | `26 Aug, 2021`                        |
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img
+      width="460"
+      alt=""
+      src="https://user-images.githubusercontent.com/912236/208956681-5129e245-2752-4efb-9605-9fd33d762ceb.png"
+    />
+    <Caption>Use standalone relative dates on items where its title references the action.</Caption>
+  </div>
+  <div>
+    <img
+      width="460"
+      alt=""
+      src="https://user-images.githubusercontent.com/912236/208956687-503e9f34-2e95-46d1-9333-cd9cc7238ed3.png"
+    />
+    <Caption>Use standalone relative dates a timeline item where the section title references the action.</Caption>
+  </div>
+</Box>
 
-<DoDontContainer>
+#### Links
+
+The relative dates are used as plain text in most cases. However, it can be used as an anchor link to point to an element that contains relevant or nested information. For example, as a link to a comment in a conversation.
+
+<img
+  width="960"
+  alt="A relative time as a link to a comment in a conversation."
+  src="https://user-images.githubusercontent.com/912236/208957419-46174cce-00c1-4d18-8551-62c7a89c8148.png"
+/>
+
+#### Responsive design and micro format
+
+Relative dates must remain readable and accessible in different screen sizes. We encourage to avoid using the `micro` formats on mobile enviroments or narrow spaces, as it can be difficult for users to understand, browser translation is not supported, and causes issues with assistive technologies. For example some screen readers (such as VoiceOver for mac) will read out `1m` as `1 meter`.
+
+<!-- Micro format should only be used when there's a prominent space constraint, such as in a timeline or a list of items. -->
+<!-- However, if you need to use it, make sure that the content and the surrounding elements make it clear what the time is related to. -->
+<!-- WIP Do's and don'ts (avoid microformat or narrow formats on mobile) -->
+
+<!-- <DoDontContainer>
   <Do>
     <img
       src="https://user-images.githubusercontent.com/912236/191981619-4b2a5625-aa28-44d4-a650-fcda9f349b6f.png"
@@ -84,16 +119,7 @@ The `micro` format shows a shorter version of the relative time. This can be use
     />
     <Caption>Don't use the micro format when there's a prominent space. Use the default option instead.</Caption>
   </Dont>
-</DoDontContainer>
-
-### Elapsed or remaining dates
-
-For dates which represent the start or (expected) end of a currently running task or job, it is more useful to display the elapsed time since the task began, or remaining time until the task ends. This takes the long format of `X years, X months, X days, X hours, X minutes, X seconds` or the compact format of `Xy Xm Xd Xh Xm Xs`. Any `0` values will not be displayed. For some tasks where the expected end time is further away and second precision is not needed, it may be useful to display less precise data, such as down-to-the-day, taking the format of `Xy Xm Xd`.
-
-| Precision | Format            | Examples                              |
-| --------- | ----------------- | ------------------------------------- |
-| second    | Xy Xm Xd Xh Xm Xs | `4s`, `5m 32s`, `1d 4h 32s`           |
-| day       | Xy Xm Xd          | `2y 3m`, `2y 8m 5d`, `2m 2d`, `1y 4d` |
+</DoDontContainer> -->
 
 ### Precise dates
 
@@ -137,59 +163,15 @@ For dates which represent a precise date and time which the user should be aware
   </Dont>
 </DoDontContainer>
 
-## Usage
+### Elapsed or remaining dates
 
-A relative time can be used within a sentence, following the action that it's relative to.
+For dates which represent the start or (expected) end of a currently running task or job, it is more useful to display the elapsed time since the task began, or remaining time until the task ends. This takes the long format of `X years, X months, X days, X hours, X minutes, X seconds` or the compact format of `Xy Xm Xd Xh Xm Xs`. Any `0` values will not be displayed. For some tasks where the expected end time is further away and second precision is not needed, it may be useful to display less precise data, such as down-to-the-day, taking the format of `Xy Xm Xd`.
 
-<img
-  width="960"
-  alt=""
-  src="https://user-images.githubusercontent.com/912236/191977760-bccc2197-6ecb-4487-9c5d-0d3732cc7f9e.png"
-/>
-
-### Standalone
-
-A relative time can be used as an independent element when the content and the surrounding elements make it clear what the time is related to.
-
-<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-  <div>
-    <img
-      width="460"
-      alt=""
-      src="https://user-images.githubusercontent.com/912236/191997579-7a5be204-91ed-4163-97fc-18cd6e82a0c7.png"
-    />
-    <Caption>Use it in a list item where each item title references the action that was performed.</Caption>
-  </div>
-  <div>
-    <img
-      width="460"
-      alt=""
-      src="https://user-images.githubusercontent.com/912236/191965093-80c1858f-5d36-4caf-aecf-fd333c2c104c.png"
-    />
-    <Caption>Use it in a timeline item where the section title references the action.</Caption>
-  </div>
-</Box>
-
-#### Responsive design
-
-When used as standalone element, the default format can change to `micro` to fit in a narrow area.
-
-<CustomVideoPlayer
-  width="100%"
-  loop
-  src="https://user-images.githubusercontent.com/912236/192255353-88749767-f1d1-49af-8145-86b60f5215b8.mp4"
-/>
-
-### Links
-
-A relative time is used as plain text in most cases. However, it can be used as an anchor link to point to an element within a view that contains relevant or nested information. For example, as a link to a comment in a conversation.
-
-<img
-  width="960"
-  alt="A relative time as a link to a comment in a conversation."
-  src="https://user-images.githubusercontent.com/912236/192507200-d764ff4e-2fae-4f72-b179-be39b41b7210.png"
-/>
+| Precision | Format            | Examples                              |
+| --------- | ----------------- | ------------------------------------- |
+| second    | Xy Xm Xd Xh Xm Xs | `4s`, `5m 32s`, `1d 4h 32s`           |
+| day       | Xy Xm Xd          | `2y 3m`, `2y 8m 5d`, `2m 2d`, `1y 4d` |
 
 ## Accessibility
 
-A relative time is treated like a [time](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) element. It contains a [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title) showing the precise localised date.
+The relative date are treated like a [time](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) element. It contains a [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title) showing the precise localised date.
