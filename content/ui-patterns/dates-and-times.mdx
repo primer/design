@@ -21,14 +21,9 @@ Some dates and times represent the start or (expected) end of an actively runnin
 
 #### Past dates
 
-For past dates, the relative time component outputs different formats depending on the time difference.
-
-Within a month's time, the output shows a relative time[^1] in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`.
+For past dates, the relative time component outputs different formats depending on the time difference. Within a month's time, the output shows a relative time[^1] in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`. If the date is in past months, the date time[^2] format `on D MMM` is used. If the date is in the past years, the format `on D MMM, YYYY` is used.
 
 [^1]: Relative time data is derived from the [Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) API.
-
-If the date is in past months, the date time[^2] format `on D MMM` is used. If the date is in the past years, the format `on D MMM, YYYY` is used.
-
 [^2]: Date time data is derived from the [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) API.
 
 | Time difference | Format                           | Examples                                                                                  |
@@ -48,11 +43,7 @@ If the date is in past months, the date time[^2] format `on D MMM` is used. If t
 
 #### Future dates
 
-Future dates also use different formats depending on the time difference.
-
-If the future date is due to happen within the a month's time, the relative time outputs the format of `in X seconds/minutes/hours/days`. If the time difference is less than 1 minute, it shows `just now`.
-
-If the date is in the following months, the format `on D MMM` is used. If the date is in the next year or further, the format `on D MMM, YYYY` is used.
+Future dates also use different formats depending on the time difference. If the future date is due to happen within the a month's time, the relative time outputs the format of `in X seconds/minutes/hours/days`. If the time difference is less than 1 minute, it shows `just now`. If the date is in the following months, the format `on D MMM` is used. If the date is in the next year or further, the format `on D MMM, YYYY` is used.
 
 | Time difference | Format                                | Examples                                                                            |
 | --------------- | ------------------------------------- | ----------------------------------------------------------------------------------- |
@@ -86,7 +77,7 @@ The relative dates can be used within a sentence, following the action that it's
 
 #### Links
 
-The relative dates are used as plain text in most cases. However, it can be used as an anchor link to point to an element that contains relevant or nested information. For example, as a link to a comment in a conversation.
+The relative dates are used as plain text in most cases. However, they can be used as an anchor link to point to an element that contains relevant or nested information. For example, as a link to a comment in a conversation.
 
 <img
   width="960"
