@@ -12,3 +12,5 @@ jobs:
         run: yarn
       - name: lint
         run: yarn lint
+      - name: markdownlint
+        run: yarn markdownlint
