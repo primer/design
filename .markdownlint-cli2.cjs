@@ -1,7 +1,7 @@
 const githubMarkdownOpinions = require('@github/markdownlint-github')
 
 const options = githubMarkdownOpinions.init({
-  // Disable rules we don't currently care to enforce.
+  // Disable rules we don't currently care to enforce pertaining to stylistic things.
   'line-length': false,
   'blanks-around-headings': false,
   'blanks-around-lists': false,
