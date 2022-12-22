@@ -1,18 +1,16 @@
 const githubMarkdownOpinions = require('@github/markdownlint-github')
 
 const options = githubMarkdownOpinions.init({
+  // Disable rules we don't currently care to enforce.
   'line-length': false,
   'blanks-around-headings': false,
-  'no-hard-tabs': false,
+  'blanks-around-lists': false,
   'no-trailing-spaces': false,
   'no-multiple-blanks': false,
-  'ul-style': false,
-  'ul-indent': false,
-  'blanks-around-lists': false,
   'no-trailing-punctuation': false,
-  'no-space-in-code': false,
   'single-trailing-newline': false,
-  'link-image-reference-definitions': false // flaky
+  'ul-indent': false,
+  'no-hard-tabs': false
 })
 
 module.exports = {
