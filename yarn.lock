@@ -1208,10 +1208,10 @@
     html-entities "^2.3.3"
     strip-ansi "^6.0.0"
 
-"@github/markdownlint-github@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@github/markdownlint-github/-/markdownlint-github-0.2.0.tgz#71d71f9a41313ed24a66084ec128416490d61d78"
-  integrity sha512-Hze+8jMqcgcXYYKCIyfqcwO5hqFWokzqufpI7m1CJzJSklOVIaBx2xA3BrJgS+QYzMhgnv2ihqO7/cB81ljojA==
+"@github/markdownlint-github@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@github/markdownlint-github/-/markdownlint-github-0.2.1.tgz#71c783b0f39e9ee0bd3bf5f3acf8b364a5637b84"
+  integrity sha512-4yVd+5QhvvPIbRxRbcQBMU/4MRGFd3Dhs/JU3DIokRyC2Iuhh+D4dcne0nMuHnUZkk+dUkuVxOq3XE68jyusVw==
   dependencies:
     lodash "^4.17.15"
 
