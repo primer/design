@@ -85,46 +85,43 @@ The relative dates are used as plain text in most cases. However, they can be us
 
 #### Responsive design and micro format
 
-Relative dates must remain readable and accessible in different screen sizes. We encourage to avoid using the `micro` formats on mobile enviroments or narrow spaces, as it can be difficult for users to understand, browser translation is not supported, and causes issues with assistive technologies. For example some screen readers (such as VoiceOver for mac) will read out `1m` as `1 meter`.
-
-<!-- Micro format should only be used when there's a prominent space constraint, such as in a timeline or a list of items. -->
-<!-- However, if you need to use it, make sure that the content and the surrounding elements make it clear what the time is related to. -->
-<!-- WIP Do's and don'ts (avoid microformat or narrow formats on mobile) -->
-
-<!-- <DoDontContainer>
-  <Do>
-    <img
-      src="https://user-images.githubusercontent.com/912236/191981619-4b2a5625-aa28-44d4-a650-fcda9f349b6f.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Use the micro format to display time in a more compact space or in a mobile environment.</Caption>
-  </Do>
-  <Dont>
-    <img
-      src="https://user-images.githubusercontent.com/912236/191997424-821afe8a-39d9-47c4-9203-ebaee182f3b1.png"
-      role="presentation"
-      width="456"
-    />
-    <Caption>Don't use the micro format when there's a prominent space. Use the default option instead.</Caption>
-  </Dont>
-</DoDontContainer> -->
-
-### Precise dates
-
-For dates which represent a precise date and time which the user should be aware of, dates should be displayed in a precise format that includes the weekday, date, month and if appropriate the hours minutes and seconds. This will take the format of `weekday, MMM D, YYYY, HH:MM:SS [AP]M`. The placement of these items may be different depending on locale.
+Relative dates must remain readable and accessible in different screen sizes. We encourage to use long date formats (e.g. `2 months ago`) instead of the `micro` format (e.g. `2mo`) on mobile screens or narrow spaces, as it can be difficult for users to understand, it doesn't support browser translation, and causes issues with assistive technologies. For example, some screen readers, such as VoiceOver for mac, will read out `1m` as `1 meter`.
 
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/912236/208942068-7811e2bd-d7cd-4677-a655-c6588cc776c1.png"
+      src="https://user-images.githubusercontent.com/912236/209098128-37111f46-3b53-4201-82d3-be5721effe5a.png"
+      role="presentation"
+    />
+    <Caption>Use readable, long date formats, and adapt the layout to the available space.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/912236/209098133-3452047c-4931-4460-bb3b-d4b9d9e51fb4.png"
+      role="presentation"
+    />
+    <Caption>
+      Don't use narrow date formats, specially if there's a prominent space available or the layout can be adapted to
+      the screen size.
+    </Caption>
+  </Dont>
+</DoDontContainer>
+
+### Precise dates
+
+For dates that needs to represent a precise date and time which the user should be aware of, dates should be displayed in a precise format that includes the weekday, date, month and if appropriate the hours minutes and seconds. This will take the format of `weekday, MMM D, YYYY, HH:MM:SS [AP]M`. The placement of these items may be different depending on locale.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/912236/209102810-71be5fdb-8ba6-4004-89f2-6ed64d1fdb40.png"
       role="presentation"
     />
     <Caption>Use precise dates for future relevant dates.</Caption>
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/912236/208943614-6e2645a7-b7c6-40d1-9888-b3afef12e898.png"
+      src="https://user-images.githubusercontent.com/912236/209102811-f726b4ab-233d-458b-9117-84824976f5d8.png"
       role="presentation"
     />
     <Caption>Don't use relative dates for future specific dates.</Caption>
