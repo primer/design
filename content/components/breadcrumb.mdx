@@ -1,0 +1,48 @@
+---
+title: Breadcrumb
+figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=14985%3A47006
+react: https://primer.style/react/breadcrumb
+rails: https://primer.style/view-components/components/beta/breadcrumbs
+description: The breadcrumb component displays the current page or context within the site, allowing them to navigate different levels of the hierarchy.  
+---
+
+import {Box, Text} from '@primer/react'
+
+<img
+  width="960"
+  alt="An image of the breadcrumb component"
+  src="https://user-images.githubusercontent.com/586552/204619264-27de7458-1a77-445f-bc56-83472bf30bfe.png"
+/>
+
+## Usage
+
+Breadcrumbs are used to show taxonomical context on pages that are many levels deep in a site’s hierarchy. Breadcrumbs show and link to pages higher up in the ancestry. 
+
+Breadcrumbs are most appropriate on pages that:
+- Are many levels deep on a site
+- Do not have a section-level navigation
+- May need the ability to quickly go back to the previous (parent) page
+- All items must contain links, with the last item as the user's current context
+
+## Anatomy
+
+Breadcrumbs are made of links (indicating parents), dividers, and the current page. The default Breadcrumb component can be modified to change the number of items within the chain.
+
+<img
+  width="960"
+  alt="An image showing the anatomy of the breacrumb component"
+  src="https://user-images.githubusercontent.com/586552/204619263-c21f06c1-433d-4817-860b-f9d051836cd3.png"
+/>
+
+<Caption>Note: The space between items is set to 0px as the divider has padding built into it.</Caption>
+
+## Options
+
+### Breadcrumb length
+By default the Breadcrumb component can show up to 10 items within the chain.
+
+<img
+  width="960"
+  alt="An image showing various breadcrumbs with different numbers of items in the breadcrumb chain"
+  src="https://user-images.githubusercontent.com/586552/204618645-1abd2204-f197-402d-9b01-de648ddd1812.png"
+/>

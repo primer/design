@@ -7,7 +7,8 @@
     "build": "gatsby build --prefix-paths",
     "build:preview": "gatsby build",
     "now-build": "yarn build",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "markdownlint": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!.github\" \"!node_modules\""
   },
   "dependencies": {
     "@github/prettier-config": "^0.0.4",
@@ -25,7 +26,12 @@
     "yarn": "^1.22.18"
   },
   "devDependencies": {
+    "@github/markdownlint-github": "^0.2.1",
+    "markdownlint-cli2": "^0.5.1",
     "path-browserify": "^1.0.1"
+  },
+  "resolutions": {
+    "sharp": "0.29.3"
   },
   "private": true
 }

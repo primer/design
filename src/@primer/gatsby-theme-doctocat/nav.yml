@@ -9,6 +9,8 @@
       url: /foundations/content
     - title: Color
       url: /foundations/color
+    - title: Responsive
+      url: /foundations/responsive
     - title: Layout
       url: /foundations/layout
     - title: Typography
@@ -47,6 +49,8 @@
   children:
     - title: Button usage
       url: /ui-patterns/button-usage
+    - title: Dates and times
+      url: /ui-patterns/dates-and-times
     - title: Empty states
       url: /ui-patterns/empty-states
     - title: Feature onboarding
@@ -66,16 +70,42 @@
       url: /components/action-bar
     - title: Action list
       url: /components/action-list
+    - title: Action menu
+      url: /components/action-menu
+    - title: Anchored overlay
+      url: /components/anchored-overlay
     - title: Autocomplete
       url: /components/autocomplete
+    - title: Avatar
+      url: /components/avatar
+    - title: Avatar pair
+      url: /components/avatar-pair
+    - title: Avatar stack
+      url: /components/avatar-stack
+    - title: Box
+      url: /components/box
+    - title: Branch name
+      url: /components/branch-name
+    - title: Breadcrumb
+      url: /components/breadcrumb
+    - title: Checkbox
+      url: /components/checkbox
+    - title: Checkbox group
+      url: /components/checkbox-group
     - title: Comment box
       url: /components/comment-box
+    - title: Counter label
+      url: /components/counter-label
+    - title: Data table
+      url: /components/data-table
+    - title: Details
+      url: /components/details
     - title: Dialog
       url: /components/dialog
     - title: Form control
       url: /components/form-control
-    - title: Relative time
-      url: /components/relative-time
+    - title: Filter input
+      url: /components/filter-input
     - title: Segmented control
       url: /components/segmented-control
     - title: Toggle switch
