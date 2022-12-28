@@ -102,10 +102,12 @@
       url: /components/details
     - title: Dialog
       url: /components/dialog
-    - title: Form control
-      url: /components/form-control
     - title: Filter input
       url: /components/filter-input
+    - title: Flash
+      url: /components/flash
+    - title: Form control
+      url: /components/form-control
     - title: Segmented control
       url: /components/segmented-control
     - title: Toggle switch
