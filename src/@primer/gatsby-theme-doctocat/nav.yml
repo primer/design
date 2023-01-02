@@ -117,3 +117,8 @@
   children:
     - title: Figma
       url: /tools/figma
+- title: Figma
+  url: /figma
+  children:
+    - title: Button
+      url: /figma/button
