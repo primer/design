@@ -9,7 +9,7 @@ export default function FigmaPropertyPreview({components, property}) {
   for (const component of Object.values(components)) {
     if(values.includes(component.variantProps[property])) continue
     values.push(component.variantProps[property])
-    previewComponents.push(component)
+    previewComponents.push({...component, ...{'currentProperty': component.variantProps[property]}})
   }
 
 
@@ -27,9 +27,13 @@ export default function FigmaPropertyPreview({components, property}) {
         alignItems="center"
         justifyContent="center"
         flexWrap="wrap"
+        gap={4}
       >
         {previewComponents.map(component => (
-          <img key={component.key} src={component.thumbnail_url} alt={component.name} />
+          <Box key={component.key} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3}}>
+            <img src={component.thumbnail_url} alt={component.name} />
+            <Text fontSize={1}>{component.currentProperty}</Text>
+          </Box>
         ))}
       </Box>
     </article>
