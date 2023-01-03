@@ -121,6 +121,7 @@ export const componentSet = {
 
 Custom text that can be added if we need to describe more about the specific figma component.
 
+## Variants
 <FigmaVariantOverview variants={componentSet.variants} />
 
 ### Type
@@ -129,7 +130,8 @@ We can add some custom text here if we want.
 
 ### Size
 We can add some custom text here if we want.
-<FigmaPropertyPreview components={componentSet.components} property='size' />
+<FigmaPropertyPreview components={componentSet.components} property='size' setProperties={{"type": "primary"}} />
 
+## Examples
 <FigmaComponentExamples variants={componentSet.variants} components={componentSet.components} />
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Heading, Box, Text, StyledOcticon} from '@primer/react'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
+import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import {IssueReopenedIcon} from '@primer/octicons-react'
 
 export default function FigmaVariantOverview({variants}) {
@@ -10,8 +11,6 @@ export default function FigmaVariantOverview({variants}) {
 
   return (
     <article>
-      <Heading sx={{fontSize: 4, mb: 2}}>Variants</Heading>
-
       <Box
         display={'flex'}
         alignItems={'center'}
@@ -47,7 +46,7 @@ export default function FigmaVariantOverview({variants}) {
                     }}
                   >
                     {variant[1].map((value, index) => (
-                      <code key={index}>{value}</code>
+                      <InlineCode key={index}>{value}</InlineCode>
                     ))}
                   </Box>
                 </td>

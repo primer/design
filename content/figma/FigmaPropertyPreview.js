@@ -1,17 +1,30 @@
 import React from 'react'
 import {Heading, Box, Text} from '@primer/react'
 
-export default function FigmaPropertyPreview({components, property}) {
-
+const getPreviewComponents = (components, property, setProperties = {}) => {
   const values = []
   const previewComponents = []
 
-  for (const component of Object.values(components)) {
-    if(values.includes(component.variantProps[property])) continue
+  valueLoop: for (const component of Object.values(components)) {
+    // value already in arrya
+    if (values.includes(component.variantProps[property])) continue
+    // definedProperty wrong
+    for (const [setProp, setVal] of Object.entries(setProperties)) {
+      if(component.variantProps[setProp] !== setVal) {
+        continue valueLoop
+      }
+    }
+    // valid component
     values.push(component.variantProps[property])
-    previewComponents.push({...component, ...{'currentProperty': component.variantProps[property]}})
+    previewComponents.push({...component, ...{currentProperty: component.variantProps[property]}})
   }
 
+  return previewComponents
+}
+
+export default function FigmaPropertyPreview({components, property, setProperties}) {
+
+  const previewComponents = getPreviewComponents(components, property, setProperties)
 
   return (
     <article>
@@ -31,12 +44,25 @@ export default function FigmaPropertyPreview({components, property}) {
           gap: 4
         }}
       >
-        {previewComponents.map(component => (
-          <Box key={component.key} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3}}>
-            <img src={component.thumbnail_url} alt={component.name} />
-            <Text fontSize={1}>{component.currentProperty}</Text>
+        <Box sx={{display: 'table', width: '100px', tableLayout: 'auto', textAlign: 'center', borderCollapse: 'separate', borderSpacing: '24px 8px'}}>
+          <Box sx={{display: 'table-row'}}>
+            {previewComponents.map(component => (
+              <Box key={`${component.key}-img`} sx={{display: 'table-cell', verticalAlign: 'middle'}}>
+                <img src={component.thumbnail_url} alt={component.name} />
+              </Box>
+            ))}
           </Box>
-        ))}
+          <Box sx={{display: 'table-row'}}>
+            {previewComponents.map(component => (
+              <Text
+                key={component.key}
+                sx={{fontSize: '1', color: 'fg.subtle', display: 'table-cell', verticalAlign: 'middle'}}
+              >
+                {component.currentProperty}
+              </Text>
+            ))}
+          </Box>
+        </Box>
       </Box>
     </article>
   )

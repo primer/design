@@ -22,7 +22,6 @@ export default function FigmaComponentExamples({variants, components}) {
 
   return (
     <article>
-      <Heading sx={{fontSize: 4, mb: 3, mt: 4}}>Examples</Heading>
       <Box
         display="flex"
         alignItems="start"
