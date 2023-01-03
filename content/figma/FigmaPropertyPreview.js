@@ -27,7 +27,9 @@ export default function FigmaPropertyPreview({components, property}) {
         alignItems="center"
         justifyContent="center"
         flexWrap="wrap"
-        gap={4}
+        sx={{
+          gap: 4
+        }}
       >
         {previewComponents.map(component => (
           <Box key={component.key} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3}}>

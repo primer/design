@@ -35,9 +35,11 @@ export default function FigmaComponentExamples({variants, components}) {
 
           return (
             <Box alignItems={'flex-start'} display={'flex'} flexDirection="column" sx={{gap: 1}}>
-              <label>{variant[0]}</label>
               <ActionMenu key={index}>
-                <ActionMenu.Button aria-label="Select field type">{myState[variantIndex]}</ActionMenu.Button>
+                <ActionMenu.Button aria-label="Select field type">
+                  {variant[0]}
+                  : {myState[variantIndex]}
+                </ActionMenu.Button>
                 <ActionMenu.Overlay>
                   <ActionList selectionVariant="single">
                     {variant[1].map((name, index) => (
