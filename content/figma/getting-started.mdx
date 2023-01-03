@@ -1,0 +1,51 @@
+---
+title: Getting started
+---
+
+import {Box} from '@primer/react'
+import {ImageContainer, Caption} from '@primer/gatsby-theme-doctocat'
+
+import publishLib from '../../src/images/figma/publish-to-your-figma-instance.png'
+import enableLib from '../../src/images/figma/enable-lib.png'
+import availableLib from '../../src/images/figma/available-lib.png'
+
+Primer Web is the Figma library of UI components that our team’s at GitHub use to design for experience for GitHub. The components contained within Primer Web match with what is available for developers in [Primer React Components](https://primer.style/react/), [Primer ViewComponents](https://primer.style/view-components/), and [Primer CSS framework](https://primer.style/css/).
+
+Design patterns are documented in [Primer’s interface guidelines](https://primer.style/design/).
+
+## How to use
+
+To use Primer Web, publish, if not already available in your list of libraries, and enable from the Assets tab.
+
+<Box display="flex" mb={4} flexDirection="column">
+  <Box display="flex" bg="neutral.subtle" paddingTopY={4} borderRadius={10} justifyContent="center">
+    <img
+      width="656"
+      alt="Screenshot of the how to publish to your Figma instance"
+      src={publishLib}
+    />
+  </Box>
+  <Caption>Publish to your Figma instance</Caption>
+</Box>
+
+<Box display="flex" mb={4} flexDirection="column">
+  <Box display="flex" bg="neutral.subtle" paddingTopY={4} borderRadius={10} justifyContent="center">
+    <img
+      width="656"
+      alt="Screenshot of how to enable the Primer Web library in Figma"
+      src={enableLib}
+    />
+  </Box>
+  <Caption>Enable the Primer Web library</Caption>
+</Box>
+
+<Box display="flex" mb={4} flexDirection="column">
+  <Box display="flex" bg="neutral.subtle" paddingTopY={4} borderRadius={10} justifyContent="center">
+    <img
+      width="656"
+      alt="Screenshot of how it looks when the Primer Web library is available in Figma"
+      src={availableLib}
+    />
+  </Box>
+  <Caption>🎉 Primer Web is now available to use in your work</Caption>
+</Box>

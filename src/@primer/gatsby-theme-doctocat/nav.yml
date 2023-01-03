@@ -120,5 +120,9 @@
 - title: Figma
   url: /figma
   children:
+    - title: Introduction
+      url: /figma
+    - title: Getting started
+      url: /figma/getting-started
     - title: Button
       url: /figma/button
