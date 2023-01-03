@@ -129,6 +129,8 @@ Note that internally we had multiple discussions about introducing user-selectab
 
 To display the state of an action, use a stroke and fill icon combination or its opposite version if available. For "off" or "empty" states, use the outline icon.
 
+It is important to maintain consistency by using the pairs listed below.
+
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Example                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Icons                                                                                                                       | Usage                             |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
 |                                                                                                                                                                                                                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M4.25 2.5c-1.336 0-2.75 1.164-2.75 3 0 2.15 1.58 4.144 3.365 5.682A20.565 20.565 0 008 13.393a20.561 20.561 0 003.135-2.211C12.92 9.644 14.5 7.65 14.5 5.5c0-1.836-1.414-3-2.75-3-1.373 0-2.609.986-3.029 2.456a.75.75 0 01-1.442 0C6.859 3.486 5.623 2.5 4.25 2.5zM8 14.25l-.345.666-.002-.001-.006-.003-.018-.01a7.643 7.643 0 01-.31-.17 22.075 22.075 0 01-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.08 22.08 0 01-3.744 2.584l-.018.01-.006.003h-.002L8 14.25zm0 0l.345.666a.752.752 0 01-.69 0L8 14.25z"></path></svg> / <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M7.655 14.916L8 14.25l.345.666a.752.752 0 01-.69 0zm0 0L8 14.25l.345.666.002-.001.006-.003.018-.01a7.643 7.643 0 00.31-.17 22.08 22.08 0 003.433-2.414C13.956 10.731 16 8.35 16 5.5 16 2.836 13.914 1 11.75 1 10.203 1 8.847 1.802 8 3.02 7.153 1.802 5.797 1 4.25 1 2.086 1 0 2.836 0 5.5c0 2.85 2.045 5.231 3.885 6.818a22.075 22.075 0 003.744 2.584l.018.01.006.003h.002z"></path></svg>                                                                                                                                                                                                                        | [heart](/octicons/heart-16) / [heart-fill](/octicons/heart-fill-16)                                                         | Sponsor / Sponsoring              |
@@ -143,22 +145,22 @@ To display the state of an action, use a stroke and fill icon combination or its
 <DoDontContainer>
   <Do>
     <img
+      src="https://user-images.githubusercontent.com/980622/210356419-d37ecec3-97b4-45f3-bdf9-b6dd9d4b856f.png"
+      role="presentation"
       width="456"
-      alt="The file-directory icon uses a filled style to distinguish it apart from the file icons. In the example the file-directory icon is filled and blue and the file icon is outlined in light gray."
-      src="https://user-images.githubusercontent.com/10384315/103833710-83863980-5036-11eb-9218-954cbc87fc85.png"
+      alt="A completed 'upload artifacts' block with a check-circle icon and a failed 'upload artifacts' with a x-circle-fill icon."
     />
-    <Caption>Use outline and fill pairings to show the state of an action</Caption>
+    <Caption>Stick to predefined icon pairs.</Caption>
   </Do>
-  <Do>
+  <Dont>
     <img
+      src="https://user-images.githubusercontent.com/980622/210356422-b3fde0b8-c20d-4c8c-907d-a945646823d6.png"
+      role="presentation"
       width="456"
-      alt="octicon-actions"
-      src="https://user-images.githubusercontent.com/10384315/103720006-3d21d380-4f7f-11eb-89b8-3b572f80e284.png"
+      alt="A completed 'upload artifacts' block with a check-circle icon and a failed 'upload artifacts' with a x icon."
     />
-    <Caption>
-      Use outline and fill pairings to indicate the status or completion of an action (for example, an action running)
-    </Caption>
-  </Do>
+    <Caption>Create your own icon pairs.</Caption>
+  </Dont>
 </DoDontContainer>
 
 <DoDontContainer>
@@ -167,16 +169,16 @@ To display the state of an action, use a stroke and fill icon combination or its
       src="https://user-images.githubusercontent.com/980622/210348769-210b0bfd-7371-4748-9d30-d45700b879a1.png"
       role="presentation"
       width="456"
-      alt="Two examples of correct off states for buttons. A "Save" button with a outline bookmark icon and "Unsave" button with a bookmark-slash icon. A "Subscribe" button with a bell icon and "Unsubscribe" button with a bell-slash icon."
+      alt="Two examples of correct off states for buttons. A 'Save' button with a outline bookmark icon and 'Unsave' button with a bookmark-slash icon. A 'Subscribe' button with a bell icon and 'Unsubscribe' button with a bell-slash icon."
     />
-    <Caption>For "off" or "empty" states, use the outline icon.</Caption>
+    <Caption>For "off" or "empty" states, use the slash icon.</Caption>
   </Do>
   <Dont>
     <img
       src="https://user-images.githubusercontent.com/980622/210348770-8f77bd7f-6e00-4dc6-8a0c-db791c8ae0e8.png"
       role="presentation"
       width="456"
-      alt="Two examples of wrong off states for buttons. A "Save" button with a bookmark icon and "Unsave" button with a bookmark-filled icon. A "Subscribe" button with a bell icon and "Unsubscribe" button with a bell-filled icon."
+      alt="Two examples of wrong off states for buttons. A 'Save' button with a bookmark icon and 'Unsave' button with a bookmark-filled icon. A 'Subscribe' button with a outline bell icon and 'Unsubscribe' button with a filled bell-filled icon."
     />
     <Caption>Don't use filled icons for representing "off" or "empty states".</Caption>
   </Dont>
