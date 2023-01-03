@@ -44,11 +44,19 @@ export default function FigmaPropertyPreview({components, property, setPropertie
           gap: 4
         }}
       >
-        <Box sx={{display: 'table', width: '100px', tableLayout: 'auto', textAlign: 'center', borderCollapse: 'separate', borderSpacing: '24px 8px'}}>
+        <Box
+          sx={{
+            display: 'table',
+            tableLayout: 'auto',
+            textAlign: 'center',
+            borderCollapse: 'separate',
+            borderSpacing: '24px 8px'
+          }}
+        >
           <Box sx={{display: 'table-row'}}>
             {previewComponents.map(component => (
               <Box key={`${component.key}-img`} sx={{display: 'table-cell', verticalAlign: 'middle'}}>
-                <img src={component.thumbnail_url} alt={component.name} />
+                <img width="50%" src={component.thumbnail_url} alt={component.name} />
               </Box>
             ))}
           </Box>
