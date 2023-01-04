@@ -112,11 +112,6 @@
       url: /components/tokens
     - title: Tree view
       url: /components/treeview
-- title: Design tools
-  url: /tools
-  children:
-    - title: Figma
-      url: /tools/figma
 - title: Figma
   url: /figma
   children:
@@ -124,5 +119,5 @@
       url: /figma
     - title: Getting started
       url: /figma/getting-started
-    - title: Button
-      url: /figma/button
+    - title: Components
+      url: /figma/components
