@@ -1,23 +1,23 @@
 import React from 'react'
 import {Heading, ActionMenu, Box, ActionList} from '@primer/react'
 
-export default function FigmaComponentExamples({variants, components}) {
-  const [myState, setState] = React.useState([])
+export default function FigmaComponentExamples({properties, thumbnails}) {
+  const [previewState, setPreviewState] = React.useState([])
 
   React.useEffect(() => {
     let newArr = []
 
-    Object.entries(variants).map(variant => {
-      newArr.push(variant[1][0])
+    properties.map(property => {
+      newArr.push(property.defaultValue)
     })
 
-    setState(newArr)
+    setPreviewState(newArr)
   }, [])
 
   const handleClick = (index, value) => {
-    let newArr = [...myState]
+    let newArr = [...previewState]
     newArr[index] = value
-    setState(newArr)
+    setPreviewState(newArr)
   }
 
   return (
@@ -29,22 +29,22 @@ export default function FigmaComponentExamples({variants, components}) {
           gap: 4
         }}
       >
-        {Object.entries(variants).map((variant, index) => {
+        {properties.map((variant, index) => {
+          console.log('VARIANT', variant)
           let variantIndex = index
 
           return (
             <Box alignItems={'flex-start'} display={'flex'} flexDirection="column" sx={{gap: 1}}>
               <ActionMenu key={index}>
                 <ActionMenu.Button aria-label="Select field type">
-                  {variant[0]}
-                  : {myState[variantIndex]}
+                  {variant.name}: {previewState[variantIndex]}
                 </ActionMenu.Button>
                 <ActionMenu.Overlay>
                   <ActionList selectionVariant="single">
-                    {variant[1].map((name, index) => (
+                    {variant.values.map((name, index) => (
                       <ActionList.Item
                         key={index}
-                        selected={name === myState[variantIndex]}
+                        selected={name === previewState[variantIndex]}
                         onSelect={() => handleClick(variantIndex, name)}
                       >
                         {name}
@@ -71,19 +71,23 @@ export default function FigmaComponentExamples({variants, components}) {
         justifyContent="center"
         flexWrap="wrap"
       >
-        {Object.entries(components).map((component, index) => {
-          let variantNames = component[1].name.split(',')
-          let variantTypes = variantNames.map(type => {
-            return type.split('=')[1]
-          })
+        {thumbnails.map((thumbnail, index) => {
+          // let variantNames = thumbnail[1].name.split(',')
+          // let variantTypes = variantNames.map(type => {
+          //   return type.split('=')[1]
+          // })
+          const variantTypes = Object.values(thumbnail.props)
           let isActive = variantTypes.every((type, index) => {
-            return type === myState[index]
+            return type === previewState[index]
           })
+          const componentName = Object.entries(thumbnail.props)
+            .flatMap(propArr => propArr.join(': '))
+            .join(', ')
 
           return (
             isActive && (
               <Box display={'flex'} justifyContent="center" key={index}>
-                <img width="50%" src={component[1].thumbnail_url} alt={component[1].name} />
+                <img width="50%" src={thumbnail.url} alt={componentName} />
               </Box>
             )
           )

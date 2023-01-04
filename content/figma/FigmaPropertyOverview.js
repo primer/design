@@ -4,9 +4,10 @@ import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import {IssueReopenedIcon} from '@primer/octicons-react'
 
-export default function FigmaVariantOverview({variants}) {
-  const variantCount = Object.values(variants)
-    .map(array => array.length)
+export default function FigmaPropertyOverview({properties}) {
+  const combinationCount = properties
+    .flatMap(a => a.values.length)
+    .filter(i => i > 0)
     .reduce((accumulator, currentValue) => accumulator * currentValue, 1)
 
   return (
@@ -19,9 +20,9 @@ export default function FigmaVariantOverview({variants}) {
         }}
       >
         <StyledOcticon icon={IssueReopenedIcon} sx={{mr: 2}} />
-        <Text fontWeight={'bold'}>{variantCount}</Text>
+        <Text fontWeight={'bold'}>{combinationCount}</Text>
         <Text>&nbsp;</Text>
-        <Text>{'variants'}</Text>
+        <Text>variants</Text>
       </Box>
 
       <Table>
@@ -29,13 +30,14 @@ export default function FigmaVariantOverview({variants}) {
           <tr>
             <th>Name</th>
             <th>Values</th>
+            <th>Default</th>
           </tr>
         </thead>
         <tbody>
-          {Object.entries(variants).map((variant, index) => {
+          {properties.map((property, index) => {
             return (
               <tr key={index}>
-                <td>{variant[0]}</td>
+                <td>{property.name}</td>
                 <td>
                   <Box
                     display="flex"
@@ -45,10 +47,13 @@ export default function FigmaVariantOverview({variants}) {
                       gap: 2
                     }}
                   >
-                    {variant[1].map((value, index) => (
+                    {property.values.map((value, index) => (
                       <InlineCode key={index}>{value}</InlineCode>
                     ))}
                   </Box>
+                </td>
+                <td>
+                  <InlineCode>{property.defaultValue}</InlineCode>
                 </td>
               </tr>
             )

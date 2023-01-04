@@ -6,118 +6,7 @@ description:
   Buttons are interactive elements that are used to perform actions on a page.
 ---
 import { Link } from '@primer/react'
-import FigmaVariantOverview from '../FigmaVariantOverview'
-import FigmaPropertyPreview from '../FigmaPropertyPreview'
-import FigmaComponentExamples from '../FigmaComponentExamples'
-
-export const componentSet = { 
-  "variants": { 
-    "type": ["default", "primary"],
-    "size": ["Default", "Small"]
-  },
-  "components": { 
-    "1:3": {
-      "key": "1890be1af11cb433cb7551393598f43ad792c65a",
-      "file_key": "VlM7AtbmMo1rngCewuGnom",
-      "node_id": "1:3",
-      "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/Hnt/cnN/SeHgSvpbI3PBtT19/component_thumbnail_3.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWCZJVCJE47%2F20230101%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230101T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a5ba9c7bb7c0a57cec133a997bb42b67a6bee939ebce7cf4be095eca4164a683",
-      "name": "type=default, Size=Default",
-      "description": "This is the default variant for the Button component.",
-      "description_rt": "This is the default variant for the Button component.",
-      "created_at": "2022-07-14T13:21:35.654Z",
-      "updated_at": "2023-01-02T14:32:34.108Z",
-      "containing_frame": {
-        "name": "Button",
-        "nodeId": "1:2",
-        "pageId": "0:1",
-        "pageName": "Button",
-        "backgroundColor": "rgba(0, 0, 0, 0)",
-        "containingStateGroup": { "name": "Button", "nodeId": "1:2" }
-      },
-      "user": {
-        "id": "1138842193708355597",
-        "handle": "Lukas Oppermann",
-        "img_url": "https://s3-alpha.figma.com/profile/14e8c2f6-e57a-4655-a660-833d6f1dcda8"
-      },
-      "variantProps": { "type": "default", "size": "Default" }
-    },
-    "203:61": {
-      "key": "324a7687238710a40951245d171801b0d762cda1",
-      "file_key": "VlM7AtbmMo1rngCewuGnom",
-      "node_id": "203:61",
-      "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/uIB/doB/wLixiADDaGwi4wKG/component_thumbnail_0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWCZJVCJE47%2F20230101%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230101T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=0741a1b9bce5e648b3bfbb321919172f94f8cc4e342954d350964c35854e6f45",
-      "name": "type=default, Size=Small",
-      "description": "This is the default variant for the Button component.",
-      "description_rt": "This is the default variant for the Button component.",
-      "created_at": "2023-01-02T14:32:34.085Z",
-      "updated_at": "2023-01-02T14:32:34.085Z",
-      "containing_frame": {
-        "name": "Button",
-        "nodeId": "1:2",
-        "pageId": "0:1",
-        "pageName": "Button",
-        "backgroundColor": "rgba(0, 0, 0, 0)",
-        "containingStateGroup": { "name": "Button", "nodeId": "1:2" }
-      },
-      "user": {
-        "id": "1138842193708355597",
-        "handle": "Lukas Oppermann",
-        "img_url": "https://s3-alpha.figma.com/profile/14e8c2f6-e57a-4655-a660-833d6f1dcda8"
-      },
-      "variantProps": { "type": "default", "size": "Small" }
-    },
-    "1:4": {
-      "key": "8ec264271dd149de984fed725680ce5b9d9b1bfd",
-      "file_key": "VlM7AtbmMo1rngCewuGnom",
-      "node_id": "1:4",
-      "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/MPh/dYV/WgH5ZlOAaOQVtPPG/component_thumbnail_2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWCZJVCJE47%2F20230101%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230101T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=18813fc25dbb9bc5c5ae138da784057b45aade3472c7fce10c679bc33c95b231",
-      "name": "type=primary, Size=Default",
-      "description": "The primary variant of Button is typically used as a primary button\n\n",
-      "description_rt": "The primary variant of Button is typically used as a primary button\n\n",
-      "created_at": "2022-07-14T13:21:35.661Z",
-      "updated_at": "2023-01-02T14:32:34.115Z",
-      "containing_frame": {
-        "name": "Button",
-        "nodeId": "1:2",
-        "pageId": "0:1",
-        "pageName": "Button",
-        "backgroundColor": "rgba(0, 0, 0, 0)",
-        "containingStateGroup": { "name": "Button", "nodeId": "1:2" }
-      },
-      "user": {
-        "id": "1138842193708355597",
-        "handle": "Lukas Oppermann",
-        "img_url": "https://s3-alpha.figma.com/profile/14e8c2f6-e57a-4655-a660-833d6f1dcda8"
-      },
-      "variantProps": { "type": "primary", "size": "Default" }
-    },
-    "203:64": {
-      "key": "ef9d4766ef35e09745470532899744c5191e4632",
-      "file_key": "VlM7AtbmMo1rngCewuGnom",
-      "node_id": "203:64",
-      "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/9V4/dHu/HkuGLvJ9bitgkeGA/component_thumbnail_1.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWCZJVCJE47%2F20230101%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230101T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=9c7de33852bffd97a809d7505c81686dcd57f611e939f914b1925be734f9452c",
-      "name": "type=primary, Size=Small",
-      "description": "The primary variant of Button is typically used as a primary button\n\n",
-      "description_rt": "The primary variant of Button is typically used as a primary button\n\n",
-      "created_at": "2023-01-02T14:32:34.093Z",
-      "updated_at": "2023-01-02T14:32:34.093Z",
-      "containing_frame": {
-        "name": "Button",
-        "nodeId": "1:2",
-        "pageId": "0:1",
-        "pageName": "Button",
-        "backgroundColor": "rgba(0, 0, 0, 0)",
-        "containingStateGroup": { "name": "Button", "nodeId": "1:2" }
-      },
-      "user": {
-        "id": "1138842193708355597",
-        "handle": "Lukas Oppermann",
-        "img_url": "https://s3-alpha.figma.com/profile/14e8c2f6-e57a-4655-a660-833d6f1dcda8"
-      },
-      "variantProps": { "type": "primary", "size": "Small" }
-    }
-  }
-};
+import {PropertyOverview, PropertyPreview, Examples} from '../FigmaPrimerWeb'
 
 <Link href="/figma/components">Back to overview</Link>
 <br />
@@ -125,16 +14,17 @@ export const componentSet = {
 Custom text that can be added if we need to describe more about the specific figma component.
 
 ## Variants
-<FigmaVariantOverview variants={componentSet.variants} />
+<PropertyOverview component="button" />
 
 ### Type
 We can add some custom text here if we want.
-<FigmaPropertyPreview components={componentSet.components} property='type' />
+<PropertyPreview component="button" property='variant' />
 
 ### Size
 We can add some custom text here if we want.
-<FigmaPropertyPreview components={componentSet.components} property='size' setProperties={{"type": "primary"}} />
+<PropertyPreview component="button" property='size' setProperties={{"variant": "primary"}} />
 
 ## Examples
-<FigmaComponentExamples variants={componentSet.variants} components={componentSet.components} />
+
+<Examples component="button" />
 
