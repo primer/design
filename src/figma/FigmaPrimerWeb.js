@@ -4,9 +4,28 @@ import FigmaPropertyOverview from './FigmaPropertyOverview'
 import FigmaComponentExamples from './FigmaComponentExamples'
 import figmaData from 'figma-library-docgen/dist/primer-web.json'
 
-export const getComponentData = (componentName) => {
+const lowerCaseFirstCharacter = ([firstLetter, ...restOfWord]) => { 
+  return firstLetter.toLowerCase() + restOfWord
+}
+
+const getComponentData = (componentName) => {
   const componentsArray = Object.values(figmaData.components)
+  // find specific component
   const component = componentsArray.find(component => component.name.toLowerCase() === componentName.toLowerCase())
+  // change component property names
+  component.properties = component.properties.map(prop => {
+    prop.name = lowerCaseFirstCharacter(prop.name)
+    return prop
+  })
+  // change component thumbnail property names
+  component.thumbnails = component.thumbnails.map(thumbnail => {
+    const props = Object.entries(thumbnail.props)
+      .map(item => [lowerCaseFirstCharacter(item[0]), item[1]])
+
+    thumbnail.props = Object.fromEntries(props)
+
+    return thumbnail
+  })
 
   return component
 }

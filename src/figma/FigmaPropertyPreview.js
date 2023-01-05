@@ -7,15 +7,15 @@ const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
 
   valueLoop: for (const preview of thumbnails) {
     // value already in array
-    if (values.includes(preview.props[property].toLowerCase())) continue
+    if (values.includes(preview.props[property])) continue
     // definedProperty wrong
     for (const [setProp, setVal] of Object.entries(setProperties)) {
-      if (preview.props[setProp].toLowerCase() !== setVal.toLowerCase()) {
+      if (!preview.props[setProp] || preview.props[setProp] !== setVal.toLowerCase()) {
         continue valueLoop
       }
     }
     // valid component
-    values.push(preview.props[property].toLowerCase())
+    values.push(preview.props[property])
     previewComponents.push({...preview, ...{propertyValue: preview.props[property]}})
   }
 
