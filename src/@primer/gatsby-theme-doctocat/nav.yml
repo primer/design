@@ -108,6 +108,8 @@
       url: /components/flash
     - title: Form control
       url: /components/form-control
+    - title: Icon
+      url: /components/icon
     - title: Segmented control
       url: /components/segmented-control
     - title: Toggle switch
