@@ -6,23 +6,29 @@ description:
   Representations for users, bots, teams, and organizations across GitHub.
 ---
 import { Link } from '@primer/react'
+import {PropertyOverview, PropertyPreview, Examples} from '../../../src/figma/FigmaPrimerWeb'
 
 <Link href="/figma/components">Back to overview</Link>
 <br />
 <br />
-<!-- 
+
 ## Variants
-<FigmaVariantOverview variants={getVariants('Avatar')} />
-<!--
+
+<PropertyOverview component='avatar' />
+
 ### Size
-<FigmaPropertyPreview components={getComponents('Avatar')} property='Size' />
-<!--
+
+<PropertyPreview component='avatar' property='size' />
+
 ### Shape
-<FigmaPropertyPreview components={getComponents('Avatar')} property='Shape' />
-<!--
+
+<PropertyPreview component='avatar' property='square' />
+
 ### Stackable
-<FigmaPropertyPreview components={getComponents('Avatar')} property='Stackable' setProperties={{Size: '20px'}} />
-<!--
+
+<PropertyPreview component='avatar' property='stackable [DEPRECATED]' setProperties={{size: '20px'}} />
+
 ## Examples
-<FigmaComponentExamples variants={getVariants('Avatar')} components={getComponents('Avatar')} />
+
+<Examples component='avatar' />
 
