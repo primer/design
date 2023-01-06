@@ -22,12 +22,13 @@ const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
   return previewComponents
 }
 
-export default function FigmaPropertyPreview({thumbnails, property, setProperties}) {
+export default function FigmaPropertyPreview({thumbnails, property, setProperties, column, row}) {
   const previewComponents = getPreviewComponents(thumbnails, property, setProperties)
+  const direction = column === undefined ? 'row' : 'column'
 
   return (
     <Box
-      paddingY={10}
+      paddingY={8}
       borderColor="border.muted"
       bg="neutral.subtle"
       borderWidth={1}
@@ -36,47 +37,28 @@ export default function FigmaPropertyPreview({thumbnails, property, setPropertie
       marginBottom={6}
       borderStyle="solid"
       display="flex"
-      alignItems="center"
+      alignItems="stretch"
       justifyContent="center"
       flexWrap="wrap"
+      flexDirection={direction}
       sx={{
         gap: 4
       }}
     >
-      <Box
-        sx={{
-          display: 'table',
-          tableLayout: 'auto',
-          textAlign: 'center',
-          borderCollapse: 'separate',
-          borderSpacing: '24px 8px'
-        }}
-      >
-        <Box sx={{display: 'table-row'}}>
-          {previewComponents.map(component => {
-            const componentName = Object.entries(component.props)
-            .flatMap(propArr => propArr.join(': '))
-            .join(', ')
+      {previewComponents.map(component => {
+        const componentName = Object.entries(component.props)
+          .flatMap(propArr => propArr.join(': '))
+          .join(', ')
 
-            return (
-              <Box sx={{display: 'table-cell', verticalAlign: 'middle'}}>
-                <img
-                  width="50%"
-                  src={component.url}
-                  alt={componentName}
-                />
-              </Box>
-            )
-          })}
-        </Box>
-        <Box sx={{display: 'table-row'}}>
-          {previewComponents.map(component => (
-            <Text sx={{fontSize: '1', color: 'fg.subtle', display: 'table-cell', verticalAlign: 'middle'}}>
-              {component.propertyValue}
-            </Text>
-          ))}
-        </Box>
-      </Box>
+        return (
+          <Box key={componentName} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2}}>
+            <Box sx={{flexGrow: '1', alignItems: 'center', justifyContent: 'center', display: 'flex'}}>
+              <img width="50%" src={component.url} alt={componentName} />
+            </Box>
+            <Text sx={{fontSize: '1', color: 'fg.subtle', verticalAlign: 'middle'}}>{component.propertyValue}</Text>
+          </Box>
+        )
+      })}
     </Box>
   )
 }

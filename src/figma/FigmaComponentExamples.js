@@ -38,8 +38,8 @@ export default function FigmaComponentExamples({properties, thumbnails}) {
         {properties.map((property) => {
 
           return (
-            <Box alignItems={'flex-start'} display={'flex'} flexDirection="column" sx={{gap: 1}}>
-              <ActionMenu key={property.name}>
+            <Box key={property.name} alignItems={'flex-start'} display={'flex'} flexDirection="column" sx={{gap: 1}}>
+              <ActionMenu>
                 <ActionMenu.Button aria-label="Select field type">
                   {property.name}: {previewState[property.name]}
                 </ActionMenu.Button>

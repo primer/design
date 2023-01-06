@@ -4,16 +4,17 @@ import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import {SyncIcon, TypographyIcon, DiamondIcon} from '@primer/octicons-react'
 
-function PropertyValues({property}) {
-  let values = property.values.map((value, index) => (
+function propertyValues(property) {
+  let values = property.values.map((value, index) => {
+    return (
     <>
-      <InlineCode key={index}>{value}</InlineCode> 
+      <InlineCode key={`value-${property.name}-${value}`}>{value}</InlineCode> 
     </>
-  ))
+  )})
 
-  if (property.type === "TEXT") {
+  if (property.type === 'TEXT') {
     values = (
-      <InlineCode style={{padding: '0.3em 0.4em', verticalAlign: 'middle'}}>
+      <InlineCode key={`${property.name}-text`} style={{padding: '0.3em 0.4em', verticalAlign: 'middle'}}>
         <StyledOcticon icon={TypographyIcon} sx={{mr: 2}} verticalAlign="middle" />
         text
       </InlineCode>
@@ -22,8 +23,12 @@ function PropertyValues({property}) {
 
   if (property.type === 'INSTANCE_SWAP') {
     values = (
-      <InlineCode style={{padding: '0.3em 0.4em', verticalAlign: 'middle'}}>
-        <Link sx={{color: 'fg.default'}} hoverColor='accent.fg' href="https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances">
+      <InlineCode key={`${property.name}-instanceSwap`} style={{padding: '0.3em 0.4em', verticalAlign: 'middle'}}>
+        <Link
+          sx={{color: 'fg.default'}}
+          hoverColor="accent.fg"
+          href="https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances"
+        >
           <StyledOcticon icon={SyncIcon} sx={{mr: 2}} verticalAlign="middle" />
           instance swap
         </Link>
@@ -31,12 +36,9 @@ function PropertyValues({property}) {
     )
   }
 
-  return (
-    <>
-      {values}
-    </>
-  )
+  return values
 }
+
 
 export default function FigmaPropertyOverview({properties}) {
   const combinationCount = properties
@@ -70,11 +72,9 @@ export default function FigmaPropertyOverview({properties}) {
         <tbody>
           {properties.map((property, index) => {
             return (
-              <tr key={index}>
+              <tr key={`tr-${property.name}`}>
                 <td>{property.name}</td>
-                <td>
-                  <PropertyValues property={property} />
-                </td>
+                <td>{propertyValues(property)}</td>
                 <td>
                   <InlineCode>{property.defaultValue}</InlineCode>
                 </td>
