@@ -2,7 +2,7 @@ import React from 'react'
 import FigmaPropertyPreview from './FigmaPropertyPreview'
 import FigmaPropertyOverview from './FigmaPropertyOverview'
 import FigmaComponentExamples from './FigmaComponentExamples'
-import figmaData from 'figma-library-docgen/dist/primer-web.json'
+import figmaData from '@primer/figma-library-docgen/dist/primer-web.json'
 
 const lowerCaseFirstCharacter = ([firstLetter, ...restOfWord]) => { 
   return firstLetter.toLowerCase() + restOfWord
