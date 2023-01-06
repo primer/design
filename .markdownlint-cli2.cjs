@@ -16,4 +16,7 @@ const options = githubMarkdownOpinions.init({
 module.exports = {
   config: options,
   customRules: ["@github/markdownlint-github"],
+  outputFormatters: [
+    [ "markdownlint-cli2-formatter-pretty", { "appendLink": true } ]
+  ]
 }
