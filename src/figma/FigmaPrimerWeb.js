@@ -49,14 +49,15 @@ const getComponentData = (componentName, status = "STABLE") => {
   return component
 }
 
-export function PropertyPreview({component, property, setProperties, column, values}) {
+export function PropertyPreview({component, property, setProperties, column, hideLabels, labelPosition}) {
   const {thumbnails} = getComponentData(component)
   return thumbnails ? (
     <FigmaPropertyPreview
       column={column}
-      values={values}
+      hideLabels={hideLabels}
       thumbnails={thumbnails}
       property={property}
+      labelPosition={labelPosition}
       setProperties={setProperties}
     />
   ) : (

@@ -22,9 +22,11 @@ const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
   return previewComponents
 }
 
-export default function FigmaPropertyPreview({thumbnails, property, setProperties, column, values = true}) {
+export default function FigmaPropertyPreview({thumbnails, property, setProperties, column, hideLabels, labelPosition}) {
   const previewComponents = getPreviewComponents(thumbnails, property, setProperties)
   const direction = column === undefined ? 'row' : 'column'
+  // const previewItemBoxFlexDirection = labelPosition === 'left' ? 'row-reverse' : 'column'
+  const previewItemBoxFlexDirection = 'column'
 
   return (
     <Box
@@ -50,12 +52,16 @@ export default function FigmaPropertyPreview({thumbnails, property, setPropertie
           .flatMap(propArr => propArr.join(': '))
           .join(', ')
 
+
         return (
-          <Box key={componentName} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2}}>
+          <Box
+            key={componentName}
+            sx={{display: 'flex', flexDirection: previewItemBoxFlexDirection, alignItems: 'center', gap: 2}}
+          >
             <Box sx={{flexGrow: '1', alignItems: 'center', justifyContent: 'center', display: 'flex'}}>
               <img width="50%" src={component.url} alt={componentName} />
             </Box>
-            {values === true && (
+            {!hideLabels && (
               <Text sx={{fontSize: '1', color: 'fg.subtle', verticalAlign: 'middle'}}>{component.propertyValue}</Text>
             )}
           </Box>
