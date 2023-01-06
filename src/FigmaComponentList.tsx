@@ -6,7 +6,10 @@ import React from 'react'
 export default function FigmaComponentList() {
   const {allMdx: {edges: components}} = useStaticQuery(graphql`
     query {
-      allMdx(filter: {fileAbsolutePath: {glob: "**/content/figma/components/*"}}) {
+      allMdx(
+        filter: {fileAbsolutePath: {glob: "**/content/figma/components/*"}}
+        sort: {fields: frontmatter___title}
+        ) {
         edges {
           node {
             id
