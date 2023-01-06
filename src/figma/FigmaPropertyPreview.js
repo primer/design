@@ -22,7 +22,7 @@ const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
   return previewComponents
 }
 
-export default function FigmaPropertyPreview({thumbnails, property, setProperties, column, row}) {
+export default function FigmaPropertyPreview({thumbnails, property, setProperties, column, values = true}) {
   const previewComponents = getPreviewComponents(thumbnails, property, setProperties)
   const direction = column === undefined ? 'row' : 'column'
 
@@ -55,7 +55,9 @@ export default function FigmaPropertyPreview({thumbnails, property, setPropertie
             <Box sx={{flexGrow: '1', alignItems: 'center', justifyContent: 'center', display: 'flex'}}>
               <img width="50%" src={component.url} alt={componentName} />
             </Box>
-            <Text sx={{fontSize: '1', color: 'fg.subtle', verticalAlign: 'middle'}}>{component.propertyValue}</Text>
+            {values === true && (
+              <Text sx={{fontSize: '1', color: 'fg.subtle', verticalAlign: 'middle'}}>{component.propertyValue}</Text>
+            )}
           </Box>
         )
       })}

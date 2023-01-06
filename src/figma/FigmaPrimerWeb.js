@@ -33,6 +33,7 @@ const getComponentData = (componentName, status = "STABLE") => {
   // change component property names
   component.properties = component.properties.map(prop => {
     prop.name = lowerCaseFirstCharacter(prop.name)
+    prop.values = prop.values.sort()
     return prop
   })
   // change component thumbnail property names
@@ -48,10 +49,18 @@ const getComponentData = (componentName, status = "STABLE") => {
   return component
 }
 
-export function PropertyPreview({component, property, setProperties, column, row}) {
+export function PropertyPreview({component, property, setProperties, column, values}) {
   const {thumbnails} = getComponentData(component)
-  return (
-    thumbnails ? <FigmaPropertyPreview column={column} row={row} thumbnails={thumbnails} property={property} setProperties={setProperties} /> : ''
+  return thumbnails ? (
+    <FigmaPropertyPreview
+      column={column}
+      values={values}
+      thumbnails={thumbnails}
+      property={property}
+      setProperties={setProperties}
+    />
+  ) : (
+    ''
   )
 }
 

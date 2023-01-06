@@ -32,11 +32,11 @@ export default function FigmaComponentExamples({properties, thumbnails}) {
         display="flex"
         alignItems="start"
         sx={{
-          gap: 4
+          gap: 4,
+          flexWrap: 'wrap'
         }}
       >
-        {properties.map((property) => {
-
+        {properties.map(property => {
           return (
             <Box key={property.name} alignItems={'flex-start'} display={'flex'} flexDirection="column" sx={{gap: 1}}>
               <ActionMenu>
