@@ -16,8 +16,10 @@ function propertyValues(property) {
   if (property.type === 'TEXT') {
     values = (
       <InlineCode style={{padding: '0.3em 0.4em', verticalAlign: 'middle'}}>
-        <StyledOcticon icon={TypographyIcon} sx={{mr: 2}} verticalAlign="middle" />
-        text
+        <Link href="https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties#h_01G2Q5G3FV0EQP9RZFZG7GVWEG">
+          <StyledOcticon icon={TypographyIcon} sx={{mr: 2}} verticalAlign="middle" />
+          text
+        </Link>
       </InlineCode>
     )
   }
@@ -25,11 +27,7 @@ function propertyValues(property) {
   if (property.type === 'INSTANCE_SWAP') {
     values = (
       <InlineCode style={{padding: '0.3em 0.4em', verticalAlign: 'middle'}}>
-        <Link
-          sx={{color: 'fg.default'}}
-          hoverColor="accent.fg"
-          href="https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances"
-        >
+        <Link href="https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties#h_01G2Q5FYN2ADEDQ3ZSB1KKY8Z0">
           <StyledOcticon icon={SyncIcon} sx={{mr: 2}} verticalAlign="middle" />
           instance swap
         </Link>
