@@ -1787,10 +1787,10 @@
   resolved "https://registry.yarnpkg.com/@primer/component-metadata/-/component-metadata-0.5.1.tgz#2f41dcc0ff9fcc9ad16c9241a20abdf86ba8468b"
   integrity sha512-+3tuJScHWRifOAyMV+cn1I533j+PcprvPXbKnH1W7N+vhaGyaaHTao8Dkyyhxbhklmumcf8XR+Lz6dK1ojDrCg==
 
-"@primer/figma-library-docgen@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@primer/figma-library-docgen/-/figma-library-docgen-0.1.0.tgz#4ee510d2882f20b1c47c68a30ee414b205fb7565"
-  integrity sha512-AGH/UvSgJMXkIujXg82sSV8IEYGE2AEJUmJAaaSf6HMP5ltl+fr0JHU2lLNyA5u2/nnYX2GmczK5qoDs4fBmHQ==
+"@primer/figma-library-docgen@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@primer/figma-library-docgen/-/figma-library-docgen-0.1.2.tgz#c3cb1a2d5056ae41f17cc3b71f150b8c8071f2b3"
+  integrity sha512-T/bEvxXbk87CEEvwQ7Lsx8FVYEMmbDZAsaWB9baiM7x32e1LuA8NZY8/4KIZ4ctrXFe349F0zljht3Rbi3Bhjg==
   dependencies:
     figma-js "^1.16.0"
     walkjs "^3.2.4"
