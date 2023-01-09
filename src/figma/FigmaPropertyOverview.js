@@ -1,5 +1,5 @@
 import React from 'react'
-import {Heading, Box, Text, StyledOcticon, Link} from '@primer/react'
+import {Box, Text, StyledOcticon, Link} from '@primer/react'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import {SyncIcon, TypographyIcon, DiamondIcon} from '@primer/octicons-react'
@@ -7,14 +7,15 @@ import {SyncIcon, TypographyIcon, DiamondIcon} from '@primer/octicons-react'
 function propertyValues(property) {
   let values = property.values.map((value, index) => {
     return (
-    <>
-      <InlineCode key={`value-${property.name}-${value}`}>{value}</InlineCode> 
-    </>
-  )})
+      <React.Fragment key={index}>
+        <InlineCode>{value}</InlineCode> 
+      </React.Fragment>
+    )
+  })
 
   if (property.type === 'TEXT') {
     values = (
-      <InlineCode key={`${property.name}-text`} style={{padding: '0.3em 0.4em', verticalAlign: 'middle'}}>
+      <InlineCode style={{padding: '0.3em 0.4em', verticalAlign: 'middle'}}>
         <StyledOcticon icon={TypographyIcon} sx={{mr: 2}} verticalAlign="middle" />
         text
       </InlineCode>
@@ -23,7 +24,7 @@ function propertyValues(property) {
 
   if (property.type === 'INSTANCE_SWAP') {
     values = (
-      <InlineCode key={`${property.name}-instanceSwap`} style={{padding: '0.3em 0.4em', verticalAlign: 'middle'}}>
+      <InlineCode style={{padding: '0.3em 0.4em', verticalAlign: 'middle'}}>
         <Link
           sx={{color: 'fg.default'}}
           hoverColor="accent.fg"
@@ -38,7 +39,6 @@ function propertyValues(property) {
 
   return values
 }
-
 
 export default function FigmaPropertyOverview({properties}) {
   const combinationCount = properties
@@ -72,7 +72,7 @@ export default function FigmaPropertyOverview({properties}) {
         <tbody>
           {properties.map((property, index) => {
             return (
-              <tr key={`tr-${property.name}`}>
+              <tr key={index}>
                 <td>{property.name}</td>
                 <td>{propertyValues(property)}</td>
                 <td>
