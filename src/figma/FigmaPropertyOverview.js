@@ -18,7 +18,7 @@ function propertyValues(property) {
       <InlineCode style={{padding: '0.3em 0.4em', verticalAlign: 'middle'}}>
         <Link href="https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties#h_01G2Q5G3FV0EQP9RZFZG7GVWEG">
           <StyledOcticon icon={TypographyIcon} sx={{mr: 2}} verticalAlign="middle" />
-          text
+          Text
         </Link>
       </InlineCode>
     )
@@ -29,7 +29,7 @@ function propertyValues(property) {
       <InlineCode style={{padding: '0.3em 0.4em', verticalAlign: 'middle'}}>
         <Link href="https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties#h_01G2Q5FYN2ADEDQ3ZSB1KKY8Z0">
           <StyledOcticon icon={SyncIcon} sx={{mr: 2}} verticalAlign="middle" />
-          instance swap
+          Instance swap
         </Link>
       </InlineCode>
     )
