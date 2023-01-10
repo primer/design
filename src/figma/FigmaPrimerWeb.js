@@ -39,6 +39,7 @@ const getComponentData = componentName => {
   component.status = capitalizeFirstLetter(component.status)
   component.updatedAt = component.updatedAt
   component.url = component.url
+  component.thumbnailUrl = component.thumbnailUrl
 
   // change component property names
   component.properties = component.properties.map(prop => {
@@ -86,9 +87,16 @@ export function Examples({component}) {
 }
 
 export function Overview({component}) {
-  const {user, status, updatedAt, url, properties} = getComponentData(component)
+  const {user, status, updatedAt, url, thumbnailUrl, properties} = getComponentData(component)
   return user ? (
-    <FigmaOverview properties={properties} url={url} updatedAt={updatedAt} status={status} user={user} />
+    <FigmaOverview
+      thumbnailUrl={thumbnailUrl}
+      properties={properties}
+      url={url}
+      updatedAt={updatedAt}
+      status={status}
+      user={user}
+    />
   ) : (
     ''
   )
