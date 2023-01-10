@@ -1,32 +1,30 @@
 ---
 title: DiffStat
-figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=142%3A594&t=Dal6NmaXAewUCf34-1
-status: Alpha
-description:
-  Diffstats show how many additions or deletions occur within a diff. They are represented with a text label and five colored blocks.
-  Each block represents a percentage of the code and will be colored positively (green) for additions and negatively (red) for deletions.
-  No changes are in neutral tones (gray).
+componentId: diff_stat
 ---
-import { Link } from '@primer/react'
-import {PropertyOverview, PropertyPreview, Examples} from '../../../src/figma/FigmaPrimerWeb'
 
-<Link href="/figma/components">Back to overview</Link>
-<br />
-<br />
+import {Overview, PropertyOverview, PropertyPreview, Examples} from '../../../src/figma/FigmaPrimerWeb'
 
-## Variants
+## Overview
 
-<PropertyOverview component='diffStat' />
+Diffstats show how many additions or deletions occur within a diff. They are represented with a text label and five colored
+blocks. Each block represents a percentage of the code and will be colored positively (green) for additions and negatively
+(red) for deletions. No changes are in neutral tones (gray).
+
+<Overview component="diffStat" />
+
+## Props
+
+<PropertyOverview component="diffStat" />
 
 ### Has Tooltip
 
-<PropertyPreview component='diffStat' property='hasTooltip?' />
+<PropertyPreview component="diffStat" property="hasTooltip?" />
 
 ### Variant
 
-<PropertyPreview component='diffStat' property='variant' />
+<PropertyPreview component="diffStat" property="variant" />
 
 ## Examples
 
-<Examples component='TopicTag' />
-
+<Examples component="TopicTag" />

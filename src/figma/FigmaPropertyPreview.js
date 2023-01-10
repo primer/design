@@ -1,5 +1,5 @@
 import React from 'react'
-import {Heading, Box, Text} from '@primer/react'
+import {Box, Text} from '@primer/react'
 
 const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
   const values = []
@@ -51,7 +51,6 @@ export default function FigmaPropertyPreview({thumbnails, property, setPropertie
         const componentName = Object.entries(component.props)
           .flatMap(propArr => propArr.join(': '))
           .join(', ')
-
 
         return (
           <Box

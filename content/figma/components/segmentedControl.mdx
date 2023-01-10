@@ -1,31 +1,28 @@
 ---
 title: Segmented Control
-figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=16121%3A61220&t=Dal6NmaXAewUCf34-1
-status: Alpha
-description:
-  A segmented control is used to pick one choice from a linear set of closely related choices, and immediately apply that selection.
+componentId: segmented_control
 ---
-import { Link } from '@primer/react'
-import {PropertyOverview, PropertyPreview, Examples} from '../../../src/figma/FigmaPrimerWeb'
 
-<Link href="/figma/components">Back to overview</Link>
-<br />
-<br />
+import {Overview, PropertyOverview, PropertyPreview, Examples} from '../../../src/figma/FigmaPrimerWeb'
 
-## Variants
+## Overview
 
-<PropertyOverview component='segmentedControl' />
+<Overview component="segmentedControl" />
+
+## Props
+
+<PropertyOverview component="segmentedControl" />
 
 ### # of items
+
 A segemented control can show five items with label an up to six items without label.
 
-<PropertyPreview component='segmentedControl' property='# of items' column />
+<PropertyPreview component="segmentedControl" property="# of items" column />
 
 ### iconOnly
 
-<PropertyPreview component='segmentedControl' property='iconOnly?' setProperties={{'# of items': '4'}} />
+<PropertyPreview component="segmentedControl" property="iconOnly?" setProperties={{'# of items': '4'}} />
 
 ## Examples
 
-<Examples component='segmentedControl' />
-
+<Examples component="segmentedControl" />

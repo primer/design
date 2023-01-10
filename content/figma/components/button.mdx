@@ -1,41 +1,46 @@
 ---
 title: Button
-figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=136%3A1805&t=Dal6NmaXAewUCf34-1
-status: Stable
-description:
-  Buttons are interactive elements that are used to perform actions on a page.
+componentId: button
 ---
-import { Link } from '@primer/react'
-import {PropertyOverview, PropertyPreview, Examples} from '../../../src/figma/FigmaPrimerWeb'
 
-<Link href="/figma/components">Back to overview</Link>
-<br />
-<br />
+import {Overview, PropertyOverview, PropertyPreview, Examples} from '../../../src/figma/FigmaPrimerWeb'
 
-## Variants
+## Overview
+
+<Overview component="button" />
+
+## Props
+
 <PropertyOverview component="button" />
 
 ### Variant
-<PropertyPreview component="button" property='variant' />
+
+<PropertyPreview component="button" property="variant" />
 
 ### Size
-<PropertyPreview component="button" property='size' setProperties={{"variant": "primary"}} />
+
+<PropertyPreview component="button" property="size" setProperties={{variant: 'primary'}} />
 
 ### State
-<PropertyPreview component="button" property='state' setProperties={{"variant": "primary"}} />
+
+<PropertyPreview component="button" property="state" setProperties={{variant: 'primary'}} />
 
 ### Dropdown
-<PropertyPreview component="button" property='🔽 dropdown?' />
+
+<PropertyPreview component="button" property="🔽 dropdown?" />
 
 ### LeadingIcon
-<PropertyPreview component="button" property='⬅️ leadingIcon?' />
+
+<PropertyPreview component="button" property="⬅️ leadingIcon?" />
 
 ### Counter
-<PropertyPreview component="button" property='➡️ counter?' />
+
+<PropertyPreview component="button" property="➡️ counter?" />
 
 ### Block
-<PropertyPreview component="button" property='block' />
+
+<PropertyPreview component="button" property="block" />
 
 ## Examples
-<Examples component="button" />
 
+<Examples component="button" />

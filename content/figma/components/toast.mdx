@@ -1,34 +1,32 @@
 ---
 title: Toast
-figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=13478%3A43994&t=Dal6NmaXAewUCf34-1
-status: STABLE
-description:
-  Toasts are used to show live, time-sensitive feedback to users.
+componentId: toast
 ---
-import { Link } from '@primer/react'
-import {PropertyOverview, PropertyPreview, Examples} from '../../../src/figma/FigmaPrimerWeb'
 
-<Link href="/figma/components">Back to overview</Link>
-<br />
-<br />
+import {Overview, PropertyOverview, PropertyPreview, Examples} from '../../../src/figma/FigmaPrimerWeb'
 
-## Variants
+## Overview
 
-<PropertyOverview component='toast' />
+Toasts are used to show live, time-sensitive feedback to users.
+
+<Overview component="toast" />
+
+## Props
+
+<PropertyOverview component="toast" />
 
 ### Dismissable
 
-<PropertyPreview component='toast' property='dismissable?' />
+<PropertyPreview component="toast" property="dismissable?" />
 
 ### Type
 
-<PropertyPreview component='toast' column property='type' />
+<PropertyPreview component="toast" column property="type" />
 
 ### Action
 
-<PropertyPreview component='toast' property='expand direction' />
+<PropertyPreview component="toast" property="expand direction" />
 
 ## Examples
 
-<Examples component='toast' />
-
+<Examples component="toast" />

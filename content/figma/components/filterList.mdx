@@ -1,34 +1,30 @@
 ---
 title: FilterList.Item
-figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=142%3A594&t=Dal6NmaXAewUCf34-1
-status: Alpha
-description:
-  Use the sub nav component for navigation on a dashboard-type interface with another set of navigation components above it.
+componentId: filter_list
 ---
-import { Link } from '@primer/react'
-import {PropertyOverview, PropertyPreview, Examples} from '../../../src/figma/FigmaPrimerWeb'
 
-<Link href="/figma/components">Back to overview</Link>
-<br />
-<br />
+import {Overview, PropertyOverview, PropertyPreview, Examples} from '../../../src/figma/FigmaPrimerWeb'
 
-## Variants
+## Overview
 
-<PropertyOverview component='FilterList.Item' />
+<Overview component="FilterList.Item" />
+
+## Props
+
+<PropertyOverview component="FilterList.Item" />
 
 ### State
 
-<PropertyPreview component='FilterList.Item' property='state' column labelPosition='left' />
+<PropertyPreview component="FilterList.Item" property="state" column labelPosition="left" />
 
 ### Leading Icon
 
-<PropertyPreview component='FilterList.Item' property='leadingIcon?' />
+<PropertyPreview component="FilterList.Item" property="leadingIcon?" />
 
 ### Counter
 
-<PropertyPreview component='FilterList.Item' property='counter?' />
+<PropertyPreview component="FilterList.Item" property="counter?" />
 
 ## Examples
 
-<Examples component='FilterList.Item' />
-
+<Examples component="FilterList.Item" />
