@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Avatar, Text, RelativeTime, Link, StyledOcticon} from '@primer/react'
+import {Box, Avatar, Text, Link, StyledOcticon} from '@primer/react'
 import StatusLabel from '@primer/gatsby-theme-doctocat/src/components/status-label'
 import {BookIcon, KeyAsteriskIcon} from '@primer/octicons-react'
 
@@ -8,6 +8,7 @@ export default function FigmaOverview({status, user, updatedAt, url, properties}
     .flatMap(a => a.values.length)
     .filter(i => i > 0)
     .reduce((accumulator, currentValue) => accumulator * currentValue, 1)
+  const date = new Date(updatedAt)
 
   return (
     <Box
@@ -36,7 +37,12 @@ export default function FigmaOverview({status, user, updatedAt, url, properties}
       <Box color={'fg.muted'} display={'flex'} alignItems={'center'} sx={{gap: 2}}>
         <Avatar src={user.imgUrl} />
         <Text>
-          Edited <RelativeTime datetime={updatedAt} /> by {user.handle}
+          Last edited by {user.handle} on{' '}
+          {date.toLocaleString('en-GB', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric'
+          })}
         </Text>
       </Box>
       <Link href={url}>
