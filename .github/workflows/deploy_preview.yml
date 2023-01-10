@@ -13,11 +13,11 @@ jobs:
     if: ${{ github.event.pull_request.head.repo.full_name == 'primer/design' }}
     name: Preview
     # SHA for security hardening. Points at last verified HEAD of main branch.
-    uses: primer/.github/.github/workflows/deploy_preview.yml@0cec9b9914f358846163f2428663b58da41028c9 
+    uses: primer/.github/.github/workflows/deploy_preview.yml@0cec9b9914f358846163f2428663b58da41028c9
     secrets:
       gh_token: ${{ secrets.GITHUB_TOKEN }}
     with:
-      node_version: 14
+      node_version: 16
       install: yarn
       build: yarn build:preview
       output_dir: public
