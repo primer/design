@@ -54,18 +54,19 @@ export default function FigmaOverview({status, user, updatedAt, url, properties,
         </Link>
       </Box>
       <Box
-        paddingY={8}
-        borderColor="border.muted"
-        bg="neutral.subtle"
-        borderWidth={1}
-        borderRadius={10}
-        marginTop={3}
-        marginBottom={6}
-        borderStyle="solid"
-        display="flex"
-        alignItems="stretch"
-        justifyContent="center"
-        flexWrap="wrap"
+        sx={{
+          placeContent: 'center',
+          py: 8,
+          px: 6,
+          border: '1px solid',
+          borderColor: 'border.muted',
+          borderRadius: 10,
+          bg: 'neutral.subtle',
+          mt: 3,
+          mb: 6,
+          display: 'inline-flex',
+          width: '100%'
+        }}
       >
         <img src={thumbnailUrl} alt={''} />
       </Box>

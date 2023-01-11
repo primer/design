@@ -1812,12 +1812,13 @@
   "resolved" "https://registry.npmjs.org/@primer/component-metadata/-/component-metadata-0.5.1.tgz"
   "version" "0.5.1"
 
-"@primer/figma-library-docgen@^0.1.2":
-  "integrity" "sha512-T/bEvxXbk87CEEvwQ7Lsx8FVYEMmbDZAsaWB9baiM7x32e1LuA8NZY8/4KIZ4ctrXFe349F0zljht3Rbi3Bhjg=="
-  "resolved" "https://registry.npmjs.org/@primer/figma-library-docgen/-/figma-library-docgen-0.1.2.tgz"
-  "version" "0.1.2"
+"@primer/figma-library-docgen@^0.2.2":
+  "integrity" "sha512-zVEVmAXGRpOOWNTgf5s7wf3CqXVEQ/cu2L2bTBvRgsnRpB9sxrSd99s3MqNSBHHlw7dfmdxPMS7a6AY2NF2j+A=="
+  "resolved" "https://registry.npmjs.org/@primer/figma-library-docgen/-/figma-library-docgen-0.2.2.tgz"
+  "version" "0.2.2"
   dependencies:
     "figma-js" "^1.16.0"
+    "prompts" "^2.4.2"
     "walkjs" "^3.2.4"
 
 "@primer/gatsby-theme-doctocat@^4.2.3":
@@ -2971,12 +2972,7 @@
   "resolved" "https://registry.npmjs.org/acorn-import-assertions/-/acorn-import-assertions-1.8.0.tgz"
   "version" "1.8.0"
 
-"acorn-jsx@^5.0.0", "acorn-jsx@^5.3.2":
-  "integrity" "sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ=="
-  "resolved" "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz"
-  "version" "5.3.2"
-
-"acorn-jsx@^5.3.1":
+"acorn-jsx@^5.0.0", "acorn-jsx@^5.3.1", "acorn-jsx@^5.3.2":
   "integrity" "sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ=="
   "resolved" "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz"
   "version" "5.3.2"
@@ -5785,7 +5781,7 @@
   "resolved" "https://registry.npmjs.org/eslint-plugin-i18n-text/-/eslint-plugin-i18n-text-1.0.1.tgz"
   "version" "1.0.1"
 
-"eslint-plugin-import@^2.24.2":
+"eslint-plugin-import@^2.24.2", "eslint-plugin-import@^2.25.2":
   "integrity" "sha512-hYfi3FXaM8WPLf4S1cikh/r4IxnO6zrhZbEGz2b660EJRbuxgpDS5gkCuYgGWg2xxh2rBuIr4Pvhve/7c31koA=="
   "resolved" "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.26.0.tgz"
   "version" "2.26.0"
@@ -5804,45 +5800,7 @@
     "resolve" "^1.22.0"
     "tsconfig-paths" "^3.14.1"
 
-"eslint-plugin-import@^2.25.2":
-  "integrity" "sha512-hYfi3FXaM8WPLf4S1cikh/r4IxnO6zrhZbEGz2b660EJRbuxgpDS5gkCuYgGWg2xxh2rBuIr4Pvhve/7c31koA=="
-  "resolved" "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.26.0.tgz"
-  "version" "2.26.0"
-  dependencies:
-    "array-includes" "^3.1.4"
-    "array.prototype.flat" "^1.2.5"
-    "debug" "^2.6.9"
-    "doctrine" "^2.1.0"
-    "eslint-import-resolver-node" "^0.3.6"
-    "eslint-module-utils" "^2.7.3"
-    "has" "^1.0.3"
-    "is-core-module" "^2.8.1"
-    "is-glob" "^4.0.3"
-    "minimatch" "^3.1.2"
-    "object.values" "^1.1.5"
-    "resolve" "^1.22.0"
-    "tsconfig-paths" "^3.14.1"
-
-"eslint-plugin-jsx-a11y@^6.4.1":
-  "integrity" "sha512-sXgFVNHiWffBq23uiS/JaP6eVR622DqwB4yTzKvGZGcPq6/yZ3WmOZfuBks/vHWo9GaFOqC2ZK4i6+C35knx7Q=="
-  "resolved" "https://registry.npmjs.org/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.6.1.tgz"
-  "version" "6.6.1"
-  dependencies:
-    "@babel/runtime" "^7.18.9"
-    "aria-query" "^4.2.2"
-    "array-includes" "^3.1.5"
-    "ast-types-flow" "^0.0.7"
-    "axe-core" "^4.4.3"
-    "axobject-query" "^2.2.0"
-    "damerau-levenshtein" "^1.0.8"
-    "emoji-regex" "^9.2.2"
-    "has" "^1.0.3"
-    "jsx-ast-utils" "^3.3.2"
-    "language-tags" "^1.0.5"
-    "minimatch" "^3.1.2"
-    "semver" "^6.3.0"
-
-"eslint-plugin-jsx-a11y@^6.6.0":
+"eslint-plugin-jsx-a11y@^6.4.1", "eslint-plugin-jsx-a11y@^6.6.0":
   "integrity" "sha512-sXgFVNHiWffBq23uiS/JaP6eVR622DqwB4yTzKvGZGcPq6/yZ3WmOZfuBks/vHWo9GaFOqC2ZK4i6+C35knx7Q=="
   "resolved" "https://registry.npmjs.org/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.6.1.tgz"
   "version" "6.6.1"
@@ -12045,7 +12003,7 @@
   "resolved" "https://registry.npmjs.org/progress/-/progress-2.0.3.tgz"
   "version" "2.0.3"
 
-"prompts@^2.0.1", "prompts@^2.3.2":
+"prompts@^2.0.1", "prompts@^2.3.2", "prompts@^2.4.2":
   "integrity" "sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q=="
   "resolved" "https://registry.npmjs.org/prompts/-/prompts-2.4.2.tgz"
   "version" "2.4.2"
