@@ -57,7 +57,7 @@ export default function FigmaPropertyOverview({properties}) {
           {properties.map((property, index) => {
             return (
               <tr key={index}>
-                <td>{property.name}</td>
+                <td>{property.name.replace(/[\s\p{Emoji}]/gu, '')}</td>
                 <td>{propertyTypes(property)}</td>
                 <td>{propertyValues(property)}</td>
                 <td>

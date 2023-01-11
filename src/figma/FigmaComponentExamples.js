@@ -109,7 +109,7 @@ export default function FigmaComponentExamples({properties, thumbnails}) {
               <Text fontWeight={'bold'}>{removeSpacesAndEmojis(property.name)}</Text>
               <ActionMenu>
                 <ActionMenu.Button aria-label="Select field type">{previewState[property.name]}</ActionMenu.Button>
-                <ActionMenu.Overlay>
+                <ActionMenu.Overlay align="end">
                   <ActionList selectionVariant="single">
                     {property.values.map(value => (
                       <ActionList.Item
