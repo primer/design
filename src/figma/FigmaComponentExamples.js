@@ -31,7 +31,8 @@ export default function FigmaComponentExamples({properties, thumbnails}) {
   }
 
   const booleans = properties.filter(property => property.type === 'BOOLEAN')
-  const filteredProperties = properties.filter(property => property.type !== 'BOOLEAN')
+  const filteredProperties = properties.filter(x => !booleans.includes(x))
+  // const filteredProperties = properties.filter(property => property.type !== 'BOOLEAN')
 
   return (
     <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginTop={6}>
@@ -46,6 +47,7 @@ export default function FigmaComponentExamples({properties, thumbnails}) {
         alignItems="center"
         justifyContent="center"
         flexWrap="wrap"
+        minHeight="30vh"
       >
         {thumbnails.map((thumbnail, index) => {
           const curPreviewState = Object.entries(previewState)
@@ -67,7 +69,15 @@ export default function FigmaComponentExamples({properties, thumbnails}) {
         })}
       </Box>
 
-      <Box display="flex" alignItems="start" flexDirection="column" sx={{gap: 2}} position="sticky">
+      <Box
+        display="flex"
+        alignItems="start"
+        flexDirection="column"
+        sx={{gap: 2}}
+        position="sticky"
+        alignSelf={'start'}
+        top={9}
+      >
         {booleans.map((property, index) => {
           return (
             <Box key={index} alignItems={'center'} display={'flex'} width="100%" justifyContent={'space-between'}>
@@ -81,7 +91,7 @@ export default function FigmaComponentExamples({properties, thumbnails}) {
             </Box>
           )
         })}
-        {properties.map(property => {
+        {filteredProperties.map(property => {
           return (
             <Box
               key={property.name}
