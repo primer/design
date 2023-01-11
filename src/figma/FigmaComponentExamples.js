@@ -30,12 +30,18 @@ export default function FigmaComponentExamples({properties, thumbnails}) {
     setPreviewState(makeNewState(previewState, {[propertyName]: value}))
   }
 
-  const booleans = properties.filter(property => property.type === 'BOOLEAN')
+  const booleans = properties.filter(
+    property =>
+      property.type === 'BOOLEAN' ||
+      (property.type === 'VARIANT' &&
+        property.values.length === 2 &&
+        property.values.includes('true') &&
+        property.values.includes('false'))
+  )
   const filteredProperties = properties.filter(x => !booleans.includes(x))
-  // const filteredProperties = properties.filter(property => property.type !== 'BOOLEAN')
 
   return (
-    <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginTop={6}>
+    <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '2fr 1fr']} gridGap={5} marginTop={6}>
       <Box
         paddingY={10}
         borderColor="border.muted"
