@@ -1,5 +1,5 @@
 import React from 'react'
-import {Label, Text, Link} from '@primer/react'
+import {Label, Text} from '@primer/react'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 

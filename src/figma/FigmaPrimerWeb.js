@@ -89,14 +89,7 @@ export function Examples({component}) {
 export function Overview({component}) {
   const {user, status, updatedAt, url, thumbnailUrl, properties} = getComponentData(component)
   return user ? (
-    <FigmaOverview
-      thumbnailUrl={thumbnailUrl}
-      properties={properties}
-      url={url}
-      updatedAt={updatedAt}
-      status={status}
-      user={user}
-    />
+    <FigmaOverview properties={properties} url={url} updatedAt={updatedAt} status={status} user={user} />
   ) : (
     ''
   )
