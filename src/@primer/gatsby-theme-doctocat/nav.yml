@@ -1,12 +1,15 @@
+- title: Guides
+  url: /guides
+  children:
+    - title: Introduction
+      url: /guides/introduction
+    - title: Content
+      url: /guides/content
+    - title: Zen
+      url: /guides/zen
 - title: Foundations
   url: /foundations
   children:
-    - title: Introduction
-      url: /foundations/introduction
-    - title: The Zen of GitHub
-      url: /foundations/zen
-    - title: Content
-      url: /foundations/content
     - title: Color
       url: /foundations/color
     - title: Responsive
