@@ -7,6 +7,35 @@
       url: /guides/content
     - title: Zen
       url: /guides/zen
+    - title: Accessibility
+      url: /guides/accessibility
+      children:
+        - title: Accessibility at GitHub
+          url: /accessibility/accessibility-at-github
+        - title: Guidelines
+          url: /accessibility/guidelines
+        - title: Tools
+          url: /accessibility/tools
+        - title: Alternative text for images
+          url: /accessibility/alternative-text-for-images
+        - title: Assistive technology announcements
+          url: /accessibility/announcements
+        - title: Descriptive buttons
+          url: /accessibility/descriptive-buttons
+        - title: Focus management
+          url: /accessibility/focus-management
+        - title: Headings
+          url: /accessibility/headings
+        - title: Links
+          url: /accessibility/links
+        - title: Semantic HTML
+          url: /accessibility/semantic-html
+        - title: Text resize and respacing
+          url: /accessibility/text-resize-and-respacing
+        - title: Tooltip alternatives
+          url: /accessibility/tooltip-alternatives
+        - title: Truncation
+          url: /accessibility/truncation 
 - title: Foundations
   url: /foundations
   children:
@@ -18,35 +47,6 @@
       url: /foundations/layout
     - title: Typography
       url: /foundations/typography
-- title: Accessibility
-  url: /accessibility
-  children:
-    - title: Accessibility at GitHub
-      url: /accessibility/accessibility-at-github
-    - title: Guidelines
-      url: /accessibility/guidelines
-    - title: Tools
-      url: /accessibility/tools
-    - title: Alternative text for images
-      url: /accessibility/alternative-text-for-images
-    - title: Assistive technology announcements
-      url: /accessibility/announcements
-    - title: Descriptive buttons
-      url: /accessibility/descriptive-buttons
-    - title: Focus management
-      url: /accessibility/focus-management
-    - title: Headings
-      url: /accessibility/headings
-    - title: Links
-      url: /accessibility/links
-    - title: Semantic HTML
-      url: /accessibility/semantic-html
-    - title: Text resize and respacing
-      url: /accessibility/text-resize-and-respacing
-    - title: Tooltip alternatives
-      url: /accessibility/tooltip-alternatives
-    - title: Truncation
-      url: /accessibility/truncation
 - title: UI patterns
   url: /ui-patterns
   children:
