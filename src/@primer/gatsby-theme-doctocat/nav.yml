@@ -42,8 +42,6 @@
       url: /accessibility/text-resize-and-respacing
     - title: Tooltip alternatives
       url: /accessibility/tooltip-alternatives
-    - title: Truncation
-      url: /accessibility/truncation
 - title: UI patterns
   url: /ui-patterns
   children:
