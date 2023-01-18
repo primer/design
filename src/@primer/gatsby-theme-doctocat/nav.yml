@@ -8,7 +8,6 @@
     - title: Zen
       url: /guides/zen
     - title: Accessibility
-      url: /guides/accessibility
       children:
         - title: Accessibility at GitHub
           url: /accessibility/accessibility-at-github
