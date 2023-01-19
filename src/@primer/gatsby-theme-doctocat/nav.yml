@@ -1,5 +1,4 @@
 - title: Guides
-  url: /guides
   children:
     - title: Introduction
       url: /guides/introduction
@@ -10,7 +9,6 @@
     - title: Figma
       url: /guides/figma
 - title: Foundations
-  url: /foundations
   children:
     - title: Color
       url: /foundations/color
@@ -21,7 +19,6 @@
     - title: Typography
       url: /foundations/typography
 - title: Accessibility
-  url: /accessibility
   children:
     - title: Accessibility at GitHub
       url: /accessibility/accessibility-at-github
@@ -48,7 +45,6 @@
     - title: Tooltip alternatives
       url: /accessibility/tooltip-alternatives
 - title: UI patterns
-  url: /ui-patterns
   children:
     - title: Button usage
       url: /ui-patterns/button-usage
@@ -67,7 +63,6 @@
     - title: Saving
       url: /ui-patterns/saving
 - title: Components
-  url: /components
   children:
     - title: Action bar
       url: /components/action-bar
