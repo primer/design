@@ -18,10 +18,24 @@ People who have low or colorblind vision may have trouble identifying links that
 
 ## How to test links
 
-- Check a link's function. If clicking a link activates a feature on the page, it should be a `<button>`, and vice versa.
-- Check a link's purpose. If you can't get an idea of where a link will take you based on the link text alone, the link text should be updated. [Learn how to write good link text](#writing-link-text).
-- [Check a link's contrast](https://webaim.org/resources/contrastchecker/). Because links are text-based, they need to pass 4.5:1 against the background color that they are on.
-- In body text, like a Markdown file, check to make sure that all links have underline styling.
+### Functionality and purpose
+A link's function is to _navigate_ to a different page or new content. If instead a feature on the page is activated, use a `<button>`. [Learn when to use a link or button](https://accessibility-playbook.github.com/guidance/patterns/link-and-button-guidance).
+
+A link's purpose must be obvious from the link text alone. If you can't get an idea of where a link will take you based on the link text without reading the sourrounding text, the link text should be updated. [Learn how to write good link text](#writing-link-text).
+
+This is important because screen readers allow users to browse through a list of links, where the link text is the only clue of where a link will take you.
+
+### Visual distinction & contrast
+
+Like normal text, a link must have a `4.5:1` contrast against the background color that it is placed on. Use a [contrast checker](https://webaim.org/resources/contrastchecker/) to validate that your link meets this required contrast.
+
+If a link is sourrounded by text, it must be underlined or pass a `3:1` contrast against the sourrounding text as well. Alternativly an icon, a background shape or an outline can demarcate a link.
+
+Some examples of this are: 
+
+- links within body text
+- a headline and subline which both are individual links
+- issue numbers or usernames within a commit line
 
 ## Guidelines
 
