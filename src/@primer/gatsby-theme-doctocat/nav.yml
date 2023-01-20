@@ -13,12 +13,12 @@
     - title: Contribute
       url: /guides/contribute
       children:
+        - title: How to contribute
+          url: /guides/contribute/how-to-contribute
         - title: Design
           url: /guides/contribute/design
         - title: Documentation
           url: /guides/contribute/documentation
-        - title: How to contribute
-          url: /guides/contribute/how-to-contribute
 - title: Foundations
   children:
     - title: Color
