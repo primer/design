@@ -3,13 +3,14 @@ title: Links
 ---
 
 import {Box} from '@primer/react'
+import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 
-import doLinks31 from  '../../src/images/accessibility/links/do-links-3_1.png'
-import dontLinks31 from  '../../src/images/accessibility/links/dont-links-3_1.png'
-import doLinksIcon from  '../../src/images/accessibility/links/do-links-icon-or-shape.png'
-import dontLinksIcon from  '../../src/images/accessibility/links/dont-links-icon-or-shape.png'
-import doLinksUnderlined from  '../../src/images/accessibility/links/do-links-underlined.png'
-import dontLinksUnderlined from  '../../src/images/accessibility/links/dont-links-underlined.png'
+import doLinks31 from  '../../../src/images/accessibility/links/do-links-3_1.png'
+import dontLinks31 from  '../../../src/images/accessibility/links/dont-links-3_1.png'
+import doLinksIcon from  '../../../src/images/accessibility/links/do-links-icon-or-shape.png'
+import dontLinksIcon from  '../../../src/images/accessibility/links/dont-links-icon-or-shape.png'
+import doLinksUnderlined from  '../../../src/images/accessibility/links/do-links-underlined.png'
+import dontLinksUnderlined from  '../../../src/images/accessibility/links/dont-links-underlined.png'
 
 ## Overview
 
@@ -209,7 +210,8 @@ If you must resort to the ARIA technique to provide a descriptive link text, fol
     <Caption>
       Accessible name fully includes the visible link text, "Learn more" and is well-formed with either label.
     </Caption>
-    <Code className="language-html">{`There are various plans available. <a href="..." aria-label="Learn more about GitHub pricing plans">Learn more</button>`}</Code>
+    <Code className="language-html">{`There are various plans available. 
+<a href="..." aria-label="Learn more about GitHub pricing plans">Learn more</a>`}</Code>
     <br />
   </Do>
   <Dont>
