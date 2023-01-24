@@ -3,7 +3,7 @@ import {Box, themeGet, ActionList, ActionMenu, StyledOcticon, ThemeProvider} fro
 import {DotFillIcon, AccessibilityInsetIcon, ListUnorderedIcon} from '@primer/octicons-react'
 import React from 'react'
 import styled from 'styled-components'
-import StatusRows from '../components/StatusRows'
+import StatusRows from './statusRows'
 
 const Table = styled.table`
   width: 100%;
