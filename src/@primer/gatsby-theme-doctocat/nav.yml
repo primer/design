@@ -8,6 +8,17 @@
       url: /guides/zen
     - title: Figma
       url: /guides/figma
+    - title: Component lifecycle
+      url: /guides/component-lifecycle
+    - title: Contribute
+      url: /guides/contribute
+      children:
+        - title: How to contribute
+          url: /guides/contribute/how-to-contribute
+        - title: Design
+          url: /guides/contribute/design
+        - title: Documentation
+          url: /guides/contribute/documentation
 - title: Foundations
   children:
     - title: Color
