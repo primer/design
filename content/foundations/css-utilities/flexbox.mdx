@@ -13,14 +13,10 @@ Before using these utilities, **you should be familiar with CSS3 Flexible Box sp
 
 Use these classes to make an element lay out its content using the flexbox model. Each **direct** child of the flex container will become a flex item.
 
-### CSS
-
 ```css
 .d-flex { display: flex; }
 .d-inline-flex { display: inline-flex; }
 ```
-
-### Classes
 
 | Class | Description |
 | --- | --- |
@@ -53,16 +49,12 @@ Use these classes to make an element lay out its content using the flexbox model
 
 Use these classes to define the orientation of the main axis (`row` or `column`). By default, flex items will display in a row. Use `.flex-column` to change the direction of the main axis to vertical.
 
-### CSS
-
 ```css
 .flex-row            { flex-direction: row; }
 .flex-row-reverse    { flex-direction: row-reverse; }
 .flex-column         { flex-direction: column; }
 .flex-column-reverse { flex-direction: column-reverse; }
 ```
-
-### Classes
 
 | Class | Description |
 | --- | --- |
@@ -83,7 +75,7 @@ Use these classes to define the orientation of the main axis (`row` or `column`)
 
 ### Example using `.flex-column-reverse`
 
-This example uses the responsive variant `.flex-sm-column-reverse` to override `.flex-column` Learn more about responsive flexbox utilities **[here](#responsive-flex-utilities)**. Keep in mind that it won't affect screen readers or navigating with the keyboard and it's advised to keep the markup in a logical source order.
+This example uses the responsive variant `.flex-sm-column-reverse` to override `.flex-column` Learn more about **[responsive flexbox utilities](#responsive-flex-utilities)**. Keep in mind that it won't affect screen readers or navigating with the keyboard and it's advised to keep the markup in a logical source order.
 
 ```html live
 <div class="border d-flex flex-column flex-sm-column-reverse">
@@ -95,7 +87,7 @@ This example uses the responsive variant `.flex-sm-column-reverse` to override `
 
 ### Example using `.flex-row`
 
-This example uses the responsive variant `.flex-sm-row` to override `.flex-column` Learn more about responsive flexbox utilities **[here](#responsive-flex-utilities)**.
+This example uses the responsive variant `.flex-sm-row` to override `.flex-column` Learn more about **[responsive flexbox utilities](#responsive-flex-utilities)**.
 
 ```html live
 <div class="border d-flex flex-column flex-sm-row">
@@ -107,7 +99,7 @@ This example uses the responsive variant `.flex-sm-row` to override `.flex-colum
 
 ### Example using `.flex-row-reverse`
 
-This example uses the responsive variant `.flex-sm-row-reverse` to override `.flex-column` Learn more about responsive flexbox utilities **[here](#responsive-flex-utilities)**. Keep in mind that it won't affect screen readers or navigating with the keyboard and it's advised to keep the markup in a logical source order.
+This example uses the responsive variant `.flex-sm-row-reverse` to override `.flex-column` Learn more about **[responsive flexbox utilities](#responsive-flex-utilities)**. Keep in mind that it won't affect screen readers or navigating with the keyboard and it's advised to keep the markup in a logical source order.
 
 ```html live
 <div class="border d-flex flex-column flex-sm-row-reverse">
@@ -121,15 +113,11 @@ This example uses the responsive variant `.flex-sm-row-reverse` to override `.fl
 
 You can choose whether flex items are forced into a single line or wrapped onto multiple lines.
 
-### CSS
-
 ```css
 .flex-wrap           { flex-wrap: wrap; }
 .flex-nowrap         { flex-wrap: nowrap; }
 .flex-wrap-reverse   { flex-wrap: wrap-reverse; }
 ```
-
-### Classes
 
 | Class | Description |
 | --- | --- |
@@ -189,8 +177,6 @@ You can choose whether flex items are forced into a single line or wrapped onto 
 
 Use these classes to distribute space between and around flex items along the **main axis** of the container.
 
-### CSS
-
 ```css
 .flex-justify-start    { justify-content: flex-start; }
 .flex-justify-end      { justify-content: flex-end; }
@@ -198,8 +184,6 @@ Use these classes to distribute space between and around flex items along the **
 .flex-justify-between  { justify-content: space-between; }
 .flex-justify-around   { justify-content: space-around; }
 ```
-
-### Classes
 
 | Class | Default behavior |
 | --- | --- |
@@ -275,8 +259,6 @@ Use these classes to align items on the **cross axis**.
 
 The cross axis runs perpendicular to the main axis. By default the main axis runs horizontally, so your items will align vertically on the cross axis. If you use [flex-column](#flex-direction) to make the main axis run vertically, your items will be aligned horizontally.
 
-### CSS
-
 ```css
 .flex-items-start      { align-items: flex-start; }
 .flex-items-end        { align-items: flex-end; }
@@ -284,8 +266,6 @@ The cross axis runs perpendicular to the main axis. By default the main axis run
 .flex-items-baseline   { align-items: baseline; }
 .flex-items-stretch    { align-items: stretch; }
 ```
-
-### Classes
 
 | Class | Behavior |
 | --- | --- |
@@ -356,8 +336,6 @@ With `.flex-items-baseline`, items will be aligned along their baselines even if
 
 When the main axis wraps, this creates multiple main axis lines and adds extra space in the cross axis. Use these classes to align the lines of the main axis on the cross axis.
 
-### CSS
-
 ```css
 .flex-content-start    { align-content: flex-start; }
 .flex-content-end      { align-content: flex-end; }
@@ -366,8 +344,6 @@ When the main axis wraps, this creates multiple main axis lines and adds extra s
 .flex-content-around   { align-content: space-around; }
 .flex-content-stretch  { align-content: stretch; }
 ```
-
-### Classes
 
 | Class | Description |
 | --- | --- |
@@ -572,8 +548,6 @@ Add `.flex-shrink-0` to prevent an item from shrinking. Note that for example te
 
 Use these classes to adjust the alignment of an individual flex item on the cross axis. This overrides any `align-items` property applied to the flex container.
 
-### CSS
-
 ```css
 .flex-self-auto        { align-self: auto; }
 .flex-self-start       { align-self: flex-start; }
@@ -582,8 +556,6 @@ Use these classes to adjust the alignment of an individual flex item on the cros
 .flex-self-baseline    { align-self: baseline; }
 .flex-self-stretch     { align-self: stretch; }
 ```
-
-### Classes
 
 | Class | Description |
 | --- | --- |
@@ -658,16 +630,12 @@ Use these classes to adjust the alignment of an individual flex item on the cros
 
 Use these classes to change the order of flex items. Keep in mind that it won't affect screen readers or navigating with the keyboard and it's advised to keep the markup in a logical source order.
 
-### CSS
-
 ```css
 .flex-order-1    { order: 1; }
 .flex-order-2    { order: 2; }
 .flex-order-none { order: inherit; }
 
 ```
-
-### Classes
 
 | Class | Description |
 | --- | --- |
@@ -774,5 +742,4 @@ Here is an example of a media object that is **vertically centered on large scre
 This section lists flexbox bugs that affect [browsers we currently support](https://github.com/primer/css/blob/main/.browserslistrc).
 
 1. **Minimum content sizing of flex items not honored.** Some browsers don't respect flex item size. Instead of respecting the minimum content size, items shrink below their minimum size which can create some undesirable results, such as overflowing text. The workaround is to apply `flex-shrink: 0;` to the items using `d-flex`. This can be applied with the `flex-shrink-0` utility. For more information read [philipwalton/flexbugs](https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored).
-
-9. **Some elements can't be flex containers.** Specifically, `<button>`, `<fieldset>`, and `<summary>` elements cannot be styled with `display: flex` in Safari. Instead of using `class="d-flex"` on these elements, you should nest an element within them, e.g. `<summary><div class="d-flex">...</div></summary>`.
+2. **Some elements can't be flex containers.** Specifically, `<button>`, `<fieldset>`, and `<summary>` elements cannot be styled with `display: flex` in Safari. Instead of using `class="d-flex"` on these elements, you should nest an element within them, e.g. `<summary><div class="d-flex">...</div></summary>`.
