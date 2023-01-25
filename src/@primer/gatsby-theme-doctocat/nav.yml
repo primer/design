@@ -1,12 +1,26 @@
-- title: Foundations
-  url: /foundations
+- title: Guides
   children:
     - title: Introduction
-      url: /foundations/introduction
-    - title: The Zen of GitHub
-      url: /foundations/zen
+      url: /guides/introduction
     - title: Content
-      url: /foundations/content
+      url: /guides/content
+    - title: The Zen of GitHub
+      url: /guides/zen
+    - title: Figma
+      url: /guides/figma
+    - title: Component lifecycle
+      url: /guides/component-lifecycle
+    - title: Contribute
+      url: /guides/contribute
+      children:
+        - title: How to contribute
+          url: /guides/contribute/how-to-contribute
+        - title: Design
+          url: /guides/contribute/design
+        - title: Documentation
+          url: /guides/contribute/documentation
+- title: Foundations
+  children:
     - title: Color
       url: /foundations/color
     - title: Responsive
@@ -16,7 +30,6 @@
     - title: Typography
       url: /foundations/typography
 - title: Accessibility
-  url: /accessibility
   children:
     - title: Accessibility at GitHub
       url: /accessibility/accessibility-at-github
@@ -42,10 +55,7 @@
       url: /accessibility/text-resize-and-respacing
     - title: Tooltip alternatives
       url: /accessibility/tooltip-alternatives
-    - title: Truncation
-      url: /accessibility/truncation
 - title: UI patterns
-  url: /ui-patterns
   children:
     - title: Button usage
       url: /ui-patterns/button-usage
@@ -64,7 +74,6 @@
     - title: Saving
       url: /ui-patterns/saving
 - title: Components
-  url: /components
   children:
     - title: Action bar
       url: /components/action-bar

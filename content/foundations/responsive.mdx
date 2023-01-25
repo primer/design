@@ -9,7 +9,7 @@ description: Supporting responsive experiences is an essential part of developin
 
 At GitHub, being Responsive means our experiences are inherently adaptive. Interfaces should not only adjust layout and spacing when resizing a page, but work [efficiently](/foundations/introduction#design-for-efficiency) to provide an experience that is tailored to match the paradigms and affordances of the person’s device:
 
-- Responsive to the [form factor](https://en.wikipedia.org/wiki/Form_factor_(design)): adapt to viewport size, pointing device support, and to the device metaphors, power, and [affordances](https://www.interaction-design.org/literature/topics/affordances).
+- Responsive to the [form factor](<https://en.wikipedia.org/wiki/Form_factor_(design)>): adapt to viewport size, pointing device support, and to the device metaphors, power, and [affordances](https://www.interaction-design.org/literature/topics/affordances).
 - Responsive to the user preferences: respect browser’s default font size, reduced motion, color scheme, contrast preferences, etc.
 
 ## Responsive to the device’s form factor
@@ -43,20 +43,43 @@ Todo: Link to Figma Templates
 
 Use the device characteristics through [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries) to adapt the experience accordingly for different device scenarios. The table below shows some possible device scenarios using `pointer` and `hover` media features:
 
-&nbsp;             | `pointer: coarse`                                | `pointer: fine`
--------------------|:------------------------------------------------:|:---------------------:
-**`hover: none`**  | Smartphones, touch screens                       | Stylus-based screens
-**`hover: hover`** | Virtual reality headsets, video-game controllers | Mouse, touch pad
+| &nbsp;             |                `pointer: coarse`                 |   `pointer: fine`    |
+| ------------------ | :----------------------------------------------: | :------------------: |
+| **`hover: none`**  |            Smartphones, touch screens            | Stylus-based screens |
+| **`hover: hover`** | Virtual reality headsets, video-game controllers |   Mouse, touch pad   |
 
 #### Minimum target
 
-When designing for coarse/touch, make sure that the target size is large enough to be easily tapped. [Read more about this accessibility requirement](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html).
+When creating interactive targets in your design, ensure that they are large enough to easily tap or click on. The AA accessibility standard GitHub strives for requires a minimum target size of `32px` for touch `pointer: coarse` and `24px` for mouse/stylus `pointer: fine`.
+However, it is recommended to aim for the AAA standard when possible. For more information on Target Size at the AAA level, refer to the [W3C documentation](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html).
 
-  - **Minimum coarse/touch target**: 44px
+| Input             | Minimum Size (AA) | Recommended size (AAA) |
+| ----------------- | :---------------: | :--------------------: |
+| `pointer: coarse` |       32px        |          44px          |
+| `pointer: fine`   |       24px        |          24px          |
 
-For mouse or stylus, a recommended target is smaller:
+A common example of a hit target that may not meet the AAA standard on mobile is our [medium size button](ui-patterns/button-usage), which is only 32px in height. To improve its touch target, the height must be increased without altering the visual appearance of the button.
 
-  - **Recommended minimum fine/mouse target**: 20px
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/212349806-8329b722-9245-4911-9763-87a7eba6b328.png"
+      role="presentation"
+      width="456"
+      alt="A design that showcases a medium-sized button of 32px height, where the touch target has been increased to 44px by adding space above and below the button."
+    />
+    <Caption>While acceptable for AA try to increase the touch target to 44px on mobile to reach AAA</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/212349813-b5389387-72b5-47bc-9c3a-ffa7c5609887.png"
+      role="presentation"
+      width="456"
+      alt="A design that illustrates a medium-sized button that is 32px in height and its touch target remains unchanged."
+    />
+    <Caption>Keep the 32px hit target for mobile touch targets.</Caption>
+  </Dont>
+</DoDontContainer>
 
 <!--
 
@@ -68,7 +91,6 @@ Image source:
 https://www.figma.com/file/YlBTqHTbdRwYQt0bfIHvGw/Interface-guidelines?node-id=457%3A89625
 
 -->
-
 
 #### Hover support
 
