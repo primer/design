@@ -123,3 +123,12 @@
       url: /components/tokens
     - title: Tree view
       url: /components/treeview
+- title: Native
+  url: /native
+  children:
+    - title: Desktop
+      children:
+        - title: Getting started
+          url: /native/desktop/getting-started
+        - title: Foundations
+          url: /native/desktop/foundations
