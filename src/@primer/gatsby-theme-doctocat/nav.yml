@@ -9,10 +9,14 @@
     - title: Figma
       url: /guides/figma
       children:
-      - title: Introduction
-        url: /guides/figma
-      - title: How to contribute
-        url: /guides/figma/contribute
+        - title: Introduction
+          url: /guides/figma
+        - title: Getting started
+          url: /figma/getting-started
+        - title: How to contribute
+          url: /guides/figma/contribute
+        - title: Components
+          url: /figma/components
     - title: Component lifecycle
       url: /guides/component-lifecycle
     - title: Contribute
@@ -128,12 +132,3 @@
       url: /components/tokens
     - title: Tree view
       url: /components/treeview
-- title: Figma
-  url: /figma
-  children:
-    - title: Introduction
-      url: /figma
-    - title: Getting started
-      url: /figma/getting-started
-    - title: Components
-      url: /figma/components

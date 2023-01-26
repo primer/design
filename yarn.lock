@@ -1822,9 +1822,9 @@
     "walkjs" "^3.2.4"
 
 "@primer/gatsby-theme-doctocat@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-4.3.0.tgz#37d15d30f74e597147b58af4f53cd7ffcea9f58b"
-  integrity sha512-ODyKQQf0Jc4sQdc9+er/dGXaqTdjY4DEvCbKxkXJzziQMW46OVDg16aJdSFZsL9nR5sQI1lLE0CBwg1LxfWqJA==
+  "integrity" "sha512-ODyKQQf0Jc4sQdc9+er/dGXaqTdjY4DEvCbKxkXJzziQMW46OVDg16aJdSFZsL9nR5sQI1lLE0CBwg1LxfWqJA=="
+  "resolved" "https://registry.npmjs.org/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-4.3.0.tgz"
+  "version" "4.3.0"
   dependencies:
     "@babel/preset-env" "^7.5.5"
     "@babel/preset-react" "^7.0.0"
