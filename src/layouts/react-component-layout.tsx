@@ -1,12 +1,10 @@
-import React from 'react'
-import DoctocatLayout from '@primer/gatsby-theme-doctocat/src/components/layout'
-import {AccessibilityLabel, StatusLabel} from '@primer/gatsby-theme-doctocat'
-import {H1, H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
-import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
-import {useQuery} from '@tanstack/react-query'
-import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
-import {Box, Heading, Label, Text} from '@primer/react'
+import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
+import DoctocatLayout from '@primer/gatsby-theme-doctocat/src/components/layout'
+import Table from '@primer/gatsby-theme-doctocat/src/components/table'
+import {Box, Label, Spinner, Text} from '@primer/react'
+import {QueryClient, QueryClientProvider, useQuery} from '@tanstack/react-query'
+import React from 'react'
 
 async function fetchPrimerReactData() {
   const json = await fetch('https://api.github.com/repos/primer/react/contents/generated/components.json').then(
@@ -25,19 +23,33 @@ function Page({children, ...props}: any) {
   const importStatement = `import {${componentData?.name}} from '@primer/react${
     componentData?.status === 'draft' ? '/drafts' : ''
   }'`
+
+  const tableOfContents = {
+    items: [
+      {url: '#import', title: 'Import'},
+      {url: '#props', title: 'Props'},
+    ],
+  }
+
+  const frontmatter = {
+    title: componentData?.name,
+    status: sentenceCase(componentData?.status || ''),
+    a11yReviewed: componentData?.a11yReviewed,
+  }
+
+  const pageContext = deepMerge(props.pageContext, {tableOfContents, frontmatter})
+
   return (
-    <DoctocatLayout {...props}>
-      {queryResult.isLoading ? <div>Loading...</div> : null}
+    <DoctocatLayout {...deepMerge(props, {pageContext})}>
+      {queryResult.isLoading ? (
+        <Box sx={{display: 'flex', width: '100%', justifyContent: 'center'}}>
+          <Spinner />
+        </Box>
+      ) : null}
       {queryResult.isError ? <pre>{JSON.stringify(queryResult.error, null, 2)}</pre> : null}
       {queryResult.isSuccess && componentData ? (
         <>
-          <Heading as="h1" sx={{mb: 2}}>
-            {componentData.name}
-          </Heading>
-          <Box sx={{display: 'flex', gap: 1, mb: 4}}>
-            <StatusLabel status={sentenceCase(componentData.status)} />
-            <AccessibilityLabel a11yReviewed={componentData.a11yReviewed} short={false} />
-          </Box>
+          <H2>Import</H2>
           {/* @ts-ignore */}
           <Code className="language-javascript">{importStatement}</Code>
           {/* TODO: Link to source code */}
@@ -62,6 +74,21 @@ function sentenceCase(str: string) {
   return str.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) {
     return str.toUpperCase()
   })
+}
+
+/** Deeply merge two objects */
+function deepMerge(obj1: any, obj2: any): any {
+  let result = {...obj1}
+  for (let key in obj2) {
+    if (obj2.hasOwnProperty(key)) {
+      if (typeof obj2[key] === 'object' && !Array.isArray(obj2[key])) {
+        result[key] = deepMerge(result[key], obj2[key])
+      } else {
+        result[key] = obj2[key]
+      }
+    }
+  }
+  return result
 }
 
 const queryClient = new QueryClient()
