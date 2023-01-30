@@ -56,7 +56,7 @@
       url: /foundations/color
     - title: Responsive
       url: /foundations/responsive
-    - title: CSS Utilities
+    - title: CSS utilities
       url: /foundations/css-utilities
       children:
         - title: Getting started
