@@ -44,7 +44,7 @@ Use consistent syntax in [help pages](https://github.com/cli/cli/blob/trunk/docs
 
 Use plain text for parts of the command that cannot be changed
 
-```
+```bash
 gh help
 ```
 
@@ -54,7 +54,7 @@ gh help
 
 Use angled brackets to represent a value the user must replace. No other expressions can be contained within the angled brackets.
 
-```
+```bash
 gh pr view <issue-number>
 ```
 
@@ -64,13 +64,13 @@ gh pr view <issue-number>
 
 Place optional arguments in square brackets. Mutually exclusive arguments can be included inside square brackets if they are separated with vertical bars.
 
-```
+```bash
 gh pr checkout [--web]
 ```
 
 <Caption>The argument `--web` is optional.</Caption>
 
-```
+```bash
 gh pr view [<number> | <url>]
 ```
 
@@ -80,7 +80,7 @@ gh pr view [<number> | <url>]
 
 Place required mutually exclusive arguments inside braces, separate arguments with vertical bars.
 
-```
+```bash
 gh pr {view | create}
 ```
 
@@ -88,7 +88,7 @@ gh pr {view | create}
 
 Ellipsis represent arguments that can appear multiple times
 
-```
+```bash
 gh pr close <pr-number>...
 ```
 
@@ -96,7 +96,7 @@ gh pr close <pr-number>...
 
 For multi-word variables use dash-case (all lower case with words separated by dashes)
 
-```
+```bash
 gh pr checkout <issue-number>
 ```
 
@@ -104,19 +104,19 @@ gh pr checkout <issue-number>
 
 Optional argument with placeholder:
 
-```
+```bash
 <command> <subcommand> [<arg>]
 ```
 
 Required argument with mutually exclusive options:
 
-```
+```bash
 <command> <subcommand> {<path> | <string> | literal}
 ```
 
 Optional argument with mutually exclusive options:
 
-```
+```bash
 <command> <subcommand> [<path> | <string>]
 ```
 
