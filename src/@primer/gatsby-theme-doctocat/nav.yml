@@ -54,8 +54,6 @@
   children:
     - title: Color
       url: /foundations/color
-    - title: Typography
-      url: /foundations/typography
     - title: Responsive
       url: /foundations/responsive
     - title: CSS Utilities
