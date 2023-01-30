@@ -9,10 +9,10 @@
     - title: Figma
       url: /guides/figma
       children:
-      - title: Introduction
-        url: /guides/figma
-      - title: How to contribute
-        url: /guides/figma/contribute
+        - title: Introduction
+          url: /guides/figma
+        - title: How to contribute
+          url: /guides/figma/contribute
     - title: Component lifecycle
       url: /guides/component-lifecycle
     - title: Accessibility
@@ -128,3 +128,13 @@
       url: /components/tokens
     - title: Tree view
       url: /components/tree-view
+- title: Native
+  children:
+    - title: CLI
+      children:
+        - title: Getting started
+          url: /native/cli/getting-started
+        - title: Foundations
+          url: /native/cli/foundations
+        - title: Components
+          url: /native/cli/components

@@ -14,10 +14,10 @@ This is currently a work in progress! Follow along on our [project board](https:
    git clone https://github.com/primer/design
    ```
 
-1. In the terminal, navigate (`cd`) to the repo directory
-1. `nvm use --default` to use the correct node version.
-1. `yarn` to install dependencies
-1. `yarn start` to start the dev server
+2. In the terminal, navigate (`cd`) to the repo directory
+3. `nvm use --default` to use the correct node version.
+4. `yarn` to install dependencies
+5. `yarn start` to start the dev server
 
 ## Deployment
 
