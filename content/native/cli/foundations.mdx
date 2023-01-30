@@ -1,10 +1,9 @@
 ---
 title: Foundations
+description: Design concepts and constraints that can help create a better Terminal like experience for GitHub.
 ---
 
 import {DoDontContainer, Do, Dont, Caption} from '@primer/gatsby-theme-doctocat'
-
-These are the foundational design concepts and constraints that can help inform design decisions.
 
 ## Language
 
@@ -64,7 +63,7 @@ _Tip: To get a better sense of what feels right, try writing out the commands in
 
 **When designing your command’s language system:**
 
-- Use [GitHub language](/getting-started/principles#make-it-feel-like-github)
+- Use [GitHub language](/native/cli/getting-started#make-it-feel-like-github)
 - Use unambiguous language that can’t be confused for something else
 - Use shorter phrases if possible and appropriate
 
@@ -168,14 +167,14 @@ Terminals reliably recognize the 8 basic ANSI colors. There are also bright vers
 - Background color is available but we haven’t taken advantage of it yet.
 - Some terminals do not reliably support 256-color escape sequences.
 - Users can customize how their terminal displays the 8 basic colors, but that’s opt-in (for example, the user knows they’re making their greens not green).
-- Only use color to [enhance meaning](https://primer.style/design/accessibility/guidelines#use-of-color), not to communicate meaning.
+- Only use color to [enhance meaning](/components/icon#usage), not to communicate meaning.
 
 ## Iconography
 
 Since graphical image support in terminal emulators is unreliable, we rely on Unicode for iconography. When applying iconography consider:
 
 - People use different fonts that will have varying Unicode support
-- Only use iconography to [enhance meaning](https://primer.style/design/global/accessibility#visual-accessibility), not to communicate meaning
+- Only use iconography to [enhance meaning](/components/icon#usage), not to communicate meaning
 
 _Note: In Windows, Powershell’s default font (Lucida Console) has poor Unicode support. Microsoft suggests changing it for more Unicode support._
 
