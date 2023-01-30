@@ -3,7 +3,8 @@ title: Interface guidelines
 ---
 
 import {HeroLayout} from '@primer/gatsby-theme-doctocat'
-import {Box, Link, Text, Label} from '@primer/react'
+import {Box, Text, Label} from '@primer/react'
+import {Link} from 'gatsby'
 export default HeroLayout
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null]} gridGap={4}>
@@ -12,13 +13,13 @@ export default HeroLayout
     interfaces.
   </Text>
   <div>
-  <div>
-    <Link href="/design/guides" sx={{fontWeight: 'bold'}}>
-      Guides
-    </Link>
-    <Text as="p">Standards, guidelines, and tools to getting started with Primer.</Text>
-  </div>
-    <Link href="/design/foundations" sx={{fontWeight: 'bold'}}>
+    <div>
+      <Link href="/guides" sx={{fontWeight: 'bold'}}>
+        Guides
+      </Link>
+      <Text as="p">Standards, guidelines, and tools to getting started with Primer.</Text>
+    </div>
+    <Link href="/foundations" sx={{fontWeight: 'bold'}}>
       Foundations
     </Link>
     <Text as="p">
@@ -26,13 +27,13 @@ export default HeroLayout
     </Text>
   </div>
   <div>
-    <Link href="/design/ui-patterns" sx={{fontWeight: 'bold'}}>
+    <Link href="/ui-patterns" sx={{fontWeight: 'bold'}}>
       UI patterns
     </Link>
     <Text as="p">Design guidelines covering common user workflows.</Text>
   </div>
   <div>
-    <Link href="/design/components" sx={{fontWeight: 'bold'}}>
+    <Link href="/components" sx={{fontWeight: 'bold'}}>
       Components
     </Link>
     <Text as="p">Design and usage guidelines for individual Primer components.</Text>
@@ -41,6 +42,6 @@ export default HeroLayout
 
 ## Need help?
 
-If you found a bug on this website, please [open a new issue](https://github.com/primer/design/issues/new) with as much detail as possible, including steps to replicate the bug, screenshots, links, and expected results.
+If you found a bug on this website, please [open a new issue](https://github.com/primer/issues/new) with as much detail as possible, including steps to replicate the bug, screenshots, links, and expected results.
 
 If you need help using and designing with Primer, and you are GitHub staff, please visit the #primer Slack channel.
