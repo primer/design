@@ -1215,10 +1215,10 @@
   dependencies:
     lodash "^4.17.15"
 
-"@github/prettier-config@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@github/prettier-config/-/prettier-config-0.0.4.tgz#cbfddb36a7f29a81c5af155dc5827e95b23b9ccd"
-  integrity sha512-ZOJ+U771Mw68qp2GPbcqPt2Xg0LEl0YwiIFHXwVLAFm2TgDnsgcCHhXO8PIxOWPqSFO4S7xIMD9CBobfaWGASA==
+"@github/prettier-config@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@github/prettier-config/-/prettier-config-0.0.6.tgz#5118e6e9f67fef9c2cd74574da7a4d86229ffb44"
+  integrity sha512-Sdb089z+QbGnFF2NivbDeaJ62ooPlD31wE6Fkb/ESjAOXSjNJo+gjqzYYhlM7G3ERJmKFZRUJYMlsqB7Tym8lQ==
 
 "@graphql-tools/batch-execute@^7.1.2":
   version "7.1.2"
@@ -2059,6 +2059,19 @@
   integrity sha512-4BAffykYOgO+5nzBWYwE3W90sBgLJoUPRWWcL8wlyiM8IB8ipJz3UMJ9KXQd1RKQXpKp8Tutn80HZtWsu2u76w==
   dependencies:
     defer-to-connect "^2.0.0"
+
+"@tanstack/query-core@4.22.4":
+  version "4.22.4"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.22.4.tgz#aca622d2f8800a147ece5520d956a076ab92f0ea"
+  integrity sha512-t79CMwlbBnj+yL82tEcmRN93bL4U3pae2ota4t5NN2z3cIeWw74pzdWrKRwOfTvLcd+b30tC+ciDlfYOKFPGUw==
+
+"@tanstack/react-query@^4.23.0":
+  version "4.23.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-4.23.0.tgz#0b9e14269a48cf5a4ffe46c8525cdb9df2ebd9cf"
+  integrity sha512-cfQsrecZQjYYueiow4WcK8ItokXJnv+b2OrK8Lf5kF7lM9uCo1ilyygFB8wo4MfxchUBVM6Cs8wq4Ed7fouwkA==
+  dependencies:
+    "@tanstack/query-core" "4.22.4"
+    use-sync-external-store "^1.2.0"
 
 "@testing-library/dom@*":
   version "8.16.1"
@@ -14528,6 +14541,11 @@ use-sidecar@^1.1.2:
   dependencies:
     detect-node-es "^1.1.0"
     tslib "^2.0.0"
+
+use-sync-external-store@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
+  integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==
 
 use@^3.1.0:
   version "3.1.1"
