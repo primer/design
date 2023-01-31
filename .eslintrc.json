@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "plugin:github/react",
-    "plugin:jsx-a11y/recommended"
-  ],
+  "extends": ["plugin:github/react", "plugin:jsx-a11y/recommended"],
   "parserOptions": {
     "ecmaVersion": 2020
   },

@@ -10,7 +10,7 @@ title: Alternative text for images
 
 ## Why?
 
-Images can make the web user experience better and more pleasant, especially for users with cognitive and learning disabilities. Not all images used in websites are accessible, and that can be a major barrier. Accessible images are beneficial for everyone, especially for people using screen readers and other assistive technologies, as well as search engine optimization (SEO). 
+Images can make the web user experience better and more pleasant, especially for users with cognitive and learning disabilities. Not all images used in websites are accessible, and that can be a major barrier. Accessible images are beneficial for everyone, especially for people using screen readers and other assistive technologies, as well as search engine optimization (SEO).
 
 When screen readers come across images, graphs, and icons without an `alt` attribute, by default the screen reader will speak the name of the file, which most of the time can be unhelpful (for example: `final-final-truly-final-V2.jpg`).
 
@@ -21,8 +21,7 @@ You can read more about why alternative text for images is important in the [Web
 
 ### Informative and decorative images
 
-To help you determine the best way to communicate the information of an image to a screen reader user, you can use [the alt text decision tree provided by the W3C](
-https://www.w3.org/WAI/tutorials/images/decision-tree/).
+To help you determine the best way to communicate the information of an image to a screen reader user, you can use [the alt text decision tree provided by the W3C](https://www.w3.org/WAI/tutorials/images/decision-tree/).
 
 Depending the purpose of the images, they can be categorized into one of two categories: [informative](https://www.w3.org/WAI/tutorials/images/informative/) or [decorative](https://www.w3.org/WAI/tutorials/images/decorative/) images.
 
@@ -50,17 +49,17 @@ A missing `alt` attribute is bad, but an `alt` attribute with wrong or useless i
 - Combine `alt` text with the caption or the content. If the image is sufficiently described in the text (for example, a simple diagram illustrating what's written in the web page text) it can have a brief `alt` text such as "Diagram of work flow described above".
 
 <DoDontContainer>
-    <Do>
-      <Caption>Every img element must have an 'alt' attribute.</Caption>
-      <Code className="language-html">{`<img src="image1.jpg" alt="A dog playing with a ball" />`}</Code>
-      <br />
-      <Caption>Leave the 'alt' attribute empty for decorative.</Caption>
-      <Code className="language-html">{`<img src="shape.png" alt="" />`}</Code>
-    </Do>
-    <Dont>
-      <Caption>Don't use an img element without an 'alt' attribute.</Caption>
-     <Code className="language-html">{`<img src="image1.jpg"/>`}</Code>
-    </Dont>
+  <Do>
+    <Caption>Every img element must have an 'alt' attribute.</Caption>
+    <Code className="language-html">{`<img src="image1.jpg" alt="A dog playing with a ball" />`}</Code>
+    <br />
+    <Caption>Leave the 'alt' attribute empty for decorative.</Caption>
+    <Code className="language-html">{`<img src="shape.png" alt="" />`}</Code>
+  </Do>
+  <Dont>
+    <Caption>Don't use an img element without an 'alt' attribute.</Caption>
+    <Code className="language-html">{`<img src="image1.jpg"/>`}</Code>
+  </Dont>
 </DoDontContainer>
 
 You can read more tips in the [Web Accessibility Tutorials Guidance on how to create websites that meet WCAG
@@ -71,7 +70,7 @@ You can read more tips in the [Web Accessibility Tutorials Guidance on how to cr
 - [WebAIM Alternative Text](https://webaim.org/techniques/alttext/)
 - [Deep Dive: Making your images accessible](https://github.com/github/accessibility/blob/main/docs/deep-dive-notes/2022-01-26-images.md) (Only accessible to GitHub staff)
 - [Accessible Images For When They Matter Most
-](https://www.smashingmagazine.com/2020/05/accessible-images/)
+  ](https://www.smashingmagazine.com/2020/05/accessible-images/)
 
 ### Related WCAG guidelines and success criteria
 

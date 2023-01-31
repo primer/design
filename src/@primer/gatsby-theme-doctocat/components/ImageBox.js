@@ -1,6 +1,6 @@
 import React from 'react'
 import {Box} from '@primer/react'
-import { Caption } from '@primer/gatsby-theme-doctocat'
+import {Caption} from '@primer/gatsby-theme-doctocat'
 
 function ImageBox({caption, children, props, paddingX = false}) {
   return (
@@ -20,7 +20,7 @@ function ImageBox({caption, children, props, paddingX = false}) {
           alignItems: 'center',
           paddingTop: paddingX ? 3 : 0,
           paddingBottom: paddingX ? 3 : 0,
-          margin: 0
+          margin: 0,
         }}
       >
         {children}
@@ -35,7 +35,7 @@ function ImageBox({caption, children, props, paddingX = false}) {
             justifyContent: 'center',
             marginBottom: 6,
             fontSize: 1,
-            color: 'fg.muted'
+            color: 'fg.muted',
           }}
         >
           {caption}

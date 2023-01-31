@@ -18,13 +18,13 @@ This is a subset of the tools available:
 
 - [HTML validator](https://validator.w3.org/)
 - Automated tools
-    - [aXe DevTools](https://www.deque.com/axe/devtools/)
-    - [Lighthouse](https://github.com/GoogleChrome/lighthouse)
+  - [aXe DevTools](https://www.deque.com/axe/devtools/)
+  - [Lighthouse](https://github.com/GoogleChrome/lighthouse)
 - Linting
-    - [Primer ViewComponents](https://github.com/primer/view_components/blob/main/docs/content/linting.md)
-    - [Primer React](https://github.com/primer/react/blob/main/contributor-docs/CONTRIBUTING.md#linting)
-    - [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
-    - [erblint-github](https://github.com/github/erblint-github)
+  - [Primer ViewComponents](https://github.com/primer/view_components/blob/main/docs/content/linting.md)
+  - [Primer React](https://github.com/primer/react/blob/main/contributor-docs/CONTRIBUTING.md#linting)
+  - [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+  - [erblint-github](https://github.com/github/erblint-github)
 
 ## Guidelines
 
@@ -39,22 +39,22 @@ Think about the content that will populate an element in order to determine what
 ## Common mistakes
 
 - Using improper elements to achieve the desired visual style
-    - Example: using an `<h1>` tag for a heading that should be an `<h3>` because the visual style of the `<h1>` is desired
-    - Solve: use CSS for visual styling
+  - Example: using an `<h1>` tag for a heading that should be an `<h3>` because the visual style of the `<h1>` is desired
+  - Solve: use CSS for visual styling
 - Using the `title` attribute
-    - It is inaccessible for many users, such as touch-only and keyboard-only users. Do not use.
+  - It is inaccessible for many users, such as touch-only and keyboard-only users. Do not use.
 - Using improper markup
-    - Example: placing text in a `<div>` instead of a `<p>`
-    - Solve: use the proper element to depict the content that is inside
+  - Example: placing text in a `<div>` instead of a `<p>`
+  - Solve: use the proper element to depict the content that is inside
 - Using incorrect ARIA
-    - Example: using an `aria-label` on a non-interactive element such as a `<div>`
-    - Solve: only use ARIA when necessary, and if you *can* use a native HTML element, you should. [More information on ARIA](https://www.w3.org/TR/using-aria/#notes2)
+  - Example: using an `aria-label` on a non-interactive element such as a `<div>`
+  - Solve: only use ARIA when necessary, and if you _can_ use a native HTML element, you should. [More information on ARIA](https://www.w3.org/TR/using-aria/#notes2)
 - Duplicate IDs
-    - Example: two elements on the page with `id="anchor"`
-    - Solve: use unique IDs for every element on the page
+  - Example: two elements on the page with `id="anchor"`
+  - Solve: use unique IDs for every element on the page
 - Decorative elements not marked as decorative
-    - Example: an `<hr>` element not being marked as decorative
-    - Solve: add `role="presentation"` or `aria-hidden="true"` to elements that are for decorative purposes only
+  - Example: an `<hr>` element not being marked as decorative
+  - Solve: add `role="presentation"` or `aria-hidden="true"` to elements that are for decorative purposes only
 
 ## Reading order
 

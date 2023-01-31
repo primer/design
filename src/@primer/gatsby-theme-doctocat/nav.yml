@@ -9,10 +9,10 @@
     - title: Figma
       url: /guides/figma
       children:
-      - title: Introduction
-        url: /guides/figma
-      - title: How to contribute
-        url: /guides/figma/contribute
+        - title: Introduction
+          url: /guides/figma
+        - title: How to contribute
+          url: /guides/figma/contribute
     - title: Component lifecycle
       url: /guides/component-lifecycle
     - title: Accessibility

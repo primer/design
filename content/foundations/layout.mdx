@@ -5,7 +5,13 @@ description: Github is a diverse and complex platform. These layout guidelines a
 
 import {Box, Heading} from '@primer/react'
 
-<p><img src="https://user-images.githubusercontent.com/293280/193331583-020b59af-d749-402a-b8fd-095aaada098c.png" alt="" width="960" /></p>
+<p>
+  <img
+    src="https://user-images.githubusercontent.com/293280/193331583-020b59af-d749-402a-b8fd-095aaada098c.png"
+    alt=""
+    width="960"
+  />
+</p>
 
 ## Overview
 
@@ -40,6 +46,7 @@ Leverage existing mental models people have from using GitHub, the web, and othe
 ## Responsive foundations
 
 Primer provides two levels of abstraction for handling responsive designs:
+
 - **Viewport ranges**, for defining the layout and navigation affordance of a page at a high level.
 - **Breakpoints**, for fine-tuning custom experiences.
 
@@ -51,13 +58,19 @@ Viewport ranges enable designs to break down complex multi-column experiences in
 
 Because they provide a clear separation between mobile and desktop patterns, viewport ranges allow pages to remain powerful on desktop-friendly scenarios, while allowing a targetted streamlined experience in small devices.
 
-<p><img width="960" alt="Viewport ranges" src="https://user-images.githubusercontent.com/293280/193167177-87175665-4f52-4d3a-aac3-d09f408c05c4.png" /></p>
+<p>
+  <img
+    width="960"
+    alt="Viewport ranges"
+    src="https://user-images.githubusercontent.com/293280/193167177-87175665-4f52-4d3a-aac3-d09f408c05c4.png"
+  />
+</p>
 
-Viewport range | Width range   | Columns  | Description
----------------|---------------|----------|------------
-`narrow`       | < 768px       | 1        | Supports a single-column layout. Also known as “mobile”.
-`regular`      | >= 768px      | Up to 2  | All desktop-friendly patterns start at this range.
-`wide`         | >= 1400px     | Up to 3  | Optional range when a 3rd layout column is needed.
+| Viewport range | Width range | Columns | Description                                              |
+| -------------- | ----------- | ------- | -------------------------------------------------------- |
+| `narrow`       | < 768px     | 1       | Supports a single-column layout. Also known as “mobile”. |
+| `regular`      | >= 768px    | Up to 2 | All desktop-friendly patterns start at this range.       |
+| `wide`         | >= 1400px   | Up to 3 | Optional range when a 3rd layout column is needed.       |
 
 ### Breakpoints
 
@@ -69,26 +82,31 @@ Breakpoint sizes should be simply seen as a unit in a ruler. The numbers are not
 
 While viewport ranges should be used for distinguishing responsive layout adaptations, custom media queries built with these breakpoints values can be used internally for adjusting any specific responsive scenarios that require a fine-tune level of control.
 
-Breakpoint | Size
------------|-------
-`xsmall`   | 320px
-`small`    | 544px
-`medium`   | 768px
-`large`    | 1012px
-`xlarge`   | 1280px
-`xxlarge`  | 1400px
+| Breakpoint | Size   |
+| ---------- | ------ |
+| `xsmall`   | 320px  |
+| `small`    | 544px  |
+| `medium`   | 768px  |
+| `large`    | 1012px |
+| `xlarge`   | 1280px |
+| `xxlarge`  | 1400px |
 
-For more information about viewport ranges and breakpoints, check the [Responsive API design guidelines ADR](https://github.com/github/primer/blob/main/adrs/2022-04-15-responsive-design-api-guidelines.md) (currently only available for hubbers). 
+For more information about viewport ranges and breakpoints, check the [Responsive API design guidelines ADR](https://github.com/github/primer/blob/main/adrs/2022-04-15-responsive-design-api-guidelines.md) (currently only available for hubbers).
 
 ## Anatomy of a page
 
-<p><img src="https://user-images.githubusercontent.com/293280/192653282-e728781c-6024-4d11-9388-12ad91ae388a.png" alt="Anatomy of a page" /></p>
+<p>
+  <img
+    src="https://user-images.githubusercontent.com/293280/192653282-e728781c-6024-4d11-9388-12ad91ae388a.png"
+    alt="Anatomy of a page"
+  />
+</p>
 
 ### App header
 
 App header is GitHub’s topmost bar. This header contains global navigation and actions, but also contextual navigation elements such as **Context region** and **Local navigation**.
 
-It may also contain other system-level elements, such as notification banners. 
+It may also contain other system-level elements, such as notification banners.
 
 App header is never fixed to the top of the viewport. It scrolls with the rest of the page.
 
