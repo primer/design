@@ -6,14 +6,14 @@ const baseUrls = {
   css: 'https://primer.style/css/storybook/'
 }
 
-export function StorybookEmbed({framework = 'react', componentId, stories}) {
+export function StorybookEmbed({framework = 'react', componentId, stories, height = '250'}) {
   const [colorScheme, setColorScheme] = React.useState('light')
   const base = baseUrls[framework]
   const [story, setStory] = React.useState(Object.keys(stories)[0])
   const options = {
     id: `${componentId}--${story}`,
     shortcuts: false,
-    singleStory: true,
+    singleStory: Object.entries(stories).length <= 1,
     panel: false,
     globals: `colorScheme:${colorScheme}`,
     viewMode: 'story'
@@ -40,19 +40,21 @@ export function StorybookEmbed({framework = 'react', componentId, stories}) {
           gap: 2
         }}
       >
-        <ActionMenu>
-          <ActionMenu.Button>Demo: {stories[story].name}</ActionMenu.Button>
+        {!options.singleStory &&
+          <ActionMenu>
+            <ActionMenu.Button>Demo: {stories[story].name}</ActionMenu.Button>
+            <ActionMenu.Overlay>
+              <ActionList selectionVariant="single">
+                {Object.entries(stories).map(([key, {name}]) => (
+                  <ActionList.Item key={key} selected={key === story} onSelect={() => setStory(key)}>
+                    {name}
+                  </ActionList.Item>
+                ))}
+              </ActionList>
+            </ActionMenu.Overlay>
+          </ActionMenu>
+        }
 
-          <ActionMenu.Overlay>
-            <ActionList selectionVariant="single">
-              {Object.entries(stories).map(([key, {name}]) => (
-                <ActionList.Item key={key} selected={key === story} onSelect={() => setStory(key)}>
-                  {name}
-                </ActionList.Item>
-              ))}
-            </ActionList>
-          </ActionMenu.Overlay>
-        </ActionMenu>
         <ActionMenu>
           <ActionMenu.Button>Theme: {colorScheme}</ActionMenu.Button>
 
@@ -104,6 +106,7 @@ export function StorybookEmbed({framework = 'react', componentId, stories}) {
       </Box>
       <Box
         as="iframe"
+        marginBottom="3"
         borderRadius="2"
         borderTopLeftRadius={0}
         borderTopRightRadius={0}
@@ -114,7 +117,7 @@ export function StorybookEmbed({framework = 'react', componentId, stories}) {
         id="storybook-preview-iframe"
         src={url}
         width="100%"
-        height="260"
+        height={height}
       ></Box>
     </>
   )
