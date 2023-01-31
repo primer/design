@@ -3,11 +3,11 @@ title: Typography
 description: These guidelines summarize how we use typography at GitHub, and serve as guardrails for designers to design freely with best typographic practices in mind.
 ---
 
-import segoeImage from '../../src/images/segoe.svg'
-import sfImage from '../../src/images/sf.svg'
-import sfMonoImage from '../../src/images/sfMono.svg'
-import interImage from '../../src/images/interUI.svg'
-import ubuntuImage from '../../src/images/ubuntu.svg'
+import segoeImage from '../../src/images/svg/segoe.svg'
+import sfImage from '../../src/images/svg/sf.svg'
+import sfMonoImage from '../../src/images/svg/sfMono.svg'
+import interImage from '../../src/images/svg/interUI.svg'
+import ubuntuImage from '../../src/images/svg/ubuntu.svg'
 
 ## Typefaces
 
@@ -30,19 +30,21 @@ We utilize system fonts at GitHub, which allow for optimized performance. This d
 **System Fonts**—default GitHub font-stack with ample fallbacks alongside emoji support
 
 ```css
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol';
 ```
 
 **Monospace**—used within GitHub product to display metadata or captions, and used in marketing contexts as subheaders
 
 ```css
-$mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !default;
+$mono-font: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace !default;
 ```
 
 **Display face**—the font stack that implements Inter UI
 
 ```css
-font-family: InterUI, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+font-family: InterUI, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans',
+  sans-serif;
 ```
 
 _For more information on why we made the change to system fonts, check out [Mark Otto](http://markdotto.com/)'s article: [Shipping System fonts to GitHub.com](http://markdotto.com/2018/02/07/github-system-fonts/)_

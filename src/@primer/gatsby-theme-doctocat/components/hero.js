@@ -1,7 +1,7 @@
 import {Box, Heading, ThemeProvider} from '@primer/react'
 import React from 'react'
 import {Container} from '@primer/gatsby-theme-doctocat'
-import heroIllustration from '../../../hero-illustration.svg'
+import heroIllustration from '../../../../src/images/svg/hero-illustration.svg'
 
 export default function Hero() {
   return (
