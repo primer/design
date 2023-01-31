@@ -130,6 +130,12 @@
       url: /components/tree-view
 - title: Native
   children:
+    - title: Mobile
+      children:
+        - title: Platforms
+          url: /native/mobile/platforms
+        - title: Foundations
+          url: /native/mobile/foundations
     - title: CLI
       children:
         - title: Getting started
