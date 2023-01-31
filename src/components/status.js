@@ -1,5 +1,5 @@
 import componentMetadata from '@primer/component-metadata'
-import {Box, themeGet, ActionList, ActionMenu, StyledOcticon, ThemeProvider} from '@primer/react'
+import {Box, themeGet, ActionList, ActionMenu, StyledOcticon, ThemeProvider, Spinner} from '@primer/react'
 import {DotFillIcon, AccessibilityInsetIcon, ListUnorderedIcon} from '@primer/octicons-react'
 import React from 'react'
 import styled from 'styled-components'
@@ -141,39 +141,53 @@ export function StatusTable() {
           </ActionMenu.Overlay>
         </ActionMenu>
       </Box>
-      {components ? (
-        <Table>
-          <colgroup>
-            <col span="2" style={{textAlign: 'center'}} />
-            <col span="2" style={{textAlign: 'center'}} />
-          </colgroup>
-          <thead>
-            <tr>
-              <th width="20%" align="left" rowSpan="2" colSpan="1">
-                Component
-              </th>
-              <th width="20%" rowSpan="1" colSpan="2">
-                ViewComponent
-              </th>
-              <th width="20%" rowSpan="1" colSpan="2">
-                React
-              </th>
-              <th width="40%" align="left" rowSpan="2" colSpan="1">
-                Description
-              </th>
-            </tr>
-            <tr>
-              <th>Status</th>
-              <th>Accessibility</th>
-              <th>Status</th>
-              <th>Accessibility</th>
-            </tr>
-          </thead>
-          <tbody>
-            <StatusRows components={components} type={selectedField.type} />
-          </tbody>
-        </Table>
-      ) : null}
+      {components.length > 0 ? (
+        <Box
+          sx={{
+            overflow: 'auto',
+          }}
+        >
+          <Table>
+            <colgroup>
+              <col span="2" style={{textAlign: 'center'}} />
+              <col span="2" style={{textAlign: 'center'}} />
+            </colgroup>
+            <thead>
+              <tr>
+                <th width="20%" align="left" rowSpan="2" colSpan="1">
+                  Component
+                </th>
+                <th width="20%" rowSpan="1" colSpan="2">
+                  ViewComponent
+                </th>
+                <th width="20%" rowSpan="1" colSpan="2">
+                  React
+                </th>
+                <th width="40%" align="left" rowSpan="2" colSpan="1">
+                  Description
+                </th>
+              </tr>
+              <tr>
+                <th>Status</th>
+                <th>Accessibility</th>
+                <th>Status</th>
+                <th>Accessibility</th>
+              </tr>
+            </thead>
+            <tbody>
+              <StatusRows components={components} type={selectedField.type} />
+            </tbody>
+          </Table>
+        </Box>
+      ) : (
+        <Box
+          sx={{
+            textAlign: 'center',
+          }}
+        >
+          <Spinner />{' '}
+        </Box>
+      )}
     </ThemeProvider>
   )
 }

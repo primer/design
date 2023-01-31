@@ -128,3 +128,7 @@
       url: /components/tokens
     - title: Tree view
       url: /components/tree-view
+- title: Status
+  children:
+    - title: Component status
+      url: /status
