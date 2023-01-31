@@ -36,26 +36,46 @@ _**Note:** The gray in the examples below represents the element, and the yellow
 
 Use uniform spacing utilities to apply equal padding to all sides of an element. These utilities can be used with a spacing scale from 0-6.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-padding--uniform)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-padding"
+  stories={{'uniform': {name: 'uniform'}}}
+  height="150"
+/>
 
 ## Directional padding
 
 Use directional utilities to apply padding to an individual side, or the X and Y axis of an element. Directional utilities can change or override default padding, and can be used with a spacing scale of 0-6.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-padding--directional)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-padding"
+  stories={{'directional': {name: 'directional'}}}
+  height="100"
+/>
 
 ## Extended directional padding
 
 The extended directional padding scale starts from spacer `7` and goes up to `12`. All directions and their responsive variants are supported, except for `px`.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-padding--directional-extended)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-padding"
+  stories={{'directional-extended': {name: 'directional-extended'}}}
+  height="200"
+/>
 
 
 ## Responsive padding
 
 All padding utilities can be adjusted per [breakpoint](/support/breakpoints) using the following formula: <br /> `p-[direction]-[breakpoint]-[spacer]`. Each responsive style is applied to the specified breakpoint and up.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-padding--responsive)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-padding"
+  stories={{'responsive': {name: 'responsive'}}}
+  height="100"
+/>
 
 ## Responsive container padding
 
@@ -67,6 +87,11 @@ All padding utilities can be adjusted per [breakpoint](/support/breakpoints) usi
 
 It's the equivalent of adding the `.px-3 .px-sm-6 .px-lg-3` utility classes.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-padding--responsive-container)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-padding"
+  stories={{'responsive-container': {name: 'responsive-container'}}}
+  height="100"
+/>
 
 > Note: Since the example is shown in an `iframe` it won't show the change to `$spacer-3` for the `lg` breakpoint.

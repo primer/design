@@ -6,7 +6,12 @@ description: Change the document layout with display, float, alignment, and othe
 ## Display
 Adjust the display of an element with `.d-block`, `.d-none`, `.d-inline`, `.d-inline-block`, `.d-table`, `.d-table-cell` utilities.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--display)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'display': {name: 'display'}}}
+  height="140"
+/>
 
 ### The HTML `hidden` attribute
 
@@ -30,14 +35,24 @@ element.classList.toggle('d-inline', visible)
 
 There are known issues with using `display:table` and wrapping long strings, particularly in Firefox. You may need to use `table-fixed` on elements with `d-table` and apply column widths to table cells, which you can do with our [column width styles](/utilities/grid#column-widths).
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--table)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'table': {name: 'table'}}}
+  height="100"
+/>
 
 ### Responsive display
 A selection of display utilities are able to be applied or changed per [breakpoint](/utilities/grid#breakpoints). `.d-block`, `.d-none`, `.d-inline`, and `.d-inline-block` are available as responsive utilities using the following formula: `d-[breakpoint]-[property]`. For example: `d-md-inline-block`. Each responsive display utility is applied to the specified breakpoint and up.
 
 In the following example, the `ul` element switches from `display: block` on mobile to  `display: inline-block` at the `md` breakpoint, while the list items remain inline.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--responsive)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'responsive': {name: 'responsive'}}}
+  height="100"
+/>
 
 ### Responsive hide
 Hide utilities are able to be applied or changed per breakpoint using the following formula:<br /> `hide-[breakpoint]`, for example: `hide-sm`. Hide utilities act differently from other responsive styles and are applied to each **breakpoint-range only**.
@@ -49,7 +64,12 @@ Hide utilities are able to be applied or changed per breakpoint using the follow
 | -lg | 768px—1011px |
 | -xl | 1012px and above |
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--responsive-hide)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'responsive-hide': {name: 'responsive-hide'}}}
+  height="100"
+/>
 
 ### Text direction
 `.direction-ltr` or `.direction-rtl` can be used to change the text direction. This is especially helpful when paired with `.d-table`, `.d-table-cell`, and `.v-align-middle` to create equal height, vertically centered, alternating content.
@@ -77,52 +97,102 @@ Overflow utilities can be applied or changed per [breakpoint](/utilities/grid#br
 
 Using floats are discouraged since [flexbox](/utilities/flexbox) offers more features and doesn't need to be cleared. If you still need it, you can use `.float-left` and `.float-right` to set floats, and `.clearfix` to clear.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--floats)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'floats': {name: 'floats'}}}
+  height="100"
+/>
 
 ### Responsive floats
 Float utilities can be applied or changed per [breakpoint](/utilities/grid#breakpoints). This can be useful for responsive layouts when you want an element to be full width on mobile but floated at a larger breakpoint.
 
 Each responsive float utility is applied to the specified breakpoint and up, using the following formula:  `float-[breakpoint]-[property]`. For example: `float-md-left`. Remember to use `.clearfix` to clear.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--floats-responsive)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'floats-responsive': {name: 'floats-responsive'}}}
+  height="100"
+/>
 
 ## Alignment
 Adjust the alignment of an element with `.v-align-baseline`, `.v-align-top`, `.v-align-middle` or `.v-align-bottom`. The vertical-align property only applies to inline or table-cell boxes.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--align)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'align': {name: 'align'}}}
+  height="100"
+/>
 
 Use `v-align-text-top` or `v-align-text-bottom` to adjust the alignment of an element with the top or bottom of the parent element's font.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--align-text)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'align-text': {name: 'align-text'}}}
+  height="100"
+/>
 
 ## Width and height
 
 Use `.width-fit` to set max-width 100%.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--width-fit)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'width-fit': {name: 'width-fit'}}}
+  height="500"
+/>
 
 Use `.width-full` to set width to 100%.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--width-full)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'width-full': {name: 'width-full'}}}
+  height="100"
+/>
 
 Use `.width-auto` to reset width to `auto` (initial value). Typically used with **responsive variants**. Resize the window to see the effect in the example below.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--width-auto)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'width-auto': {name: 'width-auto'}}}
+  height="100"
+/>
 
 Use `.height-fit` to set max-height 100%.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--height-fit)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'height-fit': {name: 'height-fit'}}}
+  height="150"
+/>
 
 Use `.height-full` to set height to 100%.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--height-full)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'height-full': {name: 'height-full'}}}
+  height="175"
+/>
 
 ## Position
 Position utilities can be used to alter the default document flow. **Be careful when using positioning, it's often unnecessary and commonly misused.**
 
 The position of an element depends on the content. Use `top-0`, `right-0`, `bottom-0`, and `left-0` to further specify an elements final position.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--position)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'position': {name: 'position'}}}
+  height="150"
+/>
 
 Using the **responsive variants** (e.g. `.right-md-0`) can be helpful for positioning select menus, dropdowns, popovers etc. when the content gets shuffled around for certain responsive breakpoints. You can also use `auto` to "reset" a final position for wider breakpoints (e.g. `right-0 right-md-auto`).
 
@@ -132,13 +202,23 @@ Use `.position-relative` to create a new stacking context.
 
 _Note how the other elements are displayed as if "Two" were in its normal position and taking up space._
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--position-relative)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'position-relative': {name: 'position-relative'}}}
+  height="200"
+/>
 
 ### Absolute
 
 Use `.position-absolute` to take elements out of the normal document flow.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--position-absolute)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'position-absolute': {name: 'position-absolute'}}}
+  height="150"
+/>
 
 ### Fixed
 
@@ -146,13 +226,23 @@ Use `.position-fixed` to position an element relative to the viewport. **Be care
 
 _Note: This example is shown in an `<iframe>` and therefore will not be positioned to the viewport of this page._
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--position-fixed)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'position-fixed': {name: 'position-fixed'}}}
+  height="150"
+/>
 
 To fill an entire width or height, use opposing directions.
 
 _Note: fixed positioning has been disabled here for demonstration only._
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--position-fixed-filled)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'position-fixed-filled': {name: 'position-fixed-filled'}}}
+  height="100"
+/>
 
 ### Sticky
 
@@ -166,41 +256,76 @@ Use `.position-sticky` to keep an element stuck to an edge as long as its parent
 
 Combine `.position-sticky` with `.top-0` to keep an element stuck to the top.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--position-sticky-top)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'position-sticky-top': {name: 'position-sticky-top'}}}
+  height="250"
+/>
 
 #### Bottom
 
 Combine `.position-sticky` with `.bottom-0` to keep an element stuck to the bottom. Can be used as a footer or toolbar.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--position-sticky-bottom)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'position-sticky-bottom': {name: 'position-sticky-bottom'}}}
+  height="250"
+/>
 
 #### Left and right
 
 Combine `.position-sticky` with `.left-0` or `.right-0` to keep elements stuck to the left or right when scrolling horizontally.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--position-sticky-left-right)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'position-sticky-left-right': {name: 'position-sticky-left-right'}}}
+  height="110"
+/>
 
 ### Responsive position
 
 Position utilities can be applied or changed per breakpoint in responsive layouts. Each responsive position utility is applied to the specified breakpoint and up, using the following formula: `position-[breakpoint]-[property]`. For example: `position-md-absolute`.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--position-responsive)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'position-responsive': {name: 'position-responsive'}}}
+  height="100"
+/>
 
 ### Screen reader only
 
 Use `.sr-only` to position an element outside of the viewport for screen reader access only. **Even though the element can't be seen, make sure it still has a sensible tab order.**
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--screen-reader-only)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'screen-reader-only': {name: 'screen-reader-only'}}}
+  height="100"
+/>
 
 ## The media object
 
 Create a media object with utilities.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--media-object)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'media-object': {name: 'media-object'}}}
+  height="150"
+/>
 
 Create a double-sided media object for a container with a flexible center.
 
-[Storybook](https://primer.style/css/storybook/?path=/story/utilities-layout--media-object-double)
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-layout"
+  stories={{'media-object-double': {name: 'media-object-double'}}}
+  height="150"
+/>
 
 You can also create a media object with [flexbox utilities](./flexbox#media-object) instead of floats which can be useful for changing the vertical alignment.
 
