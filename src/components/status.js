@@ -185,7 +185,7 @@ export function StatusTable() {
             textAlign: 'center',
           }}
         >
-          <Spinner />{' '}
+          <Spinner />
         </Box>
       )}
     </ThemeProvider>
