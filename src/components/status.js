@@ -103,44 +103,46 @@ export function StatusTable() {
 
   return (
     <ThemeProvider colorMode="day" nightScheme="dark_dimmed">
-      <Box sx={{paddingBottom: 4}}>
-        <ActionMenu>
-          <ActionMenu.Button aria-label="Show components">Show: {selectedField.name}</ActionMenu.Button>
-          <ActionMenu.Overlay width="medium">
-            <ActionList selectionVariant="single">
-              <ActionList.Group>
-                {initialFieldTypes.map((field, index) => (
-                  <ActionList.Item
-                    key={index}
-                    selected={field.type === selectedField.type}
-                    onSelect={() => setSelectedField(field)}
-                  >
-                    <ActionList.LeadingVisual>
-                      <StyledOcticon icon={field.icon} />
-                    </ActionList.LeadingVisual>
-                    {field.name}
-                  </ActionList.Item>
-                ))}
-              </ActionList.Group>
-              <ActionList.Divider />
-              <ActionList.Group title="Status">
-                {statusFieldTypes.map((field, index) => (
-                  <ActionList.Item
-                    key={index}
-                    selected={field.type === selectedField.type}
-                    onSelect={() => setSelectedField(field)}
-                  >
-                    <ActionList.LeadingVisual>
-                      <StyledOcticon icon={DotFillIcon} color={getStatusColor(field.type)} />
-                    </ActionList.LeadingVisual>
-                    {field.name}
-                  </ActionList.Item>
-                ))}
-              </ActionList.Group>
-            </ActionList>
-          </ActionMenu.Overlay>
-        </ActionMenu>
-      </Box>
+      {components.length > 0 && (
+        <Box sx={{paddingBottom: 4}}>
+          <ActionMenu>
+            <ActionMenu.Button aria-label="Show components">Show: {selectedField.name}</ActionMenu.Button>
+            <ActionMenu.Overlay width="medium">
+              <ActionList selectionVariant="single">
+                <ActionList.Group>
+                  {initialFieldTypes.map((field, index) => (
+                    <ActionList.Item
+                      key={index}
+                      selected={field.type === selectedField.type}
+                      onSelect={() => setSelectedField(field)}
+                    >
+                      <ActionList.LeadingVisual>
+                        <StyledOcticon icon={field.icon} />
+                      </ActionList.LeadingVisual>
+                      {field.name}
+                    </ActionList.Item>
+                  ))}
+                </ActionList.Group>
+                <ActionList.Divider />
+                <ActionList.Group title="Status">
+                  {statusFieldTypes.map((field, index) => (
+                    <ActionList.Item
+                      key={index}
+                      selected={field.type === selectedField.type}
+                      onSelect={() => setSelectedField(field)}
+                    >
+                      <ActionList.LeadingVisual>
+                        <StyledOcticon icon={DotFillIcon} color={getStatusColor(field.type)} />
+                      </ActionList.LeadingVisual>
+                      {field.name}
+                    </ActionList.Item>
+                  ))}
+                </ActionList.Group>
+              </ActionList>
+            </ActionMenu.Overlay>
+          </ActionMenu>
+        </Box>
+      )}
       {components.length > 0 ? (
         <Box
           sx={{
