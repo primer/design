@@ -56,6 +56,33 @@
       url: /foundations/color
     - title: Responsive
       url: /foundations/responsive
+    - title: CSS utilities
+      url: /foundations/css-utilities
+      children:
+        - title: Getting started
+          url: /foundations/css-utilities/getting-started
+        - title: Animations
+          url: /foundations/css-utilities/animations
+        - title: Borders
+          url: /foundations/css-utilities/borders
+        - title: Box shadow
+          url: /foundations/css-utilities/box-shadow
+        - title: Colors
+          url: /foundations/css-utilities/colors
+        - title: Details
+          url: /foundations/css-utilities/details
+        - title: Flexbox
+          url: /foundations/css-utilities/flexbox
+        - title: Grid
+          url: /foundations/css-utilities/grid
+        - title: Layout
+          url: /foundations/css-utilities/layout
+        - title: Margin
+          url: /foundations/css-utilities/margin
+        - title: Padding
+          url: /foundations/css-utilities/padding
+        - title: Typography
+          url: /foundations/css-utilities/typography
     - title: Layout
       url: /foundations/layout
     - title: Typography
