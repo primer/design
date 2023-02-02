@@ -5,12 +5,12 @@ title: Links
 import {Box} from '@primer/react'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 
-import doLinks31 from  '../../../src/images/accessibility/links/do-links-3_1.png'
-import dontLinks31 from  '../../../src/images/accessibility/links/dont-links-3_1.png'
-import doLinksIcon from  '../../../src/images/accessibility/links/do-links-icon-or-shape.png'
-import dontLinksIcon from  '../../../src/images/accessibility/links/dont-links-icon-or-shape.png'
-import doLinksUnderlined from  '../../../src/images/accessibility/links/do-links-underlined.png'
-import dontLinksUnderlined from  '../../../src/images/accessibility/links/dont-links-underlined.png'
+import doLinks31 from '../../../src/images/accessibility/links/do-links-3_1.png'
+import dontLinks31 from '../../../src/images/accessibility/links/dont-links-3_1.png'
+import doLinksIcon from '../../../src/images/accessibility/links/do-links-icon-or-shape.png'
+import dontLinksIcon from '../../../src/images/accessibility/links/dont-links-icon-or-shape.png'
+import doLinksUnderlined from '../../../src/images/accessibility/links/do-links-underlined.png'
+import dontLinksUnderlined from '../../../src/images/accessibility/links/dont-links-underlined.png'
 
 ## Overview
 
@@ -29,6 +29,7 @@ People who have low or colorblind vision may have trouble identifying links that
 ## How to test links
 
 ### Functionality and purpose
+
 A link's function is to _navigate_ to a different page or new content. If instead a feature on the page is activated, use a `<button>`. [Learn when to use a link or button](https://accessibility-playbook.github.com/guidance/patterns/link-and-button-guidance).
 
 A link's purpose must be obvious from the link text alone. If you can't get an idea of where a link will take you based on the link text without reading the sourrounding text, the link text should be updated. [Learn how to write good link text](#writing-link-text).
@@ -41,7 +42,7 @@ Like normal text, a link must have a `4.5:1` contrast against the background col
 
 If a link is sourrounded by text, it must be underlined or pass a `3:1` contrast against the sourrounding text as well. Alternativly an icon, a background shape or an outline can demarcate a link.
 
-Some examples of this are: 
+Some examples of this are:
 
 - links within body text
 - a headline and subline which both are individual links
@@ -83,29 +84,29 @@ Some examples of this are:
       src="https://user-images.githubusercontent.com/40274682/160474794-06a75b30-06d3-475e-863f-605e8a6dad72.png"
       alt="Underlined username link in issue subheading"
     />
-    <Box sx={{
-      marginTop: 2,
-      backgroundColor: 'neutral.subtle',
-      borderRadius: 6
-    }}>
-      <img
-        width="550"
-        alt="Underlined links in paragraph"
-        src={doLinksUnderlined}
-      />
+    <Box
+      sx={{
+        marginTop: 2,
+        backgroundColor: 'neutral.subtle',
+        borderRadius: 6
+      }}
+    >
+      <img width="550" alt="Underlined links in paragraph" src={doLinksUnderlined} />
     </Box>
     <Caption>Underline links in paragraphs and sentences</Caption>
   </Do>
   <Dont>
-      <img
+    <img
       src="https://user-images.githubusercontent.com/40274682/160474800-b505369e-1730-4c14-b426-70b5bd016a6c.png"
       alt="Issue subheader with none of the links underlined"
     />
-    <Box sx={{
-      backgroundColor: 'neutral.subtle',
-      marginTop: 2,
-      borderRadius: 6
-    }}>
+    <Box
+      sx={{
+        backgroundColor: 'neutral.subtle',
+        marginTop: 2,
+        borderRadius: 6
+      }}
+    >
       <img
         width="550"
         alt="Links using underline to highlight important text instead of link"
@@ -118,10 +119,12 @@ Some examples of this are:
 
 <DoDontContainer>
   <Do>
-    <Box sx={{
-      backgroundColor: 'neutral.subtle',
-      borderRadius: 6
-    }}>
+    <Box
+      sx={{
+        backgroundColor: 'neutral.subtle',
+        borderRadius: 6
+      }}
+    >
       <img
         width="550"
         alt="Links using the accent color and a muted grey both with a 3:1 contrast against the default text color"
@@ -131,10 +134,12 @@ Some examples of this are:
     <Caption>Use a link color that has a 3:1 contrast against the text color</Caption>
   </Do>
   <Dont>
-    <Box sx={{
-      backgroundColor: 'neutral.subtle',
-      borderRadius: 6
-    }}>
+    <Box
+      sx={{
+        backgroundColor: 'neutral.subtle',
+        borderRadius: 6
+      }}
+    >
       <img
         width="550"
         alt="Links using a color with a contrast smaller than 3:1 against the default text color"
@@ -147,28 +152,24 @@ Some examples of this are:
 
 <DoDontContainer>
   <Do>
-    <Box sx={{
-      backgroundColor: 'neutral.subtle',
-      borderRadius: 6
-    }}>
-      <img
-        width="550"
-        alt="Links with icon or background shape to demarcate it"
-        src={doLinksIcon}
-      />
+    <Box
+      sx={{
+        backgroundColor: 'neutral.subtle',
+        borderRadius: 6
+      }}
+    >
+      <img width="550" alt="Links with icon or background shape to demarcate it" src={doLinksIcon} />
     </Box>
     <Caption>Use an icon or a background shape to demarcate a link</Caption>
   </Do>
   <Dont>
-    <Box sx={{
-      backgroundColor: 'neutral.subtle',
-      borderRadius: 6
-    }}>
-      <img
-        width="550"
-        alt="Links using other text styles to demaracte it"
-        src={dontLinksIcon}
-      />
+    <Box
+      sx={{
+        backgroundColor: 'neutral.subtle',
+        borderRadius: 6
+      }}
+    >
+      <img width="550" alt="Links using other text styles to demaracte it" src={dontLinksIcon} />
     </Box>
     <Caption>Don't use text styles like italic or bold to demarcate links</Caption>
   </Dont>
@@ -180,9 +181,9 @@ Some examples of this are:
   - [Link in Primer ViewComponents](https://primer.style/view-components/components/link)
   - [Link in Primer React](https://primer.style/react/Link)
 - Don't override the link styling provided in the components
-- Make sure links receive our global focus indicator styling when navigating the page with a keyboard (reference: [Focus management](https://primer.style/design/accessibility/focus-management))
+- Make sure links receive our global focus indicator styling when navigating the page with a keyboard (reference: [Focus management](/guides/accessibility/focus-management))
 - Don't use the `title` attribute
-  - Content within a `title` is inaccessible for many users, such as touch-only and keyboard-only users. If additional content needs to be associated with a link consider using a [tooltip](https://primer.style/view-components/components/alpha/tooltip) or [alternatives to a tooltip](https://primer.style/design/accessibility/tooltip-alternatives).
+  - Content within a `title` is inaccessible for many users, such as touch-only and keyboard-only users. If additional content needs to be associated with a link consider using a [tooltip](https://primer.style/view-components/components/alpha/tooltip) or [alternatives to a tooltip](/guides/accessibility/tooltip-alternatives).
 - Avoid adding side effects to link click events. Links should navigate, not affect the page.
 - Don't force links to open in a new tab/window by setting the `target` property.
 - Links should always open in a new window when clicking while holding Command/Control.
