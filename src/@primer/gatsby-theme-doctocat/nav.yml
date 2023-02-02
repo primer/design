@@ -105,6 +105,10 @@
       url: /ui-patterns/progressive-disclosure
     - title: Saving
       url: /ui-patterns/saving
+- title: Status
+  children:
+    - title: Component status
+      url: /status
 - title: Components
   children:
     - title: Action bar
@@ -157,12 +161,6 @@
       url: /components/tree-view
 - title: Native
   children:
-    - title: Mobile
-      children:
-        - title: Platforms
-          url: /native/mobile/platforms
-        - title: Foundations
-          url: /native/mobile/foundations
     - title: CLI
       children:
         - title: Getting started
@@ -171,3 +169,15 @@
           url: /native/cli/foundations
         - title: Components
           url: /native/cli/components
+    - title: Desktop
+      children:
+        - title: Getting started
+          url: /native/desktop/getting-started
+        - title: Foundations
+          url: /native/desktop/foundations
+    - title: Mobile
+      children:
+        - title: Platforms
+          url: /native/mobile/platforms
+        - title: Foundations
+          url: /native/mobile/foundations
