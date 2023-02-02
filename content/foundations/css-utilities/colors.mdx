@@ -1,0 +1,52 @@
+---
+title: Colors
+description: Use color utilities to apply color to the background of elements, text, and borders.
+---
+
+<Note>
+  Please note Primer CSS v18 has changed the naming of these color classes. Check the <a href="/css/support/v18-migration">migration guide</a> to make sure your app is up to date.
+</Note>
+
+These utilities should only be used where color is not provided by a component. To learn more about how to apply color, read the [color documentation](/foundations/color).
+
+## Text
+
+Use text color utilities to set text to a specific color. Color contrast must pass a minimum WCAG accessibility rating of [level AA](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html). This ensures that viewers who cannot see the full color spectrum are able to read the text. To customize outside of the suggested combinations below, we recommend using this [color contrast testing tool](https://colorable.jxnblk.com/). For more information, read our [accessibility standards](/guides/accessibility).
+
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-color"
+  stories={{'text': {name: 'text'}}}
+  height="410"
+/>
+
+You can set the color inheritance on an element by using the `color-fg-inherit` class.
+
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-color"
+  stories={{'text-inherit': {name: 'text-inherit'}}}
+  height="60"
+/>
+
+## Background
+
+Background colors are most commonly used for filling large blocks of content or areas with a color. When selecting a background color, make sure the foreground color contrast passes a minimum WCAG accessibility rating of [level AA](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html). Meeting these standards ensures that content is accessible by everyone, regardless of disability or user device. You can [check your color combination with this demo site](https://colorable.jxnblk.com/). For more information, read our [accessibility standards](/guides/accessibility).
+
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-color"
+  stories={{'background': {name: 'background'}}}
+  height="1250"
+/>
+
+## Border
+
+Override default border colors with the following utilities.
+
+<StorybookEmbed
+  framework="css"
+  componentId="utilities-color"
+  stories={{'border': {name: 'border'}}}
+  height="1170"
+/>

@@ -72,15 +72,15 @@ The functional system is structured into two groups of design tokens:
 
 Foreground elements are **text and icons**. You can apply color to them by using any of the `fg` (short for foreground) design tokens.
 
-| Foundations                                                                       | Usage                                                                                                                                |
-| :-------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| Foundations                                                                         | Usage                                                                                                                                |
+| :---------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=fg.default) `fg.default`       | Primary color for text and icons in any given interface. It should be used for body content, titles and labels.                      |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=fg.muted) `fg.muted`           | Use for content that is secondary or that provides additional context but is not critical to understanding the flow of an interface. |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=fg.subtle) `fg.subtle`         | Use for placeholder text, icons or decorative foregrounds.                                                                           |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=fg.onEmphasis) `fg.onEmphasis` | On emphasis is the text color designed to combine with `.emphasis` backgrounds for optimal contrast.                                 |
 
-| Color roles                                                                     | Usage                                                               |
-| :------------------------------------------------------------------------------ | :------------------------------------------------------------------ |
+| Color roles                                                                       | Usage                                                               |
+| :-------------------------------------------------------------------------------- | :------------------------------------------------------------------ |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=accent.fg) `fg.accent`       | Use for interactive text or icons like links or buttons.            |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=success.fg) `fg.success`     | Use to emphasize a positive message.                                |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=attention.fg) `fg.attention` | Use to highlight text or icons that require the user's attention.   |
@@ -94,15 +94,15 @@ Foreground elements are **text and icons**. You can apply color to them by using
 
 Background colors apply to surfaces of components or UI elements, such as pages, boxes, and overlays.
 
-| Foundations                                                                            | Usage                                                                                                              |
-| :------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |
+| Foundations                                                                              | Usage                                                                                                              |
+| :--------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=neutral.emphasisPlus) `bg.emphasis` | Provides the highest contrast against the default background, such as in tooltips.                                 |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=canvas.default) `bg.default`        | Primary background color.                                                                                          |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=canvas.subtle) `bg.subtle`          | Provides visual rest and contrast against the default background.                                                  |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=canvas.inset) `bg.inset`            | Can be used instead of the default background to create a focal point, such as in conversations or activity feeds. |
 
-| Color roles                                                                                      | Usage                                                                          |
-| :----------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
+| Color roles                                                                                        | Usage                                                                          |
+| :------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=accent.subtle) `bg.accent`                    | Use to accentuate interactive areas in the UI like selected elements.          |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=success.subtle) `bg.success`                  | Use to highlight a positive message.                                           |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=attention.subtle) `bg.attention`              | Use to highlight elements that require a user's attention or pending statuses. |
@@ -117,13 +117,13 @@ Background colors apply to surfaces of components or UI elements, such as pages,
 
 Borders can be used to group content or to create a visible separation between sections or items. They’re most commonly used on tables, side sections, and cards.
 
-| Foundations                                                                         | Usage                                                                                                                                 |
-| :---------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| Foundations                                                                           | Usage                                                                                                                                 |
+| :------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------ |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=border.default) `border.default` | Use to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout. |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=border.muted) `border.muted`     | Use for dividers to emphasize the separation between items, columns or sections.                                                      |
 
-| Color roles                                                                                  | Usage                                                                         |
-| :------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------- |
+| Color roles                                                                                    | Usage                                                                         |
+| :--------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------- |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=accent.muted) `border.accent`             | Use to accentuate interactive areas in the UI like selected elements.         |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=success.muted) `border.success`           | Use to highlight a positive message.                                          |
 | ![""](https://swatch-sid.vercel.app?mode=light&token=attention.muted) `border.attention`       | Use to highlight elements that require a users attention or pending statuses. |
@@ -260,7 +260,7 @@ The contrast requirements are:
 - 3:1 for UI elements and graphics
 - No contrast requirement for decorative and disabled elements
 
-Use an [online contrast checker](https://webaim.org/resources/contrastchecker/) or a [Figma plugin](https://primer.style/design/accessibility/tools#contrast-plugin) to test your contrast.
+Use an [online contrast checker](https://webaim.org/resources/contrastchecker/) or a [Figma plugin](/guides/accessibility/tools#contrast-plugin) to test your contrast.
 
 If you work with the [functional colors](#color-roles-recipes), this work has already been done for you. We checked all recommended combinations, so you are all set.
 

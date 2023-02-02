@@ -1,0 +1,63 @@
+---
+title: How to contribute
+description: We love contributions and are happy to support you.
+---
+
+import createBranchImg from '../../../src/images/figma/create-branch.png'
+import createBranchDialogImg from '../../../src/images/figma/create-branch-dialog.png'
+import requestReviewImg from '../../../src/images/figma/request-review.png'
+import mergeDialogImg from '../../../src/images/figma/merge-dialog.png'
+import requestDialogImg from '../../../src/images/figma/request-dialog.png'
+
+
+## How can you contribute
+
+Currently only **GitHub employees** can contribute to **Primer Web**, due to how Figma handles open source files. 
+To make changes you first need to [create a branch](https://www.youtube.com/watch?v=tbNCGEC2G1E) from Primer Web and name it `@username/changes-being-made`. 
+For example: `@lukasoppermann/update-button-radius`.
+
+When you are satisfied with the changes you made, request a review from the [direct responsible individual](https://github.com/primer/figma/blob/main/CONTRIBUTION.md#contribute-new-components-or-updates) (DRI) of the file. If you are not sure who that is, reach out in the #primer-figma slack channel.
+
+Once your branch is approved, a maintainer will take care of merging and publishing the changes to the library.
+
+We use this process to make sure no accidental changes get added to the library. It also allows us to better track changes added by a branch. Think of it as a repo that does not allow direct pushes to the main branch.
+
+<ImageBox caption="Select “Create branch...” from the dropdown or via the command palette">
+  <img
+    width="410"
+    alt="Screenshot showing how to create a branch in figma"
+    src={createBranchImg}
+  />
+</ImageBox>
+
+<ImageBox caption="Name your branch “@username/changes-being-made”" paddingX>
+  <img
+    width="293"
+    alt="Screenshot showing the create branch dialog in figma"
+    src={createBranchDialogImg}
+  />
+</ImageBox>
+
+<ImageBox caption="When you are done request a review to get your changes merged.">
+  <img
+    width="730"
+    alt="Screenshot showing the request review option in figma"
+    src={requestReviewImg}
+  />
+</ImageBox>
+
+<ImageBox caption="Select the DRI for the file to review. Reach out in the internal #primer-figma channel if you are not sure who to add." paddingX>
+  <img
+    width="568"
+    alt="Screenshot showing the merge dialog in figma"
+    src={mergeDialogImg}
+  />
+</ImageBox>
+
+<ImageBox caption="Add a detailed message describe what you changed and why." paddingX>
+  <img
+    width="506"
+    alt="Screenshot showing the request review text dialog in figma"
+    src={requestDialogImg}
+  />
+</ImageBox>
