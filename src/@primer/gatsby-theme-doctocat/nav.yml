@@ -12,9 +12,9 @@
         - title: Introduction
           url: /guides/figma
         - title: Getting started
-          url: /figma/getting-started
+          url: /guides/figma/getting-started
         - title: Components
-          url: /figma/components
+          url: /guides/figma/components
         - title: How to contribute
           url: /guides/figma/contribute
     - title: Component lifecycle

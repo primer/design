@@ -1,0 +1,73 @@
+---
+title: Getting started
+---
+
+import {Box} from '@primer/react'
+import {ImageContainer, Caption} from '@primer/gatsby-theme-doctocat'
+import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
+
+import publishLib from '../../../src/images/figma/publish-to-your-figma-instance.png'
+import enableLib from '../../../src/images/figma/enable-lib.png'
+import availableLib from '../../../src/images/figma/available-lib.png'
+import breakingChanges from '../../../src/images/figma/breaking-changes.png'
+
+Primer Web is the Figma library of UI components that our team’s at GitHub use to design for experience for GitHub. The components contained within Primer Web match with what is available for developers in [Primer React Components](https://primer.style/react/), [Primer ViewComponents](https://primer.style/view-components/), and [Primer CSS framework](https://primer.style/css/).
+
+Design patterns are documented in [Primer’s interface guidelines](https://primer.style/design/).
+
+## How to use
+
+To use Primer Web, publish, if not already available in your list of libraries, and enable from the Assets tab.
+
+<Box display="flex" mb={4} flexDirection="column">
+  <Box display="flex" bg="neutral.subtle" paddingTop={4} borderRadius={10} justifyContent="center">
+    <img width="50%" alt="Screenshot of the how to publish to your Figma instance" src={publishLib} />
+  </Box>
+  <Caption>Publish to your Figma instance</Caption>
+</Box>
+
+<Box display="flex" mb={4} flexDirection="column">
+  <Box display="flex" bg="neutral.subtle" paddingTop={4} borderRadius={10} justifyContent="center">
+    <img width="50%" alt="Screenshot of how to enable the Primer Web library in Figma" src={enableLib} />
+  </Box>
+  <Caption>Enable the Primer Web library</Caption>
+</Box>
+
+<Box display="flex" mb={4} flexDirection="column">
+  <Box display="flex" bg="neutral.subtle" paddingTop={4} borderRadius={10} justifyContent="center">
+    <img
+      width="50%"
+      alt="Screenshot of how it looks when the Primer Web library is available in Figma"
+      src={availableLib}
+    />
+  </Box>
+  <Caption>🎉 Primer Web is now available to use in your work</Caption>
+</Box>
+
+## Breaking changes
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+  <Box flex={1}>
+    <p>
+      Breaking changes involve a component being either fully reconstructed or a change in its properties. To mitigate
+      these changes, Primer will release new updated components alongside the legacy components under the same name.
+    </p>
+    <p>
+      Legacy components will have the tag <InlineCode>[DEPRECATED]</InlineCode> added to the component name as well as a
+      deprecation notice in the component description.
+    </p>
+  </Box>
+  <Box flex={1.5} display="flex" mb={4} flexDirection="column">
+    <Box display="flex" bg="neutral.subtle" paddingY={4} paddingX={3} borderRadius={10} justifyContent="center">
+      <img alt="Screenshot of how to mark deprecated components in figma" src={breakingChanges} />
+    </Box>
+  </Box>
+</Box>
+
+## Contributing to Primer Web
+
+Members of GitHub are invited to contribute to Primer Web. When making any additions or changes, please create a branch from Primer Web and name it `@username/changes-being-made`. Example: @mona/add-new-component.
+
+### Authoring components
+
+At GitHub, we have created a set of guidelines that contributors and maintainers can reference when creating and updating components. These guidelines are available to read at our open source repository. [Read the authoring guidelines](https://github.com/primer/figma/blob/main/docs/authoring-components.md)

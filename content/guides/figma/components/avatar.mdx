@@ -1,0 +1,37 @@
+---
+title: Avatar
+---
+
+import {Overview, PropertyOverview, PropertyPreview, Examples} from '../../../../src/figma/FigmaPrimerWeb'
+
+<Overview component="avatar" />
+
+**Avatars** are images that users can set as their profile picture. On GitHub, they're always going to be rounded squares. They can be custom photos, uploaded by users, or generated as Identicons as a placeholder. Use to visually identify a human (circle), or other entity (square) such as an organization, bot, or team.
+
+## Playground
+
+<Examples component="avatar" />
+
+## Props
+
+<PropertyOverview component="avatar" />
+
+## Examples
+
+### Size
+
+Use the `size` prop to set the size of the avatar. The default size is 20px.
+
+<PropertyPreview component="avatar" property="size" />
+
+### Square
+
+Square allows you to use a square avatar instead of a circle. This is useful to represent organizations, bots, and teams.
+
+<PropertyPreview component="avatar" property="square" />
+
+### Stackable
+
+Stackable allows you to stack multiple avatars on top of each other. This is useful to represent multiple users in a single avatar.
+
+<PropertyPreview component="avatar" property="stackable [DEPRECATED]" setProperties={{size: '20px'}} />
