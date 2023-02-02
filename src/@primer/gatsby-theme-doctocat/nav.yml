@@ -12,13 +12,39 @@
         - title: Introduction
           url: /guides/figma
         - title: Getting started
-          url: /figma/getting-started
-        - title: How to contribute
-          url: /guides/figma/contribute
+          url: /guides/figma/getting-started
         - title: Components
           url: /figma/components
+        - title: How to contribute
+          url: /guides/figma/contribute
     - title: Component lifecycle
       url: /guides/component-lifecycle
+    - title: Accessibility
+      children:
+        - title: Accessibility at GitHub
+          url: /guides/accessibility/accessibility-at-github
+        - title: Guidelines
+          url: /guides/accessibility/guidelines
+        - title: Tools
+          url: /guides/accessibility/tools
+        - title: Alternative text for images
+          url: /guides/accessibility/alternative-text-for-images
+        - title: Assistive technology announcements
+          url: /guides/accessibility/announcements
+        - title: Descriptive buttons
+          url: /guides/accessibility/descriptive-buttons
+        - title: Focus management
+          url: /guides/accessibility/focus-management
+        - title: Headings
+          url: /guides/accessibility/headings
+        - title: Links
+          url: /guides/accessibility/links
+        - title: Semantic HTML
+          url: /guides/accessibility/semantic-html
+        - title: Text resize and respacing
+          url: /guides/accessibility/text-resize-and-respacing
+        - title: Tooltip alternatives
+          url: /guides/accessibility/tooltip-alternatives
     - title: Contribute
       url: /guides/contribute
       children:
@@ -34,36 +60,37 @@
       url: /foundations/color
     - title: Responsive
       url: /foundations/responsive
+    - title: CSS utilities
+      url: /foundations/css-utilities
+      children:
+        - title: Getting started
+          url: /foundations/css-utilities/getting-started
+        - title: Animations
+          url: /foundations/css-utilities/animations
+        - title: Borders
+          url: /foundations/css-utilities/borders
+        - title: Box shadow
+          url: /foundations/css-utilities/box-shadow
+        - title: Colors
+          url: /foundations/css-utilities/colors
+        - title: Details
+          url: /foundations/css-utilities/details
+        - title: Flexbox
+          url: /foundations/css-utilities/flexbox
+        - title: Grid
+          url: /foundations/css-utilities/grid
+        - title: Layout
+          url: /foundations/css-utilities/layout
+        - title: Margin
+          url: /foundations/css-utilities/margin
+        - title: Padding
+          url: /foundations/css-utilities/padding
+        - title: Typography
+          url: /foundations/css-utilities/typography
     - title: Layout
       url: /foundations/layout
     - title: Typography
       url: /foundations/typography
-- title: Accessibility
-  children:
-    - title: Accessibility at GitHub
-      url: /accessibility/accessibility-at-github
-    - title: Guidelines
-      url: /accessibility/guidelines
-    - title: Tools
-      url: /accessibility/tools
-    - title: Alternative text for images
-      url: /accessibility/alternative-text-for-images
-    - title: Assistive technology announcements
-      url: /accessibility/announcements
-    - title: Descriptive buttons
-      url: /accessibility/descriptive-buttons
-    - title: Focus management
-      url: /accessibility/focus-management
-    - title: Headings
-      url: /accessibility/headings
-    - title: Links
-      url: /accessibility/links
-    - title: Semantic HTML
-      url: /accessibility/semantic-html
-    - title: Text resize and respacing
-      url: /accessibility/text-resize-and-respacing
-    - title: Tooltip alternatives
-      url: /accessibility/tooltip-alternatives
 - title: UI patterns
   children:
     - title: Button usage
@@ -82,6 +109,10 @@
       url: /ui-patterns/progressive-disclosure
     - title: Saving
       url: /ui-patterns/saving
+- title: Status
+  children:
+    - title: Component status
+      url: /status
 - title: Components
   children:
     - title: Action bar
@@ -131,4 +162,26 @@
     - title: Tokens
       url: /components/tokens
     - title: Tree view
-      url: /components/treeview
+      url: /components/tree-view
+- title: Native
+  children:
+    - title: CLI
+      children:
+        - title: Getting started
+          url: /native/cli/getting-started
+        - title: Foundations
+          url: /native/cli/foundations
+        - title: Components
+          url: /native/cli/components
+    - title: Desktop
+      children:
+        - title: Getting started
+          url: /native/desktop/getting-started
+        - title: Foundations
+          url: /native/desktop/foundations
+    - title: Mobile
+      children:
+        - title: Platforms
+          url: /native/mobile/platforms
+        - title: Foundations
+          url: /native/mobile/foundations

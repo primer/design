@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "gatsby develop",
+    "clean": "gatsby clean",
     "build": "gatsby build --prefix-paths",
     "build:preview": "gatsby build",
     "now-build": "yarn build",
@@ -11,18 +12,22 @@
     "markdownlint": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!.github\" \"!node_modules\""
   },
   "dependencies": {
-    "@github/prettier-config": "^0.0.4",
-    "@primer/gatsby-theme-doctocat": "^4.3.0",
+    "@github/prettier-config": "^0.0.6",
+    "@primer/component-metadata": "^0.5.1",
+    "@primer/gatsby-theme-doctocat": "^4.4.0",
     "@primer/octicons-react": "^17.3.0",
     "@primer/react": "^35.16.0",
+    "@tanstack/react-query": "^4.23.0",
     "eslint": "^8.21.0",
     "eslint-plugin-github": "^4.3.7",
     "gatsby": "^3.7.2",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-postcss": "^4.14.0",
     "gatsby-plugin-typescript": "^2.12.1",
+    "gatsby-plugin-styled-components": "^3.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "styled-components": "^4.2.0",
     "yarn": "^1.22.18"
   },
   "devDependencies": {
@@ -35,5 +40,6 @@
   "resolutions": {
     "sharp": "0.29.3"
   },
-  "private": true
+  "private": true,
+  "prettier": "@github/prettier-config"
 }
