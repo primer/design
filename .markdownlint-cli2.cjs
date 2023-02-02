@@ -10,13 +10,12 @@ const options = githubMarkdownOpinions.init({
   'no-trailing-punctuation': false,
   'single-trailing-newline': false,
   'ul-indent': false,
-  'no-hard-tabs': false
+  'no-hard-tabs': false,
+  'first-line-heading': false,
 })
 
 module.exports = {
   config: options,
-  customRules: ["@github/markdownlint-github"],
-  outputFormatters: [
-    [ "markdownlint-cli2-formatter-pretty", { "appendLink": true } ]
-  ]
+  customRules: ['@github/markdownlint-github'],
+  outputFormatters: [['markdownlint-cli2-formatter-pretty', {appendLink: true}]],
 }
