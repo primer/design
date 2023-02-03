@@ -155,6 +155,8 @@
       url: /components/form-control
     - title: Header
       url: /components/header
+    - title: Heading
+      url: /components/heading
     - title: Icon
       url: /components/icon
     - title: Segmented control
