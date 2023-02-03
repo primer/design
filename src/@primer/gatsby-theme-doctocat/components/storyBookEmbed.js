@@ -3,7 +3,7 @@ import {ActionMenu, ActionList, Link, Box, ThemeProvider} from '@primer/react'
 
 const baseUrls = {
   react: 'https://primer.style/react/storybook/',
-  css: 'https://primer.style/css/storybook/'
+  css: 'https://primer.style/css/storybook/',
 }
 
 export function StorybookEmbed({framework = 'react', componentId, stories, height = '250'}) {
@@ -15,8 +15,8 @@ export function StorybookEmbed({framework = 'react', componentId, stories, heigh
     shortcuts: false,
     singleStory: Object.entries(stories).length <= 1,
     panel: false,
-    globals: `colorScheme:${colorScheme}`,
-    viewMode: 'story'
+    globals: `theme:${colorScheme}`,
+    viewMode: 'story',
   }
 
   const url = `${base}/iframe.html?${new URLSearchParams(options)}`
@@ -37,7 +37,7 @@ export function StorybookEmbed({framework = 'react', componentId, stories, heigh
         marginBottom={0}
         padding={3}
         sx={{
-          gap: 2
+          gap: 2,
         }}
       >
         {!options.singleStory && (
