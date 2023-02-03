@@ -1,5 +1,5 @@
 import React from 'react'
-import {ActionMenu, ActionList, Link, Box} from '@primer/react'
+import {ActionMenu, ActionList, Link, Box, ThemeProvider} from '@primer/react'
 
 const baseUrls = {
   react: 'https://primer.style/react/storybook/',
@@ -22,7 +22,7 @@ export function StorybookEmbed({framework = 'react', componentId, stories, heigh
   const url = `${base}/iframe.html?${new URLSearchParams(options)}`
 
   return (
-    <>
+    <ThemeProvider>
       <Box
         backgroundColor={'canvas.inset'}
         borderRadius="2"
@@ -40,7 +40,7 @@ export function StorybookEmbed({framework = 'react', componentId, stories, heigh
           gap: 2
         }}
       >
-        {!options.singleStory &&
+        {!options.singleStory && (
           <ActionMenu>
             <ActionMenu.Button>Demo: {stories[story].name}</ActionMenu.Button>
             <ActionMenu.Overlay>
@@ -53,11 +53,10 @@ export function StorybookEmbed({framework = 'react', componentId, stories, heigh
               </ActionList>
             </ActionMenu.Overlay>
           </ActionMenu>
-        }
+        )}
 
         <ActionMenu>
           <ActionMenu.Button>Theme: {colorScheme}</ActionMenu.Button>
-
           <ActionMenu.Overlay>
             <ActionList selectionVariant="single">
               <ActionList.Item selected={colorScheme === 'light'} onSelect={() => setColorScheme('light')}>
@@ -96,6 +95,7 @@ export function StorybookEmbed({framework = 'react', componentId, stories, heigh
             </ActionList>
           </ActionMenu.Overlay>
         </ActionMenu>
+
         <Link
           href={`${base}?path=/story/${componentId}--${story}&${new URLSearchParams({globals: options.globals})}`}
           target="_blank"
@@ -119,7 +119,7 @@ export function StorybookEmbed({framework = 'react', componentId, stories, heigh
         width="100%"
         height={height}
       ></Box>
-    </>
+    </ThemeProvider>
   )
 }
 
