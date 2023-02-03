@@ -15,7 +15,7 @@ export function StorybookEmbed({framework = 'react', componentId, stories, heigh
     shortcuts: false,
     singleStory: Object.entries(stories).length <= 1,
     panel: false,
-    globals: `colorScheme:${colorScheme}`,
+    globals: `theme:${colorScheme}`,
     viewMode: 'story'
   }
 
@@ -57,7 +57,6 @@ export function StorybookEmbed({framework = 'react', componentId, stories, heigh
 
         <ActionMenu>
           <ActionMenu.Button>Theme: {colorScheme}</ActionMenu.Button>
-
           <ActionMenu.Overlay>
             <ActionList selectionVariant="single">
               <ActionList.Item selected={colorScheme === 'light'} onSelect={() => setColorScheme('light')}>
@@ -96,6 +95,7 @@ export function StorybookEmbed({framework = 'react', componentId, stories, heigh
             </ActionList>
           </ActionMenu.Overlay>
         </ActionMenu>
+
         <Link
           href={`${base}?path=/story/${componentId}--${story}&${new URLSearchParams({globals: options.globals})}`}
           target="_blank"
