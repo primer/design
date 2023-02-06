@@ -1,3 +1,5 @@
+const path = require('path')
+const icons = require('@primer/octicons-react/build/data.json')
 const defines = require('./babel-defines')
 
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
@@ -11,13 +13,36 @@ exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
     ...config.resolve,
     alias: {
       ...config.resolve.alias,
-      path: require.resolve('path-browserify'),
+      path: require.resolve('path-browserify')
     },
     fallback: {
       ...config.resolve.fallback,
-      fs: false,
-    },
+      fs: false
+    }
   }
 
   actions.replaceWebpackConfig(config)
+}
+
+exports.createPages = async ({actions}) => {
+  const iconPageTemplate = path.resolve(__dirname, 'src/layouts/icon-page.js')
+
+  for (const icon of Object.values(icons)) {
+    for (const [height, data] of Object.entries(icon.heights)) {
+      actions.createPage({
+        path: `/foundations/icons/${icon.name}-${height}`,
+        component: iconPageTemplate,
+        context: {
+          name: icon.name,
+          keywords: icon.keywords,
+          width: data.width,
+          height: parseInt(height, 10),
+          // We're calling this field `svgPath` because
+          // `path` is a reserved field name.
+          svgPath: data.path,
+          heights: Object.keys(icon.heights)
+        }
+      })
+    }
+  }
 }
