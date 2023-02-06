@@ -15,7 +15,7 @@ export function StorybookEmbed({framework = 'react', componentId, stories, heigh
     shortcuts: false,
     singleStory: Object.entries(stories).length <= 1,
     panel: false,
-    globals: `theme:${colorScheme}`,
+    globals: framework === 'css' ? `{"theme":"${colorScheme}"}` : `{"colorScheme":"${colorScheme}"}`,
     viewMode: 'story',
   }
 
