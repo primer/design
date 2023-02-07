@@ -1,26 +1,30 @@
 import {H2} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import {SearchIcon} from '@primer/octicons-react'
-import icons from '@primer/octicons-react/build/data.json'
 import {Box, Link, TextInput} from '@primer/react'
-import {Link as GatsbyLink} from 'gatsby'
+import {graphql, Link as GatsbyLink, useStaticQuery} from 'gatsby'
 import React from 'react'
 import Icon from './icon'
 import useSearch from './use-search'
 
 export default function Icons() {
+  const data = useStaticQuery(graphql`
+    query {
+      allOcticon {
+        nodes {
+          name
+          keywords
+          width
+          height
+          svgPath
+        }
+      }
+    }
+  `)
+
   const [query, setQuery] = React.useState('')
-  const iconsArray = React.useMemo(() => {
-    return Object.values(icons).flatMap(icon =>
-      Object.entries(icon.heights).map(([height, value]) => ({
-        name: icon.name,
-        keywords: icon.keywords,
-        width: value.width,
-        height,
-        path: value.path,
-      })),
-    )
-  }, [icons])
-  const results = useSearch(iconsArray, query, {keys: ['name', 'keywords']})
+
+  const results = useSearch(data.allOcticon.nodes, query, {keys: ['name', 'keywords']})
+
   // group icons by height property
   const iconsByHeight = React.useMemo(
     () =>
@@ -65,7 +69,7 @@ export default function Icons() {
                     to={`${icon.name}-${icon.height}`}
                   >
                     <Box display="flex">
-                      <Icon width={icon.width} height={icon.height} path={icon.path} />
+                      <Icon width={icon.width} height={icon.height} path={icon.svgPath} />
                     </Box>
                   </Link>
                 ))}
