@@ -54,11 +54,7 @@ export default function Icons() {
           placeholder="Search icons..."
           width="100%"
         />
-        <Link
-          muted
-          sx={{fontSize: 1}}
-          href={`https://github.com/primer/octicons/releases/${data.octiconsVersion.version}`}
-        >
+        <Link muted sx={{fontSize: 1}} href={`https://github.com/primer/octicons/releases`}>
           v{data.octiconsVersion.version}
         </Link>
       </Box>
