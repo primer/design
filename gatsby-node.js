@@ -13,36 +13,76 @@ exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
     ...config.resolve,
     alias: {
       ...config.resolve.alias,
-      path: require.resolve('path-browserify')
+      path: require.resolve('path-browserify'),
     },
     fallback: {
       ...config.resolve.fallback,
-      fs: false
-    }
+      fs: false,
+    },
   }
 
   actions.replaceWebpackConfig(config)
 }
 
-exports.createPages = async ({actions}) => {
-  const iconPageTemplate = path.resolve(__dirname, 'src/layouts/icon-page.js')
-
+exports.sourceNodes = ({actions, createNodeId, createContentDigest}) => {
+  // TODO: Fetch latest version Octicons from npm
   for (const icon of Object.values(icons)) {
     for (const [height, data] of Object.entries(icon.heights)) {
-      actions.createPage({
-        path: `/foundations/icons/${icon.name}-${height}`,
-        component: iconPageTemplate,
-        context: {
-          name: icon.name,
-          keywords: icon.keywords,
-          width: data.width,
-          height: parseInt(height, 10),
-          // We're calling this field `svgPath` because
-          // `path` is a reserved field name.
-          svgPath: data.path,
-          heights: Object.keys(icon.heights)
-        }
-      })
+      const nodeData = {
+        name: icon.name,
+        keywords: icon.keywords,
+        width: data.width,
+        height: parseInt(height, 10),
+        // We're calling this field `svgPath` because
+        // `path` is a reserved field name.
+        svgPath: data.path,
+        heights: Object.keys(icon.heights),
+      }
+
+      const newNode = {
+        ...nodeData,
+        id: createNodeId(`icon-${icon.name}-${height}`),
+        internal: {
+          type: 'Octicon',
+          contentDigest: createContentDigest(nodeData),
+        },
+      }
+
+      actions.createNode(newNode)
     }
+  }
+}
+
+exports.createPages = async ({actions, graphql}) => {
+  const {data} = await graphql(`
+    {
+      allOcticon {
+        nodes {
+          name
+          keywords
+          width
+          height
+          svgPath
+          heights
+        }
+      }
+    }
+  `)
+
+  const iconPageTemplate = path.resolve(__dirname, 'src/layouts/icon-page.js')
+
+  for (const icon of data.allOcticon.nodes) {
+    actions.createPage({
+      path: `/foundations/icons/${icon.name}-${icon.height}`,
+      component: iconPageTemplate,
+      context: {
+        name: icon.name,
+        keywords: icon.keywords,
+        width: icon.width,
+        height: icon.height,
+        svgPath: icon.svgPath,
+        heights: icon.heights,
+      },
+    })
   }
 }
