@@ -1,6 +1,6 @@
 import {H2} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import {SearchIcon} from '@primer/octicons-react'
-import {Box, Link, TextInput} from '@primer/react'
+import {Box, Label, Link, Text, TextInput} from '@primer/react'
 import {graphql, Link as GatsbyLink, useStaticQuery} from 'gatsby'
 import React from 'react'
 import Icon from './icon'
@@ -9,6 +9,9 @@ import useSearch from './use-search'
 export default function Icons() {
   const data = useStaticQuery(graphql`
     query {
+      octiconsVersion {
+        version
+      }
       allOcticon {
         nodes {
           name
@@ -40,15 +43,25 @@ export default function Icons() {
   )
 
   return (
-    <Box display="grid" gridGap={5}>
-      <TextInput
-        leadingVisual={SearchIcon}
-        aria-label="Search"
-        value={query}
-        onChange={event => setQuery(event.target.value)}
-        placeholder="Search icons..."
-        width="100%"
-      />
+    <Box display="grid" gridGap={4}>
+      <Box display="grid" gridGap={2}>
+        <TextInput
+          size="large"
+          leadingVisual={SearchIcon}
+          aria-label="Search"
+          value={query}
+          onChange={event => setQuery(event.target.value)}
+          placeholder="Search icons..."
+          width="100%"
+        />
+        <Link
+          muted
+          sx={{fontSize: 1}}
+          href={`https://github.com/primer/octicons/releases/${data.octiconsVersion.version}`}
+        >
+          v{data.octiconsVersion.version}
+        </Link>
+      </Box>
       {Object.entries(iconsByHeight).length > 0
         ? Object.entries(iconsByHeight).map(([height, icons]) => (
             <Box key={height}>

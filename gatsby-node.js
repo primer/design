@@ -1,6 +1,6 @@
 const path = require('path')
-const icons = require('@primer/octicons-react/build/data.json')
 const defines = require('./babel-defines')
+const fetch = require('node-fetch')
 
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   const config = getConfig()
@@ -24,9 +24,35 @@ exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   actions.replaceWebpackConfig(config)
 }
 
-exports.sourceNodes = ({actions, createNodeId, createContentDigest}) => {
-  // TODO: Fetch latest version Octicons from npm
-  for (const icon of Object.values(icons)) {
+exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
+  // Save the current version of Octicons to the GraphQL store.
+  // This will be the latest version at the time the site is built.
+  // If a new version is released, we'll need to rebuild the site.
+  const {version} = await fetch('https://unpkg.com/@primer/octicons/package.json').then(res => res.json())
+
+  // TODO: Handle fetch error
+
+  const nodeData = {
+    version,
+  }
+
+  const newNode = {
+    ...nodeData,
+    id: createNodeId('octicons-version'),
+    internal: {
+      type: 'OcticonsVersion',
+      contentDigest: createContentDigest(nodeData),
+    },
+  }
+
+  actions.createNode(newNode)
+
+  // Save the icon data to the GraphQL store
+  const octiconData = await fetch('https://unpkg.com/@primer/octicons/build/data.json').then(res => res.json())
+
+  // TODO: Handle fetch error
+
+  for (const icon of Object.values(octiconData)) {
     for (const [height, data] of Object.entries(icon.heights)) {
       const nodeData = {
         name: icon.name,
