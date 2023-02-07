@@ -90,7 +90,7 @@
     - title: Icons
       url: /foundations/icons
       children:
-        - title: Icon overview
+        - title: Overview
           url: /foundations/icons
         - title: Design guidelines
           url: /foundations/icons/design-guidelines
