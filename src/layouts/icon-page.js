@@ -3,17 +3,18 @@ import {Container, Head, Header, Sidebar} from '@primer/gatsby-theme-doctocat'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import Paragraph from '@primer/gatsby-theme-doctocat/src/components/paragraph'
-// import blobStream from 'blob-stream'
 import copy from 'copy-to-clipboard'
 import download from 'downloadjs'
 import {Link as GatsbyLink} from 'gatsby'
-import PDFDocument from 'pdfkit/js/pdfkit.standalone'
 import React from 'react'
-import svgToPdf from 'svg-to-pdfkit'
 import Icon from '../components/icon'
 import IconViewer from '../components/icon-viewer'
 import UIExamples16 from '../components/ui-examples-16'
 import UIExamples24 from '../components/ui-examples-24'
+import {jsPDF} from 'jspdf'
+import 'svg2pdf.js'
+
+const doc = new jsPDF()
 
 const toPascalCase = str =>
   (str.match(/[a-zA-Z0-9]+/g) || []).map(w => `${w.charAt(0).toUpperCase()}${w.slice(1)}`).join('')
@@ -30,7 +31,9 @@ export default function IconPage({pageContext}) {
   const [pdf, setPdf] = React.useState(null)
 
   React.useEffect(() => {
-    // getPdf(icon).then(blob => setPdf(blob))
+    if (typeof document !== "undefined") {
+      getPdf(icon).then(blob => setPdf(blob))
+    }
   }, [pageContext])
 
   const [copied, setCopied] = React.useState(false)
@@ -148,20 +151,19 @@ function UIExamples({size, icon}) {
   }
 }
 
-function getSvg(icon) {
-  // eslint-disable-next-line github/unescaped-html-literal
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${icon.width} ${icon.height}" width="${icon.width}" height="${icon.height}">${icon.path}</svg>`
+const getSvg = icon => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${icon.width} ${icon.height}" width="${icon.width}" height="${icon.height}">${icon.path}</svg>`
+
+const getSvgElement = icon => {
+  const tempSvg = document.createElement('div')
+  tempSvg.innerHTML = getSvg(icon)
+  return tempSvg.querySelector('svg')
 }
 
-// function getPdf(icon) {
-//   const svg = getSvg(icon)
-//   return new Promise(resolve => {
-//     const doc = new PDFDocument({size: [icon.width, icon.height]})
-//     const stream = doc.pipe(blobStream())
-//     svgToPdf(doc, svg, 0, 0, {assumePt: true})
-//     doc.end()
-//     stream.on('finish', function () {
-//       resolve(stream.toBlob('application/pdf'))
-//     })
-//   })
-// }
+const getPdf = icon => doc
+  .svg(getSvgElement(icon), {
+    x: 0,
+    y: 0,
+    width: icon.width,
+    height: icon.height
+  })
+  .then(() => doc.output('blob', `${icon.name}.pdf`))

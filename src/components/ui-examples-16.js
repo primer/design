@@ -35,7 +35,7 @@ export default function UIExamples16({icon: Icon}) {
             </Timeline.Body>
           </Timeline.Item>
         </Timeline>
-        <Box displa={"flex"} flexWrap={'wrap'} sx={{gap: 2}}>
+        <Box display={"flex"} flexWrap={'wrap'} sx={{gap: 2}}>
           <Button>
             <Icon />
             <Text ml={2} contentEditable>
