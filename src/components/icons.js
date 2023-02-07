@@ -32,7 +32,7 @@ export default function Icons() {
   return (
     <Box display={"grid"} gridGap={5}>
       <TextInput
-        icon={SearchIcon}
+        leadingVisual={SearchIcon}
         aria-label="Search"
         value={query}
         onChange={event => setQuery(event.target.value)}
