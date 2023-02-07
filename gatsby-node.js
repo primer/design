@@ -28,9 +28,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   // Save the current version of Octicons to the GraphQL store.
   // This will be the latest version at the time the site is built.
   // If a new version is released, we'll need to rebuild the site.
-  const {version} = await fetch('https://unpkg.com/@primer/octicons/package.json').then(res => res.json())
-
-  // TODO: Handle fetch error
+  const {version} = await fetch('https://unpkg.com/@primer/octicons/package.jso').then(res => res.json())
 
   const nodeData = {
     version,
@@ -49,8 +47,6 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
 
   // Save the icon data to the GraphQL store
   const octiconData = await fetch('https://unpkg.com/@primer/octicons/build/data.json').then(res => res.json())
-
-  // TODO: Handle fetch error
 
   for (const icon of Object.values(octiconData)) {
     for (const [height, data] of Object.entries(icon.heights)) {
