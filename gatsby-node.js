@@ -28,7 +28,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   // Save the current version of Octicons to the GraphQL store.
   // This will be the latest version at the time the site is built.
   // If a new version is released, we'll need to rebuild the site.
-  const {version} = await fetch('https://unpkg.com/@primer/octicons/package.jso').then(res => res.json())
+  const {version} = await fetch('https://unpkg.com/@primer/octicons/package.json').then(res => res.json())
 
   const nodeData = {
     version,
