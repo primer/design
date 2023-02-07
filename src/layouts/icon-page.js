@@ -1,4 +1,4 @@
-import {Box, Breadcrumb, Button, Heading, TabNav, Text} from '@primer/react'
+import {Box, Breadcrumbs, Button, Heading, TabNav, Text, Link} from '@primer/react'
 import {Container, Head, Header, Sidebar} from '@primer/gatsby-theme-doctocat'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
@@ -13,7 +13,6 @@ import UIExamples16 from '../components/ui-examples-16'
 import UIExamples24 from '../components/ui-examples-24'
 import 'svg2pdf.js'
 
-
 const toPascalCase = str =>
   (str.match(/[a-zA-Z0-9]+/g) || []).map(w => `${w.charAt(0).toUpperCase()}${w.slice(1)}`).join('')
 
@@ -23,13 +22,13 @@ export default function IconPage({pageContext}) {
     keywords: pageContext.keywords,
     width: pageContext.width,
     height: pageContext.height,
-    path: pageContext.svgPath
+    path: pageContext.svgPath,
   }
   const svg = getSvg(icon)
   const [pdf, setPdf] = React.useState(null)
 
   React.useEffect(() => {
-    if (typeof document !== "undefined") {
+    if (typeof document !== 'undefined') {
       getPdf(icon).then(blob => setPdf(blob))
     }
   }, [pageContext])
@@ -47,28 +46,27 @@ export default function IconPage({pageContext}) {
   return (
     <Box flexDirection="column" minHeight="100vh">
       <Head title={pageContext.name} />
-
       <Header />
-      <Box display={"flex"} flex="1 1 auto" flexDirection="row" css={{zIndex: 0}}>
+      <Box display="flex" flex="1 1 auto" flexDirection="row" css={{zIndex: 0}}>
         <Box display={['none', null, null, 'block']}>
           <Sidebar />
         </Box>
         <Container>
-          <Breadcrumb>
-            <Breadcrumb.Item as={GatsbyLink} to="/foundations/icons/">
+          <Breadcrumbs>
+            <Breadcrumbs.Item as={GatsbyLink} to="/foundations/icons/">
               Octicons
-            </Breadcrumb.Item>
-            <Breadcrumb.Item as={GatsbyLink} to={`/${icon.name}-${icon.height}`} selected>
+            </Breadcrumbs.Item>
+            <Breadcrumbs.Item as={GatsbyLink} to={`/${icon.name}-${icon.height}`} selected>
               {icon.name}
-            </Breadcrumb.Item>
-          </Breadcrumb>
+            </Breadcrumbs.Item>
+          </Breadcrumbs>
           <Heading as="h1" mt={2} mb={3}>
             {icon.name}
           </Heading>
           <TabNav
             sx={{
               marginTop: 4,
-              marginBottom: 4
+              marginBottom: 4,
             }}
           >
             {pageContext.heights.map(height => (
@@ -88,7 +86,7 @@ export default function IconPage({pageContext}) {
             <Icon width={icon.width} height={icon.height} path={icon.path} />
           </IconViewer>
 
-          <Box display={"grid"} mt={3} gridGap={3} gridTemplateColumns={[null, 'repeat(3, 1fr)']}>
+          <Box display="grid" mt={3} gridGap={3} gridTemplateColumns={[null, 'repeat(3, 1fr)']}>
             <Button
               onClick={() => {
                 copy(svg)
@@ -105,27 +103,21 @@ export default function IconPage({pageContext}) {
 
           <H2>Usage</H2>
           <Paragraph>
-            You can use the{' '}
-            <GatsbyLink href="https://github.com/primer/octicons/tree/main/lib/octicons_gem">View Component</GatsbyLink>
-            ,{' '}
-            <GatsbyLink href="https://github.com/primer/octicons/tree/main/lib/octicons_jekyll">
-              Jekyll helper
-            </GatsbyLink>
-            , or{' '}
-            <GatsbyLink href="https://github.com/primer/octicons/tree/main/lib/octicons_react">
-              React package
-            </GatsbyLink>{' '}
-            to include Octicons on your site. Below are code examples for each:
+            You can use this icon in{' '}
+            <Link href="https://github.com/primer/octicons/tree/main/lib/octicons_react">React</Link>,{' '}
+            <Link href="https://github.com/primer/octicons/tree/main/lib/octicons_gem">Ruby</Link>, or{' '}
+            <Link href="https://github.com/primer/octicons/tree/main/lib/octicons_jekyll">Jekyll</Link>. Here are code
+            examples for each:
           </Paragraph>
 
-          <H3>Octicon View Component</H3>
+          <H3>React</H3>
+          <Code className="language-jsx">{`<${toPascalCase(pageContext.name)}Icon size={${icon.height}} />`}</Code>
+
+          <H3>ViewComponent</H3>
           <Code>{`<%= render(Primer::OcticonComponent.new(:"${pageContext.name}")) %>`}</Code>
 
           <H3>Jekyll</H3>
           <Code>{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>
-
-          <H3>React</H3>
-          <Code className="language-jsx">{`<${toPascalCase(pageContext.name)}Icon size={${icon.height}} />`}</Code>
 
           <H2>UI examples</H2>
           <UIExamples
@@ -149,7 +141,8 @@ function UIExamples({size, icon}) {
   }
 }
 
-const getSvg = icon => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${icon.width} ${icon.height}" width="${icon.width}" height="${icon.height}">${icon.path}</svg>`
+const getSvg = icon =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${icon.width} ${icon.height}" width="${icon.width}" height="${icon.height}">${icon.path}</svg>`
 
 const getSvgElement = icon => {
   const tempSvg = document.createElement('div')
@@ -158,15 +151,15 @@ const getSvgElement = icon => {
 }
 
 const getPdf = icon => {
-  return import('jspdf').then(jspdf => {
-    const doc = new jspdf.jsPDF()
-    return doc
-    .svg(getSvgElement(icon), {
-      x: 0,
-      y: 0,
-      width: icon.width,
-      height: icon.height
+  return import('jspdf')
+    .then(jspdf => {
+      const doc = new jspdf.jsPDF()
+      return doc.svg(getSvgElement(icon), {
+        x: 0,
+        y: 0,
+        width: icon.width,
+        height: icon.height,
+      })
     })
-  })
-  .then((doc) => doc.output('blob', `${icon.name}.pdf`))
+    .then(doc => doc.output('blob', `${icon.name}.pdf`))
 }
