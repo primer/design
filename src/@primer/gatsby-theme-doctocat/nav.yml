@@ -87,6 +87,13 @@
       url: /foundations/layout
     - title: Typography
       url: /foundations/typography
+    - title: Icons
+      url: /foundations/icons
+      children:
+        - title: Overview
+          url: /foundations/icons
+        - title: Design guidelines
+          url: /foundations/icons/design-guidelines
 - title: UI patterns
   children:
     - title: Button usage
