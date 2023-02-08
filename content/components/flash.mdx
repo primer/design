@@ -14,21 +14,29 @@ These updates are typically not user-initiated but rather alerts that require th
 
 ### Best practices
 
-Use flash alerts sparingly and only when necessary. Flash alerts can disrupt the user experience and should only be used when and where relevant. 
+- Use flash alerts sparingly and only when necessary. Flash alerts can disrupt the user experience and should only be used when and where relevant. 
 
-Though flash alerts don't need to be as concise as a typical Toast message, they should still be direct and not exceed two to three sentences. Don't use headings or multiple type sizes in flash alerts, rely on our default paragraph size instead.
+- Though flash alerts don't need to be as concise as a typical Toast message, they should **be direct and not exceed two to three sentences**. Don't use headings or multiple type sizes in flash alerts, rely on the default paragraph size instead.
 
-Don't show more than one flash alert at a time. 
+- Don't show more than one flash alert at a time. For more information, see this article on [alert fatigue](https://www.nngroup.com/videos/alert-fatigue-user-interfaces/). 
 
-For more information, see this article on [alert fatigue](https://www.nngroup.com/videos/alert-fatigue-user-interfaces/). 
+- They do not typically timeout on their own, but can include a dismiss action for messages that can be closed.
 
 ## Options
 
-default
+### Types
 
-warning
+There are four types of flash banners, each with their own styles: Default, Warning, Danger, and Success. 
 
-danger
+#### Full-width
 
-success
+Full-width can be applied when attaching a banner to a container. It attaches only to the top of a container.
+
+#### Accessories and actions
+
+Banners contain options to add an icon, button, or dismiss button to the content of the alert. 
+
+## Accessibility
+
+The flash component should trigger notifications for users utilizing assistive technology. They should be considered as part of the overall messaging in the product and do not recieve focus (therefore, they do not _require_ a dismiss button). 
 
