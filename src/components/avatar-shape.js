@@ -82,7 +82,7 @@ const ShapeOutline = styled(Link)`
 const AvatarShape = props => (
   <ShapeOutline shape={props.shape} bg={props.bg} {...props}>
     <A className={props.className} shape={props.shape}>
-      <Image src={props.src} $hover={props.hover} />
+      <Image src={props.src} $hover={props.hover} alt={props.name} />
       <Shape shape={props.shape} />
     </A>
   </ShapeOutline>
