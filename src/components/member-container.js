@@ -28,9 +28,8 @@ export default function Member(props) {
 
   return (
     <Box
-      display={'flex'}
+      display="flex"
       pb={12}
-      mx={-10}
       justifyContent="flex-end"
       alignItems={['center', 'center', 'center', 'initial', 'initial']}
       flexDirection={direction(isOdd)}

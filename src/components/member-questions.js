@@ -9,7 +9,9 @@ const MemberMarkdown = ({source, colorName}) => {
       {props.children}
     </Link>
   )
-  return <ReactMarkdown className="markdown" children={source} components={{link}} />
+
+  const trimmedSource = source.replace(/\n */g, '\n')
+  return <ReactMarkdown className="markdown" children={trimmedSource} components={{a: link}} />
 }
 
 const MemberInfo = ({member, colorName}) => {
