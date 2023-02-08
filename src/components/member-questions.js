@@ -45,11 +45,11 @@ const MemberInfo = ({member, colorName}) => {
       </Text>
       {member.cssFeature ? (
         <>
-          <Text fontFamily="mono" color={`${colorName}.4`} as="div" fontSize={3} mt={7} mb={0}>
+          <Text fontFamily="mono" color={color} as="div" fontSize={3} mt={7} mb={0}>
             Favorite CSS feature
           </Text>
           <Text color={`${colorName}.1`} fontSize={3}>
-            <MemberMarkdown source={`\`${member.cssFeature}\``} colorName={colorName} />
+            <MemberMarkdown source={member.cssFeature} colorName={color} />
           </Text>
         </>
       ) : null}

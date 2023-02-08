@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Box} from '@primer/react'
-import MemberQuestions from './Member-questions'
-import AvatarShape from './Avatar-shape'
+import MemberQuestions from './member-questions'
+import AvatarShape from './avatar-shape'
 import {ReactComponent as DotsSVG} from '../images/dots.svg'
 
 const Dots = ({shape}) => {
@@ -30,6 +30,7 @@ export default function Member(props) {
     <Box
       display={'flex'}
       pb={12}
+      mx={-10}
       justifyContent="flex-end"
       alignItems={['center', 'center', 'center', 'initial', 'initial']}
       flexDirection={direction(isOdd)}
