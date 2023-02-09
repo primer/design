@@ -204,201 +204,201 @@ const navItems = [
       },
     ],
   },
-  {
-    title: 'UI patterns',
-    children: [
-      {
-        title: 'Button usage',
-        url: '/ui-patterns/button-usage',
-      },
-      {
-        title: 'Dates and times',
-        url: '/ui-patterns/dates-and-times',
-      },
-      {
-        title: 'Empty states',
-        url: '/ui-patterns/empty-states',
-      },
-      {
-        title: 'Feature onboarding',
-        url: '/ui-patterns/feature-onboarding',
-      },
-      {
-        title: 'Forms',
-        url: '/ui-patterns/forms',
-      },
-      {
-        title: 'Messaging',
-        url: '/ui-patterns/messaging',
-      },
-      {
-        title: 'Progressive disclosure',
-        url: '/ui-patterns/progressive-disclosure',
-      },
-      {
-        title: 'Saving',
-        url: '/ui-patterns/saving',
-      },
-    ],
-  },
-  {
-    title: 'Status',
-    children: [
-      {
-        title: 'Component status',
-        url: '/status',
-      },
-    ],
-  },
-  {
-    title: 'Components',
-    children: [
-      {
-        title: 'Action bar',
-        url: '/components/action-bar',
-      },
-      {
-        title: 'Action list',
-        url: '/components/action-list',
-      },
-      {
-        title: 'Action menu',
-        url: '/components/action-menu',
-      },
-      {
-        title: 'Anchored overlay',
-        url: '/components/anchored-overlay',
-      },
-      {
-        title: 'Autocomplete',
-        url: '/components/autocomplete',
-      },
-      {
-        title: 'Avatar',
-        url: '/components/avatar',
-      },
-      {
-        title: 'Avatar pair',
-        url: '/components/avatar-pair',
-      },
-      {
-        title: 'Avatar stack',
-        url: '/components/avatar-stack',
-      },
-      {
-        title: 'Box',
-        url: '/components/box',
-      },
-      {
-        title: 'Branch name',
-        url: '/components/branch-name',
-      },
-      {
-        title: 'Breadcrumb',
-        url: '/components/breadcrumb',
-      },
-      {
-        title: 'Checkbox',
-        url: '/components/checkbox',
-      },
-      {
-        title: 'Checkbox group',
-        url: '/components/checkbox-group',
-      },
-      {
-        title: 'Comment box',
-        url: '/components/comment-box',
-      },
-      {
-        title: 'Counter label',
-        url: '/components/counter-label',
-      },
-      {
-        title: 'Data table',
-        url: '/components/data-table',
-      },
-      {
-        title: 'Details',
-        url: '/components/details',
-      },
-      {
-        title: 'Dialog',
-        url: '/components/dialog',
-      },
-      {
-        title: 'Filter input',
-        url: '/components/filter-input',
-      },
-      {
-        title: 'Icon',
-        url: '/components/icon',
-      },
-      {
-        title: 'Segmented control',
-        url: '/components/segmented-control',
-      },
-      {
-        title: 'Toggle switch',
-        url: '/components/toggle-switch',
-      },
-      {
-        title: 'Tokens',
-        url: '/components/tokens',
-      },
-      {
-        title: 'Tree view',
-        url: '/components/tree-view',
-      },
-    ],
-  },
-  {
-    title: 'Native',
-    children: [
-      {
-        title: 'CLI',
-        children: [
-          {
-            title: 'Getting started',
-            url: '/native/cli/getting-started',
-          },
-          {
-            title: 'Foundations',
-            url: '/native/cli/foundations',
-          },
-          {
-            title: 'Components',
-            url: '/native/cli/components',
-          },
-        ],
-      },
-      {
-        title: 'Desktop',
-        children: [
-          {
-            title: 'Getting started',
-            url: '/native/desktop/getting-started',
-          },
-          {
-            title: 'Foundations',
-            url: '/native/desktop/foundations',
-          },
-        ],
-      },
-      {
-        title: 'Mobile',
-        children: [
-          {
-            title: 'Platforms',
-            url: '/native/mobile/platforms',
-          },
-          {
-            title: 'Foundations',
-            url: '/native/mobile/foundations',
-          },
-        ],
-      },
-    ],
-  },
+  //   {
+  //     title: 'UI patterns',
+  //     children: [
+  //       {
+  //         title: 'Button usage',
+  //         url: '/ui-patterns/button-usage',
+  //       },
+  //       {
+  //         title: 'Dates and times',
+  //         url: '/ui-patterns/dates-and-times',
+  //       },
+  //       {
+  //         title: 'Empty states',
+  //         url: '/ui-patterns/empty-states',
+  //       },
+  //       {
+  //         title: 'Feature onboarding',
+  //         url: '/ui-patterns/feature-onboarding',
+  //       },
+  //       {
+  //         title: 'Forms',
+  //         url: '/ui-patterns/forms',
+  //       },
+  //       {
+  //         title: 'Messaging',
+  //         url: '/ui-patterns/messaging',
+  //       },
+  //       {
+  //         title: 'Progressive disclosure',
+  //         url: '/ui-patterns/progressive-disclosure',
+  //       },
+  //       {
+  //         title: 'Saving',
+  //         url: '/ui-patterns/saving',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: 'Status',
+  //     children: [
+  //       {
+  //         title: 'Component status',
+  //         url: '/status',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: 'Components',
+  //     children: [
+  //       {
+  //         title: 'Action bar',
+  //         url: '/components/action-bar',
+  //       },
+  //       {
+  //         title: 'Action list',
+  //         url: '/components/action-list',
+  //       },
+  //       {
+  //         title: 'Action menu',
+  //         url: '/components/action-menu',
+  //       },
+  //       {
+  //         title: 'Anchored overlay',
+  //         url: '/components/anchored-overlay',
+  //       },
+  //       {
+  //         title: 'Autocomplete',
+  //         url: '/components/autocomplete',
+  //       },
+  //       {
+  //         title: 'Avatar',
+  //         url: '/components/avatar',
+  //       },
+  //       {
+  //         title: 'Avatar pair',
+  //         url: '/components/avatar-pair',
+  //       },
+  //       {
+  //         title: 'Avatar stack',
+  //         url: '/components/avatar-stack',
+  //       },
+  //       {
+  //         title: 'Box',
+  //         url: '/components/box',
+  //       },
+  //       {
+  //         title: 'Branch name',
+  //         url: '/components/branch-name',
+  //       },
+  //       {
+  //         title: 'Breadcrumb',
+  //         url: '/components/breadcrumb',
+  //       },
+  //       {
+  //         title: 'Checkbox',
+  //         url: '/components/checkbox',
+  //       },
+  //       {
+  //         title: 'Checkbox group',
+  //         url: '/components/checkbox-group',
+  //       },
+  //       {
+  //         title: 'Comment box',
+  //         url: '/components/comment-box',
+  //       },
+  //       {
+  //         title: 'Counter label',
+  //         url: '/components/counter-label',
+  //       },
+  //       {
+  //         title: 'Data table',
+  //         url: '/components/data-table',
+  //       },
+  //       {
+  //         title: 'Details',
+  //         url: '/components/details',
+  //       },
+  //       {
+  //         title: 'Dialog',
+  //         url: '/components/dialog',
+  //       },
+  //       {
+  //         title: 'Filter input',
+  //         url: '/components/filter-input',
+  //       },
+  //       {
+  //         title: 'Icon',
+  //         url: '/components/icon',
+  //       },
+  //       {
+  //         title: 'Segmented control',
+  //         url: '/components/segmented-control',
+  //       },
+  //       {
+  //         title: 'Toggle switch',
+  //         url: '/components/toggle-switch',
+  //       },
+  //       {
+  //         title: 'Tokens',
+  //         url: '/components/tokens',
+  //       },
+  //       {
+  //         title: 'Tree view',
+  //         url: '/components/tree-view',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: 'Native',
+  //     children: [
+  //       {
+  //         title: 'CLI',
+  //         children: [
+  //           {
+  //             title: 'Getting started',
+  //             url: '/native/cli/getting-started',
+  //           },
+  //           {
+  //             title: 'Foundations',
+  //             url: '/native/cli/foundations',
+  //           },
+  //           {
+  //             title: 'Components',
+  //             url: '/native/cli/components',
+  //           },
+  //         ],
+  //       },
+  //       {
+  //         title: 'Desktop',
+  //         children: [
+  //           {
+  //             title: 'Getting started',
+  //             url: '/native/desktop/getting-started',
+  //           },
+  //           {
+  //             title: 'Foundations',
+  //             url: '/native/desktop/foundations',
+  //           },
+  //         ],
+  //       },
+  //       {
+  //         title: 'Mobile',
+  //         children: [
+  //           {
+  //             title: 'Platforms',
+  //             url: '/native/mobile/platforms',
+  //           },
+  //           {
+  //             title: 'Foundations',
+  //             url: '/native/mobile/foundations',
+  //           },
+  //         ],
+  //       },
+  //     ],
+  //   },
 ]
 
 function usePersistentScroll(id) {
