@@ -76,7 +76,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
 }
 
 exports.createPages = async ({actions, graphql}) => {
-  await graphql(`
+  const {data} = await graphql(`
     {
       allOcticon {
         nodes {
