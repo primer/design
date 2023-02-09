@@ -2,7 +2,7 @@ import {Box} from '@primer/react'
 import React from 'react'
 // import navItems from '../nav.yml'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
-import NavItems from './nav-items'
+import NavItems from '@primer/gatsby-theme-doctocat/src/components/nav-items'
 
 function usePersistentScroll(id) {
   const ref = React.useRef()
