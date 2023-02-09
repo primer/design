@@ -1,72 +1,103 @@
-import {LinkExternalIcon} from '@primer/octicons-react'
-import {NavList} from '@primer/react/drafts'
-import {useLocation} from '@reach/router'
-import {Link as GatsbyLink, withPrefix} from 'gatsby'
-import preval from 'preval.macro'
+// import {LinkExternalIcon} from '@primer/octicons-react'
+// import {NavList} from '@primer/react/drafts'
+// import {useLocation} from '@reach/router'
+// import {Link as GatsbyLink, withPrefix} from 'gatsby'
+// import preval from 'preval.macro'
 import React from 'react'
 
 // This code needs to run at build-time so it can access the file system.
-const repositoryUrl = preval`
-  const readPkgUp = require('read-pkg-up')
-  const getPkgRepo = require('get-pkg-repo')
-  try {
-    const repo = getPkgRepo(readPkgUp.sync().package)
-    module.exports = \`https://github.com/\${repo.user}/\${repo.project}\`
-  } catch (error) {
-    module.exports = ''
-  }
-`
+// const repositoryUrl = preval`
+//   const readPkgUp = require('read-pkg-up')
+//   const getPkgRepo = require('get-pkg-repo')
+//   try {
+//     const repo = getPkgRepo(readPkgUp.sync().package)
+//     module.exports = \`https://github.com/\${repo.user}/\${repo.project}\`
+//   } catch (error) {
+//     module.exports = ''
+//   }
+// `
 
-function NavItem({href, children}) {
-  const location = useLocation()
-  const isCurrent = withPrefix(href) === location.pathname
-  return (
-    <NavList.Item as={GatsbyLink} to={href} aria-current={isCurrent ? 'page' : null}>
-      {children}
-    </NavList.Item>
-  )
-}
+// function NavItem({href, children}) {
+//   const location = useLocation()
+//   const isCurrent = withPrefix(href) === location.pathname
+//   return (
+//     <NavList.Item as={GatsbyLink} to={href} aria-current={isCurrent ? 'page' : null}>
+//       {children}
+//     </NavList.Item>
+//   )
+// }
 
 function NavItems({items}) {
   return (
-    <NavList>
-      {items.map(item => (
-        <React.Fragment key={item.title}>
-          {item.children ? (
-            <NavList.Group title={item.title}>
-              {item.children.map(child => (
-                <NavItem key={child.title} href={child.url}>
-                  {child.title}
-                  {child.children ? (
-                    <NavList.SubNav>
-                      {child.children.map(subChild => (
-                        <NavItem key={subChild.title} href={subChild.url}>
-                          {subChild.title}
-                        </NavItem>
-                      ))}
-                    </NavList.SubNav>
-                  ) : null}
-                </NavItem>
-              ))}
-            </NavList.Group>
-          ) : (
-            <NavItem href={item.url}>{item.title}</NavItem>
-          )}
-        </React.Fragment>
-      ))}
-      {repositoryUrl ? (
-        <>
-          <NavList.Divider />
-          <NavList.Item href={repositoryUrl}>
-            GitHub
-            <NavList.TrailingVisual>
-              <LinkExternalIcon />
-            </NavList.TrailingVisual>
-          </NavList.Item>
-        </>
-      ) : null}
-    </NavList>
+    <nav>
+      <ul>
+        {items.map(item => (
+          <React.Fragment key={item.title}>
+            {item.children ? (
+              <li>
+                {item.title}
+                <ul>
+                  {item.children.map(child => (
+                    <li key={child.title}>
+                      {child.title}
+                      {child.children ? (
+                        <ul>
+                          {child.children.map(subChild => (
+                            <li key={subChild.title}>{subChild.title}</li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ) : (
+              <li>{item.title}</li>
+            )}
+          </React.Fragment>
+        ))}
+      </ul>
+    </nav>
   )
+  //   return (
+  //     <NavList>
+  //       {items.map(item => (
+  //         <React.Fragment key={item.title}>
+  //           {item.children ? (
+  //             <NavList.Group title={item.title}>
+  //               {item.children.map(child => (
+  //                 <NavItem key={child.title} href={child.url}>
+  //                   {child.title}
+  //                   {child.children ? (
+  //                     <NavList.SubNav>
+  //                       {child.children.map(subChild => (
+  //                         <NavItem key={subChild.title} href={subChild.url}>
+  //                           {subChild.title}
+  //                         </NavItem>
+  //                       ))}
+  //                     </NavList.SubNav>
+  //                   ) : null}
+  //                 </NavItem>
+  //               ))}
+  //             </NavList.Group>
+  //           ) : (
+  //             <NavItem href={item.url}>{item.title}</NavItem>
+  //           )}
+  //         </React.Fragment>
+  //       ))}
+  //        {repositoryUrl ? (
+  //         <>
+  //           <NavList.Divider />
+  //           <NavList.Item href={repositoryUrl}>
+  //             GitHub
+  //             <NavList.TrailingVisual>
+  //               <LinkExternalIcon />
+  //             </NavList.TrailingVisual>
+  //           </NavList.Item>
+  //         </>
+  //       ) : null}
+  //     </NavList>
+  //   )
 }
 
 export default NavItems
