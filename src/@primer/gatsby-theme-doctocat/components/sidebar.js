@@ -4,6 +4,403 @@ import React from 'react'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import NavItems from '@primer/gatsby-theme-doctocat/src/components/nav-items'
 
+const navItems = [
+  {
+    title: 'Guides',
+    children: [
+      {
+        title: 'Introduction',
+        url: '/guides/introduction',
+      },
+      {
+        title: 'About',
+        url: '/guides/about',
+      },
+      {
+        title: 'Content',
+        url: '/guides/content',
+      },
+      {
+        title: 'The Zen of GitHub',
+        url: '/guides/zen',
+      },
+      {
+        title: 'Figma',
+        url: '/guides/figma',
+        children: [
+          {
+            title: 'Introduction',
+            url: '/guides/figma',
+          },
+          {
+            title: 'How to contribute',
+            url: '/guides/figma/contribute',
+          },
+        ],
+      },
+      {
+        title: 'Component lifecycle',
+        url: '/guides/component-lifecycle',
+      },
+      {
+        title: 'Accessibility',
+        children: [
+          {
+            title: 'Accessibility at GitHub',
+            url: '/guides/accessibility/accessibility-at-github',
+          },
+          {
+            title: 'Guidelines',
+            url: '/guides/accessibility/guidelines',
+          },
+          {
+            title: 'Tools',
+            url: '/guides/accessibility/tools',
+          },
+          {
+            title: 'Alternative text for images',
+            url: '/guides/accessibility/alternative-text-for-images',
+          },
+          {
+            title: 'Assistive technology announcements',
+            url: '/guides/accessibility/announcements',
+          },
+          {
+            title: 'Descriptive buttons',
+            url: '/guides/accessibility/descriptive-buttons',
+          },
+          {
+            title: 'Focus management',
+            url: '/guides/accessibility/focus-management',
+          },
+          {
+            title: 'Headings',
+            url: '/guides/accessibility/headings',
+          },
+          {
+            title: 'Links',
+            url: '/guides/accessibility/links',
+          },
+          {
+            title: 'Semantic HTML',
+            url: '/guides/accessibility/semantic-html',
+          },
+          {
+            title: 'Text resize and respacing',
+            url: '/guides/accessibility/text-resize-and-respacing',
+          },
+          {
+            title: 'Tooltip alternatives',
+            url: '/guides/accessibility/tooltip-alternatives',
+          },
+        ],
+      },
+      {
+        title: 'Contribute',
+        url: '/guides/contribute',
+        children: [
+          {
+            title: 'How to contribute',
+            url: '/guides/contribute/how-to-contribute',
+          },
+          {
+            title: 'Design',
+            url: '/guides/contribute/design',
+          },
+          {
+            title: 'Documentation',
+            url: '/guides/contribute/documentation',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Foundations',
+    children: [
+      {
+        title: 'Color',
+        url: '/foundations/color',
+      },
+      {
+        title: 'Responsive',
+        url: '/foundations/responsive',
+      },
+      {
+        title: 'CSS utilities',
+        url: '/foundations/css-utilities',
+        children: [
+          {
+            title: 'Getting started',
+            url: '/foundations/css-utilities/getting-started',
+          },
+          {
+            title: 'Animations',
+            url: '/foundations/css-utilities/animations',
+          },
+          {
+            title: 'Borders',
+            url: '/foundations/css-utilities/borders',
+          },
+          {
+            title: 'Box shadow',
+            url: '/foundations/css-utilities/box-shadow',
+          },
+          {
+            title: 'Colors',
+            url: '/foundations/css-utilities/colors',
+          },
+          {
+            title: 'Details',
+            url: '/foundations/css-utilities/details',
+          },
+          {
+            title: 'Flexbox',
+            url: '/foundations/css-utilities/flexbox',
+          },
+          {
+            title: 'Grid',
+            url: '/foundations/css-utilities/grid',
+          },
+          {
+            title: 'Layout',
+            url: '/foundations/css-utilities/layout',
+          },
+          {
+            title: 'Margin',
+            url: '/foundations/css-utilities/margin',
+          },
+          {
+            title: 'Padding',
+            url: '/foundations/css-utilities/padding',
+          },
+          {
+            title: 'Typography',
+            url: '/foundations/css-utilities/typography',
+          },
+        ],
+      },
+      {
+        title: 'Layout',
+        url: '/foundations/layout',
+      },
+      {
+        title: 'Typography',
+        url: '/foundations/typography',
+      },
+      {
+        title: 'Icons',
+        url: '/foundations/icons',
+        children: [
+          {
+            title: 'Overview',
+            url: '/foundations/icons',
+          },
+          {
+            title: 'Design guidelines',
+            url: '/foundations/icons/design-guidelines',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'UI patterns',
+    children: [
+      {
+        title: 'Button usage',
+        url: '/ui-patterns/button-usage',
+      },
+      {
+        title: 'Dates and times',
+        url: '/ui-patterns/dates-and-times',
+      },
+      {
+        title: 'Empty states',
+        url: '/ui-patterns/empty-states',
+      },
+      {
+        title: 'Feature onboarding',
+        url: '/ui-patterns/feature-onboarding',
+      },
+      {
+        title: 'Forms',
+        url: '/ui-patterns/forms',
+      },
+      {
+        title: 'Messaging',
+        url: '/ui-patterns/messaging',
+      },
+      {
+        title: 'Progressive disclosure',
+        url: '/ui-patterns/progressive-disclosure',
+      },
+      {
+        title: 'Saving',
+        url: '/ui-patterns/saving',
+      },
+    ],
+  },
+  {
+    title: 'Status',
+    children: [
+      {
+        title: 'Component status',
+        url: '/status',
+      },
+    ],
+  },
+  {
+    title: 'Components',
+    children: [
+      {
+        title: 'Action bar',
+        url: '/components/action-bar',
+      },
+      {
+        title: 'Action list',
+        url: '/components/action-list',
+      },
+      {
+        title: 'Action menu',
+        url: '/components/action-menu',
+      },
+      {
+        title: 'Anchored overlay',
+        url: '/components/anchored-overlay',
+      },
+      {
+        title: 'Autocomplete',
+        url: '/components/autocomplete',
+      },
+      {
+        title: 'Avatar',
+        url: '/components/avatar',
+      },
+      {
+        title: 'Avatar pair',
+        url: '/components/avatar-pair',
+      },
+      {
+        title: 'Avatar stack',
+        url: '/components/avatar-stack',
+      },
+      {
+        title: 'Box',
+        url: '/components/box',
+      },
+      {
+        title: 'Branch name',
+        url: '/components/branch-name',
+      },
+      {
+        title: 'Breadcrumb',
+        url: '/components/breadcrumb',
+      },
+      {
+        title: 'Checkbox',
+        url: '/components/checkbox',
+      },
+      {
+        title: 'Checkbox group',
+        url: '/components/checkbox-group',
+      },
+      {
+        title: 'Comment box',
+        url: '/components/comment-box',
+      },
+      {
+        title: 'Counter label',
+        url: '/components/counter-label',
+      },
+      {
+        title: 'Data table',
+        url: '/components/data-table',
+      },
+      {
+        title: 'Details',
+        url: '/components/details',
+      },
+      {
+        title: 'Dialog',
+        url: '/components/dialog',
+      },
+      {
+        title: 'Filter input',
+        url: '/components/filter-input',
+      },
+      {
+        title: 'Icon',
+        url: '/components/icon',
+      },
+      {
+        title: 'Segmented control',
+        url: '/components/segmented-control',
+      },
+      {
+        title: 'Toggle switch',
+        url: '/components/toggle-switch',
+      },
+      {
+        title: 'Tokens',
+        url: '/components/tokens',
+      },
+      {
+        title: 'Tree view',
+        url: '/components/tree-view',
+      },
+    ],
+  },
+  {
+    title: 'Native',
+    children: [
+      {
+        title: 'CLI',
+        children: [
+          {
+            title: 'Getting started',
+            url: '/native/cli/getting-started',
+          },
+          {
+            title: 'Foundations',
+            url: '/native/cli/foundations',
+          },
+          {
+            title: 'Components',
+            url: '/native/cli/components',
+          },
+        ],
+      },
+      {
+        title: 'Desktop',
+        children: [
+          {
+            title: 'Getting started',
+            url: '/native/desktop/getting-started',
+          },
+          {
+            title: 'Foundations',
+            url: '/native/desktop/foundations',
+          },
+        ],
+      },
+      {
+        title: 'Mobile',
+        children: [
+          {
+            title: 'Platforms',
+            url: '/native/mobile/platforms',
+          },
+          {
+            title: 'Foundations',
+            url: '/native/mobile/foundations',
+          },
+        ],
+      },
+    ],
+  },
+]
+
 function usePersistentScroll(id) {
   const ref = React.useRef()
 
@@ -54,7 +451,7 @@ function Sidebar() {
         }}
       >
         <Box sx={{flexDirection: 'column', display: 'flex'}}>
-          <NavItems items={[{title: 'Test', url: '/'}]} />
+          <NavItems items={navItems} />
         </Box>
       </Box>
     </Box>
