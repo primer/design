@@ -1,5 +1,5 @@
 // import {Box, Breadcrumbs, Button, Heading, TabNav, Text, Link} from '@primer/react'
-import {Container, Head, Header, Sidebar} from '@primer/gatsby-theme-doctocat'
+// import {Container, Head, Header, Sidebar} from '@primer/gatsby-theme-doctocat'
 import {Box} from '@primer/react'
 // import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 // import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
@@ -46,14 +46,14 @@ export default function IconPage({pageContext}) {
 
   return (
     <Box flexDirection="column" minHeight="100vh">
-      <Head title={pageContext.name} />
+      {/*<Head title={pageContext.name} />
       <Header />
       <Box display="flex" flex="1 1 auto" flexDirection="row" css={{zIndex: 0}}>
         <Box display={['none', null, null, 'block']}>
           <Sidebar />
         </Box>
         <Container>
-          {/* <Breadcrumbs>
+           <Breadcrumbs>
             <Breadcrumbs.Item as={GatsbyLink} to="/foundations/icons/">
               Octicons
             </Breadcrumbs.Item>
@@ -124,9 +124,9 @@ export default function IconPage({pageContext}) {
           <UIExamples
             size={icon.height}
             icon={props => <Icon width={icon.width} height={icon.height} path={icon.path} {...props} />}
-          /> */}
+          /> 
         </Container>
-      </Box>
+      </Box>*/}
     </Box>
   )
 }
