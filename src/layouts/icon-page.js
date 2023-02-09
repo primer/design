@@ -49,8 +49,8 @@ export default function IconPage({pageContext}) {
     <Box flexDirection="column" minHeight="100vh">
       <Head title={pageContext.name} />
       <Header />
-      {/*
       <Box display="flex" flex="1 1 auto" flexDirection="row" css={{zIndex: 0}}>
+        {/*
         <Box display={['none', null, null, 'block']}>
           <Sidebar />
         </Box>
@@ -128,7 +128,8 @@ export default function IconPage({pageContext}) {
             icon={props => <Icon width={icon.width} height={icon.height} path={icon.path} {...props} />}
           /> 
         </Container>
-      </Box>*/}
+        */}
+      </Box>
     </Box>
   )
 }
