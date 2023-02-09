@@ -1,8 +1,8 @@
 import {Box} from '@primer/react'
 import React from 'react'
-import navItems from '../nav.yml'
+// import navItems from '../nav.yml'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
-import NavItems from '@primer/gatsby-theme-doctocat/src/components/nav-items'
+// import NavItems from '@primer/gatsby-theme-doctocat/src/components/nav-items'
 
 function usePersistentScroll(id) {
   const ref = React.useRef()
@@ -53,9 +53,7 @@ function Sidebar() {
           px: 2,
         }}
       >
-        <Box sx={{flexDirection: 'column', display: 'flex'}}>
-          <NavItems items={navItems} />
-        </Box>
+        <Box sx={{flexDirection: 'column', display: 'flex'}}>{/* <NavItems items={navItems} /> */}</Box>
       </Box>
     </Box>
   )
