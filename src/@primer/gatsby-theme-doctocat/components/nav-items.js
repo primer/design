@@ -1,4 +1,5 @@
 // import {LinkExternalIcon} from '@primer/octicons-react'
+import {Box} from '@primer/react'
 // import {NavList} from '@primer/react/drafts'
 // import {useLocation} from '@reach/router'
 // import {Link as GatsbyLink, withPrefix} from 'gatsby'
@@ -29,35 +30,37 @@ import React from 'react'
 
 function NavItems({items}) {
   return (
-    <nav>
-      <ul>
+    <Box as="nav">
+      <Box as="ul">
         {items.map(item => (
           <React.Fragment key={item.title}>
             {item.children ? (
-              <li>
+              <Box as="li">
                 {item.title}
-                <ul>
+                <Box as="ul">
                   {item.children.map(child => (
-                    <li key={child.title}>
+                    <Box as="li" key={child.title}>
                       {child.title}
                       {child.children ? (
-                        <ul>
+                        <Box as="ul">
                           {child.children.map(subChild => (
-                            <li key={subChild.title}>{subChild.title}</li>
+                            <Box as="li" key={subChild.title}>
+                              {subChild.title}
+                            </Box>
                           ))}
-                        </ul>
+                        </Box>
                       ) : null}
-                    </li>
+                    </Box>
                   ))}
-                </ul>
-              </li>
+                </Box>
+              </Box>
             ) : (
               <li>{item.title}</li>
             )}
           </React.Fragment>
         ))}
-      </ul>
-    </nav>
+      </Box>
+    </Box>
   )
   //   return (
   //     <NavList>
