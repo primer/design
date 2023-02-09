@@ -142,6 +142,8 @@
       url: /components/branch-name
     - title: Breadcrumb
       url: /components/breadcrumb
+    - title: Button
+      url: /components/button
     - title: Checkbox
       url: /components/checkbox
     - title: Checkbox group
@@ -158,6 +160,12 @@
       url: /components/dialog
     - title: Filter input
       url: /components/filter-input
+    - title: Flash
+      url: /components/flash
+    - title: Form control
+      url: /components/form-control
+    - title: Heading
+      url: /components/heading
     - title: Icon
       url: /components/icon
     - title: Segmented control
