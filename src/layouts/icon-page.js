@@ -50,10 +50,10 @@ export default function IconPage({pageContext}) {
       <Head title={pageContext.name} />
       <Header />
       <Box display="flex" flex="1 1 auto" flexDirection="row" css={{zIndex: 0}}>
-        {/*
         <Box display={['none', null, null, 'block']}>
           <Sidebar />
         </Box>
+        {/*
         <Container>
            <Breadcrumbs>
             <Breadcrumbs.Item as={GatsbyLink} to="/foundations/icons/">
