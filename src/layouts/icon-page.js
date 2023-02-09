@@ -1,5 +1,6 @@
 // import {Box, Breadcrumbs, Button, Heading, TabNav, Text, Link} from '@primer/react'
-// import {Container, Head, Header, Sidebar} from '@primer/gatsby-theme-doctocat'
+import {Container, Head, Header, Sidebar} from '@primer/gatsby-theme-doctocat'
+import {Box} from '@primer/react'
 // import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 // import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 // import Paragraph from '@primer/gatsby-theme-doctocat/src/components/paragraph'
@@ -43,93 +44,91 @@ export default function IconPage({pageContext}) {
   //   return () => clearTimeout(timeout)
   // }, [copied])
 
-  return <h1>{icon.name}</h1>
+  return (
+    <Box flexDirection="column" minHeight="100vh">
+      <Head title={pageContext.name} />
+      <Header />
+      <Box display="flex" flex="1 1 auto" flexDirection="row" css={{zIndex: 0}}>
+        <Box display={['none', null, null, 'block']}>
+          <Sidebar />
+        </Box>
+        <Container>
+          {/* <Breadcrumbs>
+            <Breadcrumbs.Item as={GatsbyLink} to="/foundations/icons/">
+              Octicons
+            </Breadcrumbs.Item>
+            <Breadcrumbs.Item as={GatsbyLink} to={`/${icon.name}-${icon.height}`} selected>
+              {icon.name}
+            </Breadcrumbs.Item>
+          </Breadcrumbs>
+          <Heading as="h1" mt={2} mb={3}>
+            {icon.name}
+          </Heading>
+          <TabNav
+            sx={{
+              marginTop: 4,
+              marginBottom: 4,
+            }}
+          >
+            {pageContext.heights.map(height => (
+              <TabNav.Link
+                key={height}
+                as={GatsbyLink}
+                to={`/foundations/icons/${icon.name}-${height}`}
+                selected={height === icon.height}
+              >
+                {height}
+                px
+              </TabNav.Link>
+            ))}
+          </TabNav>
 
-  // return (
-  //   <Box flexDirection="column" minHeight="100vh">
-  //     <Head title={pageContext.name} />
-  //     <Header />
-  //     <Box display="flex" flex="1 1 auto" flexDirection="row" css={{zIndex: 0}}>
-  //       <Box display={['none', null, null, 'block']}>
-  //         <Sidebar />
-  //       </Box>
-  //       <Container>
-  //         <Breadcrumbs>
-  //           <Breadcrumbs.Item as={GatsbyLink} to="/foundations/icons/">
-  //             Octicons
-  //           </Breadcrumbs.Item>
-  //           <Breadcrumbs.Item as={GatsbyLink} to={`/${icon.name}-${icon.height}`} selected>
-  //             {icon.name}
-  //           </Breadcrumbs.Item>
-  //         </Breadcrumbs>
-  //         <Heading as="h1" mt={2} mb={3}>
-  //           {icon.name}
-  //         </Heading>
-  //         <TabNav
-  //           sx={{
-  //             marginTop: 4,
-  //             marginBottom: 4,
-  //           }}
-  //         >
-  //           {pageContext.heights.map(height => (
-  //             <TabNav.Link
-  //               key={height}
-  //               as={GatsbyLink}
-  //               to={`/foundations/icons/${icon.name}-${height}`}
-  //               selected={height === icon.height}
-  //             >
-  //               {height}
-  //               px
-  //             </TabNav.Link>
-  //           ))}
-  //         </TabNav>
+          <IconViewer>
+            <Icon width={icon.width} height={icon.height} path={icon.path} />
+          </IconViewer>
 
-  //         <IconViewer>
-  //           <Icon width={icon.width} height={icon.height} path={icon.path} />
-  //         </IconViewer>
+          <Box display="grid" mt={3} gridGap={3} gridTemplateColumns={[null, 'repeat(3, 1fr)']}>
+            <Button
+              onClick={() => {
+                copy(svg)
+                setCopied(true)
+              }}
+            >
+              {copied ? 'Copied' : 'Copy SVG'}
+            </Button>
+            <Button onClick={() => download(svg, `${pageContext.name}.svg`, 'image/svg+xml')}>Download SVG</Button>
+            <Button disabled={!pdf} onClick={() => download(pdf, `${pageContext.name}.pdf`, 'application/pdf')}>
+              Download PDF
+            </Button>
+          </Box>
 
-  //         <Box display="grid" mt={3} gridGap={3} gridTemplateColumns={[null, 'repeat(3, 1fr)']}>
-  //           <Button
-  //             onClick={() => {
-  //               copy(svg)
-  //               setCopied(true)
-  //             }}
-  //           >
-  //             {copied ? 'Copied' : 'Copy SVG'}
-  //           </Button>
-  //           <Button onClick={() => download(svg, `${pageContext.name}.svg`, 'image/svg+xml')}>Download SVG</Button>
-  //           <Button disabled={!pdf} onClick={() => download(pdf, `${pageContext.name}.pdf`, 'application/pdf')}>
-  //             Download PDF
-  //           </Button>
-  //         </Box>
+          <H2>Usage</H2>
+          <Paragraph>
+            You can use this icon in{' '}
+            <Link href="https://github.com/primer/octicons/tree/main/lib/octicons_react">React</Link>,{' '}
+            <Link href="https://github.com/primer/octicons/tree/main/lib/octicons_gem">Ruby</Link>, or{' '}
+            <Link href="https://github.com/primer/octicons/tree/main/lib/octicons_jekyll">Jekyll</Link>. Here are code
+            examples for each:
+          </Paragraph>
 
-  //         <H2>Usage</H2>
-  //         <Paragraph>
-  //           You can use this icon in{' '}
-  //           <Link href="https://github.com/primer/octicons/tree/main/lib/octicons_react">React</Link>,{' '}
-  //           <Link href="https://github.com/primer/octicons/tree/main/lib/octicons_gem">Ruby</Link>, or{' '}
-  //           <Link href="https://github.com/primer/octicons/tree/main/lib/octicons_jekyll">Jekyll</Link>. Here are code
-  //           examples for each:
-  //         </Paragraph>
+          <H3>React</H3>
+          <Code className="language-jsx">{`<${toPascalCase(pageContext.name)}Icon size={${icon.height}} />`}</Code>
 
-  //         <H3>React</H3>
-  //         <Code className="language-jsx">{`<${toPascalCase(pageContext.name)}Icon size={${icon.height}} />`}</Code>
+          <H3>ViewComponent</H3>
+          <Code>{`<%= render(Primer::OcticonComponent.new(:"${pageContext.name}")) %>`}</Code>
 
-  //         <H3>ViewComponent</H3>
-  //         <Code>{`<%= render(Primer::OcticonComponent.new(:"${pageContext.name}")) %>`}</Code>
+          <H3>Jekyll</H3>
+          <Code>{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>
 
-  //         <H3>Jekyll</H3>
-  //         <Code>{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>
-
-  //         <H2>UI examples</H2>
-  //         <UIExamples
-  //           size={icon.height}
-  //           icon={props => <Icon width={icon.width} height={icon.height} path={icon.path} {...props} />}
-  //         />
-  //       </Container>
-  //     </Box>
-  //   </Box>
-  // )
+          <H2>UI examples</H2>
+          <UIExamples
+            size={icon.height}
+            icon={props => <Icon width={icon.width} height={icon.height} path={icon.path} {...props} />}
+          /> */}
+        </Container>
+      </Box>
+    </Box>
+  )
 }
 
 // function UIExamples({size, icon}) {
