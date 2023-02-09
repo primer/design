@@ -1,6 +1,6 @@
 // import {Box, Breadcrumbs, Button, Heading, TabNav, Text, Link} from '@primer/react'
 // import {Container, Head, Header, Sidebar} from '@primer/gatsby-theme-doctocat'
-import {Head} from '@primer/gatsby-theme-doctocat'
+import {Head, Header} from '@primer/gatsby-theme-doctocat'
 import {Box} from '@primer/react'
 // import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 // import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
@@ -48,8 +48,8 @@ export default function IconPage({pageContext}) {
   return (
     <Box flexDirection="column" minHeight="100vh">
       <Head title={pageContext.name} />
-      {/*
       <Header />
+      {/*
       <Box display="flex" flex="1 1 auto" flexDirection="row" css={{zIndex: 0}}>
         <Box display={['none', null, null, 'block']}>
           <Sidebar />
