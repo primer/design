@@ -75,36 +75,36 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   }
 }
 
-exports.createPages = async ({actions, graphql}) => {
-  const {data} = await graphql(`
-    {
-      allOcticon {
-        nodes {
-          name
-          keywords
-          width
-          height
-          svgPath
-          heights
-        }
-      }
-    }
-  `)
+// exports.createPages = async ({actions, graphql}) => {
+//   const {data} = await graphql(`
+//     {
+//       allOcticon {
+//         nodes {
+//           name
+//           keywords
+//           width
+//           height
+//           svgPath
+//           heights
+//         }
+//       }
+//     }
+//   `)
 
-  const iconPageTemplate = path.resolve(__dirname, 'src/layouts/icon-page.js')
+//   const iconPageTemplate = path.resolve(__dirname, 'src/layouts/icon-page.js')
 
-  for (const icon of data.allOcticon.nodes) {
-    actions.createPage({
-      path: `/foundations/icons/${icon.name}-${icon.height}`,
-      component: iconPageTemplate,
-      context: {
-        name: icon.name,
-        keywords: icon.keywords,
-        width: icon.width,
-        height: icon.height,
-        svgPath: icon.svgPath,
-        heights: icon.heights,
-      },
-    })
-  }
-}
+//   for (const icon of data.allOcticon.nodes) {
+//     actions.createPage({
+//       path: `/foundations/icons/${icon.name}-${icon.height}`,
+//       component: iconPageTemplate,
+//       context: {
+//         name: icon.name,
+//         keywords: icon.keywords,
+//         width: icon.width,
+//         height: icon.height,
+//         svgPath: icon.svgPath,
+//         heights: icon.heights,
+//       },
+//     })
+//   }
+// }
