@@ -2,6 +2,8 @@
   children:
     - title: Introduction
       url: /guides/introduction
+    - title: About
+      url: /guides/about
     - title: Content
       url: /guides/content
     - title: The Zen of GitHub
