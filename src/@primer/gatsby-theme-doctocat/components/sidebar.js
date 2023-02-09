@@ -1,6 +1,6 @@
 import {Box} from '@primer/react'
 import React from 'react'
-// import navItems from '../nav.yml'
+import navItems from '../nav.yml'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import NavItems from '@primer/gatsby-theme-doctocat/src/components/nav-items'
 
@@ -54,7 +54,7 @@ function Sidebar() {
         }}
       >
         <Box sx={{flexDirection: 'column', display: 'flex'}}>
-          <NavItems items={[]} />
+          <NavItems items={navItems} />
         </Box>
       </Box>
     </Box>
