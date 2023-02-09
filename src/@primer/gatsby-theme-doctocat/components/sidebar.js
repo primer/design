@@ -54,7 +54,7 @@ function Sidebar() {
         }}
       >
         <Box sx={{flexDirection: 'column', display: 'flex'}}>
-          <NavItems items={[]} />
+          <NavItems items={[{title: 'Test', url: '/'}]} />
         </Box>
       </Box>
     </Box>
