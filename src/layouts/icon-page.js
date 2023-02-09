@@ -11,7 +11,7 @@ import Icon from '../components/icon'
 import IconViewer from '../components/icon-viewer'
 import UIExamples16 from '../components/ui-examples-16'
 import UIExamples24 from '../components/ui-examples-24'
-import 'svg2pdf.js'
+// import 'svg2pdf.js'
 
 const toPascalCase = str =>
   (str.match(/[a-zA-Z0-9]+/g) || []).map(w => `${w.charAt(0).toUpperCase()}${w.slice(1)}`).join('')
@@ -151,15 +151,16 @@ const getSvgElement = icon => {
 }
 
 const getPdf = icon => {
-  return import('jspdf')
-    .then(jspdf => {
-      const doc = new jspdf.jsPDF()
-      return doc.svg(getSvgElement(icon), {
-        x: 0,
-        y: 0,
-        width: icon.width,
-        height: icon.height,
-      })
-    })
-    .then(doc => doc.output('blob', `${icon.name}.pdf`))
+  return ''
+  // return import('jspdf')
+  //   .then(jspdf => {
+  //     const doc = new jspdf.jsPDF()
+  //     return doc.svg(getSvgElement(icon), {
+  //       x: 0,
+  //       y: 0,
+  //       width: icon.width,
+  //       height: icon.height,
+  //     })
+  //   })
+  //   .then(doc => doc.output('blob', `${icon.name}.pdf`))
 }
