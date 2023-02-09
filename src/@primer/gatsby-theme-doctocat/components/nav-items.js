@@ -1,6 +1,5 @@
 // import {LinkExternalIcon} from '@primer/octicons-react'
-import {Box} from '@primer/react'
-// import {NavList} from '@primer/react/drafts'
+import {NavList} from '@primer/react'
 // import {useLocation} from '@reach/router'
 // import {Link as GatsbyLink, withPrefix} from 'gatsby'
 // import preval from 'preval.macro'
@@ -30,37 +29,33 @@ import React from 'react'
 
 function NavItems({items}) {
   return (
-    <Box as="nav">
-      <Box as="ul">
-        {items.map(item => (
-          <React.Fragment key={item.title}>
-            {item.children ? (
-              <Box as="li">
-                {item.title}
-                <Box as="ul">
-                  {item.children.map(child => (
-                    <Box as="li" key={child.title}>
-                      {child.title}
-                      {child.children ? (
-                        <Box as="ul">
-                          {child.children.map(subChild => (
-                            <Box as="li" key={subChild.title}>
-                              {subChild.title}
-                            </Box>
-                          ))}
-                        </Box>
-                      ) : null}
-                    </Box>
-                  ))}
-                </Box>
+    <NavList>
+      {items.map(item => (
+        <React.Fragment key={item.title}>
+          {item.children ? (
+            <Box as="li">
+              {item.title}
+              <Box as="ul">
+                {item.children.map(child => (
+                  <Box as="li" key={child.title}>
+                    {child.title}
+                    {child.children ? (
+                      <Box as="ul">
+                        {child.children.map(subChild => (
+                          <li key={subChild.title}>{subChild.title}</li>
+                        ))}
+                      </Box>
+                    ) : null}
+                  </Box>
+                ))}
               </Box>
-            ) : (
-              <li>{item.title}</li>
-            )}
-          </React.Fragment>
-        ))}
-      </Box>
-    </Box>
+            </Box>
+          ) : (
+            <NavList.Item>{item.title}</NavList.Item>
+          )}
+        </React.Fragment>
+      ))}
+    </NavList>
   )
   //   return (
   //     <NavList>
