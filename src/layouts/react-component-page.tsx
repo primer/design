@@ -75,7 +75,7 @@ export default function ReactComponentPage({data, children, ...props}: any) {
         </UnderlineNav.Link>
       </UnderlineNav>
       <Box sx={{display: 'flex', gap: 2, mb: 4}}>
-        <Label size="large">v{data.primerReactVersion.version}</Label>
+        <Label size="large">@primer/react@{data.primerReactVersion.version}</Label>
         <StatusLabel status={sentenceCase(status)} />
         <AccessibilityLabel a11yReviewed={a11yReviewed} short={false} />
       </Box>
@@ -84,7 +84,7 @@ export default function ReactComponentPage({data, children, ...props}: any) {
       <H2>Props</H2>
       <H3>{name}</H3>
       <PropsTable props={componentProps} />
-      {subcomponents.map(subcomponent => (
+      {subcomponents?.map(subcomponent => (
         <>
           <H3>{subcomponent.name}</H3>
           <PropsTable props={subcomponent.props} />
@@ -150,7 +150,7 @@ function PropsTable({
             <td valign="top">
               <Box sx={{display: 'flex', gap: 2, alignItems: 'center'}}>
                 <Text sx={{fontFamily: 'mono', fontSize: 1, whiteSpace: 'nowrap'}}>{prop.name}</Text>
-                {prop.required ? <Label variant="accent">Required</Label> : null}
+                {prop.required ? <Label>Required</Label> : null}
                 {prop.deprecated ? <Label variant="danger">Deprecated</Label> : null}
               </Box>
             </td>
