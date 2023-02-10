@@ -1,6 +1,7 @@
 const path = require('path')
 const defines = require('./babel-defines')
 const fetch = require('node-fetch')
+const {paramCase} = require('change-case')
 
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   const config = getConfig()
@@ -24,6 +25,7 @@ exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   actions.replaceWebpackConfig(config)
 }
 
+// Source site data and add it to the GraphQL store
 exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   await sourcePrimerReactData({actions, createNodeId, createContentDigest})
   await sourceOcticonData({actions, createNodeId, createContentDigest})
@@ -60,11 +62,11 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
 
   for (const component of Object.values(content.components)) {
     const newNode = {
-      ...component,
+      ...{...component, componentId: component.id},
       id: createNodeId(`react-${component.id}`),
       internal: {
         type: 'ReactComponent',
-        contentDigest: createContentDigest(component),
+        contentDigest: createContentDigest({...component, componentId: component.id}),
       },
     }
 
@@ -123,7 +125,38 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
   }
 }
 
+// Create pages from data in the GraphQL store
 exports.createPages = async ({actions, graphql}) => {
+  await createReactComponentPages({actions, graphql})
+  await createIconPages({actions, graphql})
+}
+
+async function createReactComponentPages({actions, graphql}) {
+  const {data} = await graphql(`
+    {
+      allReactComponent {
+        nodes {
+          componentId
+        }
+      }
+    }
+  `)
+
+  const reactComponentPageTemplate = path.resolve(__dirname, 'src/layouts/react-component-page.tsx')
+
+  for (const {componentId} of data.allReactComponent.nodes) {
+    actions.createPage({
+      path: `/components/${paramCase(componentId)}/react`,
+      component: reactComponentPageTemplate,
+      context: {
+        componentId,
+        parentPath: `/components/${paramCase(componentId)}`,
+      },
+    })
+  }
+}
+
+async function createIconPages({actions, graphql}) {
   const {data} = await graphql(`
     {
       allOcticon {
