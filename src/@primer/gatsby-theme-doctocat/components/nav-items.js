@@ -40,9 +40,7 @@ function NavItems({items}) {
                   {child.children ? (
                     <NavList.SubNav>
                       {child.children.map(subChild => (
-                        <NavList.Item key={subChild.title} href={subChild.url}>
-                          {subChild.title}
-                        </NavList.Item>
+                        <li key={subChild.title}>{subChild.title}</li>
                       ))}
                     </NavList.SubNav>
                   ) : null}
