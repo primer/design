@@ -35,16 +35,16 @@ function NavItems({items}) {
           {item.children ? (
             <NavList.Group title={item.title}>
               {item.children.map(child => (
-                <Box as="li" key={child.title}>
+                <NavList.Item key={child.title} href={child.url}>
                   {child.title}
-                  {child.children ? (
+                  {/* {child.children ? (
                     <Box as="ul">
                       {child.children.map(subChild => (
                         <li key={subChild.title}>{subChild.title}</li>
                       ))}
                     </Box>
-                  ) : null}
-                </Box>
+                  ) : null} */}
+                </NavList.Item>
               ))}
             </NavList.Group>
           ) : (
