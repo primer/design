@@ -25,6 +25,54 @@ exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
 }
 
 exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
+  await sourcePrimerReactData({actions, createNodeId, createContentDigest})
+  await sourceOcticonData({actions, createNodeId, createContentDigest})
+}
+
+async function sourcePrimerReactData({actions, createNodeId, createContentDigest}) {
+  // Save the current version of Primer React to the GraphQL store.
+  // This will be the latest version at the time the site is built.
+  // If a new version is released, we'll need to rebuild the site.
+  const {version} = await fetch('https://unpkg.com/@primer/react/package.json').then(res => res.json())
+
+  const nodeData = {
+    version,
+  }
+
+  const newNode = {
+    ...nodeData,
+    id: createNodeId('primer-react-version'),
+    internal: {
+      type: 'PrimerReactVersion',
+      contentDigest: createContentDigest(nodeData),
+    },
+  }
+
+  actions.createNode(newNode)
+
+  // Save the Primer React data to the GraphQL store
+  const json = await fetch(
+    `https://api.github.com/repos/primer/react/contents/generated/components.json?ref=v${version}`,
+  ).then(res => res.json())
+
+  const content = JSON.parse(Buffer.from(json.content, 'base64').toString())
+  console.log(content)
+
+  for (const component of Object.values(content.components)) {
+    const newNode = {
+      ...component,
+      id: createNodeId(`react-${component.id}`),
+      internal: {
+        type: 'ReactComponent',
+        contentDigest: createContentDigest(component),
+      },
+    }
+
+    actions.createNode(newNode)
+  }
+}
+
+async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
   // Save the current version of Octicons to the GraphQL store.
   // This will be the latest version at the time the site is built.
   // If a new version is released, we'll need to rebuild the site.
