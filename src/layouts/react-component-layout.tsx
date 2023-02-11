@@ -22,6 +22,8 @@ export const query = graphql`
         frontmatter {
           title
           description
+          figmaUrl: figma
+          railsUrl: rails
         }
       }
     }
@@ -82,6 +84,24 @@ export default function ReactComponentLayout({data}) {
           <UnderlineNav.Link as={GatsbyLink} to={`${data.sitePage.path}/react`} selected>
             React
           </UnderlineNav.Link>
+          {data.sitePage.context.frontmatter.railsUrl ? (
+            <UnderlineNav.Link
+              href={data.sitePage.context.frontmatter.railsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Rails
+            </UnderlineNav.Link>
+          ) : null}
+          {data.sitePage.context.frontmatter.figmaUrl ? (
+            <UnderlineNav.Link
+              href={data.sitePage.context.frontmatter.figmaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Figma
+            </UnderlineNav.Link>
+          ) : null}
         </UnderlineNav>
         <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>
           <Box
@@ -155,21 +175,6 @@ function sentenceCase(str: string) {
   return str.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) {
     return str.toUpperCase()
   })
-}
-
-/** Deeply merge two objects */
-function deepMerge(obj1: any, obj2: any): any {
-  let result = {...obj1}
-  for (let key in obj2) {
-    if (obj2.hasOwnProperty(key)) {
-      if (typeof obj2[key] === 'object' && !Array.isArray(obj2[key])) {
-        result[key] = deepMerge(result[key], obj2[key])
-      } else {
-        result[key] = obj2[key]
-      }
-    }
-  }
-  return result
 }
 
 // TODO: Make table responsive

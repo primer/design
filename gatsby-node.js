@@ -58,7 +58,6 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
   ).then(res => res.json())
 
   const content = JSON.parse(Buffer.from(json.content, 'base64').toString())
-  console.log(content)
 
   for (const component of Object.values(content.components)) {
     const newNode = {
