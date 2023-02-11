@@ -65,8 +65,8 @@ export default function ReactComponentLayout({data}) {
     ],
   }
 
-  const title = data.sitePage.context.frontmatter.title
-  const description = data.sitePage.context.frontmatter.description
+  const title = data.sitePage?.context.frontmatter.title || name
+  const description = data.sitePage?.context.frontmatter.description || ''
 
   return (
     <BaseLayout title={title} description={description}>
@@ -77,32 +77,35 @@ export default function ReactComponentLayout({data}) {
             {description}
           </Text>
         ) : null}
-        <UnderlineNav sx={{mb: 4}}>
-          <UnderlineNav.Link as={GatsbyLink} to={data.sitePage.path}>
-            Overview
-          </UnderlineNav.Link>
-          <UnderlineNav.Link as={GatsbyLink} to={`${data.sitePage.path}/react`} selected>
-            React
-          </UnderlineNav.Link>
-          {data.sitePage.context.frontmatter.railsUrl ? (
-            <UnderlineNav.Link
-              href={data.sitePage.context.frontmatter.railsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Rails
+
+        {data.sitePage ? (
+          <UnderlineNav>
+            <UnderlineNav.Link as={GatsbyLink} to={data.sitePage.path}>
+              Overview
             </UnderlineNav.Link>
-          ) : null}
-          {data.sitePage.context.frontmatter.figmaUrl ? (
-            <UnderlineNav.Link
-              href={data.sitePage.context.frontmatter.figmaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Figma
+            <UnderlineNav.Link as={GatsbyLink} to={`${data.sitePage.path}/react`} selected>
+              React
             </UnderlineNav.Link>
-          ) : null}
-        </UnderlineNav>
+            {data.sitePage.context.frontmatter.railsUrl ? (
+              <UnderlineNav.Link
+                href={data.sitePage.context.frontmatter.railsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rails
+              </UnderlineNav.Link>
+            ) : null}
+            {data.sitePage.context.frontmatter.figmaUrl ? (
+              <UnderlineNav.Link
+                href={data.sitePage.context.frontmatter.figmaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Figma
+              </UnderlineNav.Link>
+            ) : null}
+          </UnderlineNav>
+        ) : null}
         <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>
           <Box
             sx={{
@@ -120,7 +123,7 @@ export default function ReactComponentLayout({data}) {
             <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
           </Box>
           <Box>
-            <Box sx={{display: 'flex', gap: 2, mb: 4}}>
+            <Box sx={{display: 'flex', gap: 2, my: 4}}>
               <Label size="large">v{data.primerReactVersion.version}</Label>
               <StatusLabel status={sentenceCase(status)} />
               <AccessibilityLabel a11yReviewed={a11yReviewed} short={false} />
