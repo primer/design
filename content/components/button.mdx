@@ -1,13 +1,13 @@
 ---
 title: Button
-componentId: Button
 description: Buttons are used to initiate actions on a page or form.
 figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=136%3A1805&t=Tj1PzACLUAihiXgm-1
-react: https://primer.style/react/Button
 rails: https://primer.style/view-components/components/beta/button
 ---
 
 import {Box, Text} from '@primer/react'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
 
 <img
   width="960"
@@ -30,6 +30,7 @@ Buttons allow users to initiate an action or command when clicked or tapped. The
 ## Options
 
 ### Leading and trailing visuals
+
 <Box
   mb={3}
   display="flex"
@@ -124,7 +125,7 @@ Buttons allow users to initiate an action or command when clicked or tapped. The
   />
   <Box as="p" mt="0">
     <h4>Small</h4>
-    Small buttons may be used when space is limited and if the action is less significant. 
+    Small buttons may be used when space is limited and if the action is less significant.
 
   </Box>
 </Box>
@@ -337,6 +338,7 @@ Buttons allow users to initiate an action or command when clicked or tapped. The
 ## Accessibility
 
 ### Descriptive buttons
-Labeling buttons properly lets users know what will happen when they activate the control, lessens errors, and increases confidence. 
+
+Labeling buttons properly lets users know what will happen when they activate the control, lessens errors, and increases confidence.
 
 Read more about [descriptive buttons](/guides/accessibility/descriptive-buttons).
