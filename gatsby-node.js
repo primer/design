@@ -142,12 +142,12 @@ async function createReactComponentPages({actions, graphql}) {
     }
   `)
 
-  const reactComponentPageTemplate = path.resolve(__dirname, 'src/layouts/react-component-page.tsx')
+  const reactComponentLayout = path.resolve(__dirname, 'src/layouts/react-component-layout.tsx')
 
   for (const {componentId} of data.allReactComponent.nodes) {
     actions.createPage({
       path: `/components/${paramCase(componentId)}/react`,
-      component: reactComponentPageTemplate,
+      component: reactComponentLayout,
       context: {
         componentId,
         parentPath: `/components/${paramCase(componentId)}`,
