@@ -115,6 +115,7 @@ export default function ReactComponentLayout({data}) {
               top: HEADER_HEIGHT + 24,
               maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 24px)`,
               display: ['none', null, 'block'],
+              mt: 4,
             }}
           >
             <Text sx={{display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
