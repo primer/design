@@ -133,12 +133,12 @@ exports.createPages = async ({actions, graphql}) => {
 async function createReactComponentPages({actions, graphql}) {
   const {data} = await graphql(`
     {
-      # Get all pages that have a reactId in their frontmatter
       allMdx {
         nodes {
           slug
           frontmatter {
             reactId
+            figma
           }
         }
       }
@@ -146,18 +146,29 @@ async function createReactComponentPages({actions, graphql}) {
   `)
 
   const reactComponentLayout = path.resolve(__dirname, 'src/layouts/react-component-layout.tsx')
+  const figmaComponentLayout = path.resolve(__dirname, 'src/layouts/figma-component-layout.tsx')
 
   for (const {slug, frontmatter} of data.allMdx.nodes) {
-    if (!frontmatter.reactId) continue
+    if (frontmatter.reactId) {
+      actions.createPage({
+        path: `/${slug}/react`,
+        component: reactComponentLayout,
+        context: {
+          componentId: frontmatter.reactId,
+          parentPath: `/${slug}`,
+        },
+      })
+    }
 
-    actions.createPage({
-      path: `/${slug}/react`,
-      component: reactComponentLayout,
-      context: {
-        componentId: frontmatter.reactId,
-        parentPath: `/${slug}`,
-      },
-    })
+    if (frontmatter.figma) {
+      actions.createPage({
+        path: `/${slug}/figma`,
+        component: figmaComponentLayout,
+        context: {
+          parentPath: `/${slug}`,
+        },
+      })
+    }
   }
 }
 

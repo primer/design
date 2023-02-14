@@ -34,7 +34,7 @@ export default function ComponentLayout({pageContext, children, path}) {
             </UnderlineNav.Link>
           ) : null}
           {figmaUrl ? (
-            <UnderlineNav.Link href={figmaUrl} target="_blank" rel="noopener noreferrer">
+            <UnderlineNav.Link as={GatsbyLink} to={`${path}/figma`}>
               Figma
             </UnderlineNav.Link>
           ) : null}

@@ -96,11 +96,7 @@ export default function ReactComponentLayout({data}) {
               </UnderlineNav.Link>
             ) : null}
             {data.sitePage.context.frontmatter.figmaUrl ? (
-              <UnderlineNav.Link
-                href={data.sitePage.context.frontmatter.figmaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <UnderlineNav.Link as={GatsbyLink} to={`${data.sitePage.path}/figma`}>
                 Figma
               </UnderlineNav.Link>
             ) : null}
