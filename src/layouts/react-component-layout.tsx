@@ -1,11 +1,11 @@
-import {AccessibilityLabel, StatusLabel} from '@primer/gatsby-theme-doctocat'
+import {AccessibilityLabel, Note, StatusLabel} from '@primer/gatsby-theme-doctocat'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
-import {Box, Heading, Label, Link, Text, UnderlineNav} from '@primer/react'
+import {Box, Flash, Heading, Label, Link, Text, UnderlineNav} from '@primer/react'
 import {graphql, Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
@@ -79,7 +79,7 @@ export default function ReactComponentLayout({data}) {
         ) : null}
 
         {data.sitePage ? (
-          <UnderlineNav>
+          <UnderlineNav sx={{mb: 4}}>
             <UnderlineNav.Link as={GatsbyLink} to={data.sitePage.path}>
               Overview
             </UnderlineNav.Link>
@@ -115,7 +115,6 @@ export default function ReactComponentLayout({data}) {
               top: HEADER_HEIGHT + 24,
               maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 24px)`,
               display: ['none', null, 'block'],
-              mt: 4,
             }}
           >
             <Text sx={{display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
@@ -124,7 +123,13 @@ export default function ReactComponentLayout({data}) {
             <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
           </Box>
           <Box>
-            <Box sx={{display: 'flex', gap: 2, my: 4}}>
+            {/* @ts-ignore */}
+            <Note variant="warning">
+              We are currently transferring the React documentation for {name} from a different site to this page. To
+              view the original documentation with code examples, please visit the{' '}
+              <Link href={`https://primer.style/react/${name}`}>Primer React documentation for {name}</Link>.
+            </Note>
+            <Box sx={{display: 'flex', gap: 2, mb: 4}}>
               <Label size="large">v{data.primerReactVersion.version}</Label>
               <StatusLabel status={sentenceCase(status)} />
               <AccessibilityLabel a11yReviewed={a11yReviewed} short={false} />
