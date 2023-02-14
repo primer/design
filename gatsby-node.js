@@ -133,9 +133,13 @@ exports.createPages = async ({actions, graphql}) => {
 async function createReactComponentPages({actions, graphql}) {
   const {data} = await graphql(`
     {
-      allReactComponent {
+      # Get all pages that have a reactId in their frontmatter
+      allMdx {
         nodes {
-          componentId
+          slug
+          frontmatter {
+            reactId
+          }
         }
       }
     }
@@ -143,13 +147,15 @@ async function createReactComponentPages({actions, graphql}) {
 
   const reactComponentLayout = path.resolve(__dirname, 'src/layouts/react-component-layout.tsx')
 
-  for (const {componentId} of data.allReactComponent.nodes) {
+  for (const {slug, frontmatter} of data.allMdx.nodes) {
+    if (!frontmatter.reactId) continue
+
     actions.createPage({
-      path: `/components/${paramCase(componentId)}/react`,
+      path: `/${slug}/react`,
       component: reactComponentLayout,
       context: {
-        componentId,
-        parentPath: `/components/${paramCase(componentId)}`,
+        componentId: frontmatter.reactId,
+        parentPath: `/${slug}`,
       },
     })
   }

@@ -8,22 +8,7 @@ import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 
 export default function ComponentLayout({pageContext, children, path}) {
-  const {title, description, rails: railsUrl, figma: figmaUrl} = pageContext.frontmatter
-
-  const data = useStaticQuery(graphql`
-    query ReactComponents {
-      allReactComponent {
-        nodes {
-          componentId
-        }
-      }
-    }
-  `)
-
-  // Check if component is implemented in Primer React
-  const hasReactImpl = data.allReactComponent.nodes.some((node: {componentId}) =>
-    path.endsWith(paramCase(node.componentId)),
-  )
+  const {title, description, reactId, rails: railsUrl, figma: figmaUrl} = pageContext.frontmatter
 
   return (
     <BaseLayout title={title} description={description}>
@@ -38,7 +23,7 @@ export default function ComponentLayout({pageContext, children, path}) {
           <UnderlineNav.Link as={GatsbyLink} to={path} selected>
             Overview
           </UnderlineNav.Link>
-          {hasReactImpl ? (
+          {reactId ? (
             <UnderlineNav.Link as={GatsbyLink} to={`${path}/react`}>
               React
             </UnderlineNav.Link>
