@@ -66,7 +66,7 @@ export default function FigmaComponentLayout({data}) {
             {/* @ts-ignore */}
             <Note variant="warning">
               We are currently transferring the Figma documentation for {title} from a different site to this page. To
-              view the original documentation with code examples, please visit the{' '}
+              view the original documentation, please visit the{' '}
               <Link href={data.sitePage.context.frontmatter.figmaUrl}>Figma documentation for {title}</Link>.
             </Note>
 
