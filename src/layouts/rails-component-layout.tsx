@@ -6,9 +6,10 @@ import {graphql, Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
+import {pascalCase} from 'change-case'
 
 export const query = graphql`
-  query FigmaComponentPageQuery($parentPath: String!) {
+  query RailsComponentPageQuery($parentPath: String!) {
     sitePage(path: {eq: $parentPath}) {
       path
       context {
@@ -24,9 +25,10 @@ export const query = graphql`
   }
 `
 
-export default function FigmaComponentLayout({data}) {
-  const title = data.sitePage?.context.frontmatter.title || name
-  const description = data.sitePage?.context.frontmatter.description || ''
+export default function RailsComponentLayout({data}) {
+  const title = data.sitePage?.context.frontmatter.title
+  const description = data.sitePage?.context.frontmatter.description
+  const componentName = pascalCase(title)
 
   return (
     <BaseLayout title={title} description={description}>
@@ -49,17 +51,20 @@ export default function FigmaComponentLayout({data}) {
           <Box>
             {/* @ts-ignore */}
             <Note variant="warning">
-              We are currently transferring the Figma documentation for {title} from a different site to this page. To
-              view the original documentation, please visit the{' '}
-              <Link href={data.sitePage.context.frontmatter.figmaUrl}>Figma documentation for {title}</Link>.
+              We are currently transferring the Rails documentation for {componentName} from a different site to this
+              page. To view the original documentation, please visit the{' '}
+              <Link href={data.sitePage.context.frontmatter.railsUrl}>
+                Primer ViewComponents documentation for {componentName}
+              </Link>
+              .
             </Note>
 
             <Link
               sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
-              href={data.sitePage.context.frontmatter.figmaUrl}
+              href={data.sitePage.context.frontmatter.railsUrl}
             >
               <LinkIcon />
-              {title}
+              {componentName}
             </Link>
           </Box>
         </Box>

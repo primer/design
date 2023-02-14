@@ -5,11 +5,12 @@ import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
-import {Box, Flash, Heading, Label, Link, Text, UnderlineNav} from '@primer/react'
-import {graphql, Link as GatsbyLink} from 'gatsby'
+import {Box, Heading, Label, Link, Text} from '@primer/react'
+import {graphql} from 'gatsby'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import {BaseLayout} from '../components/base-layout'
+import {ComponentPageNav} from '../components/component-page-nav'
 
 export const query = graphql`
   query ReactComponentPageQuery($componentId: String!, $parentPath: String!) {
@@ -22,6 +23,7 @@ export const query = graphql`
         frontmatter {
           title
           description
+          reactId
           figmaUrl: figma
           railsUrl: rails
         }
@@ -77,31 +79,14 @@ export default function ReactComponentLayout({data}) {
             {description}
           </Text>
         ) : null}
-
-        {data.sitePage ? (
-          <UnderlineNav sx={{mb: 4}}>
-            <UnderlineNav.Link as={GatsbyLink} to={data.sitePage.path}>
-              Overview
-            </UnderlineNav.Link>
-            <UnderlineNav.Link as={GatsbyLink} to={`${data.sitePage.path}/react`} selected>
-              React
-            </UnderlineNav.Link>
-            {data.sitePage.context.frontmatter.railsUrl ? (
-              <UnderlineNav.Link
-                href={data.sitePage.context.frontmatter.railsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Rails
-              </UnderlineNav.Link>
-            ) : null}
-            {data.sitePage.context.frontmatter.figmaUrl ? (
-              <UnderlineNav.Link as={GatsbyLink} to={`${data.sitePage.path}/figma`}>
-                Figma
-              </UnderlineNav.Link>
-            ) : null}
-          </UnderlineNav>
-        ) : null}
+        <Box sx={{mb: 4}}>
+          <ComponentPageNav
+            basePath={data.sitePage.path}
+            includeReact={data.sitePage.context.frontmatter.reactId}
+            includeRails={data.sitePage.context.frontmatter.railsUrl}
+            includeFigma={data.sitePage.context.frontmatter.figmaUrl}
+          />
+        </Box>
         <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>
           <Box
             sx={{

@@ -126,11 +126,11 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
 
 // Create pages from data in the GraphQL store
 exports.createPages = async ({actions, graphql}) => {
-  await createReactComponentPages({actions, graphql})
+  await createComponentPages({actions, graphql})
   await createIconPages({actions, graphql})
 }
 
-async function createReactComponentPages({actions, graphql}) {
+async function createComponentPages({actions, graphql}) {
   const {data} = await graphql(`
     {
       allMdx {
@@ -138,7 +138,8 @@ async function createReactComponentPages({actions, graphql}) {
           slug
           frontmatter {
             reactId
-            figma
+            railsUrl: rails
+            figmaUrl: figma
           }
         }
       }
@@ -146,6 +147,7 @@ async function createReactComponentPages({actions, graphql}) {
   `)
 
   const reactComponentLayout = path.resolve(__dirname, 'src/layouts/react-component-layout.tsx')
+  const railsComponentLayout = path.resolve(__dirname, 'src/layouts/rails-component-layout.tsx')
   const figmaComponentLayout = path.resolve(__dirname, 'src/layouts/figma-component-layout.tsx')
 
   for (const {slug, frontmatter} of data.allMdx.nodes) {
@@ -160,7 +162,17 @@ async function createReactComponentPages({actions, graphql}) {
       })
     }
 
-    if (frontmatter.figma) {
+    if (frontmatter.railsUrl) {
+      actions.createPage({
+        path: `/${slug}/rails`,
+        component: railsComponentLayout,
+        context: {
+          parentPath: `/${slug}`,
+        },
+      })
+    }
+
+    if (frontmatter.figmaUrl) {
       actions.createPage({
         path: `/${slug}/figma`,
         component: figmaComponentLayout,

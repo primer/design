@@ -6,6 +6,7 @@ import {paramCase} from 'change-case'
 import {graphql, Link as GatsbyLink, useStaticQuery} from 'gatsby'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
+import {ComponentPageNav} from '../components/component-page-nav'
 
 export default function ComponentLayout({pageContext, children, path}) {
   const {title, description, reactId, rails: railsUrl, figma: figmaUrl} = pageContext.frontmatter
@@ -19,26 +20,9 @@ export default function ComponentLayout({pageContext, children, path}) {
             {description}
           </Text>
         ) : null}
-        <UnderlineNav sx={{mb: 4}}>
-          <UnderlineNav.Link as={GatsbyLink} to={path} selected>
-            Overview
-          </UnderlineNav.Link>
-          {reactId ? (
-            <UnderlineNav.Link as={GatsbyLink} to={`${path}/react`}>
-              React
-            </UnderlineNav.Link>
-          ) : null}
-          {railsUrl ? (
-            <UnderlineNav.Link href={railsUrl} target="_blank" rel="noopener noreferrer">
-              Rails
-            </UnderlineNav.Link>
-          ) : null}
-          {figmaUrl ? (
-            <UnderlineNav.Link as={GatsbyLink} to={`${path}/figma`}>
-              Figma
-            </UnderlineNav.Link>
-          ) : null}
-        </UnderlineNav>
+        <Box sx={{mb: 4}}>
+          <ComponentPageNav basePath={path} includeReact={reactId} includeRails={railsUrl} includeFigma={figmaUrl} />
+        </Box>
         <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>
           <Box
             sx={{
