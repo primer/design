@@ -9,7 +9,7 @@ description: A comment box allows users to write and preview comments.
 
 <img
   width="960"
-  alt="A diagram of a comment box with a label, a tab nav, a toolbar and an input with a placeholder text."
+  alt="A diagram of a comment box with a label, a tab nav, a toolbar and a textarea with a placeholder text."
   src="https://user-images.githubusercontent.com/378023/197092931-b5207868-036b-4858-9fad-1195b2fd7604.png"
 />
 
@@ -17,7 +17,7 @@ description: A comment box allows users to write and preview comments.
 
 ### Label (required)
 
-A label is shown above the comment box to establish the context and inform users about the purpose of the text input that follows. The default label is "Add a comment".
+A label is shown above the comment box to establish the context and inform users about the purpose of the textarea that follows. The default label is "Add a comment".
 
 <DoDontContainer>
   <Do>
@@ -105,9 +105,9 @@ Additional toolbar items can be added based on context. They appear at the begin
   width="960"
 />
 
-### Input
+### Textarea
 
-The input is used to write the comment. While typing it will automatically resize to fit the content until a certain max height is reached. The input can also be manually resized by dragging the handle in the bottom right corner.
+A textarea is used to write the comment. While typing it will automatically resize to fit the content until a certain max height is reached. The textarea can also be manually resized by dragging the handle in the bottom right corner.
 
 <img
   src="https://user-images.githubusercontent.com/378023/193514864-e0528816-7560-4fdd-b816-e076f74a9981.png"
@@ -115,7 +115,7 @@ The input is used to write the comment. While typing it will automatically resiz
   width="960"
 />
 
-The default and minimum height is `100px`. For cases where users typically add a lot of content, like issues or pull request descriptions, the input can be configured to have an increased initial height:
+The default and minimum height is `100px`. For cases where users typically add a lot of content, like issues or pull request descriptions, the textarea can be configured to have an increased initial height:
 
 | Option            | value   |
 | ----------------- | ------- |
@@ -167,7 +167,7 @@ A typical use of the comment box is at the bottom of a timeline or inline when r
 
 | Key   | description                                                                                                          |
 | ----- | -------------------------------------------------------------------------------------------------------------------- |
-| `Tab` | Moves focus between the different parts of the comment box. The order is as follows: 1. tab nav 2. toolbar 3. input. |
+| `Tab` | Moves focus between the different parts of the comment box. The order is as follows: 1. tab nav 2. toolbar 3. textarea. |
 
 <img
   src="https://user-images.githubusercontent.com/378023/193515190-f18d784f-43c2-4d9e-87c7-7c9ba4a08069.png"
