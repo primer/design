@@ -30,20 +30,40 @@ A label is shown above the comment box to establish the context and inform users
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/378023/193514422-54ab3bb8-238f-4852-a813-206b81449575.png"
+      src="https://user-images.githubusercontent.com/378023/218910346-21023ac1-b251-4272-b0a0-ceb4dfc97075.png"
       role="presentation"
       width="456"
     />
     <Caption>
-      Don't hide the label. Also don't use the label to notify users of any kind of state or event, like when an error
-      occurred.
+      Don't use the term "Write". This may create confusion when navigating between the comment box's heading and the "Write/Preview" tab nav.
     </Caption>
+  </Dont>
+</DoDontContainer>
+
+It's recommended to *always* show a label to give users a permanent description of the comment box. In case the design doesn't have room for a label, the `sr-only` class may be added to visually hide the label.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/193514612-a0bdb034-4047-4491-affa-e3e5fc10d455.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>When the label needs to be visually hidden, use the placholder text instead.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/218910567-0f0f5377-4b72-40ef-b1e5-e6cafada7453.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't visually hide the label and remove the placholder text.</Caption>
   </Dont>
 </DoDontContainer>
 
 ### Placeholder text (recommended)
 
-The placeholder text is meant to give users addtional hints. Keep in mind that it will disappear as soon as users start typing. A placeholder text is not required, but can help suggest CommentBox features specific to a component implementation, such as slash commands. Having a placeholder text also helps with improving usablity and making sure users know where to start typing. The default placeholder text is "Comment".
+The placeholder text is meant to give users addtional hints. Keep in mind that it will disappear as soon as users start typing. A placeholder text is not required, but can help suggest CommentBox features specific to a component implementation, such as slash commands. Having a placeholder text also helps with improving usablity and making sure users know where to start typing. The default placeholder text is "Type your comment here...".
 
 <DoDontContainer>
   <Do>
@@ -56,11 +76,11 @@ The placeholder text is meant to give users addtional hints. Keep in mind that i
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/378023/193514612-a0bdb034-4047-4491-affa-e3e5fc10d455.png"
+      src="https://user-images.githubusercontent.com/378023/218911032-29096ec5-be0b-4e4b-8670-7c095fcc85bf.png"
       role="presentation"
       width="456"
     />
-    <Caption>Don't use a placholder text as a replacement for a label.</Caption>
+    <Caption>Don't repeat the label also as placeholder text.</Caption>
   </Dont>
 </DoDontContainer>
 
