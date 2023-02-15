@@ -15,23 +15,25 @@ export function ComponentPageNav({
   includeFigma?: boolean
 }) {
   const location = useLocation()
+  // Remove trailing slash
+  const path = location.pathname.replace(/\/$/, '')
   return (
     <UnderlineNav>
-      <UnderlineNav.Link as={GatsbyLink} to={basePath} selected={location.pathname.endsWith(basePath)}>
+      <UnderlineNav.Link as={GatsbyLink} to={basePath} selected={path.endsWith(basePath)}>
         Overview
       </UnderlineNav.Link>
       {includeReact ? (
-        <UnderlineNav.Link as={GatsbyLink} to={`${basePath}/react`} selected={location.pathname.endsWith('/react')}>
+        <UnderlineNav.Link as={GatsbyLink} to={`${basePath}/react`} selected={path.endsWith('/react')}>
           React
         </UnderlineNav.Link>
       ) : null}
       {includeRails ? (
-        <UnderlineNav.Link as={GatsbyLink} to={`${basePath}/rails`} selected={location.pathname.endsWith('/rails')}>
+        <UnderlineNav.Link as={GatsbyLink} to={`${basePath}/rails`} selected={path.endsWith('/rails')}>
           Rails
         </UnderlineNav.Link>
       ) : null}
       {includeFigma ? (
-        <UnderlineNav.Link as={GatsbyLink} to={`${basePath}/figma`} selected={location.pathname.endsWith('/figma')}>
+        <UnderlineNav.Link as={GatsbyLink} to={`${basePath}/figma`} selected={path.endsWith('/figma')}>
           Figma
         </UnderlineNav.Link>
       ) : null}
