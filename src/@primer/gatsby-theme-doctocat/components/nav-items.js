@@ -33,22 +33,24 @@ function NavItems({items}) {
       {items.map(item => (
         <React.Fragment key={item.title}>
           {item.children ? (
-            <NavList.Group title={item.title}>
+            <Box as="ul" title={item.title}>
               {item.children.map(child => (
-                <NavList.Item key={child.title} href={child.url}>
+                <Box as="li" key={child.title} href={child.url}>
                   {child.title}
                   {child.children ? (
-                    <NavList.SubNav>
+                    <Box as="ul">
                       {child.children.map(subChild => (
-                        <li key={subChild.title}>{subChild.title}</li>
+                        <Box as="li" key={subChild.title}>
+                          {subChild.title}
+                        </Box>
                       ))}
-                    </NavList.SubNav>
+                    </Box>
                   ) : null}
-                </NavList.Item>
+                </Box>
               ))}
-            </NavList.Group>
+            </Box>
           ) : (
-            <NavList.Item>{item.title}</NavList.Item>
+            <Box as="li">{item.title}</Box>
           )}
         </React.Fragment>
       ))}
