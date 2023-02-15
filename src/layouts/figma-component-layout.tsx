@@ -43,6 +43,7 @@ export default function FigmaComponentLayout({data}) {
             includeReact={data.sitePage.context.frontmatter.reactId}
             includeRails={data.sitePage.context.frontmatter.railsUrl}
             includeFigma={data.sitePage.context.frontmatter.figmaUrl}
+            current="figma"
           />
         </Box>
         <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>

@@ -21,7 +21,13 @@ export default function ComponentLayout({pageContext, children, path}) {
           </Text>
         ) : null}
         <Box sx={{mb: 4}}>
-          <ComponentPageNav basePath={path} includeReact={reactId} includeRails={railsUrl} includeFigma={figmaUrl} />
+          <ComponentPageNav
+            basePath={path}
+            includeReact={reactId}
+            includeRails={railsUrl}
+            includeFigma={figmaUrl}
+            current="overview"
+          />
         </Box>
         <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>
           <Box
