@@ -1,0 +1,7 @@
+<svg width="300px" viewBox="0 0 350 350" version="1.1" xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+  <clipPath id="clip-diamond" clipPathUnits="objectBoundingBox">
+    <polygon points="0.5 0, 0 0.5, 0.5 0.975, 0.99 0.5" />
+  </clipPath>
+  <polygon points="174.5 3.5, 2.6 178.8, 174.5 345, 343 178.6"/>
+</svg>
