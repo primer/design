@@ -5,6 +5,7 @@ import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
+import {LinkExternalIcon} from '@primer/octicons-react'
 import {Box, Heading, Label, Link, Text} from '@primer/react'
 import {graphql} from 'gatsby'
 import React from 'react'
@@ -63,6 +64,7 @@ export default function ReactComponentLayout({data}) {
   const tableOfContents = {
     items: [
       {url: '#import', title: 'Import'},
+      {url: '#examples', title: 'Examples'},
       {url: '#props', title: 'Props'},
     ],
   }
@@ -145,6 +147,18 @@ export default function ReactComponentLayout({data}) {
             <H2>Import</H2>
             {/* @ts-ignore */}
             <Code className="language-javascript">{importStatement}</Code>
+
+            <H2>Examples</H2>
+            <Link
+              sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
+              href={`https://primer.style/react/${name}#examples`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>{name} examples</span>
+              <LinkExternalIcon />
+            </Link>
+
             <H2>Props</H2>
             <H3>{name}</H3>
             <PropsTable props={componentProps} />

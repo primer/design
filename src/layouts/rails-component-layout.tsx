@@ -1,12 +1,11 @@
 import {Note} from '@primer/gatsby-theme-doctocat'
-import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
-import {LinkIcon} from '@primer/octicons-react'
-import {Box, Heading, Link, Text, UnderlineNav} from '@primer/react'
-import {graphql, Link as GatsbyLink} from 'gatsby'
+import {LinkExternalIcon} from '@primer/octicons-react'
+import {Box, Heading, Link, Text} from '@primer/react'
+import {pascalCase} from 'change-case'
+import {graphql} from 'gatsby'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
-import {pascalCase} from 'change-case'
 
 export const query = graphql`
   query RailsComponentPageQuery($parentPath: String!) {
@@ -63,9 +62,11 @@ export default function RailsComponentLayout({data}) {
             <Link
               sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
               href={data.sitePage.context.frontmatter.railsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <LinkIcon />
               {componentName}
+              <LinkExternalIcon />
             </Link>
           </Box>
         </Box>
