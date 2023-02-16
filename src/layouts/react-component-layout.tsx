@@ -109,6 +109,7 @@ export default function ReactComponentLayout({data}) {
           <Box>
             {/* @ts-ignore */}
             <Note variant="warning">
+              <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Work in progress</Text>
               We are currently transferring the React documentation for {name} from a different site to this page. To
               view the original documentation with code examples, please visit the{' '}
               <Link href={`https://primer.style/react/${name}`}>Primer React documentation for {name}</Link>.

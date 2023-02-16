@@ -51,6 +51,7 @@ export default function RailsComponentLayout({data}) {
           <Box>
             {/* @ts-ignore */}
             <Note variant="warning">
+              <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Work in progress</Text>
               We are currently transferring the Rails documentation for {componentName} from a different site to this
               page. To view the original documentation, please visit the{' '}
               <Link href={data.sitePage.context.frontmatter.railsUrl}>
