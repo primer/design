@@ -10,6 +10,7 @@ import {Box, Heading, Label, Link, Text} from '@primer/react'
 import {graphql} from 'gatsby'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import {StorybookEmbed} from '../components/storybook-embed'
 import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
 
@@ -34,6 +35,7 @@ export const query = graphql`
       name
       status
       a11yReviewed
+      stories
       props {
         name
         type
@@ -58,7 +60,7 @@ export const query = graphql`
 `
 
 export default function ReactComponentLayout({data}) {
-  const {name, status, a11yReviewed, props: componentProps, subcomponents} = data.reactComponent
+  const {name, status, a11yReviewed, props: componentProps, subcomponents, stories} = data.reactComponent
   const importStatement = `import {${name}} from '@primer/react${status === 'draft' ? '/drafts' : ''}'`
 
   const tableOfContents = {
@@ -71,6 +73,8 @@ export default function ReactComponentLayout({data}) {
 
   const title = data.sitePage?.context.frontmatter.title || name
   const description = data.sitePage?.context.frontmatter.description || ''
+
+  const defaultStoryId = `components-${name.toLowerCase()}--default`
 
   return (
     <BaseLayout title={title} description={description}>
@@ -150,15 +154,11 @@ export default function ReactComponentLayout({data}) {
             <Code className="language-javascript">{importStatement}</Code>
 
             <H2>Examples</H2>
-            <Link
-              sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
-              href={`https://primer.style/react/${name}#examples`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>{name} examples</span>
-              <LinkExternalIcon />
-            </Link>
+            <StorybookEmbed
+              framework="react"
+              height={300}
+              stories={Array.from(new Set([defaultStoryId, ...stories])).map((storyId: string) => ({id: storyId}))}
+            />
 
             <H2>Props</H2>
             <H3>{name}</H3>
