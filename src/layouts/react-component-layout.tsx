@@ -1,71 +1,178 @@
+import {AccessibilityLabel, Note, StatusLabel} from '@primer/gatsby-theme-doctocat'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
+import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
-import DoctocatLayout from '@primer/gatsby-theme-doctocat/src/components/layout'
+import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
-import {Box, Label, Spinner, Text} from '@primer/react'
-import {QueryClient, QueryClientProvider, useQuery} from '@tanstack/react-query'
+import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
+import {LinkExternalIcon} from '@primer/octicons-react'
+import {Box, Heading, Label, Link, Text} from '@primer/react'
+import {graphql} from 'gatsby'
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
+import {BaseLayout} from '../components/base-layout'
+import {ComponentPageNav} from '../components/component-page-nav'
 
-async function fetchPrimerReactData() {
-  const json = await fetch('https://api.github.com/repos/primer/react/contents/generated/components.json').then(
-    response => response.json(),
-  )
-  // TODO: Handle errors
-  const content = atob(json.content)
-  return JSON.parse(content)
-}
+export const query = graphql`
+  query ReactComponentPageQuery($componentId: String!, $parentPath: String!) {
+    primerReactVersion {
+      version
+    }
+    sitePage(path: {eq: $parentPath}) {
+      path
+      context {
+        frontmatter {
+          title
+          description
+          reactId
+          figmaUrl: figma
+          railsUrl: rails
+        }
+      }
+    }
+    reactComponent(componentId: {eq: $componentId}) {
+      name
+      status
+      a11yReviewed
+      props {
+        name
+        type
+        description
+        defaultValue
+        required
+        deprecated
+      }
+      subcomponents {
+        name
+        props {
+          name
+          type
+          description
+          defaultValue
+          required
+          deprecated
+        }
+      }
+    }
+  }
+`
 
-function Page({children, ...props}: any) {
-  const {id = ''} = props.pageContext.frontmatter
-  // TODO: Fetch inital data at build time, then hydrate
-  const queryResult = useQuery(['react-component-data'], fetchPrimerReactData)
-  const componentData = queryResult.data?.components[id]
-  const importStatement = `import {${componentData?.name}} from '@primer/react${
-    componentData?.status === 'draft' ? '/drafts' : ''
-  }'`
+export default function ReactComponentLayout({data}) {
+  const {name, status, a11yReviewed, props: componentProps, subcomponents} = data.reactComponent
+  const importStatement = `import {${name}} from '@primer/react${status === 'draft' ? '/drafts' : ''}'`
 
   const tableOfContents = {
     items: [
       {url: '#import', title: 'Import'},
+      {url: '#examples', title: 'Examples'},
       {url: '#props', title: 'Props'},
     ],
   }
 
-  const frontmatter = {
-    title: componentData?.name,
-    status: sentenceCase(componentData?.status || ''),
-    a11yReviewed: componentData?.a11yReviewed,
-  }
-
-  const pageContext = deepMerge(props.pageContext, {tableOfContents, frontmatter})
+  const title = data.sitePage?.context.frontmatter.title || name
+  const description = data.sitePage?.context.frontmatter.description || ''
 
   return (
-    <DoctocatLayout {...deepMerge(props, {pageContext})}>
-      {queryResult.isLoading ? (
-        <Box sx={{display: 'flex', width: '100%', justifyContent: 'center'}}>
-          <Spinner />
+    <BaseLayout title={title} description={description}>
+      <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7]}}>
+        <Heading as="h1">{title}</Heading>
+        {description ? (
+          <Text as="p" sx={{fontSize: 3, m: 0, mb: 3, maxWidth: '60ch'}}>
+            {description}
+          </Text>
+        ) : null}
+        <Box sx={{mb: 4}}>
+          <ComponentPageNav
+            basePath={data.sitePage.path}
+            includeReact={data.sitePage.context.frontmatter.reactId}
+            includeRails={data.sitePage.context.frontmatter.railsUrl}
+            includeFigma={data.sitePage.context.frontmatter.figmaUrl}
+            current="react"
+          />
         </Box>
-      ) : null}
-      {queryResult.isError ? <pre>{JSON.stringify(queryResult.error, null, 2)}</pre> : null}
-      {queryResult.isSuccess && componentData ? (
-        <>
-          <H2>Import</H2>
-          {/* @ts-ignore */}
-          <Code className="language-javascript">{importStatement}</Code>
-          {/* TODO: Link to source code */}
-          {/* TODO: Link to storybook */}
-          <H2>Props</H2>
-          <H3>{componentData.name}</H3>
-          <PropsTable props={componentData.props} />
-          {componentData.subcomponents.map(subcomponent => (
-            <>
-              <H3>{subcomponent.name}</H3>
-              <PropsTable props={subcomponent.props} />
-            </>
-          ))}
-        </>
-      ) : null}
-    </DoctocatLayout>
+        <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>
+          <Box
+            sx={{
+              width: 220,
+              flex: '0 0 auto',
+              position: 'sticky',
+              top: HEADER_HEIGHT + 24,
+              maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 24px)`,
+              display: ['none', null, 'block'],
+            }}
+          >
+            <Text sx={{display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
+              On this page
+            </Text>
+            <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
+          </Box>
+          <Box>
+            {/* @ts-ignore */}
+            <Note variant="warning">
+              <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Work in progress</Text>
+              We are currently transferring the React documentation for {name} from a different site to this page. To
+              view the original documentation with code examples, please visit the{' '}
+              <Link href={`https://primer.style/react/${name}`}>Primer React documentation for {name}</Link>.
+            </Note>
+            <Box sx={{display: 'flex', gap: 2, mb: 4}}>
+              <Label size="large">v{data.primerReactVersion.version}</Label>
+              <StatusLabel status={sentenceCase(status)} />
+              <AccessibilityLabel a11yReviewed={a11yReviewed} short={false} />
+            </Box>
+            {/* Narrow table of contents */}
+            <Box
+              sx={{
+                display: ['block', null, 'none'],
+                mb: 5,
+                borderColor: 'border.muted',
+                bg: 'canvas.subtle',
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                borderRadius: 2,
+              }}
+            >
+              <Box sx={{px: 3, py: 2}}>
+                <Box
+                  sx={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}
+                >
+                  <Text sx={{fontWeight: 'bold'}} id="toc-heading-narrow">
+                    On this page
+                  </Text>
+                </Box>
+              </Box>
+              <Box sx={{borderTop: '1px solid', borderColor: 'border.muted'}}>
+                <TableOfContents aria-labelledby="toc-heading-narrow" items={tableOfContents.items} />
+              </Box>
+            </Box>
+
+            <H2>Import</H2>
+            {/* @ts-ignore */}
+            <Code className="language-javascript">{importStatement}</Code>
+
+            <H2>Examples</H2>
+            <Link
+              sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
+              href={`https://primer.style/react/${name}#examples`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>{name} examples</span>
+              <LinkExternalIcon />
+            </Link>
+
+            <H2>Props</H2>
+            <H3>{name}</H3>
+            <PropsTable props={componentProps} />
+            {subcomponents?.map(subcomponent => (
+              <>
+                <H3>{subcomponent.name}</H3>
+                <PropsTable props={subcomponent.props} />
+              </>
+            ))}
+          </Box>
+        </Box>
+      </Box>
+    </BaseLayout>
   )
 }
 
@@ -76,32 +183,7 @@ function sentenceCase(str: string) {
   })
 }
 
-/** Deeply merge two objects */
-function deepMerge(obj1: any, obj2: any): any {
-  let result = {...obj1}
-  for (let key in obj2) {
-    if (obj2.hasOwnProperty(key)) {
-      if (typeof obj2[key] === 'object' && !Array.isArray(obj2[key])) {
-        result[key] = deepMerge(result[key], obj2[key])
-      } else {
-        result[key] = obj2[key]
-      }
-    }
-  }
-  return result
-}
-
-const queryClient = new QueryClient()
-
-// TODO: Render provider at the root of the app
-export function ReactComponentLayout(props) {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Page {...props} />
-    </QueryClientProvider>
-  )
-}
-
+// TODO: Make table responsive
 function PropsTable({
   props,
 }: {
@@ -117,15 +199,13 @@ function PropsTable({
   return (
     <Table>
       <colgroup>
-        <col style={{width: '20%'}} />
-        <col style={{width: '30%'}} />
-        <col style={{width: '10%'}} />
-        <col style={{width: '40%'}} />
+        <col style={{width: '25%'}} />
+        <col style={{width: '15%'}} />
+        <col style={{width: '60%'}} />
       </colgroup>
       <thead>
         <tr>
           <th align="left">Name</th>
-          <th align="left">Type</th>
           <th align="left">Default</th>
           <th align="left">Description</th>
         </tr>
@@ -136,19 +216,31 @@ function PropsTable({
             <td valign="top">
               <Box sx={{display: 'flex', gap: 2, alignItems: 'center'}}>
                 <Text sx={{fontFamily: 'mono', fontSize: 1, whiteSpace: 'nowrap'}}>{prop.name}</Text>
-                {prop.required ? <Label variant="accent">Required</Label> : null}
+                {prop.required ? <Label>Required</Label> : null}
                 {prop.deprecated ? <Label variant="danger">Deprecated</Label> : null}
               </Box>
             </td>
-            <td valign="top">
-              <Text as="pre" sx={{m: 0, fontFamily: 'mono', fontSize: 1, whiteSpace: 'pre-wrap'}}>
-                {prop.type}
-              </Text>
-            </td>
+            <td valign="top">{prop.defaultValue ? <InlineCode>{prop.defaultValue}</InlineCode> : null}</td>
             <td>
-              <Text sx={{fontFamily: 'mono', fontSize: 1, whiteSpace: 'nowrap'}}>{prop.defaultValue}</Text>
+              <InlineCode>{prop.type}</InlineCode>
+              <Box
+                sx={{
+                  '&:not(:empty)': {
+                    mt: 2,
+                  },
+                  color: 'fg.muted',
+                  '& > :first-child': {
+                    mt: 0,
+                  },
+                  '& > :last-child': {
+                    mb: 0,
+                  },
+                }}
+              >
+                {/* @ts-ignore */}
+                <ReactMarkdown components={{a: Link, code: InlineCode}}>{prop.description}</ReactMarkdown>
+              </Box>
             </td>
-            <td>{prop.description}</td>
           </tr>
         ))}
       </tbody>

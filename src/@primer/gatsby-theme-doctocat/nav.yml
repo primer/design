@@ -140,8 +140,8 @@
       url: /components/box
     - title: Branch name
       url: /components/branch-name
-    - title: Breadcrumb
-      url: /components/breadcrumb
+    - title: Breadcrumbs
+      url: /components/breadcrumbs
     - title: Button
       url: /components/button
     - title: Checkbox
@@ -172,8 +172,8 @@
       url: /components/segmented-control
     - title: Toggle switch
       url: /components/toggle-switch
-    - title: Tokens
-      url: /components/tokens
+    - title: Token
+      url: /components/token
     - title: Tree view
       url: /components/tree-view
 - title: Native

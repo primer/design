@@ -1,6 +1,7 @@
 const path = require('path')
 const defines = require('./babel-defines')
 const fetch = require('node-fetch')
+const {paramCase} = require('change-case')
 
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   const config = getConfig()
@@ -24,7 +25,55 @@ exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   actions.replaceWebpackConfig(config)
 }
 
+// Source site data and add it to the GraphQL store
 exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
+  await sourcePrimerReactData({actions, createNodeId, createContentDigest})
+  await sourceOcticonData({actions, createNodeId, createContentDigest})
+}
+
+async function sourcePrimerReactData({actions, createNodeId, createContentDigest}) {
+  // Save the current version of Primer React to the GraphQL store.
+  // This will be the latest version at the time the site is built.
+  // If a new version is released, we'll need to rebuild the site.
+  const {version} = await fetch('https://unpkg.com/@primer/react/package.json').then(res => res.json())
+
+  const nodeData = {
+    version,
+  }
+
+  const newNode = {
+    ...nodeData,
+    id: createNodeId('primer-react-version'),
+    internal: {
+      type: 'PrimerReactVersion',
+      contentDigest: createContentDigest(nodeData),
+    },
+  }
+
+  actions.createNode(newNode)
+
+  // Save the Primer React data to the GraphQL store
+  const json = await fetch(
+    `https://api.github.com/repos/primer/react/contents/generated/components.json?ref=v${version}`,
+  ).then(res => res.json())
+
+  const content = JSON.parse(Buffer.from(json.content, 'base64').toString())
+
+  for (const component of Object.values(content.components)) {
+    const newNode = {
+      ...{...component, componentId: component.id},
+      id: createNodeId(`react-${component.id}`),
+      internal: {
+        type: 'ReactComponent',
+        contentDigest: createContentDigest({...component, componentId: component.id}),
+      },
+    }
+
+    actions.createNode(newNode)
+  }
+}
+
+async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
   // Save the current version of Octicons to the GraphQL store.
   // This will be the latest version at the time the site is built.
   // If a new version is released, we'll need to rebuild the site.
@@ -75,7 +124,67 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   }
 }
 
+// Create pages from data in the GraphQL store
 exports.createPages = async ({actions, graphql}) => {
+  await createComponentPages({actions, graphql})
+  await createIconPages({actions, graphql})
+}
+
+async function createComponentPages({actions, graphql}) {
+  const {data} = await graphql(`
+    {
+      allMdx {
+        nodes {
+          slug
+          frontmatter {
+            reactId
+            railsUrl: rails
+            figmaUrl: figma
+          }
+        }
+      }
+    }
+  `)
+
+  const reactComponentLayout = path.resolve(__dirname, 'src/layouts/react-component-layout.tsx')
+  const railsComponentLayout = path.resolve(__dirname, 'src/layouts/rails-component-layout.tsx')
+  const figmaComponentLayout = path.resolve(__dirname, 'src/layouts/figma-component-layout.tsx')
+
+  for (const {slug, frontmatter} of data.allMdx.nodes) {
+    if (frontmatter.reactId) {
+      actions.createPage({
+        path: `/${slug}/react`,
+        component: reactComponentLayout,
+        context: {
+          componentId: frontmatter.reactId,
+          parentPath: `/${slug}`,
+        },
+      })
+    }
+
+    if (frontmatter.railsUrl) {
+      actions.createPage({
+        path: `/${slug}/rails`,
+        component: railsComponentLayout,
+        context: {
+          parentPath: `/${slug}`,
+        },
+      })
+    }
+
+    if (frontmatter.figmaUrl) {
+      actions.createPage({
+        path: `/${slug}/figma`,
+        component: figmaComponentLayout,
+        context: {
+          parentPath: `/${slug}`,
+        },
+      })
+    }
+  }
+}
+
+async function createIconPages({actions, graphql}) {
   const {data} = await graphql(`
     {
       allOcticon {
