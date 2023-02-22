@@ -56,11 +56,17 @@ export const query = graphql`
         }
       }
     }
+    allReactComponentStory {
+      nodes {
+        storyId
+      }
+    }
   }
 `
 
 export default function ReactComponentLayout({data}) {
   const {name, status, a11yReviewed, props: componentProps, subcomponents, stories} = data.reactComponent
+  const allStoryIds = data.allReactComponentStory.nodes.map(node => node.storyId)
   const importStatement = `import {${name}} from '@primer/react${status === 'draft' ? '/drafts' : ''}'`
 
   const tableOfContents = {
@@ -75,6 +81,9 @@ export default function ReactComponentLayout({data}) {
   const description = data.sitePage?.context.frontmatter.description || ''
 
   const defaultStoryId = `components-${name.toLowerCase()}--default`
+  const validStoryIds = Array.from(new Set([defaultStoryId, ...stories]))
+    // Ensure that all story IDs are valid
+    .filter(storyId => allStoryIds.includes(storyId))
 
   return (
     <BaseLayout title={title} description={description}>
@@ -154,11 +163,24 @@ export default function ReactComponentLayout({data}) {
             <Code className="language-javascript">{importStatement}</Code>
 
             <H2>Examples</H2>
-            <StorybookEmbed
-              framework="react"
-              height={300}
-              stories={Array.from(new Set([defaultStoryId, ...stories])).map((storyId: string) => ({id: storyId}))}
-            />
+            {validStoryIds.length > 0 ? (
+              <StorybookEmbed
+                framework="react"
+                height={300}
+                stories={validStoryIds.map((storyId: string) => ({id: storyId}))}
+              />
+            ) : (
+              // If there are no stories, link to the component's page in the Primer React docs
+              <Link
+                sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
+                href={`https://primer.style/react/${name}#examples`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>{name} examples</span>
+                <LinkExternalIcon />
+              </Link>
+            )}
 
             <H2>Props</H2>
             <H3>{name}</H3>
@@ -202,9 +224,6 @@ function PropsTable({
         <col style={{width: '25%'}} />
         <col style={{width: '15%'}} />
         <col style={{width: '60%'}} />
-        <col style={{width: '25%'}} />
-        <col style={{width: '15%'}} />
-        <col style={{width: '60%'}} />
       </colgroup>
       <thead>
         <tr>
@@ -220,31 +239,11 @@ function PropsTable({
               <Box sx={{display: 'flex', gap: 2, alignItems: 'center'}}>
                 <Text sx={{fontFamily: 'mono', fontSize: 1, whiteSpace: 'nowrap'}}>{prop.name}</Text>
                 {prop.required ? <Label>Required</Label> : null}
-                {prop.required ? <Label>Required</Label> : null}
                 {prop.deprecated ? <Label variant="danger">Deprecated</Label> : null}
               </Box>
             </td>
             <td valign="top">{prop.defaultValue ? <InlineCode>{prop.defaultValue}</InlineCode> : null}</td>
-            <td valign="top">{prop.defaultValue ? <InlineCode>{prop.defaultValue}</InlineCode> : null}</td>
             <td>
-              <InlineCode>{prop.type}</InlineCode>
-              <Box
-                sx={{
-                  '&:not(:empty)': {
-                    mt: 2,
-                  },
-                  color: 'fg.muted',
-                  '& > :first-child': {
-                    mt: 0,
-                  },
-                  '& > :last-child': {
-                    mb: 0,
-                  },
-                }}
-              >
-                {/* @ts-ignore */}
-                <ReactMarkdown components={{a: Link, code: InlineCode}}>{prop.description}</ReactMarkdown>
-              </Box>
               <InlineCode>{prop.type}</InlineCode>
               <Box
                 sx={{
