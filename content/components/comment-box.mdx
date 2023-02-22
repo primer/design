@@ -12,15 +12,15 @@ export default ComponentLayout
 
 <img
   width="960"
-  alt="A diagram of a comment box with a label, a tab nav, a toolbar and an input with a placeholder text."
+  alt="A diagram of a comment box with a heading, a tab nav, a toolbar and a textarea with a placeholder text."
   src="https://user-images.githubusercontent.com/378023/197092931-b5207868-036b-4858-9fad-1195b2fd7604.png"
 />
 
 ## Content
 
-### Label (required)
+### Heading (required)
 
-A label is shown above the comment box to establish the context and inform users about the purpose of the text input that follows. The default label is "Add a comment".
+A heading is shown above the comment box to establish the context and inform users about the purpose of the textarea that follows. The default heading is "Add a comment".
 
 <DoDontContainer>
   <Do>
@@ -29,24 +29,44 @@ A label is shown above the comment box to establish the context and inform users
       role="presentation"
       width="456"
     />
-    <Caption>Use a different label depending on the context.</Caption>
+    <Caption>Use a different heading depending on the context.</Caption>
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/378023/193514422-54ab3bb8-238f-4852-a813-206b81449575.png"
+      src="https://user-images.githubusercontent.com/378023/218910346-21023ac1-b251-4272-b0a0-ceb4dfc97075.png"
       role="presentation"
       width="456"
     />
     <Caption>
-      Don't hide the label. Also don't use the label to notify users of any kind of state or event, like when an error
-      occurred.
+      Don't use the term "Write". This may create confusion when navigating between the comment box's heading and the "Write/Preview" tab nav.
     </Caption>
+  </Dont>
+</DoDontContainer>
+
+It's recommended to *always* show a heading to give users a permanent description of the comment box. In case the design doesn't have room for a heading, the `sr-only` class may be added to visually hide the heading.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/193514612-a0bdb034-4047-4491-affa-e3e5fc10d455.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>When the heading needs to be visually hidden, use the placholder text instead.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/218910567-0f0f5377-4b72-40ef-b1e5-e6cafada7453.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't visually hide the heading and remove the placholder text.</Caption>
   </Dont>
 </DoDontContainer>
 
 ### Placeholder text (recommended)
 
-The placeholder text is meant to give users addtional hints. Keep in mind that it will disappear as soon as users start typing. A placeholder text is not required, but can help suggest CommentBox features specific to a component implementation, such as slash commands. Having a placeholder text also helps with improving usablity and making sure users know where to start typing. The default placeholder text is "Comment".
+The placeholder text is meant to give users addtional hints. Keep in mind that it will disappear as soon as users start typing. A placeholder text is not required, but can help suggest CommentBox features specific to a component implementation, such as slash commands. Having a placeholder text also helps with improving usablity and making sure users know where to start typing. The default placeholder text is "Type your comment here...".
 
 <DoDontContainer>
   <Do>
@@ -59,11 +79,11 @@ The placeholder text is meant to give users addtional hints. Keep in mind that i
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/378023/193514612-a0bdb034-4047-4491-affa-e3e5fc10d455.png"
+      src="https://user-images.githubusercontent.com/378023/218911032-29096ec5-be0b-4e4b-8670-7c095fcc85bf.png"
       role="presentation"
       width="456"
     />
-    <Caption>Don't use a placholder text as a replacement for a label.</Caption>
+    <Caption>Don't repeat the heading also as placeholder text.</Caption>
   </Dont>
 </DoDontContainer>
 
@@ -108,9 +128,9 @@ Additional toolbar items can be added based on context. They appear at the begin
   width="960"
 />
 
-### Input
+### Textarea
 
-The input is used to write the comment. While typing it will automatically resize to fit the content until a certain max height is reached. The input can also be manually resized by dragging the handle in the bottom right corner.
+A textarea is used to write the comment. While typing it will automatically resize to fit the content until a certain max height is reached. The textarea can also be manually resized by dragging the handle in the bottom right corner.
 
 <img
   src="https://user-images.githubusercontent.com/378023/193514864-e0528816-7560-4fdd-b816-e076f74a9981.png"
@@ -118,7 +138,7 @@ The input is used to write the comment. While typing it will automatically resiz
   width="960"
 />
 
-The default and minimum height is `100px`. For cases where users typically add a lot of content, like issues or pull request descriptions, the input can be configured to have an increased initial height:
+The default and minimum height is `100px`. For cases where users typically add a lot of content, like issues or pull request descriptions, the textarea can be configured to have an increased initial height:
 
 | Option            | value   |
 | ----------------- | ------- |
@@ -170,7 +190,7 @@ A typical use of the comment box is at the bottom of a timeline or inline when r
 
 | Key   | description                                                                                                          |
 | ----- | -------------------------------------------------------------------------------------------------------------------- |
-| `Tab` | Moves focus between the different parts of the comment box. The order is as follows: 1. tab nav 2. toolbar 3. input. |
+| `Tab` | Moves focus between the different parts of the comment box. The order is as follows: 1. tab nav 2. toolbar 3. textarea. |
 
 <img
   src="https://user-images.githubusercontent.com/378023/193515190-f18d784f-43c2-4d9e-87c7-7c9ba4a08069.png"

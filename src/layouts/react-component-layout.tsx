@@ -202,6 +202,9 @@ function PropsTable({
         <col style={{width: '25%'}} />
         <col style={{width: '15%'}} />
         <col style={{width: '60%'}} />
+        <col style={{width: '25%'}} />
+        <col style={{width: '15%'}} />
+        <col style={{width: '60%'}} />
       </colgroup>
       <thead>
         <tr>
@@ -217,11 +220,31 @@ function PropsTable({
               <Box sx={{display: 'flex', gap: 2, alignItems: 'center'}}>
                 <Text sx={{fontFamily: 'mono', fontSize: 1, whiteSpace: 'nowrap'}}>{prop.name}</Text>
                 {prop.required ? <Label>Required</Label> : null}
+                {prop.required ? <Label>Required</Label> : null}
                 {prop.deprecated ? <Label variant="danger">Deprecated</Label> : null}
               </Box>
             </td>
             <td valign="top">{prop.defaultValue ? <InlineCode>{prop.defaultValue}</InlineCode> : null}</td>
+            <td valign="top">{prop.defaultValue ? <InlineCode>{prop.defaultValue}</InlineCode> : null}</td>
             <td>
+              <InlineCode>{prop.type}</InlineCode>
+              <Box
+                sx={{
+                  '&:not(:empty)': {
+                    mt: 2,
+                  },
+                  color: 'fg.muted',
+                  '& > :first-child': {
+                    mt: 0,
+                  },
+                  '& > :last-child': {
+                    mb: 0,
+                  },
+                }}
+              >
+                {/* @ts-ignore */}
+                <ReactMarkdown components={{a: Link, code: InlineCode}}>{prop.description}</ReactMarkdown>
+              </Box>
               <InlineCode>{prop.type}</InlineCode>
               <Box
                 sx={{

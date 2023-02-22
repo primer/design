@@ -114,7 +114,7 @@ export default function IconPage({pageContext}) {
           <Code className="language-jsx">{`<${toPascalCase(pageContext.name)}Icon size={${icon.height}} />`}</Code>
 
           <H3>ViewComponent</H3>
-          <Code>{`<%= render(Primer::OcticonComponent.new(:"${pageContext.name}")) %>`}</Code>
+          <Code>{`<%= render(Primer::Beta::Octicon.new(:"${pageContext.name}")) %>`}</Code>
 
           <H3>Jekyll</H3>
           <Code>{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>

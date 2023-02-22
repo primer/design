@@ -491,15 +491,15 @@ If one of the actions is heavily used, pull it out for easier access. Do not pul
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
 <Box as="p" flex={1}>
-  The column header starts unsorted. The first click sorts in ascending order, the second click sorts in descending
-  order, and the third click removes the sort. When the sort is removed, the rows should be in the order they were in
-  when the table was first rendered
+  If a table is sortable, it must start with one column sorted on page load. Interacting with a column that is already
+  sorted will toggle the sort between ascending and descending. If a column is not sorted yet, the first click sorts in
+  ascending order.
 </Box>
 
 <CustomVideoPlayer
   width="456"
   loop
-  src="https://user-images.githubusercontent.com/2313998/205755293-c03ee5f6-faa8-4f73-89e5-4bf33cc06086.mp4"
+  src="https://user-images.githubusercontent.com/2313998/217949039-8d6a3062-e7ec-40f6-b6d9-b80494a7e89b.mp4"
 />
 </Box>
 
