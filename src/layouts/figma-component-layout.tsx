@@ -4,7 +4,8 @@ import {Box, Heading, Link, Text} from '@primer/react'
 import {graphql} from 'gatsby'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
-import {ComponentPageNav} from '../components/component-page-nav'
+import { ComponentPageNav } from '../components/component-page-nav'
+import {Overview, PropertyOverview, PropertyPreview, Examples} from '../components/FigmaPrimerWeb'
 
 export const query = graphql`
   query FigmaComponentPageQuery($parentPath: String!) {
@@ -15,6 +16,7 @@ export const query = graphql`
           title
           description
           reactId
+          figmaId
           figmaUrl: figma
           railsUrl: rails
         }
@@ -26,6 +28,7 @@ export const query = graphql`
 export default function FigmaComponentLayout({data}) {
   const title = data.sitePage?.context.frontmatter.title || name
   const description = data.sitePage?.context.frontmatter.description || ''
+  const figmaComponentName = data.sitePage?.context.frontmatter.figmaId
 
   return (
     <BaseLayout title={title} description={description}>
@@ -54,6 +57,14 @@ export default function FigmaComponentLayout({data}) {
               view the original documentation, please visit the{' '}
               <Link href={data.sitePage.context.frontmatter.figmaUrl}>Figma documentation for {title}</Link>.
             </Note>
+
+            <Overview component={figmaComponentName} />
+            
+            <h2>Playground</h2>
+            <Examples component={figmaComponentName} />
+
+            <h2>Properties</h2>
+            <PropertyOverview component={figmaComponentName} />
 
             <Link
               sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
