@@ -17,6 +17,8 @@
           url: /guides/figma/contribute
     - title: Component lifecycle
       url: /guides/component-lifecycle
+    - title: Component status
+      url: /guides/status
     - title: Accessibility
       children:
         - title: Accessibility at GitHub
@@ -114,10 +116,6 @@
       url: /ui-patterns/progressive-disclosure
     - title: Saving
       url: /ui-patterns/saving
-- title: Status
-  children:
-    - title: Component status
-      url: /status
 - title: Components
   children:
     - title: Action bar
