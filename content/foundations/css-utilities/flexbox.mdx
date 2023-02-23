@@ -88,30 +88,26 @@ This example uses the responsive variant `.flex-sm-row-reverse` to override `.fl
 You can choose whether flex items are forced into a single line or wrapped onto multiple lines.
 
 ```css
-.flex-wrap {
-  flex-wrap: wrap;
-}
-.flex-nowrap {
-  flex-wrap: nowrap;
-}
-.flex-wrap-reverse {
-  flex-wrap: wrap-reverse;
-}
+.flex-nowrap         { flex-wrap: nowrap; }
+.flex-wrap           { flex-wrap: wrap; }
+.flex-wrap-reverse   { flex-wrap: wrap-reverse; }
 ```
+
 
 | Class                | Description                                                          |
 | -------------------- | -------------------------------------------------------------------- |
-| `.flex-wrap`         | Flex items will break onto multiple lines (default)                  |
 | `.flex-nowrap`       | Flex items are laid out in a single line, even if they overflow      |
+| `.flex-wrap`         | Flex items will break onto multiple lines (default)                  |
 | `.flex-wrap-reverse` | Behaves the same as wrap but cross-start and cross-end are permuted. |
-
-### `flex-wrap` example
-
-<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--wrap'}]} height="220" />
 
 ### `flex-nowrap` example
 
-<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--nowrap'}]} height="125" />
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--nowrap'}]} height="220" />
+
+
+### `flex-wrap` example
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--wrap'}]} height="125" />
 
 ### `flex-wrap-reverse` example
 
