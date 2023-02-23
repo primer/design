@@ -3,8 +3,6 @@ import {ActionMenu, ActionList, Link, Box, ThemeProvider, theme} from '@primer/r
 import {LinkExternalIcon} from '@primer/octicons-react'
 import {sentenceCase} from 'change-case'
 
-// TODO: Add this component to global MDX scope
-
 const baseUrls = {
   react: 'https://primer.style/react/storybook',
   css: 'https://primer.style/css/storybook',
