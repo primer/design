@@ -11,7 +11,7 @@ import {Overview, PropertyOverview, PropertyPreview, Examples} from '../componen
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
 
 export const query = graphql`
-  query FigmaComponentPageQuery($parentPath: String!) {
+  query FigmaComponentPageQuery($figmaId: String!, $parentPath: String!) {
     sitePage(path: {eq: $parentPath}) {
       path
       context {
@@ -25,6 +25,10 @@ export const query = graphql`
         }
       }
     }
+    figmaComponent(name: {eq: $figmaId}) {
+      name
+      props
+    }
   }
 `
 
@@ -32,7 +36,8 @@ export default function FigmaComponentLayout({data}) {
   const title = data.sitePage?.context.frontmatter.title || name
   const description = data.sitePage?.context.frontmatter.description || ''
   const figmaComponentName = data.sitePage?.context.frontmatter.figmaId
-
+  const { name: componentName, props } = data.figmaComponent
+  
   const tableOfContents = {
     items: [
       {url: '#playground', title: 'Playground'},
@@ -90,6 +95,11 @@ export default function FigmaComponentLayout({data}) {
 
             <H2>Props</H2>
             <PropertyOverview component={figmaComponentName} />
+
+            {props.map(prop => <>
+              <H3>{prop}</H3>
+              <PropertyPreview component={figmaComponentName} property={prop} />
+            </>)}
 
             <Link
               sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}

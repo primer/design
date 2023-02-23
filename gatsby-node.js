@@ -29,6 +29,7 @@ exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
 exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   await sourcePrimerReactData({actions, createNodeId, createContentDigest})
   await sourceOcticonData({actions, createNodeId, createContentDigest})
+  await sourceFigmaData({actions, createNodeId, createContentDigest})
 }
 
 async function sourcePrimerReactData({actions, createNodeId, createContentDigest}) {
@@ -124,6 +125,37 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
   }
 }
 
+async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
+
+  // Save the icon data to the GraphQL store
+  // const octiconData = await fetch('https://unpkg.com/@primer/octicons/build/data.json').then(res => res.json())
+
+  const figmaData = {
+    id: {
+      name: 'Avatar',
+      props: ['size'],
+    },
+  }
+
+  for (const item of Object.values(figmaData)) {
+      const nodeData = {
+        name: item.name,
+        props: item.props,
+      }
+
+      const newNode = {
+        ...nodeData,
+        id: createNodeId(`figma-${item.name}`),
+        internal: {
+          type: 'figmaComponent',
+          contentDigest: createContentDigest(nodeData),
+        },
+      }
+
+      actions.createNode(newNode)
+    }
+}
+
 // Create pages from data in the GraphQL store
 exports.createPages = async ({actions, graphql}) => {
   await createComponentPages({actions, graphql})
@@ -138,6 +170,7 @@ async function createComponentPages({actions, graphql}) {
           slug
           frontmatter {
             reactId
+            figmaId
             railsUrl: rails
             figmaUrl: figma
           }
@@ -177,6 +210,7 @@ async function createComponentPages({actions, graphql}) {
         path: `/${slug}/figma`,
         component: figmaComponentLayout,
         context: {
+          figmaId: frontmatter.figmaId,
           parentPath: `/${slug}`,
         },
       })
