@@ -1,11 +1,14 @@
 import {Note} from '@primer/gatsby-theme-doctocat'
-import {LinkExternalIcon} from '@primer/octicons-react'
-import {Box, Heading, Link, Text} from '@primer/react'
+import { LinkExternalIcon } from '@primer/octicons-react'
+import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
+import { Box, Heading, Link, Text } from '@primer/react'
+import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import {graphql} from 'gatsby'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import { ComponentPageNav } from '../components/component-page-nav'
 import {Overview, PropertyOverview, PropertyPreview, Examples} from '../components/FigmaPrimerWeb'
+import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
 
 export const query = graphql`
   query FigmaComponentPageQuery($parentPath: String!) {
@@ -30,6 +33,13 @@ export default function FigmaComponentLayout({data}) {
   const description = data.sitePage?.context.frontmatter.description || ''
   const figmaComponentName = data.sitePage?.context.frontmatter.figmaId
 
+  const tableOfContents = {
+    items: [
+      {url: '#playground', title: 'Playground'},
+      {url: '#props', title: 'Props'},
+    ],
+  }
+
   return (
     <BaseLayout title={title} description={description}>
       <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7]}}>
@@ -48,7 +58,22 @@ export default function FigmaComponentLayout({data}) {
             current="figma"
           />
         </Box>
-        <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>
+        <Box sx={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4 }}>
+                    <Box
+            sx={{
+              width: 220,
+              flex: '0 0 auto',
+              position: 'sticky',
+              top: HEADER_HEIGHT + 24,
+              maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 24px)`,
+              display: ['none', null, 'block'],
+            }}
+          >
+            <Text sx={{display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
+              On this page
+            </Text>
+            <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
+          </Box>
           <Box>
             {/* @ts-ignore */}
             <Note variant="warning">
@@ -60,10 +85,10 @@ export default function FigmaComponentLayout({data}) {
 
             <Overview component={figmaComponentName} />
             
-            <h2>Playground</h2>
+            <H2>Playground</H2>
             <Examples component={figmaComponentName} />
 
-            <h2>Properties</h2>
+            <H2>Props</H2>
             <PropertyOverview component={figmaComponentName} />
 
             <Link

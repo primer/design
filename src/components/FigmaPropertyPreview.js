@@ -35,7 +35,6 @@ export default function FigmaPropertyPreview({thumbnails, property, setPropertie
       bg="neutral.subtle"
       borderWidth={1}
       borderRadius={10}
-      marginTop={3}
       marginBottom={6}
       borderStyle="solid"
       display="flex"

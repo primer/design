@@ -41,7 +41,7 @@ export default function FigmaComponentExamples({properties, thumbnails}) {
   const filteredProperties = properties.filter(x => !booleans.includes(x))
 
   return (
-    <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '2fr 1fr']} gridGap={5} marginTop={6}>
+    <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '2fr 1fr']} gridGap={5}>
       <Box
         paddingY={10}
         borderColor="border.muted"
