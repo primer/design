@@ -24,10 +24,17 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
     id: selectedStory.id,
     globals: framework === 'css' ? `theme:${selectedColorScheme}` : `colorScheme:${selectedColorScheme}`,
   }
+  const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const iframeUrl = `${baseUrl}/iframe.html?${new URLSearchParams(options)}`
   const storybookUrl = `${baseUrl}?path=/story/${selectedStory.id}&${new URLSearchParams({
     globals: options.globals,
   })}`
+
+  // Prevent iframe from affecting browser history
+  // Reference: https://stackoverflow.com/questions/27341498/how-to-prevent-iframe-affecting-browser-history
+  React.useEffect(() => {
+    iframeRef.current?.contentWindow?.location.replace(iframeUrl)
+  }, [iframeUrl])
 
   return (
     // @ts-ignore
@@ -105,6 +112,7 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
         </Box>
         <Box
           as="iframe"
+          ref={iframeRef}
           sx={{
             mb: 3,
             borderRadius: 2,
@@ -116,7 +124,6 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
           }}
           title="storybook-preview"
           id="storybook-preview-iframe"
-          src={iframeUrl}
           width="100%"
           height={height}
         />
