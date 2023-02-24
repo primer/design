@@ -155,6 +155,12 @@ async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
    */
 
   for (const component of components) {
+
+    component.thumbnails = component.thumbnails.map(thumbnail => {
+      thumbnail.props = Object.entries(thumbnail.props)
+      return thumbnail
+    })
+
     const newNode = {
       ...{...component, figmaId: component.id},
       id: createNodeId(`figma-${components.name}`),
@@ -217,7 +223,7 @@ async function createComponentPages({actions, graphql}) {
       })
     }
 
-    if (frontmatter.figmaUrl) {
+    if (frontmatter.figmaId) {
       actions.createPage({
         path: `/${slug}/figma`,
         component: figmaComponentLayout,

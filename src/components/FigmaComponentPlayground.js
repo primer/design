@@ -16,7 +16,12 @@ const removeSpacesAndEmojis = str => {
   return str.replace(/[\s\p{Emoji}]/gu, '')
 }
 
-export default function FigmaComponentExamples({properties, thumbnails}) {
+export default function FigmaComponentPlayground({properties, thumbnails}) {
+  // short circut if no thumbnails
+  if (!thumbnails) return null
+  // filter props
+  properties = properties?.filter(prop => ['VARIANT', 'BOOLEAN'].includes(prop.type))
+
   const [previewState, setPreviewState] = React.useState([])
 
   React.useEffect(() => {
@@ -36,7 +41,7 @@ export default function FigmaComponentExamples({properties, thumbnails}) {
       (property.type === 'VARIANT' &&
         property.values.length === 2 &&
         property.values.includes('true') &&
-        property.values.includes('false'))
+        property.values.includes('false')),
   )
   const filteredProperties = properties.filter(x => !booleans.includes(x))
 
@@ -56,14 +61,13 @@ export default function FigmaComponentExamples({properties, thumbnails}) {
         minHeight="30vh"
       >
         {thumbnails.map((thumbnail, index) => {
+          const thumbnailProps = Object.fromEntries(thumbnail.props)
           const curPreviewState = Object.entries(previewState)
           let isActive = curPreviewState.every(([prop, value]) => {
-            return value === thumbnail.props[prop]
+            return value === thumbnailProps[prop]
           })
 
-          const componentName = Object.entries(thumbnail.props)
-            .flatMap(propArr => propArr.join(': '))
-            .join(', ')
+          const componentName = thumbnail.props.flatMap(propArr => propArr.join(': ')).join(', ')
 
           return (
             isActive && (

@@ -7,10 +7,11 @@ import {graphql} from 'gatsby'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import { ComponentPageNav } from '../components/component-page-nav'
-import {PropertyPreview, Examples} from '../components/FigmaPrimerWeb'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
 import {LinkIcon} from '@primer/octicons-react'
-import FigmaPropertyOverview from '../components/FigmaPropertyOverview'
+import FigmaPropertyTable from '../components/FigmaPropertyTable'
+import FigmaComponentPlayground from '../components/FigmaComponentPlayground'
+import FigmaPropertyPreview from '../components/FigmaPropertyPreview'
 
 export const query = graphql`
   query FigmaComponentPageQuery($figmaId: String!, $parentPath: String!) {
@@ -35,6 +36,12 @@ export const query = graphql`
       figmaId
       status
       updatedAt
+      componentUrl: url
+      thumbnails {
+        nodeId
+        url
+        props
+      }
       properties {
         name
         type
@@ -45,9 +52,18 @@ export const query = graphql`
   }
 `
 
+const sentenceCase = (str) => {
+  return str?.toLowerCase().replace(/([A-Z])/g, ' $1').replace(/^./, function (str) {
+    return str.toUpperCase()
+  })
+}
+
+const lastUpdated = (date) => { 
+  return `updated ${new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}`
+}
+
 export default function FigmaComponentLayout({data}) {
-  const { name, figmaId, status, updatedAt, properties } = data.figmaComponent
-  const { fileUrl } = data.figmaFile
+  const { name, componentUrl, status, updatedAt, properties, thumbnails } = data.figmaComponent || {}
   const description = data.sitePage?.context.frontmatter.description || ''
   const title = data.sitePage?.context.frontmatter.title || name
   
@@ -73,12 +89,12 @@ export default function FigmaComponentLayout({data}) {
             basePath={data.sitePage.path}
             includeReact={data.sitePage.context.frontmatter.reactId}
             includeRails={data.sitePage.context.frontmatter.railsUrl}
-            includeFigma={fileUrl}
+            includeFigma={data.sitePage.context.frontmatter.figmaId}
             current="figma"
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4 }}>
-                    <Box
+          <Box
             sx={{
               width: 220,
               flex: '0 0 auto',
@@ -95,57 +111,57 @@ export default function FigmaComponentLayout({data}) {
           </Box>
           <Box>
             {/* @ts-ignore */}
-            <Note variant="warning">
-              <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Work in progress</Text>
-              We are currently transferring the Figma documentation for {title} from a different site to this page. To
-              view the original documentation, please visit the{' '}
-              <Link href={data.sitePage.context.frontmatter.figmaUrl}>Figma documentation for {title}</Link>.
-            </Note>
+            {!name ? 
+              // NO component found in json
+              <Note variant="warning">
+                <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Work in progress</Text>
+                We are currently transferring the Figma documentation for {title} from a different site to this page. To
+                view the original documentation, please visit the{' '}
+                <Link href={data.figmaFile.fileUrl}>Figma documentation for {title}</Link>.
+              </Note>
+              :
+              // component found in json
+              <>
+              <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>
+                <Label size="large">{lastUpdated(updatedAt)}</Label>
+                <StatusLabel status={sentenceCase(status)} />
+                <Link href={componentUrl}>
+                  <Box display={'flex'} alignItems={'center'} sx={{gap: 2}}>
+                    <StyledOcticon icon={LinkIcon} />
+                    Figma
+                  </Box>
+                </Link>
+              </Box>
+              
+              <H2>Playground</H2>
+              
+              <FigmaComponentPlayground thumbnails={ thumbnails } properties = { properties } />
 
-            <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>
-              <Label size="large">{lastUpdated(updatedAt)}</Label>
-              <StatusLabel status={sentenceCase(status)} />
-              <Link href={fileUrl}>
-                <Box display={'flex'} alignItems={'center'} sx={{gap: 2}}>
-                  <StyledOcticon icon={LinkIcon} />
-                  Figma
-                </Box>
+              <H2>Props</H2>
+              <FigmaPropertyTable properties={ properties } />
+
+              {properties.map(prop => <>
+                <H3>{prop.name}</H3>
+                    <FigmaPropertyPreview
+                      thumbnails = { thumbnails }
+                      property={prop.name}
+                    />
+              </>)}
+    
+              <Link
+                sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
+                href={componentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {title}
+                <LinkExternalIcon />
               </Link>
-            </Box>
-            
-            <H2>Playground</H2>
-            <Examples component={figmaId} />
-
-            <H2>Props</H2>
-            <FigmaPropertyOverview properties={ properties } />
-
-            {properties.map(prop => <>
-              <H3>{prop.name}</H3>
-              <PropertyPreview component={figmaId} property={prop.name} />
-            </>)}
-
-            <Link
-              sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
-              href={fileUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {title}
-              <LinkExternalIcon />
-            </Link>
+            </>
+          }
           </Box>
         </Box>
       </Box>
     </BaseLayout>
   )
-}
-
-function sentenceCase(str: string) {
-  return str.toLowerCase().replace(/([A-Z])/g, ' $1').replace(/^./, function (str) {
-    return str.toUpperCase()
-  })
-}
-
-function lastUpdated(date: string) { 
-  return `updated ${new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}`
 }

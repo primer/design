@@ -41,7 +41,7 @@ function propertyTypes(property) {
   return values
 }
 
-export default function FigmaPropertyOverview({properties}) {
+export default function FigmaPropertyTable({properties}) {
   return (
     <article>
       <Table>

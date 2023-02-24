@@ -22,10 +22,9 @@ const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
   return previewComponents
 }
 
-export default function FigmaPropertyPreview({thumbnails, property, setProperties, column, hideLabels, labelPosition}) {
+export default function FigmaPropertyPreview({thumbnails, property, setProperties = {}, column = undefined, hideLabels = false}) {
   const previewComponents = getPreviewComponents(thumbnails, property, setProperties)
   const direction = column === undefined ? 'row' : 'column'
-  // const previewItemBoxFlexDirection = labelPosition === 'left' ? 'row-reverse' : 'column'
   const previewItemBoxFlexDirection = 'column'
 
   return (
@@ -43,7 +42,7 @@ export default function FigmaPropertyPreview({thumbnails, property, setPropertie
       flexWrap="wrap"
       flexDirection={direction}
       sx={{
-        gap: 4
+        gap: 4,
       }}
     >
       {previewComponents.map(component => {
