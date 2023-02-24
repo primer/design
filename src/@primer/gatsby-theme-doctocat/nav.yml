@@ -166,6 +166,8 @@
       url: /components/heading
     - title: Icon
       url: /components/icon
+    - title: Page header
+      url: /components/page-header
     - title: Segmented control
       url: /components/segmented-control
     - title: Toggle switch
