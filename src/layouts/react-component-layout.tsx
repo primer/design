@@ -1,4 +1,6 @@
 import {AccessibilityLabel, Note, StatusLabel} from '@primer/gatsby-theme-doctocat'
+import SourceLink from '@primer/gatsby-theme-doctocat/src/components/source-link'
+import StorybookLink from '@primer/gatsby-theme-doctocat/src/components/storybook-link'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
@@ -127,10 +129,61 @@ export default function ReactComponentLayout({data}) {
               view the original documentation with code examples, please visit the{' '}
               <Link href={`https://primer.style/react/${name}`}>Primer React documentation for {name}</Link>.
             </Note>
-            <Box sx={{display: 'flex', gap: 2, mb: 4}}>
-              <Label size="large">v{data.primerReactVersion.version}</Label>
-              <StatusLabel status={sentenceCase(status)} />
-              <AccessibilityLabel a11yReviewed={a11yReviewed} short={false} />
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: ['column', null, null, null, 'row'],
+                justifyContent: 'space-between',
+                gap: 3,
+                mb: 4,
+              }}
+            >
+              <Box
+                as={'ul'}
+                sx={{
+                  display: 'flex',
+                  gap: 1,
+                  alignItems: 'center',
+                  m: 0,
+                  p: 0,
+                  paddingInline: 0,
+                  listStyle: 'none',
+                  '& > li': {
+                    display: 'flex',
+                  },
+                }}
+              >
+                <li>
+                  <Label size="large">@primer/react@{data.primerReactVersion.version}</Label>
+                </li>
+                <li>
+                  <StatusLabel status={sentenceCase(status)} />
+                </li>
+                <li>
+                  <AccessibilityLabel a11yReviewed={a11yReviewed} short={false} />
+                </li>
+              </Box>
+              <Box
+                as={'ul'}
+                sx={{
+                  display: 'flex',
+                  gap: 3,
+                  alignItems: 'center',
+                  m: 0,
+                  p: 0,
+                  paddingInline: 0,
+                  listStyle: 'none',
+                  fontSize: 1,
+                  '& > li': {
+                    display: 'flex',
+                  },
+                }}
+              >
+                <SourceLink href={`https://github.com/primer/react/blob/main/src/${name}`} />
+                {validStoryIds.length > 0 ? (
+                  <StorybookLink href={`https://primer.style/react/storybook/?path=/story/${validStoryIds[0]}`} />
+                ) : null}
+              </Box>
             </Box>
             {/* Narrow table of contents */}
             <Box
