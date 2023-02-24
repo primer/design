@@ -163,7 +163,7 @@ async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
 
     const newNode = {
       ...{...component, figmaId: component.id},
-      id: createNodeId(`figma-${components.name}`),
+      id: createNodeId(`figma-${component.name}`),
       internal: {
         type: 'figmaComponent',
         contentDigest: createContentDigest({...component, figmaId: component.id}),
