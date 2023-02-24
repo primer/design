@@ -1,6 +1,7 @@
 ---
 title: Page header
 description: Page header determines the top-level headings of a UI
+reactID: PageHeader
 ---
 
 import {Box, Text} from '@primer/react'
@@ -8,43 +9,57 @@ import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 
 ## Usage
+
 Page header is used to determine the arrangement of top-level headings and to determine how elements adopt to different viewports. Page header organizes different elements that apply context and provide navigation for the current UI. 
 
 ## Anatomy 
+
 Page header can include a context bar, title bar, description, and contextual navigation (pertaining to the current page/UI). 
 
-### Context bar
+## Context bar
+
 By default, the Context bar (including its actions) is only visible on Narrow viewports. This is intended to set context for the user on smaller viewports and provide any actions that fit within the context bar.
 
-#### Parent link
+### Parent link
+
 The default way to let users navigate up in the hierarchy on Narrow viewports.
 
 **Responsive strategy**: On Narrow viewports, the ParentLink touch target expands beyond its element boundaries, to match with the minTouchTarget design token.
 
-#### Context bar actions
+### Context bar actions
+
 Actions that appear in the Context bar specifically.
 
-#### Context bar
+### Context bar
+
 Generic slot for any component above the title region (see below). Use it for custom breadcrumbs and other navigation elements instead of Parent link
 
-### Title bar
+## Title bar
+
 The title bar can include a static page title, actions, and a parent link that by default is only visible on narrow viewports.
 
-#### Title variants
+### Title variants
+
 **Default title**: Most common page title size. Use for static titles in most situations.
+
 **Large variant**: Use `large` for for user-generated content such as issues, pull requests, or discussions.
+
 **Subtitle variant**: Use `subtitle` when a PageHeader.Title is already present in the page, such as in a Spit page layout.
 
 **Responsive strategy**: When Narrow, all title variants appear as ”medium”
 
-#### Title visual regions
+### Title visual regions
+
 **Leading visuals**: Leading visuals are optional and appear at the start of the title. They can be octicons, avatars, and other custom visuals that fit a small area.
+
 **Trailing visuals**: Trailing visual and trailing text can display auxiliary information. They're placed at the right of the item, and can denote status, privacy details, etc.
 
 **Responsive strategy**: When Narrow, all visual regions remain visible by default.
 
-#### Title action regions
+### Title action regions
+
 **Leading action**: A back button can be used as a leading action for local navigation. On Narrow viewports, use Parent link instead.
+
 **Trailing action**:  Trailing action can display subtler actions aligned directly next to the title. On Narrow viewports, replace the trailing action with an item in an overflow button.
 
 **Responsive strategy**: In Narrow viewports, all action regions are hidden by default. A back button should appear as a Parent link. Any trailing action should be hidden in an overflow button on the side. 
