@@ -1,14 +1,16 @@
-import {Note} from '@primer/gatsby-theme-doctocat'
+import {Note, StatusLabel} from '@primer/gatsby-theme-doctocat'
 import { LinkExternalIcon } from '@primer/octicons-react'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
-import { Box, Heading, Link, Text } from '@primer/react'
+import { Box, Heading, Label, Link, StyledOcticon, Text } from '@primer/react'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import {graphql} from 'gatsby'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import { ComponentPageNav } from '../components/component-page-nav'
-import {Overview, PropertyOverview, PropertyPreview, Examples} from '../components/FigmaPrimerWeb'
+import {PropertyPreview, Examples} from '../components/FigmaPrimerWeb'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
+import {LinkIcon} from '@primer/octicons-react'
+import FigmaPropertyOverview from '../components/FigmaPropertyOverview'
 
 export const query = graphql`
   query FigmaComponentPageQuery($figmaId: String!, $parentPath: String!) {
@@ -25,18 +27,30 @@ export const query = graphql`
         }
       }
     }
-    figmaComponent(name: {eq: $figmaId}) {
+    figmaFile {
+      fileUrl
+    }
+    figmaComponent(figmaId: {eq: $figmaId}) {
       name
-      props
+      figmaId
+      status
+      updatedAt
+      properties {
+        name
+        type
+        values
+        defaultValue
+      }
     }
   }
 `
 
 export default function FigmaComponentLayout({data}) {
-  const title = data.sitePage?.context.frontmatter.title || name
+  const { name, figmaId, status, updatedAt, properties } = data.figmaComponent
+  const { fileUrl } = data.figmaFile
   const description = data.sitePage?.context.frontmatter.description || ''
-  const figmaComponentName = data.sitePage?.context.frontmatter.figmaId
-  const { name: componentName, props } = data.figmaComponent
+  const title = data.sitePage?.context.frontmatter.title || name
+  
   
   const tableOfContents = {
     items: [
@@ -59,7 +73,7 @@ export default function FigmaComponentLayout({data}) {
             basePath={data.sitePage.path}
             includeReact={data.sitePage.context.frontmatter.reactId}
             includeRails={data.sitePage.context.frontmatter.railsUrl}
-            includeFigma={data.sitePage.context.frontmatter.figmaUrl}
+            includeFigma={fileUrl}
             current="figma"
           />
         </Box>
@@ -88,22 +102,31 @@ export default function FigmaComponentLayout({data}) {
               <Link href={data.sitePage.context.frontmatter.figmaUrl}>Figma documentation for {title}</Link>.
             </Note>
 
-            <Overview component={figmaComponentName} />
+            <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>
+              <Label size="large">{lastUpdated(updatedAt)}</Label>
+              <StatusLabel status={sentenceCase(status)} />
+              <Link href={fileUrl}>
+                <Box display={'flex'} alignItems={'center'} sx={{gap: 2}}>
+                  <StyledOcticon icon={LinkIcon} />
+                  Figma
+                </Box>
+              </Link>
+            </Box>
             
             <H2>Playground</H2>
-            <Examples component={figmaComponentName} />
+            <Examples component={figmaId} />
 
             <H2>Props</H2>
-            <PropertyOverview component={figmaComponentName} />
+            <FigmaPropertyOverview properties={ properties } />
 
-            {props.map(prop => <>
-              <H3>{prop}</H3>
-              <PropertyPreview component={figmaComponentName} property={prop} />
+            {properties.map(prop => <>
+              <H3>{prop.name}</H3>
+              <PropertyPreview component={figmaId} property={prop.name} />
             </>)}
 
             <Link
               sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
-              href={data.sitePage.context.frontmatter.figmaUrl}
+              href={fileUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -115,4 +138,14 @@ export default function FigmaComponentLayout({data}) {
       </Box>
     </BaseLayout>
   )
+}
+
+function sentenceCase(str: string) {
+  return str.toLowerCase().replace(/([A-Z])/g, ' $1').replace(/^./, function (str) {
+    return str.toUpperCase()
+  })
+}
+
+function lastUpdated(date: string) { 
+  return `updated ${new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}`
 }

@@ -126,34 +126,46 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
 }
 
 async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
-
   // Save the icon data to the GraphQL store
-  // const octiconData = await fetch('https://unpkg.com/@primer/octicons/build/data.json').then(res => res.json())
+  const {/*fileName, fileId, lastModified,*/ fileUrl, components} = await fetch(
+    'https://unpkg.com/@primer/figma-library-docgen/dist/primer-web.json',
+  ).then(res => res.json())
 
-  const figmaData = {
-    id: {
-      name: 'Avatar',
-      props: ['size'],
+  /**
+   * Add figma file data to the GraphQL store
+   */
+
+  const nodeData = {
+    fileUrl,
+  }
+
+  const newNode = {
+    ...nodeData,
+    id: createNodeId('figma-file'),
+    internal: {
+      type: 'FigmaFile',
+      contentDigest: createContentDigest(nodeData),
     },
   }
 
-  for (const item of Object.values(figmaData)) {
-      const nodeData = {
-        name: item.name,
-        props: item.props,
-      }
+  actions.createNode(newNode)
 
-      const newNode = {
-        ...nodeData,
-        id: createNodeId(`figma-${item.name}`),
-        internal: {
-          type: 'figmaComponent',
-          contentDigest: createContentDigest(nodeData),
-        },
-      }
+  /**
+   * Add figma components to the GraphQL store
+   */
 
-      actions.createNode(newNode)
+  for (const component of components) {
+    const newNode = {
+      ...{...component, figmaId: component.id},
+      id: createNodeId(`figma-${components.name}`),
+      internal: {
+        type: 'figmaComponent',
+        contentDigest: createContentDigest({...component, figmaId: component.id}),
+      },
     }
+
+    actions.createNode(newNode)
+  }
 }
 
 // Create pages from data in the GraphQL store

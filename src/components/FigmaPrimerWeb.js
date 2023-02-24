@@ -1,7 +1,5 @@
 import React from 'react'
 import FigmaPropertyPreview from './FigmaPropertyPreview'
-import FigmaOverview from './FigmaOverview'
-import FigmaPropertyOverview from './FigmaPropertyOverview'
 import FigmaComponentExamples from './FigmaComponentExamples'
 import figmaData from '@primer/figma-library-docgen/dist/primer-web.json'
 
@@ -75,22 +73,8 @@ export function PropertyPreview({ component, property, setProperties, column, hi
   )
 }
 
-export function PropertyOverview({ component }) {
-  const { properties } = getComponentData(component)
-  return properties ? <FigmaPropertyOverview properties={ properties } /> : ''
-}
-
 export function Examples({ component }) {
   const { thumbnails, properties } = getComponentData(component)
   const filteredProps = properties?.filter(prop => ['VARIANT', 'BOOLEAN'].includes(prop.type))
   return thumbnails ? <FigmaComponentExamples thumbnails={ thumbnails } properties = { filteredProps } /> : ''
-}
-
-export function Overview({ component }) {
-  const { user, status, updatedAt, url, thumbnailUrl, properties } = getComponentData(component)
-  return user ? (
-    <FigmaOverview properties= { properties } url = { url } updatedAt = { updatedAt } status = { status } user = { user } />
-  ) : (
-    ''
-  )
 }
