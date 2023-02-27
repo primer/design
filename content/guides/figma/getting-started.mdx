@@ -1,65 +1,56 @@
 ---
 title: Getting started
 ---
+import {LinkExternalIcon} from '@primer/octicons-react'
 
-import createBranchImg from '../../../src/images/figma/create-branch.png'
-import createBranchDialogImg from '../../../src/images/figma/create-branch-dialog.png'
-import requestReviewImg from '../../../src/images/figma/request-review.png'
-import mergeDialogImg from '../../../src/images/figma/merge-dialog.png'
-import requestDialogImg from '../../../src/images/figma/request-dialog.png'
+## What are Primer Figma libraries?
+The Primer Figma libraries contain UI components & design tokens (styles) that our team’s at GitHub use to design GitHub. The components contained within Primer match what is available for developers in Primer React Components, Primer ViewComponents, and Primer CSS.
 
-
-## What are Figma libraries
 ## Installation
+To use a library in Figma enable (install) it from the **assets** tab (`option` + `2`).
+You can also directly open the *team library* view via the command palette or with the shortcut `option` + `cmd` + `o`.
+
+<ImageBox caption="Navigate to the assets tab in the left sidebar and press the book icon to open the libraries overview.">
+  <img
+    width="490"
+    alt="Screenshot showing the assets tab in figma"
+    src="https://user-images.githubusercontent.com/813754/221525999-d0278cec-d79c-40fc-8150-532f97549dc8.png"
+  />
+</ImageBox>
+
+<ImageBox caption="Enable all libraries you need in your file.">
+  <img
+    width="443"
+    alt="Screenshot showing the library overview in figma"
+    src="https://user-images.githubusercontent.com/813754/221527802-76638b6b-be81-4c87-b3e8-63d543537a9c.png"
+  />
+</ImageBox>
+
+
 ## Understanding styles
+Figma libraries like `Primer Primitives` install styles for you to use. In contrast to *local styles* they don;t show up in the sidebar.
+However once you open a selection to choose a color style, text style, etc. you will see the styles from team libraries as well.
+
+To quickly find a style you can use the search box. E.g. use `accent` to bring up all accent colors.
+
+<ImageBox caption="Color style selector and color style selector with search for 'accent'">
+  <img
+    width="443"
+    alt="Screenshot showing the style selector in figma"
+    src="https://user-images.githubusercontent.com/813754/221531315-605cba02-de29-4834-a01b-ef8dc391fe21.png"
+  />
+</ImageBox>
+
+<a href="https://help.figma.com/hc/en-us/articles/360039238753-Styles-in-Figma">Learn more about Figma styles <LinkExternalIcon /></a>
+
 ## Understanding components
+At GitHub, we have created a [set of guidelines](https://github.com/primer/figma/blob/main/docs/authoring-components.md) that contributors and maintainers can reference when creating and updating components.
 
-Currently only **GitHub employees** can contribute to **Primer Web**, due to how Figma handles open source files. 
-To make changes you first need to [create a branch](https://www.youtube.com/watch?v=tbNCGEC2G1E) from Primer Web and name it `@username/changes-being-made`. 
-For example: `@lukasoppermann/update-button-radius`.
+Components in our libraries have been built to be easy to understand for consumers. When possible try to keep components small and simple. Avoid advanced methods/tricks if possible. 
 
-When you are satisfied with the changes you made, request a review from the [direct responsible individual](https://github.com/primer/figma/blob/main/CONTRIBUTION.md#contribute-new-components-or-updates) (DRI) of the file. If you are not sure who that is, reach out in the #primer-figma slack channel.
+### Variants and component properties
+To make component dynamics we favour [component properties <LinkExternalIcon />](https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties) over nesting and expecting users to manual overwrite parts of a component. 
 
-Once your branch is approved, a maintainer will take care of merging and publishing the changes to the library.
+Whenever possible use components as they are without *detaching*.
 
-We use this process to make sure no accidental changes get added to the library. It also allows us to better track changes added by a branch. Think of it as a repo that does not allow direct pushes to the main branch.
-
-<ImageBox caption="Select “Create branch...” from the dropdown or via the command palette">
-  <img
-    width="410"
-    alt="Screenshot showing how to create a branch in figma"
-    src={createBranchImg}
-  />
-</ImageBox>
-
-<ImageBox caption="Name your branch “@username/changes-being-made”" paddingX>
-  <img
-    width="293"
-    alt="Screenshot showing the create branch dialog in figma"
-    src={createBranchDialogImg}
-  />
-</ImageBox>
-
-<ImageBox caption="When you are done request a review to get your changes merged.">
-  <img
-    width="730"
-    alt="Screenshot showing the request review option in figma"
-    src={requestReviewImg}
-  />
-</ImageBox>
-
-<ImageBox caption="Select the DRI for the file to review. Reach out in the internal #primer-figma channel if you are not sure who to add." paddingX>
-  <img
-    width="568"
-    alt="Screenshot showing the merge dialog in figma"
-    src={mergeDialogImg}
-  />
-</ImageBox>
-
-<ImageBox caption="Add a detailed message describe what you changed and why." paddingX>
-  <img
-    width="506"
-    alt="Screenshot showing the request review text dialog in figma"
-    src={requestDialogImg}
-  />
-</ImageBox>
+<a href="https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma">Learn more about Figma components <LinkExternalIcon /></a>
