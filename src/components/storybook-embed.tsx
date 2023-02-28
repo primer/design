@@ -1,7 +1,8 @@
-import React from 'react'
-import {ActionMenu, ActionList, Link, Box, ThemeProvider, theme} from '@primer/react'
-import {LinkExternalIcon} from '@primer/octicons-react'
+import Code from '@primer/gatsby-theme-doctocat/src/components/code'
+import {FoldIcon, LinkExternalIcon, UnfoldIcon} from '@primer/octicons-react'
+import {ActionList, ActionMenu, Box, Button, Link, theme, ThemeProvider} from '@primer/react'
 import {sentenceCase} from 'change-case'
+import React from 'react'
 
 const baseUrls = {
   react: 'https://primer.style/react/storybook',
@@ -12,7 +13,7 @@ const colorSchemes = Object.keys(theme.colorSchemes)
 
 type StorybookEmbedProps = {
   framework?: 'react' | 'css'
-  stories: Array<{id: string}>
+  stories: Array<{id: string; code?: string}>
   height?: string | number
 }
 
@@ -29,6 +30,7 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
   const storybookUrl = `${baseUrl}?path=/story/${selectedStory.id}&${new URLSearchParams({
     globals: options.globals,
   })}`
+  const [isShowingCode, setIsShowingCode] = React.useState(false)
 
   // Prevent iframe from affecting browser history
   // Reference: https://stackoverflow.com/questions/27341498/how-to-prevent-iframe-affecting-browser-history
@@ -39,16 +41,24 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
   return (
     // @ts-ignore
     <ThemeProvider>
-      <div>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          mb: 3,
+          borderRadius: 2,
+          borderColor: 'border.default',
+          borderStyle: 'solid',
+          borderWidth: 1,
+          overflow: 'hidden',
+        }}
+      >
         <Box
           backgroundColor={'canvas.inset'}
-          borderRadius={2}
-          borderBottomLeftRadius={0}
-          borderBottomRightRadius={0}
           borderColor={'border.default'}
           borderStyle="solid"
-          borderWidth={1}
-          borderBottomWidth={0}
+          borderWidth={0}
+          borderBottomWidth={1}
           display="flex"
           alignItems="center"
           marginBottom={0}
@@ -92,7 +102,16 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
               </ActionList>
             </ActionMenu.Overlay>
           </ActionMenu>
-
+          {selectedStory.code ? (
+            <Button
+              aria-expanded={isShowingCode}
+              aria-controls={`${selectedStory.id}-code`}
+              onClick={() => setIsShowingCode(!isShowingCode)}
+              leadingIcon={isShowingCode ? FoldIcon : UnfoldIcon}
+            >
+              {isShowingCode ? 'Hide code' : 'Show code'}
+            </Button>
+          ) : null}
           <Link
             href={storybookUrl}
             target="_blank"
@@ -112,22 +131,28 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
         </Box>
         <Box
           as="iframe"
+          sx={{border: 0, margin: 0}}
           ref={iframeRef}
-          sx={{
-            mb: 3,
-            borderRadius: 2,
-            borderTopLeftRadius: 0,
-            borderTopRightRadius: 0,
-            borderColor: 'border.default',
-            borderStyle: 'solid',
-            borderWidth: 1,
-          }}
           title="storybook-preview"
           id="storybook-preview-iframe"
           width="100%"
           height={height}
         />
-      </div>
+        {selectedStory.code && isShowingCode ? (
+          <Box
+            id={`${selectedStory.id}-code`}
+            sx={{
+              pre: {
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+                margin: 0,
+              },
+            }}
+          >
+            <Code className="language-jsx">{selectedStory.code}</Code>
+          </Box>
+        ) : null}
+      </Box>
     </ThemeProvider>
   )
 }
