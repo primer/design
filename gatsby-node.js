@@ -1,7 +1,6 @@
 const path = require('path')
 const defines = require('./babel-defines')
 const fetch = require('node-fetch')
-const {paramCase} = require('change-case')
 
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   const config = getConfig()
@@ -54,7 +53,7 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
 
   // Save the Primer React data to the GraphQL store
   const json = await fetch(
-    `https://api.github.com/repos/primer/react/contents/generated/components.json?ref=v${version}`,
+    `https://api.github.com/repos/primer/react/contents/generated/components.json?ref=story-source-code`,
   ).then(res => res.json())
 
   const content = JSON.parse(Buffer.from(json.content, 'base64').toString())
@@ -66,22 +65,6 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
       internal: {
         type: 'ReactComponent',
         contentDigest: createContentDigest({...component, componentId: component.id}),
-      },
-    }
-
-    actions.createNode(newNode)
-  }
-
-  // Save Primer React storybook data to the GraphQL store
-  const storiesJson = await fetch(`https://primer.style/react/storybook/stories.json`).then(res => res.json())
-
-  for (const story of Object.values(storiesJson.stories)) {
-    const newNode = {
-      ...{...story, storyId: story.id},
-      id: createNodeId(`react-${story.id}`),
-      internal: {
-        type: 'ReactComponentStory',
-        contentDigest: createContentDigest({...story, storyId: story.id}),
       },
     }
 
