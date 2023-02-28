@@ -10,32 +10,99 @@ export default ComponentLayout
 
 ## Usage
 
-![An image of a Page header, including the title, actions, description, and navigation.](https://user-images.githubusercontent.com/586552/221928443-68004162-fe02-42d2-9ce2-7691be34c75d.png)
-
-
 Page header is used to determine the arrangement of top-level headings and to determine how elements adopt to different viewports. Page header organizes different elements that apply context and provide navigation for the current UI. 
 
 ## Anatomy 
 
-Page header can include a context bar, title bar, description, and contextual navigation (pertaining to the current page/UI). 
+<img
+    src="https://user-images.githubusercontent.com/586552/221939296-410d3b17-ccbb-48ae-b1cf-c3a8cdcfcaa5.png"
+    role="presentation"
+    width="993"
+    alt="Page header anatomy"
+/>
+
+Page header can include a context bar, title bar, description, and contextual navigation (pertaining to the current page). See below for more details.
 
 ## Context bar
 
 By default, the Context bar (including its actions) is only visible on Narrow viewports. This is intended to set context for the user on smaller viewports and provide any actions that fit within the context bar.
 
-### Parent link
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="1">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Parent link
+    </Text>
+    <Text as="p" mt="0">
+        The default way to let users navigate up in the hierarchy on Narrow viewports.
+    </Text>
+    <Text as="p" mt="0">
+        Responsive strategy: On Narrow viewports, the Parent link touch target expands beyond its element boundaries.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/586552/221946033-5af00289-af9e-4aae-9b0b-af0ecf3a12b9.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
-The default way to let users navigate up in the hierarchy on Narrow viewports.
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  justifyItems="space-between"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="1">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Context bar actions
+    </Text>
+    <Text as="p" mt="1">
+        Actions that appear in the Context bar specifically.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/586552/221946030-70bddb54-247f-478e-bdbc-138410563e5e.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
-**Responsive strategy**: On Narrow viewports, the ParentLink touch target expands beyond its element boundaries, to match with the minTouchTarget design token.
-
-### Context bar actions
-
-Actions that appear in the Context bar specifically.
-
-### Context bar area
-
-Generic slot for any component above the title region (see below). Use it for custom breadcrumbs and other navigation elements instead of Parent link
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="1">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Context bar area
+    </Text>
+    <Text as="p" mt="0">
+        The context bar is a generic slot for any component above the title region (see below). 
+        Use it for custom breadcrumbs and other navigation elements instead of Parent link.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/586552/221946028-c8ccf97f-2b19-4efa-9a81-1f35affaeaab.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
 ## Title bar
 
