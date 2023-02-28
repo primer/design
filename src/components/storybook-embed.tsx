@@ -149,6 +149,7 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
               },
             }}
           >
+            {/* @ts-ignore */}
             <Code className="language-jsx">{selectedStory.code}</Code>
           </Box>
         ) : null}
