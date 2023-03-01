@@ -54,44 +54,48 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
           marginBottom={0}
           padding={2}
           sx={{
-            gap: 2,
+            gap: 3,
+            justifyContent: 'space-between',
+            overflow: 'auto',
           }}
         >
-          {stories.length > 1 ? (
+          <Box sx={{display: 'flex', alignItems: 'center', gap: 2}}>
+            {stories.length > 1 ? (
+              <ActionMenu>
+                <ActionMenu.Button>Demo: {getStoryName(selectedStory.id)}</ActionMenu.Button>
+                <ActionMenu.Overlay width="medium">
+                  <ActionList selectionVariant="single">
+                    {stories.map(story => (
+                      <ActionList.Item
+                        key={story.id}
+                        selected={story.id === selectedStory.id}
+                        onSelect={() => setSelectedStory(story)}
+                      >
+                        {getStoryName(story.id)}
+                      </ActionList.Item>
+                    ))}
+                  </ActionList>
+                </ActionMenu.Overlay>
+              </ActionMenu>
+            ) : null}
+
             <ActionMenu>
-              <ActionMenu.Button>Demo: {getStoryName(selectedStory.id)}</ActionMenu.Button>
-              <ActionMenu.Overlay width="medium">
+              <ActionMenu.Button>Theme: {sentenceCase(selectedColorScheme)}</ActionMenu.Button>
+              <ActionMenu.Overlay>
                 <ActionList selectionVariant="single">
-                  {stories.map(story => (
+                  {colorSchemes.map(colorScheme => (
                     <ActionList.Item
-                      key={story.id}
-                      selected={story.id === selectedStory.id}
-                      onSelect={() => setSelectedStory(story)}
+                      key={colorScheme}
+                      selected={colorScheme === selectedColorScheme}
+                      onSelect={() => setSelectedColorScheme(colorScheme)}
                     >
-                      {getStoryName(story.id)}
+                      {sentenceCase(colorScheme)}
                     </ActionList.Item>
                   ))}
                 </ActionList>
               </ActionMenu.Overlay>
             </ActionMenu>
-          ) : null}
-
-          <ActionMenu>
-            <ActionMenu.Button>Theme: {sentenceCase(selectedColorScheme)}</ActionMenu.Button>
-            <ActionMenu.Overlay>
-              <ActionList selectionVariant="single">
-                {colorSchemes.map(colorScheme => (
-                  <ActionList.Item
-                    key={colorScheme}
-                    selected={colorScheme === selectedColorScheme}
-                    onSelect={() => setSelectedColorScheme(colorScheme)}
-                  >
-                    {sentenceCase(colorScheme)}
-                  </ActionList.Item>
-                ))}
-              </ActionList>
-            </ActionMenu.Overlay>
-          </ActionMenu>
+          </Box>
 
           <Link
             href={storybookUrl}
@@ -99,11 +103,11 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
             rel="noopener noreferrer"
             sx={{
               mr: 2,
-              ml: 'auto',
               fontSize: 1,
               display: 'inline-flex',
               alignItems: 'center',
               gap: 1,
+              whiteSpace: 'nowrap',
             }}
           >
             View in Storybook
