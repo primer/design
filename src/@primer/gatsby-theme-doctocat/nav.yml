@@ -13,6 +13,8 @@
       children:
         - title: Introduction
           url: /guides/figma
+        - title: Getting started
+          url: /guides/figma/getting-started
         - title: How to contribute
           url: /guides/figma/contribute
     - title: Component lifecycle
