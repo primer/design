@@ -1,34 +1,39 @@
 import React from 'react'
-import {ActionMenu, ActionList, Link, Box, ThemeProvider, theme} from '@primer/react'
+import {ActionMenu, ActionList, Link, Box, ThemeProvider} from '@primer/react'
 import {LinkExternalIcon} from '@primer/octicons-react'
-import {sentenceCase} from 'change-case'
 
-const baseUrls = {
-  react: 'https://primer.style/react/storybook',
-  css: 'https://primer.style/css/storybook',
-  rails: 'https://primer.style/view-components/lookbook/',
-}
+const baseUrl = ( () => {
+  if (process.env["NODE_ENV"] == "production") {
+    return 'https://primer.style/view-components'
+  } else {
+    return 'http://localhost:4000'
+  }
+})()
 
-const colorSchemes = Object.keys(theme.colorSchemes)
+const colorSchemes = [
+  {id: "light", name: "Light default"},
+  {id: "light_colorblind", name: "Light colorblind"},
+  {id: "light_high_contrast", name: "Light high contrast"},
+  {id: "dark", name: "Dark default"},
+  {id: "dark_dimmed", name: "Dark Dimmed"},
+  {id: "dark_high_contrast", name: "Dark high contrast"},
+  {id: "dark_colorblind", name: "Dark colorblind"},
+]
 
-type StorybookEmbedProps = {
-  framework?: 'react' | 'css'
-  stories: Array<{id: string}>
+type LookbookEmbedProps = {
+  previews: Array<{name: string, preview_path: string, inspect_path: string}>,
   height?: string | number
 }
 
-export function StorybookEmbed({framework = 'react', stories, height = 250}: StorybookEmbedProps) {
-  const baseUrl = baseUrls[framework]
+export function LookbookEmbed({previews, height = 250}: LookbookEmbedProps) {
   const [selectedColorScheme, setSelectedColorScheme] = React.useState(colorSchemes[0])
-  const [selectedStory, setSelectedStory] = React.useState(stories[0])
-  const options = {
-    id: selectedStory.id,
-    globals: framework === 'css' ? `theme:${selectedColorScheme}` : `colorScheme:${selectedColorScheme}`,
-  }
+  const [selectedPreview, setSelectedPreview] = React.useState(previews[0])
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
-  const iframeUrl = `${baseUrl}/iframe.html?${new URLSearchParams(options)}`
-  const storybookUrl = `${baseUrl}?path=/story/${selectedStory.id}&${new URLSearchParams({
-    globals: options.globals,
+  const iframeUrl = `${baseUrl}${selectedPreview.preview_path}?${new URLSearchParams({
+    _display: `theme:${selectedColorScheme.id}`,
+  })}`
+  const inspectUrl = `${baseUrl}${selectedPreview.inspect_path}?${new URLSearchParams({
+    _display: `theme:${selectedColorScheme.id}`,
   })}`
 
   // Prevent iframe from affecting browser history
@@ -58,18 +63,18 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
             gap: 2,
           }}
         >
-          {stories.length > 1 ? (
+          {previews.length > 1 ? (
             <ActionMenu>
-              <ActionMenu.Button>Demo: {getStoryName(selectedStory.id)}</ActionMenu.Button>
+              <ActionMenu.Button>Demo: {selectedPreview.name}</ActionMenu.Button>
               <ActionMenu.Overlay width="medium">
                 <ActionList selectionVariant="single">
-                  {stories.map(story => (
+                  {previews.map(preview => (
                     <ActionList.Item
-                      key={story.id}
-                      selected={story.id === selectedStory.id}
-                      onSelect={() => setSelectedStory(story)}
+                      key={preview.name}
+                      selected={preview.name === selectedPreview.name}
+                      onSelect={() => setSelectedPreview(preview)}
                     >
-                      {getStoryName(story.id)}
+                      {preview.name}
                     </ActionList.Item>
                   ))}
                 </ActionList>
@@ -78,16 +83,16 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
           ) : null}
 
           <ActionMenu>
-            <ActionMenu.Button>Theme: {sentenceCase(selectedColorScheme)}</ActionMenu.Button>
+            <ActionMenu.Button>Theme: {selectedColorScheme.name}</ActionMenu.Button>
             <ActionMenu.Overlay>
               <ActionList selectionVariant="single">
                 {colorSchemes.map(colorScheme => (
                   <ActionList.Item
-                    key={colorScheme}
-                    selected={colorScheme === selectedColorScheme}
+                    key={colorScheme.id}
+                    selected={colorScheme.id === selectedColorScheme.id}
                     onSelect={() => setSelectedColorScheme(colorScheme)}
                   >
-                    {sentenceCase(colorScheme)}
+                    {colorScheme.name}
                   </ActionList.Item>
                 ))}
               </ActionList>
@@ -95,7 +100,7 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
           </ActionMenu>
 
           <Link
-            href={storybookUrl}
+            href={inspectUrl}
             target="_blank"
             rel="noopener noreferrer"
             sx={{
@@ -107,7 +112,7 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
               gap: 1,
             }}
           >
-            View in Storybook
+            View in Lookbook
             <LinkExternalIcon />
           </Link>
         </Box>
@@ -123,8 +128,8 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
             borderStyle: 'solid',
             borderWidth: 1,
           }}
-          title="storybook-preview"
-          id="storybook-preview-iframe"
+          title="lookbook-preview"
+          id="lookbook-preview-iframe"
           width="100%"
           height={height}
         />
@@ -132,10 +137,3 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
     </ThemeProvider>
   )
 }
-
-function getStoryName(id: string) {
-  const parts = id.split('--')
-  return sentenceCase(parts[parts.length - 1])
-}
-
-export default StorybookEmbed
