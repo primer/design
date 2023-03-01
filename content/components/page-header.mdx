@@ -12,7 +12,20 @@ export default ComponentLayout
 
 Page header is used to determine the arrangement of top-level headings and to determine how elements adopt to different viewports. Page header organizes different elements that apply context and provide navigation for the current UI. 
 
+The elements within Page header are rearranged and displayed accordingly depending on the viewport and context of the page.
+
+<img 
+    src="https://user-images.githubusercontent.com/586552/222194474-74b72ae3-f8d4-4336-9a2c-9d5c18d91c42.png"
+    role="presentation"
+    width="960"
+    alt="Page header component"
+/>
+
 ## Anatomy 
+
+Page header can include a context bar, title bar, description, and contextual navigation (pertaining to the current page). 
+
+By default, the [Context bar](#context-bar) is visible on narrow viewports only, the [Title bar](#title-bar) is visible on all viewports, and the [back button and trailing actions](#title-bar-action-regions) are visible in regular viewports.
 
 <img
     src="https://user-images.githubusercontent.com/586552/221939296-410d3b17-ccbb-48ae-b1cf-c3a8cdcfcaa5.png"
@@ -21,16 +34,15 @@ Page header is used to determine the arrangement of top-level headings and to de
     alt="Page header anatomy"
 />
 
-Page header can include a context bar, title bar, description, and contextual navigation (pertaining to the current page). See below for more details.
-
 ## Context bar
 
-By default, the Context bar (including its actions) is only visible on Narrow viewports. This is intended to set context for the user on smaller viewports and provide any actions that fit within the context bar.
+The Context bar is intended to set context for the user on smaller viewports and provide any actions that fit within the context bar. As a reminder, By default, the Context bar (including its actions) is only visible on narrow viewports by default. 
 
 <Box
   as="figure"
   display="flex"
   alignItems="flex-start"
+  justifyContent="space-between"
   flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
   m={0}
   mb={3}
@@ -48,7 +60,7 @@ By default, the Context bar (including its actions) is only visible on Narrow vi
     </Text>
   </Box>
   <img
-    src="https://user-images.githubusercontent.com/586552/221946033-5af00289-af9e-4aae-9b0b-af0ecf3a12b9.png"
+    src="https://user-images.githubusercontent.com/586552/222194471-dfc56e9a-a2ab-48a0-8a04-41ebb5ec4adf.png"
     role="presentation"
     width="456"
   />
@@ -58,7 +70,7 @@ By default, the Context bar (including its actions) is only visible on Narrow vi
   as="figure"
   display="flex"
   alignItems="flex-start"
-  justifyItems="space-between"
+  justifyContent="space-between"
   flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
   m={0}
   mb={3}
@@ -73,7 +85,7 @@ By default, the Context bar (including its actions) is only visible on Narrow vi
     </Text>
   </Box>
   <img
-    src="https://user-images.githubusercontent.com/586552/221946030-70bddb54-247f-478e-bdbc-138410563e5e.png"
+    src="https://user-images.githubusercontent.com/586552/222194470-da8126b8-72c5-4078-968e-ebc5c2bf3140.png"
     role="presentation"
     width="456"
   />
@@ -83,6 +95,7 @@ By default, the Context bar (including its actions) is only visible on Narrow vi
   as="figure"
   display="flex"
   alignItems="flex-start"
+  justifyContent="space-between"
   flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
   m={0}
   mb={3}
@@ -93,12 +106,12 @@ By default, the Context bar (including its actions) is only visible on Narrow vi
       Context bar area
     </Text>
     <Text as="p" mt="0">
-        The context bar is a generic slot for any component above the title region (see below). 
+        The context bar is a generic slot for any component above the title region. 
         Use it for custom breadcrumbs and other navigation elements instead of Parent link.
     </Text>
   </Box>
   <img
-    src="https://user-images.githubusercontent.com/586552/221946028-c8ccf97f-2b19-4efa-9a81-1f35affaeaab.png"
+    src="https://user-images.githubusercontent.com/586552/222194469-85131849-4a7a-41e6-abca-040d042110df.png"
     role="presentation"
     width="456"
   />
@@ -108,28 +121,181 @@ By default, the Context bar (including its actions) is only visible on Narrow vi
 
 The title bar can include a static page title, actions, and a parent link that by default is only visible on narrow viewports.
 
-### Title variants
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="1">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Default title variant
+    </Text>
+    <Text as="p" mt="0">
+        The default way to let users navigate up in the hierarchy on Narrow viewports.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/586552/222194467-1031b33b-81e7-429b-9201-d154fd7e9d59.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
-**Default title**: Most common page title size. Use for static titles in most situations.
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="1">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Large title variant
+    </Text>
+    <Text as="p" mt="0">
+        Use `large` for for user-generated content such as issues, pull requests, or discussions.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/586552/222194464-6c477db6-bb11-445e-b27e-41a0c7267758.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
-**Large variant**: Use `large` for for user-generated content such as issues, pull requests, or discussions.
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="1">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Subtitle variant
+    </Text>
+    <Text as="p" mt="0">
+        Use `subtitle` when a title is already present in the page, such as in a Split page layout.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/586552/222215097-79bb0d77-af5c-4199-81a1-65d98a7a0556.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
-**Subtitle variant**: Use `subtitle` when a PageHeader.Title is already present in the page, such as in a Spit page layout.
+## Title bar visual regions
 
-**Responsive strategy**: When Narrow, all title variants appear as ”medium”
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="1">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Leading visual
+    </Text>
+    <Text as="p" mt="0">
+        Leading visuals are optional and appear at the start of the title. They can be octicons, avatars, and other custom visuals that fit a small area.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/586552/222194458-922bd3bf-475d-4d76-97a1-bd8cda6af6f5.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
-### Title visual regions
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="1">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Trailing visual
+    </Text>
+    <Text as="p" mt="0">
+        Trailing visual and trailing text can display auxiliary information. They're placed at the right of the item, and can denote status, privacy details, etc.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/586552/222194459-daf8c4b8-0452-40a2-bdf3-2b74be06e7ef.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
-**Leading visuals**: Leading visuals are optional and appear at the start of the title. They can be octicons, avatars, and other custom visuals that fit a small area.
+## Title bar action regions
 
-**Trailing visuals**: Trailing visual and trailing text can display auxiliary information. They're placed at the right of the item, and can denote status, privacy details, etc.
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="1">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Back button
+    </Text>
+    <Text as="p" mt="0">
+        A back button can be used as a leading action for local navigation. On Narrow viewports, use Parent link instead.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/586552/222194456-ebdac96b-75df-41f3-92a0-5a92dac6aa37.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
 
-**Responsive strategy**: When Narrow, all visual regions remain visible by default.
-
-### Title action regions
-
-**Leading action**: A back button can be used as a leading action for local navigation. On Narrow viewports, use Parent link instead.
-
-**Trailing action**:  Trailing action can display subtler actions aligned directly next to the title. On Narrow viewports, replace the trailing action with an item in an overflow button.
-
-**Responsive strategy**: In Narrow viewports, all action regions are hidden by default. A back button should appear as a Parent link. Any trailing action should be hidden in an overflow button on the side. 
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="1">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Trailing action
+    </Text>
+    <Text as="p" mt="0">
+        Trailing action can display subtler actions aligned directly next to the title. On Narrow viewports, replace the trailing action with an item in an overflow button.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/586552/222194453-0f3e29b8-28cb-4623-8039-f546e1ae6622.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
