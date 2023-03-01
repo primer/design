@@ -1,7 +1,9 @@
 import {AccessibilityLabel, Note, StatusLabel} from '@primer/gatsby-theme-doctocat'
+import { HEADER_HEIGHT } from '@primer/gatsby-theme-doctocat/src/components/header'
 import { H2, H3 } from '@primer/gatsby-theme-doctocat/src/components/heading'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
+import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
 import {LinkExternalIcon} from '@primer/octicons-react'
 import {Box, Heading, Label, Link, Text} from '@primer/react'
 import { sentenceCase } from 'change-case'
@@ -73,6 +75,20 @@ export default function RailsComponentLayout({data}) {
   const description = data.sitePage?.context.frontmatter.description
   const railsUrl = `${baseUrl}/components/${status}/${short_name.toLowerCase()}`
 
+  const tableOfContents = {
+    items: [
+      {url: '#arguments', title: 'Arguments'},
+    ],
+  }
+
+  if (slots.length > 0) {
+    tableOfContents.items.push({url: '#slots', title: 'Slots'})
+  }
+
+  if (previews.length > 0) {
+    tableOfContents.items.push({url: '#examples', title: 'Examples'})
+  }
+
   return (
     <BaseLayout title={title} description={description}>
       <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7]}}>
@@ -92,6 +108,21 @@ export default function RailsComponentLayout({data}) {
           />
         </Box>
         <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>
+          <Box
+            sx={{
+              width: 220,
+              flex: '0 0 auto',
+              position: 'sticky',
+              top: HEADER_HEIGHT + 24,
+              maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 24px)`,
+              display: ['none', null, 'block'],
+            }}
+          >
+            <Text sx={{display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
+              On this page
+            </Text>
+            <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
+          </Box>
           <Box>
             {/* @ts-ignore */}
             <Note variant="warning">
