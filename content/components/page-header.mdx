@@ -24,9 +24,9 @@ The elements within Page header are rearranged and displayed accordingly dependi
 
 ## Anatomy 
 
-Page header can include a Context bar, Title bar, description, and contextual navigation (pertaining to the current page). 
+Page header can include a context bar, title bar, description, and contextual navigation (pertaining to the current page). 
 
-By default, the [Context bar](#context-bar) is visible on narrow viewports only, the [Title bar](#title-bar) is visible on all viewports, and the [Back button and Trailing action](#title-bar-action-regions) are visible on regular viewports.
+By default, the [context bar](#context-bar) is visible on narrow viewports only, the [title bar](#title-bar) is visible on all viewports, and the [back button and trailing action](#title-bar-action-regions) are visible on regular viewports.
 
 <img
     src="https://user-images.githubusercontent.com/586552/221939296-410d3b17-ccbb-48ae-b1cf-c3a8cdcfcaa5.png"
@@ -37,7 +37,7 @@ By default, the [Context bar](#context-bar) is visible on narrow viewports only,
 
 ## Context bar
 
-The Context bar is intended to set context for the user on smaller viewports and provide any actions that fit within the Context bar. By default, the Context bar (including its actions) is only visible on narrow viewports. 
+The context bar is intended to set context for the user on smaller viewports and provide any actions that fit within the context bar. As a reminder, by default, the context bar (including its actions) is only visible on narrow viewports. 
 
 <Box
   as="figure"
@@ -79,7 +79,7 @@ The Context bar is intended to set context for the user on smaller viewports and
       Context bar actions
     </Text>
     <Text as="p" mt="1">
-        Actions that appear in the Context bar specifically.
+        Actions that appear in the context bar specifically.
     </Text>
   </Box>
   <img
@@ -104,8 +104,8 @@ The Context bar is intended to set context for the user on smaller viewports and
       Context bar area
     </Text>
     <Text as="p" mt="0">
-        The Context bar is a generic slot for any component above the title region. 
-        Use it for custom breadcrumbs and other navigation elements instead of Parent link.
+        The context bar is a generic slot for any component above the title region. 
+        Use it for custom breadcrumbs and other navigation elements instead of parent link.
     </Text>
   </Box>
   <img
@@ -115,20 +115,9 @@ The Context bar is intended to set context for the user on smaller viewports and
   />
 </Box>
 
-### Context bar responsive strategy
-
-On narrow viewports, the Parent link touch target expands beyond its element boundaries.
-
-<img 
-    src="https://user-images.githubusercontent.com/586552/222216317-c8478ab0-6541-49c6-9140-bc884e9a8cd4.png"
-    role="presentation"
-    width="877"
-    alt="Page header context bar in a narrow viewport"
-/>
-
 ## Title bar
 
-The Title bar can include a static page title, actions, and a parent link that by default is only visible on narrow viewports.
+The title bar can include a static page title, actions, and a parent link that by default is only visible on narrow viewports.
 
 <Box
   as="figure"
@@ -205,13 +194,6 @@ The Title bar can include a static page title, actions, and a parent link that b
   />
 </Box>
 
-### Title bar responsive strategy
-
-On narrow viewports, all title variants appear as medium.
-
-
-## Title bar visual regions
-
 <Box
   as="figure"
   display="flex"
@@ -262,12 +244,6 @@ On narrow viewports, all title variants appear as medium.
   />
 </Box>
 
-### Title bar visual regions responsive strategy
-
-On narrow viewports, all visual regions remain visible by default.
-
-## Title bar action regions
-
 <Box
   as="figure"
   display="flex"
@@ -283,7 +259,7 @@ On narrow viewports, all visual regions remain visible by default.
       Back button
     </Text>
     <Text as="p" mt="0">
-        A Back button can be used as a leading action for local navigation. On narrow viewports, use Parent link instead.
+        A back button can be used as a leading action for local navigation. On narrow viewports, use parent link instead.
     </Text>
   </Box>
   <img
@@ -308,7 +284,7 @@ On narrow viewports, all visual regions remain visible by default.
       Trailing action
     </Text>
     <Text as="p" mt="0">
-        Trailing action can display subtler actions aligned directly next to the title. On narrow viewports, replace the Trailing action with an item in an overflow button.
+        Trailing action can display subtler actions aligned directly next to the title. On narrow viewports, replace the trailing action with an item in an overflow button.
     </Text>
   </Box>
   <img
@@ -317,14 +293,3 @@ On narrow viewports, all visual regions remain visible by default.
     width="456"
   />
 </Box>
-
-### Title bar action regions responsive strategy
-
-On narrow viewports, all action regions are hidden by default. A Back button should appear as a Parent link. Any Trailing action should be hidden in an overflow button on the side.
-
-<img 
-    src="https://user-images.githubusercontent.com/586552/222218613-1d9826bd-9462-45e7-a4d9-985bcc9e69b9.png"
-    role="presentation"
-    width="960"
-    alt="Title bar action regions displayed in a narrow viewport"
-/>
