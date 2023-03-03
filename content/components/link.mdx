@@ -5,6 +5,8 @@ reactId: link
 figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=20953%3A78940&t=wIvqJYawyRBUeGPt-1
 ---
 
+import {Box, Text} from '@primer/react'
+
 ## Usage
 Links enable users to navigate between pages or resources in a seamless way. Links can be used within a body of text or as a standalone element.
 
@@ -14,10 +16,25 @@ Links should be concise and not exceed more than a few words.
 
 ## Anatomy
 
-The link component can be displayed in `default`, `muted`, or `blue` colors, can be underlined, may include a leading visual or trailing visual, and can be either the `default` or `small` size. 
+The link component can be displayed in `default`, `muted`, or `blue` colors. Links can be underlined, may include a leading visual or trailing visual, and can be either the `default` or `small` size. 
 
-<img
-  width="960"
-  alt="Links displayed in small and default sizes, with trailing and leading visuals, and in blue, muted, and default colors"
-  src="https://user-images.githubusercontent.com/586552/222541144-fe24e3bb-f5ea-43c1-acc5-98eddda82ab7.png"
-/>
+### Styles
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    width="369"
+    role="presentation"
+    src="https://user-images.githubusercontent.com/586552/222545735-171c6441-9c07-4a5a-ac6f-37183b2f0888.png"
+  />
+  <img
+    width="369"
+    role="presentation"
+    src="https://user-images.githubusercontent.com/586552/222545736-ccf9afd5-644a-4dea-848b-39ff46c579a8.png"
+   />
+</Box>
