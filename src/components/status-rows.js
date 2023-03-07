@@ -18,7 +18,7 @@ function AccessibilityLabel({a11yReviewed, size}) {
           gap: 1,
           backgroundColor: 'done.subtle',
           fontWeight: 'normal',
-          borderColor: 'transparent'
+          borderColor: 'transparent',
         }}
       >
         <StyledOcticon icon={AccessibilityInsetIcon} sx={{fill: 'done.fg'}} />
@@ -32,7 +32,7 @@ function AccessibilityLabel({a11yReviewed, size}) {
         sx={{
           backgroundColor: 'neutral.subtle',
           fontWeight: 'normal',
-          borderColor: 'transparent'
+          borderColor: 'transparent',
         }}
       >
         Not reviewed
@@ -52,7 +52,7 @@ export default function StatusRows({components, type}) {
             (component.implementations.react.a11yReviewed && type === 'Accessibility'))) ||
         (component.implementations.viewComponent &&
           (component.implementations.viewComponent.status === type ||
-            (component.implementations.viewComponent.a11yReviewed && type === 'Accessibility')))
+            (component.implementations.viewComponent.a11yReviewed && type === 'Accessibility'))),
     )
   }
 
@@ -63,6 +63,22 @@ export default function StatusRows({components, type}) {
           <th align="left" scope="row" style={{whiteSpace: 'nowrap'}}>
             {component.displayName}
           </th>
+          <td align="center" style={{whiteSpace: 'nowrap'}}>
+            {component.implementations.react ? (
+              <Link href={component.implementations.react.url}>
+                <StatusLabel size={labelSize} status={component.implementations.react.status} />
+              </Link>
+            ) : (
+              <EmptyCell />
+            )}
+          </td>
+          <td align="center" style={{whiteSpace: 'nowrap'}}>
+            {component.implementations.react ? (
+              <AccessibilityLabel a11yReviewed={component.implementations.react.a11yReviewed} size={labelSize} />
+            ) : (
+              <EmptyCell />
+            )}
+          </td>
           <td align="center" style={{whiteSpace: 'nowrap'}}>
             {component.implementations.viewComponent ? (
               <Link href={component.implementations.viewComponent.url}>
@@ -82,23 +98,6 @@ export default function StatusRows({components, type}) {
               <EmptyCell />
             )}
           </td>
-          <td align="center" style={{whiteSpace: 'nowrap'}}>
-            {component.implementations.react ? (
-              <Link href={component.implementations.react.url}>
-                <StatusLabel size={labelSize} status={component.implementations.react.status} />
-              </Link>
-            ) : (
-              <EmptyCell />
-            )}
-          </td>
-          <td align="center" style={{whiteSpace: 'nowrap'}}>
-            {component.implementations.react ? (
-              <AccessibilityLabel a11yReviewed={component.implementations.react.a11yReviewed} size={labelSize} />
-            ) : (
-              <EmptyCell />
-            )}
-          </td>
-          <td style={{minWidth: 400}}>{component.description}</td>
         </tr>
       ))}
     </>
