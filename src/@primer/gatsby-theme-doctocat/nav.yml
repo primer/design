@@ -4,10 +4,6 @@
       url: /guides/introduction
     - title: About
       url: /guides/about
-    - title: Content
-      url: /guides/content
-    - title: The Zen of GitHub
-      url: /guides/zen
     - title: Figma
       url: /guides/figma
       children:
@@ -54,6 +50,8 @@
           url: /guides/contribute/how-to-contribute
         - title: Design
           url: /guides/contribute/design
+        - title: Content
+          url: /guides/contribute/content
         - title: Documentation
           url: /guides/contribute/documentation
 - title: Foundations
