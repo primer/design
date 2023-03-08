@@ -71,7 +71,7 @@ const STATUS_COLORS = {
   alpha: 'severe.emphasis',
   beta: 'attention.emphasis',
   stable: 'success.emphasis',
-  deprecated: 'danger.emphasis'
+  deprecated: 'danger.emphasis',
 }
 
 function getStatusColor(status) {
@@ -80,7 +80,7 @@ function getStatusColor(status) {
 
 const initialFieldTypes = [
   {type: '', name: 'All components', icon: ListUnorderedIcon},
-  {type: 'Accessibility', name: 'Reviewed for accessibility', icon: AccessibilityInsetIcon}
+  {type: 'Accessibility', name: 'Reviewed for accessibility', icon: AccessibilityInsetIcon},
 ]
 
 const statusFieldTypes = [
@@ -88,7 +88,7 @@ const statusFieldTypes = [
   {type: 'Beta', name: 'Beta'},
   {type: 'Alpha', name: 'Alpha'},
   {type: 'Draft', name: 'Draft'},
-  {type: 'Deprecated', name: 'Deprecated'}
+  {type: 'Deprecated', name: 'Deprecated'},
 ]
 
 export function StatusTable() {
@@ -150,30 +150,17 @@ export function StatusTable() {
           }}
         >
           <Table>
-            <colgroup>
+            {/* <colgroup>
               <col span="2" style={{textAlign: 'center'}} />
               <col span="2" style={{textAlign: 'center'}} />
-            </colgroup>
+            </colgroup> */}
             <thead>
               <tr>
-                <th width="20%" align="left" rowSpan="2" colSpan="1">
-                  Component
-                </th>
-                <th width="20%" rowSpan="1" colSpan="2">
-                  ViewComponent
-                </th>
-                <th width="20%" rowSpan="1" colSpan="2">
-                  React
-                </th>
-                <th width="40%" align="left" rowSpan="2" colSpan="1">
-                  Description
-                </th>
-              </tr>
-              <tr>
-                <th>Status</th>
-                <th>Accessibility</th>
-                <th>Status</th>
-                <th>Accessibility</th>
+                <th align="left">Component</th>
+                <th>React status</th>
+                <th>React accessibility</th>
+                <th>Rails status</th>
+                <th>Rails accessibility</th>
               </tr>
             </thead>
             <tbody>
@@ -211,12 +198,12 @@ async function getComponents() {
   const implementations = {
     react: {
       url: 'https://primer.style/react',
-      data: reactComponents
+      data: reactComponents,
     },
     viewComponent: {
       url: 'https://primer.style/view-components',
-      data: viewComponents
-    }
+      data: viewComponents,
+    },
   }
 
   const components = {}
@@ -228,14 +215,14 @@ async function getComponents() {
           id,
           displayName: idToDisplayName(id),
           description: '',
-          implementations: {}
+          implementations: {},
         }
       }
 
       components[id].implementations[implementation] = {
         status: status.charAt(0).toUpperCase() + status.slice(1), // Capitalize the first letter
         url: `${url}${path}`,
-        a11yReviewed: a11yReviewed || false
+        a11yReviewed: a11yReviewed || false,
       }
     }
   }
