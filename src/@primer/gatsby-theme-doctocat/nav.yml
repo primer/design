@@ -17,6 +17,10 @@
           url: /guides/figma/getting-started
         - title: How to contribute
           url: /guides/figma/contribute
+    - title: Development
+      children:
+        - title: React
+          url: /guides/development/react
     - title: Component lifecycle
       url: /guides/component-lifecycle
     - title: Component status
