@@ -62,6 +62,17 @@
   children:
     - title: Color
       url: /foundations/color
+      children:
+        - title: Functional
+          url: /foundations/color/functional
+        - title: Base scales
+          url: /foundations/color/base-scales
+        - title: Interactive states
+          url: /foundations/color/interative-states
+        - title: Themes
+          url: /foundations/color/themes
+        - title: Accessibility
+          url: /foundations/color/accessibility
     - title: Responsive
       url: /foundations/responsive
     - title: CSS utilities
