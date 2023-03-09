@@ -5,29 +5,34 @@ import {sentenceCase} from 'change-case'
 
 const baseUrls = {
   react: 'https://primer.style/react/storybook',
-  css: 'https://primer.style/css/storybook',
+  css: 'https://primer.style/css/storybook'
 }
 
 const colorSchemes = Object.keys(theme.colorSchemes)
 
 type StorybookEmbedProps = {
   framework?: 'react' | 'css'
+  baseUrl?: string
   stories: Array<{id: string}>
   height?: string | number
 }
 
-export function StorybookEmbed({framework = 'react', stories, height = 250}: StorybookEmbedProps) {
-  const baseUrl = baseUrls[framework]
+export function StorybookEmbed({
+  framework,
+  baseUrl = baseUrls[framework || ''],
+  stories,
+  height = 250
+}: StorybookEmbedProps) {
   const [selectedColorScheme, setSelectedColorScheme] = React.useState(colorSchemes[0])
   const [selectedStory, setSelectedStory] = React.useState(stories[0])
   const options = {
     id: selectedStory.id,
-    globals: framework === 'css' ? `theme:${selectedColorScheme}` : `colorScheme:${selectedColorScheme}`,
+    globals: framework === 'react' ? `colorScheme:${selectedColorScheme}` : `theme:${selectedColorScheme}`
   }
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const iframeUrl = `${baseUrl}/iframe.html?${new URLSearchParams(options)}`
   const storybookUrl = `${baseUrl}?path=/story/${selectedStory.id}&${new URLSearchParams({
-    globals: options.globals,
+    globals: options.globals
   })}`
 
   // Prevent iframe from affecting browser history
@@ -56,7 +61,7 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
           sx={{
             gap: 3,
             justifyContent: 'space-between',
-            overflow: 'auto',
+            overflow: 'auto'
           }}
         >
           <Box sx={{display: 'flex', alignItems: 'center', gap: 2}}>
@@ -107,7 +112,7 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
               display: 'inline-flex',
               alignItems: 'center',
               gap: 1,
-              whiteSpace: 'nowrap',
+              whiteSpace: 'nowrap'
             }}
           >
             View in Storybook
@@ -124,7 +129,7 @@ export function StorybookEmbed({framework = 'react', stories, height = 250}: Sto
             borderTopRightRadius: 0,
             borderColor: 'border.default',
             borderStyle: 'solid',
-            borderWidth: 1,
+            borderWidth: 1
           }}
           title="storybook-preview"
           id="storybook-preview-iframe"
