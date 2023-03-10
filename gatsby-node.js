@@ -53,7 +53,7 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
 
   // Save the Primer React data to the GraphQL store
   const json = await fetch(
-    `https://api.github.com/repos/primer/react/contents/generated/components.json?ref=story-source-code`,
+    `https://api.github.com/repos/primer/react/contents/generated/components.json?ref=v${version}`,
   ).then(res => res.json())
 
   const content = JSON.parse(Buffer.from(json.content, 'base64').toString())
