@@ -255,7 +255,13 @@ exports.onPostBuild = async ({graphql}) => {
         displayName: node.frontmatter.title,
         description: node.frontmatter.description,
         implementations: {
-          react: reactComponent ? {status: reactComponent.status, a11yReviewed: reactComponent.a11yReviewed} : null,
+          react: reactComponent
+            ? {
+                id: reactComponent.componentId,
+                status: reactComponent.status,
+                a11yReviewed: reactComponent.a11yReviewed,
+              }
+            : null,
         },
       }
     })
