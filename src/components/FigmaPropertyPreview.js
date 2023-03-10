@@ -4,8 +4,13 @@ import {Box, Text} from '@primer/react'
 const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
   const values = []
   const previewComponents = []
+  
+  const preparedThumbnails = thumbnails.map(t => ({
+    ...t,
+    props: Object.fromEntries(t.props)
+  }))
 
-  valueLoop: for (const preview of thumbnails) {
+  valueLoop: for (const preview of preparedThumbnails) {
     // value already in array
     if (values.includes(preview.props[property])) continue
     // definedProperty wrong
@@ -24,6 +29,7 @@ const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
 
 export default function FigmaPropertyPreview({thumbnails, property, setProperties = {}, column = undefined, hideLabels = false}) {
   const previewComponents = getPreviewComponents(thumbnails, property, setProperties)
+  console.log(property, thumbnails, previewComponents)
   const direction = column === undefined ? 'row' : 'column'
   const previewItemBoxFlexDirection = 'column'
 

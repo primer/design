@@ -38,7 +38,6 @@ export const query = graphql`
       updatedAt
       componentUrl: url
       thumbnails {
-        nodeId
         url
         props
       }

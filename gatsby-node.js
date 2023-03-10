@@ -1,4 +1,5 @@
 const path = require('path')
+const figmaData = require('./src/data/primer-web.json')
 const defines = require('./babel-defines')
 const fetch = require('node-fetch')
 const {paramCase} = require('change-case')
@@ -127,9 +128,7 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
 
 async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
   // Save the icon data to the GraphQL store
-  const {/*fileName, fileId, lastModified,*/ fileUrl, components} = await fetch(
-    'https://unpkg.com/@primer/figma-library-docgen/dist/primer-web.json',
-  ).then(res => res.json())
+  const {/*fileName, fileId, lastModified,*/ fileUrl, components} = figmaData
 
   /**
    * Add figma file data to the GraphQL store
@@ -157,7 +156,7 @@ async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
   for (const component of components) {
 
     component.thumbnails = component.thumbnails.map(thumbnail => {
-      thumbnail.props = Object.entries(thumbnail.props)
+      thumbnail.props = thumbnail.props.map(({name, value}) => [name, value])
       return thumbnail
     })
 
