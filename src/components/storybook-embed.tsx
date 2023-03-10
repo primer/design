@@ -1,11 +1,12 @@
-import React from 'react'
-import {ActionMenu, ActionList, Link, Box, ThemeProvider, theme} from '@primer/react'
-import {LinkExternalIcon} from '@primer/octicons-react'
+import Code from '@primer/gatsby-theme-doctocat/src/components/code'
+import {FoldIcon, LinkExternalIcon, UnfoldIcon} from '@primer/octicons-react'
+import {ActionList, ActionMenu, Box, Button, Link, theme, ThemeProvider} from '@primer/react'
 import {sentenceCase} from 'change-case'
+import React from 'react'
 
 const baseUrls = {
   react: 'https://primer.style/react/storybook',
-  css: 'https://primer.style/css/storybook'
+  css: 'https://primer.style/css/storybook',
 }
 
 const colorSchemes = Object.keys(theme.colorSchemes)
@@ -13,7 +14,7 @@ const colorSchemes = Object.keys(theme.colorSchemes)
 type StorybookEmbedProps = {
   framework?: 'react' | 'css'
   baseUrl?: string
-  stories: Array<{id: string}>
+  stories: Array<{id: string; code?: string}>
   height?: string | number
 }
 
@@ -21,19 +22,20 @@ export function StorybookEmbed({
   framework,
   baseUrl = baseUrls[framework || ''],
   stories,
-  height = 250
+  height = 250,
 }: StorybookEmbedProps) {
   const [selectedColorScheme, setSelectedColorScheme] = React.useState(colorSchemes[0])
   const [selectedStory, setSelectedStory] = React.useState(stories[0])
   const options = {
     id: selectedStory.id,
-    globals: framework === 'react' ? `colorScheme:${selectedColorScheme}` : `theme:${selectedColorScheme}`
+    globals: framework === 'react' ? `colorScheme:${selectedColorScheme}` : `theme:${selectedColorScheme}`,
   }
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const iframeUrl = `${baseUrl}/iframe.html?${new URLSearchParams(options)}`
   const storybookUrl = `${baseUrl}?path=/story/${selectedStory.id}&${new URLSearchParams({
-    globals: options.globals
+    globals: options.globals,
   })}`
+  const [isShowingCode, setIsShowingCode] = React.useState(false)
 
   // Prevent iframe from affecting browser history
   // Reference: https://stackoverflow.com/questions/27341498/how-to-prevent-iframe-affecting-browser-history
@@ -44,16 +46,24 @@ export function StorybookEmbed({
   return (
     // @ts-ignore
     <ThemeProvider>
-      <div>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          mb: 3,
+          borderRadius: 2,
+          borderColor: 'border.default',
+          borderStyle: 'solid',
+          borderWidth: 1,
+          overflow: 'hidden',
+        }}
+      >
         <Box
           backgroundColor={'canvas.inset'}
-          borderRadius={2}
-          borderBottomLeftRadius={0}
-          borderBottomRightRadius={0}
           borderColor={'border.default'}
           borderStyle="solid"
-          borderWidth={1}
-          borderBottomWidth={0}
+          borderWidth={0}
+          borderBottomWidth={1}
           display="flex"
           alignItems="center"
           marginBottom={0}
@@ -61,7 +71,7 @@ export function StorybookEmbed({
           sx={{
             gap: 3,
             justifyContent: 'space-between',
-            overflow: 'auto'
+            overflow: 'auto',
           }}
         >
           <Box sx={{display: 'flex', alignItems: 'center', gap: 2}}>
@@ -83,7 +93,6 @@ export function StorybookEmbed({
                 </ActionMenu.Overlay>
               </ActionMenu>
             ) : null}
-
             <ActionMenu>
               <ActionMenu.Button>Theme: {sentenceCase(selectedColorScheme)}</ActionMenu.Button>
               <ActionMenu.Overlay>
@@ -100,8 +109,17 @@ export function StorybookEmbed({
                 </ActionList>
               </ActionMenu.Overlay>
             </ActionMenu>
+            {selectedStory.code ? (
+              <Button
+                aria-expanded={isShowingCode}
+                aria-controls={`${selectedStory.id}-code`}
+                onClick={() => setIsShowingCode(!isShowingCode)}
+                leadingIcon={isShowingCode ? FoldIcon : UnfoldIcon}
+              >
+                {isShowingCode ? 'Hide code' : 'Show code'}
+              </Button>
+            ) : null}
           </Box>
-
           <Link
             href={storybookUrl}
             target="_blank"
@@ -112,7 +130,7 @@ export function StorybookEmbed({
               display: 'inline-flex',
               alignItems: 'center',
               gap: 1,
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
             }}
           >
             View in Storybook
@@ -121,22 +139,29 @@ export function StorybookEmbed({
         </Box>
         <Box
           as="iframe"
+          sx={{border: 0, margin: 0}}
           ref={iframeRef}
-          sx={{
-            mb: 3,
-            borderRadius: 2,
-            borderTopLeftRadius: 0,
-            borderTopRightRadius: 0,
-            borderColor: 'border.default',
-            borderStyle: 'solid',
-            borderWidth: 1
-          }}
           title="storybook-preview"
           id="storybook-preview-iframe"
           width="100%"
           height={height}
         />
-      </div>
+        {selectedStory.code && isShowingCode ? (
+          <Box
+            id={`${selectedStory.id}-code`}
+            sx={{
+              pre: {
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+                margin: 0,
+              },
+            }}
+          >
+            {/* @ts-ignore */}
+            <Code className="language-jsx">{selectedStory.code}</Code>
+          </Box>
+        ) : null}
+      </Box>
     </ThemeProvider>
   )
 }

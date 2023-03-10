@@ -71,22 +71,6 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
 
     actions.createNode(newNode)
   }
-
-  // Save Primer React storybook data to the GraphQL store
-  const storiesJson = await fetch(`https://primer.style/react/storybook/stories.json`).then(res => res.json())
-
-  for (const story of Object.values(storiesJson.stories)) {
-    const newNode = {
-      ...{...story, storyId: story.id},
-      id: createNodeId(`react-${story.id}`),
-      internal: {
-        type: 'ReactComponentStory',
-        contentDigest: createContentDigest({...story, storyId: story.id}),
-      },
-    }
-
-    actions.createNode(newNode)
-  }
 }
 
 async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
