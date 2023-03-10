@@ -4,17 +4,19 @@
       url: /guides/introduction
     - title: About
       url: /guides/about
-    - title: Content
-      url: /guides/content
-    - title: The Zen of GitHub
-      url: /guides/zen
     - title: Figma
       url: /guides/figma
       children:
         - title: Introduction
           url: /guides/figma
+        - title: Getting started
+          url: /guides/figma/getting-started
         - title: How to contribute
           url: /guides/figma/contribute
+    - title: Development
+      children:
+        - title: React
+          url: /guides/development/react
     - title: Component lifecycle
       url: /guides/component-lifecycle
     - title: Component status
@@ -52,6 +54,8 @@
           url: /guides/contribute/how-to-contribute
         - title: Design
           url: /guides/contribute/design
+        - title: Content
+          url: /guides/contribute/content
         - title: Documentation
           url: /guides/contribute/documentation
 - title: Foundations
@@ -166,6 +170,8 @@
       url: /components/heading
     - title: Icon
       url: /components/icon
+    - title: Page header
+      url: /components/page-header
     - title: Segmented control
       url: /components/segmented-control
     - title: Toggle switch

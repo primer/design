@@ -1,0 +1,56 @@
+---
+title: Getting started
+---
+import {LinkExternalIcon} from '@primer/octicons-react'
+
+## What are Primer Figma libraries?
+The Primer Figma libraries contain UI components and design tokens (styles) that our teams at GitHub use to design GitHub. The components contained within Primer match what is available for developers in Primer React Components, Primer ViewComponents, and Primer CSS.
+
+## Installation
+To use a library in Figma enable (install) it from the **assets** tab (`option` + `2`).
+You can also directly open the *team library* view via the command palette or with the shortcut `option` + `cmd` + `o`.
+
+<ImageBox caption="Navigate to the assets tab in the left sidebar and press the book icon to open the libraries overview.">
+  <img
+    width="490"
+    alt="Screenshot showing the assets tab in figma"
+    src="https://user-images.githubusercontent.com/813754/221525999-d0278cec-d79c-40fc-8150-532f97549dc8.png"
+  />
+</ImageBox>
+
+<ImageBox caption="Enable all libraries you need in your file.">
+  <img
+    width="443"
+    alt="Screenshot showing the library overview in figma"
+    src="https://user-images.githubusercontent.com/813754/221527802-76638b6b-be81-4c87-b3e8-63d543537a9c.png"
+  />
+</ImageBox>
+
+
+## Understanding styles
+Figma libraries like `Primer Primitives` install styles for you to use. In contrast to *local styles* they don't show up in the sidebar.
+However once you open a selection to choose a color style, text style, etc. you will see the styles from team libraries as well.
+
+To quickly find a style you can use the search box. E.g. use `accent` to bring up all accent colors.
+
+<ImageBox caption="Color style selector and color style selector with search for 'accent'">
+  <img
+    width="443"
+    alt="Screenshot showing the style selector in figma"
+    src="https://user-images.githubusercontent.com/813754/221531315-605cba02-de29-4834-a01b-ef8dc391fe21.png"
+  />
+</ImageBox>
+
+<a href="https://help.figma.com/hc/en-us/articles/360039238753-Styles-in-Figma">Learn more about Figma styles <LinkExternalIcon /></a>
+
+## Understanding components
+At GitHub, we have created a [set of guidelines](https://github.com/primer/figma/blob/main/docs/authoring-components.md) that contributors and maintainers can reference when creating and updating components.
+
+Components in our libraries have been built to be easy to understand for consumers. When possible try to keep components small and simple. Avoid advanced methods/tricks if possible. 
+
+### Variants and component properties
+To make components dynamic, we favor [component properties <LinkExternalIcon />](https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties) over nesting, so users don't have to override parts of a component manually. 
+
+Whenever possible use components as they are without *detaching*.
+
+<a href="https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma">Learn more about Figma components <LinkExternalIcon /></a>
