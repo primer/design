@@ -259,20 +259,22 @@ exports.onPostBuild = async ({graphql}) => {
     }
   `)
 
-  const components = data.allMdx.nodes.map(node => {
-    const reactComponent = data.allReactComponent.nodes.find(
-      component => component.componentId === node.frontmatter.reactId,
-    )
+  const components = data.allMdx.nodes
+    .filter(node => Boolean(node.frontmatter.title))
+    .map(node => {
+      const reactComponent = data.allReactComponent.nodes.find(
+        component => component.componentId === node.frontmatter.reactId,
+      )
 
-    return {
-      id: node.slug.replace(/^components\//, ''),
-      displayName: node.frontmatter.title,
-      description: node.frontmatter.description,
-      implementations: {
-        react: reactComponent ? {status: reactComponent.status, a11yReviewed: reactComponent.a11yReviewed} : null,
-      },
-    }
-  })
+      return {
+        id: node.slug.replace(/^components\//, ''),
+        displayName: node.frontmatter.title,
+        description: node.frontmatter.description,
+        implementations: {
+          react: reactComponent ? {status: reactComponent.status, a11yReviewed: reactComponent.a11yReviewed} : null,
+        },
+      }
+    })
 
   fs.writeFileSync(
     path.resolve(process.cwd(), 'public/components.json'),
