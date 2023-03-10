@@ -128,6 +128,72 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
 exports.createPages = async ({actions, graphql}) => {
   await createComponentPages({actions, graphql})
   await createIconPages({actions, graphql})
+
+  const {data} = await graphql(`
+    query {
+      allMdx(filter: {slug: {regex: "/^components/.+/"}}) {
+        nodes {
+          slug
+          frontmatter {
+            reactId
+            title
+            description
+          }
+        }
+      }
+      allReactComponent {
+        nodes {
+          id: componentId
+          name
+          status
+          a11yReviewed
+          stories {
+            id
+            code
+          }
+          props {
+            name
+            type
+            description
+            defaultValue
+            required
+            deprecated
+          }
+          subcomponents {
+            name
+            props {
+              name
+              type
+              description
+              defaultValue
+              required
+              deprecated
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const components = data.allMdx.nodes
+    .filter(node => Boolean(node.frontmatter.title))
+    .map(node => {
+      const reactComponent = data.allReactComponent.nodes.find(component => component.id === node.frontmatter.reactId)
+
+      return {
+        id: node.slug.replace(/^components\//, ''),
+        name: node.frontmatter.title,
+        description: node.frontmatter.description,
+        implementations: {
+          react: reactComponent || null,
+        },
+      }
+    })
+
+  fs.writeFileSync(
+    path.resolve(process.cwd(), 'public/components.json'),
+    JSON.stringify({schemaVersion: 1, components}),
+  )
 }
 
 async function createComponentPages({actions, graphql}) {
@@ -235,9 +301,33 @@ exports.onPostBuild = async ({graphql}) => {
       }
       allReactComponent {
         nodes {
-          componentId
+          id: componentId
+          name
           status
           a11yReviewed
+          stories {
+            id
+            code
+          }
+          props {
+            name
+            type
+            description
+            defaultValue
+            required
+            deprecated
+          }
+          subcomponents {
+            name
+            props {
+              name
+              type
+              description
+              defaultValue
+              required
+              deprecated
+            }
+          }
         }
       }
     }
@@ -246,22 +336,14 @@ exports.onPostBuild = async ({graphql}) => {
   const components = data.allMdx.nodes
     .filter(node => Boolean(node.frontmatter.title))
     .map(node => {
-      const reactComponent = data.allReactComponent.nodes.find(
-        component => component.componentId === node.frontmatter.reactId,
-      )
+      const reactComponent = data.allReactComponent.nodes.find(component => component.id === node.frontmatter.reactId)
 
       return {
         id: node.slug.replace(/^components\//, ''),
-        displayName: node.frontmatter.title,
+        name: node.frontmatter.title,
         description: node.frontmatter.description,
         implementations: {
-          react: reactComponent
-            ? {
-                id: reactComponent.componentId,
-                status: reactComponent.status,
-                a11yReviewed: reactComponent.a11yReviewed,
-              }
-            : null,
+          react: reactComponent || null,
         },
       }
     })
