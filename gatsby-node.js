@@ -1,7 +1,7 @@
 const path = require('path')
 const defines = require('./babel-defines')
 const fetch = require('node-fetch')
-const {paramCase} = require('change-case')
+const fs = require('fs')
 
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   const config = getConfig()
@@ -232,4 +232,50 @@ async function createIconPages({actions, graphql}) {
       },
     })
   }
+}
+
+// Create a JSON file with component metadata
+// so we can use Primer data outside of the docs site.
+exports.onPostBuild = async ({graphql}) => {
+  const {data} = await graphql(`
+    query {
+      allMdx(filter: {slug: {regex: "/^components/.+/"}}) {
+        nodes {
+          slug
+          frontmatter {
+            reactId
+            title
+            description
+          }
+        }
+      }
+      allReactComponent {
+        nodes {
+          componentId
+          status
+          a11yReviewed
+        }
+      }
+    }
+  `)
+
+  const components = data.allMdx.nodes.map(node => {
+    const reactComponent = data.allReactComponent.nodes.find(
+      component => component.componentId === node.frontmatter.reactId,
+    )
+
+    return {
+      id: node.slug.replace(/^components\//, ''),
+      displayName: node.frontmatter.title,
+      description: node.frontmatter.description,
+      implementations: {
+        react: reactComponent ? {status: reactComponent.status, a11yReviewed: reactComponent.a11yReviewed} : null,
+      },
+    }
+  })
+
+  fs.writeFileSync(
+    path.resolve(process.cwd(), 'public/components.json'),
+    JSON.stringify({schemaVersion: 1, components}),
+  )
 }
