@@ -1,4 +1,6 @@
 import {AccessibilityLabel, Note, StatusLabel} from '@primer/gatsby-theme-doctocat'
+import SourceLink from '@primer/gatsby-theme-doctocat/src/components/source-link'
+import StorybookLink from '@primer/gatsby-theme-doctocat/src/components/storybook-link'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
@@ -35,7 +37,10 @@ export const query = graphql`
       name
       status
       a11yReviewed
-      stories
+      stories {
+        id
+        code
+      }
       props {
         name
         type
@@ -56,17 +61,11 @@ export const query = graphql`
         }
       }
     }
-    allReactComponentStory {
-      nodes {
-        storyId
-      }
-    }
   }
 `
 
 export default function ReactComponentLayout({data}) {
   const {name, status, a11yReviewed, props: componentProps, subcomponents, stories} = data.reactComponent
-  const allStoryIds = data.allReactComponentStory.nodes.map(node => node.storyId)
   const importStatement = `import {${name}} from '@primer/react${status === 'draft' ? '/drafts' : ''}'`
 
   const tableOfContents = {
@@ -79,11 +78,6 @@ export default function ReactComponentLayout({data}) {
 
   const title = data.sitePage?.context.frontmatter.title || name
   const description = data.sitePage?.context.frontmatter.description || ''
-
-  const defaultStoryId = `components-${name.toLowerCase()}--default`
-  const validStoryIds = Array.from(new Set([defaultStoryId, ...stories]))
-    // Ensure that all story IDs are valid
-    .filter(storyId => allStoryIds.includes(storyId))
 
   return (
     <BaseLayout title={title} description={description}>
@@ -119,7 +113,7 @@ export default function ReactComponentLayout({data}) {
             </Text>
             <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
           </Box>
-          <Box>
+          <Box sx={{minWidth: 0}}>
             {/* @ts-ignore */}
             <Note variant="warning">
               <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Work in progress</Text>
@@ -127,10 +121,62 @@ export default function ReactComponentLayout({data}) {
               view the original documentation with code examples, please visit the{' '}
               <Link href={`https://primer.style/react/${name}`}>Primer React documentation for {name}</Link>.
             </Note>
-            <Box sx={{display: 'flex', gap: 2, mb: 4}}>
-              <Label size="large">v{data.primerReactVersion.version}</Label>
-              <StatusLabel status={sentenceCase(status)} />
-              <AccessibilityLabel a11yReviewed={a11yReviewed} short={false} />
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: ['column', null, null, null, 'row'],
+                justifyContent: 'space-between',
+                gap: 3,
+                mb: 4,
+              }}
+            >
+              <Box
+                as={'ul'}
+                sx={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: 2,
+                  alignItems: 'center',
+                  m: 0,
+                  p: 0,
+                  paddingInline: 0,
+                  listStyle: 'none',
+                  '& > li': {
+                    display: 'flex',
+                  },
+                }}
+              >
+                <li>
+                  <Label size="large">@primer/react@{data.primerReactVersion.version}</Label>
+                </li>
+                <li>
+                  <StatusLabel status={sentenceCase(status)} />
+                </li>
+                <li>
+                  <AccessibilityLabel a11yReviewed={a11yReviewed} short={false} />
+                </li>
+              </Box>
+              <Box
+                as={'ul'}
+                sx={{
+                  display: 'flex',
+                  gap: 3,
+                  alignItems: 'center',
+                  m: 0,
+                  p: 0,
+                  paddingInline: 0,
+                  listStyle: 'none',
+                  fontSize: 1,
+                  '& > li': {
+                    display: 'flex',
+                  },
+                }}
+              >
+                <SourceLink href={`https://github.com/primer/react/blob/main/src/${name}`} />
+                {stories.length > 0 ? (
+                  <StorybookLink href={`https://primer.style/react/storybook/?path=/story/${stories[0].id}`} />
+                ) : null}
+              </Box>
             </Box>
             {/* Narrow table of contents */}
             <Box
@@ -163,12 +209,8 @@ export default function ReactComponentLayout({data}) {
             <Code className="language-javascript">{importStatement}</Code>
 
             <H2>Examples</H2>
-            {validStoryIds.length > 0 ? (
-              <StorybookEmbed
-                framework="react"
-                height={300}
-                stories={validStoryIds.map((storyId: string) => ({id: storyId}))}
-              />
+            {stories.length > 0 ? (
+              <StorybookEmbed framework="react" height={300} stories={stories} />
             ) : (
               // If there are no stories, link to the component's page in the Primer React docs
               <Link
@@ -218,54 +260,62 @@ function PropsTable({
     description: string
   }>
 }) {
+  if (props.length === 0) {
+    return (
+      <Box sx={{padding: 3, bg: 'canvas.inset', textAlign: 'center', color: 'fg.muted', borderRadius: 2}}>No props</Box>
+    )
+  }
+
   return (
-    <Table>
-      <colgroup>
-        <col style={{width: '25%'}} />
-        <col style={{width: '15%'}} />
-        <col style={{width: '60%'}} />
-      </colgroup>
-      <thead>
-        <tr>
-          <th align="left">Name</th>
-          <th align="left">Default</th>
-          <th align="left">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        {props.map(prop => (
-          <tr key={prop.name}>
-            <td valign="top">
-              <Box sx={{display: 'flex', gap: 2, alignItems: 'center'}}>
-                <Text sx={{fontFamily: 'mono', fontSize: 1, whiteSpace: 'nowrap'}}>{prop.name}</Text>
-                {prop.required ? <Label>Required</Label> : null}
-                {prop.deprecated ? <Label variant="danger">Deprecated</Label> : null}
-              </Box>
-            </td>
-            <td valign="top">{prop.defaultValue ? <InlineCode>{prop.defaultValue}</InlineCode> : null}</td>
-            <td>
-              <InlineCode>{prop.type}</InlineCode>
-              <Box
-                sx={{
-                  '&:not(:empty)': {
-                    mt: 2,
-                  },
-                  color: 'fg.muted',
-                  '& > :first-child': {
-                    mt: 0,
-                  },
-                  '& > :last-child': {
-                    mb: 0,
-                  },
-                }}
-              >
-                {/* @ts-ignore */}
-                <ReactMarkdown components={{a: Link, code: InlineCode}}>{prop.description}</ReactMarkdown>
-              </Box>
-            </td>
+    <Box sx={{overflow: 'auto'}}>
+      <Table>
+        <colgroup>
+          <col style={{width: '25%'}} />
+          <col style={{width: '15%'}} />
+          <col style={{width: '60%'}} />
+        </colgroup>
+        <thead>
+          <tr>
+            <th align="left">Name</th>
+            <th align="left">Default</th>
+            <th align="left">Description</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+        <tbody>
+          {props.map(prop => (
+            <tr key={prop.name}>
+              <td valign="top">
+                <Box sx={{display: 'flex', gap: 2, alignItems: 'center'}}>
+                  <Text sx={{fontFamily: 'mono', fontSize: 1, whiteSpace: 'nowrap'}}>{prop.name}</Text>
+                  {prop.required ? <Label>Required</Label> : null}
+                  {prop.deprecated ? <Label variant="danger">Deprecated</Label> : null}
+                </Box>
+              </td>
+              <td valign="top">{prop.defaultValue ? <InlineCode>{prop.defaultValue}</InlineCode> : null}</td>
+              <td>
+                <InlineCode>{prop.type}</InlineCode>
+                <Box
+                  sx={{
+                    '&:not(:empty)': {
+                      mt: 2,
+                    },
+                    color: 'fg.muted',
+                    '& > :first-child': {
+                      mt: 0,
+                    },
+                    '& > :last-child': {
+                      mb: 0,
+                    },
+                  }}
+                >
+                  {/* @ts-ignore */}
+                  <ReactMarkdown components={{a: Link, code: InlineCode}}>{prop.description}</ReactMarkdown>
+                </Box>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </Box>
   )
 }
