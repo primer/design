@@ -90,7 +90,7 @@ Examples of interactions:
 >
   <img
     width="456"
-    alt="tokens rendered at all sizes"
+    alt="a group of tokens flowing over multiple lines"
     src="https://user-images.githubusercontent.com/2313998/137771744-ee968841-8b5c-437c-83cc-9f693e35e5f0.png"
   />
   <Box>
@@ -100,6 +100,24 @@ Examples of interactions:
     </Box>
     <Box as="p">Tokens that represent different types of data should not be grouped together.</Box>
     <Box as="p">Interactive tokens should not be grouped with non-interactive tokens.</Box>
+  </Box>
+</Box>
+<Box
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="a group of tokens restricted to one line with a counter for hidden tokens"
+    src="https://user-images.githubusercontent.com/813754/224695100-072f966a-b797-4224-a2fd-8db8cd526f74.png"
+  />
+  <Box>
+    <Box as="p" mt="0">
+      When space is limited, like in a table, some tokens in a group may be hidden. The amount hidden tokens is added in a text label, e.g. `+3`.
+    </Box>
+    <Box as="p">It is important to make sure that the detail view of the list item allows users to access all tokens.</Box>
   </Box>
 </Box>
 
