@@ -174,3 +174,12 @@ Examples of interactions:
     </Box>
   </Box>
 </Box>
+
+## Accessibility
+
+To make tokens accessible to keyboard users and those who require accessible contrasts, make sure to fulfill the requirements below.
+
+- `4.5:1` contrast between the label (text and icon) of the token and it's background
+- when in focus a token must have a visible focus outline
+- if a token can be removed, the keyboard focus must be moved to the previous token after deletion. If no token remains, it must focus on the input itself.
+- if a close button is used, it’s name should use the token’s label to make it unique
