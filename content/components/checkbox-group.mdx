@@ -18,7 +18,13 @@ export default ComponentLayout
 
 Use checkbox group to allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
 
-### Anatomy
+### Best practices
+
+- Put checkboxes in a logical order
+- If users are only allowed to select a single option, consider using a [radio group](/components/radio-group) instead
+- Each checkbox's state should be independent from other checkboxes in the group. For example: checking one checkbox should not check or disable any other checkboxes
+
+## Anatomy
 
 <img
   width="960"
@@ -32,12 +38,6 @@ Use checkbox group to allow users to select multiple items from a list of indivi
 **Options:** A list of options represented using [checkboxes](/components/checkbox)
 **Validation message:** A message explaining why the selection failed validation. See the [form pattern documentation](../ui-patterns/forms#validation) for more information on form validation patterns.
 
-### Best practices
-
-- Put checkboxes in a logical order
-- If users are only allowed to select a single option, consider using a [radio group](/components/radio-group) instead
-- Each checkbox's state should be independent from other checkboxes in the group. For example: checking one checkbox should not check or disable any other checkboxes
-
 ## Accessibility
 
 Once a user checks an option from a checkbox group, the result should not be saved or applied until the user has explicitly submitted their input using a "save" or "submit" button. See the [saving pattern guidelines](../ui-patterns/saving) for more information.
@@ -46,6 +46,7 @@ Alternative: you can use a [toggle switch](/components/toggle-switch) to immedia
 ## Related links
 
 - [Forms](../ui-patterns/forms)
+- [Form control](/components/form-control)
 - [Checkbox](/components/checkbox)
 - [Radio](/components/radio)
 - [Radio group](/components/radio-group)
