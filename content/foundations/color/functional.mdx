@@ -1,13 +1,11 @@
 ---
-title: Functional
-description:
-  Color is a fundamental piece in the Primer visual language. In this guide you will learn about the principles,
-  patterns, and abstractions that make Primer’s color system.
+title: Functional colors
+description: A layer on top of base colors representing properties such as border, background and foreground.
 ---
 
 import {Box, Heading} from '@primer/react'
 
-# Functional colors
+## Introduction
 
 The functional system is based on the meaning, or purpose, that colors have in the interface. Use functional design tokens in designs and code to build product interfaces.
 
@@ -19,11 +17,11 @@ By using Primer's functional color system you make sure that your interface:
 
 ## Foundations
 
-Foregrounds (text and icons), backgrounds, and borders that make up most of a product interface.
+Foundational colors make up most of a product interface.
 
 ### Foreground
 
-Foreground elements are **text and icons**. You can apply color to them by using any of the `fg` (short for foreground) design tokens.
+Foundational foreground colors are used for base typeography, icons and component text.
 
 <StorybookEmbed
   baseUrl="https://primer-caa1ba0fe0-26615723.drafts.github.io/storybook"
@@ -33,7 +31,7 @@ Foreground elements are **text and icons**. You can apply color to them by using
 
 ### Background
 
-Background colors apply to surfaces of components or UI elements, such as pages, boxes, and overlays.
+Foundational background colors apply to surfaces such as pages, boxes and tables.
 
 <StorybookEmbed
   baseUrl="https://primer-caa1ba0fe0-26615723.drafts.github.io/storybook"
@@ -43,7 +41,7 @@ Background colors apply to surfaces of components or UI elements, such as pages,
 
 ### Border
 
-Borders can be used to group content or to create a visible separation between sections or items. They’re most commonly used on tables, side sections, and cards.
+Foundational border colors are used to group content or to create a visible separation between sections or items.
 
 <StorybookEmbed
   baseUrl="https://primer-caa1ba0fe0-26615723.drafts.github.io/storybook"
@@ -53,7 +51,7 @@ Borders can be used to group content or to create a visible separation between s
 
 ## Roles
 
-Foregrounds (text and icons), backgrounds, and borders that highlight affordance or the meaning of elements in the UI.
+Role colors highlight affordance or the meaning of elements in the UI.
 
 ### Neutral
 
@@ -65,8 +63,7 @@ Foregrounds (text and icons), backgrounds, and borders that highlight affordance
 
 ### Accent
 
-Use for interactive text or icons like links or buttons.
-Use to accentuate interactive areas in the UI like selected elements.
+Used for interactive elements like links, buttons, form controls (checkboxes, radio buttons, etc.) and the "neutral" variant for banners.
 
 <StorybookEmbed
   baseUrl="https://primer-caa1ba0fe0-26615723.drafts.github.io/storybook"
@@ -76,8 +73,7 @@ Use to accentuate interactive areas in the UI like selected elements.
 
 ### Success
 
-Use to emphasize a positive message.
-Use to highlight a positive message.
+Used to highlight or emphasize a positive message, or indicate the primary action on a page.
 
 <StorybookEmbed
   baseUrl="https://primer-caa1ba0fe0-26615723.drafts.github.io/storybook"
@@ -87,8 +83,7 @@ Use to highlight a positive message.
 
 ### Attention
 
-Use to highlight text or icons that require the user's attention.
-Use to highlight elements that require a user's attention or pending statuses.
+Used to highlight or emphasize elements that require the user's attention.
 
 <StorybookEmbed
   baseUrl="https://primer-caa1ba0fe0-26615723.drafts.github.io/storybook"
@@ -96,21 +91,9 @@ Use to highlight elements that require a user's attention or pending statuses.
   height="360"
 />
 
-### Danger
-
-Use to emphasize an error or a blocking status. Action is required.
-Use to emphasize an error or a blocking status, where action is required.
-
-<StorybookEmbed
-  baseUrl="https://primer-caa1ba0fe0-26615723.drafts.github.io/storybook"
-  stories={[{id: 'color-functional-roles--danger'}]}
-  height="360"
-/>
-
 ### Severe
 
-Use to emphasize a level of severity between attention and danger.
-Use to emphasize an extra level of severity between attention and danger.
+Used to highlight or emphasize a level of severity between attention and danger.
 
 <StorybookEmbed
   baseUrl="https://primer-caa1ba0fe0-26615723.drafts.github.io/storybook"
@@ -118,10 +101,19 @@ Use to emphasize an extra level of severity between attention and danger.
   height="360"
 />
 
+### Danger
+
+Use to highlight or emphasize an error or a blocking status, where action is required.
+
+<StorybookEmbed
+  baseUrl="https://primer-caa1ba0fe0-26615723.drafts.github.io/storybook"
+  stories={[{id: 'color-functional-roles--danger'}]}
+  height="360"
+/>
+
 ### Open
 
-Use to style text that refers to open tasks or workflows.
-Use to style text that refers to open tasks or workflows.
+Used for "open" tasks or workflows.
 
 <StorybookEmbed
   baseUrl="https://primer-caa1ba0fe0-26615723.drafts.github.io/storybook"
@@ -131,8 +123,7 @@ Use to style text that refers to open tasks or workflows.
 
 ### Closed
 
-Use to style text that refers to closed tasks or workflows.
-Use to style text that refers to closed tasks or workflows.
+Used for "closed" tasks or workflows.
 
 <StorybookEmbed
   baseUrl="https://primer-caa1ba0fe0-26615723.drafts.github.io/storybook"
@@ -142,8 +133,7 @@ Use to style text that refers to closed tasks or workflows.
 
 ### Done
 
-Use to style text that refers to completed tasks or workflows.
-Use to style text that refers to completed tasks or workflows.
+Used for "done" tasks or workflows.
 
 <StorybookEmbed
   baseUrl="https://primer-caa1ba0fe0-26615723.drafts.github.io/storybook"

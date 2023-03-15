@@ -63,12 +63,14 @@
     - title: Color
       url: /foundations/color
       children:
-        - title: Functional
+        - title: Introduction
+          url: /foundations/color/introduction
+        - title: Functional colors
           url: /foundations/color/functional
-        - title: Base scales
+        - title: Base colors
           url: /foundations/color/base-scales
         - title: Interactive states
-          url: /foundations/color/interative-states
+          url: /foundations/color/interactive-states
         - title: Themes
           url: /foundations/color/themes
         - title: Accessibility
