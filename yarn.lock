@@ -1875,10 +1875,10 @@
   resolved "https://registry.yarnpkg.com/@primer/component-metadata/-/component-metadata-0.5.1.tgz#2f41dcc0ff9fcc9ad16c9241a20abdf86ba8468b"
   integrity sha512-+3tuJScHWRifOAyMV+cn1I533j+PcprvPXbKnH1W7N+vhaGyaaHTao8Dkyyhxbhklmumcf8XR+Lz6dK1ojDrCg==
 
-"@primer/gatsby-theme-doctocat@^4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-4.4.0.tgz#d46835087b7db4f49768b82395b6ecfc5f7bdbab"
-  integrity sha512-Tc+XSXGFLA+S0IsXaZYEsXorZN9jygV7gwEIC2pwma7151ylSQTV+XDm0c2hvsSnTW1sBU/uk0pqsFm6gep4DA==
+"@primer/gatsby-theme-doctocat@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-4.4.1.tgz#46296d28cac81680ca2c93176e723317dc0ada8a"
+  integrity sha512-wiPGsSLDv6J+svY8N7o7QHSsIT2YsV5YpaLAT8XtOa9yNPfqzfjR/OHM3M+siH2E2vI9Sv4I322nUpxYIcPBIw==
   dependencies:
     "@babel/preset-env" "^7.5.5"
     "@babel/preset-react" "^7.0.0"

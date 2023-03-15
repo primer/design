@@ -42,9 +42,13 @@ export default function ComponentLayout({pageContext, children, path}) {
           >
             {pageContext.tableOfContents.items ? (
               <>
-                <Text sx={{display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
+                <Heading
+                  as="h3"
+                  sx={{fontSize: 2, display: 'inline-block', fontWeight: 'bold', pl: 3}}
+                  id="toc-heading"
+                >
                   On this page
-                </Text>
+                </Heading>
                 <TableOfContents aria-labelledby="toc-heading" items={pageContext.tableOfContents.items} />
               </>
             ) : null}
@@ -67,9 +71,9 @@ export default function ComponentLayout({pageContext, children, path}) {
                   <Box
                     sx={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}
                   >
-                    <Text sx={{fontWeight: 'bold'}} id="toc-heading-narrow">
+                    <Heading as="h3" sx={{fontSize: 2, fontWeight: 'bold'}} id="toc-heading-narrow">
                       On this page
-                    </Text>
+                    </Heading>
                   </Box>
                 </Box>
                 <Box sx={{borderTop: '1px solid', borderColor: 'border.muted'}}>

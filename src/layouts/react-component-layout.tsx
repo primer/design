@@ -108,9 +108,9 @@ export default function ReactComponentLayout({data}) {
               display: ['none', null, 'block'],
             }}
           >
-            <Text sx={{display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
+            <Heading as="h3" sx={{fontSize: 2, display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
               On this page
-            </Text>
+            </Heading>
             <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
           </Box>
           <Box sx={{minWidth: 0}}>
@@ -194,9 +194,9 @@ export default function ReactComponentLayout({data}) {
                 <Box
                   sx={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}
                 >
-                  <Text sx={{fontWeight: 'bold'}} id="toc-heading-narrow">
+                  <Heading as="h3" sx={{fontSize: 2, fontWeight: 'bold'}} id="toc-heading-narrow">
                     On this page
-                  </Text>
+                  </Heading>
                 </Box>
               </Box>
               <Box sx={{borderTop: '1px solid', borderColor: 'border.muted'}}>
