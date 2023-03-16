@@ -6,8 +6,12 @@ figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=2095
 ---
 
 import {Box, Text} from '@primer/react'
+import Code from '@primer/gatsby-theme-doctocat/src/components/code'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
 
 ## Usage
+
 Links enable users to navigate between pages or resources in a seamless way. Links can be used within a body of text or as a standalone element.
 
 Links navigate you to a new place or new content. **Do not** use links for triggering an action. Instead, use [buttons](/components/button), which are designed to activate a feature.
@@ -37,3 +41,46 @@ The link component can be displayed in default, muted, or blue colors. Links can
     src="https://user-images.githubusercontent.com/586552/225489086-e604fbc8-e449-416e-bd26-cc80408c5d8d.png"
    />
 </Box>
+
+## Accessibility
+
+Links play a key part in your experience on the web, but without proper consideration they can be frustrating to use, skipped over, or completely unnoticed.
+
+For screen reader assistive technology, links and buttons are expected to function differently from each other. If a link is activated and does not do what was expected, that can be disorienting and frustrating.
+
+A common way a screen reader might navigate the page is by going through a list of all the links on the page. Without context, "read more" or "click here" links are not helpful.
+
+People who have low or colorblind vision may have trouble identifying links that just use color to distinguish them from plain text, this is why keeping the underline styling on links within body text is important for identification.
+
+### How to test links
+
+#### Functionality and purpose
+
+A link's function is to _navigate_ to a different page or new content. If instead a feature on the page is activated, use a `<button>`. [Learn when to use a link or button](https://accessibility-playbook.github.com/guidance/patterns/link-and-button-guidance).
+
+A link's purpose must be obvious from the link text alone. If you can't get an idea of where a link will take you based on the link text without reading the sourrounding text, the link text should be updated. [Learn how to write good link text](#writing-link-text).
+
+This is important because screen readers allow users to browse through a list of links, where the link text is the only clue of where a link will take you.
+
+#### Visual distinction & contrast
+
+Like normal text, a link must have a `4.5:1` contrast against the background color that it is placed on. Use a [contrast checker](https://webaim.org/resources/contrastchecker/) to validate that your link meets this required contrast.
+
+If a link is sourrounded by text, it must be underlined or pass a `3:1` contrast against the sourrounding text as well. Alternativly an icon, a background shape or an outline can demarcate a link.
+
+Some examples of this are:
+
+- links within body text
+- a headline and subline which both are individual links
+- issue numbers or usernames within a commit line
+
+### Guidelines
+
+- Visually demarcate your links by using:
+  - the `accent.fg` color in combination with `fg.default` for the sourrounding text on any of the `canvas.[...]` colors
+  - an underline for the link text
+  - an icon before or after the link text
+  - using a background shape behind the link
+  - using a link color that has a `3:1` contrast against the sourrounding text color AND a `4.5:1` against the background color
+- Make sure a link's purpose can be understood from the link text alone, without needing the surrounding context.
+- Links should look like links, not buttons, except in rare circumstances, like calls to action.
