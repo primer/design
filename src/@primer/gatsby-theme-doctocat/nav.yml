@@ -170,6 +170,8 @@
       url: /components/heading
     - title: Icon
       url: /components/icon
+    - title: Link
+      url: /components/link
     - title: Page header
       url: /components/page-header
     - title: Segmented control
