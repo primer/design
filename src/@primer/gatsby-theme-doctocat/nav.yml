@@ -182,6 +182,8 @@
       url: /components/radio-group
     - title: Text input
       url: /components/text-input
+    - title: Text input with tokens
+      url: /components/text-input-with-tokens
     - title: Toggle switch
       url: /components/toggle-switch
     - title: Token

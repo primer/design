@@ -80,7 +80,7 @@ For more information about the "valid" and "invalid" states, see the [validation
 
 A text input can be made smaller or larger depending on the context it's being used in.
 
-You could make an input smaller if it is being used in a tight space with other small elements. You could make an input larger if it's in an open space or it feels out of proportion with adjacent large elements.
+You can make an input smaller if it is being used in a tight space with other small elements. You can make an input larger if it's in an open space or feels out of proportion with adjacent large elements.
 
 ### Width
 
@@ -92,7 +92,7 @@ You could make an input smaller if it is being used in a tight space with other 
 
 By default, a text input will be given a default width by the browser.
 
-However, you can render a text input to fill the width of it's parent element, or set the width to whatever makes sense for your use-case. When setting a custom width, consider the length of the expected value.
+However, you can render a text input to fill the width of its parent element, or set the width to whatever makes sense for your use-case. When setting a custom width, consider the length of the expected value.
 
 ### Monospace
 
@@ -102,7 +102,7 @@ However, you can render a text input to fill the width of it's parent element, o
   src="https://user-images.githubusercontent.com/2313998/224445199-c8f27a2b-18e3-4ac7-9764-1d32b1fdc9c7.png"
 />
 
-The value of the text input may be rendered in a monospace font. Use this variant for inputs related to code, such as setting a personal access token in a configuration.
+The value of the text input may be rendered in a monospace font. Use this variant for inputs related to code. For example, setting a personal access token in a configuration.
 
 ### With a trailing action
 
@@ -142,6 +142,10 @@ Avoid overwhelming the text input by using both a leading and trailing visual. I
 
 When a text input is processing some action like performing a search, a loading indicator is shown. To avoid a layout shift, either the leading or trailing visual will be replaced with the loading indicator. The text input component has internal logic to decide which visual to replace, but it can be overridden and explicitly set to show at the start or end of the input.
 
+### With tokens
+
+See [text input with tokens](/components/text-input-with-tokens)
+
 ## Accessibility
 
 - Text inputs must be labeled. The label may be visually hidden, but visible labels are preferred.
@@ -154,3 +158,4 @@ When a text input is processing some action like performing a search, a loading 
 
 - [Forms](../ui-patterns/forms)
 - [Autocomplete](/components/autocomplete)
+- [Text input with tokens](/components/text-input-with-tokens)
