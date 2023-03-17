@@ -53,7 +53,7 @@ export default function ComponentLayout({pageContext, children, path}) {
               </>
             ) : null}
           </Box>
-          <Box>
+          <Box sx={{minWidth: 0}}>
             {/* Narrow table of contents */}
             {pageContext.tableOfContents.items ? (
               <Box
