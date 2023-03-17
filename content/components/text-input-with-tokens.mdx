@@ -5,9 +5,8 @@ reactId: text_input_with_tokens
 figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=10400%3A38612&t=sr8N32f7rXqjxzcn-4
 ---
 
-<!-- TODO: come up with a better description -->
-
 import ComponentLayout from '~/src/layouts/component-layout'
+import {Box} from '@primer/react'
 export default ComponentLayout
 
 <img
@@ -76,9 +75,11 @@ You may choose any of Primer's token components, but you cannot mix different to
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
   <Box flex={1}>
-    When tabbing to the input, the `<input />` element receives focus. Then, when the text cursor is at the beginning of
-    the input, users can use the `Left Arrow` key to move focus to the last token. Once any token has focus, users can
-    use the `Right Arrow` and `Left Arrow` key to move focus to the previous or next token.
+
+When tabbing to the input, the `<input />` element receives focus. Then, when the text cursor is at the beginning of
+the input, users can use the `Left Arrow` key to move focus to the last token. Once any token has focus, users can
+use the `Right Arrow` and `Left Arrow` key to move focus to the previous or next token.
+
   </Box>
   <CustomVideoPlayer
     width="456"
@@ -91,13 +92,12 @@ You may choose any of Primer's token components, but you cannot mix different to
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
   <Box flex={1}>
-    <p>
-      A token may be removed by focusing it and pressing the `Backspace` key, or by clicking the token's remove button.
-    </p>
-    <p>
-      If a user keys `Backspace` and the text cursor is at the begining of the input, the last token will be removed but
-      the input will be populated with it's text value.
-    </p>
+
+A token may be removed by focusing it and pressing the `Backspace` key, or by clicking the token's remove button.
+
+If a user keys `Backspace` and the text cursor is at the begining of the input, the last token will be removed but
+the input will be populated with it's text value.
+
   </Box>
   <CustomVideoPlayer
     width="456"
