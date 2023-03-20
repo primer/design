@@ -1,0 +1,44 @@
+---
+title: Button group
+description: Button group is used to group closely related buttons
+reactId: button_group
+figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=20363%3A71040&t=aWZ6bMYEtFusbdzZ-1
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+
+<img
+  role="presentation"
+  width="960"
+  src="https://user-images.githubusercontent.com/2313998/226461619-97c13a01-8650-4b1c-8a7c-81f1658abe42.png"
+/>
+
+## Usage
+
+Use a button group to visually group a set of closely related buttons. You may mix [button variants](/components/button#color) in one button group, but see the [best practices](#best-practices) for limitations.
+
+Grouping buttons with a button group is better than rendering buttons close together for the following uses:
+
+- grouping a set of closely related buttons with other less related buttons
+- grouping multiple sets of buttons
+- saving horizontal space when rendering multiple closely-related buttons
+
+### Best practices
+
+- Avoid grouping too many buttons together. It could be overwhelming to the user.
+- Do not use a button group to indicate a selection. Use a [segmented control](/components/segmented-control) instead.
+- Do not use a button group as a relacement for tab navigation. <!-- TODO: link to TabNav once it's merged -->
+- Avoid mixing buttons with text labels with icon-only buttons. However, it is acceptable to group a text-labeled button with an icon-only button with a [down-pointing triangle](https://primer.style/design/foundations/icons/triangle-down-16) that opens a dropdown menu of actions related to the button.
+- Do not group an [invisible](/components/button#invisible) button with buttons of another variant.
+- Do not put multiple [primary](/components/button#priamry) buttons in a single button group.
+
+## Accessibility
+
+A button group does not behave like a [toolbar](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role), so assistive technologies still interpret the buttons as unrelated. The grouping is purely visual.
+
+## Related links
+
+- [Button usage](/ui-patterns/button-usage)
+- [Button](/components/button)
+- [Segmented control](/components/segmented-control)
