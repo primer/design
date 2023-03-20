@@ -170,6 +170,8 @@
       url: /components/heading
     - title: Icon
       url: /components/icon
+    - title: Icon button
+      url: /components/icon-button
     - title: Link
       url: /components/link
     - title: Page header
