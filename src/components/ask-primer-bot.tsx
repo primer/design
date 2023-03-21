@@ -9,6 +9,7 @@ export function AskPrimerBot() {
   const [responses, setResponses] = React.useState<{id: string; question: string; answer: string; sources: string[]}[]>(
     () => {
       // Load from localStorage
+      if (typeof localStorage === 'undefined') return []
       const storedResponses = localStorage.getItem('responses')
       return storedResponses ? JSON.parse(storedResponses) : []
     },
