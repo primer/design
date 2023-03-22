@@ -172,6 +172,8 @@
       url: /components/icon
     - title: Link
       url: /components/link
+    - title: Nav list
+      url: /components/nav-list
     - title: Page header
       url: /components/page-header
     - title: Segmented control
