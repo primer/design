@@ -14,6 +14,7 @@
         - title: How to contribute
           url: /guides/figma/contribute
     - title: Development
+      url: /guides/development
       children:
         - title: React
           url: /guides/development/react
@@ -22,6 +23,7 @@
     - title: Component status
       url: /guides/status
     - title: Accessibility
+      url: /guides/accessibility
       children:
         - title: Accessibility at GitHub
           url: /guides/accessibility/accessibility-at-github
@@ -191,8 +193,10 @@
     - title: Tree view
       url: /components/tree-view
 - title: Native
+  url: /native
   children:
     - title: CLI
+      url: /native/cli
       children:
         - title: Getting started
           url: /native/cli/getting-started
@@ -201,12 +205,14 @@
         - title: Components
           url: /native/cli/components
     - title: Desktop
+      url: /native/desktop
       children:
         - title: Getting started
           url: /native/desktop/getting-started
         - title: Foundations
           url: /native/desktop/foundations
     - title: Mobile
+      url: /native/mobile
       children:
         - title: Platforms
           url: /native/mobile/platforms
