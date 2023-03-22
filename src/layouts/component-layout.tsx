@@ -13,7 +13,7 @@ export default function ComponentLayout({pageContext, children, path}) {
 
   return (
     <BaseLayout title={title} description={description}>
-      <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7]}}>
+      <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
         <Heading as="h1">{title}</Heading>
         {description ? (
           <Text as="p" sx={{fontSize: 3, m: 0, mb: 3, maxWidth: '60ch'}}>
@@ -53,7 +53,7 @@ export default function ComponentLayout({pageContext, children, path}) {
               </>
             ) : null}
           </Box>
-          <Box>
+          <Box sx={{minWidth: 0}}>
             {/* Narrow table of contents */}
             {pageContext.tableOfContents.items ? (
               <Box
