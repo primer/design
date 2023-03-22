@@ -49,12 +49,12 @@ export function ChildPages({of: title}: {of: string}) {
     <Box sx={{display: 'grid', gap: 5}}>
       {childItems.map(item => (
         <Box key={item.url} sx={{display: 'grid', gap: 1}}>
-          <Heading as="h3" sx={{fontSize: 2}}>
+          <Heading as="h3" sx={{fontSize: 3}}>
             <Link as={GatsbyLink} to={item.url}>
               {item.title}
             </Link>
           </Heading>
-          <Text as="p" sx={{m: 0, maxWidth: '60ch'}}>
+          <Text as="p" sx={{m: 0, maxWidth: '80ch'}}>
             {descriptionsByPath[item.url]}
           </Text>
         </Box>
