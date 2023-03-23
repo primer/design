@@ -30,12 +30,6 @@ Primer documentation is primarily aimed at GitHub designers and engineers at var
 **Don’t:**
 - Don’t assume the reader knows about internal GitHub terminology.
 
-## Aspirational guidelines
-
-Guidelines can be aspirational, as long as what is documented is possible to implement with Primer. Guidelines should document and promote what we want folks to do with Primer, and not cover all possible variations.
-
-Design guidelines should not document patterns that are not possible to create with the current system. If you're writing guidelines for a feature that is upcoming, but not yet ready in implementation, you can have the content ready in a pull request, to be published when the implementation ships.
-
 ## Voice and tone
 
 - Write as you speak, then tidy it up.
@@ -108,6 +102,55 @@ When creating images with example UI for docs make sure that:
   - Indicate links that only work for GitHub staff (for example, "for GitHub staff only", or "only accessible to GitHub staff")
 - Verify there isn’t any private or sensitive information
 - Verify that all images include an alt text
+
+## Documenting components
+
+When documenting components, consider the core elements needed to convey its main purpose and proper usage within the UI.
+
+See our full [documentation guidelines here](https://primer.style/contribute/documentation/).
+
+### Documentation preferences
+
+- Use sentence case when referring to component names. Do not capitalize the component in the middle of a sentence.
+  - **Do:** It's recommended to always show a heading to give users a permanent description of the comment box.
+  - **Don't:** It's recommended to always show a heading to give users a permanent description of the Comment box.
+
+- When writing the component description, introduce the component directly, without "a" or "an":
+  - **Do:** Action menu is a component based on action list for creating a menu of actions that expands through a trigger button.
+  - **Don't:** An action menu is a component based on action list for creating a menu of actions that expands through a trigger button.
+
+### Component documentation structure
+
+#### Description
+
+The description appears directly under the title of the component. It may be automatically pulled from component-metadata, and can be edited as needed.
+
+- What is this component, and how would you describe it to someone who has never used it before? This description should be concise and shouldn't include usage information, which is covered below this section.
+
+#### Usage
+
+- When to use this component
+- Best practices
+- Do/Don't examples
+
+#### Anatomy
+
+- Describe the elements that make up the component, including typography, spacing, and styles. This can also include sub components, if there are any. See [Action list](/components/action-list#anatomy) as an example.
+
+#### Options
+
+- Different sizes, typography options, layout variations, spacing, etc.
+- Different applications of the component in context
+
+#### Interactions
+
+- If there are specific behaviors or interactions that the consumer of this documentation should be aware of, it's important to document here. Is it clickable, or static, and does it have any specific interactions based on state? Are there multiple types of behavior, and when does each get applied? See [Autocomplete](/components/autocomplete#sort-and-filter-behavior) as an example.
+
+#### Accessibility
+
+- Any component-specific accessibility considerations should be documented. This could include keyboard navigation, touch targets, and any specific usage guidelines with regards to assistive technology. See [Segmented control](/components/segmented-control#accessibility).
+
+#### Related components and patterns
 
 ## Review process
 
