@@ -106,8 +106,6 @@
           url: /foundations/icons/design-guidelines
 - title: UI patterns
   children:
-    - title: Button usage
-      url: /ui-patterns/button-usage
     - title: Dates and times
       url: /ui-patterns/dates-and-times
     - title: Empty states
@@ -148,6 +146,8 @@
       url: /components/breadcrumbs
     - title: Button
       url: /components/button
+    - title: Button group
+      url: /components/button-group
     - title: Checkbox
       url: /components/checkbox
     - title: Checkbox group
@@ -176,6 +176,8 @@
       url: /components/link
     - title: Page header
       url: /components/page-header
+    - title: Popover
+      url: /components/popover
     - title: Segmented control
       url: /components/segmented-control
     - title: Radio
