@@ -37,7 +37,10 @@ export const query = graphql`
       name
       status
       a11yReviewed
-      stories
+      stories {
+        id
+        code
+      }
       props {
         name
         type
@@ -58,17 +61,11 @@ export const query = graphql`
         }
       }
     }
-    allReactComponentStory {
-      nodes {
-        storyId
-      }
-    }
   }
 `
 
 export default function ReactComponentLayout({data}) {
   const {name, status, a11yReviewed, props: componentProps, subcomponents, stories} = data.reactComponent
-  const allStoryIds = data.allReactComponentStory.nodes.map(node => node.storyId)
   const importStatement = `import {${name}} from '@primer/react${status === 'draft' ? '/drafts' : ''}'`
 
   const tableOfContents = {
@@ -82,14 +79,9 @@ export default function ReactComponentLayout({data}) {
   const title = data.sitePage?.context.frontmatter.title || name
   const description = data.sitePage?.context.frontmatter.description || ''
 
-  const defaultStoryId = `components-${name.toLowerCase()}--default`
-  const validStoryIds = Array.from(new Set([defaultStoryId, ...stories]))
-    // Ensure that all story IDs are valid
-    .filter(storyId => allStoryIds.includes(storyId))
-
   return (
     <BaseLayout title={title} description={description}>
-      <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7]}}>
+      <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
         <Heading as="h1">{title}</Heading>
         {description ? (
           <Text as="p" sx={{fontSize: 3, m: 0, mb: 3, maxWidth: '60ch'}}>
@@ -116,9 +108,9 @@ export default function ReactComponentLayout({data}) {
               display: ['none', null, 'block'],
             }}
           >
-            <Text sx={{display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
+            <Heading as="h3" sx={{fontSize: 2, display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
               On this page
-            </Text>
+            </Heading>
             <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
           </Box>
           <Box sx={{minWidth: 0}}>
@@ -181,8 +173,8 @@ export default function ReactComponentLayout({data}) {
                 }}
               >
                 <SourceLink href={`https://github.com/primer/react/blob/main/src/${name}`} />
-                {validStoryIds.length > 0 ? (
-                  <StorybookLink href={`https://primer.style/react/storybook/?path=/story/${validStoryIds[0]}`} />
+                {stories.length > 0 ? (
+                  <StorybookLink href={`https://primer.style/react/storybook/?path=/story/${stories[0].id}`} />
                 ) : null}
               </Box>
             </Box>
@@ -202,9 +194,9 @@ export default function ReactComponentLayout({data}) {
                 <Box
                   sx={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}
                 >
-                  <Text sx={{fontWeight: 'bold'}} id="toc-heading-narrow">
+                  <Heading as="h3" sx={{fontSize: 2, fontWeight: 'bold'}} id="toc-heading-narrow">
                     On this page
-                  </Text>
+                  </Heading>
                 </Box>
               </Box>
               <Box sx={{borderTop: '1px solid', borderColor: 'border.muted'}}>
@@ -217,12 +209,8 @@ export default function ReactComponentLayout({data}) {
             <Code className="language-javascript">{importStatement}</Code>
 
             <H2>Examples</H2>
-            {validStoryIds.length > 0 ? (
-              <StorybookEmbed
-                framework="react"
-                height={300}
-                stories={validStoryIds.map((storyId: string) => ({id: storyId}))}
-              />
+            {stories.length > 0 ? (
+              <StorybookEmbed framework="react" height={300} stories={stories} />
             ) : (
               // If there are no stories, link to the component's page in the Primer React docs
               <Link

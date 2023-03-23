@@ -4,10 +4,6 @@
       url: /guides/introduction
     - title: About
       url: /guides/about
-    - title: Content
-      url: /guides/content
-    - title: The Zen of GitHub
-      url: /guides/zen
     - title: Figma
       url: /guides/figma
       children:
@@ -17,11 +13,17 @@
           url: /guides/figma/getting-started
         - title: How to contribute
           url: /guides/figma/contribute
+    - title: Development
+      url: /guides/development
+      children:
+        - title: React
+          url: /guides/development/react
     - title: Component lifecycle
       url: /guides/component-lifecycle
     - title: Component status
       url: /guides/status
     - title: Accessibility
+      url: /guides/accessibility
       children:
         - title: Accessibility at GitHub
           url: /guides/accessibility/accessibility-at-github
@@ -54,6 +56,8 @@
           url: /guides/contribute/how-to-contribute
         - title: Design
           url: /guides/contribute/design
+        - title: Content
+          url: /guides/contribute/content
         - title: Documentation
           url: /guides/contribute/documentation
 - title: Foundations
@@ -170,10 +174,20 @@
       url: /components/heading
     - title: Icon
       url: /components/icon
+    - title: Link
+      url: /components/link
     - title: Page header
       url: /components/page-header
     - title: Segmented control
       url: /components/segmented-control
+    - title: Radio
+      url: /components/radio
+    - title: Radio group
+      url: /components/radio-group
+    - title: Text input
+      url: /components/text-input
+    - title: Text input with tokens
+      url: /components/text-input-with-tokens
     - title: Toggle switch
       url: /components/toggle-switch
     - title: Token
@@ -181,8 +195,10 @@
     - title: Tree view
       url: /components/tree-view
 - title: Native
+  url: /native
   children:
     - title: CLI
+      url: /native/cli
       children:
         - title: Getting started
           url: /native/cli/getting-started
@@ -191,12 +207,14 @@
         - title: Components
           url: /native/cli/components
     - title: Desktop
+      url: /native/desktop
       children:
         - title: Getting started
           url: /native/desktop/getting-started
         - title: Foundations
           url: /native/desktop/foundations
     - title: Mobile
+      url: /native/mobile
       children:
         - title: Platforms
           url: /native/mobile/platforms
