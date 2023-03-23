@@ -100,6 +100,8 @@
           url: /foundations/icons
         - title: Design guidelines
           url: /foundations/icons/design-guidelines
+        - title: Octovisuals
+          url: /foundations/icons/octovisuals
 - title: UI patterns
   children:
     - title: Button usage
