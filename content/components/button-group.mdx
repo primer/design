@@ -23,13 +23,29 @@ Buttons can be grouped together as individual segments of related actions.
 
 Each segment in a button group is comprised from our default button component and can be visually represented with the same button types and states.
 
+Grouping buttons with a button group is better than rendering buttons close together for the following uses:
+
+- grouping a set of closely related buttons with other less related buttons
+- grouping multiple sets of buttons
+- saving horizontal space when rendering multiple closely-related buttons
+
 ### Best practices
 
 - Use button groups to organize similar functionality. Don't group buttons just because they're close together
 
-- For most use-cases, only default and outline button types should be used in button groups. In rare cases, primary buttons can be included in button groups but there should only ever be one primary button (if any) in a button group.
+- For most use-cases, only default button types should be used in button groups. In rare cases, primary buttons can be included in button groups but there should only ever be one primary button (if any) in a button group.
 
 - Button groups can also be used as a filtering pattern.
+
+- Avoid grouping too many buttons together. It could be overwhelming to the user.
+
+- Do not use a button group to indicate a selection. Use a [segmented control](/components/segmented-control) instead.
+
+- Do not use a button group as a relacement for tab navigation. <!-- TODO: link to TabNav once it's merged -->
+
+- Avoid mixing buttons with text labels with icon-only buttons. However, it is acceptable to group a text-labeled button with an icon-only button with a [down-pointing triangle](https://primer.style/design/foundations/icons/triangle-down-16) that opens a dropdown menu of actions related to the button.
+
+- Do not group an [invisible](/components/button#invisible) button with buttons of another variant.
 
 ## Options
 
@@ -68,6 +84,8 @@ Similarly to buttons, button segments can optionally include an icon and/or a co
 
 ## Accessibility
 
+A button group does not behave like a [toolbar](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role), so assistive technologies still interpret the buttons as unrelated. The grouping is purely visual.
+
 ### Descriptive buttons
 
 Labeling buttons properly lets users know what will happen when they activate the control, lessens errors, and increases confidence.
@@ -77,4 +95,6 @@ Read more about [descriptive buttons](/guides/accessibility/descriptive-buttons)
 ## Related links
 
 - [Button](/components/button)
+
+- [Segmented control](/components/segmented-control)
 
