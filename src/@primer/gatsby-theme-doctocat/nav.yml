@@ -178,6 +178,8 @@
       url: /components/page-header
     - title: Popover
       url: /components/popover
+    - title: Progress bar
+      url: /components/progress-bar
     - title: Segmented control
       url: /components/segmented-control
     - title: Radio
