@@ -62,7 +62,7 @@ async function sourcePrimerRailsData({actions, createNodeId, createContentDigest
   for (const component of argsContent) {
     const newNode = {
       ...component,
-      id: createNodeId(`rails-${component.component}`),
+      id: createNodeId(`rails-${component.status}-${component.component}`),
       internal: {
         type: 'RailsComponent',
         contentDigest: createContentDigest(component),
