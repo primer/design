@@ -1,0 +1,180 @@
+---
+title: SelctPanel
+reactId: selectpanel
+figma: 
+description: SelectPanel is a semantic dialog that allows for complex selection options within an overlay.
+---
+
+import {Box, Button, Heading, Link} from '@primer/react'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+
+## Overview
+SelectPanel is used for overlay containers that contain multiple control sets which includes advanced single or multi-selection with a filter. SelectPanel can be anchored to a trigger, or centered within a view.
+
+Commonly, SelectPanel is used for metadata application to an Issue or Pull Request, like assignee and label selections, or the branch selector on a repository’s code tab. 
+
+## Anatomy
+
+<img
+  width="960"
+  alt="SelectPanel for assigning labels to an issue. "Apply labels to this issue" heading, close button in upper right hand corner. Search input with a magnifer icon as a visible label, listbox of label options and the first three are selected with a visual checkbox. The footer contains a button to edit labels, and cancel and apply buttons. Purple labels are overlayed onto SelectPanel: Overlay (dialog) pointing to the container, Search input pointing to the input, role='listbox' bracket of the listbox content, Optional action control to the button in the lower left corner, Explicit confirm / submission buttons bracket for the apply and cancel buttons in the lower right corner."
+  src="https://user-images.githubusercontent.com/40274682/228329313-7c61fff5-0f2f-4170-b319-723e8a2a3a7d.png"
+/>
+
+## Options
+
+<img width="960" alt="First SelectPanel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second SelectPanel is titled "Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer." src="https://user-images.githubusercontent.com/40274682/228330031-030f5dba-19c7-41e1-b4f5-73190775f777.png">
+<Caption>
+  SelectPanel can have as much as the branch selector component, or as little as just a multi-selection list. If the contents request user input beyond menu selection, it’s likely you need a SelectPanel.
+</Caption>
+
+### Additional control slot
+
+<img width="960" alt="Three cropped SelectPanel footers each displaying a different option of a control in the bottom right left corner: Link, button, or checkbox input." src="https://user-images.githubusercontent.com/40274682/228338168-a9424773-531e-41e3-8d95-261eb971c340.png">
+<Caption>
+  An optional control slot is available in the SelectPanel’s bottom left corner. Avoid use if not absolutely necessary in order to avoid component and decision overwhelm. 
+</Caption>
+
+### Anchoring
+SelectPanel can be anchored to the trigger, or centered in the web page. If it’s centered in the web page it should have a backdrop. 
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/40274682/228386690-dd175879-0dd6-4798-8fb5-b0ee096eceea.png"
+      alt=""
+    />
+    <Caption>Anchored SelectPanel to a trigger.</Caption>
+  </div>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/40274682/228386689-ea191d76-3a50-41d9-98f0-9dc997caf4bf.png"
+      alt=""
+    />
+    <Caption>SelectPanel centered with a darker backdrop.</Caption>
+  </div>
+</Box>
+
+## Best practices
+
+### Be predictable
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="SelectPanel with a back button, close button, Heading, subheading, five multiple choice options with three of them selected, and apply and cancel buttons."
+      src="https://user-images.githubusercontent.com/40274682/228386683-20e7ee4e-0d1b-4b6c-9dd1-eddd277b5512.png"
+    />
+    <Caption>If there are more than single options in a menu, have a user confirm their choices.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/40274682/228386685-4699374e-5f98-4dd4-bab8-f488ad0fff8a.png"
+    />
+    <Caption>Never force users to submit their multi-select options by closing the dialog or auto-updating their choices upon selection.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Click-to-dismiss behavior
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a clicking action on the apply button."
+      src="https://user-images.githubusercontent.com/40274682/228388751-12c1f46e-aee7-4e03-8899-b273d31f7d1b.png"
+    />
+    <Caption>Guide users to save or cancel their selections to dismiss SelectPanel to prevent confusion and data loss.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a click action outside of the dialog."
+      src="https://user-images.githubusercontent.com/40274682/228388749-445619e6-91fa-4f9f-b300-6e1fe21c62a5.png"
+    />
+    <Caption>Don’t allow a click-outside-to-dismiss behavior for SelectPanel. Users may be used to closing and submitting the information. Doing so would result in a loss of their changes. </Caption>
+  </Dont>
+</DoDontContainer>
+
+## Behavior
+
+### Opening
+
+<img width="960" alt="Mouse cursor hovering over an icon button and a focused icon button with the space and return keys visually below the icon button." src="https://user-images.githubusercontent.com/40274682/228386681-e75b3bcd-ac0d-4e4a-afda-2a8dfc3a13a6.png">
+<Caption>
+  A SelectPanel trigger should be a semantic button. Mouse users can click and keyboard users can open with space or enter. 
+</Caption>
+
+<img width="960" alt="First select panel has focus applied to the search input with a blue 2px border. Second SelectPanel has no visible focus ring as focus is brought to the H1 of the dialog." src="https://user-images.githubusercontent.com/40274682/228386679-02d288f4-7e1c-4a77-a654-03def368e266.png">
+<Caption>
+    If SelectPanel has an input, focus should be placed within the input. If not, focus should be placed in the next logical place. That next logical place might just be the H1 of the dialog.
+</Caption>
+
+### Closing
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <CustomVideoPlayer
+      width="100%"
+      src="https://user-images.githubusercontent.com/40274682/228390156-dab0b413-3b90-4736-a0e7-8d5d30665c43.mp4"
+    />
+    <Caption>Pressing esc, or selecting “cancel” should close the current dialog and return focus to the previous trigger. It should not retain or submit any user input.</Caption>
+  </div>
+  <div>
+    <CustomVideoPlayer
+      width="100%"
+      src="https://user-images.githubusercontent.com/40274682/228390297-d6d59818-1d1e-47bb-ac9d-cd1eccc57ba8.mp4"
+    />
+    <Caption>Selecting the submit button should submit any user input.</Caption>
+  </div>
+</Box>
+
+### Responsive
+SelectPanel can become a full screen dialog or a bottom sheet at narrow viewports. Support at 320px is required if the SelectPanel is larger at wider viewports. See [narrow-viewport placement](https://primer.style/design/components/dialog#narrow-viewport-placement) in the Dialog guidelines for more details. 
+
+## Keyboard navigation
+
+### Trigger
+| Key                                                                                                                                                            | Description     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>      | Opens the SelectPanel. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Space</Box>      | Opens the SelectPanel. |
+
+### SelectPanel
+| Key                                                                                                                                                            | Description     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>      | Submits the information in the form when focused in the listbox. Activates buttons or links focused within the SelectPanel. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Tab</Box>      | Move focus forward between interactive controls and widgets within the dialog. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Shift + Tab</Box>  | Move focus backward between interactive controls and widgets within the dialog. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>    | Move focus from the input to the listbox. (Shift+Tab required to move from listbox to input) |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Home</Box>  | Move focus to first item in listbox. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageUp</Box> | Move focus to first item in listbox. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>End</Box> | Move focus to last item in listbox. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageDown</Box> | Move focus to last item in listbox. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Esc</Box> | Close dialog and clear any changed inputs.  |
+
+### Multi-select
+| Key                                                                                                                                                            | Description     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>      | Navigate through the listbox items. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Space</Box>      | Select an item in the listbox. |
+
+### Single-select
+| Key                                                                                                                                                            | Description     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>      | Navigate through listbox items. Selection follows focus. |
+
+#### Example behavior
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <CustomVideoPlayer
+      width="100%"
+      src="https://user-images.githubusercontent.com/40274682/228391029-44ab995b-7a04-4b85-825e-dc77f90838dd.mp4"
+    />
+    <Caption>Keyboard interaction with a single-select SelectPanel demonstrating selection following focus with navigation via the ArrowDown key.</Caption>
+  </div>
+</Box>
