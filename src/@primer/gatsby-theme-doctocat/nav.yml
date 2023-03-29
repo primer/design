@@ -97,11 +97,13 @@
       url: /foundations/layout
     - title: Typography
       url: /foundations/typography
-    - title: Icons
+    - title: Icons and visuals
       url: /foundations/icons
       children:
-        - title: Overview
+        - title: Octicons
           url: /foundations/icons
+        - title: Octovisuals
+          url: /foundations/icons/octovisuals
         - title: Design guidelines
           url: /foundations/icons/design-guidelines
 - title: UI patterns

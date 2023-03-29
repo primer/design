@@ -1,0 +1,10 @@
+.octovisual_assets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media screen and (max-width: 768px) {
+  .octovisual_assets {
+    grid-template-columns: 1fr;
+  }
+}
