@@ -1,12 +1,12 @@
 import {Note, StatusLabel} from '@primer/gatsby-theme-doctocat'
-import { LinkExternalIcon } from '@primer/octicons-react'
+import {LinkExternalIcon} from '@primer/octicons-react'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
-import { Box, Heading, Label, Link, StyledOcticon, Text } from '@primer/react'
+import {Box, Heading, Label, Link, StyledOcticon, Text} from '@primer/react'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import {graphql} from 'gatsby'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
-import { ComponentPageNav } from '../components/component-page-nav'
+import {ComponentPageNav} from '../components/component-page-nav'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
 import {LinkIcon} from '@primer/octicons-react'
 import FigmaPropertyTable from '../components/FigmaPropertyTable'
@@ -51,22 +51,24 @@ export const query = graphql`
   }
 `
 
-const sentenceCase = (str) => {
-  return str?.toLowerCase().replace(/([A-Z])/g, ' $1').replace(/^./, function (str) {
-    return str.toUpperCase()
-  })
+const sentenceCase = str => {
+  return str
+    ?.toLowerCase()
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, function (str) {
+      return str.toUpperCase()
+    })
 }
 
-const lastUpdated = (date) => { 
-  return `updated ${new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}`
+const lastUpdated = date => {
+  return `Updated ${new Date(date).toLocaleDateString('en-GB', {year: 'numeric', month: 'short', day: 'numeric'})}`
 }
 
 export default function FigmaComponentLayout({data}) {
-  const { name, componentUrl, status, updatedAt, properties, thumbnails } = data.figmaComponent || {}
+  const {name, componentUrl, status, updatedAt, properties, thumbnails} = data.figmaComponent || {}
   const description = data.sitePage?.context.frontmatter.description || ''
   const title = data.sitePage?.context.frontmatter.title || name
-  
-  
+
   const tableOfContents = {
     items: [
       {url: '#playground', title: 'Playground'},
@@ -92,7 +94,7 @@ export default function FigmaComponentLayout({data}) {
             current="figma"
           />
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4 }}>
+        <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>
           <Box
             sx={{
               width: 220,
@@ -109,55 +111,83 @@ export default function FigmaComponentLayout({data}) {
             <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
           </Box>
           <Box>
-            {/* @ts-ignore */}
-            {!name ? 
-              // NO component found in json
+            {!name ? (
+              // No component found in json
+              // @ts-ignore
               <Note variant="warning">
                 <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Work in progress</Text>
                 We are currently transferring the Figma documentation for {title} from a different site to this page. To
                 view the original documentation, please visit the{' '}
                 <Link href={data.figmaFile.fileUrl}>Figma documentation for {title}</Link>.
               </Note>
-              :
-              // component found in json
+            ) : (
+              // Component found in json
               <>
-              <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>
-                <Label size="large">{lastUpdated(updatedAt)}</Label>
-                <StatusLabel status={sentenceCase(status)} />
-                <Link href={componentUrl}>
-                  <Box display={'flex'} alignItems={'center'} sx={{gap: 2}}>
-                    <StyledOcticon icon={LinkIcon} />
-                    Figma
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: ['column', null, null, null, 'row'],
+                    justifyContent: 'space-between',
+                    gap: 3,
+                    mb: 4,
+                  }}
+                >
+                  <Box
+                    as={'ul'}
+                    sx={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: 2,
+                      alignItems: 'center',
+                      m: 0,
+                      p: 0,
+                      paddingInline: 0,
+                      listStyle: 'none',
+                      '& > li': {
+                        display: 'flex',
+                      },
+                    }}
+                  >
+                    <li>
+                      <Label size="large">{lastUpdated(updatedAt)}</Label>
+                    </li>
+                    <li>
+                      <StatusLabel status={sentenceCase(status)} />
+                    </li>
                   </Box>
+                  <Link href={componentUrl}>
+                    <Box display={'flex'} alignItems={'center'} sx={{gap: 2}}>
+                      <StyledOcticon icon={LinkIcon} />
+                      Figma
+                    </Box>
+                  </Link>
+                </Box>
+
+                <H2>Playground</H2>
+
+                <FigmaComponentPlayground thumbnails={thumbnails} properties={properties} />
+
+                <H2>Props</H2>
+                <FigmaPropertyTable properties={properties} />
+
+                {properties.map(prop => (
+                  <>
+                    <H3>{prop.name}</H3>
+                    <FigmaPropertyPreview thumbnails={thumbnails} property={prop.name} />
+                  </>
+                ))}
+
+                <Link
+                  sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
+                  href={componentUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {title}
+                  <LinkExternalIcon />
                 </Link>
-              </Box>
-              
-              <H2>Playground</H2>
-              
-              <FigmaComponentPlayground thumbnails={ thumbnails } properties = { properties } />
-
-              <H2>Props</H2>
-              <FigmaPropertyTable properties={ properties } />
-
-              {properties.map(prop => <>
-                <H3>{prop.name}</H3>
-                    <FigmaPropertyPreview
-                      thumbnails = { thumbnails }
-                      property={prop.name}
-                    />
-              </>)}
-    
-              <Link
-                sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
-                href={componentUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {title}
-                <LinkExternalIcon />
-              </Link>
-            </>
-          }
+              </>
+            )}
           </Box>
         </Box>
       </Box>
