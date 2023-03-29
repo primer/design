@@ -4,7 +4,7 @@ import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 
 function propertyValues(property) {
-  let values = property.values.map((value, index) => {
+  let values = property.values?.map((value, index) => {
     return (
       <React.Fragment key={index}>
         <InlineCode>{value}</InlineCode> 
@@ -12,7 +12,7 @@ function propertyValues(property) {
     )
   })
 
-  if (property.values.length === 0) {
+  if (property.values?.length === 0) {
     values = <Text>-</Text>
   }
 

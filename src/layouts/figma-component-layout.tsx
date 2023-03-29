@@ -1,14 +1,14 @@
 import {Note, StatusLabel} from '@primer/gatsby-theme-doctocat'
 import {LinkExternalIcon} from '@primer/octicons-react'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
-import {Box, Heading, Label, Link, StyledOcticon, Text} from '@primer/react'
+import {Box, Heading, Label, Link, Text} from '@primer/react'
+import FigmaLink from '@primer/gatsby-theme-doctocat/src/components/figma-link'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import {graphql} from 'gatsby'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
-import {LinkIcon} from '@primer/octicons-react'
 import FigmaPropertyTable from '../components/FigmaPropertyTable'
 import FigmaComponentPlayground from '../components/FigmaComponentPlayground'
 import FigmaPropertyPreview from '../components/FigmaPropertyPreview'
@@ -105,12 +105,12 @@ export default function FigmaComponentLayout({data}) {
               display: ['none', null, 'block'],
             }}
           >
-            <Text sx={{display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
+            <Heading as="h3" sx={{fontSize: 2, display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
               On this page
-            </Text>
+            </Heading>
             <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
           </Box>
-          <Box>
+          <Box sx={{minWidth: 0, width: '100%'}}>
             {!name ? (
               // No component found in json
               // @ts-ignore
@@ -155,12 +155,24 @@ export default function FigmaComponentLayout({data}) {
                       <StatusLabel status={sentenceCase(status)} />
                     </li>
                   </Box>
-                  <Link href={componentUrl}>
-                    <Box display={'flex'} alignItems={'center'} sx={{gap: 2}}>
-                      <StyledOcticon icon={LinkIcon} />
-                      Figma
-                    </Box>
-                  </Link>
+                  <Box
+                    as={'ul'}
+                    sx={{
+                      display: 'flex',
+                      gap: 3,
+                      alignItems: 'center',
+                      m: 0,
+                      p: 0,
+                      paddingInline: 0,
+                      listStyle: 'none',
+                      fontSize: 1,
+                      '& > li': {
+                        display: 'flex',
+                      },
+                    }}
+                  >
+                    <FigmaLink href={componentUrl} />
+                  </Box>
                 </Box>
 
                 <H2>Playground</H2>
