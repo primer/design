@@ -1,8 +1,8 @@
 ---
-title: SelctPanel
+title: Select panel
 reactId: selectpanel
 figma:
-description: SelectPanel is a semantic dialog that allows for complex selection options within an overlay.
+description: Select panel is a semantic dialog that allows for complex selection options within an overlay.
 ---
 
 import {Box} from '@primer/react'
@@ -11,9 +11,9 @@ export default ComponentLayout
 
 ## Overview
 
-SelectPanel is used for overlay containers that contain multiple control sets which includes advanced single or multi-selection with a filter. SelectPanel can be anchored to a trigger, or centered within a view.
+Select panel is used for overlay containers that contain multiple control sets which includes advanced single or multi-selection with a filter. Select panel can be anchored to a trigger, or centered within a view.
 
-Commonly, SelectPanel is used for metadata application to an Issue or Pull Request, like assignee and label selections, or the branch selector on a repositoryâ€™s code tab.
+Commonly, Select panel is used for metadata application to an Issue or Pull Request, like assignee and label selections, or the branch selector on a repositoryâ€™s code tab.
 
 ## Anatomy
 
@@ -31,8 +31,8 @@ Commonly, SelectPanel is used for metadata application to an Issue or Pull Reque
   src="https://user-images.githubusercontent.com/40274682/228330031-030f5dba-19c7-41e1-b4f5-73190775f777.png"
 />
 <Caption>
-  SelectPanel can have as much as the branch selector component, or as little as just a multi-selection list. If the
-  contents request user input beyond menu selection, itâ€™s likely you need a SelectPanel.
+  Select panel can have as much as the branch selector component, or as little as just a multi-selection list. If the
+  contents request user input beyond menu selection, itâ€™s likely you need a Select panel.
 </Caption>
 
 ### Additional control slot
@@ -43,13 +43,13 @@ Commonly, SelectPanel is used for metadata application to an Issue or Pull Reque
   src="https://user-images.githubusercontent.com/40274682/228338168-a9424773-531e-41e3-8d95-261eb971c340.png"
 />
 <Caption>
-  An optional control slot is available in the SelectPanelâ€™s bottom left corner. Avoid use if not absolutely necessary
+  An optional control slot is available in the Select panelâ€™s bottom left corner. Avoid use if not absolutely necessary
   in order to avoid component and decision overwhelm.
 </Caption>
 
 ### Anchoring
 
-SelectPanel can be anchored to the trigger, or centered in the web page. If itâ€™s centered in the web page it should have a backdrop.
+Select panel can be anchored to the trigger, or centered within the page. If itâ€™s centered within the page it should have a backdrop.
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
@@ -57,14 +57,14 @@ SelectPanel can be anchored to the trigger, or centered in the web page. If itâ€
       src="https://user-images.githubusercontent.com/40274682/228386690-dd175879-0dd6-4798-8fb5-b0ee096eceea.png"
       alt=""
     />
-    <Caption>Anchored SelectPanel to a trigger.</Caption>
+    <Caption>Anchored Select panel to a trigger.</Caption>
   </div>
   <div>
     <img
       src="https://user-images.githubusercontent.com/40274682/228386689-ea191d76-3a50-41d9-98f0-9dc997caf4bf.png"
       alt=""
     />
-    <Caption>SelectPanel centered with a darker backdrop.</Caption>
+    <Caption>Select panel centered with a darker backdrop.</Caption>
   </div>
 </Box>
 
@@ -104,7 +104,7 @@ SelectPanel can be anchored to the trigger, or centered in the web page. If itâ€
       src="https://user-images.githubusercontent.com/40274682/228388751-12c1f46e-aee7-4e03-8899-b273d31f7d1b.png"
     />
     <Caption>
-      Guide users to save or cancel their selections to dismiss SelectPanel to prevent confusion and data loss.
+      Guide users to save or cancel their selections to dismiss Select panel to prevent confusion and data loss.
     </Caption>
   </Do>
   <Dont>
@@ -114,7 +114,7 @@ SelectPanel can be anchored to the trigger, or centered in the web page. If itâ€
       src="https://user-images.githubusercontent.com/40274682/228388749-445619e6-91fa-4f9f-b300-6e1fe21c62a5.png"
     />
     <Caption>
-      Donâ€™t allow a click-outside-to-dismiss behavior for SelectPanel. Users may be used to closing and submitting the
+      Donâ€™t allow a click-outside-to-dismiss behavior for Select panel. Users may be used to closing and submitting the
       information. Doing so would result in a loss of their changes.{' '}
     </Caption>
   </Dont>
@@ -130,7 +130,7 @@ SelectPanel can be anchored to the trigger, or centered in the web page. If itâ€
   src="https://user-images.githubusercontent.com/40274682/228386681-e75b3bcd-ac0d-4e4a-afda-2a8dfc3a13a6.png"
 />
 <Caption>
-  A SelectPanel trigger should be a semantic button. Mouse users can click and keyboard users can open with space or
+  A Select panel trigger should be a semantic button. Mouse users can click and keyboard users can open with space or
   enter.
 </Caption>
 
@@ -140,7 +140,7 @@ SelectPanel can be anchored to the trigger, or centered in the web page. If itâ€
   src="https://user-images.githubusercontent.com/40274682/228386679-02d288f4-7e1c-4a77-a654-03def368e266.png"
 />
 <Caption>
-  If SelectPanel has an input, focus should be placed within the input. If not, focus should be placed in the next
+  If Select panel has an input, focus should be placed within the input. If not, focus should be placed in the next
   logical place. That next logical place might just be the H1 of the dialog.
 </Caption>
 
@@ -168,7 +168,7 @@ SelectPanel can be anchored to the trigger, or centered in the web page. If itâ€
 
 ### Responsive
 
-SelectPanel can become a full screen dialog or a bottom sheet at narrow viewports. Support at 320px is required if the SelectPanel is larger at wider viewports. See [narrow-viewport placement](https://primer.style/design/components/dialog#narrow-viewport-placement) in the Dialog guidelines for more details.
+Select panel can become a full screen dialog or a bottom sheet at narrow viewports. Support at 320px is required if the Select panel is larger at wider viewports. See [narrow-viewport placement](https://primer.style/design/components/dialog#narrow-viewport-placement) in the Dialog guidelines for more details.
 
 ## Keyboard navigation
 
@@ -176,10 +176,10 @@ SelectPanel can become a full screen dialog or a bottom sheet at narrow viewport
 
 | Key                                                                                                                                                       | Description            |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box> | Opens the SelectPanel. |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Space</Box> | Opens the SelectPanel. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box> | Opens the Select panel. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Space</Box> | Opens the Select panel. |
 
-### SelectPanel
+### Select panel
 
 | Key                                                                                                                                                                                          | Description                                                                                                                 |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -215,7 +215,7 @@ SelectPanel can become a full screen dialog or a bottom sheet at narrow viewport
       src="https://user-images.githubusercontent.com/40274682/228391029-44ab995b-7a04-4b85-825e-dc77f90838dd.mp4"
     />
     <Caption>
-      Keyboard interaction with a single-select SelectPanel demonstrating selection following focus with navigation via
+      Keyboard interaction with a single-select Select panel demonstrating selection following focus with navigation via
       the ArrowDown key.
     </Caption>
   </div>
