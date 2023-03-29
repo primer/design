@@ -154,7 +154,6 @@ async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
    */
 
   for (const component of components) {
-
     component.thumbnails = component.thumbnails.map(thumbnail => {
       thumbnail.props = thumbnail.props.map(({name, value}) => [name, value])
       return thumbnail
@@ -255,7 +254,6 @@ async function createComponentPages({actions, graphql}) {
             reactId
             figmaId
             railsUrl: rails
-            figmaUrl: figma
           }
         }
       }

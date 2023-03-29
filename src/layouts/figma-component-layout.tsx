@@ -23,7 +23,6 @@ export const query = graphql`
           description
           reactId
           figmaId
-          figmaUrl: figma
           railsUrl: rails
         }
       }
