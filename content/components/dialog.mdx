@@ -1,7 +1,7 @@
 ---
 title: Dialog
 description:
-  A Dialog is a floating surface used to display transient content such as confirmation actions, selection options, and
+  Dialog is a floating surface used to display transient content such as confirmation actions, selection options, and
   more.
 reactId: dialog
 rails: https://primer.style/view-components/components/alpha/dialog
@@ -12,8 +12,6 @@ export default ComponentLayout
 
 import {Box} from '@primer/react'
 import {Caption} from '@primer/gatsby-theme-doctocat'
-
-## Overview
 
 Dialogs can streamline the interface by allowing extra content to be disclosed as needed. Dialogs create a new modality to the user, and can expedite the completion of individual tasks.
 
@@ -95,7 +93,7 @@ The subheader region is an optional space for interactive controls. Use it to di
 
 ### Body region
 
-The body region is the main content of the Dialog. It can contain any content that is relevant to the task at hand. The body region is scrollable if the content exceeds the height of the Dialog.
+The body region is the main content of the dialog. It can contain any content that is relevant to the task at hand. The body region is scrollable if the content exceeds the height of the dialog.
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
@@ -104,7 +102,7 @@ The body region is the main content of the Dialog. It can contain any content th
       alt=""
       src="https://user-images.githubusercontent.com/18661030/185506131-1436b06b-a8fb-4de8-b9b2-4715ab0a63d2.png"
     />
-    <Caption>Body content will scroll vertically if the content exceeds the overall Dialog height.</Caption>
+    <Caption>Body content will scroll vertically if the content exceeds the overall dialog height.</Caption>
   </div>
   <div>
     <img
@@ -120,7 +118,7 @@ The body region is the main content of the Dialog. It can contain any content th
 
 The footer region may be used to show confirmation actions, navigation links, or specialized actions. Primary actions should be aligned to the right of the footer, and grouped by additional related actions. Secondary actions may be shown aligned to the left side.
 
-If the content area has overflow scrolling, a divider will be shown between the footer and content area. Otherwise, showing a divider is optional.
+If the content area has overflow scrolling, a divider should be added between the footer and content area. Otherwise, showing a divider is optional.
 
 <img
   src="https://user-images.githubusercontent.com/293280/175850630-9f3df284-c69b-4d16-9e57-ea04a0202d04.png"
@@ -148,13 +146,13 @@ If the content area has overflow scrolling, a divider will be shown between the 
 
 ### Backdrop
 
-Dialog displays with a **backdrop**, which dims the rest of the page. The backdrop is visible when the Dialog is centered on the page, or attached to a side as a sheet.
+Dialog displays with a **backdrop**, which dims the rest of the page. The backdrop is visible when the dialog is centered on the page, or attached to a side as a sheet.
 
-By default, clicking on the **backdrop** will dismiss the Dialog. However, if the Dialog contains a form that can have unsaved changes, the **backdrop** won't dismiss the Dialog, regardless of the state of the form.
+By default, clicking on the **backdrop** will dismiss the dialog. However, if the dialog contains a form that can have unsaved changes, the **backdrop** won't dismiss the dialog, regardless of the state of the form.
 
 ### Spacing
 
-The edges of Dialog are free of text and heavy visuals to visually distinguish the Dialog as an elevated surface, alongside its shadow. Content within the body and header should remain within the 16px safe area. However, inner components that have transparent or discrete backgrounds may bleed into the padding for visual alignment.
+The edges of dialog are free of text and heavy visuals to visually distinguish the dialog as an elevated surface, alongside its shadow. Content within the body and header should remain within the 16px safe area. However, inner components that have transparent or discrete backgrounds may bleed into the padding for visual alignment.
 
 <img
   alt=""
@@ -178,9 +176,9 @@ Dialog offers a range of sizes from `small` to `xlarge`, with the default size s
 
 Each size defines a width and a maximum height. By default the dialog height will adjust to the body content. If the maximum height is reached, the body contents will scroll.
 
-A Dialog sizing is constrained by the viewport dimensions. Dialogs will not grow beyond the boundaries of the viewport.
+A dialog sizing is constrained by the viewport dimensions. Dialogs will not grow beyond the boundaries of the viewport.
 
-Small viewports force Dialogs to remain small. All Dialogs need to work on viewports of at least `320px` of width, and `256px` of height.
+Small viewports force dialogs to remain small. All dialogs need to work on viewports of at least `320px` of width, and `256px` of height.
 
 ### Small
 
@@ -189,7 +187,7 @@ Small viewports force Dialogs to remain small. All Dialogs need to work on viewp
   alt=""
   src="https://user-images.githubusercontent.com/18661030/187552557-452e7253-9fdc-4f58-8ad7-9cd016d7786e.png"
 />
-<Caption>Small Dialogs have a width of 320px, and a max height of 256px.</Caption>
+<Caption>Small dialogs have a width of 320px, and a max height of 256px.</Caption>
 
 ### Medium (default)
 
@@ -201,7 +199,7 @@ Medium is the default size for Dialog and should be used for most tasks such as 
   src="https://user-images.githubusercontent.com/18661030/187552600-06dcbd81-90b5-45aa-81ce-89f8d9763508.png"
 />
 <Caption>
-  Medium Dialogs have a width of 480px, and a max height of 320px. Medium portrait oriented Dialogs have a width of
+  Medium dialogs have a width of 480px, and a max height of 320px. Medium portrait oriented Dialogs have a width of
   480px, and a max height of 600px.
 </Caption>
 
@@ -214,28 +212,28 @@ Large dialogs are suitable for content that requires more horizontal space for t
   alt=""
   src="https://user-images.githubusercontent.com/18661030/187482693-04eb3780-89e1-4705-a55b-5fa8ba0f9865.png"
 />
-<Caption>Large Dialogs have a width of 640px, and a max height of 432px.</Caption>
+<Caption>Large dialogs have a width of 640px, and a max height of 432px.</Caption>
 
 ### Extra large
 
-Before using an extra large Dialog, consider whether or not the content would be more appropriate for a new page.
+Before using an extra large dialog, consider whether or not the content would be more appropriate for a new page.
 
 <img
   width="1292"
   alt=""
   src="https://user-images.githubusercontent.com/18661030/187482817-9d82fe3e-c24d-4eca-9b4b-c74fa32450d4.png"
 />
-<Caption>Extra large Dialogs have a width of 960px, and a max height of 600px.</Caption>
+<Caption>Extra large dialogs have a width of 960px, and a max height of 600px.</Caption>
 
 ## Usage
 
 ### Keep content simple
 
-Dialogs are meant to be interacted with in a single context. Avoid creating a whole page inside a Dialog. Prefer single-column layouts that convey a clear goal from the moment the Dialog is opened.
+Dialogs are meant to be interacted with in a single context. Avoid creating a whole page inside a dialog. Prefer single-column layouts that convey a clear goal from the moment the dialog is opened.
 
-However, Dialogs are powerful tools when creating space for single-context interfaces. When designing a new feature to support a main interface, start by considering if the new feature can be created under a single context.
+However, dialogs are powerful tools when creating space for single-context interfaces. When designing a new feature to support a main interface, start by considering if the new feature can be created under a single context.
 
-If the answer is yes, designing the feature inside a Dialog provides an easy way to add responsive support, and avoid deeper navigations. If the answer is no, or if a side navigation is required for the feature, consider designing a new page.
+If the answer is yes, designing the feature inside a dialog provides an easy way to add responsive support, and avoid deeper navigations. If the answer is no, or if a side navigation is required for the feature, consider designing a new page.
 
 <DoDontContainer>
   <Do>
@@ -266,14 +264,14 @@ Dialogs must adjust their designs to fit in smaller viewports. Make sure the ove
       width="100%"
       src="https://user-images.githubusercontent.com/18661030/185507523-74e0acff-6980-439e-84c5-422b16470c9e.mp4"
     />
-    <Caption>Center aligned Dialog becomes fullscreen on narrow viewport.</Caption>
+    <Caption>Center aligned dialog becomes fullscreen on narrow viewport.</Caption>
   </div>
   <div>
     <CustomVideoPlayer
       width="100%"
       src="https://user-images.githubusercontent.com/18661030/185507508-298f9378-3f26-4e45-9809-5aef3d8cd3e2.mp4"
     />
-    <Caption>Center aligned Dialog becomes a bottom sheet on narrow viewport.</Caption>
+    <Caption>Center aligned dialog becomes a bottom sheet on narrow viewport.</Caption>
   </div>
 </Box>
 
@@ -281,7 +279,7 @@ Dialogs must adjust their designs to fit in smaller viewports. Make sure the ove
 
 ### Centered
 
-By default, Dialog appears centered in the viewport, with a visible backdrop that dims the rest of the window for focus. Centered Dialogs are surrounded by a safe area of `16px` between the frame and the viewport for all sizes.
+By default, dialog appears centered in the viewport, with a visible backdrop that dims the rest of the window for focus. Centered dialogs are surrounded by a safe area of `16px` between the frame and the viewport for all sizes.
 
 <img
   width="960"
@@ -317,11 +315,11 @@ Side sheets take the entire height of the viewport, and should be used sparingly
 
 ### Bottom sheets
 
-A bottom sheet is a variant supported on narrow viewports made to facilitate reachability. Dialogs that appear centered in large screens may adapt to appear as a bottom sheet on small screens.
+A bottom sheet is a variant supported on narrow viewports made to facilitate reachability. dialogs that appear centered in large screens may adapt to appear as a bottom sheet on small screens.
 
-A bottom sheet always dims the rest of the screen for focus and takes up the full width of the viewport. Tapping on the backdrop dismisses the Dialog.
+A bottom sheet always dims the rest of the screen for focus and takes up the full width of the viewport. Tapping on the backdrop dismisses the dialog.
 
-Use a bottom to indicate that the user is still in the context of the main page, and that the Dialog is a secondary action.
+Use a bottom to indicate that the user is still in the context of the main page, and that the dialog is a secondary action.
 
 <img
   width="960"
@@ -341,7 +339,7 @@ In landscape mode, a bottom sheet has a maximum width of `480px`, and is centere
 
 ### Full-screen
 
-Full-screen Dialogs may be used to present content that needs all the available space on narrow viewports, or to act as a new page without navigating away from the main page. Dialogs that have one or more input fields should always use the full-screen variant.
+Full-screen dialogs may be used to present content that needs all the available space on narrow viewports, or to act as a new page without navigating away from the main page. Dialogs that have one or more input fields should always use the full-screen variant.
 
 <img
   width="960"
@@ -358,16 +356,16 @@ Dialog's title and close button are required to ensure an accessible experience 
 
 Dialogs are initially hidden, and can be opened by an element with `role="button"`, called a **trigger**. The role `button` allows the **trigger** to be a relatively complex element, such as an action list item.
 
-Dialogs must be fully functional using the keyboard and assistive technology. Pressing `Esc` must dismiss a Dialog, also returning focus to the **trigger** that opened it.
+Dialogs must be fully functional using the keyboard and assistive technology. Pressing `Esc` must dismiss a dialog, also returning focus to the **trigger** that opened it.
 
 <CustomVideoPlayer
   width="100%"
   loop
   src="https://user-images.githubusercontent.com/18661030/185507547-0843b014-0b90-48f5-9e4f-746caa42b4e6.mp4"
 />
-<Caption>Clicking the backdrop or hitting the `Esc` key should dismiss the Dialog.</Caption>
+<Caption>Clicking the backdrop or hitting the `Esc` key should dismiss the dialog.</Caption>
 
-When a Dialog is opened, the first interactive element (typically the close button) is focused. For a scenario like a command palette with an `<input>` next to the close button, the `<input>` will recieve focus first. Hitting `Tab` will cycle through all interactive elements within the Dialog. To escape the focus trap, hitting the `Esc` key or clicking on the backdrop will close the Dialog. While the Dialog is open, page scrolling is disabled and becomes `inert`.
+When a dialog is opened, the first interactive element (typically the close button) is focused. For a scenario like a command palette with an `<input>` next to the close button, the `<input>` will recieve focus first. Hitting `Tab` will cycle through all interactive elements within the dialog. To escape the focus trap, hitting the `Esc` key or clicking on the backdrop will close the dialog. While the dialog is open, page scrolling is disabled and becomes `inert`.
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={5}>
   <div>
@@ -382,7 +380,7 @@ When a Dialog is opened, the first interactive element (typically the close butt
       src="https://user-images.githubusercontent.com/18661030/185997278-6fc2b938-6453-47d7-99ae-0411354eb06e.png"
       alt=""
     />
-    <Caption>The first interactive item inside a Dialog is focused when opened.</Caption>
+    <Caption>The first interactive item inside a dialog is focused when opened.</Caption>
   </div>
 </Box>
 
@@ -391,4 +389,4 @@ When a Dialog is opened, the first interactive element (typically the close butt
   alt=""
   src="https://user-images.githubusercontent.com/18661030/185997276-25cd8796-42e2-41f6-b5be-551f6a02349b.png"
 />
-<Caption>When a Dialog is closed, focus is returned to the trigger button.</Caption>
+<Caption>When a dialog is closed, focus is returned to the trigger button.</Caption>

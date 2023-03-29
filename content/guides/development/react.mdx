@@ -1,0 +1,43 @@
+---
+title: React
+description: Get started using Primer React components in your React application.
+source: https://github.com/primer/react
+---
+
+## Getting started
+
+1. Install `@primer/react` and its peer dependencies:
+
+   ```bash
+   npm install @primer/react react react-dom styled-components
+   ```
+
+2. Wrap the root of your application with `ThemeProvider` and `BaseStyles`:
+
+   ```jsx
+   import {ThemeProvider, BaseStyles} from '@primer/react'
+
+   function App() {
+     return (
+       <ThemeProvider>
+         <BaseStyles>
+           <div>...</div>
+         </BaseStyles>
+       </ThemeProvider>
+     )
+   }
+   ```
+
+3. Import components from `@primer/react` and use them in your application:
+
+   ```jsx
+   import {Button} from '@primer/react'
+
+   function MyComponent() {
+     return <Button>Click me</Button>
+   }
+   ```
+
+## More information
+
+See the [primer/react repository](https://github.com/primer/react/tree/main/docs/content) for more information about how to use and contribute to Primer React. For component-specific documentation, check out the React section of component guidelines (example: [ActionList](/components/action-list/react)).

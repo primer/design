@@ -13,7 +13,9 @@ export function BaseLayout({title, description, children}) {
         <Box sx={{display: ['none', null, null, 'block']}}>
           <Sidebar />
         </Box>
-        <main id="skip-nav">{children}</main>
+        <Box as="main" sx={{minWidth: 0, width: '100%'}} id="skip-nav">
+          {children}
+        </Box>
       </Box>
     </Box>
   )

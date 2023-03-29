@@ -1,7 +1,7 @@
 ---
 title: Data table
-status: Experimental
-description: A data table is a 2-dimensional data structure where each row is an item, and each column is a data point about the item.
+reactId: data_table
+description: Data table is a 2-dimensional data structure where each row is an item, and each column is a data point about the item.
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
@@ -75,8 +75,6 @@ The pagination footer shows the user where they are in relation to the total num
 
 ### Best practices
 
-<!-- TODO: apply a layout -->
-
 <Box display="grid" gridTemplateColumns={['', '', '', '', '18rem 1fr']} gridGap={[0, 0, 0, 0, 3]} sx={{'> h4': { margin: 0 }}}>
 
 #### Order rows intuitively
@@ -110,9 +108,9 @@ Cells should represent data in the shortest possible format. This makes the tabl
 
 The column header should accurately represent the data point rendered in the column's cells. It would also be unclear which data point is being used when sorting.
 
-#### Right-align numeric values
+#### Make numbers easier to compare
 
-This makes it easier to compare the numbers in a column
+Right-align numeric values and use the `tabular-num` [font variant](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric) when possible.
 
 #### Avoid wrapping or truncation of cell content as much as possible
 

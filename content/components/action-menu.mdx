@@ -2,7 +2,7 @@
 title: Action menu
 reactId: action_menu
 figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=17091%3A66640
-description: Action menu is a component based on action list for creating a menu of actions that expands through a trigger button.
+description: Action menu is composed of action list and overlay patterns used for quick actions and selections.
 ---
 
 import {Box, Button, Heading, Link} from '@primer/react'
@@ -11,41 +11,231 @@ export default ComponentLayout
 
 ## Usage
 
-<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
-<div>
-<Link href="https://primer.style/react/ActionMenu">
-<img alt="Action menu" src="https://user-images.githubusercontent.com/293280/123880964-95b3a700-d8f8-11eb-9775-cbaf165207ed.png" />
-</Link>
-</div>
-<div>
+Action menu is used for actions, navigation, to display secondary options, or single/multi select lists. They appear when users interact with buttons, actions, or other controls.
 
-<Heading sx={{fontSize: 3}}>To perform an action</Heading>
-<Box as="p">
+## Anatomy
 
-Action menus are used for disambiguation, navigation, or to display secondary options. They appear when users interact with buttons, actions, or other controls.
+<img
+  width="960"
+  alt="Action menu opened with a label for the trigger (button), overlay (menu), and the internal action list."
+  src="https://user-images.githubusercontent.com/18661030/226487158-06c6cc38-65de-438c-8028-373862fa0dfe.png"
+/>
 
+## Options
+
+<img
+  src="https://user-images.githubusercontent.com/18661030/226486461-c43f75c5-d9ed-415f-907c-9d2dbf71e3a2.png"
+  width="960"
+  alt=""
+/>
+<Caption>
+  The trigger button can be a standard or icon button. For single select menus that display the selection in the
+  trigger, a label must be persist either internally or externally.
+</Caption>
+
+<img
+  src="https://user-images.githubusercontent.com/18661030/226486463-893231bb-8f57-4255-83a4-7d468b2be5ed.png"
+  width="960"
+  alt=""
+/>
+<Caption>Menus can contain simple actions and links, single select items, or multi select items.</Caption>
+
+## Behavior
+
+### Opening
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/226486479-52730f0f-cc41-41e0-a996-a974899cbc4e.png"
+      alt=""
+    />
+    <Caption>Open by clicking the trigger button with a mouse</Caption>
+  </div>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/226486480-4a807f86-b2b0-4d12-8a43-8cc95d36d995.png"
+      alt=""
+    />
+    <Caption>Open by focusing the trigger button and hitting return, space, or any arrow key</Caption>
+  </div>
 </Box>
-</div>
-<div>
-<Link href="https://primer.style/react/ActionMenu#with-selection">
-<img alt="Action Menu with selection" src="https://user-images.githubusercontent.com/293280/123881067-cdbaea00-d8f8-11eb-98e4-e57c64489308.png" />
-</Link>
-</div>
-<div>
-<Heading sx={{fontSize: 3}}>To make one or more selections</Heading>
-<Box as="p">
 
-Action menu can be used for making a selection among a small list of options. The list is usually predefined with system values, but in some cases it can include user-provided data when those are known not to grow into too many items.
+### Closing
 
+#### Default behavior
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/226486482-fc457572-342d-42d3-9da6-fa87ef009cea.png"
+      alt=""
+    />
+    <Caption>
+      Close the menu by clicking on an item, clicking on the trigger, or clicking anywhere outside the menu.
+    </Caption>
+  </div>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/226486483-e3d658ea-4148-47d6-95ed-5ca90cc55b38.png"
+      alt=""
+    />
+    <Caption>Close the menu by hitting enter on an item, or esc.</Caption>
+  </div>
 </Box>
-</div>
+
+#### Single and multi select
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <CustomVideoPlayer
+      width="100%"
+      src="https://user-images.githubusercontent.com/18661030/226487362-b66daa5f-40b3-4f73-908c-19a74cabd435.mp4"
+    />
+    <Caption>Single select menu closes upon selection and may update the button label.</Caption>
+  </div>
+  <div>
+    <CustomVideoPlayer
+      width="100%"
+      src="https://user-images.githubusercontent.com/18661030/226487367-680395c7-1859-40a0-bbfc-53f37a686662.mp4"
+    />
+    <Caption>Multi select menu closes upon selection and can be re-opened to select more options.</Caption>
+  </div>
 </Box>
+
+### Responsive
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt=""
+    src="https://user-images.githubusercontent.com/18661030/226487827-ad73d646-dfbc-4794-9627-c346bd6fbaa2.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Narrow viewports</h4>
+    For narrow viewports, ActionMenu should remain anchored to its trigger and stay within the bounds of the viewport.
+  </Box>
+</Box>
+
+## Best practices
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486465-1616fde7-733c-4cbd-b4f8-24b3b113731c.png"
+    />
+    <Caption>Use ActionMenu for quick actions.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486469-677e6998-a700-43d7-8048-2033cb7b3eac.png"
+    />
+    <Caption>For complex interactions, use <a href="https://primer.style/react/SelectPanel">SelectPanel</a>.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486470-ee837f56-21ee-4b7b-a4c6-6d4bf63bd115.png"
+    />
+    <Caption>Use ActionMenu for simple selection.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486471-1fd6f434-ecb6-4159-92ee-f2ce8b5b9021.png"
+    />
+    <Caption>
+      Use <a href="https://primer.style/react/SelectPanel">SelectPanel</a> for a filtered search.
+    </Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486473-9cf0c64f-5ae6-40a5-bd0f-87d3ed34f90d.png"
+    />
+    <Caption>Use a button to open a menu.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486474-08b75358-bfcb-483d-bba0-25947a71c8de.png"
+    />
+    <Caption>Don’t use a link to open a menu.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Accessibility
+
+See [focus management](/guides/accessibility/focus-management) for more information.
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt=""
+    src="https://user-images.githubusercontent.com/18661030/226486487-b03672c1-c314-4be0-b96b-d4c348b2ff4d.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Menu mnemonics</h4>
+    When a menu is open, hitting a letter key for the first letter in an item to be selected will move focus to that item. If
+    two items have the same first letter, the first item in the list will be focused first, and hitting the letter key again
+    will focus the next item.
+  </Box>
+</Box>
+
+### Keyboard navigation
+
+#### Trigger button
+
+| Key                                                                                                                                                            | Description     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>      | Opens the menu. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Space</Box>      | Opens the menu. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>  | Opens the menu. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowUp</Box>    | Opens the menu. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowLeft</Box>  | Opens the menu. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowRight</Box> | Opens the menu. |
+
+#### Menu items
+
+| Key                                                                                                                                                            | Description                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowUp</Box>    | Cycle through items starting with current item to previous item |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>  | Cycle through items starting with current item to next item     |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowLeft</Box>  | Cycle through items starting with current item to previous item |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowRight</Box> | Cycle through items starting with current item to next item     |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Home</Box>       | Move focus to first item                                         |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageUp</Box>     | Move focus to first item                                         |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>End</Box>        | Move focus to last item                                         |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageDown</Box>   | Move focus to last item                                         |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Esc</Box>        | Close menu                                                      |
 
 ## Related components
 
 - [Action list](/components/action-list)
 - [Select panel](https://primer.style/react/SelectPanel)
-
-## Accessibility
-
-- [Focus management](/guides/accessibility/focus-management)
