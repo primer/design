@@ -1,6 +1,6 @@
 ---
 title: Select panel
-reactId: selectpanel
+reactId: select_panel
 figma:
 description: Select panel is a semantic dialog that allows for complex selection options within an overlay.
 ---
@@ -139,9 +139,7 @@ Select panel can be anchored to the trigger, or centered within the page. If itâ
   alt="First select panel has focus applied to the search input with a blue 2px border. Second SelectPanel has no visible focus ring as focus is brought to the H1 of the dialog."
   src="https://user-images.githubusercontent.com/40274682/228910113-e62cb3f5-59e9-49b7-8314-8e75159ed894.png"
 />
-<Caption>
-  Focus should be placed on the first interactive item within Select panel. 
-</Caption>
+<Caption>Focus should be placed on the first interactive item within Select panel.</Caption>
 
 ### Closing
 
@@ -173,25 +171,25 @@ Select panel can become a full screen dialog or a bottom sheet at narrow viewpor
 
 ### Trigger
 
-| Key                                                                                                                                                       | Description            |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| Key                                                                                                                                                       | Description             |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box> | Opens the Select panel. |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Space</Box> | Opens the Select panel. |
 
 ### Select panel
 
-| Key                                                                                                                                                                                          | Description                                                                                                                 |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>                                    | Submits the information in the form when focused in the listbox. Activates buttons or links focused within the Select panel. Does no action when focused in the search input. |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Tab</Box>                                      | Move focus forward between interactive controls and widgets within the dialog.                                              |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" sx={{ whiteSpace: "nowrap"}} py={1} px={2}>Shift + Tab</Box> | Move focus backward between interactive controls and widgets within the dialog.                                             |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>                                | Move focus from the input to the listbox. (Shift+Tab required to move from listbox to input. Navigate forward through items in the listbox. If focus is on the last item in the listbox, ArrowDown does nothing.|
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowUp</Box>                                  | Navigate backward through items in the listbox. If at the first item in the listbox, ArrowUp does nothing.                  |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Home</Box>                                     | Move focus to first item in listbox.                                                                                        |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageUp</Box>                                   | Move focus to first item in listbox.                                                                                        |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>End</Box>                                      | Move focus to last item in listbox.                                                                                         |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageDown</Box>                                 | Move focus to last item in listbox.                                                                                         |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Esc</Box>                                      | Close dialog and clear any changed inputs.                                                                                  |
+| Key                                                                                                                                                                                          | Description                                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>                                    | Submits the information in the form when focused in the listbox. Activates buttons or links focused within the Select panel. Does no action when focused in the search input.                                    |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Tab</Box>                                      | Move focus forward between interactive controls and widgets within the dialog.                                                                                                                                   |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" sx={{ whiteSpace: "nowrap"}} py={1} px={2}>Shift + Tab</Box> | Move focus backward between interactive controls and widgets within the dialog.                                                                                                                                  |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>                                | Move focus from the input to the listbox. (Shift+Tab required to move from listbox to input. Navigate forward through items in the listbox. If focus is on the last item in the listbox, ArrowDown does nothing. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowUp</Box>                                  | Navigate backward through items in the listbox. If at the first item in the listbox, ArrowUp does nothing.                                                                                                       |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Home</Box>                                     | Move focus to first item in listbox.                                                                                                                                                                             |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageUp</Box>                                   | Move focus to first item in listbox.                                                                                                                                                                             |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>End</Box>                                      | Move focus to last item in listbox.                                                                                                                                                                              |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageDown</Box>                                 | Move focus to last item in listbox.                                                                                                                                                                              |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Esc</Box>                                      | Close dialog and clear any changed inputs.                                                                                                                                                                       |
 
 ### Multi-select
 
