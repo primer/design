@@ -30,7 +30,7 @@ export const query = graphql`
     figmaFile {
       fileUrl
     }
-    figmaComponent(figmaId: {eq: $figmaId}) {
+    figmaComponent(figmaId: {eq: $figmaId}, status: {ne: "DEPRECATED"}) {
       name
       figmaId
       status
@@ -115,9 +115,8 @@ export default function FigmaComponentLayout({data}) {
               // @ts-ignore
               <Note variant="warning">
                 <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Work in progress</Text>
-                We are currently transferring the Figma documentation for {title} from a different site to this page. To
-                view the original documentation, please visit the{' '}
-                <Link href={data.figmaFile.fileUrl}>Figma documentation for {title}</Link>.
+                We are currently transferring the documentation for {title} to this page. To view the original
+                documentation, please visit the <Link href={data.figmaFile.fileUrl}>Figma library</Link>.
               </Note>
             ) : (
               // Component found in json
