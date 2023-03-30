@@ -14,6 +14,7 @@
         - title: How to contribute
           url: /guides/figma/contribute
     - title: Development
+      url: /guides/development
       children:
         - title: React
           url: /guides/development/react
@@ -22,6 +23,7 @@
     - title: Component status
       url: /guides/status
     - title: Accessibility
+      url: /guides/accessibility
       children:
         - title: Accessibility at GitHub
           url: /guides/accessibility/accessibility-at-github
@@ -95,17 +97,17 @@
       url: /foundations/layout
     - title: Typography
       url: /foundations/typography
-    - title: Icons
+    - title: Icons and visuals
       url: /foundations/icons
       children:
-        - title: Overview
+        - title: Octicons
           url: /foundations/icons
+        - title: Octovisuals
+          url: /foundations/icons/octovisuals
         - title: Design guidelines
           url: /foundations/icons/design-guidelines
 - title: UI patterns
   children:
-    - title: Button usage
-      url: /ui-patterns/button-usage
     - title: Dates and times
       url: /ui-patterns/dates-and-times
     - title: Empty states
@@ -146,6 +148,8 @@
       url: /components/breadcrumbs
     - title: Button
       url: /components/button
+    - title: Button group
+      url: /components/button-group
     - title: Checkbox
       url: /components/checkbox
     - title: Checkbox group
@@ -176,16 +180,24 @@
       url: /components/link
     - title: Page header
       url: /components/page-header
+    - title: Popover
+      url: /components/popover
+    - title: Progress bar
+      url: /components/progress-bar
     - title: Segmented control
       url: /components/segmented-control
     - title: Radio
       url: /components/radio
     - title: Radio group
       url: /components/radio-group
+    - title: Select
+      url: /components/select
     - title: Text input
       url: /components/text-input
     - title: Text input with tokens
       url: /components/text-input-with-tokens
+    - title: Textarea
+      url: /components/textarea
     - title: Toggle switch
       url: /components/toggle-switch
     - title: Token
@@ -193,8 +205,10 @@
     - title: Tree view
       url: /components/tree-view
 - title: Native
+  url: /native
   children:
     - title: CLI
+      url: /native/cli
       children:
         - title: Getting started
           url: /native/cli/getting-started
@@ -203,12 +217,14 @@
         - title: Components
           url: /native/cli/components
     - title: Desktop
+      url: /native/desktop
       children:
         - title: Getting started
           url: /native/desktop/getting-started
         - title: Foundations
           url: /native/desktop/foundations
     - title: Mobile
+      url: /native/mobile
       children:
         - title: Platforms
           url: /native/mobile/platforms
