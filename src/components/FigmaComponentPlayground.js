@@ -49,11 +49,8 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
     <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '2fr 1fr']} gridGap={5}>
       <Box
         paddingY={10}
-        borderColor="border.muted"
-        bg="neutral.subtle"
-        borderWidth={1}
+        bg="canvas.subtle"
         borderRadius={10}
-        borderStyle="solid"
         display="flex"
         alignItems="center"
         justifyContent="center"
@@ -91,10 +88,11 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
         {booleans.map((property, index) => {
           return (
             <Box key={index} alignItems={'center'} display={'flex'} width="100%" justifyContent={'space-between'}>
-              <Box flexGrow={1} fontSize={2} fontWeight="bold" id={property.name}>
+              <Text fontSize={'small'} fontWeight={'bold'}>
                 {removeSpacesAndEmojis(property.name)}
-              </Box>
+              </Text>
               <ToggleSwitch
+                size="small"
                 aria-labelledby={property.name}
                 onChange={on => handleClick(property.name, on.toString())}
               />
@@ -110,9 +108,13 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
               width="100%"
               justifyContent={'space-between'}
             >
-              <Text fontWeight={'bold'}>{removeSpacesAndEmojis(property.name)}</Text>
+              <Text fontSize={'small'} fontWeight={'bold'}>
+                {removeSpacesAndEmojis(property.name)}
+              </Text>
               <ActionMenu>
-                <ActionMenu.Button aria-label="Select field type">{previewState[property.name]}</ActionMenu.Button>
+                <ActionMenu.Button size="small" aria-label="Select field type">
+                  {previewState[property.name]}
+                </ActionMenu.Button>
                 <ActionMenu.Overlay align="end">
                   <ActionList selectionVariant="single">
                     {property.values.map(value => (

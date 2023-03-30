@@ -4,10 +4,10 @@ import {Box, Text} from '@primer/react'
 const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
   const values = []
   const previewComponents = []
-  
+
   const preparedThumbnails = thumbnails.map(t => ({
     ...t,
-    props: Object.fromEntries(t.props)
+    props: Object.fromEntries(t.props),
   }))
 
   valueLoop: for (const preview of preparedThumbnails) {
@@ -27,7 +27,13 @@ const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
   return previewComponents
 }
 
-export default function FigmaPropertyPreview({thumbnails, property, setProperties = {}, column = undefined, hideLabels = false}) {
+export default function FigmaPropertyPreview({
+  thumbnails,
+  property,
+  setProperties = {},
+  column = undefined,
+  hideLabels = false,
+}) {
   const previewComponents = getPreviewComponents(thumbnails, property, setProperties)
   console.log(property, thumbnails, previewComponents)
   const direction = column === undefined ? 'row' : 'column'
@@ -36,12 +42,9 @@ export default function FigmaPropertyPreview({thumbnails, property, setPropertie
   return (
     <Box
       paddingY={8}
-      borderColor="border.muted"
-      bg="neutral.subtle"
-      borderWidth={1}
+      bg="canvas.subtle"
       borderRadius={10}
       marginBottom={6}
-      borderStyle="solid"
       display="flex"
       alignItems="stretch"
       justifyContent="center"

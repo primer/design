@@ -110,7 +110,7 @@ export default function FigmaComponentLayout({data}) {
             <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
           </Box>
           <Box sx={{minWidth: 0, width: '100%'}}>
-            {!name ? (
+            {!name || thumbnails.length === 0 ? (
               // No component found in json
               // @ts-ignore
               <Note variant="warning">
