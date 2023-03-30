@@ -1,5 +1,4 @@
 const path = require('path')
-const figmaData = require('./src/data/primer-web.json')
 const defines = require('./babel-defines')
 const fetch = require('node-fetch')
 const fs = require('fs')
@@ -127,13 +126,35 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
 }
 
 async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
-  // Save the icon data to the GraphQL store
-  const {/*fileName, fileId, lastModified,*/ fileUrl, components} = figmaData
+  // Save the Primer React data to the GraphQL store
+  const json = await fetch(
+    `https://raw.githubusercontent.com/primer/figma/main/packages/web/generated/components.json`,
+  ).then(res => res.json())
+
+  const {fileUrl, components} = json
 
   /**
-   * Add figma file data to the GraphQL store
+   * Add figma components to the GraphQL store
    */
+  for (const component of components) {
+    component.thumbnails = component.thumbnails.map(thumbnail => {
+      thumbnail.props = thumbnail.props.map(({name, value}) => [name, value])
+      return thumbnail
+    })
+    const newNode = {
+      ...{...component, figmaId: component.id},
+      id: createNodeId(`figma-${component.name}`),
+      internal: {
+        type: 'figmaComponent',
+        contentDigest: createContentDigest({...component, figmaId: component.id}),
+      },
+    }
+    actions.createNode(newNode)
+  }
 
+  /**
+   * Add figma file url to the GraphQL store
+   */
   const nodeData = {
     fileUrl,
   }
@@ -148,28 +169,6 @@ async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
   }
 
   actions.createNode(newNode)
-
-  /**
-   * Add figma components to the GraphQL store
-   */
-
-  for (const component of components) {
-    component.thumbnails = component.thumbnails.map(thumbnail => {
-      thumbnail.props = thumbnail.props.map(({name, value}) => [name, value])
-      return thumbnail
-    })
-
-    const newNode = {
-      ...{...component, figmaId: component.id},
-      id: createNodeId(`figma-${component.name}`),
-      internal: {
-        type: 'figmaComponent',
-        contentDigest: createContentDigest({...component, figmaId: component.id}),
-      },
-    }
-
-    actions.createNode(newNode)
-  }
 }
 
 // Create pages from data in the GraphQL store
