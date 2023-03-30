@@ -180,6 +180,8 @@
       url: /components/nav-list
     - title: Page header
       url: /components/page-header
+    - title: Pagination
+      url: /components/pagination
     - title: Popover
       url: /components/popover
     - title: Progress bar
