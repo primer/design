@@ -1,0 +1,116 @@
+---
+title: Tab nav
+description: Tab nav contains a set of links that let users switch between views in the same context.
+reactId: tab_nav
+componentId: tab_nav
+figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=20366-72067&t=kKGC85STU5bcL0zg-4
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/228976777-6239662c-0926-4e13-be0d-be1a1eff08ed.png"
+/>
+
+## Usage
+
+A tab nav is used to organize related content into different views within the same context.
+
+### Best practices
+
+- One of the tabs should be selected by default when the user loads the page.
+- Keep tab labels as short as possible - ideally no more than three words.
+- Avoid overwhelming the user with too many tabs. Instead consider a navigation structure like a [nav list](https://primer.style/design/components/nav-list) that's meant to handle more links.
+- If a user navigates to a different tab panel, form data should not be automatically saved or submitted. Changes must be explicitly be saved or submitted.
+- Don't nest a tab nav in another tab nav panel.
+- Don't force users to switch between multiple tabs to compare info. Each tab panel should have all of the information a user needs to complete their task.
+- Don't nest buttons or links in a tab.
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/228976779-facc65ee-0aba-41f2-a745-47edfcf4908f.png"
+/>
+
+Tab nav is most often a set of links. When tabs are links, each tab should have a unique URL. However it's ok to treat tabs like buttons, especially when the tab nav appears in a context that cannot be linked to (a non-modal dialog, for example).
+
+<!-- TODO: Create an issue to allow TabNav to be used without links -->
+<!-- TODO: Insert guidance about when to use UnderlineNav instead of TabNav -->
+<!-- TODO: Add info about unread/unsaved tab status once we create the guidelines propsed in https://github.com/github/primer/issues/1886 -->
+
+## Anatomy
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/228976783-baa08b9f-e1f1-4dd9-95c7-7e9c29f1bcca.png"
+/>
+
+**Tab list:** A set of links used to switch between views. Each tab should concisely label the view it's associated with.
+
+**Tab panel:** The view associated with the active tab.
+
+## Options
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/228976785-ea2666f0-56cf-4f77-ae1c-8917f6cbc54e.png"
+/>
+
+### With related content after the tabs
+
+Content or an action may be shown after the tabs as long as it's something that's relevant to the content in all of the tab panels. For example, a diff is shown after the tabs on a pull request.
+
+However, the related content's element(s) cannot be nested in the element that has `role="tablist"`.
+
+### Tabs with counts
+
+A count may be shown after the text label if the tab contains enumerable content that would be helpful for users to know without activating the tab.
+
+### Tabs with icons
+
+If an icon will help users understand the purpose of the tab, an icon may be shown before the tab's text label. For example, the number of files changed on the "Files changed" tab of a pull request.
+
+## Accessibility
+
+Each tab must have a unique text label for assistive technologies like screen readers. Avoid using tabs that only use an icon as their label. If an icon makes the tab easier to understand, consider pairing the icon with a text label.
+
+Tabs may not overflow their container - they must be clickable without requiring the user to horizontally scroll. This is a violation of the [WCAG reflow criteria](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html).
+
+### Keyboard navigation
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+  <Box flex={1}>
+
+Tabs, like all interactive elements, can be activated using a cursor or keyboard.
+
+When a user moves focus into the `tablist` using the Tab key, the active tab should be focused. A `tablist` is only a single Tab stop.
+
+  </Box>
+  <CustomVideoPlayer
+    width="456"
+    loop
+    src="https://user-images.githubusercontent.com/2313998/228975440-4c6566b9-7192-4f85-ab7d-943ecdfb25e2.mp4"
+  />
+</Box>
+
+| Key(s)                                                                                                                                                         | Description                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Tab</Box>        | Moves focus outside the tablist to the next focusable node.                                          |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>      | Activates the focused tab.                                                                           |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowLeft</Box>  | Moves focus to the previous tab. If a user is focused on the first tab, focus wraps to the last tab. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowRight</Box> | Moves focus to the next tab. If a user is focused on the last tab, focus wraps to the first tab.     |
+
+## Related links
+
+- [Nav list](/components/nav-list)
+
+<!--
+TODO: add links to these component docs once they're added:
+- CounterLabel
+- UnderlineNav
+-->
