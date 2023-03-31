@@ -104,6 +104,8 @@
           url: /foundations/icons
         - title: Design guidelines
           url: /foundations/icons/design-guidelines
+    - title: System arguments
+      url: /foundations/system-arguments
 - title: UI patterns
   children:
     - title: Dates and times
@@ -152,6 +154,8 @@
       url: /components/checkbox
     - title: Checkbox group
       url: /components/checkbox-group
+    - title: Clipboard copy
+      url: /components/clipboard-copy
     - title: Comment box
       url: /components/comment-box
     - title: Counter label
@@ -172,8 +176,14 @@
       url: /components/heading
     - title: Icon
       url: /components/icon
+    - title: Image
+      url: /components/image
+    - title: Image crop
+      url: /components/image-crop
     - title: Link
       url: /components/link
+    - title: Markdown
+      url: /components/markdown
     - title: Page header
       url: /components/page-header
     - title: Popover
@@ -188,6 +198,16 @@
       url: /components/radio-group
     - title: Select
       url: /components/select
+    - title: State
+      url: /components/state
+    - title: Subhead
+      url: /components/subhead
+    - title: Tab container
+      url: /components/tab-container
+    - title: Tab nav
+      url: /components/tab-nav
+    - title: Tab panels
+      url: /components/tab-panels
     - title: Text input
       url: /components/text-input
     - title: Text input with tokens

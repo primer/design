@@ -170,6 +170,7 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
 exports.createPages = async ({actions, graphql}) => {
   await createComponentPages({actions, graphql})
   await createIconPages({actions, graphql})
+  await createSystemArgumentsPage({actions, graphql})
 
   const {data} = await graphql(`
     query {
@@ -216,6 +217,15 @@ exports.createPages = async ({actions, graphql}) => {
       }
     }
   `)
+
+async function createSystemArgumentsPage({actions, _graphql}) {
+  const layout = path.resolve(__dirname, 'src/layouts/system-arguments-layout.tsx')
+
+  actions.createPage({
+    path: `/foundations/system-arguments`,
+    component: layout,
+  })
+}
 
   const components = data.allMdx.nodes
     .filter(node => Boolean(node.frontmatter.title))

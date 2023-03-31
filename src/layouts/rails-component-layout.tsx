@@ -10,10 +10,10 @@ import {Box, Heading, Label, Link, Text} from '@primer/react'
 import { sentenceCase } from 'change-case'
 import {graphql} from 'gatsby'
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
 import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
 import { LookbookEmbed } from '../components/lookbook-embed'
+import RailsMarkdown from '../components/rails-markdown'
 
 export const query = graphql`
   query RailsComponentPageQuery($componentId: String!, $parentPath: String!) {
@@ -36,6 +36,7 @@ export const query = graphql`
 
     railsComponent(fully_qualified_name: {eq: $componentId}) {
       name: component
+      railsId: fully_qualified_name
       description
       status
       a11y_reviewed
@@ -59,6 +60,17 @@ export const query = graphql`
         }
       }
 
+      methods {
+        name
+        description
+        parameters {
+          default
+          description
+          name
+          type
+        }
+      }
+
       previews {
         name
         preview_path
@@ -67,6 +79,7 @@ export const query = graphql`
 
       subcomponents {
         name: component
+        railsId: fully_qualified_name
         description
         status
         a11y_reviewed
@@ -90,6 +103,17 @@ export const query = graphql`
           }
         }
 
+        methods {
+          name
+          description
+          parameters {
+            default
+            description
+            name
+            type
+          }
+        }
+
         previews {
           name
           preview_path
@@ -103,8 +127,8 @@ export const query = graphql`
 const baseUrl = "https://primer.style/view-components"
 
 
-function RailsComponent({data, showPreviews}) {
-  const {props, slots, previews} = data
+function RailsComponent({data, showPreviews, parentRailsId}) {
+  const {props, slots, methods, previews, railsId} = data
 
   const renderSlots = (slots) => {
     if (slots.length > 0) {
@@ -114,8 +138,24 @@ function RailsComponent({data, showPreviews}) {
           return(<>
             <H3><InlineCode>{slot.name}</InlineCode></H3>
             {/* @ts-ignore */}
-            <Markdown>{slot.description}</Markdown>
-            <PropsTable props={slot.parameters} />
+            <RailsMarkdown text={slot.description} parentRailsId={parentRailsId}/>
+            <PropsTable props={slot.parameters} parentRailsId={parentRailsId}/>
+          </>)
+        })}
+      </>)
+    }
+  }
+
+  const renderMethods = (methods) => {
+    if (methods.length > 0) {
+      return(<>
+        <H2>Methods</H2>
+        {methods.map( (method) => {
+          return(<>
+            <H3><InlineCode>{method.name}</InlineCode></H3>
+            {/* @ts-ignore */}
+            <RailsMarkdown text={method.description} parentRailsId={parentRailsId}/>
+            <PropsTable props={method.parameters} parentRailsId={parentRailsId}/>
           </>)
         })}
       </>)
@@ -126,16 +166,17 @@ function RailsComponent({data, showPreviews}) {
     if (showPreviews && previews.length > 0) {
       return(<>
         <H2>Examples</H2>
-        <LookbookEmbed height={300} previews={previews} />
+        <LookbookEmbed height={300} previews={previews}/>
       </>)
     }
   }
 
   return(<>
     <H2>Arguments</H2>
-    <PropsTable props={props} />
+    <PropsTable props={props} parentRailsId={parentRailsId}/>
 
     {renderSlots(slots)}
+    {renderMethods(methods)}
     {renderPreviews(previews)}
   </>)
 }
@@ -146,6 +187,9 @@ export default function RailsComponentLayout({data}) {
   const title = data.sitePage?.context.frontmatter.title
   const description = data.sitePage?.context.frontmatter.description
   const railsUrl = `${baseUrl}/components/${status}/${short_name.toLowerCase()}`
+  const reactId = data.sitePage.context.frontmatter.reactId
+  const railsId = data.sitePage.context.frontmatter.railsId
+  const figmaUrl = data.sitePage.context.frontmatter.figmaUrl
 
   const subcomponents = []
   const componentStack = [data.railsComponent]
@@ -190,8 +234,8 @@ export default function RailsComponentLayout({data}) {
           return(<>
             <H2>{subcomponent.name}</H2>
             {/* @ts-ignore */}
-            <Markdown>{subcomponent.description}</Markdown>
-            <RailsComponent {...{data: subcomponent, showPreviews: false}}/>
+            <RailsMarkdown text={subcomponent.description}/>
+            <RailsComponent {...{data: subcomponent, showPreviews: false, parentRailsId: railsId}}/>
           </>)
         })}
       </>)
@@ -210,9 +254,9 @@ export default function RailsComponentLayout({data}) {
         <Box sx={{mb: 4}}>
           <ComponentPageNav
             basePath={data.sitePage.path}
-            includeReact={data.sitePage.context.frontmatter.reactId}
-            includeRails={data.sitePage.context.frontmatter.railsId}
-            includeFigma={data.sitePage.context.frontmatter.figmaUrl}
+            includeReact={reactId}
+            includeRails={railsId}
+            includeFigma={figmaUrl}
             current="rails"
           />
         </Box>
@@ -261,9 +305,9 @@ export default function RailsComponentLayout({data}) {
             </Link>
 
             <H2>Description</H2>
-            <Markdown>{data.railsComponent.description}</Markdown>
+            <RailsMarkdown text={data.railsComponent.description} parentRailsId={railsId}/>
 
-            <RailsComponent {...{data: data.railsComponent, showPreviews: true}}/>
+            <RailsComponent data={data.railsComponent} showPreviews={true} parentRailsId={railsId}/>
 
             {renderSubComponents(subcomponents)}
           </Box>
@@ -273,21 +317,17 @@ export default function RailsComponentLayout({data}) {
   )
 }
 
-function Markdown({children}) {
-  {/* @ts-ignore */}
-  return <ReactMarkdown components={{a: Link, code: InlineCode}}>{children}</ReactMarkdown>
-}
-
 // TODO: Make table responsive
 function PropsTable({
-  props,
+  props, parentRailsId
 }: {
   props: Array<{
     name: string
     type: string
     default: string
     description: string
-  }>
+  }>,
+  parentRailsId: string,
 }) {
   if (props.length == 0) {
     return <></>
@@ -333,7 +373,7 @@ function PropsTable({
                 }}
               >
                 {/* @ts-ignore */}
-                <Markdown>{prop.description}</Markdown>
+                <RailsMarkdown text={prop.description} parentRailsId={parentRailsId}/>
               </Box>
             </td>
           </tr>
