@@ -20,7 +20,7 @@ Commonly, select panel is used for metadata application to an Issue or Pull Requ
 <img
   width="960"
   alt="Select panel for assigning labels to an issue. 'Apply labels to this issue' heading, close button in upper right hand corner. Search input with a magnifer icon as a visible label, listbox of label options and the first three are selected with a visual checkbox. The footer contains a button to edit labels, and cancel and apply buttons. Purple labels are overlayed onto select panel: Overlay (dialog) pointing to the container, Search input pointing to the input, role='listbox' bracket of the listbox content, Optional action control to the button in the lower left corner, Explicit confirm / submission buttons bracket for the apply and cancel buttons in the lower right corner."
-  src="https://user-images.githubusercontent.com/40274682/229010945-17008323-afa6-4c3f-b438-a00940cfe34f.png"
+  src="https://user-images.githubusercontent.com/40274682/229016794-4620a95e-efa8-486d-a413-fdadafaa33a0.png"
 />
 
 ## Options
@@ -30,9 +30,7 @@ Commonly, select panel is used for metadata application to an Issue or Pull Requ
   alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
   src="https://user-images.githubusercontent.com/40274682/229011161-abc2d548-fcf1-4bed-b5a2-eb88d2121a09.png"
 />
-<Caption>
-  Select panel can have as much as the branch selector component, or as little as just a multi-selection list. If the contents request user input beyond a semantic `<menu>`(example: the context menu on comments in GitHub), it’s likely you need a select panel.
-</Caption>
+<Caption>Select panel can have as much as the branch selector component, or as little as just a multi-selection list. If the contents request user input beyond a semantic `<menu>`(example: the context menu on comments in GitHub), it’s likely you need a select panel.</Caption>
 
 ### Additional control slot
 
@@ -41,9 +39,7 @@ Commonly, select panel is used for metadata application to an Issue or Pull Requ
   alt="Three cropped select panel footers each displaying a different option of a control in the bottom right left corner: Link, button, or checkbox input."
   src="https://user-images.githubusercontent.com/40274682/229011396-2d2c6132-937b-49dd-974c-1a8d4d0d4737.png"
 />
-<Caption>
-  An optional control slot is available in the select panel’s bottom left corner. Avoid use if not absolutely necessary in order to avoid component and decision overwhelm.
-</Caption>
+<Caption>An optional control slot is available in the select panel’s bottom left corner. Avoid use if not absolutely necessary in order to avoid component and decision overwhelm.</Caption>
 
 ### Anchoring
 
@@ -52,7 +48,7 @@ Select panel should be anchored to its trigger.
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
     <img
-      src="https://user-images.githubusercontent.com/40274682/228910124-6299d357-75a4-4f8e-b5f7-f4d419710f80.png"
+      src="https://user-images.githubusercontent.com/40274682/229016799-9559a4ee-0daf-42d1-b46d-11c64cf182e4.png"
       alt=""
     />
     <Caption>Anchored select panel to a trigger.</Caption>
@@ -78,9 +74,7 @@ Select panel should be anchored to its trigger.
       alt=""
       src="https://user-images.githubusercontent.com/40274682/228910122-8e455131-a126-49b0-aa31-81ac507eaf81.png"
     />
-    <Caption>
-      Never force users to submit their multi-select options by closing the dialog or auto-updating their choices upon selection.
-    </Caption>
+    <Caption>Never force users to submit their multi-select options by closing the dialog or auto-updating their choices upon selection.</Caption>
   </Dont>
 </DoDontContainer>
 
@@ -91,21 +85,17 @@ Select panel should be anchored to its trigger.
     <img
       width="464"
       alt="Mouse cursor indicating a clicking action on the apply button."
-      src="https://user-images.githubusercontent.com/40274682/228910104-cd08d2dc-d32f-402b-8fc8-0613d494be72.png"
+      src="https://user-images.githubusercontent.com/40274682/229016802-39bcae58-0e2b-4ee4-970d-4cb19dbce7ca.png"
     />
-    <Caption>
-      Guide users to save or cancel their selections to dismiss select panel to prevent confusion and data loss.
-    </Caption>
+    <Caption>Guide users to save or cancel their selections to dismiss select panel to prevent confusion and data loss.</Caption>
   </Do>
   <Dont>
     <img
       width="464"
       alt="Mouse cursor indicating a click action outside of the dialog."
-      src="https://user-images.githubusercontent.com/40274682/228910098-869f025d-2686-4398-b6bf-7200c1a1f38e.png"
+      src="https://user-images.githubusercontent.com/40274682/229016806-939821c6-4e1b-4b02-a726-7a084a0941d1.png"
     />
-    <Caption>
-      Don’t allow a click-outside-to-dismiss behavior for select panel. Users may be used to closing and submitting the information. Doing so would result in a loss of their changes.{' '}
-    </Caption>
+    <Caption>Don’t allow a click-outside-to-dismiss behavior for select panel. Users may be used to closing and submitting the information. Doing so would result in a loss of their changes.{' '}</Caption>
   </Dont>
 </DoDontContainer>
 
@@ -118,14 +108,12 @@ Select panel should be anchored to its trigger.
   alt="Mouse cursor hovering over an icon button and a focused icon button with the space and enter keys visually below the icon button."
   src="https://user-images.githubusercontent.com/40274682/228910118-3d99fd0a-7b14-4e46-af48-f69bf76912e5.png"
 />
-<Caption>
-  A select panel trigger should be a semantic button. Mouse users can click and keyboard users can open with space or enter.
-</Caption>
+<Caption>A select panel trigger should be a semantic button. Mouse users can click and keyboard users can open with space or enter.</Caption>
 
 <img
   width="960"
   alt="First select panel has focus applied to the search input with a blue 2px border. Second SelectPanel has no visible focus ring as focus is brought to the H1 of the dialog."
-  src="https://user-images.githubusercontent.com/40274682/228910113-e62cb3f5-59e9-49b7-8314-8e75159ed894.png"
+  src="https://user-images.githubusercontent.com/40274682/229016809-76a595a1-187c-44ed-90c1-5abfb4458260.png"
 />
 <Caption>Focus should be placed on the first interactive item within select panel.</Caption>
 
@@ -137,9 +125,7 @@ Select panel should be anchored to its trigger.
       width="100%"
       src="https://user-images.githubusercontent.com/40274682/228390156-dab0b413-3b90-4736-a0e7-8d5d30665c43.mp4"
     />
-    <Caption>
-      Pressing esc, or selecting “cancel” should close the current dialog and enter focus to the previous trigger. It should not retain or submit any user input.
-    </Caption>
+    <Caption>Pressing esc, or selecting “cancel” should close the current dialog and enter focus to the previous trigger. It should not retain or submit any user input.</Caption>
   </div>
   <div>
     <CustomVideoPlayer
@@ -199,9 +185,7 @@ Select panel can become a full screen dialog or a bottom sheet at narrow viewpor
       width="100%"
       src="https://user-images.githubusercontent.com/40274682/228391029-44ab995b-7a04-4b85-825e-dc77f90838dd.mp4"
     />
-    <Caption>
-      Keyboard interaction with a single-select select panel demonstrating selection following focus with navigation via the ArrowDown key.
-    </Caption>
+    <Caption>Keyboard interaction with a single-select select panel demonstrating selection following focus with navigation via the ArrowDown key.</Caption>
   </div>
 </Box>
 
