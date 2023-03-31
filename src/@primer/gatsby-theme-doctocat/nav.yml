@@ -194,6 +194,8 @@
       url: /components/radio
     - title: Radio group
       url: /components/radio-group
+    - title: Relative time
+      url: /components/relative-time
     - title: Select
       url: /components/select
     - title: Select panel

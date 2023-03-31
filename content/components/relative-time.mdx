@@ -1,0 +1,38 @@
+---
+title: Relative time
+description: Relative time formats dates and times into a human-readable string.
+reactId: relative_time
+componentId: relative_time
+---
+
+## Usage
+
+This component does not include any styling. It formats a timestamp as a localized string or as relative text that auto-updates in the user's browser.
+
+## Options
+
+### Verbosity
+
+**Auto**: "Apr 1, 2014"
+
+**Micro**: "9y"
+
+**Elapsed:** "9y 1m 15d 17h 28m 51s", and changes in real time.
+
+### Precision
+
+You can choose how pricisely you want to display the time. By default the time is displayed all the way down to the second (for example, 9y 1m 15d 17h 26m 39s), but for times that were far in the past you can be as vague as rounding to years (for example, 9y).
+
+### Word formatting
+
+By default, the time will be prefixed with "on", but this can be customized.
+
+Weekday names and month names are fully written out by default, but they may be abbreviated.
+
+### Number formatting
+
+Any part of the time can be rendered with or without a leading zero.
+
+## Related links
+
+- [MDN - Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat)
