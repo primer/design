@@ -93,6 +93,7 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
               </Text>
               <ToggleSwitch
                 size="small"
+                defaultChecked={property.defaultValue === 'true'}
                 aria-labelledby={property.name}
                 onChange={on => handleClick(property.name, on.toString())}
               />
