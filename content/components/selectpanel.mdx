@@ -13,38 +13,36 @@ export default ComponentLayout
 
 Select panel is used for overlay containers that contain multiple control sets which includes advanced single or multi-selection with a filter. Select panel can be anchored to a trigger, or centered within a view.
 
-Commonly, Select panel is used for metadata application to an Issue or Pull Request, like assignee and label selections, or the branch selector on a repository‚Äôs code tab.
+Commonly, select panel is used for metadata application to an Issue or Pull Request, like assignee and label selections, or the branch selector on a repository‚Äôs code tab.
 
 ## Anatomy
 
 <img
   width="960"
-  alt="Select panel for assigning labels to an issue. 'Apply labels to this issue' heading, close button in upper right hand corner. Search input with a magnifer icon as a visible label, listbox of label options and the first three are selected with a visual checkbox. The footer contains a button to edit labels, and cancel and apply buttons. Purple labels are overlayed onto Select panel: Overlay (dialog) pointing to the container, Search input pointing to the input, role='listbox' bracket of the listbox content, Optional action control to the button in the lower left corner, Explicit confirm / submission buttons bracket for the apply and cancel buttons in the lower right corner."
-  src="https://user-images.githubusercontent.com/40274682/228910131-e280df3d-402f-41be-9662-27e1772b0861.png"
+  alt="Select panel for assigning labels to an issue. 'Apply labels to this issue' heading, close button in upper right hand corner. Search input with a magnifer icon as a visible label, listbox of label options and the first three are selected with a visual checkbox. The footer contains a button to edit labels, and cancel and apply buttons. Purple labels are overlayed onto select panel: Overlay (dialog) pointing to the container, Search input pointing to the input, role='listbox' bracket of the listbox content, Optional action control to the button in the lower left corner, Explicit confirm / submission buttons bracket for the apply and cancel buttons in the lower right corner."
+  src="https://user-images.githubusercontent.com/40274682/229010945-17008323-afa6-4c3f-b438-a00940cfe34f.png"
 />
 
 ## Options
 
 <img
   width="960"
-  alt="First Select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second Select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
-  src="https://user-images.githubusercontent.com/40274682/228910129-c6b58046-4875-4aa7-afb4-f00384901ede.png"
+  alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
+  src="https://user-images.githubusercontent.com/40274682/229011161-abc2d548-fcf1-4bed-b5a2-eb88d2121a09.png"
 />
 <Caption>
-  Select panel can have as much as the branch selector component, or as little as just a multi-selection list. If the
-  contents request user input beyond menu selection, it‚Äôs likely you need a Select panel.
+  Select panel can have as much as the branch selector component, or as little as just a multi-selection list. If the contents request user input beyond a semantic `<menu>`(example: the context menu on comments in GitHub), it‚Äôs likely you need a select panel.
 </Caption>
 
 ### Additional control slot
 
 <img
   width="960"
-  alt="Three cropped Select panel footers each displaying a different option of a control in the bottom right left corner: Link, button, or checkbox input."
-  src="https://user-images.githubusercontent.com/40274682/228910127-b2c05a32-1eeb-4ebc-b5cc-6c089ecc7d2e.png"
+  alt="Three cropped select panel footers each displaying a different option of a control in the bottom right left corner: Link, button, or checkbox input."
+  src="https://user-images.githubusercontent.com/40274682/229011396-2d2c6132-937b-49dd-974c-1a8d4d0d4737.png"
 />
 <Caption>
-  An optional control slot is available in the Select panel‚Äôs bottom left corner. Avoid use if not absolutely necessary
-  in order to avoid component and decision overwhelm.
+  An optional control slot is available in the select panel‚Äôs bottom left corner. Avoid use if not absolutely necessary in order to avoid component and decision overwhelm.
 </Caption>
 
 ### Anchoring
@@ -57,7 +55,7 @@ Select panel can be anchored to the trigger, or centered within the page. If it‚
       src="https://user-images.githubusercontent.com/40274682/228910124-6299d357-75a4-4f8e-b5f7-f4d419710f80.png"
       alt=""
     />
-    <Caption>Anchored Select panel to a trigger.</Caption>
+    <Caption>Anchored select panel to a trigger.</Caption>
   </div>
   <div>
     <img
@@ -88,8 +86,7 @@ Select panel can be anchored to the trigger, or centered within the page. If it‚
       src="https://user-images.githubusercontent.com/40274682/228910122-8e455131-a126-49b0-aa31-81ac507eaf81.png"
     />
     <Caption>
-      Never force users to submit their multi-select options by closing the dialog or auto-updating their choices upon
-      selection.
+      Never force users to submit their multi-select options by closing the dialog or auto-updating their choices upon selection.
     </Caption>
   </Dont>
 </DoDontContainer>
@@ -104,7 +101,7 @@ Select panel can be anchored to the trigger, or centered within the page. If it‚
       src="https://user-images.githubusercontent.com/40274682/228910104-cd08d2dc-d32f-402b-8fc8-0613d494be72.png"
     />
     <Caption>
-      Guide users to save or cancel their selections to dismiss Select panel to prevent confusion and data loss.
+      Guide users to save or cancel their selections to dismiss select panel to prevent confusion and data loss.
     </Caption>
   </Do>
   <Dont>
@@ -114,8 +111,7 @@ Select panel can be anchored to the trigger, or centered within the page. If it‚
       src="https://user-images.githubusercontent.com/40274682/228910098-869f025d-2686-4398-b6bf-7200c1a1f38e.png"
     />
     <Caption>
-      Don‚Äôt allow a click-outside-to-dismiss behavior for Select panel. Users may be used to closing and submitting the
-      information. Doing so would result in a loss of their changes.{' '}
+      Don‚Äôt allow a click-outside-to-dismiss behavior for select panel. Users may be used to closing and submitting the information. Doing so would result in a loss of their changes.{' '}
     </Caption>
   </Dont>
 </DoDontContainer>
@@ -130,8 +126,7 @@ Select panel can be anchored to the trigger, or centered within the page. If it‚
   src="https://user-images.githubusercontent.com/40274682/228910118-3d99fd0a-7b14-4e46-af48-f69bf76912e5.png"
 />
 <Caption>
-  A Select panel trigger should be a semantic button. Mouse users can click and keyboard users can open with space or
-  enter.
+  A select panel trigger should be a semantic button. Mouse users can click and keyboard users can open with space or enter.
 </Caption>
 
 <img
@@ -139,7 +134,7 @@ Select panel can be anchored to the trigger, or centered within the page. If it‚
   alt="First select panel has focus applied to the search input with a blue 2px border. Second SelectPanel has no visible focus ring as focus is brought to the H1 of the dialog."
   src="https://user-images.githubusercontent.com/40274682/228910113-e62cb3f5-59e9-49b7-8314-8e75159ed894.png"
 />
-<Caption>Focus should be placed on the first interactive item within Select panel.</Caption>
+<Caption>Focus should be placed on the first interactive item within select panel.</Caption>
 
 ### Closing
 
@@ -150,8 +145,7 @@ Select panel can be anchored to the trigger, or centered within the page. If it‚
       src="https://user-images.githubusercontent.com/40274682/228390156-dab0b413-3b90-4736-a0e7-8d5d30665c43.mp4"
     />
     <Caption>
-      Pressing esc, or selecting ‚Äúcancel‚Äù should close the current dialog and enter focus to the previous trigger. It
-      should not retain or submit any user input.
+      Pressing esc, or selecting ‚Äúcancel‚Äù should close the current dialog and enter focus to the previous trigger. It should not retain or submit any user input.
     </Caption>
   </div>
   <div>
@@ -159,13 +153,13 @@ Select panel can be anchored to the trigger, or centered within the page. If it‚
       width="100%"
       src="https://user-images.githubusercontent.com/40274682/228390297-d6d59818-1d1e-47bb-ac9d-cd1eccc57ba8.mp4"
     />
-    <Caption>Selecting the submit button should submit any user input.</Caption>
+    <Caption>Selecting the submit button or pressing the enter key while focused in the listbox should submit any user input.</Caption>
   </div>
 </Box>
 
 ### Responsive
 
-Select panel can become a full screen dialog or a bottom sheet at narrow viewports. Support at 320px is required if the Select panel is larger at wider viewports. See [narrow-viewport placement](https://primer.style/design/components/dialog#narrow-viewport-placement) in the Dialog guidelines for more details.
+Select panel can become a full screen dialog or a bottom sheet at narrow viewports. Support at 320px is required if the select panel is larger at wider viewports. See [narrow-viewport placement](https://primer.style/design/components/dialog#narrow-viewport-placement) in the Dialog guidelines for more details.
 
 ## Keyboard navigation
 
@@ -173,14 +167,14 @@ Select panel can become a full screen dialog or a bottom sheet at narrow viewpor
 
 | Key                                                                                                                                                       | Description             |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box> | Opens the Select panel. |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Space</Box> | Opens the Select panel. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box> | Opens the select panel. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Space</Box> | Opens the select panel. |
 
 ### Select panel
 
 | Key                                                                                                                                                                                          | Description                                                                                                                                                                                                      |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>                                    | Submits the information in the form when focused in the listbox. Activates buttons or links focused within the Select panel. Does no action when focused in the search input.                                    |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>                                    | Submits the information in the form when focused in the listbox. Activates buttons or links focused within the select panel. Does no action when focused in the search input.                                    |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Tab</Box>                                      | Move focus forward between interactive controls and widgets within the dialog.                                                                                                                                   |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" sx={{ whiteSpace: "nowrap"}} py={1} px={2}>Shift + Tab</Box> | Move focus backward between interactive controls and widgets within the dialog.                                                                                                                                  |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>                                | Move focus from the input to the listbox. (Shift+Tab required to move from listbox to input. Navigate forward through items in the listbox. If focus is on the last item in the listbox, ArrowDown does nothing. |
@@ -213,8 +207,12 @@ Select panel can become a full screen dialog or a bottom sheet at narrow viewpor
       src="https://user-images.githubusercontent.com/40274682/228391029-44ab995b-7a04-4b85-825e-dc77f90838dd.mp4"
     />
     <Caption>
-      Keyboard interaction with a single-select Select panel demonstrating selection following focus with navigation via
-      the ArrowDown key.
+      Keyboard interaction with a single-select select panel demonstrating selection following focus with navigation via the ArrowDown key.
     </Caption>
   </div>
 </Box>
+
+## Related components
+- [Data saving guidelines](/ui-patterns/saving)
+- [ActionMenu](/components/ActionMenu)
+- [Select](/components/Select)
