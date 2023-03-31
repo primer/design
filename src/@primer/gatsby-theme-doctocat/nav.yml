@@ -196,6 +196,8 @@
       url: /components/radio-group
     - title: Select
       url: /components/select
+    - title: Select panel
+      url: /components/selectpanel
     - title: Text input
       url: /components/text-input
     - title: Text input with tokens
