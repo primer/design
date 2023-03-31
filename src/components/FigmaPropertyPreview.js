@@ -35,7 +35,6 @@ export default function FigmaPropertyPreview({
   hideLabels = false,
 }) {
   const previewComponents = getPreviewComponents(thumbnails, property, setProperties)
-  console.log(property, thumbnails, previewComponents)
   const direction = column === undefined ? 'row' : 'column'
   const previewItemBoxFlexDirection = 'column'
 
