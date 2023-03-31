@@ -82,6 +82,21 @@ Each tab must have a unique text label for assistive technologies like screen re
 
 Tabs may not overflow their container - they must be clickable without requiring the user to horizontally scroll. This is a violation of the [WCAG reflow criteria](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html).
 
+### Labeling counts
+
+If your tab shows a count of items, screen readers will read the number immediately after the tab's label. Consider whether it would sound awkward to the user, and add visually hidden text to help make it easier to understand what the number is for.
+
+For example, "Conversation 10" is confusing because there's no context for what the "10" is referring to. Instead, we can write our markup so screen readers will say "Conversation 10 comments".
+
+If we assume that the `sr-only` class is used to only hide the element visually, that might look something like this:
+
+```
+<span>
+  Commits
+  <div class="badge">4<span class="sr-only">&nbsp;comments</span>
+</span>
+```
+
 ### Keyboard navigation
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
