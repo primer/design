@@ -126,7 +126,7 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
 }
 
 async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
-  // Save the Primer React data to the GraphQL store
+  // Save the Primer Figma data to the GraphQL store
   const json = await fetch(
     `https://raw.githubusercontent.com/primer/figma/main/packages/web/generated/components.json`,
   ).then(res => res.json())
