@@ -97,11 +97,13 @@
       url: /foundations/layout
     - title: Typography
       url: /foundations/typography
-    - title: Icons
+    - title: Icons and visuals
       url: /foundations/icons
       children:
-        - title: Overview
+        - title: Octicons
           url: /foundations/icons
+        - title: Octovisuals
+          url: /foundations/icons/octovisuals
         - title: Design guidelines
           url: /foundations/icons/design-guidelines
     - title: System arguments
@@ -178,6 +180,8 @@
       url: /components/label
     - title: Icon
       url: /components/icon
+    - title: Icon button
+      url: /components/icon-button
     - title: Image
       url: /components/image
     - title: Image crop
@@ -186,8 +190,12 @@
       url: /components/link
     - title: Markdown
       url: /components/markdown
+    - title: Nav list
+      url: /components/nav-list
     - title: Page header
       url: /components/page-header
+    - title: Pagination
+      url: /components/pagination
     - title: Popover
       url: /components/popover
     - title: Progress bar
@@ -200,6 +208,8 @@
       url: /components/radio-group
     - title: Select
       url: /components/select
+    - title: Select panel
+      url: /components/selectpanel
     - title: State label
       url: /components/state-label
     - title: Subhead
