@@ -84,6 +84,7 @@ export default function RailsMarkdown({text, parentRailsId}) {
     link_to_system_arguments_docs: "[System arguments](/foundations/system-arguments)",
     link_to_typography_docs: "[Typography](/foundations/typography)",
     link_to_accessibility: "[Accessibility](/guides/accessibility/accessibility-at-github)",
+    link_to_octicons: "[Octicons](/foundations/icons)",
 
     link_to_component: () => {
       return (railsId, _render) => {
@@ -96,7 +97,13 @@ export default function RailsMarkdown({text, parentRailsId}) {
 
         // We're dealing with a top-level component, so link to the parent.
         if (parentComponent.railsId === railsId) {
-          return linkToParent(parentComponent)
+          const parentLink = linkToParent(parentComponent)
+
+          if (parentLink) {
+            return parentLink
+          } else {
+            return `\`${railsId}\``
+          }
         }
 
         // Otherwise, we must be dealing with a subcomponent, either of our parent or another parent
@@ -106,12 +113,12 @@ export default function RailsMarkdown({text, parentRailsId}) {
           return linkToChild(childComponent, parentComponent)
         }
 
-        return railsId
+        return `\`${railsId}\``
       }
     }
   }
 
-  const markdown = Mustache.render(text, mustacheViewContext)
+  const markdown = Mustache.render(text || "", mustacheViewContext)
 
   /* @ts-ignore */
   return <ReactMarkdown components={{a: Link, code: CodeWrapper, table: Table, h2: H2, h3: H3}} remarkPlugins={[remarkGfm]}>

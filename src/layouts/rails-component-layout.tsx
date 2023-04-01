@@ -130,6 +130,15 @@ const baseUrl = "https://primer.style/view-components"
 function RailsComponent({data, showPreviews, parentRailsId}) {
   const {props, slots, methods, previews, railsId} = data
 
+  const renderArguments = (props) => {
+    if (props.length > 0) {
+      return (<>
+        <H2>Arguments</H2>
+        <PropsTable props={props} parentRailsId={parentRailsId}/>
+      </>)
+    }
+  }
+
   const renderSlots = (slots) => {
     if (slots.length > 0) {
       return(<>
@@ -172,9 +181,7 @@ function RailsComponent({data, showPreviews, parentRailsId}) {
   }
 
   return(<>
-    <H2>Arguments</H2>
-    <PropsTable props={props} parentRailsId={parentRailsId}/>
-
+    {renderArguments(props)}
     {renderSlots(slots)}
     {renderMethods(methods)}
     {renderPreviews(previews)}
@@ -355,7 +362,7 @@ function PropsTable({
                 <Text sx={{fontFamily: 'mono', fontSize: 1, whiteSpace: 'nowrap'}}>{prop.name}</Text>
               </Box>
             </td>
-            <td valign="top">{prop.default ? <InlineCode>{prop.default}</InlineCode> : null}</td>
+            <td valign="top">{prop.default ? <RailsMarkdown text={prop.default} parentRailsId={parentRailsId}/> : null}</td>
             <td>
               <InlineCode>{prop.type}</InlineCode>
               <Box
