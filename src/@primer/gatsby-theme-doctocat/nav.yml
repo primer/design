@@ -198,6 +198,8 @@
       url: /components/select
     - title: Select panel
       url: /components/selectpanel
+    - title: Text
+      url: /components/text
     - title: Text input
       url: /components/text-input
     - title: Text input with tokens
