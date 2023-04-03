@@ -220,6 +220,8 @@
       url: /components/tab-nav
     - title: Tab panels
       url: /components/tab-panels
+    - title: Text
+      url: /components/text
     - title: Text input
       url: /components/text-input
     - title: Text input with tokens
@@ -232,6 +234,8 @@
       url: /components/token
     - title: Tree view
       url: /components/tree-view
+    - title: Underline nav
+      url: /components/underline-nav
 - title: Native
   url: /native
   children:
