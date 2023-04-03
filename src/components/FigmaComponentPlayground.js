@@ -64,12 +64,10 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
             return value === thumbnailProps[prop]
           })
 
-          const componentName = thumbnail.props.flatMap(propArr => propArr.join(': ')).join(', ')
-
           return (
             isActive && (
               <Box display={'flex'} justifyContent="center" key={index}>
-                <img width="50%" src={thumbnail.url} alt={componentName} />
+                <img width="50%" src={thumbnail.url} alt={' '} />
               </Box>
             )
           )
