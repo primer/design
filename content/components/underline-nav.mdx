@@ -1,28 +1,31 @@
 ---
 title: Underline nav
-description: The UnderlineNav is used to display primary navigation.
+description: The UnderlineNav is used to display navigation.
 componentId: underline_nav
 reactId: underline_nav
 figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=18843-67449&t=XqqSolC6AzRO9nae-11
 rails: https://primer.style/view-components/components/alpha/underlinenav/
 ---
 
-# Underline nav
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
 
-The underline nav is used to provide navigation links to related views for the user's current context. It is typically used as primary navigation at the top of the page or as secondary navigation when nested in views with a [nav list](/components/nav-list).
+## Usage
+
+The underline nav is used to provide navigation links to related views for the user's current context. It is typically used as primary navigation at the top of the page or as secondary or tertiary navigation when nested in views with a [nav list](/components/nav-list).
 
 ## Anatomy
 
 ![Anatomy of the UnderlineNav component](https://user-images.githubusercontent.com/175638/186432408-c2479dd2-31fe-4261-9f9a-e67d49b28e72.png)
 
-1. **Item**: A navigation link.
-2. **Current item**: The current selection item is highlighted with an underline.
-3. **Label**: Describes the navigation item.
-4. **Leading icon (optional)**: An icon that identifies the navigation item.
-5. **Counter (optional)**: Displays a count next to the label.
-6. **Overflow menu**: A disclosure menu that displays additional items when there are too many to fit in the available space.
+- **Item**: A navigation link.
+- **Current item**: The item currently selected is highlighted with an underline.
+- **Label**: Describes the navigation item.
+- **Leading icon (optional)**: An icon that identifies the navigation item.
+- **Counter (optional)**: Displays a count next to the label.
+- **Overflow menu**: A disclosure menu that displays additional items when there are too many to fit in the available space.
 
-## Content
+## Options
 
 ### Item
 
@@ -51,7 +54,7 @@ When loading multiple counters asynchronously, wait for all the data to be ready
 The underline nav has two possible main placements depending on its intended usage:
 
 - As primary navigation: place it at the top of the page. Ensure any secondary and tertiary navigation is nested under the underline nav.
-- As secondary or tertiary navigation: place it above the main content of the.
+- As secondary or tertiary navigation: place it above the main content of the page.
 
 In either scenarios, avoid stacking multiple uderline navs to display multiple levels of navigation.
 
@@ -60,6 +63,8 @@ In either scenarios, avoid stacking multiple uderline navs to display multiple l
 Align the the underline nav to the left and, when possible, make the component span the available width.
 
 ### Responsive design
+
+![The underline nav without overflowing items and the component on a smaller viewport showing the overflow menu](https://user-images.githubusercontent.com/175638/229456836-bfa1ddbb-5cef-4dbc-a0db-da77814c63a2.png)
 
 Underline nav handles overflowing items automatically by collapsing them into a disclosure menu. When some of the items don't fit the available space, the component will first hide leading icons to economize space and then move items to the overflow menu one by one.
 
@@ -78,5 +83,5 @@ Items can be activated using a cursor or keyboard
 
 ## Related links
 
-- [TabNav](/components/tab-nav)
 - [Nav list](/components/nav-list)
+- [Tab nav](/components/tab-nav)
