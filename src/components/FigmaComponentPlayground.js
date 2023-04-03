@@ -12,10 +12,6 @@ const makeNewState = (currentState = {}, newProps) => {
   return newState
 }
 
-const removeSpacesAndEmojis = str => {
-  return str.replace(/[\s\p{Emoji}]/gu, '')
-}
-
 export default function FigmaComponentPlayground({properties, thumbnails}) {
   // short circut if no thumbnails
   if (!thumbnails) return null
@@ -87,7 +83,7 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
           return (
             <Box key={index} alignItems={'center'} display={'flex'} width="100%" justifyContent={'space-between'}>
               <Text fontSize={'small'} fontWeight={'bold'}>
-                {removeSpacesAndEmojis(property.name)}
+                {property.name}
               </Text>
               <ToggleSwitch
                 size="small"
@@ -108,7 +104,7 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
               justifyContent={'space-between'}
             >
               <Text fontSize={'small'} fontWeight={'bold'}>
-                {removeSpacesAndEmojis(property.name)}
+                {property.name}
               </Text>
               <ActionMenu>
                 <ActionMenu.Button size="small" aria-label="Select field type">

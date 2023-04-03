@@ -57,7 +57,7 @@ export default function FigmaPropertyTable({properties}) {
           {properties.map((property, index) => {
             return (
               <tr key={index}>
-                <td>{property.name.replace(/[\s\p{Emoji}]/gu, '')}</td>
+                <td style={{whiteSpace: 'nowrap'}}>{property.name}</td>
                 <td>{propertyTypes(property)}</td>
                 <td>{propertyValues(property)}</td>
                 <td>
