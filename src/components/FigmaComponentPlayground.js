@@ -40,6 +40,15 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
         property.values.includes('false')),
   )
   const filteredProperties = properties.filter(x => !booleans.includes(x))
+  const curPreviewState = Object.entries(previewState)
+  const thumbnail = thumbnails.find(thumbnail => {
+    const thumbnailProps = Object.fromEntries(thumbnail.props)
+    let isActive = curPreviewState.every(([prop, value]) => {
+      return value === thumbnailProps[prop]
+    })
+
+    return isActive
+  })
 
   return (
     <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '2fr 1fr']} gridGap={5}>
@@ -53,21 +62,15 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
         flexWrap="wrap"
         minHeight="30vh"
       >
-        {thumbnails.map((thumbnail, index) => {
-          const thumbnailProps = Object.fromEntries(thumbnail.props)
-          const curPreviewState = Object.entries(previewState)
-          let isActive = curPreviewState.every(([prop, value]) => {
-            return value === thumbnailProps[prop]
-          })
-
-          return (
-            isActive && (
-              <Box display={'flex'} justifyContent="center" key={index}>
-                <img width="50%" src={thumbnail.url} alt={' '} />
-              </Box>
-            )
-          )
-        })}
+        <Box display={'flex'} justifyContent="center">
+          {thumbnail ? (
+            <img width="50%" src={thumbnail.url} alt={' '} />
+          ) : (
+            <Text color={'fg.muted'} fontSize={'small'}>
+              No preview available
+            </Text>
+          )}
+        </Box>
       </Box>
 
       <Box
