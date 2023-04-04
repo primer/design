@@ -12,6 +12,17 @@ const makeNewState = (currentState = {}, newProps) => {
   return newState
 }
 
+const compareObjects = (a, b) => {
+  let s = o =>
+    Object.entries(o)
+      .sort()
+      .map(i => {
+        if (i[1] instanceof Object) i[1] = s(i[1])
+        return i
+      })
+  return JSON.stringify(s(a)) === JSON.stringify(s(b))
+}
+
 export default function FigmaComponentPlayground({properties, thumbnails}) {
   // short circut if no thumbnails
   if (!thumbnails) return null
@@ -32,9 +43,13 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
     const newThumbnail = findThumbnail(intermiedateState, propertyName, value)
 
     if (newThumbnail) {
-      const newThumbnailProps = Object.fromEntries(newThumbnail.props)
+      // convert newThumbnail.props to a map
+      const newThumbnailProps = newThumbnail.props.reduce((acc, cur) => {
+        acc[cur.name] = cur.value
+        return acc
+      }, {})
 
-      if (JSON.stringify(newThumbnailProps) === JSON.stringify(intermiedateState)) {
+      if (compareObjects(newThumbnailProps, intermiedateState)) {
         // if the thumbnail props are the same as the intermediate state, set the preview state to the intermediate state
         setPreviewState(makeNewState(previewState, {[propertyName]: value}))
       } else {
@@ -49,13 +64,13 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
     }
   }
 
-  const findThumbnail = (state, propertyName, value) => {
+  const findThumbnail = (state, propertyName, propertyValue) => {
     const curPreviewState = Object.entries(state)
     const thumbnail = thumbnails.find(thumbnail => {
-      const thumbnailProps = Object.fromEntries(thumbnail.props)
+      const thumbnailProps = thumbnail.props
 
       let isActive = curPreviewState.every(([prop, value]) => {
-        return value === thumbnailProps[prop]
+        return thumbnailProps.find(x => x.value === value && x.name === prop)
       })
 
       return isActive
@@ -63,8 +78,9 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
 
     if (!thumbnail) {
       return thumbnails.find(thumbnail => {
-        const thumbnailProps = Object.fromEntries(thumbnail.props)
-        return thumbnailProps[propertyName] === value
+        const thumbnailProps = thumbnail.props
+
+        return thumbnailProps.find(x => x.value === propertyValue && x.name === propertyName)
       })
     } else {
       return thumbnail

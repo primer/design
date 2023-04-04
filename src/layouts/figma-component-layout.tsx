@@ -37,8 +37,11 @@ export const query = graphql`
       updatedAt
       componentUrl: url
       thumbnails {
+        props {
+          name
+          value
+        }
         url
-        props
       }
       properties {
         name
@@ -180,11 +183,11 @@ export default function FigmaComponentLayout({data}) {
                 <H2>Props</H2>
                 <FigmaPropertyTable properties={properties} />
 
-                {properties.map(prop => (
-                  <>
+                {properties.map((prop, index) => (
+                  <div key={index}>
                     <H3>{prop.name}</H3>
                     <FigmaPropertyPreview thumbnails={thumbnails} property={prop.name} />
-                  </>
+                  </div>
                 ))}
 
                 <Link

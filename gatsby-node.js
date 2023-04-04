@@ -137,10 +137,6 @@ async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
    * Add figma components to the GraphQL store
    */
   for (const component of components) {
-    component.thumbnails = component.thumbnails.map(thumbnail => {
-      thumbnail.props = thumbnail.props.map(({name, value}) => [name, value])
-      return thumbnail
-    })
     const newNode = {
       ...{...component, figmaId: component.id},
       // Create unique id for each component and status
