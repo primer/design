@@ -126,65 +126,72 @@ export const query = graphql`
 
 const baseUrl = "https://primer.style/view-components"
 
+function RailsComponentArguments({props, parentRailsId}) {
+  if (props.length > 0) {
+    return (<>
+      <H2>Arguments</H2>
+      <PropsTable props={props} parentRailsId={parentRailsId}/>
+    </>)
+  } else {
+    return <></>
+  }
+}
+
+function RailsComponentSlots({slots, parentRailsId}) {
+  if (slots.length > 0) {
+    return(<>
+      <H2>Slots</H2>
+      {slots.map( (slot) => {
+        return(<>
+          <H3><InlineCode>{slot.name}</InlineCode></H3>
+          {/* @ts-ignore */}
+          <RailsMarkdown text={slot.description} parentRailsId={parentRailsId}/>
+          <PropsTable props={slot.parameters} parentRailsId={parentRailsId}/>
+        </>)
+      })}
+    </>)
+  } else {
+    return <></>
+  }
+}
+
+function RailsComponentMethods({methods, parentRailsId}) {
+  if (methods.length > 0) {
+    return(<>
+      <H2>Methods</H2>
+      {methods.map( (method) => {
+        return(<>
+          <H3><InlineCode>{method.name}</InlineCode></H3>
+          {/* @ts-ignore */}
+          <RailsMarkdown text={method.description} parentRailsId={parentRailsId}/>
+          <PropsTable props={method.parameters} parentRailsId={parentRailsId}/>
+        </>)
+      })}
+    </>)
+  } else {
+    return <></>
+  }
+}
+
+function RailsComponentPreviews({previews, showPreviews}) {
+  if (showPreviews && previews.length > 0) {
+    return(<>
+      <H2>Examples</H2>
+      <LookbookEmbed height={300} previews={previews}/>
+    </>)
+  } else {
+    return <></>
+  }
+}
 
 function RailsComponent({data, showPreviews, parentRailsId}) {
-  const {props, slots, methods, previews, railsId} = data
-
-  const renderArguments = (props) => {
-    if (props.length > 0) {
-      return (<>
-        <H2>Arguments</H2>
-        <PropsTable props={props} parentRailsId={parentRailsId}/>
-      </>)
-    }
-  }
-
-  const renderSlots = (slots) => {
-    if (slots.length > 0) {
-      return(<>
-        <H2>Slots</H2>
-        {slots.map( (slot) => {
-          return(<>
-            <H3><InlineCode>{slot.name}</InlineCode></H3>
-            {/* @ts-ignore */}
-            <RailsMarkdown text={slot.description} parentRailsId={parentRailsId}/>
-            <PropsTable props={slot.parameters} parentRailsId={parentRailsId}/>
-          </>)
-        })}
-      </>)
-    }
-  }
-
-  const renderMethods = (methods) => {
-    if (methods.length > 0) {
-      return(<>
-        <H2>Methods</H2>
-        {methods.map( (method) => {
-          return(<>
-            <H3><InlineCode>{method.name}</InlineCode></H3>
-            {/* @ts-ignore */}
-            <RailsMarkdown text={method.description} parentRailsId={parentRailsId}/>
-            <PropsTable props={method.parameters} parentRailsId={parentRailsId}/>
-          </>)
-        })}
-      </>)
-    }
-  }
-
-  const renderPreviews = (previews) => {
-    if (showPreviews && previews.length > 0) {
-      return(<>
-        <H2>Examples</H2>
-        <LookbookEmbed height={300} previews={previews}/>
-      </>)
-    }
-  }
+  const {props, slots, methods, previews} = data
 
   return(<>
-    {renderArguments(props)}
-    {renderSlots(slots)}
-    {renderMethods(methods)}
-    {renderPreviews(previews)}
+    <RailsComponentArguments props={props} parentRailsId={parentRailsId}/>
+    <RailsComponentSlots slots={slots} parentRailsId={parentRailsId}/>
+    <RailsComponentMethods methods={methods} parentRailsId={parentRailsId}/>
+    <RailsComponentPreviews previews={previews} showPreviews={showPreviews}/>
   </>)
 }
 
