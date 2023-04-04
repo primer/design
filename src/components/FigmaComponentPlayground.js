@@ -19,16 +19,56 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
   properties = properties?.filter(prop => ['VARIANT', 'BOOLEAN'].includes(prop.type))
 
   const [previewState, setPreviewState] = React.useState([])
+  const [activeThumbnail, setActiveThumbnail] = React.useState(null)
 
   React.useEffect(() => {
-    // create initial state from default values
     const defaultValues = Object.fromEntries(properties.map(property => [property.name, property.defaultValue]))
-    // set initial state
     setPreviewState(makeNewState({}, defaultValues))
+    setActiveThumbnail(findThumbnail(previewState))
   }, [])
 
   const handleClick = (propertyName, value) => {
-    setPreviewState(makeNewState(previewState, {[propertyName]: value}))
+    const intermiedateState = makeNewState(previewState, {[propertyName]: value})
+    const newThumbnail = findThumbnail(intermiedateState, propertyName, value)
+
+    if (newThumbnail) {
+      const newThumbnailProps = Object.fromEntries(newThumbnail.props)
+
+      if (JSON.stringify(newThumbnailProps) === JSON.stringify(intermiedateState)) {
+        // if the thumbnail props are the same as the intermediate state, set the preview state to the intermediate state
+        setPreviewState(makeNewState(previewState, {[propertyName]: value}))
+      } else {
+        // if the thumbnail props are not the same as the intermediate state, set the preview state to the thumbnail props
+        setPreviewState(makeNewState(intermiedateState, newThumbnailProps))
+      }
+      setActiveThumbnail(newThumbnail)
+    } else {
+      // if no thumbnail is found, set the preview state to the intermediate state (e.g Button)
+      setPreviewState(makeNewState(previewState, intermiedateState))
+      setActiveThumbnail(false)
+    }
+  }
+
+  const findThumbnail = (state, propertyName, value) => {
+    const curPreviewState = Object.entries(state)
+    const thumbnail = thumbnails.find(thumbnail => {
+      const thumbnailProps = Object.fromEntries(thumbnail.props)
+
+      let isActive = curPreviewState.every(([prop, value]) => {
+        return value === thumbnailProps[prop]
+      })
+
+      return isActive
+    })
+
+    if (!thumbnail) {
+      return thumbnails.find(thumbnail => {
+        const thumbnailProps = Object.fromEntries(thumbnail.props)
+        return thumbnailProps[propertyName] === value
+      })
+    } else {
+      return thumbnail
+    }
   }
 
   const booleans = properties.filter(
@@ -40,15 +80,6 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
         property.values.includes('false')),
   )
   const filteredProperties = properties.filter(x => !booleans.includes(x))
-  const curPreviewState = Object.entries(previewState)
-  const thumbnail = thumbnails.find(thumbnail => {
-    const thumbnailProps = Object.fromEntries(thumbnail.props)
-    let isActive = curPreviewState.every(([prop, value]) => {
-      return value === thumbnailProps[prop]
-    })
-
-    return isActive
-  })
 
   return (
     <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '2fr 1fr']} gridGap={5}>
@@ -63,8 +94,8 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
         minHeight="30vh"
       >
         <Box display={'flex'} justifyContent="center">
-          {thumbnail ? (
-            <img width="50%" src={thumbnail.url} alt={' '} />
+          {activeThumbnail ? (
+            <img width="50%" src={activeThumbnail.url} alt={' '} />
           ) : (
             <Text color={'fg.muted'} fontSize={'small'}>
               No preview available
@@ -92,20 +123,15 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
                 size="small"
                 defaultChecked={property.defaultValue === 'true'}
                 aria-labelledby={property.name}
-                onChange={on => handleClick(property.name, on.toString())}
+                checked={previewState[property.name] === 'true'}
+                onClick={() => handleClick(property.name, previewState[property.name] === 'true' ? 'false' : 'true')}
               />
             </Box>
           )
         })}
-        {filteredProperties.map(property => {
+        {filteredProperties.map((property, index) => {
           return (
-            <Box
-              key={property.name}
-              alignItems={'center'}
-              display={'flex'}
-              width="100%"
-              justifyContent={'space-between'}
-            >
+            <Box key={index} alignItems={'center'} display={'flex'} width="100%" justifyContent={'space-between'}>
               <Text fontSize={'small'} fontWeight={'bold'}>
                 {property.name}
               </Text>
