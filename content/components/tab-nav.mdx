@@ -28,12 +28,12 @@ A tab nav is used to organize related content into different views within the sa
 - If a user navigates to a different tab panel, form data should not be automatically saved or submitted. Changes must be explicitly be saved or submitted.
 - Don't nest a tab nav in another tab nav panel.
 - Don't force users to switch between multiple tabs to compare info. Each tab panel should have all of the information a user needs to complete their task.
-- Don't nest buttons or links in a tab.
+- Don't nest buttons or links in a tab. The tab is already a link or button, so it cannot have a child element that is also a link or button.
 
 <img
   width="960"
   role="presentation"
-  src="https://user-images.githubusercontent.com/2313998/228976779-facc65ee-0aba-41f2-a745-47edfcf4908f.png"
+  src="https://user-images.githubusercontent.com/2313998/229872876-07a10e5a-8863-4462-a273-65ed68565175.png"
 />
 
 Tab nav is most often a set of links. When tabs are links, each tab should have a unique URL. However it's ok to treat tabs like buttons, especially when the tab nav appears in a context that cannot be linked to (a non-modal dialog, for example).
@@ -47,7 +47,7 @@ Tab nav is most often a set of links. When tabs are links, each tab should have 
 <img
   width="960"
   role="presentation"
-  src="https://user-images.githubusercontent.com/2313998/228976783-baa08b9f-e1f1-4dd9-95c7-7e9c29f1bcca.png"
+  src="https://user-images.githubusercontent.com/2313998/229872877-fb487f1d-c7ab-4d42-8358-9e77ef0aa330.png"
 />
 
 **Tab list:** A set of links used to switch between views. Each tab should concisely label the view it's associated with.
@@ -59,7 +59,7 @@ Tab nav is most often a set of links. When tabs are links, each tab should have 
 <img
   width="960"
   role="presentation"
-  src="https://user-images.githubusercontent.com/2313998/228976785-ea2666f0-56cf-4f77-ae1c-8917f6cbc54e.png"
+  src="https://user-images.githubusercontent.com/2313998/229872878-1ad42b2f-28ea-43ff-b09f-02f2edf6b536.png"
 />
 
 ### With related content after the tabs
@@ -124,9 +124,9 @@ When a user moves focus into the `tablist` using the Tab key, the active tab sho
 ## Related links
 
 - [Nav list](/components/nav-list)
+- [Underline nav](/components/underline-nav)
 
 <!--
 TODO: add links to these component docs once they're added:
 - CounterLabel
-- UnderlineNav
 -->
