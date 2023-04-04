@@ -60,6 +60,8 @@
           url: /guides/contribute/content
         - title: Documentation
           url: /guides/contribute/documentation
+        - title: Adding new components
+          url: /guides/contribute/adding-new-components
 - title: Foundations
   children:
     - title: Color
