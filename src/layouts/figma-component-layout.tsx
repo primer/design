@@ -189,16 +189,6 @@ export default function FigmaComponentLayout({data}) {
                     <FigmaPropertyPreview thumbnails={thumbnails} property={prop.name} />
                   </div>
                 ))}
-
-                <Link
-                  sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
-                  href={componentUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {title}
-                  <LinkExternalIcon />
-                </Link>
               </>
             )}
           </Box>
