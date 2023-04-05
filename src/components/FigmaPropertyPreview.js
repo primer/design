@@ -1,5 +1,6 @@
 import React from 'react'
 import {Box, Text} from '@primer/react'
+import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 
 const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
   const values = []
@@ -7,7 +8,10 @@ const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
 
   const preparedThumbnails = thumbnails.map(t => ({
     ...t,
-    props: Object.fromEntries(t.props),
+    props: t.props.reduce((acc, prop) => {
+      acc[prop.name] = prop.value
+      return acc
+    }, {}),
   }))
 
   valueLoop: for (const preview of preparedThumbnails) {
@@ -27,16 +31,8 @@ const getPreviewComponents = (thumbnails, property, setProperties = {}) => {
   return previewComponents
 }
 
-export default function FigmaPropertyPreview({
-  thumbnails,
-  property,
-  setProperties = {},
-  column = undefined,
-  hideLabels = false,
-}) {
+export default function FigmaPropertyPreview({thumbnails, property, setProperties = {}}) {
   const previewComponents = getPreviewComponents(thumbnails, property, setProperties)
-  const direction = column === undefined ? 'row' : 'column'
-  const previewItemBoxFlexDirection = 'column'
 
   return (
     <Box
@@ -48,9 +44,9 @@ export default function FigmaPropertyPreview({
       alignItems="stretch"
       justifyContent="center"
       flexWrap="wrap"
-      flexDirection={direction}
+      flexDirection="row"
       sx={{
-        gap: 4,
+        gap: 5,
       }}
     >
       {previewComponents.map(component => {
@@ -59,16 +55,13 @@ export default function FigmaPropertyPreview({
           .join(', ')
 
         return (
-          <Box
-            key={componentName}
-            sx={{display: 'flex', flexDirection: previewItemBoxFlexDirection, alignItems: 'center', gap: 2}}
-          >
-            <Box sx={{flexGrow: '1', alignItems: 'center', justifyContent: 'center', display: 'flex'}}>
+          <Box key={componentName} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2}}>
+            <Box sx={{flexGrow: 1, alignItems: 'center', justifyContent: 'center', display: 'flex'}}>
               <img width="50%" src={component.url} alt={componentName} />
             </Box>
-            {!hideLabels && (
-              <Text sx={{fontSize: '1', color: 'fg.subtle', verticalAlign: 'middle'}}>{component.propertyValue}</Text>
-            )}
+            <Text sx={{fontSize: '1', color: 'fg.subtle', verticalAlign: 'middle'}}>
+              <InlineCode>{component.propertyValue}</InlineCode>
+            </Text>
           </Box>
         )
       })}
