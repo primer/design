@@ -13,18 +13,15 @@ This guidance is intended for GitHub staff members who are introducing design pa
 
 Your component should have:
 
-- Name
-- Description
+- A name
+- A description
 - At least 1 Storybook story
-- No aXe violations
 
 This is the least refined phase of a new component: it just needs to exist. If you've already decided that this is a component worth sharing with other teams, it just needs to be discoverable and pass basic accessibility checks.
 
-<!--
-TODO: uncomment this once we add this documentation
+{/* TODO: uncomment this once we add this documentation
 
-For guidance on what makes a pattern worth sharing, check out the documentation: [Deciding if something is a new pattern]().
--->
+For guidance on what makes a pattern worth sharing, check out the documentation: [Deciding if something is a new pattern](). */}
 
 ### 2. Meets basic design quality checks
 
@@ -48,16 +45,13 @@ Resources for writing documentation:
 
 ### 4. Is accessible
 
-Your component is considered to be accessible once it passes the following reviews from GitHub's a11y team:
+Your component likely meets basic accessibility requirements if it passes axe checks and follows the guidance in the [Product Accessibility Checkpoints](https://github.com/github/accessibility-playbook/blob/main/content/product-lifecycle-checkpoints.mdx) (GitHub staff only) in our accessibility playbook.
 
-- a11y design review focused on the component
-- a11y engineering review focused on the component
-
-New features already undergo accessibility reviews, but reviews for shared patterns zoom in on smaller and more specific pieces of UI. Every new component we add to Primer goes through rigorous testing by the accessibility team, so your component will be better prepared for adopting and releasing in Primer.
+It would be even better if your component has gone through an a11y design review and a a11y engineering review. Every new component we add to Primer goes through rigorous testing by the accessibility team, so your component will be better prepared for adopting and releasing in Primer.
 
 ### 5. Ready to upstream
 
-Now your component has satisfied enough criteria that it's already halfway to being at the “Alpha” maturity status! From here, your team or the Primer maintainers will be in a good position to adopt your component and iterate on it until it reaches the “Alpha” maturity status.
+Now your component has satisfied enough criteria that it's well on it's way to being at the “Alpha” maturity status! From here, your team or the Primer maintainers will be in a good position to adopt your component and iterate on it until it reaches the “Alpha” maturity status.
 
 ## Upstreaming to Primer
 
