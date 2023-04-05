@@ -27,17 +27,16 @@ Signs that your component is a good candidate for sharing:
 - It's codifying a pattern that already exists but hasn't been distilled into one or more components for designers and engineers to use
 - The side effects of adding this component will help us move Primer forward. For example, adding form components forced us to consider the interaction patterns for saving or submitting data
 - I can clearly explain what the component is and how it should be used
-- It does not require app data to function properly
+- It does not request data (like an API call) or have any other side effects that aren't available to all apps in the monolith
+- It does not require specific code dependencies that aren't available to all apps in the monolith
 - It's a new pattern that can be used to replace multiple different components that do the same thing but are slightly different
 - It solves my design problem much better than any existing components, and it's likely to be useful for other teams
 
 Your team is responsible for maintaining the new pattern (unless it gets upstreamed to Primer), but you can always come to Primer for feedback.
 
-<!--
-TODO: uncomment this after the "Adding new components" page has been added
+{/* TODO: uncomment this after the "Adding new components" page has been added
 
-For more information about piloting new components outside of Primer, read the guidance about the [on-ramp from product to Primer](/guides/contribute/adding-new-components#on-ramp-from-product-to-primer).
--->
+For more information about piloting new components outside of Primer, read the guidance about the [on-ramp from product to Primer](/guides/contribute/adding-new-components#on-ramp-from-product-to-primer). */}
 
 ## Adding new components directly to Primer
 
@@ -46,6 +45,7 @@ Primer intentionally has a high barrier to entry. We want our consumers to be co
 Signs that you should add directly to Primer:
 
 - It meets all of the criteria that make it a good candidate for sharing (listed in the previous section)
+- It does not require specific code dependencies that only live within the monolith
 - Taking the time to add this component to Primer won't block more impactful work
 - Somebody from my team can add the component to Primer with minimal help from a Primer maintainer
 - Primer maintainers have agreed that this component belongs in Primer and it can be added it in time to launch with my feature
@@ -53,8 +53,8 @@ Signs that you should add directly to Primer:
 
 If you know your project is going to need support from Primer maintainers, it's best to come to us as early as possible. We can't design or build quality design patterns to unblock you at the last minute.
 
-<!--
-TODO: uncomment this after the "Adding new components" page has been added
 
-For more information about introducing new components to Primer, read the guidance about [upstreaming components](/guides/contribute/adding-new-components#upstreaming-to-primer) and [adding components directly to Primer](/guides/contribute/adding-new-components#adding-components-directly-to-primer)
--->
+{/* TODO: uncomment this after the "Adding new components" page has been added
+
+For more information about introducing new components to Primer, read the guidance about [upstreaming components](/guides/contribute/adding-new-components#upstreaming-to-primer) and [adding components directly to Primer](/guides/contribute/adding-new-components#adding-components-directly-to-primer) */}
+
