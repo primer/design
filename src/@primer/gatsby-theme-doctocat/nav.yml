@@ -108,8 +108,6 @@
           url: /foundations/icons/design-guidelines
 - title: UI patterns
   children:
-    - title: Dates and times
-      url: /ui-patterns/dates-and-times
     - title: Empty states
       url: /ui-patterns/empty-states
     - title: Feature onboarding
@@ -194,6 +192,8 @@
       url: /components/radio
     - title: Radio group
       url: /components/radio-group
+    - title: Relative time
+      url: /components/relative-time
     - title: Select
       url: /components/select
     - title: Select panel
