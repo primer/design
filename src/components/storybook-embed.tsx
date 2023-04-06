@@ -7,6 +7,7 @@ import React from 'react'
 const baseUrls = {
   react: 'https://primer.style/react/storybook',
   css: 'https://primer.style/css/storybook',
+  rails: 'https://primer.style/view-components/lookbook/',
 }
 
 const colorSchemes = Object.keys(theme.colorSchemes)

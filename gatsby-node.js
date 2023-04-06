@@ -28,7 +28,49 @@ exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
 // Source site data and add it to the GraphQL store
 exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   await sourcePrimerReactData({actions, createNodeId, createContentDigest})
+  await sourcePrimerRailsData({actions, createNodeId, createContentDigest})
   await sourceOcticonData({actions, createNodeId, createContentDigest})
+}
+
+async function sourcePrimerRailsData({actions, createNodeId, createContentDigest}) {
+  // Save the current version of PVC to the GraphQL store.
+  // This will be the latest version at the time the site is built.
+  // If a new version is released, we'll need to rebuild the site.
+  const {version} = await fetch('https://rubygems.org/api/v1/versions/primer_view_components/latest.json').then(res => res.json())
+
+  const nodeData = {
+    version,
+  }
+
+  const newNode = {
+    ...nodeData,
+    id: createNodeId('primer-rails-version'),
+    internal: {
+      type: 'PrimerRailsVersion',
+      contentDigest: createContentDigest(nodeData),
+    },
+  }
+
+  actions.createNode(newNode)
+
+  // Save the PVC data to the GraphQL store
+  const url = `https://api.github.com/repos/primer/view_components/contents/static/info_arch.json?ref=main`
+  const argsJson = await fetch(url).then(res => res.json())
+
+  const argsContent = JSON.parse(Buffer.from(argsJson.content, 'base64').toString())
+
+  for (const component of argsContent) {
+    const newNode = {
+      ...component,
+      id: createNodeId(`rails-${component.status}-${component.component}`),
+      internal: {
+        type: 'RailsComponent',
+        contentDigest: createContentDigest(component),
+      },
+    }
+
+    actions.createNode(newNode)
+  }
 }
 
 async function sourcePrimerReactData({actions, createNodeId, createContentDigest}) {
@@ -128,6 +170,7 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
 exports.createPages = async ({actions, graphql}) => {
   await createComponentPages({actions, graphql})
   await createIconPages({actions, graphql})
+  await createSystemArgumentsPage({actions, graphql})
 
   const {data} = await graphql(`
     query {
@@ -175,6 +218,15 @@ exports.createPages = async ({actions, graphql}) => {
     }
   `)
 
+async function createSystemArgumentsPage({actions, _graphql}) {
+  const layout = path.resolve(__dirname, 'src/layouts/system-arguments-layout.tsx')
+
+  actions.createPage({
+    path: `/foundations/system-arguments`,
+    component: layout,
+  })
+}
+
   const components = data.allMdx.nodes
     .filter(node => Boolean(node.frontmatter.title))
     .map(node => {
@@ -204,7 +256,7 @@ async function createComponentPages({actions, graphql}) {
           slug
           frontmatter {
             reactId
-            railsUrl: rails
+            railsId
             figmaUrl: figma
           }
         }
@@ -228,11 +280,12 @@ async function createComponentPages({actions, graphql}) {
       })
     }
 
-    if (frontmatter.railsUrl) {
+    if (frontmatter.railsId) {
       actions.createPage({
         path: `/${slug}/rails`,
         component: railsComponentLayout,
         context: {
+          componentId: frontmatter.railsId,
           parentPath: `/${slug}`,
         },
       })
