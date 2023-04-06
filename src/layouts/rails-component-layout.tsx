@@ -189,9 +189,9 @@ function RailsComponent({data, showPreviews, parentRailsId}) {
 
   return(<>
     <RailsComponentArguments props={props} parentRailsId={parentRailsId}/>
+    <RailsComponentPreviews previews={previews} showPreviews={showPreviews}/>
     <RailsComponentSlots slots={slots} parentRailsId={parentRailsId}/>
     <RailsComponentMethods methods={methods} parentRailsId={parentRailsId}/>
-    <RailsComponentPreviews previews={previews} showPreviews={showPreviews}/>
   </>)
 }
 
@@ -307,16 +307,6 @@ export default function RailsComponentLayout({data}) {
               <StatusLabel status={sentenceCase(status)} />
               <AccessibilityLabel a11yReviewed={a11y_reviewed} short={false} />
             </Box>
-
-            <Link
-              sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
-              href={railsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {name}
-              <LinkExternalIcon />
-            </Link>
 
             <H2>Description</H2>
             <RailsMarkdown text={data.railsComponent.description} parentRailsId={railsId}/>
