@@ -1,6 +1,8 @@
 ---
-title: Dates & Times
-description: These guidelines summarize how to display time in a way that is clear, concise, and accessible.
+title: Relative time
+description: Relative time displays time in a way that is clear, concise, and accessible.
+reactId: relative_time
+componentId: relative_time
 ---
 
 import {Box} from '@primer/react'
@@ -16,6 +18,10 @@ Some dates are especially sensitive and always should be displayed in a [precise
 Some dates and times represent the start or (expected) end of an actively running task, for these the [elapsed or remaining](#elapsed-or-remaining-dates) time should be displayed, as this information is more useful than when a task started. This format should display all units that are greater than zero, for example, "2 minutes, 24 seconds" or "8 hours, 15 seconds". For ephemeral tasks where timing needs to be quickly consumed, or where a lot of times may be displayed together, a compact time notation can be used, for example, "2m 24s" or "8h 15s".
 
 ## Usage
+
+This component does not include any styling. It formats a timestamp as a localized string or as relative text that auto-updates in the user's browser.
+
+## Options
 
 ### Relative dates
 
@@ -161,6 +167,16 @@ For dates which represent the start or (expected) end of a currently running tas
   />
   <Caption>Use elapsed dates to represent the duration of a single or multiple running tasks.</Caption>
 </div>
+
+### Word formatting
+
+By default, the time will be prefixed with "on", but this can be customized.
+
+Weekday names and month names are fully written out by default, but they may be abbreviated.
+
+### Number formatting
+
+Any part of the time can be rendered with or without a leading zero.
 
 ## Accessibility
 
