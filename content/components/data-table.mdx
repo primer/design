@@ -279,13 +279,11 @@ Some strategies for adapting the table for narrow viewports include:
 
 ### Column widths
 
-<!-- TODO: apply a layout -->
-
 #### Grow (default)
 
-Stretch to fill available space, and min width is the width of the widest cell in the column. This is the same behavior as a CSS grid column with the value `minmax(auto, 1fr)`
+Stretch to fill available space, and min width is the width of the widest cell in the column. This is the same behavior as a CSS grid column with the value `minmax(auto, 1fr)`.
 
-May have a min and max width constraint
+May have a min and max width constraint.
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
   <img
@@ -301,22 +299,22 @@ May have a min and max width constraint
   />
 </Box>
 
-#### Shrink
+#### Grow or collapse
 
-Stretch to fill available space in the parent **or shrink** to fit in the available space in the parent
+Stretch to fill available space in the parent **or shrink** to fit in the available space in the parent.
 
-May have a min and max width constraint
+May have a min and max width constraint. Without a min width constraint, the column could collapse to a with of 0px.
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
   <img
     width="456"
     role="presentation"
-    src="https://user-images.githubusercontent.com/2313998/205361223-f9becdb3-64ca-44b2-a350-2d33e2b20b1f.png"
+    src="https://user-images.githubusercontent.com/2313998/231308670-2979a7db-9207-4c7e-a30e-56c0afc15392.png"
   />
   <img
     width="456"
     role="presentation"
-    src="https://user-images.githubusercontent.com/2313998/205361225-fcd06af1-8087-429a-99fe-1cf3c98fa479.png"
+    src="https://user-images.githubusercontent.com/2313998/231308671-fba97361-45f7-4c4b-bf5d-54bf9940fe1b.png"
   />
 </Box>
 
@@ -324,7 +322,7 @@ May have a min and max width constraint
 
 The column is the width of its widest cell. Not intended for use with columns whose content length varies a lot because a layout shift will occur when the content changes.
 
-May have a min and max width constraint
+May have a min and max width constraint.
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
   <img
@@ -341,7 +339,7 @@ May have a min and max width constraint
 
 #### Explicit width
 
-Will be exactly that width and will not grow or shrink to fill the parent
+Will be exactly that width and will not grow or shrink to fill the parent.
 
 <img
   width="456"
@@ -433,7 +431,7 @@ Options:
 
 #### 1 action
 
-Row actions are placed in the last column, and they don't require a visible column header
+Row actions are placed in the last column, and they don't require a visible column header.
 
 </Box>
 
@@ -607,4 +605,4 @@ The table must have a title, and can optionally have a subtitle to describe more
 ## Related components and patterns
 
 - [ActionBar](/components/action-bar)
-- [Pagination (React implementatiopn)](https://primer.style/react/Pagination)
+- [Pagination](/components/pagination)
