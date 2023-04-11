@@ -9,9 +9,9 @@ import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
-import FigmaPropertyTable from '../components/FigmaPropertyTable'
-import FigmaComponentPlayground from '../components/FigmaComponentPlayground'
-import FigmaPropertyPreview from '../components/FigmaPropertyPreview'
+import FigmaPropertyTable from '../components/figma-property-table'
+import FigmaComponentPlayground from '../components/figma-component-playground'
+import FigmaPropertyPreview from '../components/figma-property-preview'
 
 export const query = graphql`
   query FigmaComponentPageQuery($figmaId: String!, $parentPath: String!) {
