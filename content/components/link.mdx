@@ -2,6 +2,7 @@
 title: Link
 description: Links are used to apply styles to hyperlink text.
 reactId: link
+railsId: Primer::Beta::Link
 figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=20953%3A78940&t=wIvqJYawyRBUeGPt-1
 ---
 
@@ -20,7 +21,7 @@ Links should be concise and not exceed more than a few words.
 
 ## Anatomy
 
-The link component can be displayed in default, muted, or blue colors. Links can be underlined, may include a leading visual or trailing visual, and can be either the default or small size. 
+The link component can be displayed in default, muted, or blue colors. Links can be underlined, may include a leading visual or trailing visual, and can be either the default or small size.
 
 <Box
   mb={3}
@@ -33,7 +34,6 @@ The link component can be displayed in default, muted, or blue colors. Links can
     width="400"
     role="presentation"
     src="https://user-images.githubusercontent.com/586552/225489084-4f4357b4-4c47-4a55-8770-76e03b8c500f.png"
-    
   />
   <img
     width="369"
@@ -235,7 +235,7 @@ If you must resort to the ARIA technique to provide a descriptive link text, fol
     <Caption>
       Accessible name fully includes the visible link text, "Learn more" and is well-formed with either label.
     </Caption>
-    <Code className="language-html">{`There are various plans available. 
+    <Code className="language-html">{`There are various plans available.
 <a href="..." aria-label="Learn more about GitHub pricing plans">Learn more</a>`}</Code>
     <br />
   </Do>

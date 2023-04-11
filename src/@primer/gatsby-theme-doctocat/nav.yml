@@ -60,6 +60,8 @@
           url: /guides/contribute/content
         - title: Documentation
           url: /guides/contribute/documentation
+        - title: Adding new components
+          url: /guides/contribute/adding-new-components
 - title: Foundations
   children:
     - title: Color
@@ -106,10 +108,10 @@
           url: /foundations/icons/octovisuals
         - title: Design guidelines
           url: /foundations/icons/design-guidelines
+    - title: System arguments
+      url: /foundations/system-arguments
 - title: UI patterns
   children:
-    - title: Dates and times
-      url: /ui-patterns/dates-and-times
     - title: Empty states
       url: /ui-patterns/empty-states
     - title: Feature onboarding
@@ -154,6 +156,8 @@
       url: /components/checkbox
     - title: Checkbox group
       url: /components/checkbox-group
+    - title: Clipboard copy
+      url: /components/clipboard-copy
     - title: Comment box
       url: /components/comment-box
     - title: Counter label
@@ -172,12 +176,20 @@
       url: /components/form-control
     - title: Heading
       url: /components/heading
+    - title: Label
+      url: /components/label
     - title: Icon
       url: /components/icon
     - title: Icon button
       url: /components/icon-button
+    - title: Image
+      url: /components/image
+    - title: Image crop
+      url: /components/image-crop
     - title: Link
       url: /components/link
+    - title: Markdown
+      url: /components/markdown
     - title: Nav list
       url: /components/nav-list
     - title: Page header
@@ -194,12 +206,22 @@
       url: /components/radio
     - title: Radio group
       url: /components/radio-group
+    - title: Relative time
+      url: /components/relative-time
     - title: Select
       url: /components/select
     - title: Select panel
       url: /components/selectpanel
+    - title: State label
+      url: /components/state-label
+    - title: Subhead
+      url: /components/subhead
+    - title: Tab container
+      url: /components/tab-container
     - title: Tab nav
       url: /components/tab-nav
+    - title: Tab panels
+      url: /components/tab-panels
     - title: Text
       url: /components/text
     - title: Text input
