@@ -60,6 +60,8 @@
           url: /guides/contribute/content
         - title: Documentation
           url: /guides/contribute/documentation
+        - title: Handling new patterns
+          url: /guides/contribute/handling-new-patterns
         - title: Adding new components
           url: /guides/contribute/adding-new-components
 - title: Foundations
