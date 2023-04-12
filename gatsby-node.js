@@ -76,49 +76,6 @@ async function sourcePrimerRailsData({actions, createNodeId, createContentDigest
   }
 }
 
-async function sourcePrimerRailsData({actions, createNodeId, createContentDigest}) {
-  // Save the current version of PVC to the GraphQL store.
-  // This will be the latest version at the time the site is built.
-  // If a new version is released, we'll need to rebuild the site.
-  const {version} = await fetch('https://rubygems.org/api/v1/versions/primer_view_components/latest.json').then(res =>
-    res.json(),
-  )
-
-  const nodeData = {
-    version,
-  }
-
-  const newNode = {
-    ...nodeData,
-    id: createNodeId('primer-rails-version'),
-    internal: {
-      type: 'PrimerRailsVersion',
-      contentDigest: createContentDigest(nodeData),
-    },
-  }
-
-  actions.createNode(newNode)
-
-  // Save the PVC data to the GraphQL store
-  const url = `https://api.github.com/repos/primer/view_components/contents/static/info_arch.json?ref=main`
-  const argsJson = await fetch(url).then(res => res.json())
-
-  const argsContent = JSON.parse(Buffer.from(argsJson.content, 'base64').toString())
-
-  for (const component of argsContent) {
-    const newNode = {
-      ...component,
-      id: createNodeId(`rails-${component.status}-${component.component}`),
-      internal: {
-        type: 'RailsComponent',
-        contentDigest: createContentDigest(component),
-      },
-    }
-
-    actions.createNode(newNode)
-  }
-}
-
 async function sourcePrimerReactData({actions, createNodeId, createContentDigest}) {
   // Save the current version of Primer React to the GraphQL store.
   // This will be the latest version at the time the site is built.
