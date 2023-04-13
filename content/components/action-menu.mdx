@@ -1,7 +1,6 @@
 ---
 title: Action menu
 reactId: action_menu
-figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=17091%3A66640
 description: Action menu is composed of action list and overlay patterns used for quick actions and selections.
 ---
 
@@ -140,7 +139,9 @@ Action menu is used for actions, navigation, to display secondary options, or si
       alt=""
       src="https://user-images.githubusercontent.com/18661030/226486469-677e6998-a700-43d7-8048-2033cb7b3eac.png"
     />
-    <Caption>For complex interactions, use <a href="https://primer.style/react/SelectPanel">SelectPanel</a>.</Caption>
+    <Caption>
+      For complex interactions, use <a href="https://primer.style/react/SelectPanel">SelectPanel</a>.
+    </Caption>
   </Dont>
 </DoDontContainer>
 
@@ -202,9 +203,9 @@ See [focus management](/guides/accessibility/focus-management) for more informat
   />
   <Box as="p" mt="0">
     <h4>Menu mnemonics</h4>
-    When a menu is open, hitting a letter key for the first letter in an item to be selected will move focus to that item. If
-    two items have the same first letter, the first item in the list will be focused first, and hitting the letter key again
-    will focus the next item.
+    When a menu is open, hitting a letter key for the first letter in an item to be selected will move focus to that item.
+    If two items have the same first letter, the first item in the list will be focused first, and hitting the letter key
+    again will focus the next item.
   </Box>
 </Box>
 
@@ -229,8 +230,8 @@ See [focus management](/guides/accessibility/focus-management) for more informat
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>  | Cycle through items starting with current item to next item     |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowLeft</Box>  | Cycle through items starting with current item to previous item |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowRight</Box> | Cycle through items starting with current item to next item     |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Home</Box>       | Move focus to first item                                         |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageUp</Box>     | Move focus to first item                                         |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Home</Box>       | Move focus to first item                                        |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageUp</Box>     | Move focus to first item                                        |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>End</Box>        | Move focus to last item                                         |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageDown</Box>   | Move focus to last item                                         |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Esc</Box>        | Close menu                                                      |

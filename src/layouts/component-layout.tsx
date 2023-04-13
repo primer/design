@@ -9,7 +9,7 @@ import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
 
 export default function ComponentLayout({pageContext, children, path}) {
-  const {title, description, reactId, railsId, figma: figmaUrl} = pageContext.frontmatter
+  const {title, description, reactId, railsId, figmaId} = pageContext.frontmatter
 
   return (
     <BaseLayout title={title} description={description}>
@@ -25,7 +25,7 @@ export default function ComponentLayout({pageContext, children, path}) {
             basePath={path}
             includeReact={reactId}
             includeRails={railsId}
-            includeFigma={figmaUrl}
+            includeFigma={figmaId}
             current="overview"
           />
         </Box>

@@ -30,13 +30,16 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   await sourcePrimerReactData({actions, createNodeId, createContentDigest})
   await sourcePrimerRailsData({actions, createNodeId, createContentDigest})
   await sourceOcticonData({actions, createNodeId, createContentDigest})
+  await sourceFigmaData({actions, createNodeId, createContentDigest})
 }
 
 async function sourcePrimerRailsData({actions, createNodeId, createContentDigest}) {
   // Save the current version of PVC to the GraphQL store.
   // This will be the latest version at the time the site is built.
   // If a new version is released, we'll need to rebuild the site.
-  const {version} = await fetch('https://rubygems.org/api/v1/versions/primer_view_components/latest.json').then(res => res.json())
+  const {version} = await fetch('https://rubygems.org/api/v1/versions/primer_view_components/latest.json').then(res =>
+    res.json(),
+  )
 
   const nodeData = {
     version,
@@ -166,6 +169,49 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
   }
 }
 
+async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
+  // Save the Primer Figma data to the GraphQL store
+  const json = await fetch(
+    `https://raw.githubusercontent.com/primer/figma/main/packages/web/generated/components.json`,
+  ).then(res => res.json())
+
+  const {fileUrl, components} = json
+
+  /**
+   * Add figma components to the GraphQL store
+   */
+  for (const component of components) {
+    const newNode = {
+      ...{...component, figmaId: component.id},
+      // Create unique id for each component and status
+      id: createNodeId(`figma-${component.name}-${component.status}`),
+      internal: {
+        type: 'figmaComponent',
+        contentDigest: createContentDigest({...component, figmaId: component.id}),
+      },
+    }
+    actions.createNode(newNode)
+  }
+
+  /**
+   * Add figma file url to the GraphQL store
+   */
+  const nodeData = {
+    fileUrl,
+  }
+
+  const newNode = {
+    ...nodeData,
+    id: createNodeId('figma-file'),
+    internal: {
+      type: 'FigmaFile',
+      contentDigest: createContentDigest(nodeData),
+    },
+  }
+
+  actions.createNode(newNode)
+}
+
 // Create pages from data in the GraphQL store
 exports.createPages = async ({actions, graphql}) => {
   await createComponentPages({actions, graphql})
@@ -218,14 +264,14 @@ exports.createPages = async ({actions, graphql}) => {
     }
   `)
 
-async function createSystemArgumentsPage({actions, _graphql}) {
-  const layout = path.resolve(__dirname, 'src/layouts/system-arguments-layout.tsx')
+  async function createSystemArgumentsPage({actions, _graphql}) {
+    const layout = path.resolve(__dirname, 'src/layouts/system-arguments-layout.tsx')
 
-  actions.createPage({
-    path: `/foundations/system-arguments`,
-    component: layout,
-  })
-}
+    actions.createPage({
+      path: `/foundations/system-arguments`,
+      component: layout,
+    })
+  }
 
   const components = data.allMdx.nodes
     .filter(node => Boolean(node.frontmatter.title))
@@ -256,8 +302,8 @@ async function createComponentPages({actions, graphql}) {
           slug
           frontmatter {
             reactId
+            figmaId
             railsId
-            figmaUrl: figma
           }
         }
       }
@@ -291,11 +337,12 @@ async function createComponentPages({actions, graphql}) {
       })
     }
 
-    if (frontmatter.figmaUrl) {
+    if (frontmatter.figmaId) {
       actions.createPage({
         path: `/${slug}/figma`,
         component: figmaComponentLayout,
         context: {
+          figmaId: frontmatter.figmaId,
           parentPath: `/${slug}`,
         },
       })
