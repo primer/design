@@ -1,14 +1,15 @@
 ---
 title: Tab nav
-description: Tab nav contains a set of links that let users switch between views in the same context.
+description: Tab nav contains a set of links that let users navigate between different views in the same context.
 reactId: tab_nav
-rails: https://primer.style/view-components/components/alpha/tabnav
+railsId: Primer::Alpha::TabNav
 componentId: tab_nav
 figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=20366-72067&t=kKGC85STU5bcL0zg-4
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {Box} from '@primer/react'
 
 <img
   width="960"
@@ -18,7 +19,9 @@ export default ComponentLayout
 
 ## Usage
 
-A tab nav is used to organize related content into different views within the same context.
+A tab nav lets users navigate between related views in the same context. Each "tab" links to a different view that is shown when a user selects a tab.
+
+A tab nav is always a set of links, and each tab should have a unique URL.
 
 ### Best practices
 
@@ -26,17 +29,9 @@ A tab nav is used to organize related content into different views within the sa
 - Keep tab labels as short as possible - ideally no more than three words.
 - Avoid overwhelming the user with too many tabs. Instead consider a navigation structure like a [nav list](/components/nav-list) that's meant to handle more links.
 - If a user navigates to a different tab panel, form data should not be automatically saved or submitted. Changes must be explicitly be saved or submitted.
-- Don't nest a tab nav in another tab nav panel.
+- Avoid nesting a tab nav within another tab nav view's content.
 - Don't force users to switch between multiple tabs to compare info. Each tab panel should have all of the information a user needs to complete their task.
 - Don't nest buttons or links in the tab title. The tab is already a link or button, so it cannot have a child element that is also a link or button.
-
-<img
-  width="960"
-  role="presentation"
-  src="https://user-images.githubusercontent.com/2313998/229872876-07a10e5a-8863-4462-a273-65ed68565175.png"
-/>
-
-Tab nav is most often a set of links. When tabs are links, each tab should have a unique URL. However it's ok to treat tabs like buttons, especially when the tab nav appears in a context that cannot be linked to (a non-modal dialog, for example).
 
 <!-- TODO: Insert guidance about when to use UnderlineNav instead of TabNav -->
 <!-- TODO: Add info about unread/unsaved tab status once we create the guidelines propsed in https://github.com/github/primer/issues/1886 -->
@@ -46,12 +41,12 @@ Tab nav is most often a set of links. When tabs are links, each tab should have 
 <img
   width="960"
   role="presentation"
-  src="https://user-images.githubusercontent.com/2313998/229872877-fb487f1d-c7ab-4d42-8358-9e77ef0aa330.png"
+  src="https://user-images.githubusercontent.com/2313998/231862815-e28a4a38-dfc9-4b7f-ad12-2a312619fcea.png"
 />
 
-**Tab list:** A set of links used to switch between views. Each tab should concisely label the view it's associated with.
+**Links:** A set of links used to switch between views. Each tab should concisely label the view it's associated with.
 
-**Tab panel:** The view associated with the active tab.
+**View:** The view associated with the active tab.
 
 ## Options
 
@@ -65,11 +60,11 @@ Tab nav is most often a set of links. When tabs are links, each tab should have 
 
 Content or an action may be shown after the tabs as long as it's something that's relevant to the content in all of the tab panels. For example, a diff is shown after the tabs on a pull request.
 
-However, the related content's element(s) cannot be nested in the element that has `role="tablist"`.
+However, the related content's element(s) should be a sibling of the element that wraps the tabs, not a child.
 
 ### Tabs with counts
 
-A count may be shown after the text label if the tab contains enumerable content that would be helpful for users to know without activating the tab.
+A [counter label](/components/counter-label) may be used to show a count after the text label if the tab contains enumerable content that would be helpful for users to know without activating the tab.
 
 ### Tabs with icons
 
@@ -98,34 +93,11 @@ If we assume that the `sr-only` class is used to only hide the element visually,
 
 ### Keyboard navigation
 
-<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
-  <Box flex={1}>
-
-Tabs, like all interactive elements, can be activated using a cursor or keyboard.
-
-When a user moves focus into the `tablist` using the Tab key, the active tab should be focused. A `tablist` is only a single Tab stop.
-
-  </Box>
-  <CustomVideoPlayer
-    width="456"
-    loop
-    src="https://user-images.githubusercontent.com/2313998/228975440-4c6566b9-7192-4f85-ab7d-943ecdfb25e2.mp4"
-  />
-</Box>
-
-| Key(s)                                                                                                                                                         | Description                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Tab</Box>        | Moves focus outside the tablist to the next focusable node.                                          |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>      | Activates the focused tab.                                                                           |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowLeft</Box>  | Moves focus to the previous tab. If a user is focused on the first tab, focus wraps to the last tab. |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowRight</Box> | Moves focus to the next tab. If a user is focused on the last tab, focus wraps to the first tab.     |
+Each link in the tab nav should be a single Tab stop. The arrow keys should not move focus between tabs or activate tabs.
 
 ## Related links
 
 - [Nav list](/components/nav-list)
+- [Tab panels](/components/tab-panels)
 - [Underline nav](/components/underline-nav)
 
-<!--
-TODO: add links to these component docs once they're added:
-- CounterLabel
--->
