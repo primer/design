@@ -23,7 +23,7 @@ export const query = graphql`
           description
           reactId
           figmaId
-          railsUrl: rails
+          railsId
         }
       }
     }
@@ -91,7 +91,7 @@ export default function FigmaComponentLayout({data}) {
           <ComponentPageNav
             basePath={data.sitePage.path}
             includeReact={data.sitePage.context.frontmatter.reactId}
-            includeRails={data.sitePage.context.frontmatter.railsUrl}
+            includeRails={data.sitePage.context.frontmatter.railsId}
             includeFigma={data.sitePage.context.frontmatter.figmaId}
             current="figma"
           />
