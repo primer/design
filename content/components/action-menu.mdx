@@ -8,6 +8,8 @@ import {Box, Button, Heading, Link} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 
+<Note>Multi level is not available yet in the React implementation.</Note>
+
 ## Usage
 
 Action menu is used for actions, navigation, to display secondary options, or single/multi select lists. They appear when users interact with buttons, actions, or other controls.
@@ -19,6 +21,108 @@ Action menu is used for actions, navigation, to display secondary options, or si
   alt="Action menu opened with a label for the trigger (button), overlay (menu), and the internal action list."
   src="https://user-images.githubusercontent.com/18661030/226487158-06c6cc38-65de-438c-8028-373862fa0dfe.png"
 />
+
+## Content
+
+### Alignment
+
+Consistent alignment of icons, titles, and trailing visuals is critical to ensure that the menu is easily scannable. This is especially important when combining single or multi-select items with non-select items.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232518077-da48bcc7-b9f4-4561-a268-452d6590c887.png"
+    />
+    <Caption>
+      When a menu includes a single select or multi select then all the items in the menu should be indented.
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232518089-417184b7-336e-440a-a302-0c1f7c8c4dda.png"
+    />
+    <Caption>Don't create invidiual alignments when your menu contains a single or multi select.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Icons
+
+When designing menus, it is crucial to adhere to the meaning of the icons used. If any item in the menu does not have a corresponding icon, then all items in that menu should be presented without icons.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232503749-7afd631a-5be1-4c77-b069-aae003309b26.png"
+    />
+    <Caption>When one of the items doesn't have an icon then remove icons altogether.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232503364-b8443b7c-0765-471b-8470-f36141b82ea3.png"
+    />
+    <Caption>Don't mix items with or without icons as this makes it harder to read.</Caption>
+  </Dont>
+</DoDontContainer>
+
+Especially when providing single or multi select items that rely on a crossmark icon should be avoided as they could be confused with the item's checkmark.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232508225-59f21afe-1613-4ad0-8088-a8f2f6eb2ba9.png"
+    />
+    <Caption>Avoid the usage of icons if the icon conflicts with the selected states checkmark.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232508233-78d0460d-c891-42be-929d-ff0465313805.png"
+    />
+    <Caption>Don't use crossmark icons for single or multi select items.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Multi-level
+
+A menu with multiple levels is a common UI component used in desktop and mobile applications. It allows users to access nested subitems without cluttering the screen.
+
+<img
+  width="960"
+  alt="Action menu opened with a label for the trigger (button), overlay (menu), and the internal action list."
+  src="https://user-images.githubusercontent.com/980622/232519615-d10c928d-5253-4c54-bc66-7fa1e0f85b08.png"
+/>
+
+It's important to understand that menus can't include additional form elements like inputs. That means if you want to provide filterable data within subitems that you can't rely on this component.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232547220-f669c5ff-a70b-4939-87db-c9340e5176e7.png"
+    />
+    <Caption>If you want to present filterable data do this through a dialog.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232547208-aa63f85b-cc9c-4fd2-8222-c26ac993c0cc.png"
+    />
+    <Caption>Don't add additional form elements inside a menu.</Caption>
+  </Dont>
+</DoDontContainer>
 
 ## Options
 
@@ -213,7 +317,7 @@ See [focus management](/guides/accessibility/focus-management) for more informat
 
 #### Trigger button
 
-| Key                                                                                                                                                            | Description     |
+| Key                                                                                                                                                            | Action          |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>      | Opens the menu. |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Space</Box>      | Opens the menu. |
@@ -224,7 +328,7 @@ See [focus management](/guides/accessibility/focus-management) for more informat
 
 #### Menu items
 
-| Key                                                                                                                                                            | Description                                                     |
+| Key                                                                                                                                                            | Action                                                          |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowUp</Box>    | Cycle through items starting with current item to previous item |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>  | Cycle through items starting with current item to next item     |
