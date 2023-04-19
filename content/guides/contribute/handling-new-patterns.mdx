@@ -51,6 +51,14 @@ Signs that you should add directly to Primer:
 
 If you know your project is going to need support from Primer maintainers, it's best to come to us as early as possible. We can't design or build quality design patterns to unblock you at the last minute.
 
+## Upstreaming components
 
 For more information about introducing new components to Primer, read the guidance about [upstreaming components](/guides/contribute/adding-new-components#upstreaming-to-primer) and [adding components directly to Primer](/guides/contribute/adding-new-components#adding-components-directly-to-primer).
 
+## Process summarized as flowchart
+
+![Flowchart graphic titled, 'I identify a component I want to use'. When you've identified a component you want to use, first check if it's in Primer. If it exists in Primer and fully supports your use-case, use the component from Primer. If it exists in Primer and doesn't fully support your use-case, create a pattern proposal issue requesting that functionality. If the Primer maintainers accept your proposal, either your team or a Primer maintainer will undertake the issue, review it with the accessibility team, and ship a new release with the changes. If your proposal is rejected, you can build the component in the dotcom codebase in the ui/packages folder.
+If Primer does not support your use-case, check if something similar exists in dotcom. If it does, use that component. If it doesn't exist or doesn't fully support your use-case, build something that is generic enough to be reused by other teams in the ui/packages directory of dotcom.
+If your use-case is highly specialized and cannot be made generic enough to be used by other teams, build the component as a one-off pattern that is not intended to be reused.](https://user-images.githubusercontent.com/2313998/232840679-1acd65b0-af12-4402-9f41-fcf3e1031b8c.png)
+
+The "pattern proposal issue" referenced in the flowchart can be found here: [Primer pattern proposal](https://github.com/github/primer/issues/new?assignees=&labels=proposal%2C+needs+triage&template=01-pattern-proposal.md&title=%5BProposal%5D+) (GitHub staff only).
