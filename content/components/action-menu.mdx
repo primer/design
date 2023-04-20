@@ -12,7 +12,26 @@ export default ComponentLayout
 
 ## Usage
 
-Action menu is used for actions, navigation, to display secondary options, or single/multi select lists. They appear when users interact with buttons, actions, or other controls.
+An action menu is a list of items, with each item representing an action, command, or current selection, which can be a single or multi-select.
+
+<img
+  width="960"
+  alt=""
+  src="https://user-images.githubusercontent.com/980622/233374605-cee72894-fc5e-46f4-a1ea-e82aa26084ef.png"
+/>
+
+**There are different ways to use menus, such as:**
+
+- **Button**: Shows items directly related to the current view.
+- **Button (Selection)**: Shows items directly related to the button, with a title prefix, like "Sort by: Title."
+- **Context menu**: Often contains multiple levels and tends to be only available through right clicking items or through [icon buttons](/components/icon-button) that appear on hover.
+
+It's important to note that each menu item should have consistent and limited interactions:
+
+- `enter`, `click` or `tap`: Triggers an action or navigates into a submenu
+- `arrow left`, `arrow up`, `arrow down`, `arrow right`: Navigates the menu
+
+Menus are a commonly used feature across multiple platforms, and both [Apple](https://developer.apple.com/design/human-interface-guidelines/components/menus-and-actions/menus) and [Microsoft](<https://learn.microsoft.com/en-us/previous-versions/windows/desktop/bb226797(v=vs.85)>) have detailed documentation on their menus. To create a pleasant user experience, it's important to follow their expected behavior closely.
 
 ## Anatomy
 
@@ -143,6 +162,27 @@ Leave this space for submenu indicators.
       src="https://user-images.githubusercontent.com/980622/232562567-bb96a0cb-a796-4834-bf91-e3ddff86c312.png"
     />
     <Caption>Don't use trailing visual to communicate selected items in submenus.</Caption>
+  </Dont>
+</DoDontContainer>
+
+On smaller viewports the menu should always be repositioned to fit within the viewport. This could mean that a submenu overlaps it's parent menu.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/233361999-3b5ab994-152d-455e-b9bc-a9170a1951b1.png"
+    />
+    <Caption>Reposition menus to stay within the viewport.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/233361993-cf3e0b21-e584-4780-a0e1-42f03fc4d395.png"
+    />
+    <Caption>Don't position menus off screen.</Caption>
   </Dont>
 </DoDontContainer>
 
