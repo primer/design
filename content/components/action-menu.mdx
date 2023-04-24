@@ -38,7 +38,7 @@ Menus are a commonly used feature across multiple platforms, and both [Apple](ht
 <img
   width="960"
   alt="Action menu opened with a label for the trigger (button), overlay (menu), and the internal action list."
-  src="https://user-images.githubusercontent.com/18661030/226487158-06c6cc38-65de-438c-8028-373862fa0dfe.png"
+  src="https://user-images.githubusercontent.com/980622/234074196-f67bf01e-29b6-4be1-a6fc-47fc532f536b.png"
 />
 
 ## Content
@@ -66,7 +66,7 @@ Action menus can be opened through a [button](/components/button), [icon button]
   </Dont>
 </DoDontContainer>
 
-When using a button the menu can be opened by tapping it or through left clicking it with a mouse. When the focused it can also be opened by hitting `return`, `space` or any `arrow` key.
+When using a button the menu can be opened by clicking or tapping it. When it's focused it can also be opened by hitting `return`, `space` or any `arrow` key.
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
@@ -87,13 +87,8 @@ When using a button the menu can be opened by tapping it or through left clickin
 
 ### Closing
 
-Menus close in multiple scenarios:
-
-- Clicking on a menu item
-- Clicking outside the menu
-- Pressing `Enter` on a menu item
-- Pressing `Esc`
-- Pressing `Tab`
+The menu will close when pressing the `esc` or `tab` key or when pressing `enter` when a item is focused.
+Additionally clicking outside the menu item or clicking on a item will close the menu as well.
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
@@ -135,12 +130,14 @@ Menus close in multiple scenarios:
 
 ### Items
 
+The focus should always remain on a menu item therefore it can't include additional form elements like `button`, `input`, `checkbox`...
+
 <DoDontContainer>
   <Do>
     <img
       width="464"
       alt=""
-      src="https://user-images.githubusercontent.com/18661030/226486465-1616fde7-733c-4cbd-b4f8-24b3b113731c.png"
+      src="https://user-images.githubusercontent.com/980622/234083626-6d8f4def-eccd-429b-b815-81071502a2a7.png"
     />
     <Caption>Use ActionMenu for quick actions.</Caption>
   </Do>
@@ -148,11 +145,32 @@ Menus close in multiple scenarios:
     <img
       width="464"
       alt=""
-      src="https://user-images.githubusercontent.com/18661030/226486469-677e6998-a700-43d7-8048-2033cb7b3eac.png"
+      src="https://user-images.githubusercontent.com/980622/234083619-40ebf8b6-6194-4e66-a7e8-597ee43f9ed8.png"
     />
     <Caption>
-      For complex interactions, use <a href="https://primer.style/react/SelectPanel">SelectPanel</a>.
+      Don't add form controls like a filterable input, use <a href="/components/selectpanel">SelectPanel</a> instead.
     </Caption>
+  </Dont>
+</DoDontContainer>
+
+Even though single or multi selection is possible within a menu the underlying semantics are not form elements.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234080409-c2a50287-c215-48e6-96fa-3fb48c636fc7.png"
+    />
+    <Caption>Use a checkmark icon for selections.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234080401-42a48754-b120-4077-84d1-59cc08f71367.png"
+    />
+    <Caption>Don't use form elements within a menu.</Caption>
   </Dont>
 </DoDontContainer>
 
@@ -165,7 +183,7 @@ Consistent alignment of icons, titles, and trailing visuals is critical to ensur
     <img
       width="464"
       alt=""
-      src="https://user-images.githubusercontent.com/980622/232518077-da48bcc7-b9f4-4561-a268-452d6590c887.png"
+      src="https://user-images.githubusercontent.com/980622/234072131-9d984962-61d4-4590-94db-43aa7135d7d2.png"
     />
     <Caption>
       When a menu includes a single select or multi select then all the items in the menu should be indented.
@@ -308,7 +326,7 @@ On smaller viewports the menu should always be repositioned to fit within the vi
       alt=""
       src="https://user-images.githubusercontent.com/980622/233361999-3b5ab994-152d-455e-b9bc-a9170a1951b1.png"
     />
-    <Caption>Reposition menus to stay within the viewport.</Caption>
+    <Caption>Reposition menus to stay within the viewport, especially on narrow viewports.</Caption>
   </Do>
   <Dont>
     <img
@@ -316,27 +334,9 @@ On smaller viewports the menu should always be repositioned to fit within the vi
       alt=""
       src="https://user-images.githubusercontent.com/980622/233361993-cf3e0b21-e584-4780-a0e1-42f03fc4d395.png"
     />
-    <Caption>Don't position menus off screen.</Caption>
+    <Caption>Don't position menus off screen, especially on narrow viewports.</Caption>
   </Dont>
 </DoDontContainer>
-
-<Box
-  mb={3}
-  display="flex"
-  alignItems="flex-start"
-  flexDirection={['column', 'column', 'column', 'column', 'row']}
-  sx={{gap: 4}}
->
-  <img
-    width="456"
-    alt=""
-    src="https://user-images.githubusercontent.com/18661030/226487827-ad73d646-dfbc-4794-9627-c346bd6fbaa2.png"
-  />
-  <Box as="p" mt="0">
-    <h4>Narrow viewports</h4>
-    For narrow viewports, ActionMenu should remain anchored to its trigger and stay within the bounds of the viewport.
-  </Box>
-</Box>
 
 ## Options
 
