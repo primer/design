@@ -20,7 +20,7 @@ An action menu is a list of items, with each item representing an action, comman
   src="https://user-images.githubusercontent.com/980622/233374605-cee72894-fc5e-46f4-a1ea-e82aa26084ef.png"
 />
 
-**There are different ways to use menus, such as:**
+There are different ways to use menus, such as:
 
 - **Button**: Shows items directly related to the current view.
 - **Button (Selection)**: Shows items directly related to the button, with a title prefix, like "Sort by: Title."
@@ -42,6 +42,119 @@ Menus are a commonly used feature across multiple platforms, and both [Apple](ht
 />
 
 ## Content
+
+### Trigger
+
+Action menus can be opened through a [button](/components/button), [icon button](/components/icon-button) or by right clicking items.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486473-9cf0c64f-5ae6-40a5-bd0f-87d3ed34f90d.png"
+    />
+    <Caption>Use a button to open a menu.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486474-08b75358-bfcb-483d-bba0-25947a71c8de.png"
+    />
+    <Caption>Don’t use a link to open a menu.</Caption>
+  </Dont>
+</DoDontContainer>
+
+When using a button the menu can be opened by tapping it or through left clicking it with a mouse. When the focused it can also be opened by hitting `return`, `space` or any `arrow` key.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/226486479-52730f0f-cc41-41e0-a996-a974899cbc4e.png"
+      alt=""
+    />
+    <Caption>Open by clicking the trigger button with a mouse</Caption>
+  </div>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/226486480-4a807f86-b2b0-4d12-8a43-8cc95d36d995.png"
+      alt=""
+    />
+    <Caption>Open by focusing the trigger button and hitting return, space, or any arrow key</Caption>
+  </div>
+</Box>
+
+### Closing
+
+Menus close in multiple scenarios:
+
+- Clicking on a menu item
+- Clicking outside the menu
+- Pressing `Enter` on a menu item
+- Pressing `Esc`
+- Pressing `Tab`
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/226486482-fc457572-342d-42d3-9da6-fa87ef009cea.png"
+      alt=""
+    />
+    <Caption>
+      Close the menu by clicking on an item, clicking on the trigger, or clicking anywhere outside the menu.
+    </Caption>
+  </div>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/226486483-e3d658ea-4148-47d6-95ed-5ca90cc55b38.png"
+      alt=""
+    />
+    <Caption>Close the menu by hitting enter on an item, esc or tab.</Caption>
+  </div>
+</Box>
+
+#### Single and multi select
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <CustomVideoPlayer
+      width="100%"
+      src="https://user-images.githubusercontent.com/18661030/226487362-b66daa5f-40b3-4f73-908c-19a74cabd435.mp4"
+    />
+    <Caption>Single select menu closes upon selection and may update the button label.</Caption>
+  </div>
+  <div>
+    <CustomVideoPlayer
+      width="100%"
+      src="https://user-images.githubusercontent.com/18661030/226487367-680395c7-1859-40a0-bbfc-53f37a686662.mp4"
+    />
+    <Caption>Multi select menu closes upon selection and can be re-opened to select more options.</Caption>
+  </div>
+</Box>
+
+### Items
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486465-1616fde7-733c-4cbd-b4f8-24b3b113731c.png"
+    />
+    <Caption>Use ActionMenu for quick actions.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486469-677e6998-a700-43d7-8048-2033cb7b3eac.png"
+    />
+    <Caption>
+      For complex interactions, use <a href="https://primer.style/react/SelectPanel">SelectPanel</a>.
+    </Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Alignment
 
@@ -122,7 +235,7 @@ A menu with multiple levels is a common UI component used in desktop and mobile 
   src="https://user-images.githubusercontent.com/980622/232519615-d10c928d-5253-4c54-bc66-7fa1e0f85b08.png"
 />
 
-It's important to understand that menus can't include additional form elements like inputs. That means if you want to provide filterable data within subitems that you can't rely on this component.
+It's important to understand that menus can't include additional form elements like inputs. That means if you want to provide a input that filters the subitems that you can't rely on this component.
 
 <DoDontContainer>
   <Do>
@@ -140,6 +253,27 @@ It's important to understand that menus can't include additional form elements l
       src="https://user-images.githubusercontent.com/980622/232547208-aa63f85b-cc9c-4fd2-8222-c26ac993c0cc.png"
     />
     <Caption>Don't add additional form elements inside a menu.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486470-ee837f56-21ee-4b7b-a4c6-6d4bf63bd115.png"
+    />
+    <Caption>Use ActionMenu for simple selection.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486471-1fd6f434-ecb6-4159-92ee-f2ce8b5b9021.png"
+    />
+    <Caption>
+      Use <a href="https://primer.style/react/SelectPanel">SelectPanel</a> for a filtered search.
+    </Caption>
   </Dont>
 </DoDontContainer>
 
@@ -186,90 +320,6 @@ On smaller viewports the menu should always be repositioned to fit within the vi
   </Dont>
 </DoDontContainer>
 
-## Options
-
-<img
-  src="https://user-images.githubusercontent.com/18661030/226486461-c43f75c5-d9ed-415f-907c-9d2dbf71e3a2.png"
-  width="960"
-  alt=""
-/>
-<Caption>
-  The trigger button can be a standard or icon button. For single select menus that display the selection in the
-  trigger, a label must be persist either internally or externally.
-</Caption>
-
-<img
-  src="https://user-images.githubusercontent.com/18661030/226486463-893231bb-8f57-4255-83a4-7d468b2be5ed.png"
-  width="960"
-  alt=""
-/>
-<Caption>Menus can contain simple actions and links, single select items, or multi select items.</Caption>
-
-## Behavior
-
-### Opening
-
-<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-  <div>
-    <img
-      src="https://user-images.githubusercontent.com/18661030/226486479-52730f0f-cc41-41e0-a996-a974899cbc4e.png"
-      alt=""
-    />
-    <Caption>Open by clicking the trigger button with a mouse</Caption>
-  </div>
-  <div>
-    <img
-      src="https://user-images.githubusercontent.com/18661030/226486480-4a807f86-b2b0-4d12-8a43-8cc95d36d995.png"
-      alt=""
-    />
-    <Caption>Open by focusing the trigger button and hitting return, space, or any arrow key</Caption>
-  </div>
-</Box>
-
-### Closing
-
-#### Default behavior
-
-<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-  <div>
-    <img
-      src="https://user-images.githubusercontent.com/18661030/226486482-fc457572-342d-42d3-9da6-fa87ef009cea.png"
-      alt=""
-    />
-    <Caption>
-      Close the menu by clicking on an item, clicking on the trigger, or clicking anywhere outside the menu.
-    </Caption>
-  </div>
-  <div>
-    <img
-      src="https://user-images.githubusercontent.com/18661030/226486483-e3d658ea-4148-47d6-95ed-5ca90cc55b38.png"
-      alt=""
-    />
-    <Caption>Close the menu by hitting enter on an item, or esc.</Caption>
-  </div>
-</Box>
-
-#### Single and multi select
-
-<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-  <div>
-    <CustomVideoPlayer
-      width="100%"
-      src="https://user-images.githubusercontent.com/18661030/226487362-b66daa5f-40b3-4f73-908c-19a74cabd435.mp4"
-    />
-    <Caption>Single select menu closes upon selection and may update the button label.</Caption>
-  </div>
-  <div>
-    <CustomVideoPlayer
-      width="100%"
-      src="https://user-images.githubusercontent.com/18661030/226487367-680395c7-1859-40a0-bbfc-53f37a686662.mp4"
-    />
-    <Caption>Multi select menu closes upon selection and can be re-opened to select more options.</Caption>
-  </div>
-</Box>
-
-### Responsive
-
 <Box
   mb={3}
   display="flex"
@@ -288,68 +338,24 @@ On smaller viewports the menu should always be repositioned to fit within the vi
   </Box>
 </Box>
 
-## Best practices
+## Options
 
-<DoDontContainer>
-  <Do>
-    <img
-      width="464"
-      alt=""
-      src="https://user-images.githubusercontent.com/18661030/226486465-1616fde7-733c-4cbd-b4f8-24b3b113731c.png"
-    />
-    <Caption>Use ActionMenu for quick actions.</Caption>
-  </Do>
-  <Dont>
-    <img
-      width="464"
-      alt=""
-      src="https://user-images.githubusercontent.com/18661030/226486469-677e6998-a700-43d7-8048-2033cb7b3eac.png"
-    />
-    <Caption>
-      For complex interactions, use <a href="https://primer.style/react/SelectPanel">SelectPanel</a>.
-    </Caption>
-  </Dont>
-</DoDontContainer>
+<img
+  src="https://user-images.githubusercontent.com/18661030/226486461-c43f75c5-d9ed-415f-907c-9d2dbf71e3a2.png"
+  width="960"
+  alt=""
+/>
+<Caption>
+  The trigger button can be a standard or icon button. For single select menus that display the selection in the
+  trigger, a label must be persist either internally or externally.
+</Caption>
 
-<DoDontContainer>
-  <Do>
-    <img
-      width="464"
-      alt=""
-      src="https://user-images.githubusercontent.com/18661030/226486470-ee837f56-21ee-4b7b-a4c6-6d4bf63bd115.png"
-    />
-    <Caption>Use ActionMenu for simple selection.</Caption>
-  </Do>
-  <Dont>
-    <img
-      width="464"
-      alt=""
-      src="https://user-images.githubusercontent.com/18661030/226486471-1fd6f434-ecb6-4159-92ee-f2ce8b5b9021.png"
-    />
-    <Caption>
-      Use <a href="https://primer.style/react/SelectPanel">SelectPanel</a> for a filtered search.
-    </Caption>
-  </Dont>
-</DoDontContainer>
-
-<DoDontContainer>
-  <Do>
-    <img
-      width="464"
-      alt=""
-      src="https://user-images.githubusercontent.com/18661030/226486473-9cf0c64f-5ae6-40a5-bd0f-87d3ed34f90d.png"
-    />
-    <Caption>Use a button to open a menu.</Caption>
-  </Do>
-  <Dont>
-    <img
-      width="464"
-      alt=""
-      src="https://user-images.githubusercontent.com/18661030/226486474-08b75358-bfcb-483d-bba0-25947a71c8de.png"
-    />
-    <Caption>Don’t use a link to open a menu.</Caption>
-  </Dont>
-</DoDontContainer>
+<img
+  src="https://user-images.githubusercontent.com/18661030/226486463-893231bb-8f57-4255-83a4-7d468b2be5ed.png"
+  width="960"
+  alt=""
+/>
+<Caption>Menus can contain simple actions and links, single select items, or multi select items.</Caption>
 
 ## Accessibility
 
