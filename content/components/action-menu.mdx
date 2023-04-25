@@ -8,7 +8,7 @@ import {Box, Button, Heading, Link} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 
-<Note>Multi level is not available yet in the React implementation.</Note>
+<Note>Multi level is not available yet in the React or Rails implementation.</Note>
 
 ## Usage
 
@@ -130,7 +130,7 @@ Additionally clicking outside the menu item or clicking on a item will close the
 
 ### Items
 
-The focus should always remain on a menu item therefore it can't include additional form elements like `button`, `input`, `checkbox`...
+The focus should always remain on menu items, and the menu shouldn't include additional form elements like `button`, `input`, or `checkbox`.
 
 <DoDontContainer>
   <Do>
@@ -153,7 +153,7 @@ The focus should always remain on a menu item therefore it can't include additio
   </Dont>
 </DoDontContainer>
 
-Even though single or multi selection is possible within a menu the underlying semantics are not form elements.
+While single and multi selection is offered within a menu, the underlying semantics are not true form elements.
 
 <DoDontContainer>
   <Do>
@@ -295,7 +295,7 @@ Since you can't include form elements within a menu that also means that you can
   </Dont>
 </DoDontContainer>
 
-When using submenus don't use the trailing visual to communicate selected values within their submenu.
+When using submenus, don't use the trailing visual to communicate selected values within its submenu.
 Leave this space for submenu indicators.
 
 <DoDontContainer>
@@ -317,7 +317,7 @@ Leave this space for submenu indicators.
   </Dont>
 </DoDontContainer>
 
-On smaller viewports the menu should always be repositioned to fit within the viewport. This could mean that a submenu overlaps it's parent menu.
+On smaller viewports, the menu should always be re-positioned to fit within the viewport. This could mean that a submenu overlaps it's parent menu.
 
 <DoDontContainer>
   <Do>
