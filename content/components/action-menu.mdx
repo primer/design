@@ -12,7 +12,7 @@ export default ComponentLayout
 
 ## Usage
 
-An action menu is a list of items, with each item representing an action, command, or current selection, which can be a single or multi-select.
+An action menu comprises a set of [action list](/components/action-list) items, where each item represents an action, command, submenu, or the current selection that can be either a single or multi-select. The action menu can be invoked by clicking on a [button](/components/button), [icon button](/components/icon-button), or right-clicking on the list items.
 
 <img
   width="960"
@@ -20,16 +20,20 @@ An action menu is a list of items, with each item representing an action, comman
   src="https://user-images.githubusercontent.com/980622/233374605-cee72894-fc5e-46f4-a1ea-e82aa26084ef.png"
 />
 
-There are different entry points to menus:
+The action menu is an extremely versatile component that is not restricted to a single type of action list items at a time. It can be used to create a combination of single select, multi-select, commands, and submenus.
 
-- **Icon button**: Shows items directly related to the current view.
-- **Button (selection)**: Shows items directly related to the button, with a title prefix, like "Sort by: Title."
-- **Right clicking list items (context menu)**: Shows items directly related to the right clicked item. For accessibility this is often also provided through an [icon button](/components/icon-button).
+By using dividers and section titles, a hierarchy can be established within the action menu, making it easier to navigate and understand. This allows users to quickly find and access the actions they need, while also providing a clear and organized structure to the menu.
 
-It's important to note that each menu item should have consistent and limited interactions:
+<img
+  src="https://user-images.githubusercontent.com/980622/234111244-aa3e9e6c-5ec4-4dbb-b0e9-fc11e97f6eba.png"
+  width="960"
+  alt=""
+/>
 
-- `enter`, `click` or `tap`: Triggers an action or navigates into a submenu
-- `arrow left`, `arrow up`, `arrow down`, `arrow right`: Navigates the menu
+As the action menu is a highly adaptable component, it's crucial to keep the interactions with individual items limited. The following interactions are recommended:
+
+- `enter`, `click`, or `tap`: These actions trigger an action or navigate into a submenu, based on the selected item.
+- `arrow left`, `arrow up`, `arrow down`, `arrow right`: These actions can be used to navigate the menu, allowing the user to move between items and submenus with ease.
 
 Menus are a commonly used feature across multiple platforms, and both [Apple](https://developer.apple.com/design/human-interface-guidelines/components/menus-and-actions/menus) and [Microsoft](<https://learn.microsoft.com/en-us/previous-versions/windows/desktop/bb226797(v=vs.85)>) have detailed documentation on their menus. To create a pleasant user experience, it's important to follow their expected behavior closely.
 
@@ -340,22 +344,33 @@ On smaller viewports, the menu should always be re-positioned to fit within the 
 
 ## Options
 
+### Trigger
+
 <img
-  src="https://user-images.githubusercontent.com/18661030/226486461-c43f75c5-d9ed-415f-907c-9d2dbf71e3a2.png"
+  src="https://user-images.githubusercontent.com/980622/234255983-8db23940-e60f-408a-a697-c9846ae4334b.png"
   width="960"
   alt=""
 />
 <Caption>
-  The trigger button can be a standard or icon button. For single select menus that display the selection in the
-  trigger, a label must be persist either internally or externally.
+  Menus can be triggered through a button, icon button or right clicking list items. For simple select menus that
+  display the selection in a button, a label must be persist either internally or externally.
 </Caption>
 
+### Items
+
 <img
-  src="https://user-images.githubusercontent.com/980622/234111244-aa3e9e6c-5ec4-4dbb-b0e9-fc11e97f6eba.png"
+  src="https://user-images.githubusercontent.com/980622/234249718-84155711-6b31-4529-bf27-63f99c964957.png"
   width="960"
   alt=""
 />
-<Caption>Menus can contain simple actions, links, single select items, multi select items or toggles.</Caption>
+
+Here is an overview of [action list](/components/action-menu) items that are compatible with menus:
+
+- **Action**: Triggers an action or dialog. Trailing visuals can be used for keyboard shortcuts.
+- **Single/multi select**: Represented by a [check](/design/foundations/icons/check-16) and never a HTML checkbox. Trailing visuals can be used for keyboard shortcuts.
+- **Submenu**: Represented by a [chevron-right](/design/foundations/icons/chevron-right-16) as a trailing visual.
+- **Section header**: To add clarification to a section.
+- **Divider**: To create sections for your selections, actions or submenus.
 
 ## Accessibility
 
