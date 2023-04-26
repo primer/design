@@ -3,7 +3,7 @@ title: Typography
 description: Text sizes, weights and font families used across GitHub.
 ---
 
-<Note>The following typographic styles are not fully integrated into Primer components or CSS utilities</Note>
+<Note>The following typographic styles are not yet fully integrated into Primer components or CSS utilities</Note>
 
 ## Typographic styles
 
@@ -13,7 +13,7 @@ Typography design tokens use `rem` units for a more [accessible](https://www.w3.
 
 <StorybookEmbed
   baseUrl="https://primer.style/primitives/storybook/"
-  stories={[{id: 'typography-functional--font-shorthand'}]}
+  stories={[{id: 'typography-functional--overview'}]}
   height="660"
 />
 
@@ -71,5 +71,71 @@ Each font stack uses system fonts, which are optimized for performance.
   stories={[{id: 'typography-functional--font-family'}]}
   height="360"
 />
+
+## Best practices
+
+### Hierarchy
+
+When establishing hierarchy for GitHub products, designers should remember that we stress efficient, clean reading experiences for our users. Be sure to utilize Primer’s [typography scale](https://primer.style/css/utilities/typography) and [typography utilities](https://primer.style/css/utilities/typography) when doing so. Refrain from utilizing color as a primary method of emphasis.
+
+### Readability
+
+- **Line height**—Refer to our typography scale when structuring line height. Generally, our products should follow this scale without issues.
+
+- **Line length**—It's considered a good practice to keep lines around 80 characters or less—[W3 Page Structure Guidelines](https://www.w3.org/WAI/tutorials/page-structure/styling/). Cases vary depending on the situation, but this serves as a general rule of thumb for designing layouts.
+
+- **Type alignment**—Our content is typically left-aligned and ragged right. Be sensible in deviating from this standard, as justifying, centering, and right-aligning text is atypical of GitHub products.
+
+- **Font weight**—Adjust font weight to add emphasis and differentiate content hierarchy.
+
+- **Letter spacing**—Please refrain from altering letter-spacing on our products. There may be rare scenarios in which this is acceptable, but generally speaking, this should be avoided altogether.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700255-95b40748-a02a-4829-a373-aadc587e843d.png"
+      role="presentation"
+      width="456"
+      alt="A button with text in all caps"
+    />
+    <Caption>Use weight CSS variables to set font-weight</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700255-95b40748-a02a-4829-a373-aadc587e843d.png"
+      role="presentation"
+      width="456"
+      alt="A button with text in all caps"
+    />
+    <Caption>Don't use arbitrary weight number values for font-weight</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700255-95b40748-a02a-4829-a373-aadc587e843d.png"
+      role="presentation"
+      width="456"
+      alt="A button with text in all caps"
+    />
+    <Caption>Use semantic title markup combined with styles</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700255-95b40748-a02a-4829-a373-aadc587e843d.png"
+      role="presentation"
+      width="456"
+      alt="A button with text in all caps"
+    />
+    <Caption>Don’t adjust semantic heading tag order to achieve a specific visual design</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Related components
+
+- [Heading](/components/heading)
+- [PageHeader](/components/page-header)
+- [Text](/components/text)
 
 export const meta = {displayName: 'Typography'}
