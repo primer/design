@@ -8,7 +8,7 @@ import {Box, Button, Heading, Link} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 
-<Note>Multi level is not available yet in the React or Rails implementation.</Note>
+<Note>Submenus are not available yet in the React or Rails implementation.</Note>
 
 ## Usage
 
@@ -49,7 +49,7 @@ Menus are a commonly used feature across multiple platforms, and both [Apple](ht
 
 ### Open
 
-Action menus can be opened through a [button](/components/button), [icon button](/components/icon-button) or by right clicking list items.
+Action menus can be opened through a [button](/components/button), [icon button](/components/icon-button) or by right clicking list items that have a custom context menu associated with them.
 
 <DoDontContainer>
   <Do>
@@ -303,7 +303,7 @@ A menu with multiple levels is a common UI component used in desktop and mobile 
   src="https://user-images.githubusercontent.com/980622/232519615-d10c928d-5253-4c54-bc66-7fa1e0f85b08.png"
 />
 
-It's important to understand that menus can't include additional form elements like inputs. That means if you want to provide a input that filters the subitems that you can't rely on this component.
+It's important to understand that menus can't include additional form elements like inputs. That means if you want to provide a input that filters the subitems that you can't rely on this component. Alternatively, you can use a [select panel](/components/selectpanel) or open a [dialog](/components/dialog) instead of a submenu.
 
 <DoDontContainer>
   <Do>
@@ -312,7 +312,7 @@ It's important to understand that menus can't include additional form elements l
       alt=""
       src="https://user-images.githubusercontent.com/980622/232558685-0874d0dd-6d58-42d6-a19b-be19cdf32cf8.png"
     />
-    <Caption>If you want to present filterable data do this through a dialog.</Caption>
+    <Caption>If you want to present filterable data open a dialog instead of a submenu.</Caption>
   </Do>
   <Dont>
     <img
@@ -320,7 +320,7 @@ It's important to understand that menus can't include additional form elements l
       alt=""
       src="https://user-images.githubusercontent.com/980622/232547208-aa63f85b-cc9c-4fd2-8222-c26ac993c0cc.png"
     />
-    <Caption>Don't add additional form elements inside a menu.</Caption>
+    <Caption>Don't use form elements inside a menu.</Caption>
   </Dont>
 </DoDontContainer>
 
