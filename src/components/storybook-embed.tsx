@@ -17,6 +17,7 @@ type StorybookEmbedProps = {
   baseUrl?: string
   stories: Array<{id: string; code?: string}>
   height?: string | number
+  hideFrame?: boolean
 }
 
 export function StorybookEmbed({
@@ -24,6 +25,7 @@ export function StorybookEmbed({
   baseUrl = baseUrls[framework || ''],
   stories,
   height = 250,
+  hideFrame = false,
 }: StorybookEmbedProps) {
   const [selectedColorScheme, setSelectedColorScheme] = React.useState(colorSchemes[0])
   const [selectedStory, setSelectedStory] = React.useState(stories[0])
@@ -44,34 +46,44 @@ export function StorybookEmbed({
     iframeRef.current?.contentWindow?.location.replace(iframeUrl)
   }, [iframeUrl])
 
+  const headerStyles = {
+    borderColor: 'border.default',
+    borderStyle: 'solid',
+    borderWidth: 0,
+    borderBottomWidth: 1,
+    backgroundColor: 'canvas.inset',
+    padding: 2,
+  }
+
+  const frameStyles = {
+    borderColor: 'border.default',
+    borderStyle: 'solid',
+    borderWidth: 1,
+  }
+
   return (
     // @ts-ignore
     <ThemeProvider>
       <Box
+        {...(hideFrame ? undefined : frameStyles)}
+        borderRadius={2}
+        marginBottom={3}
+        display="flex"
+        flexDirection={'column'}
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          mb: 3,
-          borderRadius: 2,
-          borderColor: 'border.default',
-          borderStyle: 'solid',
-          borderWidth: 1,
           overflow: 'hidden',
         }}
       >
         <Box
-          backgroundColor={'canvas.inset'}
-          borderColor={'border.default'}
-          borderStyle="solid"
-          borderWidth={0}
-          borderBottomWidth={1}
+          {...(hideFrame ? undefined : headerStyles)}
           display="flex"
           alignItems="center"
           marginBottom={0}
-          padding={2}
+          paddingTop={2}
+          paddingBottom={2}
+          justifyContent={'space-between'}
           sx={{
             gap: 3,
-            justifyContent: 'space-between',
             overflow: 'auto',
           }}
         >
@@ -140,7 +152,7 @@ export function StorybookEmbed({
         </Box>
         <Box
           as="iframe"
-          sx={{border: 0, margin: 0}}
+          sx={{border: 0, margin: 0, hideFrame: {borderTopLeftRadius: 2, borderTopRightRadius: 2}}}
           ref={iframeRef}
           title="storybook-preview"
           id="storybook-preview-iframe"
