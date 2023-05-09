@@ -239,6 +239,8 @@ If a tree view is truly the best pattern for your use-case and none of the sugge
 
 A tree view solves a very specific problem. It's not a multi-purpose tool like an [action list](/action-list) or meant for site navigation.
 
+Tree views are used to communicate a hierarchical list of items, and allow a user to navigate through, select, and take action on one or more items. A comparable expereince would be a list of files in a code editor, or an operating system file explorer. While they may visually look like navigation, tree views have specific interaction modes and expectations for assistive technology that differs from other patterns. Trying to use a tree view for something that looks visually apprpriate, but is not functionally inline with its intended use case may cause confusion or an unusable experience, especially if the user cannot see the screen.
+
 <Text as="p" m={0}>
   Before reaching for a tree view, first make sure that:
 </Text>
@@ -490,6 +492,10 @@ Be considerate of the amount of vertical space a tree view can take up when all 
 </DoDontContainer>
 
 ## Accessibility
+
+### Behavioral expectations
+
+The TreeView replicates the experience of an operating system's file explorer capabilities. It is designed to allow a user to navigate and take action on groups of items listed in a hierarchical format. This is a different experience than website navigation, which has a different mental model, operational requirements, and usability expectations.
 
 ### Label
 
