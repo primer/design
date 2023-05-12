@@ -14,7 +14,6 @@ import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
 import {LookbookEmbed} from '../components/lookbook-embed'
 import RailsMarkdown from '../components/rails-markdown'
-import { LinkExternalIcon } from '@primer/octicons-react'
 
 export const query = graphql`
   query RailsComponentPageQuery($componentId: String!, $parentPath: String!) {
