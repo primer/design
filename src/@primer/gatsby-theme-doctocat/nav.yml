@@ -120,6 +120,8 @@
       url: /ui-patterns/feature-onboarding
     - title: Forms
       url: /ui-patterns/forms
+    - title: Forms in Rails
+      url: /ui-patterns/rails-forms
     - title: Messaging
       url: /ui-patterns/messaging
     - title: Progressive disclosure
