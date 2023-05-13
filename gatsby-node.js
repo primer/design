@@ -57,7 +57,7 @@ async function sourcePrimerRailsData({actions, createNodeId, createContentDigest
   actions.createNode(newNode)
 
   // Save the PVC data to the GraphQL store
-  const url = `https://api.github.com/repos/primer/view_components/contents/static/info_arch.json?ref=info_arch_moar_attributes`
+  const url = `https://api.github.com/repos/primer/view_components/contents/static/info_arch.json?ref=main`
   const argsJson = await fetch(url).then(res => res.json())
 
   const argsContent = JSON.parse(Buffer.from(argsJson.content, 'base64').toString())
