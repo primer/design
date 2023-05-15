@@ -322,9 +322,9 @@ export default function RailsComponentLayout({data}) {
             </Box>
 
             {/* @ts-ignore */}
-            {is_form_component && <Note variant="warning">
+            {is_form_component && <Note>
               <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Forms framework</Text>
-              The <InlineCode>{name}</InlineCode> component is part of the <Link href="/ui-patterns/rails-forms">Primer forms framework</Link>.
+              The <InlineCode>{name}</InlineCode> component is part of the <Link href="/ui-patterns/forms/rails">Primer forms framework</Link>.
               If you're building a form, please consider using the framework instead of this standalone component.
             </Note>}
 

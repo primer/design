@@ -1,0 +1,191 @@
+---
+title: Forms in React
+current_page: react
+---
+
+import {Box, Heading} from '@primer/react'
+import FormsLayout from '~/src/layouts/forms-layout'
+export default FormsLayout
+
+<Box
+  mb={4}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    width="456"
+    role="presentation"
+    src="https://user-images.githubusercontent.com/293280/123881067-cdbaea00-d8f8-11eb-98e4-e57c64489308.png"
+  />
+  <div>
+    <Heading sx={{fontSize: 3}}>Action menu with selection</Heading>
+    <p>
+      If the parent form control provides sufficient visual context, you may visually hide the label. However, you must
+      specify text for a visually hidden label that is accessible to screen readers.
+    </p>
+    <a href="https://primer.style/react/ActionMenu#with-selection">Primer React implementation</a>
+  </div>
+</Box>
+
+<Box
+  mb={4}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/170268364-021748a9-f304-4626-8ff2-3a71a5bcbd6b.png"
+  />
+  <div>
+    <Heading sx={{fontSize: 3}}>Autocomplete</Heading>
+    <p>
+      An autocomplete input renders a text input that allows a user to quickly filter through a list of options to pick
+      one or more values.
+    </p>
+    <Box display="flex" sx={{gap: 3}}>
+      <a href="../components/autocomplete">Interface guidelines</a>
+      <span aria-hidden="true">|</span>
+      <a href="https://primer.style/react/Autocomplete">Primer React implementation</a>
+    </Box>
+  </div>
+</Box>
+
+<Box
+  mb={4}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/170268367-51ee68d4-8121-4f49-b995-86755a381d6c.png"
+  />
+  <div>
+    <Heading sx={{fontSize: 3}}>Checkbox group</Heading>
+    <p>A set of checkboxes to let users make one or more selections from a short list of options</p>
+    <Box display="flex" sx={{gap: 3}}>
+      <a href="../components/checkbox-group">Interface guidelines</a>
+      <span aria-hidden="true">|</span>
+      <a href="https://primer.style/react/CheckboxGroup">Primer React implementation</a>
+    </Box>
+  </div>
+</Box>
+
+<Box
+  mb={4}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/170268368-5daef93f-b7d3-4863-938a-9c777c609ee4.png"
+  />
+  <div>
+    <Heading sx={{fontSize: 3}}>Form control</Heading>
+    <p>A form control renders a labelled input and, optionally, associated validation text and/or hint text.</p>
+    <Box display="flex" sx={{gap: 3}}>
+      <a href="../components/form-control">Interface guidelines</a>
+      <span aria-hidden="true">|</span>
+      <a href="https://primer.style/react/FormControl">Primer React implementation</a>
+    </Box>
+  </div>
+</Box>
+
+<Box
+  mb={4}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/170268369-b9885114-90f0-4bae-863e-ca3ed37aa67d.png"
+  />
+  <div>
+    <Heading sx={{fontSize: 3}}>Radio group</Heading>
+    <p>A set of radio inputs to let users make a single selection from a short list of options</p>
+    <Box display="flex" sx={{gap: 3}}>
+      <a href="../components/radio-group">Interface guidelines</a>
+      <span aria-hidden="true">|</span>
+      <a href="https://primer.style/react/RadioGroup">Primer React implementation</a>
+    </Box>
+  </div>
+</Box>
+
+<Box
+  mb={4}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/170268372-be76e525-7337-4739-afd0-7e4a12037731.png"
+  />
+  <div>
+    <Heading sx={{fontSize: 3}}>Select dropdown</Heading>
+    <p>A select input may be used when a user needs to select one option from a long list</p>
+    <a href="https://primer.style/react/Select">Primer React implementation</a>
+  </div>
+</Box>
+
+<Box
+  mb={4}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/170268373-463d55fa-ead8-4471-91f2-2bec2456f385.png"
+  />
+  <div>
+    <Heading sx={{fontSize: 3}} id="textarea">
+      Textarea
+    </Heading>
+    <p>A text area is used to put multiple lines of text in an input</p>
+    <a href="https://primer.style/react/Textarea">Primer React implementation</a>
+  </div>
+</Box>
+
+<Box
+  mb={4}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    role="presentation"
+    width="456"
+    src="https://user-images.githubusercontent.com/2313998/170268374-7d701912-5f6c-45ce-832f-e7c3b1d3c476.png"
+  />
+  <div>
+    <Heading sx={{fontSize: 3}}>Text input</Heading>
+    <p>
+      A text input is used to set a value that is a single line of text. See the list of{' '}
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types">types in the MDN docs</a>.
+    </p>
+    <Box display="flex" sx={{gap: 3}}>
+      <a href="../components/text-input">Interface guidelines</a>
+      <span aria-hidden="true">|</span>
+      <a href="https://primer.style/react/TextInput">Primer React implementation</a>
+    </Box>
+  </div>
+</Box>
