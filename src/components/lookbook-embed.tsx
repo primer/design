@@ -30,10 +30,10 @@ export function LookbookEmbed({previews, height = 250}: LookbookEmbedProps) {
   const [selectedPreview, setSelectedPreview] = React.useState(previews[0])
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const iframeUrl = `${baseUrl}${selectedPreview.preview_path}?${new URLSearchParams({
-    _display: `theme:${selectedColorScheme.id}`,
+    _display: JSON.stringify({theme: selectedColorScheme.id}),
   })}`
   const inspectUrl = `${baseUrl}${selectedPreview.inspect_path}?${new URLSearchParams({
-    _display: `theme:${selectedColorScheme.id}`,
+    _display: JSON.stringify({'theme': selectedColorScheme.id}),
   })}`
 
   // Prevent iframe from affecting browser history
