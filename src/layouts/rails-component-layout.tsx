@@ -5,7 +5,6 @@ import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
-import {LinkExternalIcon} from '@primer/octicons-react'
 import {Box, Heading, Label, Link, Text} from '@primer/react'
 import {sentenceCase} from 'change-case'
 import {graphql} from 'gatsby'
@@ -14,6 +13,7 @@ import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
 import {LookbookEmbed} from '../components/lookbook-embed'
 import RailsMarkdown from '../components/rails-markdown'
+import {LinkExternalIcon} from '@primer/octicons-react'
 
 export const query = graphql`
   query RailsComponentPageQuery($componentId: String!, $parentPath: String!) {
