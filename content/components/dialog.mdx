@@ -256,6 +256,14 @@ If the answer is yes, designing the feature inside a dialog provides an easy way
   </Dont>
 </DoDontContainer>
 
+### Deep linking
+
+It's crucial to consider if the dialog should be accessible via a link. For instance, if our users intend to link to this specific content from outside GitHub.
+
+While we can rely on parameters in the URL to open dialogs on page load, this approach can disorient users because they might not understand to what context this dialog belongs to since the rest of the page will be dimmed by a [backdrop](#backdrop).
+
+In such situations, it is often more advisable to avoid using a dialog altogether and instead display the additional information directly on the page or create a new dedicated page. This approach allows for better integration of the content within the overall website structure.
+
 ### Dialogs should work well on any device
 
 Dialogs must adjust their designs to fit in smaller viewports. Make sure the overlay contents work with all supported sizes and input methods.
