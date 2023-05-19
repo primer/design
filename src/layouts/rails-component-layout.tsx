@@ -13,6 +13,7 @@ import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
 import {LookbookEmbed} from '../components/lookbook-embed'
 import RailsMarkdown from '../components/rails-markdown'
+import {LinkExternalIcon} from '@primer/octicons-react'
 
 export const query = graphql`
   query RailsComponentPageQuery($componentId: String!, $parentPath: String!) {
@@ -40,6 +41,8 @@ export const query = graphql`
       status
       a11y_reviewed
       short_name
+      is_form_component
+      is_published
 
       props: parameters {
         name
@@ -213,7 +216,7 @@ function RailsComponent({data, showPreviews, parentRailsId}) {
 }
 
 export default function RailsComponentLayout({data}) {
-  const {name, short_name, a11y_reviewed, status, previews, slots} = data.railsComponent
+  const {name, short_name, a11y_reviewed, status, previews, slots, is_form_component, is_published} = data.railsComponent
 
   const title = data.sitePage?.context.frontmatter.title
   const description = data.sitePage?.context.frontmatter.description
@@ -312,19 +315,23 @@ export default function RailsComponentLayout({data}) {
             <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
           </Box>
           <Box>
-            {/* @ts-ignore */}
-            <Note variant="warning">
-              <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Work in progress</Text>
-              We are currently transferring the Rails documentation for {name} from a different site to this page. To
-              view the original documentation, please visit the{' '}
-              <Link href={railsUrl}>Primer ViewComponents documentation for {name}</Link>.
-            </Note>
-
             <Box sx={{display: 'flex', gap: 2, mb: 4}}>
               <Label size="large">v{data.primerRailsVersion.version}</Label>
               <StatusLabel status={sentenceCase(status)} />
               <AccessibilityLabel a11yReviewed={a11y_reviewed} short={false} />
             </Box>
+
+            {/* @ts-ignore */}
+            {is_form_component && <Note>
+              <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Forms framework</Text>
+              The <InlineCode>{name}</InlineCode> component is part of the <Link href="/ui-patterns/forms/rails">Primer forms framework</Link>.
+              If you're building a form, please consider using the framework instead of this standalone component.
+            </Note>}
+
+            {is_published && <p>
+              <strong>NOTE: </strong>
+              These docs are being migrated. The originals are available <Link href={railsUrl}><LinkExternalIcon /> here</Link>.
+            </p>}
 
             <H2>Description</H2>
             <RailsMarkdown text={data.railsComponent.description} parentRailsId={railsId} />
