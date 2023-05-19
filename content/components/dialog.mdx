@@ -313,18 +313,18 @@ Side sheets take the entire height of the viewport, and should be used sparingly
   configuration panels.
 </Caption>
 
-Side sheets are considered as dialogs, which means that interacting with the content in the background is not possible.
-This needs to be indicated by an overlay covering the underlying content, including the navigation.
+Side sheets are still considered as dialogs, which means that interacting with the content in the background is not possible.
+This needs to be indicated by a [backdrop](#backdrop) and should always cover the global navigation.
 This avoids that multiple side sheets can appear simultaneously.
 
 <DoDontContainer>
   <Do>
     <img width="464" alt="" src="https://github.com/primer/design/assets/980622/bb91bdc9-061b-4795-9513-1d2e48ae1f98" />
-    <Caption>Side sheets appear on top of all the underlying content.</Caption>
+    <Caption>Side sheets appear on top of the page (including the navigation).</Caption>
   </Do>
   <Dont>
     <img width="464" alt="" src="https://github.com/primer/design/assets/980622/f05aa559-a866-47cf-84a2-f4897f1da08c" />
-    <Caption>Avoid that underlying content (including the navigation) is still interactable.</Caption>
+    <Caption>Avoid side sheets that keep ineractions with the rest of the page enabled.</Caption>
   </Dont>
 </DoDontContainer>
 
