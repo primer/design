@@ -256,6 +256,14 @@ If the answer is yes, designing the feature inside a dialog provides an easy way
   </Dont>
 </DoDontContainer>
 
+### Deep linking
+
+It's crucial to consider if the dialog should be accessible via a link. For instance, if our users intend to link to this specific content from outside GitHub.
+
+While we can rely on parameters in the URL to open dialogs on page load, this approach can disorient users because they might not understand to what context this dialog belongs to since the rest of the page will be dimmed by a [backdrop](#backdrop).
+
+In such situations, it is often more advisable to avoid using a dialog altogether and instead display the additional information directly on the page or create a new dedicated page. This approach allows for better integration of the content within the overall website structure.
+
 ### Dialogs should work well on any device
 
 Dialogs must adjust their designs to fit in smaller viewports. Make sure the overlay contents work with all supported sizes and input methods.
@@ -292,7 +300,7 @@ By default, dialog appears centered in the viewport, with a visible backdrop tha
 
 ### Side sheets
 
-Side sheets slide from the right or left edges of the viewport. **Left side sheets are reserved for global navigation drawers. Right side sheets are used for global actions, but can also be considered for quick previews in full-width pages, or configuration panels.**
+Side sheets slide from the right or left edges of the viewport and are always fixed to both the top and bottom of the viewport. **Left side sheets are reserved for global navigation drawers. Right side sheets are used for global actions, but can also be considered for quick previews in full-width pages.**
 
 Side sheets take the entire height of the viewport, and should be used sparingly. Don't use side sheets to present create/edit forms, or flows that may contain a lot of information. For that, use a page instead.
 
@@ -312,6 +320,36 @@ Side sheets take the entire height of the viewport, and should be used sparingly
   Right aligned side sheet can be used for global actions, but may also be considered for quick previews or
   configuration panels.
 </Caption>
+
+Side sheets are still considered as dialogs, which means that interacting with the content in the background is not possible.
+This needs to be indicated by a [backdrop](#backdrop) and should always cover the global navigation.
+This prevents multiple side sheets from appearing simultaneously.
+
+<DoDontContainer>
+  <Do>
+    <img width="464" alt="" src="https://github.com/primer/design/assets/980622/6501c520-70da-49a2-8b29-a9f028c6a6e3" />
+    <Caption>Side sheets appear on top of the page (including the navigation).</Caption>
+  </Do>
+  <Dont>
+    <img width="464" alt="" src="https://github.com/primer/design/assets/980622/f05aa559-a866-47cf-84a2-f4897f1da08c" />
+    <Caption>Avoid side sheets that allow interactions with the rest of the page.</Caption>
+  </Dont>
+</DoDontContainer>
+
+Right side sheets serve multiple purposes, including facilitating global actions and providing quick previews in full-width pages.
+However, it is important to exercise caution when implementing side sheets in pages that are not full-width. The objective is to minimize the distance users need to travel with their mouse cursor to access the side sheet, especially on wide screens.
+This consideration is essential for maximizing productivity.
+
+<DoDontContainer>
+  <Do>
+    <img width="464" alt="" src="https://github.com/primer/design/assets/980622/84585f5e-fad5-451c-8c53-87972f69030d" />
+    <Caption>Use side sheets to provide a quick preview in full-width pages.</Caption>
+  </Do>
+  <Dont>
+    <img width="464" alt="" src="https://github.com/primer/design/assets/980622/df59604f-c459-4aff-8db7-3e23000c91ac" />
+    <Caption>Unless it's a global action, avoid side sheets in pages where content does not stretch the full width of the page.</Caption>
+  </Dont>
+</DoDontContainer>
 
 ## Narrow-viewport placement
 
