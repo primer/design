@@ -29,10 +29,10 @@ export function LookbookEmbed({previews, height = 250}: LookbookEmbedProps) {
   const [selectedColorScheme, setSelectedColorScheme] = React.useState(colorSchemes[0])
   const [selectedPreview, setSelectedPreview] = React.useState(previews[0])
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
-  const iframeUrl = `${baseUrl}${selectedPreview.preview_path}?${new URLSearchParams({
+  const iframeUrl = `${baseUrl}/lookbook/preview/${selectedPreview.preview_path}?${new URLSearchParams({
     _display: JSON.stringify({theme: selectedColorScheme.id}),
   })}`
-  const inspectUrl = `${baseUrl}${selectedPreview.inspect_path}?${new URLSearchParams({
+  const inspectUrl = `${baseUrl}/lookbook/inspect/${selectedPreview.preview_path}?${new URLSearchParams({
     _display: JSON.stringify({'theme': selectedColorScheme.id}),
   })}`
 

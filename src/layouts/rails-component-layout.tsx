@@ -7,7 +7,7 @@ import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
 import {Box, Heading, Label, Link, Text} from '@primer/react'
 import {sentenceCase} from 'change-case'
-import {graphql} from 'gatsby'
+import {graphql, Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
@@ -76,7 +76,6 @@ export const query = graphql`
       previews {
         name
         preview_path
-        inspect_path
       }
 
       subcomponents {
@@ -114,12 +113,6 @@ export const query = graphql`
             name
             type
           }
-        }
-
-        previews {
-          name
-          preview_path
-          inspect_path
         }
       }
     }
@@ -324,7 +317,7 @@ export default function RailsComponentLayout({data}) {
             {/* @ts-ignore */}
             {is_form_component && <Note>
               <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Forms framework</Text>
-              The <InlineCode>{name}</InlineCode> component is part of the <Link href="/ui-patterns/forms/rails">Primer forms framework</Link>.
+              The <InlineCode>{name}</InlineCode> component is part of the <Link as={GatsbyLink} to="/ui-patterns/forms/rails">Primer forms framework</Link>.
               If you're building a form, please consider using the framework instead of this standalone component.
             </Note>}
 
