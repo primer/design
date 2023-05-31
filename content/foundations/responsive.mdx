@@ -41,24 +41,16 @@ Todo: Link to Figma Templates
 
 ### Pointing device
 
-Use the device characteristics through [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries) to adapt the experience accordingly for different device scenarios. The table below shows some possible device scenarios using `pointer` and `hover` media features:
+Consider multimodal input capabilities when designing interfaces. Many devices possess the ability to respond to cursor, touch, keyboard, voice, and other forms of input simultaneously. Additionally, many devices have the ability to have their input augmented in ways you may not initially expect. For example, many smartphones can support mouse and keyboard-based input, although their browsers may not be able to detect the presence of this augumentation.
 
-| &nbsp;             |                `pointer: coarse`                 |   `pointer: fine`    |
-| ------------------ | :----------------------------------------------: | :------------------: |
-| **`hover: none`**  |            Smartphones, touch screens            | Stylus-based screens |
-| **`hover: hover`** | Virtual reality headsets, video-game controllers |   Mouse, touch pad   |
+Because of this, pointing device media queries such as `coarse` or `fine` are unreliable. Avoid relying on this type of query to conditionally modify parts of an interface.
 
 #### Minimum target
 
-When creating interactive targets in your design, ensure that they are large enough to easily tap or click on. The AA accessibility standard GitHub strives for requires a minimum target size of `32px` for touch `pointer: coarse` and `24px` for mouse/stylus `pointer: fine`.
+When creating interactive targets in your design, ensure that they are large enough to easily tap or click on. The AA accessibility standard GitHub strives for requires a minimum target size of `24px`.
 However, it is recommended to aim for the AAA standard when possible. For more information on Target Size at the AAA level, refer to the [W3C documentation](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html).
 
-| Input             | Minimum Size (AA) | Recommended size (AAA) |
-| ----------------- | :---------------: | :--------------------: |
-| `pointer: coarse` |       32px        |          44px          |
-| `pointer: fine`   |       24px        |          24px          |
-
-A common example of a hit target that may not meet the AAA standard on mobile is our medium size button, which is only 32px in height. To improve its touch target, the height must be increased without altering the visual appearance of the button.
+A common example of a hit target that may not meet the AAA standard on mobile is our `medium` size button, which is visually only 32px in height. Consider utilizing the `large` button size for circumstances like this, instead of attempting to adjust the button's touch target area to meet the AAA size requirement.
 
 <DoDontContainer>
   <Do>
