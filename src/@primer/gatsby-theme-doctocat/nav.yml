@@ -18,6 +18,8 @@
       children:
         - title: React
           url: /guides/development/react
+        - title: Rails
+          url: /guides/development/rails
     - title: Component lifecycle
       url: /guides/component-lifecycle
     - title: Component status
@@ -144,6 +146,8 @@
       url: /components/avatar-pair
     - title: Avatar stack
       url: /components/avatar-stack
+    - title: Blankslate
+      url: /components/blankslate
     - title: Box
       url: /components/box
     - title: Branch name
@@ -180,6 +184,8 @@
       url: /components/heading
     - title: Label
       url: /components/label
+    - title: Layout
+      url: /components/layout
     - title: Icon
       url: /components/icon
     - title: Icon button
@@ -238,6 +244,8 @@
       url: /components/token
     - title: Tree view
       url: /components/tree-view
+    - title: Truncate
+      url: /components/truncate
     - title: Underline nav
       url: /components/underline-nav
 - title: Native
