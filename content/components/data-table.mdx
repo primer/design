@@ -24,7 +24,7 @@ import {Box, Heading} from '@primer/react'
 The table header shows contextual information about the table and render controls that affect the table.
 
 - **Title:** A concise label that describes the table and its contents
-- **Subtitle:** A brief description to adds more context for the table when the title alone is not enough
+- **Description:** A brief description to adds more context for the table when the title alone is not enough
 - **Actions:** Controls that affect the entire table
 - **Filter:** An input used to filter table data to make it easier for the user to focus only on the rows relevant to their task. Even though the filter affects the entire table, it's not considered an "action".
 
@@ -127,20 +127,6 @@ Content truncation is available as a last resort when column widths are set. The
 #### By default, leave empty cells blank
 
 You may show a message to explain an absence of data. Just don't use a character like “x” or “-”. It creates a weird experience for assistive technologies like screen readers.
-
-#### Use “skeleton” placeholders to indicate loading content
-
-<div>
-
-The placeholder should match the real content as closely as possible.Use the following properties to adjust the size and alignment of the placeholder:
-
-- column width
-- alignment
-- whether or not there is a leading visual
-
-Don't worry about whether the text wraps. Ideally, the height of the cell will not change once the data is loaded. However, it wouldn't be possible to know how many lines of text the content wraps to.
-
-</div>
 
 #### Use pagination to accommodate tables with a large dataset
 
@@ -539,12 +525,12 @@ match that query.
 
 ### Labeling and describing the table
 
-The table must have a title, and can optionally have a subtitle to describe more context. If you encounter a case where there is enough context that the table doesn’t need a visible label, you may hide it so it’s only accessible to assistive technologies.
+The table must have a title, and can optionally have a description to describe more context. If you encounter a case where there is enough context that the table doesn’t need a visible label, you may hide it so it’s only accessible to assistive technologies.
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} mb={3} sx={{gap: 3}}>
 
 <Box as="p" flex={1}>
-  If you use the table header, the table's title and subtitle will automatically be associated with the table for
+  If you use the table header, the table's title and description will automatically be associated with the table for
   assistive technologies.
 </Box>
 
