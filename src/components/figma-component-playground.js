@@ -91,7 +91,7 @@ export default function FigmaComponentPlayground({properties, thumbnails}) {
     property =>
       property.type === 'BOOLEAN' ||
       (property.type === 'VARIANT' &&
-        property.hasOwnProperty('values') &&
+        Array.isArray(property.values) &&
         property.values.length === 2 &&
         property.values.includes('true') &&
         property.values.includes('false')),
