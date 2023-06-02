@@ -240,6 +240,8 @@
       url: /components/tree-view
     - title: Underline nav
       url: /components/underline-nav
+    - title: Privately shared components
+      url: /components/privately-shared-components
 - title: Native
   url: /native
   children:
