@@ -33,7 +33,7 @@ export default function SystemArgumentsLayout({data}) {
     if (child.type == 'heading' && child.depth == 2) {
       const title = (child.children[0] as MDText).value
       tableOfContents.items.push({
-        url: `/foundations/system-arguments#${slugger.slug(title)}`,
+        url: `#${slugger.slug(title)}`,
         title: title
       })
     }
