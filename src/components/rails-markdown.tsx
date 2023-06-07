@@ -81,10 +81,10 @@ export default function RailsMarkdown({text, parentRailsId}) {
   }
 
   const mustacheViewContext = {
-    link_to_system_arguments_docs: "[System arguments](/foundations/system-arguments)",
-    link_to_typography_docs: "[Typography](/foundations/typography)",
-    link_to_accessibility: "[Accessibility](/guides/accessibility/accessibility-at-github)",
-    link_to_octicons: "[Octicons](/foundations/icons)",
+    link_to_system_arguments_docs: `[System arguments](${withPrefix('/foundations/system-arguments')})`,
+    link_to_typography_docs: `[Typography](${withPrefix('/foundations/typography')})`,
+    link_to_accessibility: `[Accessibility](${withPrefix('/guides/accessibility/accessibility-at-github')})`,
+    link_to_octicons: `[Octicons](${withPrefix('/foundations/icons')})`,
 
     link_to_component: () => {
       return (railsId, _render) => {
