@@ -307,7 +307,7 @@ export default function RailsComponentLayout({data}) {
             </Text>
             <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
           </Box>
-          <Box>
+          <Box sx={{'flexGrow': 1}}>
             <Box sx={{display: 'flex', gap: 2, mb: 4}}>
               <Label size="large">v{data.primerRailsVersion.version}</Label>
               <StatusLabel status={sentenceCase(status)} />
@@ -320,11 +320,6 @@ export default function RailsComponentLayout({data}) {
               The <InlineCode>{name}</InlineCode> component is part of the <Link as={GatsbyLink} to="/ui-patterns/forms/rails">Primer forms framework</Link>.
               If you're building a form, please consider using the framework instead of this standalone component.
             </Note>}
-
-            {is_published && <p>
-              <strong>NOTE: </strong>
-              These docs are being migrated. The originals are available <Link href={railsUrl}><LinkExternalIcon /> here</Link>.
-            </p>}
 
             <H2>Description</H2>
             <RailsMarkdown text={data.railsComponent.description} parentRailsId={railsId} />
