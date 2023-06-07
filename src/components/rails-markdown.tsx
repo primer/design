@@ -1,8 +1,8 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { Link } from '@primer/react'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import ReactMarkdown from 'react-markdown'
 import Mustache from 'mustache'
 import GithubSlugger from 'github-slugger'
@@ -68,7 +68,7 @@ export default function RailsMarkdown({text, parentRailsId}) {
     const parentPage = findPageForRailsId(parentComponent.railsId)
     if (!parentPage) return null
 
-    return `[${parentComponent.name}](${parentPage.path}/rails)`
+    return `[${parentComponent.name}](${withPrefix(parentPage.path)}/rails)`
   }
 
   const linkToChild = (childComponent, parentComponent) => {
@@ -77,7 +77,7 @@ export default function RailsMarkdown({text, parentRailsId}) {
     const parentPage = findPageForRailsId(parentComponent.railsId)
     if (!parentPage) return null
 
-    return `[${childComponent.name}](${parentPage.path}/rails#${slugger.slug(childComponent.name)})`
+    return `[${childComponent.name}](${withPrefix(parentPage.path)}/rails#${slugger.slug(childComponent.name, false)})`
   }
 
   const mustacheViewContext = {
@@ -118,6 +118,7 @@ export default function RailsMarkdown({text, parentRailsId}) {
     }
   }
 
+  /* @ts-ignore */
   const markdown = Mustache.render(text || "", mustacheViewContext)
 
   /* @ts-ignore */
@@ -131,5 +132,6 @@ function CodeWrapper({node, inline, className, children, ...props}) {
     return <InlineCode {...props}>{children}</InlineCode>
   }
 
+  /* @ts-ignore */
   return <Code {...{className, ...props}}>{children[0]}</Code>
 }
