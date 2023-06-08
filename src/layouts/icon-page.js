@@ -43,6 +43,24 @@ export default function IconPage({pageContext}) {
     return () => clearTimeout(timeout)
   }, [copied])
 
+  const heightToRailsSizeParam = (height) => {
+    if (height < 16) {
+      return 'xsmall'
+    } else if (height < 24) {
+      return 'small'
+    } else {
+      return 'medium'
+    }
+  }
+
+  const symbolize = (str) => {
+    if (/^\w+$/.test(str)) {
+      return `:${str}`
+    } else {
+      return `:"${str}"`
+    }
+  }
+
   return (
     <Box flexDirection="column" minHeight="100vh">
       <Head title={pageContext.name} />
@@ -114,10 +132,10 @@ export default function IconPage({pageContext}) {
           <Code className="language-jsx">{`<${toPascalCase(pageContext.name)}Icon size={${icon.height}} />`}</Code>
 
           <H3>ViewComponent</H3>
-          <Code>{`<%= render(Primer::Beta::Octicon.new(:"${pageContext.name}")) %>`}</Code>
+          <Code className="language-erb">{`<%= render(Primer::Beta::Octicon.new(${symbolize(pageContext.name)}, size: ${symbolize(heightToRailsSizeParam(icon.height))})) %>`}</Code>
 
           <H3>Jekyll</H3>
-          <Code>{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>
+          <Code className="language-liquid">{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>
 
           <H2>UI examples</H2>
           <UIExamples
