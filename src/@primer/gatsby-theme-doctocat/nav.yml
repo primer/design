@@ -248,6 +248,10 @@
       url: /components/truncate
     - title: Underline nav
       url: /components/underline-nav
+- title: GitHub staff
+  children:
+    - title: GitHub shared components
+      url: /components/github-shared-components
 - title: Native
   url: /native
   children:
