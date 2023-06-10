@@ -9,9 +9,9 @@ export default function Hero() {
       <Box bg="canvas.default" py={6}>
         <Container>
           <Heading sx={{color: 'accent.fg', fontSize: 7, lineHeight: 'condensed', pb: 3, m: 0}}>
-            Interface guidelines
+            Primer Design System
           </Heading>
-          <img src={heroIllustration} alt="Interface Guidelines hero" width="100%" />
+          <img src={heroIllustration} alt="Primer Design System" width="100%" />
         </Container>
       </Box>
     </ThemeProvider>
