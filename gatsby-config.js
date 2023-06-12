@@ -2,8 +2,9 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    title: 'Interface guidelines',
-    shortName: 'Interface guidelines',
+    title: 'Primer',
+    // Remove short name from site header
+    shortName: '',
     description: 'Principles, standards, and usage guidelines for designing GitHub interfaces.',
   },
   pathPrefix: '/design',
