@@ -30,17 +30,18 @@ This component does not include any styling. It formats a timestamp as a localiz
 
 #### Past dates
 
-For past dates, the relative time component outputs different formats depending on the time difference. Within a month's time, the output shows a relative time[^1] in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`. If the date is in past months, the date time[^2] format `on D MMM` is used. If the date is in the past years, the format `on MMM D, YYYY` is used.
+For past dates, the relative time component outputs different formats depending on the time difference. Within a month's time, the output shows a relative time[^1] in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`. If the date is in past months, the date time[^2] format `on D MMM` is used. If the date is in the past years, the output uses the long format[^3].
 
 [^1]: Relative time data is derived from the [Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) API.
 [^2]: Date time data is derived from the [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) API.
+[^3]: The long format output depends on the user agent's timezone. For example, it will be `on MMM D, YYYY` for US English that uses month-day-year order, `on D MMM, YYYY` for British English that uses day-month-year order or even `on YYYY MMM D` for Korean that uses year-month-day order.
 
-| Time difference | Format                           | Examples                                                                                  |
-| --------------- | -------------------------------- | ----------------------------------------------------------------------------------------- |
-| < 1 minute      | just now                         | `just now`                                                                                |
-| < 1 month       | X seconds/minutes/hours/days ago | `a minute ago`, `5 minutes ago`, `an hour ago`, `3 hours ago`, `yesterday`, `20 days ago` |
-| > 1 month       | on MMM D                         | `on Nov 18`                                                                               |
-| Past year       | on MMM D, YYYY                   | `on Aug 26, 2021`                                                                         |
+| Time difference | Format                           | Examples                                                                                       |
+| --------------- | -------------------------------- | ---------------------------------------------------------------------------------------------- |
+| < 1 minute      | just now                         | `just now`                                                                                     |
+| < 1 month       | X seconds/minutes/hours/days ago | `a minute ago`, `5 minutes ago`, `an hour ago`, `3 hours ago`, `yesterday`, `20 days ago`      |
+| > 1 month       | on MMM D                         | `on Nov 18`                                                                                    |
+| Past year       | localised                        | `on Nov 18, 2021` (US English), `on 18 Nov, 2021` (British Enligsh), `on 2021 Nov 18` (Korean) |
 
 <p>
   <img
@@ -52,14 +53,14 @@ For past dates, the relative time component outputs different formats depending 
 
 #### Future dates
 
-Future dates also use different formats depending on the time difference. If the future date is due to happen within the a month's time, the relative time outputs the format of `in X seconds/minutes/hours/days`. If the time difference is less than 1 minute, it shows `just now`. If the date is in the following months, the format `on D MMM` is used. If the date is in the next year or further, the format `on MMM D, YYYY` is used.
+Future dates also use different formats depending on the time difference. If the future date is due to happen within the a month's time, the relative time outputs the format of `in X seconds/minutes/hours/days`. If the time difference is less than 1 minute, it shows `just now`. If the date is in the following months, the format `on D MMM` is used. If the date is in the next year or further, the output uses the long format[^3].
 
-| Time difference | Format                                | Examples                                                                            |
-| --------------- | ------------------------------------- | ----------------------------------------------------------------------------------- |
-| < 1 minute      | just now                              | `just now`                                                                          |
-| < 1 month       | in X seconds / minutes / hours / days | `in a minute`, `in 2 minutes`, `in an hour`, `in 7 hours`, `tomorrow`, `in 14 days` |
-| > 1 month       | on MMM D                              | `on Nov 18`                                                                         |
-| Next year       | on MMM D, YYYY                        | `on Aug 26, 2021`                                                                   |
+| Time difference | Format                                | Examples                                                                              |
+| --------------- | ------------------------------------- | ------------------------------------------------------------------------------------- |
+| < 1 minute      | just now                              | `just now`                                                                            |
+| < 1 month       | in X seconds / minutes / hours / days | `in a minute`, `in 2 minutes`, `in an hour`, `in 7 hours`, `tomorrow`, `in 14 days`   |
+| > 1 month       | on MMM D                              | `on Nov 18`                                                                           |
+| Next year       | localised                             | `on Aug 26, 2025` (US English), `on 26 Aug, 2025` (British Enligsh), `on 2025 Aug 26` |
 
 #### Standalone
 
