@@ -146,8 +146,12 @@
       url: /components/avatar-pair
     - title: Avatar stack
       url: /components/avatar-stack
+    - title: Banner
+      url: /components/banner
     - title: Blankslate
       url: /components/blankslate
+    - title: Border box
+      url: /components/border-box
     - title: Box
       url: /components/box
     - title: Branch name
@@ -158,12 +162,16 @@
       url: /components/button
     - title: Button group
       url: /components/button-group
+    - title: Button marketing
+      url: /components/button-marketing
     - title: Checkbox
       url: /components/checkbox
     - title: Checkbox group
       url: /components/checkbox-group
     - title: Clipboard copy
       url: /components/clipboard-copy
+    - title: Close button
+      url: /components/close-button
     - title: Comment box
       url: /components/comment-box
     - title: Counter label
@@ -182,14 +190,16 @@
       url: /components/form-control
     - title: Heading
       url: /components/heading
+    - title: Hidden text expander
+      url: /components/hidden-text-expander
+    - title: Icon button
+      url: /components/icon-button
     - title: Label
       url: /components/label
     - title: Layout
       url: /components/layout
     - title: Icon
       url: /components/icon
-    - title: Icon button
-      url: /components/icon-button
     - title: Image
       url: /components/image
     - title: Image crop
@@ -198,8 +208,14 @@
       url: /components/link
     - title: Markdown
       url: /components/markdown
+    - title: Menu
+      url: /components/menu
     - title: Nav list
       url: /components/nav-list
+    - title: Octicon symbols
+      url: /components/octicon-symbols
+    - title: Overlay
+      url: /components/overlay
     - title: Page header
       url: /components/page-header
     - title: Pagination
@@ -220,6 +236,8 @@
       url: /components/select
     - title: Select panel
       url: /components/selectpanel
+    - title: Spinner
+      url: /components/spinner
     - title: State label
       url: /components/state-label
     - title: Subhead
@@ -238,16 +256,22 @@
       url: /components/text-input-with-tokens
     - title: Textarea
       url: /components/textarea
+    - title: Timeline item
+      url: /components/timeline-item
     - title: Toggle switch
       url: /components/toggle-switch
     - title: Token
       url: /components/token
+    - title: Tooltip
+      url: /components/tooltip
     - title: Tree view
       url: /components/tree-view
     - title: Truncate
       url: /components/truncate
     - title: Underline nav
       url: /components/underline-nav
+    - title: Underline panels
+      url: /components/underline-panels
 - title: GitHub staff
   children:
     - title: GitHub shared components
