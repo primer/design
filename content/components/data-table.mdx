@@ -600,6 +600,20 @@ The table must have a title, and can optionally have a subtitle to describe more
   src="https://user-images.githubusercontent.com/2313998/205361249-763772e1-d856-479e-a632-d185c27095db.png"
 />
 </Box>
+
+### Pagination buttons
+
+<Box as="p" flex={1}>
+  The pagination control for a DataTable uses `button` elements, and not `a` elements. This is because activating the 
+  pagination control requests data, and does not have a corresponding URL to link to.
+</Box>
+
+### Loading and sorting content
+
+<Box as="p" flex={1}>
+  It is important to ensure parity between what can be seen visually when a table is loading or sorting content and 
+  what is announced to assistive technology. This is provided by the DataTable component automatically, but must be considered if a custom loading solution is otherwise utilized. For loading content, this also includes the initial loading period.
+</Box>
 </Box>
 
 ## Related components and patterns
