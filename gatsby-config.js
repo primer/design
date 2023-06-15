@@ -4,9 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Primer',
     header: {
-      title: 'Primer Design System',
-      url: 'https://primer.style',
-      logoUrl: 'https://primer.style',
+      title: 'Primer Design System'
     },
     // Remove short name from site header
     shortName: '',
