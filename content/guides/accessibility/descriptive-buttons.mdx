@@ -49,7 +49,7 @@ When reviewing buttons on a page, ensure the following are true:
     <Caption>The button does not have a redundant `aria-label` attribute.</Caption>
   </Do>
   <Dont>
-    <Code className="language-html">{`<button type="button">OK</button>`}</Code>
+    <Code className="language-html">{`<button type="button" aria-label="OK">OK</button>`}</Code>
     <Caption>The button has a redundant and unnecessary `aria-label` attribute.</Caption>
   </Dont>
 </DoDontContainer>
