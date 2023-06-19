@@ -3,6 +3,9 @@ const path = require('path')
 module.exports = {
   siteMetadata: {
     title: 'Primer',
+    header: {
+      title: 'Primer Design System'
+    },
     // Remove short name from site header
     shortName: '',
     description: 'Principles, standards, and usage guidelines for designing GitHub interfaces.',
