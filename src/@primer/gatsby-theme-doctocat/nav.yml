@@ -256,6 +256,8 @@
       url: /components/text-input-with-tokens
     - title: Textarea
       url: /components/textarea
+    - title: Timeline
+      url: /components/timeline
     - title: Timeline item
       url: /components/timeline-item
     - title: Toggle switch
