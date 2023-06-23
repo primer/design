@@ -26,7 +26,7 @@ export function ComponentPageNav({
         </UnderlineNav.Link>
       ) : null}
       {includeRails ? (
-        <UnderlineNav.Link as={GatsbyLink} to={`${basePath}/rails`} selected={current === 'rails'}>
+        <UnderlineNav.Link as={GatsbyLink} to={`${basePath}/rails/latest`} selected={current === 'rails'}>
           Rails
         </UnderlineNav.Link>
       ) : null}

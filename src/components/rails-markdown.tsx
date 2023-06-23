@@ -18,7 +18,7 @@ export default function RailsMarkdown({text, parentRailsId}) {
           path
           context {
             frontmatter {
-              railsId
+              railsIds
             }
           }
         }
@@ -39,7 +39,7 @@ export default function RailsMarkdown({text, parentRailsId}) {
 
   const findPageForRailsId = (railsId) => {
     for (const page of data.allSitePage.nodes) {
-      if (page.context?.frontmatter?.railsId === railsId) {
+      if (page.context?.frontmatter?.railsIds?.indexOf(railsId) !== -1) {
         return page
       }
     }

@@ -303,8 +303,14 @@ async function createComponentPages({actions, graphql}) {
           frontmatter {
             reactId
             figmaId
-            railsId
+            railsIds
           }
+        }
+      }
+      allRailsComponent {
+        nodes {
+          railsId: fully_qualified_name
+          status
         }
       }
     }
@@ -326,14 +332,36 @@ async function createComponentPages({actions, graphql}) {
       })
     }
 
-    if (frontmatter.railsId) {
-      actions.createPage({
-        path: `/${slug}/rails`,
-        component: railsComponentLayout,
-        context: {
-          componentId: frontmatter.railsId,
-          parentPath: `/${slug}`,
-        },
+    if (frontmatter.railsIds) {
+      const statuses = []
+
+      frontmatter.railsIds.forEach((railsId) => {
+        let status
+
+        for (const railsComponent of data.allRailsComponent.nodes) {
+          if (railsComponent.railsId === railsId) {
+            status = railsComponent.status
+            break
+          }
+        }
+
+        statuses.push(status)
+
+        actions.createPage({
+          path: `/${slug}/rails/${status}`,
+          component: railsComponentLayout,
+          context: {
+            componentId: railsId,
+            parentPath: `/${slug}`,
+          },
+        })
+      })
+
+      actions.createRedirect({
+        fromPath: `/${slug}/rails/latest`,
+        toPath: `/${slug}/rails/${railsHelpers.latestStatusFrom(statuses)}`,
+        redirectInBrowser: true,
+        force: true
       })
     }
 
