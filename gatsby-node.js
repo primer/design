@@ -2,6 +2,8 @@ const path = require('path')
 const defines = require('./babel-defines')
 const fetch = require('node-fetch')
 const fs = require('fs')
+const railsHelpers = require('./src/rails-helpers')
+
 
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   const config = getConfig()
