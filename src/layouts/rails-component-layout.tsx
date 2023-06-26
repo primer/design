@@ -5,15 +5,14 @@ import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
-import {Box, Heading, Label, Link, Text} from '@primer/react'
+import {ActionList, ActionMenu, Box, Heading, Label, Link, Text} from '@primer/react'
 import {sentenceCase} from 'change-case'
-import {graphql, Link as GatsbyLink} from 'gatsby'
+import {graphql, Link as GatsbyLink, navigate} from 'gatsby'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
 import {LookbookEmbed} from '../components/lookbook-embed'
 import RailsMarkdown from '../components/rails-markdown'
-import {LinkExternalIcon} from '@primer/octicons-react'
 
 export const query = graphql`
   query RailsComponentPageQuery($componentId: String!, $parentPath: String!) {
@@ -28,9 +27,16 @@ export const query = graphql`
           title
           description
           reactId
-          railsId
+          railsIds
           figmaId
         }
+      }
+    }
+
+    allRailsComponent {
+      nodes {
+        railsId: fully_qualified_name
+        status
       }
     }
 
@@ -42,7 +48,6 @@ export const query = graphql`
       a11y_reviewed
       short_name
       is_form_component
-      is_published
 
       props: parameters {
         name
@@ -209,13 +214,13 @@ function RailsComponent({data, showPreviews, parentRailsId}) {
 }
 
 export default function RailsComponentLayout({data}) {
-  const {name, short_name, a11y_reviewed, status, previews, slots, is_form_component, is_published} = data.railsComponent
+  const {name, railsId, a11y_reviewed, status, previews, slots, is_form_component} = data.railsComponent
+  const allRailsComponents = data.allRailsComponent.nodes
 
   const title = data.sitePage?.context.frontmatter.title
   const description = data.sitePage?.context.frontmatter.description
-  const railsUrl = `${baseUrl}/components/${status}/${short_name.toLowerCase()}`
   const reactId = data.sitePage.context.frontmatter.reactId
-  const railsId = data.sitePage.context.frontmatter.railsId
+  const railsIds = data.sitePage.context.frontmatter.railsIds
   const figmaId = data.sitePage.context.frontmatter.figmaId
 
   const subcomponents = []
@@ -249,9 +254,17 @@ export default function RailsComponentLayout({data}) {
 
   for (const subcomponent of subcomponents) {
     tableOfContents.items.push({
-      url: `#${slugger.slug((subcomponent as any).name)}`,
+      url: `#${slugger.slug((subcomponent as any).name, false)}`,
       title: (subcomponent as any).name,
     })
+  }
+
+  const statuses: string[] = []
+
+  for (const railsComponent of allRailsComponents) {
+    if (railsIds.indexOf(railsComponent.railsId) !== -1) {
+      statuses.push(railsComponent.status)
+    }
   }
 
   const renderSubComponents = subcomponents => {
@@ -286,7 +299,7 @@ export default function RailsComponentLayout({data}) {
           <ComponentPageNav
             basePath={data.sitePage.path}
             includeReact={reactId}
-            includeRails={railsId}
+            includeRails={railsIds}
             includeFigma={figmaId}
             current="rails"
           />
@@ -312,6 +325,9 @@ export default function RailsComponentLayout({data}) {
               <Label size="large">v{data.primerRailsVersion.version}</Label>
               <StatusLabel status={sentenceCase(status)} />
               <AccessibilityLabel a11yReviewed={a11y_reviewed} short={false} />
+              {statuses.length > 1 && <Box sx={{marginLeft: 'auto', marginTop: '-4px'}}>
+                <StatusMenu currentStatus={status} statuses={statuses} parentPath={data.sitePage.path} />
+              </Box>}
             </Box>
 
             {/* @ts-ignore */}
@@ -331,6 +347,25 @@ export default function RailsComponentLayout({data}) {
         </Box>
       </Box>
     </BaseLayout>
+  )
+}
+
+function StatusMenu({currentStatus, statuses, parentPath}) {
+  return (
+    <ActionMenu>
+      <ActionMenu.Button><strong>Status: </strong>{sentenceCase(currentStatus)}</ActionMenu.Button>
+      <ActionMenu.Overlay width="medium">
+        <ActionList selectionVariant="single">
+          {statuses.map((status) => {
+            return(
+              <ActionList.Item selected={currentStatus === status} onSelect={() => navigate(`${parentPath}/rails/${status}`)}>
+                {sentenceCase(status)}
+              </ActionList.Item>
+            )
+          })}
+        </ActionList>
+      </ActionMenu.Overlay>
+    </ActionMenu>
   )
 }
 
