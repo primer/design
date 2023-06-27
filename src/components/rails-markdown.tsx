@@ -28,9 +28,11 @@ export default function RailsMarkdown({text, parentRailsId}) {
         nodes {
           railsId: fully_qualified_name
           name: component
+          status
           subcomponents {
             railsId: fully_qualified_name
             name: component
+            status
           }
         }
       }
@@ -39,7 +41,9 @@ export default function RailsMarkdown({text, parentRailsId}) {
 
   const findPageForRailsId = (railsId) => {
     for (const page of data.allSitePage.nodes) {
-      if (page.context?.frontmatter?.railsIds?.indexOf(railsId) !== -1) {
+      const railsIds = page.context?.frontmatter?.railsIds
+
+      if (railsIds && railsIds.includes(railsId)) {
         return page
       }
     }
@@ -68,7 +72,7 @@ export default function RailsMarkdown({text, parentRailsId}) {
     const parentPage = findPageForRailsId(parentComponent.railsId)
     if (!parentPage) return null
 
-    return `[${parentComponent.name}](${withPrefix(parentPage.path)}/rails)`
+    return `[${parentComponent.name}](${withPrefix(parentPage.path)}/rails/${parentComponent.status})`
   }
 
   const linkToChild = (childComponent, parentComponent) => {
@@ -77,7 +81,7 @@ export default function RailsMarkdown({text, parentRailsId}) {
     const parentPage = findPageForRailsId(parentComponent.railsId)
     if (!parentPage) return null
 
-    return `[${childComponent.name}](${withPrefix(parentPage.path)}/rails#${slugger.slug(childComponent.name, false)})`
+    return `[${childComponent.name}](${withPrefix(parentPage.path)}/rails/${parentComponent.status}/#${slugger.slug(childComponent.name, false)})`
   }
 
   const mustacheViewContext = {
