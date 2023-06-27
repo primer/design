@@ -1,8 +1,8 @@
 ---
-title: Pointer box
-description: A customisable bordered box with a caret pointer
-componentId: pointer_box
-reactId: pointer_box
+title: Split page layout
+description: Split page layout is used to provide structure for a split layout.
+componentId: split_page_layout
+reactId: split_page_layout
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
@@ -10,7 +10,11 @@ import {Link, Text} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
 
+## Usage
+This component provides structure for a split layout, including independent scrolling for the pane and content regions. This is useful for responsive list and detail patterns when an item in the pane updates the page content on selection.
+
 <Note variant="warning">
   <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Guidelines for this component are in progress</Text>
   <Text>Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link></Text>
 </Note>
+

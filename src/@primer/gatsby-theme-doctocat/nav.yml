@@ -168,6 +168,8 @@
       url: /components/checkbox
     - title: Checkbox group
       url: /components/checkbox-group
+    - title: Circle badge
+      url: /components/circle-badge   
     - title: Clipboard copy
       url: /components/clipboard-copy
     - title: Close button
@@ -188,6 +190,8 @@
       url: /components/flash
     - title: Form control
       url: /components/form-control
+    - title: Header
+      url: /components/header
     - title: Heading
       url: /components/heading
     - title: Hidden text expander
@@ -220,6 +224,8 @@
       url: /components/overlay
     - title: Page header
       url: /components/page-header
+    - title: Page layout 
+      url: /components/page-layout
     - title: Pagination
       url: /components/pagination
     - title: Popover
@@ -242,6 +248,8 @@
       url: /components/selectpanel
     - title: Spinner
       url: /components/spinner
+    - title: Split page layout
+      url: /components/split-page-layout
     - title: State label
       url: /components/state-label
     - title: Subhead
