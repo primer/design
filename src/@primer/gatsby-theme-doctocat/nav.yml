@@ -204,14 +204,14 @@
       url: /components/label-group
     - title: Layout
       url: /components/layout
+    - title: Link
+      url: /components/link
     - title: Icon
       url: /components/icon
     - title: Image
       url: /components/image
     - title: Image crop
       url: /components/image-crop
-    - title: Link
-      url: /components/link
     - title: Markdown
       url: /components/markdown
     - title: Menu
