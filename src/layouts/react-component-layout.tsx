@@ -28,7 +28,7 @@ export const query = graphql`
           title
           description
           reactId
-          railsId
+          railsIds
           figmaId
         }
       }
@@ -92,7 +92,7 @@ export default function ReactComponentLayout({data}) {
           <ComponentPageNav
             basePath={data.sitePage.path}
             includeReact={data.sitePage.context.frontmatter.reactId}
-            includeRails={data.sitePage.context.frontmatter.railsId}
+            includeRails={data.sitePage.context.frontmatter.railsIds}
             includeFigma={data.sitePage.context.frontmatter.figmaId}
             current="react"
           />
