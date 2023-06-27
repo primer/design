@@ -196,6 +196,8 @@
       url: /components/icon-button
     - title: Label
       url: /components/label
+    - title: Label group
+      url: /components/label-group
     - title: Layout
       url: /components/layout
     - title: Icon
@@ -222,16 +224,18 @@
       url: /components/pagination
     - title: Popover
       url: /components/popover
+    - title: Pointer box
+      url: /components/pointer-box
     - title: Progress bar
       url: /components/progress-bar
-    - title: Segmented control
-      url: /components/segmented-control
     - title: Radio
       url: /components/radio
     - title: Radio group
       url: /components/radio-group
     - title: Relative time
       url: /components/relative-time
+    - title: Segmented control
+      url: /components/segmented-control
     - title: Select
       url: /components/select
     - title: Select panel
@@ -242,6 +246,8 @@
       url: /components/state-label
     - title: Subhead
       url: /components/subhead
+    - title: Subnav
+      url: /components/subnav
     - title: Tab container
       url: /components/tab-container
     - title: Tab nav

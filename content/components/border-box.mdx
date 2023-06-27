@@ -6,9 +6,11 @@ railsId: Primer::Beta::BorderBox
 
 import ComponentLayout from '~/src/layouts/component-layout'
 import {Text} from '@primer/react'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
 
 <Note variant="warning">
   <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Work in progress</Text>
-  We are currently working on general guidance for this component.
+  Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link>
 </Note>
