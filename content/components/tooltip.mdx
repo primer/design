@@ -12,7 +12,32 @@ import {Link, Text} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
 
-<Note variant="warning">
-  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Guidelines for this component are in progress</Text>
-  <Text>Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link></Text>
+
+## Usage
+
+The tooltip component adds a tooltip to add context to interactive elements on the page.
+
+<img
+  width="960"
+  role="presentation"
+  src="https://github.com/primer/design/assets/586552/787873b7-d496-454c-b669-0c2400ef503f"
+  alt="three examples of tooltips on interactive elements"
+/>
+
+## Accessibility
+
+<Note variant="danger">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>⚠️ Usage Warning ⚠️</Text>
+  <Text>Tooltips as a UI pattern should be our last resort for conveying information because it is hidden by default and often with zero or little visual indicator of its existence.</Text>
 </Note>
+
+Before adding a tooltip, please consider: Is this information essential and necessary? Can the UI be made clearer? Can the information be shown on the page by default? See Tooltip alternatives for more accessible alternatives.
+
+We use aria-label for tooltip contents. However, aria-label replaces the text content of an element in screen readers, so only use Tooltip on elements with no existing text content.
+
+A tooltip may only be used on an element that is interactive such as a button or a link. Even if an element is focusable, a tooltip may only be used if the element does something when it's clicked.
+
+### Tooltip alternatives
+
+Most UI cases don't call for tooltips. Learn some [alternative methods to use in place of tooltips](/../guides/accessibility/tooltip-alternatives).
+
