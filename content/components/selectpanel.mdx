@@ -104,22 +104,25 @@ Select panel should be anchored to its trigger.
 
 ## Passive vs active
 
-Let's understand the difference between passive and active selections within the select panel to ensure an accessible experience.
+While the select panel it's very flexibility it's crucial to understand the difference between passive and active selections first to ensure an accessible experience.
 
-Passive selections occur when the select panel doesn't write data to the system and triggers certain workflows. In other words, the selection is temporarily stored until the user completes it's actions or submits the form.
+Passive selections occur when the select panel doesn't write data to a system. In other words, the selection is temporarily stored until the user completes it's actions or submits the form.
 
-On the other hand, active selections involve making a choice within the select panel, and that selection is immediately written to our system. It's crucial to be extremely cautious with active selections to avoid triggering unintended workflows or creating interactions without user confirmation. For instance, accidentally assigning an issue to someone who then receives a notification. This can be frustrating, especially for users with accessibility needs. To mitigate such situations, it is necessary to provide a cancel and apply button, ensuring users can review and confirm their choices.
+On the other hand, active selections involve making a choice within the select panel, and that selection is written to our system. It's crucial to be extremely cautious with active selections to avoid triggering unintended workflows or creating interactions without user confirmation. For instance, accidentally assigning an issue to someone who then receives a notification. This can be frustrating, especially for users with accessibility needs. To mitigate such situations, it is necessary to provide a cancel and apply button, ensuring users can review and confirm their choices.
 
 Examples of passive selections:
 
 - Filtering data
 - Switching branches (within a code repository)
+- Selection as part of a form
 
 Examples of active selections:
 
 - Adding labels to an item
 - Assigning users to an issue
 - Sending invites
+
+We recommend to always assume you're dealing with an active selection for less often used parts of the platform to avoid accessibility concerns but understand that in daily used areas the users wants to do certain actions as fast as possible.
 
 By understanding these differences, we can design the select panel in a way that respects user intentions and avoids any unintended actions or frustrations, particularly for users with accessibility requirements.
 
