@@ -9,18 +9,25 @@ import {Box} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 
+<Note>
+  This component is currently under development in React and ViewComponents and might not have all it's functionality
+  yet.
+</Note>
+
 ## Overview
 
-Select panel is used for overlay containers that contain multiple control sets which includes advanced single or multi-selection with a filter. Select panel can be anchored to a trigger, or centered within a view.
+The select panel allows you to select one or multiple items from a list, and it can be enhanced with additional controls like a search input to expedite the selection process. It is commonly employed to add information to various sections of a website.
 
-Commonly, select panel is used for metadata application to an Issue or Pull Request, like assignee and label selections, or the branch selector on a repository’s code tab.
+For instance, you may encounter a select panel when you need to assign someone to a task or add labels to an issue or pull request. It can also be utilized to select a specific branch in a code repository.
+
+It's important to understand the differences between the select panel and [action menu](action-menu). The primary distinction lies in the fact that an action menu lacks the ability to include additional form controls and automatically closes after making a selection. Therefore, if you require a filterable list or the capability to make multiple selections at once, the select panel is the appropriate choice.
 
 ## Anatomy
 
 <img
   width="960"
   alt="Select panel for assigning labels to an issue. 'Apply labels to this issue' heading, close button in upper right hand corner. Search input with a magnifer icon as a visible label, listbox of label options and the first three are selected with a visual checkbox. The footer contains a button to edit labels, and cancel and apply buttons. Purple labels are overlayed onto select panel: Overlay (dialog) pointing to the container, Search input pointing to the input, role='listbox' bracket of the listbox content, Optional action control to the button in the lower left corner, Explicit confirm / submission buttons bracket for the apply and cancel buttons in the lower right corner."
-  src="https://user-images.githubusercontent.com/40274682/229016794-4620a95e-efa8-486d-a413-fdadafaa33a0.png"
+  src="https://github.com/primer/design/assets/980622/8561c5a5-c170-4ae6-94e0-50de27a28c48"
 />
 
 ## Options
@@ -30,7 +37,22 @@ Commonly, select panel is used for metadata application to an Issue or Pull Requ
   alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
   src="https://user-images.githubusercontent.com/40274682/229011161-abc2d548-fcf1-4bed-b5a2-eb88d2121a09.png"
 />
-<Caption>Select panel can have as much as the branch selector component, or as little as just a multi-selection list. If the contents request user input beyond a semantic menu(example: the context menu on comments in GitHub), it’s likely you need a select panel.</Caption>
+
+### Loading
+
+It is important to provide visual cues to the user when certain processes may take longer than expected. Loading states can be utilized at different stages of using a component to communicate this information effectively.
+
+<img
+  width="1668"
+  alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
+  src="https://github.com/primer/design/assets/980622/6e812281-45e9-466b-bad2-2895d4151c0d"
+/>
+
+1. **Initial**: This loading state is used when retrieving the initial data to prevent users from seeing an empty list. Skeleton loaders can be used if the data is expected to arrive within 500 milliseconds.
+2. **Searching/Filtering**: When users perform a search to fetch new items, it is important to maintain their current selections or allow them to continue making selections. In this case, a more minimal loading state should be used to indicate ongoing activity.
+3. **Confirmation**: If your layout does not incorporate optimistic updates or lacks error messaging for failed updates, it is crucial to use a confirmation button as a loading state to clearly communicate the progress of the update.
+
+By employing these loading states, users can have a better understanding of the process and remain informed throughout their interactions with the component.
 
 ### Additional control slot
 
@@ -39,11 +61,14 @@ Commonly, select panel is used for metadata application to an Issue or Pull Requ
   alt="Three cropped select panel footers each displaying a different option of a control in the bottom right left corner: Link, button, or checkbox input."
   src="https://user-images.githubusercontent.com/40274682/229011396-2d2c6132-937b-49dd-974c-1a8d4d0d4737.png"
 />
-<Caption>An optional control slot is available in the select panel’s bottom left corner. Avoid use if not absolutely necessary in order to avoid component and decision overwhelm.</Caption>
+<Caption>
+  An optional control slot is available in the select panel’s bottom left corner. Avoid use if not absolutely necessary
+  in order to avoid component and decision overwhelm.
+</Caption>
 
 ### Anchoring
 
-Select panel should be anchored to its trigger. 
+Select panel should be anchored to its trigger.
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <div>
@@ -74,7 +99,10 @@ Select panel should be anchored to its trigger.
       alt=""
       src="https://user-images.githubusercontent.com/40274682/228910122-8e455131-a126-49b0-aa31-81ac507eaf81.png"
     />
-    <Caption>Never force users to submit their multi-select options by closing the dialog or auto-updating their choices upon selection.</Caption>
+    <Caption>
+      Never force users to submit their multi-select options by closing the dialog or auto-updating their choices upon
+      selection.
+    </Caption>
   </Dont>
 </DoDontContainer>
 
@@ -87,7 +115,9 @@ Select panel should be anchored to its trigger.
       alt="Mouse cursor indicating a clicking action on the apply button."
       src="https://user-images.githubusercontent.com/40274682/229016802-39bcae58-0e2b-4ee4-970d-4cb19dbce7ca.png"
     />
-    <Caption>Guide users to save or cancel their selections to dismiss select panel to prevent confusion and data loss.</Caption>
+    <Caption>
+      Guide users to save or cancel their selections to dismiss select panel to prevent confusion and data loss.
+    </Caption>
   </Do>
   <Dont>
     <img
@@ -95,7 +125,10 @@ Select panel should be anchored to its trigger.
       alt="Mouse cursor indicating a click action outside of the dialog."
       src="https://user-images.githubusercontent.com/40274682/229016806-939821c6-4e1b-4b02-a726-7a084a0941d1.png"
     />
-    <Caption>Don’t allow a click-outside-to-dismiss behavior for select panel. Users may be used to closing and submitting the information. Doing so would result in a loss of their changes.{' '}</Caption>
+    <Caption>
+      Don’t allow a click-outside-to-dismiss behavior for select panel. Users may be used to closing and submitting the
+      information. Doing so would result in a loss of their changes.{' '}
+    </Caption>
   </Dont>
 </DoDontContainer>
 
@@ -108,7 +141,10 @@ Select panel should be anchored to its trigger.
   alt="Mouse cursor hovering over an icon button and a focused icon button with the space and enter keys visually below the icon button."
   src="https://user-images.githubusercontent.com/40274682/228910118-3d99fd0a-7b14-4e46-af48-f69bf76912e5.png"
 />
-<Caption>A select panel trigger should be a semantic button. Mouse users can click and keyboard users can open with space or enter.</Caption>
+<Caption>
+  A select panel trigger should be a semantic button. Mouse users can click and keyboard users can open with space or
+  enter.
+</Caption>
 
 <img
   width="960"
@@ -125,14 +161,19 @@ Select panel should be anchored to its trigger.
       width="100%"
       src="https://user-images.githubusercontent.com/40274682/228390156-dab0b413-3b90-4736-a0e7-8d5d30665c43.mp4"
     />
-    <Caption>Pressing esc, or selecting “cancel” should close the current dialog and enter focus to the previous trigger. It should not retain or submit any user input.</Caption>
+    <Caption>
+      Pressing esc, or selecting “cancel” should close the current dialog and enter focus to the previous trigger. It
+      should not retain or submit any user input.
+    </Caption>
   </div>
   <div>
     <CustomVideoPlayer
       width="100%"
       src="https://user-images.githubusercontent.com/40274682/228390297-d6d59818-1d1e-47bb-ac9d-cd1eccc57ba8.mp4"
     />
-    <Caption>Selecting the submit button or pressing the enter key while focused in the listbox should submit any user input.</Caption>
+    <Caption>
+      Selecting the submit button or pressing the enter key while focused in the listbox should submit any user input.
+    </Caption>
   </div>
 </Box>
 
@@ -185,11 +226,15 @@ Select panel can become a full screen dialog or a bottom sheet at narrow viewpor
       width="100%"
       src="https://user-images.githubusercontent.com/40274682/228391029-44ab995b-7a04-4b85-825e-dc77f90838dd.mp4"
     />
-    <Caption>Keyboard interaction with a single-select select panel demonstrating selection following focus with navigation via the ArrowDown key.</Caption>
+    <Caption>
+      Keyboard interaction with a single-select select panel demonstrating selection following focus with navigation via
+      the ArrowDown key.
+    </Caption>
   </div>
 </Box>
 
 ## Related components
+
 - [Data saving guidelines](/ui-patterns/saving)
 - [ActionMenu](/components/ActionMenu)
 - [Select](/components/Select)
