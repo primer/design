@@ -6,10 +6,11 @@ railsIds:
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
-import {Text} from '@primer/react'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
 
 <Note variant="warning">
-  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Work in progress</Text>
-  We are currently working on general guidance for this component.
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Usage for this component is not encouraged</Text>
+  <Text>Instead, please see <Link as={GatsbyLink} to="/components/action-menu">action menu</Link>.</Text>
 </Note>
