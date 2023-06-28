@@ -32,6 +32,8 @@ It's important to understand the differences between the select panel and [actio
 
 ## Options
 
+The select panel can be used
+
 <img
   width="960"
   alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
@@ -45,7 +47,7 @@ It is important to provide visual cues to the user when certain processes may ta
 <img
   width="1668"
   alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
-  src="https://github.com/primer/design/assets/980622/191cbfe3-e792-40b3-a950-020c16ee43d0"
+  src="https://github.com/primer/design/assets/980622/f9f118f3-5830-4ce6-8981-5ea7afd56894"
 />
 
 1. **Initial**: This loading state is used when retrieving the initial data to prevent users from seeing an empty list. Skeleton loaders can be used if the data is expected to arrive within 500 milliseconds.
@@ -91,6 +93,35 @@ Select panel should be anchored to its trigger.
     <Caption>Anchored select panel to a trigger.</Caption>
   </div>
 </Box>
+
+### Footers
+
+<img
+  width="1388"
+  alt="Footers"
+  src="https://github.com/primer/design/assets/980622/85bcb93b-3d39-4635-ad1b-68243dae6bd9"
+/>
+
+## Passive vs active
+
+Let's understand the difference between passive and active selections within the select panel to ensure an accessible experience.
+
+Passive selections occur when the select panel doesn't write data to the system and triggers certain workflows. In other words, the selection is temporarily stored until the user completes it's actions or submits the form.
+
+On the other hand, active selections involve making a choice within the select panel, and that selection is immediately written to our system. It's crucial to be extremely cautious with active selections to avoid triggering unintended workflows or creating interactions without user confirmation. For instance, accidentally assigning an issue to someone who then receives a notification. This can be frustrating, especially for users with accessibility needs. To mitigate such situations, it is necessary to provide a cancel and apply button, ensuring users can review and confirm their choices.
+
+Examples of passive selections:
+
+- Filtering data
+- Switching branches (within a code repository)
+
+Examples of active selections:
+
+- Adding labels to an item
+- Assigning users to an issue
+- Sending invites
+
+By understanding these differences, we can design the select panel in a way that respects user intentions and avoids any unintended actions or frustrations, particularly for users with accessibility requirements.
 
 ## Best practices
 
