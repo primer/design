@@ -220,6 +220,8 @@
       url: /components/octicon-symbols
     - title: Overlay
       url: /components/overlay
+    - title: Pagehead
+      url: /components/pagehead
     - title: Page header
       url: /components/page-header
     - title: Page layout 
@@ -250,8 +252,6 @@
       url: /components/split-page-layout
     - title: State label
       url: /components/state-label
-    - title: Subhead
-      url: /components/subhead
     - title: Subnav
       url: /components/subnav
     - title: Tab container
