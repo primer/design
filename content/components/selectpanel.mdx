@@ -27,7 +27,7 @@ It's important to understand the differences between the select panel and [actio
 <img
   width="960"
   alt="Select panel for assigning labels to an issue. 'Apply labels to this issue' heading, close button in upper right hand corner. Search input with a magnifer icon as a visible label, listbox of label options and the first three are selected with a visual checkbox. The footer contains a button to edit labels, and cancel and apply buttons. Purple labels are overlayed onto select panel: Overlay (dialog) pointing to the container, Search input pointing to the input, role='listbox' bracket of the listbox content, Optional action control to the button in the lower left corner, Explicit confirm / submission buttons bracket for the apply and cancel buttons in the lower right corner."
-  src="https://github.com/primer/design/assets/980622/8561c5a5-c170-4ae6-94e0-50de27a28c48"
+  src="https://github.com/primer/design/assets/980622/e3e313f1-d333-4b58-9199-7c2655662d74"
 />
 
 ## Options
@@ -45,7 +45,7 @@ It is important to provide visual cues to the user when certain processes may ta
 <img
   width="1668"
   alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
-  src="https://github.com/primer/design/assets/980622/6e812281-45e9-466b-bad2-2895d4151c0d"
+  src="https://github.com/primer/design/assets/980622/191cbfe3-e792-40b3-a950-020c16ee43d0"
 />
 
 1. **Initial**: This loading state is used when retrieving the initial data to prevent users from seeing an empty list. Skeleton loaders can be used if the data is expected to arrive within 500 milliseconds.
@@ -53,6 +53,18 @@ It is important to provide visual cues to the user when certain processes may ta
 3. **Confirmation**: If your layout does not incorporate optimistic updates or lacks error messaging for failed updates, it is crucial to use a confirmation button as a loading state to clearly communicate the progress of the update.
 
 By employing these loading states, users can have a better understanding of the process and remain informed throughout their interactions with the component.
+
+### Limit selections
+
+<img
+  width="960"
+  alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
+  src="https://github.com/primer/design/assets/980622/9cacdd30-99b3-4571-b37f-3066b7219ab2"
+/>
+
+In certain situations, we may need to restrict the number of items a user can select, either due to infrastructure limitations or limitations based on paid features. It is important to inform the user about this restriction before they begin making their selection. The description can be used effectively to communicate this limitation.
+
+When the user reaches the maximum allowed number of selections, it is recommended to display a warning message indicating that they have reached their limit. This can also be an opportunity to provide a link for upgrading their account if the restriction is related to a paid feature. It is worth noting that the warning message is labeled with an `aria-live` attribute, ensuring that users with screen readers receive immediate notification when the message appears.
 
 ### Additional control slot
 
