@@ -270,8 +270,6 @@
       url: /components/textarea
     - title: Timeline
       url: /components/timeline
-    - title: Timeline item
-      url: /components/timeline-item
     - title: Toggle switch
       url: /components/toggle-switch
     - title: Token
