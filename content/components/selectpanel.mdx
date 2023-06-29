@@ -32,12 +32,12 @@ It's important to understand the differences between the select panel and [actio
 
 ## Options
 
-The select panel can be used
+The select panel provides flexibility by offering both simple list-based single selection and multi-selection options. Additionally, it can become more sophisticated by incorporating advanced features such as filtering functionality and the inclusion of links.
 
 <img
   width="960"
   alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
-  src="https://user-images.githubusercontent.com/40274682/229011161-abc2d548-fcf1-4bed-b5a2-eb88d2121a09.png"
+  src="https://github.com/primer/design/assets/980622/17c26b4f-e4ac-4120-8714-1bfffc2b73da"
 />
 
 ### Loading
@@ -66,33 +66,15 @@ By employing these loading states, users can have a better understanding of the 
 
 In certain situations, we may need to restrict the number of items a user can select, either due to infrastructure limitations or limitations based on paid features. It is important to inform the user about this restriction before they begin making their selection. The description can be used effectively to communicate this limitation.
 
-When the user reaches the maximum allowed number of selections, it is recommended to display a warning message indicating that they have reached their limit. This can also be an opportunity to provide a link for upgrading their account if the restriction is related to a paid feature. It is worth noting that the warning message is labeled with an `aria-live` attribute, ensuring that users with screen readers receive immediate notification when the message appears.
+When the user reaches the maximum allowed number of selections, we need to display a warning message indicating that they have reached their limit. This can also be an opportunity to provide a link for upgrading their account if the restriction is related to a paid feature. It is worth noting that the warning message is labeled with an `aria-live` attribute, ensuring that users with screen readers receive immediate notification when the message appears.
 
-### Additional control slot
+### Trigger
 
-<img
-  width="960"
-  alt="Three cropped select panel footers each displaying a different option of a control in the bottom right left corner: Link, button, or checkbox input."
-  src="https://user-images.githubusercontent.com/40274682/229011396-2d2c6132-937b-49dd-974c-1a8d4d0d4737.png"
-/>
+<img src="https://github.com/primer/design/assets/980622/5960fd74-1ec2-45fc-a4e9-21421e6ab26e" alt="" />
 <Caption>
-  An optional control slot is available in the select panel’s bottom left corner. Avoid use if not absolutely necessary
-  in order to avoid component and decision overwhelm.
+  Select panels can be triggered through a button or an icon button. For select panels that display the selection in a
+  button, a label must be persist either internally or externally.
 </Caption>
-
-### Anchoring
-
-Select panel should be anchored to its trigger.
-
-<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-  <div>
-    <img
-      src="https://user-images.githubusercontent.com/40274682/229016799-9559a4ee-0daf-42d1-b46d-11c64cf182e4.png"
-      alt=""
-    />
-    <Caption>Anchored select panel to a trigger.</Caption>
-  </div>
-</Box>
 
 ### Footers
 
@@ -101,6 +83,10 @@ Select panel should be anchored to its trigger.
   alt="Footers"
   src="https://github.com/primer/design/assets/980622/85bcb93b-3d39-4635-ad1b-68243dae6bd9"
 />
+<Caption>
+  An optional control slot is available at the bottom of the select panel. This could be a single link, button or
+  checkbox to take additional actions.
+</Caption>
 
 ## Passive vs active
 
