@@ -1,15 +1,22 @@
 ---
 title: Overlay
 description: Overlay components codify design patterns related to floating surfaces such as dialogs and menus.
+reactId: overlay
 railsIds:
 - Primer::Alpha::Overlay
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
-import {Text} from '@primer/react'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
 
-<Note variant="warning">
-  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Work in progress</Text>
-  We are currently working on general guidance for this component.
-</Note>
+## Usage
+
+Overlay is an internal component and is intended to be used as a private API, composing other components. It is not intended to be used on its own. 
+
+The overlay component handles all behaviors needed by overlay UIs as well as the common styles that all overlays should have. Overlay is the internal, or base component for many of our overlay-type components. Overlays use shadows to express elevation.
+
+## Related components
+
+- [Anchored overlay](/components/anchored-overlay)

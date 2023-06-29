@@ -1,9 +1,7 @@
 ---
-title: Label
-description: Use the label component to add contextual metadata to a design.
-reactId: label
-railsIds:
-- Primer::Beta::Label
+title: Sub nav
+description: Use the sub nav component for navigation on a dashboard-type interface with another set of navigation components above it.
+reactId: sub_nav
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
@@ -16,19 +14,17 @@ export default ComponentLayout
   <Text>Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link></Text>
 </Note>
 
+<br />
+
 <img
-  width="960"
+  src="https://github.com/primer/design/assets/586552/f4f48662-4269-4067-b1fb-b56e24ba8e4d"
   role="presentation"
-  src="https://github.com/primer/design/assets/2313998/c2bfee0c-8443-4076-aba8-27e6f2fbb4e0"
+  width="960"
+  alt="Subnav component"
 />
 
 ## Usage
 
-A label is a piece of text that is stylized to differentiate it as contextual metadata. It can be used to add a status, category, or other metadata to a design.
+Use the subnav component for navigation on a dashboard-type interface with another set of navigation components above it. This helps distinguish navigation hierarchy.
 
-## Related links
-
-- [Counter label](/components/counter-label/)
-- [Label group](/components/label-group/)
-- [State label](/components/state-label/)
-- [Token](/components/token/)
+Make sure to properly label your subnav with an aria-label to provide context about the type of navigation contained in subnav.
