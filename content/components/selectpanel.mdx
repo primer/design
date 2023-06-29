@@ -137,17 +137,21 @@ When the user reaches the maximum allowed number of selections, we need to displ
 
 ### Cancel/submit
 
-To determine whether we need cancel/submit buttons in the footer of the select panel, let's first understand the distinction between passive and active selections.
+In most scenarios, we recommend using declarative controls, except for single-select options as mentioned earlier. However, we understand that in certain areas of the product, using declarative controls can slow down daily actions. For example, if the issue creation process involves too many steps, it may discourage customers from reporting issues.
 
-Passive selections occur when the select panel doesn't immediately save the chosen data to a database upon closing the select panel dialog. In other words, the selection is temporarily stored until the user completes their actions or submits the form that includes the select panel. For example, this can be seen in a button that triggers a select panel within a form that needs to be submitted.
+To address this challenge, we are actively working on providing guidance on how to navigate this friction while providing the best accessible experience possible.
 
-On the other hand, active selections involve immediate data writing to the database upon making a selection or closing the select panel dialog. It is crucial to be cautious with active selections to avoid triggering unintended workflows or creating interactions without explicit confirmation from the user. For instance, accidentally assigning an issue to the wrong user, who then receives a notification. This can be particularly frustrating for users with accessibility needs, who might make unintended selections more easily. To prevent such issues, it is important to provide a cancel and apply button, allowing users to review and confirm their choices.
+Before we determine whether we need cancel/submit buttons in the footer of the select panel, let's first understand the distinction between passive and active selections.
+
+Passive selections occur when the select panel doesn't immediately save the selected data to a database upon closing the select panel dialog. In other words, the selection is temporary and not submitted right away. An example of this is a form that asks you to pick your top 5 favorite people and write a message for them in a seperate `textarea`, this form isn't submitted after picking your favorite people but only once your click `Send`.
+
+On the other hand, active selections involve immediate data writing to the database upon making a selection or closing the select panel dialog. It's important to be cautious with active selections to avoid triggering unintended workflows or creating interactions without explicit confirmation from the user. For instance, accidentally assigning an issue to the wrong user who then receives a notification. This is particularly important for users with accessibility needs who may make unintended selections more easily. To prevent such issues, it's necessary to provide a cancel and apply button, allowing users to review and confirm their choices.
 
 Examples of passive selections:
 
-- Filtering data
 - Switching branches in a code repository
-- Selection within a form
+- Selections within a form
+- Filtering a view
 
 Examples of active selections:
 
@@ -155,16 +159,8 @@ Examples of active selections:
 - Assigning users to an issue
 - Sending invites
 
-We recommend assuming an active selection for less frequently used parts of the platform to avoid accessibility concerns. However, it is important to understand that in areas of the platform that are used frequently, users may want to perform actions as quickly as possible instead of having to confirm their selection each single time.
-
-| Selection | Cancel/Save | Type    | Visual    | Example |
-| --------- | ----------- | ------- | --------- | ------- |
-| Single    | Yes         | Active  | Radio     | View    |
-| Single    | No          | Passive | Checkmark | View    |
-| Multiple  | Yes         | Active  | Checkbox  | View    |
-| Multiple  | No          | Passive | Checkbox  | View    |
-
-By understanding these differences, we can design the select panel in a way that respects user intentions, avoids unintended actions, and minimizes frustrations, especially for users with accessibility requirements.
+In passive selections the cancel/submit button could be avoided but in active selections we need to treat carefully and consider if the action that was taken is easily revertable.
+By understanding these differences, the select panel respects user intentions, avoids unintended actions, and minimizes frustrations, especially for users with accessibility requirements.
 
 ### Error/Warning
 
