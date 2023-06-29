@@ -53,6 +53,35 @@ The select panel provides flexibility by offering both simple list-based single 
   src="https://github.com/primer/design/assets/980622/17c26b4f-e4ac-4120-8714-1bfffc2b73da"
 />
 
+### Selection type
+
+Select panels can either be a single or multi selection whereby each type has additional features.
+
+#### Multi select
+
+<img
+  width="960"
+  alt="Multi-select"
+  src="https://github.com/primer/design/assets/980622/b2900316-850b-4302-bd88-552dc31ea3ad"
+/>
+
+The multi-select option allows you to choose multiple items from a list and has additional features like `select all` or `indeterminate selections`.
+
+The `select all` option at the top of the list allows for quickly deselecting or selecting all values however when used grouping within the list isn't possible anymore.
+It also can only be used when all available options can be returned. For example if the list is too large to retrieve all options at once, such as when using API endpoints with limited results then this feature may not be suitable.
+We should also refrain from putting strain on API endpoints to return all the possible results and this could result in a performance downgrade since virtualization is currently not built into this component.
+
+The `intermediate selections` option is useful for performing bulk actions on lists. For example, if you have 20 selected items, but some of them have different labels attached, an indeterminate checkbox (represented by a horizontal line) is shown for labels that are not set on all items.
+This feature has less limitation than the `select all` option and therefore can be applied everywhere we provide bulk actions within lists.
+
+#### Single select
+
+<img
+  width="1538"
+  alt="Single-select"
+  src="https://github.com/primer/design/assets/980622/3273e104-3ae8-4dbc-8a94-b3be71a1a751"
+/>
+
 ### Loading
 
 It is important to provide visual cues to the user when certain processes may take longer than expected. Loading states can be utilized at different stages of using a component to communicate this information effectively.
@@ -131,6 +160,22 @@ We recommend assuming an active selection for less frequently used parts of the 
 | Multiple  | No          | Passive | Checkbox  | View    |
 
 By understanding these differences, we can design the select panel in a way that respects user intentions, avoids unintended actions, and minimizes frustrations, especially for users with accessibility requirements.
+
+### Error/Warning
+
+<img
+  width="1466"
+  alt="Error"
+  src="https://github.com/primer/design/assets/980622/135d597a-33cd-4ba1-a86b-241a1b5bdfcb"
+/>
+
+Sometimes, we encounter situations where things don't work as expected, or we need to inform users about something important. There are various ways to handle these scenarios depending on the situation.
+
+For instance, if the default values fail to load initially, we display an error placeholder to let the user know that something went wrong.
+
+When the initial values are loaded and the user performs a search for new values, there may be instances where the search fails. In such cases, it is essential to ensure that the user can still make a selection without losing their current selection. Instead, we display an error message at the top of the list, notifying the user about the search failure while preserving their ability to continue with their selection process.
+
+For errors we should always include a link to our support page to ensure that users have a way to reach out to us for assistance.
 
 ## Best practices
 
@@ -231,13 +276,18 @@ By understanding these differences, we can design the select panel in a way that
 
 ### Responsive
 
-On smaller breakpoints the select panel becomes a full screen dialog or a bottom sheet. Support at 320px is required if the select panel is larger at wider viewports. See [narrow-viewport placement](https://primer.style/design/components/dialog#narrow-viewport-placement) in the Dialog guidelines for more details.
+On smaller breakpoints the select panel could become either a full screen dialog or a bottom sheet dialog.
+The confirmations buttons and action list items also are changed to medium to ensure that the hit target is large enough for touch devices.
+
+When including an additional action in the footer also make sure that this still fit on a 320px viewport.
 
 <img
   width="960"
   alt="mobile"
   src="https://github.com/primer/design/assets/980622/fe87c43e-b5e7-4b21-8a8c-3884eb1bbb93"
 />
+
+See the [Dialog guidelines](https://primer.style/design/components/dialog) for more details.
 
 ## Keyboard navigation
 
