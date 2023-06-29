@@ -14,6 +14,19 @@ export default ComponentLayout
   yet.
 </Note>
 
+## 🚨 Known features that are missing
+
+- No full screen option for mobile
+- No action sheet option for mobile
+- Loading submit button
+- Loading input field
+- Description in loading placeholder
+- Empty placeholder
+- Additional action slot
+- Clear all button
+- Clear button in input
+- Disabling items
+
 ## Overview
 
 The select panel allows you to select one or multiple items from a list, and it can be enhanced with additional controls like a search input to expedite the selection process. It is commonly employed to add information to various sections of a website.
@@ -88,11 +101,11 @@ When the user reaches the maximum allowed number of selections, we need to displ
   checkbox to take additional actions.
 </Caption>
 
-## Cancel/Submit
+### Cancel/Submit
 
 To determine whether we need cancel/submit buttons in the footer of the select panel, let's first understand the distinction between passive and active selections.
 
-Passive selections occur when the select panel doesn't immediately save the chosen data to a database upon closing the select panel dialog. In other words, the selection is temporarily stored until the user completes their actions or submits the form that includes the select panel. For example, this can be seen in a button that triggers a select panel where users need to choose one or more options.
+Passive selections occur when the select panel doesn't immediately save the chosen data to a database upon closing the select panel dialog. In other words, the selection is temporarily stored until the user completes their actions or submits the form that includes the select panel. For example, this can be seen in a button that triggers a select panel within a form that needs to be submitted.
 
 On the other hand, active selections involve immediate data writing to the database upon making a selection or closing the select panel dialog. It is crucial to be cautious with active selections to avoid triggering unintended workflows or creating interactions without explicit confirmation from the user. For instance, accidentally assigning an issue to the wrong user, who then receives a notification. This can be particularly frustrating for users with accessibility needs, who might make unintended selections more easily. To prevent such issues, it is important to provide a cancel and apply button, allowing users to review and confirm their choices.
 
@@ -108,7 +121,14 @@ Examples of active selections:
 - Assigning users to an issue
 - Sending invites
 
-We recommend assuming an active selection for less frequently used parts of the platform to avoid accessibility concerns. However, it is important to understand that in areas of the platform that are used frequently, users may want to perform actions as quickly as possible.
+We recommend assuming an active selection for less frequently used parts of the platform to avoid accessibility concerns. However, it is important to understand that in areas of the platform that are used frequently, users may want to perform actions as quickly as possible instead of having to confirm their selection each single time.
+
+| Selection | Cancel/Save | Type    | Visual    | Example |
+| --------- | ----------- | ------- | --------- | ------- |
+| Single    | Yes         | Active  | Radio     | View    |
+| Single    | No          | Passive | Checkmark | View    |
+| Multiple  | Yes         | Active  | Checkbox  | View    |
+| Multiple  | No          | Passive | Checkbox  | View    |
 
 By understanding these differences, we can design the select panel in a way that respects user intentions, avoids unintended actions, and minimizes frustrations, especially for users with accessibility requirements.
 
@@ -211,7 +231,13 @@ By understanding these differences, we can design the select panel in a way that
 
 ### Responsive
 
-Select panel can become a full screen dialog or a bottom sheet at narrow viewports. Support at 320px is required if the select panel is larger at wider viewports. See [narrow-viewport placement](https://primer.style/design/components/dialog#narrow-viewport-placement) in the Dialog guidelines for more details.
+On smaller breakpoints the select panel becomes a full screen dialog or a bottom sheet. Support at 320px is required if the select panel is larger at wider viewports. See [narrow-viewport placement](https://primer.style/design/components/dialog#narrow-viewport-placement) in the Dialog guidelines for more details.
+
+<img
+  width="960"
+  alt="mobile"
+  src="https://github.com/primer/design/assets/980622/fe87c43e-b5e7-4b21-8a8c-3884eb1bbb93"
+/>
 
 ## Keyboard navigation
 
