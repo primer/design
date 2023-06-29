@@ -396,7 +396,7 @@ const teamContent = [
     favoriteTools: 'CodeSandbox, Figma, GitHub, React, Slack, VS Code',
     avatar: 'https://user-images.githubusercontent.com/4608155/59656806-959e3f80-9153-11e9-99cc-25b33e575ad8.jpg',
     gif: 'https://user-images.githubusercontent.com/4608155/59657078-73f18800-9154-11e9-8b36-81eed35e1266.gif',
-    alumni: false,
+    alumni: true,
   },
   {
     name: 'Zain Khoja',
