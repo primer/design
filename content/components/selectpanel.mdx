@@ -137,6 +137,22 @@ When the user reaches the maximum allowed number of selections, we need to displ
   checkbox to take additional actions.
 </Caption>
 
+### Error/Warning
+
+<img
+  width="1466"
+  alt="Error"
+  src="https://github.com/primer/design/assets/980622/135d597a-33cd-4ba1-a86b-241a1b5bdfcb"
+/>
+
+Sometimes, we encounter situations where things don't work as expected, or we need to inform users about something important. There are various ways to handle these scenarios depending on the situation.
+
+For instance, if the default values fail to load initially, we display an error placeholder to let the user know that something went wrong.
+
+When the initial values are loaded and the user performs a search for new values, there may be instances where the search fails. In such cases, it is essential to ensure that the user can still make a selection without losing their current selection. Instead, we display an error message at the top of the list, notifying the user about the search failure while preserving their ability to continue with their selection process.
+
+For errors we should always include a link to our support page to ensure that users have a way to reach out to us for assistance.
+
 ### Cancel/submit
 
 In most scenarios, we recommend using declarative controls, except for single-select options as mentioned earlier. However, we understand that in certain areas of the product, using declarative controls can slow down daily actions. For example, if the issue creation process involves too many steps, it may discourage customers from reporting issues.
@@ -163,22 +179,6 @@ On the other hand, active selections involve immediate data writing to the datab
 
 In passive selections the cancel/submit button could be avoided but in active selections we need to treat carefully and consider if the action that was taken is easily revertable.
 By understanding these differences, the select panel respects user intentions, avoids unintended actions, and minimizes frustrations, especially for users with accessibility requirements.
-
-### Error/Warning
-
-<img
-  width="1466"
-  alt="Error"
-  src="https://github.com/primer/design/assets/980622/135d597a-33cd-4ba1-a86b-241a1b5bdfcb"
-/>
-
-Sometimes, we encounter situations where things don't work as expected, or we need to inform users about something important. There are various ways to handle these scenarios depending on the situation.
-
-For instance, if the default values fail to load initially, we display an error placeholder to let the user know that something went wrong.
-
-When the initial values are loaded and the user performs a search for new values, there may be instances where the search fails. In such cases, it is essential to ensure that the user can still make a selection without losing their current selection. Instead, we display an error message at the top of the list, notifying the user about the search failure while preserving their ability to continue with their selection process.
-
-For errors we should always include a link to our support page to ensure that users have a way to reach out to us for assistance.
 
 ## Best practices
 
