@@ -204,6 +204,8 @@
       url: /components/image-crop
     - title: Label
       url: /components/label
+    - title: Label group
+      url: /components/label-group
     - title: Layout
       url: /components/layout
     - title: Link
