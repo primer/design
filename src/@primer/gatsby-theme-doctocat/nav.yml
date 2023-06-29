@@ -194,18 +194,18 @@
       url: /components/heading
     - title: Hidden text expander
       url: /components/hidden-text-expander
-    - title: Icon button
-      url: /components/icon-button
-    - title: Label
-      url: /components/label
-    - title: Layout
-      url: /components/layout
     - title: Icon
       url: /components/icon
+    - title: Icon button
+      url: /components/icon-button
     - title: Image
       url: /components/image
     - title: Image crop
       url: /components/image-crop
+    - title: Label
+      url: /components/label
+    - title: Layout
+      url: /components/layout
     - title: Link
       url: /components/link
     - title: Markdown
