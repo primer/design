@@ -26,6 +26,9 @@ export default ComponentLayout
 - Clear all button
 - Clear button in input
 - Disabling items
+- Select all in multi select
+- Indeterminate in multi select
+- Tabs
 
 ## Overview
 
@@ -53,16 +56,26 @@ The select panel provides flexibility by offering both simple list-based single 
   src="https://github.com/primer/design/assets/980622/17c26b4f-e4ac-4120-8714-1bfffc2b73da"
 />
 
-### Selection type
-
-Select panels can either be a single or multi selection whereby each type has additional features.
-
-#### Multi select
+### Single select
 
 <img
   width="960"
   alt="Multi-select"
-  src="https://github.com/primer/design/assets/980622/b2900316-850b-4302-bd88-552dc31ea3ad"
+  src="https://github.com/primer/design/assets/980622/3d0cc2b5-b958-4b62-805e-f77a9d7bf0d9"
+/>
+
+If the select panel doesn't have an additional checkbox in the footer, you can make an instant selection. This means that the select panel will close as soon as you make the selection.
+
+However, if there is an additional form element required for that selection, such as checking an additional option, it is necessary to have a cancel and confirmation button. This prevents the dialog from unexpectedly closing when you click an option, allowing you to review and confirm your selection.
+
+To indicate an instant selection, we use checkmarks to show the selected option. For regular single selects, we use visually styled radio buttons. It's important to note that visually and semantically, they are not actual radio buttons, but they serve a similar purpose.
+
+### Multi select
+
+<img
+  width="960"
+  alt="Multi-select"
+  src="https://github.com/primer/design/assets/980622/33176d07-2853-4318-bf5d-df395e700fa9"
 />
 
 The multi-select option allows you to choose multiple items from a list and has additional features like `select all` or `indeterminate selections`.
@@ -73,14 +86,6 @@ We should also refrain from putting strain on API endpoints to return all the po
 
 The `intermediate selections` option is useful for performing bulk actions on lists. For example, if you have 20 selected items, but some of them have different labels attached, an indeterminate checkbox (represented by a horizontal line) is shown for labels that are not set on all items.
 This feature has less limitation than the `select all` option and therefore can be applied everywhere we provide bulk actions within lists.
-
-#### Single select
-
-<img
-  width="1538"
-  alt="Single-select"
-  src="https://github.com/primer/design/assets/980622/3273e104-3ae8-4dbc-8a94-b3be71a1a751"
-/>
 
 ### Loading
 
