@@ -397,6 +397,7 @@ const teamContent = [
     avatar: 'https://user-images.githubusercontent.com/4608155/59656806-959e3f80-9153-11e9-99cc-25b33e575ad8.jpg',
     gif: 'https://user-images.githubusercontent.com/4608155/59657078-73f18800-9154-11e9-8b36-81eed35e1266.gif',
     alumni: true,
+    color: 'orange',
   },
   {
     name: 'Zain Khoja',
@@ -429,7 +430,6 @@ const teamContent = [
   },
   {
     name: 'Joshua Shao',
-    color: 'orange',
     title: 'Apprentice UI Designer',
     handle: 'jhuashao',
     cssFeature: 'align-items: center;',
@@ -443,6 +443,7 @@ const teamContent = [
     avatar: 'https://user-images.githubusercontent.com/24916540/47465791-490c8b00-d7a3-11e8-8dc8-9cc968a47b62.jpg',
     gif: 'https://user-images.githubusercontent.com/24916540/50362777-e2df8280-051d-11e9-8225-a0ed066eac59.gif',
     alumni: true,
+    color: 'orange',
   },
   {
     name: 'Ash Guillaume',
