@@ -16,7 +16,7 @@ export default ComponentLayout
 
 ## Overview
 
-The select panel allows you to select one or multiple items from a list, and it can be enhanced with additional controls like a search input to expedite the selection process. It is commonly employed to add information to various sections of a website.
+The select panel allows you to select one or multiple items from a list, and it can be enhanced with additional controls like a search input to expedite the selection process. It is often used to augment information of a wide variety of items.
 
 For instance, you may encounter a select panel when you need to assign someone to a task or add labels to an issue or pull request. It can also be utilized to select a specific branch in a code repository.
 
@@ -29,6 +29,12 @@ It's important to understand the differences between the select panel and [actio
   alt="Select panel for assigning labels to an issue. 'Apply labels to this issue' heading, close button in upper right hand corner. Search input with a magnifer icon as a visible label, listbox of label options and the first three are selected with a visual checkbox. The footer contains a button to edit labels, and cancel and apply buttons. Purple labels are overlayed onto select panel: Overlay (dialog) pointing to the container, Search input pointing to the input, role='listbox' bracket of the listbox content, Optional action control to the button in the lower left corner, Explicit confirm / submission buttons bracket for the apply and cancel buttons in the lower right corner."
   src="https://github.com/primer/design/assets/980622/e3e313f1-d333-4b58-9199-7c2655662d74"
 />
+
+The select panel is composed of three main areas: a header, a scrollable list, and an optional footer.
+
+- **Header:** The header always includes a title and a close button. Additionally, it can have an optional search/filter field to find items quicker. When a selection is made, a "clear all" button should also be present.
+- **Scrollable list:** The scrollable list consists of [action list](/components/action-list) items, which can be either single or multi-select options.
+- **Footer (Optional):** In most cases, especially in multi-select scenarios, the select panel includes a footer that incorporates a "Cancel" and an "Apply" button also refered to as declaritive actions. If any additional controls are required, such as an extra checkbox or button, a footer becomes necessary as well.
 
 ## Options
 
@@ -52,7 +58,7 @@ If the select panel doesn't have an additional checkbox in the footer, you can m
 
 However, if there is an additional form element required for that selection, such as checking an additional option, it is necessary to have a cancel and confirmation button. This prevents the dialog from unexpectedly closing when you click an option, allowing you to review and confirm your selection.
 
-To indicate an instant selection, we use checkmarks to show the selected option. For regular single selects, we use visually styled radio buttons. Not they are not semanticaly radio buttons.
+To indicate an instant selection, we use checkmarks to show the selected option. For regular single selects, we use visually styled radio buttons. Note they are not semantically radio buttons.
 
 ### Multi select
 
@@ -64,16 +70,18 @@ To indicate an instant selection, we use checkmarks to show the selected option.
 
 The multi-select option allows you to choose multiple items from a list and has additional features like `select all` or `indeterminate selections`.
 
-The `select all` option at the top of the list allows for quickly deselecting or selecting all values however when used grouping within the list isn't possible anymore.
-It also can only be used when all available options can be returned. For example if the list is too large to retrieve all options at once, such as when using API endpoints with limited results then this feature may not be suitable.
-We should also refrain from putting strain on API endpoints to return all the possible results and this could result in a performance downgrade since virtualization is currently not built into this component.
+The `select all` option at the top of the list allows for quickly deselecting or selecting all values
+however when you seperate items in groups this option isn't available anymore.
+
+It also can only be used when all available options can be returned. For example if the list is too large to retrieve all options at once,
+such as when using API endpoints with limited results then this feature may not be suitable.
+We should refrain from putting a strain on API endpoints to return all the possible results at once as this could result in a performance downgrade in a scenario of large lists since virtualization is currently not built into this component.
 
 The `intermediate selections` option is useful for performing bulk actions on lists. For example, if you have 20 selected items, but some of them have different labels attached, an indeterminate checkbox (represented by a horizontal line) is shown for labels that are not set on all items.
-This feature has less limitation than the `select all` option and therefore can be applied everywhere we provide bulk actions within lists.
 
 ### Loading
 
-It is important to provide visual cues to the user when certain processes may take longer than expected. Loading states can be utilized at different stages of using a component to communicate this information effectively.
+It is important to provide visual cues to the user when certain processes may take longer than expected. Loading states can be utilized at different stages of using this component to communicate this information effectively.
 
 <img
   width="1668"
@@ -97,15 +105,13 @@ By employing these loading states, users can have a better understanding of the 
 
 In certain situations, we may need to restrict the number of items a user can select, either due to infrastructure limitations or limitations based on paid features. It is important to inform the user about this restriction before they begin making their selection. The description can be used effectively to communicate this limitation.
 
-When the user reaches the maximum allowed number of selections, we need to display a warning message indicating that they have reached their limit. This can also be an opportunity to provide a link for upgrading their account if the restriction is related to a paid feature. It is worth noting that the warning message is labeled with an `aria-live` attribute, ensuring that users with screen readers receive immediate notification when the message appears.
+When the user reaches the maximum allowed number of selections, we need to display a warning message indicating that they have reached their limit. This can also be an opportunity to provide a link for upgrading their account if the restriction is related to a paid feature. It is worth noting that the warning message is labeled with an `aria-live` attribute, ensuring that users with screen readers receive a notification when the message appears.
 
 ### Trigger
 
 <img src="https://github.com/primer/design/assets/980622/5960fd74-1ec2-45fc-a4e9-21421e6ab26e" alt="" />
-<Caption>
-  Select panels can be triggered through a button or an icon button. For select panels that display the selection in a
-  button, a label must be persist either internally or externally.
-</Caption>
+
+Select panels can be activated by either a regular button or an icon button. If the button is intended to represent the current selection, it's crucial to have a label associated with it, either internally (within the button) or externally (adjacent to the button).
 
 ### Footers
 
@@ -114,10 +120,11 @@ When the user reaches the maximum allowed number of selections, we need to displ
   alt="Footers"
   src="https://github.com/primer/design/assets/980622/85bcb93b-3d39-4635-ad1b-68243dae6bd9"
 />
-<Caption>
-  An optional control slot is available at the bottom of the select panel. This could be a single link, button or
-  checkbox to take additional actions.
-</Caption>
+
+The optional footer at the bottom could include a single link, button or
+checkbox to take additional actions.
+
+In case of a multi selection we always recommend a `cancel` and `apply` button as well unless you clearly [understand the accessibility implications](#cancelsubmit) of not adding this.
 
 ### Error/Warning
 
@@ -143,7 +150,7 @@ To address this challenge, we are actively working on providing guidance on how 
 
 Before we determine whether we need cancel/submit buttons in the footer of the select panel, let's first understand the distinction between passive and active selections.
 
-Passive selections occur when the select panel doesn't immediately save the selected data to a database upon closing the select panel dialog. In other words, the selection is temporary and not submitted right away. An example of this is a form that asks you to pick your top 5 favorite people and write a message for them in a seperate `textarea`, this form isn't submitted after picking your favorite people but only once your click `Send`.
+Passive selections occur when the select panel doesn't immediately save the selected data to a database. In other words, the selection is temporary and not submitted right away. An example of this is a form that asks you to pick your top 5 favorite people and write a message for them in a seperate `textarea`, this form isn't submitted after picking your favorite people but only once your click `Send`.
 
 On the other hand, active selections involve immediate data writing to the database upon making a selection or closing the select panel dialog. It's important to be cautious with active selections to avoid triggering unintended workflows or creating interactions without explicit confirmation from the user. For instance, accidentally assigning an issue to the wrong user who then receives a notification. This is particularly important for users with accessibility needs who may make unintended selections more easily. To prevent such issues, it's necessary to provide a cancel and apply button, allowing users to review and confirm their choices.
 
@@ -155,7 +162,7 @@ On the other hand, active selections involve immediate data writing to the datab
 
 **Examples of active selections:**
 
-- Adding labels to an item
+- Adding labels to an pull request
 - Assigning users to an issue
 - Sending invites
 
@@ -211,6 +218,48 @@ By understanding these differences, the select panel respects user intentions, a
       Don’t allow a click-outside-to-dismiss behavior for select panel. Users may be used to closing and submitting the
       information. Doing so would result in a loss of their changes.{' '}
     </Caption>
+  </Dont>
+</DoDontContainer>
+
+### Search/Filtering
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a clicking action on the apply button."
+      src="https://github.com/primer/design/assets/980622/babe1e82-c840-4321-a8a1-fcb9e74c335e"
+    />
+    <Caption>Always keep the search/filter input in the sticky header.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a click action outside of the dialog."
+      src="https://github.com/primer/design/assets/980622/5838a2ad-1665-42b2-bc90-01044b9df62f"
+    />
+    <Caption>Don’t place the search/filter input in the scrollable area.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Items
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a clicking action on the apply button."
+      src="https://github.com/primer/design/assets/980622/b1dd3d5b-c1f6-42b9-a420-d896bc66b746"
+    />
+    <Caption>Add info that can help differentiate items from each other.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a click action outside of the dialog."
+      src="https://github.com/primer/design/assets/980622/b74ae429-0af8-4dad-9403-830d678cb38a"
+    />
+    <Caption>Avoid repetitive info that can be assumed from it's context. In this instance repository icons.</Caption>
   </Dont>
 </DoDontContainer>
 
