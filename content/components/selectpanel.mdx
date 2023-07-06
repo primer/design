@@ -223,6 +223,8 @@ By understanding these differences, the select panel respects user intentions, a
 
 ### Search/Filtering
 
+Including a search or filter input field not only accelerates the selection process for users but also prevents the need to burden the browser or API endpoints with returning extensive lists of items.
+
 <DoDontContainer>
   <Do>
     <img
@@ -242,7 +244,30 @@ By understanding these differences, the select panel respects user intentions, a
   </Dont>
 </DoDontContainer>
 
+Adopting a smart approach of returning a limited number of items at a time can significantly enhance speed and potentially eliminate the necessity for searching altogether. For instance, instead of presenting the first 20 labels in alphabetical order, providing the most commonly used labels can be more effective. This strategic implementation optimizes the selection process and improves user experience.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a clicking action on the apply button."
+      src="https://github.com/primer/design/assets/980622/b749a2f3-6449-4edd-9b4a-9c062088230f"
+    />
+    <Caption>Order the items based on frequency of use.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a click action outside of the dialog."
+      src="https://github.com/primer/design/assets/980622/926a7ed9-566c-4733-adc5-67b48372c7c5"
+    />
+    <Caption>Don’t add frequently used items in a seperate group.</Caption>
+  </Dont>
+</DoDontContainer>
+
 ### Items
+
+Select panels are designed to be lightweight and should not be overloaded with excessive information. For instance, when using a user picker, it is often sufficient to include essential details such as the username, full name, and avatar. Less relevant information, such as the total number of followers or location, can be omitted as it is not as crucial for the selection process.
 
 <DoDontContainer>
   <Do>
@@ -260,6 +285,71 @@ By understanding these differences, the select panel respects user intentions, a
       src="https://github.com/primer/design/assets/980622/b74ae429-0af8-4dad-9403-830d678cb38a"
     />
     <Caption>Avoid repetitive info that can be assumed from it's context. In this instance repository icons.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Seperators
+
+Separators play a crucial role in clearly distinguishing between different sections, particularly when the item descriptions extends over multiple lines. By utilizing separators, the overall scanning experience for users is greatly enhanced.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a clicking action on the apply button."
+      src="https://github.com/primer/design/assets/980622/3608eee1-5b40-439e-b371-09effe874a48"
+    />
+    <Caption>If one or more items has a block description then add seperators.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a click action outside of the dialog."
+      src="https://github.com/primer/design/assets/980622/15338fee-fa60-493e-a91c-a74f3502330b"
+    />
+    <Caption>If one or more items has a block description then don't forget to add seperators.</Caption>
+  </Dont>
+</DoDontContainer>
+
+For items that are unlikely to have descriptions that span multiple lines, separators can be omitted to create a lighter experience.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a clicking action on the apply button."
+      src="https://github.com/primer/design/assets/980622/1ceb26a9-75cb-4ef8-9fa6-73412540f584"
+    />
+    <Caption>If all items have inline descriptions or no description at all then omit seperators.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a click action outside of the dialog."
+      src="https://github.com/primer/design/assets/980622/a0166db7-0a1c-4641-b664-c318308fe561"
+    />
+    <Caption>If all items have inline descriptions or no description then don't add seperators.</Caption>
+  </Dont>
+</DoDontContainer>
+
+If seperators are added it's important to ensure that the first and last item in the list has no seperator to avoid visual noise.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a clicking action on the apply button."
+      src="https://github.com/primer/design/assets/980622/62b781c8-2538-48bb-b2b8-82ed558dd38b"
+    />
+    <Caption>Omit seperators for the first and last item in the list.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a click action outside of the dialog."
+      src="https://github.com/primer/design/assets/980622/5564f69d-808c-485c-9fec-98542945c8ed"
+    />
+    <Caption>Don't add a seperator to the first and last item in the list.</Caption>
   </Dont>
 </DoDontContainer>
 
