@@ -33,7 +33,7 @@ It's important to understand the differences between the select panel and [actio
 The select panel is composed of three main areas: a header, a scrollable list, and an optional footer.
 
 - **Header:** The header always includes a title and a close button. Additionally, it can have an optional search/filter field to find items quicker. When a selection is made, a "clear all" button should also be present.
-- **Scrollable list:** The scrollable list consists of [action list](/components/action-list) items, which can be either single or multi-select options.
+- **List (scrollable):** The scrollable list consists of [action list](/components/action-list) items, which can be either single or multi-select options.
 - **Footer (Optional):** In most cases, especially in multi-select scenarios, the select panel includes a footer that incorporates a "Cancel" and an "Apply" button also refered to as declaritive actions. If any additional controls are required, such as an extra checkbox or button, a footer becomes necessary as well.
 
 ## Options
@@ -46,7 +46,13 @@ The select panel provides flexibility by offering both simple list-based single 
   src="https://github.com/primer/design/assets/980622/17c26b4f-e4ac-4120-8714-1bfffc2b73da"
 />
 
-### Single select
+### Trigger
+
+<img src="https://github.com/primer/design/assets/980622/5960fd74-1ec2-45fc-a4e9-21421e6ab26e" alt="" />
+
+Select panels can be activated by either a regular button or an icon button. If the button is intended to represent the current selection, it's crucial to have a label associated with it, either internally (within the button) or externally (adjacent to the button).
+
+### List (single select)
 
 <img
   width="960"
@@ -60,7 +66,7 @@ However, if there is an additional form element required for that selection, suc
 
 To indicate an instant selection, we use checkmarks to show the selected option. For regular single selects, we use visually styled radio buttons. Note they are not semantically radio buttons.
 
-### Multi select
+### List (multi select)
 
 <img
   width="960"
@@ -68,7 +74,7 @@ To indicate an instant selection, we use checkmarks to show the selected option.
   src="https://github.com/primer/design/assets/980622/33176d07-2853-4318-bf5d-df395e700fa9"
 />
 
-The multi-select option allows you to choose multiple items from a list and has additional features like `select all` or `indeterminate selections`.
+The multi-select list allows you to choose multiple items from a list and has additional features like `select all` or `indeterminate selections`.
 
 The `select all` option at the top of the list allows for quickly deselecting or selecting all values
 however when you seperate items in groups this option isn't available anymore.
@@ -79,41 +85,7 @@ We should refrain from putting a strain on API endpoints to return all the possi
 
 The `intermediate selections` option is useful for performing bulk actions on lists. For example, if you have 20 selected items, but some of them have different labels attached, an indeterminate checkbox (represented by a horizontal line) is shown for labels that are not set on all items.
 
-### Loading
-
-It is important to provide visual cues to the user when certain processes may take longer than expected. Loading states can be utilized at different stages of using this component to communicate this information effectively.
-
-<img
-  width="1668"
-  alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
-  src="https://github.com/primer/design/assets/980622/f9f118f3-5830-4ce6-8981-5ea7afd56894"
-/>
-
-1. **Initial**: This loading state is used when retrieving the initial data to prevent users from seeing an empty list. Skeleton loaders can be used if the data is expected to arrive within 500 milliseconds.
-2. **Searching/Filtering**: When users perform a search to fetch new items, it is important to maintain their current selections or allow them to continue making selections. In this case, a more minimal loading state should be used to indicate ongoing activity.
-3. **Confirmation**: If your layout does not incorporate optimistic updates or lacks error messaging for failed updates, it is crucial to use a confirmation button as a loading state to clearly communicate the progress of the update.
-
-By employing these loading states, users can have a better understanding of the process and remain informed throughout their interactions with the component.
-
-### Limit selections
-
-<img
-  width="960"
-  alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
-  src="https://github.com/primer/design/assets/980622/9cacdd30-99b3-4571-b37f-3066b7219ab2"
-/>
-
-In certain situations, we may need to restrict the number of items a user can select, either due to infrastructure limitations or limitations based on paid features. It is important to inform the user about this restriction before they begin making their selection. The description can be used effectively to communicate this limitation.
-
-When the user reaches the maximum allowed number of selections, we need to display a warning message indicating that they have reached their limit. This can also be an opportunity to provide a link for upgrading their account if the restriction is related to a paid feature. It is worth noting that the warning message is labeled with an `aria-live` attribute, ensuring that users with screen readers receive a notification when the message appears.
-
-### Trigger
-
-<img src="https://github.com/primer/design/assets/980622/5960fd74-1ec2-45fc-a4e9-21421e6ab26e" alt="" />
-
-Select panels can be activated by either a regular button or an icon button. If the button is intended to represent the current selection, it's crucial to have a label associated with it, either internally (within the button) or externally (adjacent to the button).
-
-### Footers
+### Footer
 
 <img
   width="1388"
@@ -168,6 +140,34 @@ On the other hand, active selections involve immediate data writing to the datab
 
 In passive selections the cancel/submit button could be avoided but in active selections we need to treat carefully and consider if the action that was taken is easily revertable.
 By understanding these differences, the select panel respects user intentions, avoids unintended actions, and minimizes frustrations, especially for users with accessibility requirements.
+
+### Loading
+
+It is important to provide visual cues to the user when certain processes may take longer than expected. Loading states can be utilized at different stages of using this component to communicate this information effectively.
+
+<img
+  width="1668"
+  alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
+  src="https://github.com/primer/design/assets/980622/f9f118f3-5830-4ce6-8981-5ea7afd56894"
+/>
+
+1. **Initial**: This loading state is used when retrieving the initial data to prevent users from seeing an empty list. Skeleton loaders can be used if the data is expected to arrive within 500 milliseconds.
+2. **Searching/Filtering**: When users perform a search to fetch new items, it is important to maintain their current selections or allow them to continue making selections. In this case, a more minimal loading state should be used to indicate ongoing activity.
+3. **Confirmation**: If your layout does not incorporate optimistic updates or lacks error messaging for failed updates, it is crucial to use a confirmation button as a loading state to clearly communicate the progress of the update.
+
+By employing these loading states, users can have a better understanding of the process and remain informed throughout their interactions with the component.
+
+### Limit selections
+
+<img
+  width="960"
+  alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
+  src="https://github.com/primer/design/assets/980622/9cacdd30-99b3-4571-b37f-3066b7219ab2"
+/>
+
+In certain situations, we may need to restrict the number of items a user can select, either due to infrastructure limitations or limitations based on paid features. It is important to inform the user about this restriction before they begin making their selection. The description can be used effectively to communicate this limitation.
+
+When the user reaches the maximum allowed number of selections, we need to display a warning message indicating that they have reached their limit. This can also be an opportunity to provide a link for upgrading their account if the restriction is related to a paid feature. It is worth noting that the warning message is labeled with an `aria-live` attribute, ensuring that users with screen readers receive a notification when the message appears.
 
 ## Best practices
 
