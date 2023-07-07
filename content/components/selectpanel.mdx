@@ -288,6 +288,54 @@ Select panels are designed to be lightweight and should not be overloaded with e
   </Dont>
 </DoDontContainer>
 
+Items accompanied by a checkmark icon, as opposed to radio buttons or checkboxes, indicate that the selection panel will automatically close upon making a choice. Therefore, they cannot be used in conjunction with declarative buttons.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a clicking action on the apply button."
+      src="https://github.com/primer/design/assets/980622/e961e9ce-f716-406b-a7cb-28a01f664f76"
+    />
+    <Caption>
+      Use a checkmark icon to indicate that the single select panel will close when clicking an individual item,
+      eliminating the need for declarative buttons.
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a click action outside of the dialog."
+      src="https://github.com/primer/design/assets/980622/ed1c44fb-b82a-4388-8ebb-542b413bdb36"
+    />
+    <Caption>Avoid combining declarative buttons with single select items that feature checkmark icons.</Caption>
+  </Dont>
+</DoDontContainer>
+
+When an additional checkbox is added to the footer, declarative buttons are required, and the items should be accompanied by visually resembling radio buttons. Although they are not technically radio buttons in terms of semantics, using visual radio buttons can effectively convey that the selection process is not yet complete even after making a choice.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a clicking action on the apply button."
+      src="https://github.com/primer/design/assets/980622/edb97706-38c1-4464-bb1e-0f9ce5c41d7e"
+    />
+    <Caption>
+      When adding an additional checkbox in the footer, it is necessary to use declarative buttons and ensure that the
+      items are accompanied by radio buttons.
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a click action outside of the dialog."
+      src="https://github.com/primer/design/assets/980622/053719a2-ef42-4078-9cf4-4f3b756e5218"
+    />
+    <Caption>Avoid mixing declaritive buttons and items with checkmark icons.</Caption>
+  </Dont>
+</DoDontContainer>
+
 ### Seperators
 
 Separators play a crucial role in clearly distinguishing between different sections, particularly when the item descriptions extends over multiple lines. By utilizing separators, the overall scanning experience for users is greatly enhanced.
