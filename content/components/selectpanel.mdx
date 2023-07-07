@@ -98,6 +98,14 @@ checkbox to take additional actions.
 
 In case of a multi selection we always recommend a `cancel` and `apply` button as well unless you clearly [understand the accessibility implications](#cancelsubmit) of not adding this.
 
+### Current selection
+
+<img width="960" alt="" src="https://github.com/primer/design/assets/980622/b1c517f4-8cc0-423b-83ac-da348aec8e76" />
+
+In order to present a clear summary of the current selection, we create a group at the top of the list.
+This is visible when clearing the search input or when the select panel is reopened.
+However, it's crucial we don't create this group immediately after selecting an item, as it may cause reordering of the items and potentially confuse the users.
+
 ### Error/Warning
 
 <img
@@ -463,7 +471,7 @@ See the [Dialog guidelines](https://primer.style/design/components/dialog) for m
 
 ## Keyboard navigation
 
-### Trigger
+### Activation (Trigger)
 
 | Key                                                                                                                                                       | Description             |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
