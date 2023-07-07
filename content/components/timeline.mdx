@@ -1,9 +1,9 @@
 ---
-title: Label
-description: Use the label component to add contextual metadata to a design.
-reactId: label
+title: Timeline
+description: The timeline component is used to display items on a vertical timeline, connected by timeline elements.
+reactId: timeline
 railsIds:
-- Primer::Beta::Label
+- Primer::Beta::TimelineItem
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
@@ -16,19 +16,22 @@ export default ComponentLayout
   <Text>Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link></Text>
 </Note>
 
+<br />
+
 <img
   width="960"
   role="presentation"
-  src="https://github.com/primer/design/assets/2313998/c2bfee0c-8443-4076-aba8-27e6f2fbb4e0"
+  src="https://github.com/primer/design/assets/586552/f1ef5e7c-86fb-4131-be14-4831923065cf"
+  alt="timeline component item"
 />
 
 ## Usage
 
-A label is a piece of text that is stylized to differentiate it as contextual metadata. It can be used to add a status, category, or other metadata to a design.
+Timeline displays items on a connected vertical timeline. It's primarily used to document the history and activity of a given pull request or issue.
 
-## Related links
-
-- [Counter label](/components/counter-label/)
-- [Label group](/components/label-group/)
-- [State label](/components/state-label/)
-- [Token](/components/token/)
+<img
+  width="960"
+  role="presentation"
+  src="https://github.com/primer/design/assets/586552/d44a8384-44fc-4879-9f1b-a4d33a53d994"
+  alt="timeline component"
+/>

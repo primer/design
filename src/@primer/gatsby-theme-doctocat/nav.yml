@@ -146,8 +146,6 @@
       url: /components/avatar-pair
     - title: Avatar stack
       url: /components/avatar-stack
-    - title: Banner
-      url: /components/banner
     - title: Blankslate
       url: /components/blankslate
     - title: Border box
@@ -168,6 +166,8 @@
       url: /components/checkbox
     - title: Checkbox group
       url: /components/checkbox-group
+    - title: Circle badge
+      url: /components/circle-badge   
     - title: Clipboard copy
       url: /components/clipboard-copy
     - title: Close button
@@ -182,68 +182,76 @@
       url: /components/details
     - title: Dialog
       url: /components/dialog
-    - title: Dropdown
-      url: /components/dropdown
     - title: Filter input
       url: /components/filter-input
     - title: Flash
       url: /components/flash
     - title: Form control
       url: /components/form-control
+    - title: Header
+      url: /components/header
     - title: Heading
       url: /components/heading
     - title: Hidden text expander
       url: /components/hidden-text-expander
-    - title: Icon button
-      url: /components/icon-button
-    - title: Label
-      url: /components/label
-    - title: Layout
-      url: /components/layout
     - title: Icon
       url: /components/icon
+    - title: Icon button
+      url: /components/icon-button
     - title: Image
       url: /components/image
     - title: Image crop
       url: /components/image-crop
+    - title: Label
+      url: /components/label
+    - title: Label group
+      url: /components/label-group
+    - title: Layout
+      url: /components/layout
     - title: Link
       url: /components/link
     - title: Markdown
       url: /components/markdown
-    - title: Menu
-      url: /components/menu
     - title: Nav list
       url: /components/nav-list
     - title: Octicon symbols
       url: /components/octicon-symbols
     - title: Overlay
       url: /components/overlay
+    - title: Pagehead
+      url: /components/pagehead
     - title: Page header
       url: /components/page-header
+    - title: Page layout 
+      url: /components/page-layout
     - title: Pagination
       url: /components/pagination
     - title: Popover
       url: /components/popover
+    - title: Pointer box
+      url: /components/pointer-box
     - title: Progress bar
       url: /components/progress-bar
-    - title: Segmented control
-      url: /components/segmented-control
     - title: Radio
       url: /components/radio
     - title: Radio group
       url: /components/radio-group
     - title: Relative time
       url: /components/relative-time
+    - title: Segmented control
+      url: /components/segmented-control
     - title: Select
       url: /components/select
     - title: Select panel
       url: /components/selectpanel
     - title: Spinner
       url: /components/spinner
+    - title: Split page layout
+      url: /components/split-page-layout
     - title: State label
       url: /components/state-label
-    - title: Subhead
-      url: /components/subhead
+    - title: Subnav
+      url: /components/subnav
     - title: Tab container
       url: /components/tab-container
     - title: Tab nav
@@ -258,8 +266,8 @@
       url: /components/text-input-with-tokens
     - title: Textarea
       url: /components/textarea
-    - title: Timeline item
-      url: /components/timeline-item
+    - title: Timeline
+      url: /components/timeline
     - title: Toggle switch
       url: /components/toggle-switch
     - title: Token

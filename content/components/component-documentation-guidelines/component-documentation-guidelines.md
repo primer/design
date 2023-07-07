@@ -27,8 +27,8 @@ See our full [documentation guidelines here](https://primer.style/contribute/doc
 ### Types of components
 
 - **Regular**: Standard components used to build Primer UI. See [ActionList](/components/action-list).
-- **Internal**: Components used by other components that do not exist on their own. See [Overlay](https://primer.style/react/Overlay).
-- **Behavioral**: Components with no real anatomy or structure, rather behaviors. See [Truncate](https://primer.style/react/Truncate).
+- **Internal**: Components used by other components that do not exist on their own. See [Overlay](/../components/overlay).
+- **Behavioral**: Components with no real anatomy or structure, rather behaviors. See [Truncate](/../components/truncate).
 
 ### Component documentation structure
 

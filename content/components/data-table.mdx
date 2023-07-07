@@ -575,8 +575,7 @@ The table must have a title, and can optionally have a subtitle to describe more
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
 <Box as="p" flex={1}>
-  The row header string will be prepended to the ARIA text of action buttons. For examples, Download {`{row header}`}“,
-  “Actions:{`{row header}`}”
+  The row header string will be prepended to the ARIA text of action buttons. For examples, Download {`{row header}`}“, “Actions:{`{row header}`}”
 </Box>
 
 <img
@@ -589,9 +588,7 @@ The table must have a title, and can optionally have a subtitle to describe more
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
 <Box as="p" flex={1}>
-  To handle cases where the row header can be very long, we should give consumers the option to specify a shorter string
-  to identify the rows. For example, if an issue title is used as the row header, we could use the issue number instead
-  of the full issue title.
+  To handle cases where the row header can be very long, we should give consumers the option to specify a shorter string to identify the rows. For example, if an issue title is used as the row header, we could use the issue number instead of the full issue title.
 </Box>
 
 <img
@@ -599,6 +596,17 @@ The table must have a title, and can optionally have a subtitle to describe more
   role="presentation"
   src="https://user-images.githubusercontent.com/2313998/205361249-763772e1-d856-479e-a632-d185c27095db.png"
 />
+</Box>
+
+### Pagination buttons
+
+The pagination control for a DataTable uses `button` elements, and not `a` elements. This is because activating the pagination control requests data, and does not have a corresponding URL to link to.
+
+### Loading and sorting content
+
+<Box as="p" flex={1}>
+  It is important to ensure parity between what can be seen visually when a table is loading or sorting content and what is announced to assistive technology. This is provided by the DataTable component automatically, but must be considered if a custom loading solution is otherwise utilized. 
+  For loading content via a custom loading method, this also includes the initial loading period. An announcement should not be made if content is retrieved before 750ms.
 </Box>
 </Box>
 

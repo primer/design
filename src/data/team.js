@@ -12,7 +12,7 @@ const teamContent = [
   },
   {
     name: 'Rayta van Rijswijk',
-    title: 'Senior Engineering Manager',
+    title: 'Engineering Manager',
     handle: 'raytalks',
     questionOne: `Having worked in and with several different software development teams before, I've learned it takes more than a process to deliver fast, reliable, high performant, quality products.
   
@@ -139,7 +139,7 @@ const teamContent = [
   },
   {
     name: 'Leslie Cohn-Wein',
-    title: 'Design Engineering Director',
+    title: 'Engineering Manager',
     handle: 'lesliecdubs',
     questionOne: `As an agency developer early in my career, it seemed we were always building the same UI with different styles. So why not build once, with enough flexibility to customize for many clients?
   
@@ -396,7 +396,8 @@ const teamContent = [
     favoriteTools: 'CodeSandbox, Figma, GitHub, React, Slack, VS Code',
     avatar: 'https://user-images.githubusercontent.com/4608155/59656806-959e3f80-9153-11e9-99cc-25b33e575ad8.jpg',
     gif: 'https://user-images.githubusercontent.com/4608155/59657078-73f18800-9154-11e9-8b36-81eed35e1266.gif',
-    alumni: false,
+    alumni: true,
+    color: 'orange',
   },
   {
     name: 'Zain Khoja',
@@ -429,7 +430,6 @@ const teamContent = [
   },
   {
     name: 'Joshua Shao',
-    color: 'orange',
     title: 'Apprentice UI Designer',
     handle: 'jhuashao',
     cssFeature: 'align-items: center;',
@@ -443,6 +443,7 @@ const teamContent = [
     avatar: 'https://user-images.githubusercontent.com/24916540/47465791-490c8b00-d7a3-11e8-8dc8-9cc968a47b62.jpg',
     gif: 'https://user-images.githubusercontent.com/24916540/50362777-e2df8280-051d-11e9-8225-a0ed066eac59.gif',
     alumni: true,
+    color: 'orange',
   },
   {
     name: 'Ash Guillaume',

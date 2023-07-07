@@ -40,8 +40,8 @@ Take a look at the [Component documentation guides](../component-documentation-g
 - A great starting off point is to consolidate existing documentation for the component that's already available. Places to look:
   - Figma ([Primer Web file](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=179%3A3870))
   - [CSS documentation](https://primer.style/css/)
-  - [React documentation](https://primer.style/react/)
-  - [Rails documentation](https://primer.style/view-components/)
+  - [React Storybook](https://primer.style/react/storybook/?path=/story/)
+  - [Rails Lookbook](https://primer.style/view-components/lookbook)
   - [Interface guidelines component documentation](/components)
   - [Interface guidelines UI pattern documentation](/ui-patterns)
   - [Interface guidelines Accessibility documentation](/guides/accessibility)
