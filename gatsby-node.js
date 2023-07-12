@@ -82,7 +82,9 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
   // Save the current version of Primer React to the GraphQL store.
   // This will be the latest version at the time the site is built.
   // If a new version is released, we'll need to rebuild the site.
-  const {version} = await fetch('https://unpkg.com/@primer/react/package.json').then(res => res.json())
+  const {version} = await fetch(
+    'https://unpkg.com/@primer/react/package.json', {redirect: 'follow'}
+  ).then(res => res.json())
 
   const nodeData = {
     version,
@@ -100,11 +102,9 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
   actions.createNode(newNode)
 
   // Save the Primer React data to the GraphQL store
-  const json = await fetch(
-    `https://api.github.com/repos/primer/react/contents/generated/components.json?ref=v${version}`,
+  const content = await fetch(
+    `https://unpkg.com/@primer/react/generated/components.json`, {redirect: 'follow'}
   ).then(res => res.json())
-
-  const content = JSON.parse(Buffer.from(json.content, 'base64').toString())
 
   for (const component of Object.values(content.components)) {
     const newNode = {
@@ -124,7 +124,9 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
   // Save the current version of Octicons to the GraphQL store.
   // This will be the latest version at the time the site is built.
   // If a new version is released, we'll need to rebuild the site.
-  const {version} = await fetch('https://unpkg.com/@primer/octicons/package.json').then(res => res.json())
+  const {version} = await fetch(
+    'https://unpkg.com/@primer/octicons/package.json', {redirect: 'follow'}
+  ).then(res => res.json())
 
   const nodeData = {
     version,
@@ -142,7 +144,9 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
   actions.createNode(newNode)
 
   // Save the icon data to the GraphQL store
-  const octiconData = await fetch('https://unpkg.com/@primer/octicons/build/data.json').then(res => res.json())
+  const octiconData = await fetch(
+    'https://unpkg.com/@primer/octicons/build/data.json', {redirect: 'follow'}
+  ).then(res => res.json())
 
   for (const icon of Object.values(octiconData)) {
     for (const [height, data] of Object.entries(icon.heights)) {
