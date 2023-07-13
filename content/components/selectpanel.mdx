@@ -122,49 +122,6 @@ When the initial values are loaded and the user performs a search for new values
 
 For errors we should always include a link to our support page to ensure that users have a way to reach out to us for assistance.
 
-### Cancel/submit
-
-In most scenarios, we recommend using declarative controls, except for single-select options as mentioned earlier. However, we understand that in certain areas of the product, using declarative controls can slow down daily actions. For example, if the issue creation process involves too many steps, it may discourage customers from reporting issues.
-
-To address this challenge, we are actively working on providing guidance on how to navigate this friction while providing the best accessible experience possible.
-
-Before we determine whether we need cancel/submit buttons in the footer of the select panel, let's first understand the distinction between passive and active selections.
-
-Passive selections occur when the select panel doesn't immediately save the selected data to a database. In other words, the selection is temporary and not submitted right away. An example of this is a form that asks you to pick your top 5 favorite people and write a message for them in a seperate `textarea`, this form isn't submitted after picking your favorite people but only once your click `Send`.
-
-On the other hand, active selections involve immediate data writing to the database upon making a selection or closing the select panel dialog. It's important to be cautious with active selections to avoid triggering unintended workflows or creating interactions without explicit confirmation from the user. For instance, accidentally assigning an issue to the wrong user who then receives a notification. This is particularly important for users with accessibility needs who may make unintended selections more easily. To prevent such issues, it's necessary to provide a cancel and apply button, allowing users to review and confirm their choices.
-
-**Examples of passive selections:**
-
-- Switching branches in a code repository
-- Selections within a form
-- Filtering a view
-
-**Examples of active selections:**
-
-- Adding labels to an pull request
-- Assigning users to an issue
-- Sending invites
-
-In passive selections the cancel/submit button could be avoided but in active selections we need to treat carefully and consider if the action that was taken is easily revertable.
-By understanding these differences, the select panel respects user intentions, avoids unintended actions, and minimizes frustrations, especially for users with accessibility requirements.
-
-### Loading
-
-It is important to provide visual cues to the user when certain processes may take longer than expected. Loading states can be utilized at different stages of using this component to communicate this information effectively.
-
-<img
-  width="1668"
-  alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
-  src="https://github.com/primer/design/assets/980622/f9f118f3-5830-4ce6-8981-5ea7afd56894"
-/>
-
-1. **Initial**: This loading state is used when retrieving the initial data to prevent users from seeing an empty list. Skeleton loaders can be used if the data is expected to arrive within 500 milliseconds.
-2. **Searching/Filtering**: When users perform a search to fetch new items, it is important to maintain their current selections or allow them to continue making selections. In this case, a more minimal loading state should be used to indicate ongoing activity.
-3. **Confirmation**: If your layout does not incorporate optimistic updates or lacks error messaging for failed updates, it is crucial to use a confirmation button as a loading state to clearly communicate the progress of the update.
-
-By employing these loading states, users can have a better understanding of the process and remain informed throughout their interactions with the component.
-
 ### Limit selections
 
 <img
@@ -210,7 +167,7 @@ When the user reaches the maximum allowed number of selections, we need to displ
     <img
       width="464"
       alt="Mouse cursor indicating a clicking action on the apply button."
-      src="https://user-images.githubusercontent.com/40274682/229016802-39bcae58-0e2b-4ee4-970d-4cb19dbce7ca.png"
+      src="https://github.com/primer/design/assets/980622/abea97f6-9a67-4ed7-bb52-f19e8c570902"
     />
     <Caption>
       Guide users to save or cancel their selections to dismiss select panel to prevent confusion and data loss.
@@ -220,7 +177,7 @@ When the user reaches the maximum allowed number of selections, we need to displ
     <img
       width="464"
       alt="Mouse cursor indicating a click action outside of the dialog."
-      src="https://user-images.githubusercontent.com/40274682/229016806-939821c6-4e1b-4b02-a726-7a084a0941d1.png"
+      src="https://github.com/primer/design/assets/980622/758116fc-0d39-4822-97bb-0b670bea7044"
     />
     <Caption>
       Don’t allow a click-outside-to-dismiss behavior for select panel. Users may be used to closing and submitting the
@@ -409,6 +366,22 @@ If seperators are added it's important to ensure that the first and last item in
   </Dont>
 </DoDontContainer>
 
+### Loading
+
+It is important to provide visual cues to the user when certain processes may take longer than expected. Loading states can be utilized at different stages of using this component to communicate this information effectively.
+
+<img
+  width="1668"
+  alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
+  src="https://github.com/primer/design/assets/980622/f9f118f3-5830-4ce6-8981-5ea7afd56894"
+/>
+
+1. **Initial**: This loading state is used when retrieving the initial data to prevent users from seeing an empty list. Skeleton loaders can be used if the data is expected to arrive within 500 milliseconds.
+2. **Searching/Filtering**: When users perform a search to fetch new items, it is important to maintain their current selections or allow them to continue making selections. In this case, a more minimal loading state should be used to indicate ongoing activity.
+3. **Confirmation**: If your layout does not incorporate optimistic updates or lacks error messaging for failed updates, it is crucial to use a confirmation button as a loading state to clearly communicate the progress of the update.
+
+By employing these loading states, users can have a better understanding of the process and remain informed throughout their interactions with the component.
+
 ## Behavior
 
 ### Opening
@@ -426,7 +399,7 @@ If seperators are added it's important to ensure that the first and last item in
 <img
   width="960"
   alt="First select panel has focus applied to the search input with a blue 2px border. Second select panel has no visible focus ring as focus is brought to the H1 of the dialog."
-  src="https://user-images.githubusercontent.com/40274682/229016809-76a595a1-187c-44ed-90c1-5abfb4458260.png"
+  src="https://github.com/primer/design/assets/980622/6a2a1fee-32bf-4745-89a2-305b648fce86"
 />
 <Caption>Focus should be placed on the first interactive item within select panel.</Caption>
 
@@ -468,6 +441,33 @@ When including an additional action in the footer also make sure that this still
 />
 
 See the [Dialog guidelines](https://primer.style/design/components/dialog) for more details.
+
+## Cancel/submit
+
+In most scenarios, we recommend using declarative controls, except for single-select options as mentioned earlier. However, we understand that in certain areas of the product, using declarative controls can slow down daily actions. For example, if the issue creation process involves too many steps, it may discourage customers from reporting issues.
+
+To address this challenge, we are [internally actively working](https://github.com/github/platform-ux/issues/1327) on how to navigate this friction while providing the best accessible experience possible.
+
+Before we determine whether we need cancel/submit buttons in the footer of the select panel, let's first understand the distinction between passive and active selections.
+
+Passive selections occur when the select panel doesn't immediately save the selected data to a database. In other words, the selection is temporary and not submitted right away. An example of this is a form that asks you to pick your top 5 favorite people and write a message for them in a seperate `textarea`, this form isn't submitted after picking your favorite people but only once your click `Send`.
+
+On the other hand, active selections involve immediate data writing to the database upon making a selection or closing the select panel dialog. It's important to be cautious with active selections to avoid triggering unintended workflows or creating interactions without explicit confirmation from the user. For instance, accidentally assigning an issue to the wrong user who then receives a notification. This is particularly important for users with accessibility needs who may make unintended selections more easily. To prevent such issues, it's necessary to provide a cancel and apply button, allowing users to review and confirm their choices.
+
+**Examples of passive selections:**
+
+- Switching branches in a code repository
+- Selections within a form
+- Filtering a view
+
+**Examples of active selections:**
+
+- Adding labels to an pull request
+- Assigning users to an issue
+- Sending invites
+
+In passive selections the cancel/submit button could be avoided but in active selections we need to treat carefully and consider if the action that was taken is easily revertable.
+By understanding these differences, the select panel respects user intentions, avoids unintended actions, and minimizes frustrations, especially for users with accessibility requirements.
 
 ## Keyboard navigation
 
