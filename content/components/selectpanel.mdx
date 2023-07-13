@@ -398,7 +398,7 @@ By employing these loading states, users can have a better understanding of the 
 <img
   width="960"
   alt="First select panel has focus applied to the search input with a blue 2px border. Second select panel has no visible focus ring as focus is brought to the H1 of the dialog."
-  src="https://github.com/primer/design/assets/980622/6a2a1fee-32bf-4745-89a2-305b648fce86"
+  src="https://github.com/primer/design/assets/980622/fd6a6028-2402-48cb-9d28-693c54f79ac5"
 />
 <Caption>Focus should be placed on the first interactive item within select panel.</Caption>
 
@@ -443,30 +443,28 @@ See the [Dialog guidelines](https://primer.style/design/components/dialog) for m
 
 ## Cancel/submit
 
-In most scenarios, we recommend using declarative controls, except for single-select options as [demonstrated earlier](#list-single-select). However, we understand that in certain areas of the product, using declarative controls can slow down daily actions. For example, if the issue creation process involves too many steps, it may discourage customers from reporting issues.
+In most scenarios, we recommend using declarative controls, except for single-select options as [demonstrated earlier](#list-single-select).
+However, we acknowledge that in specific areas of the product that users interact with frequently throughout the day, employing declarative controls may create the perception of a sluggish experience.
+For example, if the issue creation process involves too many steps, it may discourage customers from reporting issues.
 
-To address this challenge, we are [internally actively working](https://github.com/github/platform-ux/issues/1327) on how to navigate this friction while providing the best accessible experience possible.
+We are currently [conducting internal experiments](https://github.com/github/platform-ux/issues/1327) to validate those considerations, while closely collaborating with our accessibility auditors to ensure the optimal experience for all users.
 
-Before we determine whether we need cancel/submit buttons in the footer of the select panel, let's first understand the distinction between passive and active selections.
+Our current position on ommiting declaritive buttons takes in account a mix of considerations:
 
-Passive selections occur when the select panel doesn't immediately save the selected data to a database. In other words, the selection is temporary and not submitted right away. An example of this is a form that asks you to pick your top 5 favorite people and write a message for them in a seperate `textarea`, this form isn't submitted after picking your favorite people but only once your click `Send`.
+- **Reversibility**: If the selection has the potential to initiate workflows or send notifications that cannot be easily reversed, then it is not appropriate to make an exception.
+- **Passive selections**: Exceptions are more warranted when dealing with selections that are part of a larger form and are not submitted until the user presses the "Send" button. In such cases, it is crucial to ensure that upon closing the select panel, the focus is returned to the trigger element and that this indicates the selection. Passive selections can also be defined as selections that do not directly modify the database.
+- **Frequency of use**: Exceptions are less warranted for settings pages since they are not frequently used. On the other hand, creating an issue is a task that can occur multiple times a day, making an exception more justified in this case.
 
-On the other hand, active selections involve immediate data writing to the database upon making a selection or closing the select panel dialog. It's important to be cautious with active selections to avoid triggering unintended workflows or creating interactions without explicit confirmation from the user. For instance, accidentally assigning an issue to the wrong user who then receives a notification. This is particularly important for users with accessibility needs who may make unintended selections more easily. To prevent such issues, it's necessary to provide a cancel and apply button, allowing users to review and confirm their choices.
+### Examples
 
-**Examples of passive selections:**
+| Feature                               | Reversible | Passive | Frequent | Cancel/Submit |
+| ------------------------------------- | :--------: | :-----: | :------: | :-----------: |
+| Switching branch                      |    Yes     |   No    |   Yes    |      No       |
+| Filter                                |    Yes     |   Yes   |   Yes    |      No       |
+| Adding labels to an existing issue    |     No     |   No    |   Yes    |      Yes      |
+| Adding labels in the new issue dialog |    Yes     |   Yes   |   Yes    |      No       |
 
-- Switching branches in a code repository
-- Selections within a form
-- Filtering a view
-
-**Examples of active selections:**
-
-- Adding labels to an pull request
-- Assigning users to an issue
-- Sending invites
-
-In passive selections the cancel/submit button could be avoided but in active selections we need to treat carefully and consider if the action that was taken is easily revertable.
-By understanding these differences, the select panel respects user intentions, avoids unintended actions, and minimizes frustrations, especially for users with accessibility requirements.
+Internally, we strongly recommend reaching out to our accessibility and design system team to validate your use case for omitting declarative buttons.
 
 ## Keyboard navigation
 
