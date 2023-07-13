@@ -122,6 +122,16 @@ When the initial values are loaded and the user performs a search for new values
 
 For errors we should always include a link to our support page to ensure that users have a way to reach out to us for assistance.
 
+### Empty state
+
+It is crucial to provide users with an explanation when no results are available, rather than leaving a blank space.
+
+<img
+  width="860"
+  alt="Error"
+  src="https://github.com/primer/design/assets/980622/ea0c0865-f75f-475a-bf9f-9c78f6d4cd2c"
+/>
+
 ### Limit selections
 
 <img
@@ -162,15 +172,14 @@ By employing these loading states, users can have a better understanding of the 
       src="https://github.com/primer/design/assets/980622/71915284-9deb-4acf-9f41-bd2e6f8a58e3"
     />
     <Caption>
-      For multi selection have the user confirm their selection unless it's a{' '}
-      <a href="#cancelsubmit">passive selection</a>.
+      For multi selection have the user confirm their selection unless an <a href="#cancelsubmit">exception is made</a>.
     </Caption>
   </Do>
   <Dont>
     <img width="464" alt="" src="https://github.com/primer/design/assets/980622/2d783336-d879-4580-8f1b-bb9326980671" />
     <Caption>
       Don't force users to submit their multi-selection by closing the dialog or auto-updating their choices upon
-      selection unless it's a <a href="#cancelsubmit">passive selection</a>.
+      selection unless an <a href="#cancelsubmit">exception is made</a>.
     </Caption>
   </Dont>
 </DoDontContainer>
