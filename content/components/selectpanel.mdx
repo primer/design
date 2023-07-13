@@ -134,6 +134,22 @@ In certain situations, we may need to restrict the number of items a user can se
 
 When the user reaches the maximum allowed number of selections, we need to display a warning message indicating that they have reached their limit. This can also be an opportunity to provide a link for upgrading their account if the restriction is related to a paid feature. It is worth noting that the warning message is labeled with an `aria-live` attribute, ensuring that users with screen readers receive a notification when the message appears.
 
+### Loading
+
+It is important to provide visual cues to the user when certain processes may take longer than expected. Loading states can be utilized at different stages of using this component to communicate this information effectively.
+
+<img
+  width="1668"
+  alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
+  src="https://github.com/primer/design/assets/980622/52bcce0e-bed4-44e8-83b4-8ca6bf80eb57"
+/>
+
+1. **Initial**: This loading state is used when retrieving the initial data to prevent users from seeing an empty list. Skeleton loaders can be used if the data is expected to arrive within 500 milliseconds.
+2. **Searching/Filtering**: When users perform a search to fetch new items, it is important to maintain their current selections or allow them to continue making selections. In this case, a more minimal loading state should be used to indicate ongoing activity.
+3. **Confirmation**: If your layout does not incorporate optimistic updates or lacks error messaging for failed updates, it is crucial to use a confirmation button as a loading state to clearly communicate the progress of the update.
+
+By employing these loading states, users can have a better understanding of the process and remain informed throughout their interactions with the component.
+
 ## Best practices
 
 ### Be predictable
@@ -300,6 +316,51 @@ When an additional checkbox is added to the footer, declarative buttons are requ
   </Dont>
 </DoDontContainer>
 
+### Clearing
+
+Within the select panel, there are multiple ways to clear data. This can involve either clearing the search/filter input or clearing the current selection. It is crucial to avoid confusing their functionality, as one is related to the list itself, while the other pertains solely to the search/filter input.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a clicking action on the apply button."
+      src="https://github.com/primer/design/assets/980622/4e11eb8a-c515-49c8-9b48-75330b72a963"
+    />
+    <Caption>Display a clear button to remove the input value when it is not empty.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a click action outside of the dialog."
+      src="https://github.com/primer/design/assets/980622/079feed7-4ddc-476a-b639-ea17de141b9d"
+    />
+    <Caption>Don't forget to show a clear button when the input value is not empty.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a clicking action on the apply button."
+      src="https://github.com/primer/design/assets/980622/381b2224-3ad0-4320-94cf-8284eb3f5157"
+    />
+    <Caption>
+      When one or more items are selected in a multi-select panel, display a clear button in the header to clear the
+      entire selection..
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a click action outside of the dialog."
+      src="https://github.com/primer/design/assets/980622/af95eaee-976b-48ab-8fb2-b31389318fca"
+    />
+    <Caption>Don't forget to show a clear button in the header when one or more items are selected.</Caption>
+  </Dont>
+</DoDontContainer>
+
 ### Seperators
 
 Separators play a crucial role in clearly distinguishing between different sections, particularly when the item descriptions extends over multiple lines. By utilizing separators, the overall scanning experience for users is greatly enhanced.
@@ -365,22 +426,6 @@ If seperators are added it's important to ensure that the first and last item in
   </Dont>
 </DoDontContainer>
 
-### Loading
-
-It is important to provide visual cues to the user when certain processes may take longer than expected. Loading states can be utilized at different stages of using this component to communicate this information effectively.
-
-<img
-  width="1668"
-  alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
-  src="https://github.com/primer/design/assets/980622/f9f118f3-5830-4ce6-8981-5ea7afd56894"
-/>
-
-1. **Initial**: This loading state is used when retrieving the initial data to prevent users from seeing an empty list. Skeleton loaders can be used if the data is expected to arrive within 500 milliseconds.
-2. **Searching/Filtering**: When users perform a search to fetch new items, it is important to maintain their current selections or allow them to continue making selections. In this case, a more minimal loading state should be used to indicate ongoing activity.
-3. **Confirmation**: If your layout does not incorporate optimistic updates or lacks error messaging for failed updates, it is crucial to use a confirmation button as a loading state to clearly communicate the progress of the update.
-
-By employing these loading states, users can have a better understanding of the process and remain informed throughout their interactions with the component.
-
 ## Behavior
 
 ### Opening
@@ -435,7 +480,7 @@ When adding an extra action in the footer, it is important to ensure that it sti
 <img
   width="960"
   alt="mobile"
-  src="https://github.com/primer/design/assets/980622/fe87c43e-b5e7-4b21-8a8c-3884eb1bbb93"
+  src="https://github.com/primer/design/assets/980622/ae6d19c2-7bfa-4357-be65-341c0728b9a8"
 />
 
 See the [Dialog guidelines](https://primer.style/design/components/dialog) for more details.
