@@ -27,7 +27,7 @@ It's important to understand the differences between the select panel and [actio
 <img
   width="960"
   alt="Select panel for assigning labels to an issue. 'Apply labels to this issue' heading, close button in upper right hand corner. Search input with a magnifer icon as a visible label, listbox of label options and the first three are selected with a visual checkbox. The footer contains a button to edit labels, and cancel and apply buttons. Purple labels are overlayed onto select panel: Overlay (dialog) pointing to the container, Search input pointing to the input, role='listbox' bracket of the listbox content, Optional action control to the button in the lower left corner, Explicit confirm / submission buttons bracket for the apply and cancel buttons in the lower right corner."
-  src="https://github.com/primer/design/assets/980622/e3e313f1-d333-4b58-9199-7c2655662d74"
+  src="https://github.com/primer/design/assets/980622/6e4b27cc-7a90-4958-af26-791c23e02b7d"
 />
 
 The select panel is composed of three main areas: a header, a scrollable list, and an optional footer.
@@ -48,9 +48,9 @@ The select panel provides flexibility by offering both simple list-based single 
 
 ### Trigger
 
-<img src="https://github.com/primer/design/assets/980622/5960fd74-1ec2-45fc-a4e9-21421e6ab26e" alt="" />
+<img width="960" alt="" src="https://github.com/primer/design/assets/980622/f6a1e670-2682-4ce7-8642-24943084c812" />
 
-Select panels can be activated by either a regular button or an icon button. If the button is intended to represent the current selection, it's crucial to have a label associated with it, either internally (within the button) or externally (adjacent to the button).
+Select panels can be activated by either a regular [button](/components/button), [icon button](/components/icon-button) or [action menu](/components/action-menu). If the button is intended to represent the current selection, it's crucial to have a label associated with it, either internally (within the button) or externally (adjacent to the button).
 
 ### List (single select)
 
@@ -437,7 +437,41 @@ If seperators are added it's important to ensure that the first and last item in
   </Dont>
 </DoDontContainer>
 
+### Action menu trigger
+
+When the select panel is activated through an [action menu](/components/action-menu), it should be displayed as a modal dialog. It should never be shown as a submenu.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a clicking action on the apply button."
+      src="https://github.com/primer/design/assets/980622/22386756-2612-40dd-aceb-1f765095cf17"
+    />
+    <Caption>When the select panel is triggered by an action menu, it should be presented as a modal dialog.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt="Mouse cursor indicating a click action outside of the dialog."
+      src="https://github.com/primer/design/assets/980622/a71c59d6-ca35-49ac-b082-e72aa4d1a8cd"
+    />
+    <Caption>Avoid displaying the select panel as a non-modal submenu within an action menu.</Caption>
+  </Dont>
+</DoDontContainer>
+
 ## Behavior
+
+### Appearance
+
+<img width="1338" alt="" src="https://github.com/primer/design/assets/980622/ff89b152-0929-46c1-b87a-1158504946ad" />
+
+The select panel can appear as a nonmodal dialog or modal dialog.
+
+- **Nonmodal dialog**: When triggered by a [button](/components/button) or [icon button](/components/icon-button) but never by an [action menu](/components/action-menu).
+- **Modal dialog**: When triggered by a [button](/components/button), [icon button](/components/icon-button) or [action menu](/components/action-menu).
+
+On smaller breakpoints the select panel should always appear as a modal dialog.
 
 ### Opening
 
@@ -447,11 +481,9 @@ If seperators are added it's important to ensure that the first and last item in
   src="https://user-images.githubusercontent.com/40274682/228910118-3d99fd0a-7b14-4e46-af48-f69bf76912e5.png"
 />
 
-A select panel trigger can take the form of a semantic button, allowing mouse users to click on it and keyboard users to
-activate it by pressing the space or enter key.
+The select panel can be activated through a semantic button, providing mouse users with the ability to click on it, while keyboard users can activate it by pressing the space or enter key.
 
-Alternatively, the select panel can be accessed through an [action menu](/components/action-menu)
-item, wherein it should appear as a centered [dialog](/components/dialog) when triggered. The action menu should close as soon as the select panel is triggered.
+Additionally, the select panel can be triggered through an action menu. In this scenario, it is important for the action menu to promptly close as soon as the select panel is triggered.
 
 <img
   width="960"
