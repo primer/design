@@ -18,12 +18,6 @@ const MemberInfo = ({member, colorName}) => {
   const color = colorName === 'orange' ? 'severe.fg' : 'accent.fg'
   return (
     <Box width={[1, 1, 1, 1]} id={member.handle}>
-      <Heading>{member.name}</Heading>
-      <Text sx={{color: 'fg.subtle'}}>{member.title}</Text>
-      <Text sx={{color: 'fg.muted'}}>{' • '}</Text>
-      <Link sx={{mt: 2, color: color, hoverColor: color, fontSize: 2}} href={`https://github.com/${member.handle}`}>
-        @{member.handle}
-      </Link>
       <Text as="p" fontSize={3} fontWeight="bold" mt={7} mb={0}>
         What drew you into design systems?
       </Text>

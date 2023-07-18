@@ -6,12 +6,13 @@ const TRANSITION_STYLE = '0.8s ease'
 
 const Image = styled('img')`
   object-fit: cover;
-  width: 240px;
+  width: 320px;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 100%;
   transition: filter ${TRANSITION_STYLE};
   filter: grayscale(1);
+  margin-bottom: 16px;
   ${({$hover}) => $hover && `filter: grayscale(0);`}
 `
 
