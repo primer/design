@@ -71,7 +71,7 @@ export default function ComponentLayout({pageContext, children, path}) {
                   <Box
                     sx={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}
                   >
-                    <Heading as="h3" sx={{fontSize: 1, fontWeight: 'semibold'}} id="toc-heading-narrow">
+                    <Heading as="h3" sx={{fontSize: 1, fontWeight: 'bold'}} id="toc-heading-narrow">
                       On this page
                     </Heading>
                   </Box>
