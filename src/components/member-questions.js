@@ -20,7 +20,7 @@ const MemberInfo = ({member, colorName}) => {
     <Box width={[1, 1, 1, 1]} id={member.handle}>
       <Heading>{member.name}</Heading>
       <Text sx={{color: 'fg.subtle'}}>{member.title}</Text>
-      {' • '}
+      <Text sx={{color: 'fg.muted'}}>{' • '}</Text>
       <Link sx={{mt: 2, color: color, hoverColor: color, fontSize: 2}} href={`https://github.com/${member.handle}`}>
         @{member.handle}
       </Link>
