@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import {Text, Heading, Link, Box, StyledOcticon} from '@primer/react'
-import {MarkGithubIcon} from '@primer/octicons-react'
+import {Text, Link, Box} from '@primer/react'
 
 const MemberMarkdown = ({source, colorName}) => {
   const link = props => (
@@ -17,7 +16,7 @@ const MemberMarkdown = ({source, colorName}) => {
 const MemberInfo = ({member, colorName}) => {
   const color = colorName === 'orange' ? 'severe.fg' : 'accent.fg'
   return (
-    <Box width={[1, 1, 1, 1]} id={member.handle}>
+    <Box width={[1, 1, 1, 1]} id={member.handle} mt={5}>
       <Text as="p" fontSize={3} fontWeight="bold" mt={7} mb={0}>
         What drew you into design systems?
       </Text>

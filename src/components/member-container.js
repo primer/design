@@ -3,11 +3,6 @@ import {Box, Heading, Link, Text} from '@primer/react'
 import MemberQuestions from './member-questions'
 import AvatarShape from './avatar-shape'
 
-const direction = isOdd =>
-  isOdd
-    ? ['column-reverse', 'column-reverse', 'column-reverse', 'row-reverse', 'row-reverse']
-    : ['column-reverse', 'column-reverse', 'column-reverse', 'row', 'row']
-
 export default function Member(props) {
   const [hover, setHover] = useState(false)
 
@@ -44,7 +39,6 @@ export default function Member(props) {
           @{member.handle}
         </Link>
       </header>
-
       <MemberQuestions member={member} colorName={colorName} />
     </Box>
   )

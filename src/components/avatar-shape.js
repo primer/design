@@ -2,15 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const TRANSITION_STYLE = '0.8s ease'
-
 const Image = styled('img')`
   object-fit: cover;
-  width: 320px;
+  width: 280px;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 100%;
-  transition: filter ${TRANSITION_STYLE};
+  border-radius: 8px;
   filter: grayscale(1);
   margin-bottom: 16px;
   ${({$hover}) => $hover && `filter: grayscale(0);`}
