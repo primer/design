@@ -31,7 +31,7 @@ const MemberInfo = ({member, colorName}) => {
   }
 
   return (
-    <Box id={member.handle} mt={5}>
+    <Box mt={5}>
       <Text {...questionProps}>What drew you into design systems?</Text>
       <MemberMarkdown source={member.questionOne} colorName={color} />
       <Text {...questionProps}>Who have you learned from or been inspired by?</Text>

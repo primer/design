@@ -19,6 +19,7 @@ export default function Member(props) {
       alignItems={['center', 'center', 'center', 'initial', 'initial']}
       flexDirection="column"
       as="article"
+      id={member.handle}
     >
       <header style={{textAlign: 'center'}}>
         <AvatarShape
