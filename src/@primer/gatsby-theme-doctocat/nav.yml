@@ -2,8 +2,6 @@
   children:
     - title: Introduction
       url: /guides/introduction
-    - title: About
-      url: /guides/about
     - title: Figma
       url: /guides/figma
       children:
@@ -167,7 +165,7 @@
     - title: Checkbox group
       url: /components/checkbox-group
     - title: Circle badge
-      url: /components/circle-badge   
+      url: /components/circle-badge
     - title: Clipboard copy
       url: /components/clipboard-copy
     - title: Close button
@@ -222,7 +220,7 @@
       url: /components/pagehead
     - title: Page header
       url: /components/page-header
-    - title: Page layout 
+    - title: Page layout
       url: /components/page-layout
     - title: Pagination
       url: /components/pagination
