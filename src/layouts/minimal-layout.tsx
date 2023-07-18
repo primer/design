@@ -4,13 +4,12 @@ import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-
 import {Box, Heading, Text} from '@primer/react'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
-import {ComponentPageNav} from '../components/component-page-nav'
 
-export default function ComponentLayout({pageContext, children, path}) {
-  const {title, description, reactId, railsIds, figmaId} = pageContext.frontmatter
+export default function MinimalLayout({pageContext, children, path}) {
+  const {title, description} = pageContext.frontmatter
 
   return (
-    <BaseLayout title={title} description={description}>
+    <BaseLayout showSidebar={false} title={title} description={description}>
       <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
         <Heading as="h1">{title}</Heading>
         {description ? (
@@ -18,15 +17,6 @@ export default function ComponentLayout({pageContext, children, path}) {
             {description}
           </Text>
         ) : null}
-        <Box sx={{mb: 4}}>
-          <ComponentPageNav
-            basePath={path}
-            includeReact={reactId}
-            includeRails={railsIds}
-            includeFigma={figmaId}
-            current="overview"
-          />
-        </Box>
         <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>
           <Box
             sx={{
