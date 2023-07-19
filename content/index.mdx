@@ -4,24 +4,41 @@ title: Interface guidelines
 
 import {HeroLayout} from '@primer/gatsby-theme-doctocat'
 export default HeroLayout
+import {Text, Link, Box, Heading} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
 
-Primer is a set of guidelines, principles, and patterns for designing and building UI at GitHub. It provides a shared language and standardized approach to delivering cohesive experiences.
+<Box mb={6}>
+  <Text as="p" sx={{m: 0, fontSize: 3}}>
+    Primer is a set of guidelines, principles, and patterns for designing and building UI at GitHub. It provides a shared language and standardized approach to delivering cohesive experiences.
+  </Text>
+</Box>
 
-#### [Guides](/guides)
-
-Standards, guidelines, and tools to getting started with Primer.
-
-#### [Foundations](/foundations)
-
-The fundamental parts of the design system that underpin all GitHub interfaces, such as color and typography.
-
-#### [UI patterns](/ui-patterns)
-
-Design guidelines covering common user workflows.
-
-#### [Components](/components)
-
-Design and usage guidelines for individual Primer components.
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <Box>
+    <Heading as="h2" sx={{fontSize: 3}}><Link sx={{fontSize: 3, color: `fg.default`}} as={GatsbyLink} to="/guides/">Guides</Link></Heading>
+    <Box as="p" sx={{fontSize: 2, color: `fg.muted`}}>Standards, guidelines, and tools to getting started with Primer.</Box>
+  </Box>
+  <Box>
+    <Heading as="h2" sx={{fontSize: 3}}><Link sx={{fontSize: 3, color: `fg.default`}} as={GatsbyLink} to="/foundations/">Foundations</Link></Heading>
+    <Box as="p" sx={{fontSize: 2, color: `fg.muted`}}>The fundamental parts of the design system that underpin all GitHub interfaces, such as color and typography.</Box>
+  </Box>
+  <Box>
+    <Heading as="h2" sx={{fontSize: 3}}><Link sx={{fontSize: 3, color: `fg.default`}} as={GatsbyLink} to="/ui-patterns/">UI patterns</Link></Heading>
+    <Box as="p" sx={{fontSize: 2, color: `fg.muted`}}>Design guidelines covering common user workflows.</Box>
+  </Box>
+  <Box>
+    <Heading as="h2" sx={{fontSize: 3}}><Link sx={{fontSize: 3, color: `fg.default`}} as={GatsbyLink} to="/components/">Components</Link></Heading>
+    <Box as="p" sx={{fontSize: 2, color: `fg.muted`}}>Design and usage guidelines for individual Primer components.</Box>
+  </Box>
+  <Box>
+    <Heading as="h2" sx={{fontSize: 3}}><Link sx={{fontSize: 3, color: `fg.default`}} as={GatsbyLink} to="/github-staff/">GitHub staff</Link></Heading>
+    <Box as="p" sx={{fontSize: 2, color: `fg.muted`}}>Internal documentation for GitHub staff</Box>
+  </Box>
+  <Box>
+    <Heading as="h2" sx={{fontSize: 3}}><Link sx={{fontSize: 3, color: `fg.default`}} as={GatsbyLink} to="/native/">Native</Link></Heading>
+    <Box as="p" sx={{fontSize: 2, color: `fg.muted`}}>Principles, foundations and usage guidelines for designing for GitHub's native products</Box>
+  </Box>
+</Box>
 
 ## Need help?
 
