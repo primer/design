@@ -11,7 +11,7 @@ export default function MinimalLayout({pageContext, children, path}) {
   return (
     <BaseLayout showSidebar={false} title={title} description={description}>
       <Box sx={{maxWidth: 960, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
-        <Heading as="h1" sx={{fontSize: 7, mb: 2}}>
+        <Heading as="h1" sx={{fontSize: 7}}>
           {title}
         </Heading>
         {description ? (
