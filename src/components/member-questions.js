@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import {Text, Link, Box} from '@primer/react'
+import {Text, Link, Box, Heading} from '@primer/react'
 
 const MemberMarkdown = ({source, colorName}) => {
   const link = props => (
@@ -31,7 +31,15 @@ const MemberInfo = ({member, colorName}) => {
   }
 
   return (
-    <Box mt={5}>
+    <Box flex="1">
+      <header>
+        <Heading>{member.name}</Heading>
+        <Text sx={{color: 'fg.subtle'}}>{member.title}</Text>
+        <Text sx={{color: 'fg.muted'}}>{' • '}</Text>
+        <Link sx={{mt: 2, color: color, hoverColor: color, fontSize: 2}} href={`https://github.com/${member.handle}`}>
+          @{member.handle}
+        </Link>
+      </header>
       <Text {...questionProps}>What drew you into design systems?</Text>
       <MemberMarkdown source={member.questionOne} colorName={color} />
       <Text {...questionProps}>Who have you learned from or been inspired by?</Text>

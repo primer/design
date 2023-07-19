@@ -1,7 +1,12 @@
 import React, {useState} from 'react'
-import {Box, Heading, Link, Text} from '@primer/react'
+import {Box} from '@primer/react'
 import MemberQuestions from './member-questions'
 import AvatarShape from './avatar-shape'
+
+const direction = isOdd =>
+  isOdd
+    ? ['column-reverse', 'column-reverse', 'column-reverse', 'row-reverse', 'row-reverse']
+    : ['column-reverse', 'column-reverse', 'column-reverse', 'row', 'row']
 
 export default function Member(props) {
   const [hover, setHover] = useState(false)
@@ -17,30 +22,23 @@ export default function Member(props) {
       pb={12}
       justifyContent="flex-end"
       alignItems={['center', 'center', 'center', 'initial', 'initial']}
-      flexDirection="column"
+      flexDirection={direction(isOdd)}
       as="article"
       id={member.handle}
+      sx={{gap: [0, 0, 0, 8, 8]}}
     >
-      <header style={{textAlign: 'center'}}>
-        <AvatarShape
-          shape={shape}
-          src={avatarImage}
-          bg={color}
-          hover={hover}
-          name={member.name}
-          onFocus={() => setHover(true)}
-          onBlur={() => setHover(false)}
-          onMouseOver={() => setHover(true)}
-          onMouseOut={() => setHover(false)}
-        />
-        <Heading>{member.name}</Heading>
-        <Text sx={{color: 'fg.subtle'}}>{member.title}</Text>
-        <Text sx={{color: 'fg.muted'}}>{' • '}</Text>
-        <Link sx={{mt: 2, color: color, hoverColor: color, fontSize: 2}} href={`https://github.com/${member.handle}`}>
-          @{member.handle}
-        </Link>
-      </header>
       <MemberQuestions member={member} colorName={colorName} />
+      <AvatarShape
+        shape={shape}
+        src={avatarImage}
+        bg={color}
+        hover={hover}
+        name={member.name}
+        onFocus={() => setHover(true)}
+        onBlur={() => setHover(false)}
+        onMouseOver={() => setHover(true)}
+        onMouseOut={() => setHover(false)}
+      />
     </Box>
   )
 }
