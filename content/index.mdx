@@ -7,13 +7,13 @@ export default HeroLayout
 import {Text, Link, Box, Heading} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 
-<Box mb={6}>
+<Div mb={6}>
   <Text as="p" sx={{m: 0, fontSize: 3}}>
     Primer is a set of guidelines, principles, and patterns for designing and building UI at GitHub. It provides a shared language and standardized approach to delivering cohesive experiences.
   </Text>
-</Box>
+</Div>
 
-<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+<Div display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <Box>
     <Heading as="h3" sx={{fontSize: 3}}><Link sx={{fontSize: 3,}} as={GatsbyLink} to="/guides/">Guides</Link></Heading>
     <Box as="p" sx={{fontSize: 2, color: 'fg.muted'}}>Standards, guidelines, and tools to getting started with Primer.</Box>
@@ -38,14 +38,14 @@ import {Link as GatsbyLink} from 'gatsby'
     <Heading as="h3" sx={{fontSize: 3}}><Link sx={{fontSize: 3,}} as={GatsbyLink} to="/native/">Native</Link></Heading>
     <Box as="p" sx={{fontSize: 2, color: 'fg.muted'}}>Principles, foundations and usage guidelines for designing for GitHub's native products.</Box>
   </Box>
-</Box>
+</Div>
 
 <hr /> 
 
-<Box mb={6} display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+<Div mb={6} display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
   <Box>
     <Heading as="h4" sx={{fontSize: 5}}>Open source</Heading>
-    <Box as="p" sx={{fontSize: 3}}>Primer is open-sourced on GitHub. Contributions and feedback are welcome!</Box>
+    <Div as="p" sx={{fontSize: 3}}>Primer is open-sourced on GitHub. Contributions and feedback are welcome!</Div>
     <Link sx={{fontSize: 1, fontWeight: 'bold'}} as={GatsbyLink} to="https://github.com/primer">Contribute on GitHub</Link>
   </Box>
   <Box>
@@ -53,4 +53,4 @@ import {Link as GatsbyLink} from 'gatsby'
     <Link sx={{fontSize: 1, display: 'block', mt: 4, mb: 2, fontWeight: 'bold'}} as={GatsbyLink} to="https://twitter.com/githubprimer">Follow us on Twitter</Link>
     <Link sx={{fontSize: 1, display: 'block',  fontWeight: 'bold'}} as={GatsbyLink} to="https://github.blog/tag/design-systems/">Read the latest on the blog</Link>
   </Box>
-</Box>
+</Div>
