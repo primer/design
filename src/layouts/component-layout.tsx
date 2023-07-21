@@ -12,7 +12,7 @@ export default function ComponentLayout({pageContext, children, path}) {
   return (
     <BaseLayout title={title} description={description}>
       <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
-        <Heading as="h1">{title}</Heading>
+        <Heading as="h1" sx={{fontSize: 7}}>{title}</Heading>
         {description ? (
           <Text as="p" sx={{fontSize: 3, m: 0, mb: 3, maxWidth: '60ch'}}>
             {description}
@@ -27,7 +27,7 @@ export default function ComponentLayout({pageContext, children, path}) {
             current="overview"
           />
         </Box>
-        <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>
+        <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: [null, 7, 8, 9]}}>
           <Box
             sx={{
               width: 220,
@@ -42,7 +42,7 @@ export default function ComponentLayout({pageContext, children, path}) {
               <>
                 <Heading
                   as="h3"
-                  sx={{fontSize: 2, display: 'inline-block', fontWeight: 'bold', pl: 3}}
+                  sx={{fontSize: 1, display: 'inline-block', fontWeight: 'bold', pl: 3}}
                   id="toc-heading"
                 >
                   On this page
@@ -69,7 +69,7 @@ export default function ComponentLayout({pageContext, children, path}) {
                   <Box
                     sx={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}
                   >
-                    <Heading as="h3" sx={{fontSize: 2, fontWeight: 'bold'}} id="toc-heading-narrow">
+                    <Heading as="h3" sx={{fontSize: 1, fontWeight: 'bold'}} id="toc-heading-narrow">
                       On this page
                     </Heading>
                   </Box>
