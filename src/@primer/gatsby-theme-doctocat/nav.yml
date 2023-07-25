@@ -1,4 +1,5 @@
 - title: Guides
+  url: /guides
   children:
     - title: Introduction
       url: /guides/introduction
@@ -67,6 +68,7 @@
         - title: Adding new components
           url: /guides/contribute/adding-new-components
 - title: Foundations
+  url: /foundations
   children:
     - title: Color
       url: /foundations/color
@@ -112,8 +114,6 @@
           url: /foundations/icons/octovisuals
         - title: Design guidelines
           url: /foundations/icons/design-guidelines
-    - title: System arguments
-      url: /foundations/system-arguments
 - title: UI patterns
   children:
     - title: Empty states
@@ -167,7 +167,7 @@
     - title: Checkbox group
       url: /components/checkbox-group
     - title: Circle badge
-      url: /components/circle-badge   
+      url: /components/circle-badge
     - title: Clipboard copy
       url: /components/clipboard-copy
     - title: Close button
@@ -222,7 +222,7 @@
       url: /components/pagehead
     - title: Page header
       url: /components/page-header
-    - title: Page layout 
+    - title: Page layout
       url: /components/page-layout
     - title: Pagination
       url: /components/pagination
@@ -283,9 +283,10 @@
     - title: Underline panels
       url: /components/underline-panels
 - title: GitHub staff
+  url: /github-staff
   children:
     - title: GitHub shared components
-      url: /components/github-shared-components
+      url: /github-staff/github-shared-components
 - title: Native
   url: /native
   children:
