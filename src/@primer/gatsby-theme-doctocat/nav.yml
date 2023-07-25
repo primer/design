@@ -3,8 +3,6 @@
   children:
     - title: Introduction
       url: /guides/introduction
-    - title: About
-      url: /guides/about
     - title: Figma
       url: /guides/figma
       children:
