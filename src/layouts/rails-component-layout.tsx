@@ -289,7 +289,7 @@ export default function RailsComponentLayout({data}) {
   return (
     <BaseLayout title={title} description={description}>
       <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
-        <Heading as="h1">{title}</Heading>
+        <Heading as="h1" sx={{fontSize: 7}}>{title}</Heading>
         {description ? (
           <Text as="p" sx={{fontSize: 3, m: 0, mb: 3, maxWidth: '60ch'}}>
             {description}
@@ -304,7 +304,7 @@ export default function RailsComponentLayout({data}) {
             current="rails"
           />
         </Box>
-        <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: 4}}>
+        <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: [null, 7, 8, 9]}}>
           <Box
             sx={{
               width: 220,
@@ -315,9 +315,9 @@ export default function RailsComponentLayout({data}) {
               display: ['none', null, 'block'],
             }}
           >
-            <Text sx={{display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
+            <Heading as="h3" sx={{fontSize: 1, display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
               On this page
-            </Text>
+            </Heading>
             <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
           </Box>
           <Box sx={{'flexGrow': 1}}>
