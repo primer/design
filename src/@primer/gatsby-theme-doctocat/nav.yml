@@ -110,8 +110,6 @@
           url: /foundations/icons/octovisuals
         - title: Design guidelines
           url: /foundations/icons/design-guidelines
-    - title: System arguments
-      url: /foundations/system-arguments
 - title: UI patterns
   children:
     - title: Empty states
