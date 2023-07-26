@@ -1791,10 +1791,10 @@
   "resolved" "https://registry.npmjs.org/@primer/component-metadata/-/component-metadata-0.5.1.tgz"
   "version" "0.5.1"
 
-"@primer/gatsby-theme-doctocat@^4.6.0":
-  "integrity" "sha512-5rZxSSQFQYwoivozb/ZQ6DmXJ01iLhPcMtRWZjsuAnHV1w82N7YoPSPFea8RYdIGNdK7X3Ym9/RCA3Gir7dJGw=="
-  "resolved" "https://registry.npmjs.org/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-4.6.0.tgz"
-  "version" "4.6.0"
+"@primer/gatsby-theme-doctocat@^4.6.1":
+  "integrity" "sha512-E1hdvW0p6e8JPiH8aL1idz4WHgY/WqqOhquTIObqP/242dqjUFtwYL8VE73uwTfbP0m7wWq3faSddDUx8/VpvA=="
+  "resolved" "https://registry.npmjs.org/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-4.6.1.tgz"
+  "version" "4.6.1"
   dependencies:
     "@babel/preset-env" "^7.5.5"
     "@babel/preset-react" "^7.0.0"
