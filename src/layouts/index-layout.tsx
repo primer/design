@@ -14,7 +14,7 @@ export default function IndexLayout(props) {
       <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
         <Box sx={{display: "flex", flexDirection: 'column', gap: 2, mb: 7}}>
           {/* TODO: update `fontSize` to `8` once we can upgrade to the latest version of PRC, which supports that fontSize value */}
-          <Heading as="h1" sx={{fontSize: 56}}>{title}</Heading>
+          <Heading as="h1" sx={{fontSize: 48}}>{title}</Heading>
           {description ? (
             <Text as="p" sx={{fontSize: 4, m: 0, mb: 3, maxWidth: '60ch'}}>
               {description}
