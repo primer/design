@@ -462,31 +462,6 @@ When adding an extra action in the footer, it is important to ensure that it sti
 
 See the [Dialog guidelines](https://primer.style/design/components/dialog) for more details.
 
-## Cancel/submit
-
-In most scenarios, we recommend using declarative controls, except for some single-select instances as [demonstrated earlier](#list-single-select).
-However, we acknowledge that in specific areas of the product that users interact with frequently throughout the day, employing declarative controls may create the perception of a sluggish experience.
-For example, if the issue creation process involves too many steps, it may discourage customers from reporting issues.
-
-We are currently [conducting internal experiments](https://github.com/github/platform-ux/issues/1327) to validate those considerations, while closely collaborating with our accessibility auditors to ensure the optimal experience for all users.
-
-Our current position on ommiting declaritive buttons takes in account a mix of considerations:
-
-- **Reversibility**: If the selection has the potential to initiate workflows or send notifications that cannot be easily reversed, then it is not appropriate to make an exception.
-- **Passive selections**: Exceptions are more warranted when dealing with selections that are part of a larger form and are not submitted until the user presses the "Send" button. In such cases, it is crucial to ensure that upon closing the select panel, the focus is returned to the trigger element and that this indicates the selection. Passive selections can also be defined as selections that do not directly modify the database.
-- **Frequency of use**: Exceptions are less warranted for settings pages since they are not frequently used. On the other hand, creating an issue is a task that can occur multiple times a day, making an exception more justified in this case.
-
-### Examples
-
-| Feature                               | Reversible | Passive | Frequent | Cancel/Submit |
-| ------------------------------------- | :--------: | :-----: | :------: | :-----------: |
-| Switching branch                      |    Yes     |   No    |   Yes    |      No       |
-| Filter                                |    Yes     |   Yes   |   Yes    |      No       |
-| Adding labels to an existing issue    |     No     |   No    |   Yes    |      Yes      |
-| Adding labels in the new issue dialog |    Yes     |   Yes   |   Yes    |      No       |
-
-Internally, we strongly recommend reaching out to our accessibility and design system team to validate your use case for omitting declarative buttons.
-
 ## Keyboard navigation
 
 ### Activation (Trigger)
