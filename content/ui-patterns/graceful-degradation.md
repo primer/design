@@ -17,7 +17,7 @@ We should communicate that there is an problem and guide users around that probl
 
 <!-- TODO: iterate on global system notification design and guidelines -->
 
-![Image of a page with a banner at the top explaining an error]()
+<img width="456" alt="Image of a page with a banner at the top explaining an error" src="https://github.com/primer/react/assets/2313998/80b52dc9-0214-440d-8419-afec7ea21da4" />
 
 <!-- TODO: determine if the "warning" variant is the right path forward -->
 
@@ -45,19 +45,34 @@ Never suppress rendering of the global site navigation or any of the items in it
 
 ### Replacing with a blankslate component
 
-![Two images: 1. comment box; 2. blankslate in place of comment box]()
+<img width="960" alt="Two images: 1. comment box; 2. blankslate in place of comment box" src="https://github.com/primer/react/assets/2313998/a9670e6c-b3ae-42db-9c32-99e807bd7b85">
 
 If the affected area is large enough, replace the affected UI with a [blankstate](/components/blankslate) component that explains why the expected UI isn't there.
 
 ### Replacing with a message
 
-![Two images: 1. Image of Memex table with populated content cells; 2. Image of Memex table with missing content message in cells]()
+<img width="960" alt="Two images: 1. Image of Memex table with populated content cells; 2. Image of Memex table with missing content message in cells" src="https://github.com/primer/react/assets/2313998/2ddfad87-b445-4524-8a7a-64f4fca2ee09">
 
 Smaller parts of the UI that cannot be accurately rendered but are too important to exclude entirely can often be replaced with a short error message.
 
-DO/DON'T example:
-DO: Render an error message in place of the content ![Image of Memex table with missing content message in cells]()
-DON'T: Don't attempt to render UI that is missing critical information ![Image of Memex table with "undefined of undefined"]()
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://github.com/primer/react/assets/2313998/4d6e4bd2-bc77-4a8d-be73-1f363b06bbd1"
+      alt="Image of Memex table with missing content message in cells"
+      width="456"
+    />
+    <Caption>Render an error message in place of the content.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      alt="Image of Memex table with 'undefined of undefined'"
+      src="https://github.com/primer/react/assets/2313998/47718419-0dee-4c64-81aa-5cd1ca232fe8"
+    />
+    <Caption>Don't attempt to render UI that is missing critical information.</Caption>
+  </Dont>
+</DoDontContainer>
 
 <!-- TODO: I'm not sure if `fg.warning` should be used by default. It could be very loud. -->
 
@@ -67,9 +82,24 @@ By default, show a warning icon before the message and color the icon and the me
 
 Rendering too many error messages in a small area will be jarring and over-emphasize that something is wrong. If there's an area of the page that is mostly unavailable, either supress rendering entirely, or replace the entire area with a [blankslate]() component if it is too critical to not be rendered.
 
-DO/DON'T example:
-DO: Replace an area with a lot of broken parts with a blankslate ![Image TBD]()
-DON'T: Don't render a bunch of error messages in a small area ![Image TBD]()
+<DoDontContainer>
+  <Do>
+    <img
+      width="456"
+      alt="Image TBD"
+      src="https://github.com/primer/react/assets/2313998/07bf9e3d-e36a-45fb-ad3e-e8960192b443"
+    />
+    <Caption>Replace an area with a lot of broken parts with a blankslate.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      alt="Image TBD"
+      src="https://github.com/primer/react/assets/2313998/670e0edb-bdca-4bc8-a67c-cdb2f7f0c399"
+    />
+    <Caption>Don't render a bunch of error messages in a small area.</Caption>
+  </Dont>
+</DoDontContainer>
 
 ### Handling counter label with unavailable count
 
@@ -103,17 +133,37 @@ DO/DON'T example:
 - DO: Hide non-critical buttons ![Comment react button hidden]()
 - DON'T: Don't hide buttons that users expect to see ![New issue button hidden]()
 
+<DoDontContainer>
+  <Do>
+    <img
+      width="456"
+      alt="New issue button hidden"
+      src="https://github.com/primer/react/assets/2313998/e1c8f524-885f-42a7-86f4-707fc0d72eec"
+    />
+    <Caption>Hide non-critical buttons.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      alt="Comment react button hidden"
+      src="https://github.com/primer/react/assets/2313998/b7d94241-3c03-4cfd-91e2-1d9d11a2827b"
+    />
+    <Caption>Don't hide buttons that users expect to see.</Caption>
+  </Dont>
+</DoDontContainer>
+
 #### Indicate a button is inert or broken
 
 <!-- TODO: If the inert button design is accepted, update this content -->
 <!-- TODO: Decide whether this should be added to the component API, or use the existing Button API. If so, maybe its it's own component that composes Button+Tooltip+Dialog. -->
 
-![A default button and an inert button]()
+<img width="456" alt="A default button and an inert button" src="https://github.com/primer/react/assets/2313998/ca435c11-f8dc-4a63-a765-5bac04ed9997">
 
-![A video of a "broken" button that shows a tooltip and opens an error dialog when activated]()
 If a button is too critical to be omitted, indicate that something is wrong with the button by adding a leading icon. Optionally, you can also show a tooltip on the button to provide more context.
 
 If the user still tries to click the button, the button should open a dialog that explains why the action cannot be completed and give them a path forward if possible.
+
+<img width="960" alt="A video of a 'broken' button that shows a tooltip and opens an error dialog when activated" src="https://github.com/primer/react/assets/2313998/d1da7fc9-bfd9-431e-a774-c1c1c08bb093">
 
 DO/DON'T example:
 
@@ -122,7 +172,7 @@ DO/DON'T example:
 
 ### Handling inert [action menu](/components/action-menu) items
 
-![Three examples: 1. An action menu that works just fine; 2. An action menu with some items disabled; 3. An action menu with all items disabled]()
+<img width="960" alt="Three examples: 1. An action menu that works just fine; 2. An action menu with some items disabled; 3. An action menu with all items disabled" src="https://github.com/primer/react/assets/2313998/28f13e91-903c-4784-b3af-86eb8393aaa6">
 
 Show the menu items, but disable them and show a message explaining why they're disabled.
 
