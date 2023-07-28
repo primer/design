@@ -143,15 +143,12 @@ When the user reaches the maximum allowed number of selections, we need to displ
 
 It is important to provide visual cues to the user when certain processes may take longer than expected. Loading states can be utilized at different stages of using this component to communicate this information effectively.
 
-<img
-  width="1668"
-  alt="First select panel is a branch switcher control that includes tabs, a search input, a listbox with single-select items, and a footer with an All branches link, and cancel and apply buttons. Second select panel is titled 'Show fields, with a list of about 10 multi-select items and apply and cancel buttons in the footer."
-  src="https://github.com/primer/design/assets/980622/52bcce0e-bed4-44e8-83b4-8ca6bf80eb57"
-/>
+<img width="1668" alt="" src="https://github.com/primer/design/assets/980622/93b6b99c-368b-403c-b604-a1f50920a1ef" />
 
-1. **Initial**: This loading state is used when retrieving the initial data to prevent users from seeing an empty list. Skeleton loaders can be used if the data is expected to arrive within 500 milliseconds.
-2. **Searching/Filtering**: When users perform a search to fetch new items, it is important to maintain their current selections or allow them to continue making selections. In this case, a more minimal loading state should be used to indicate ongoing activity.
-3. **Confirmation**: If your layout does not incorporate optimistic updates or lacks error messaging for failed updates, it is crucial to use a confirmation button as a loading state to clearly communicate the progress of the update.
+1. **Initial**: Should be used when retrieving the initial data to prevent users from seeing an empty list.
+2. **Initial (skeleton)**: Should be used when retrieving the initial data to prevent users from seeing an empty list.
+3. **Searching/Filtering**: When users perform a search to fetch new items, it is important to maintain their current selections or allow them to continue making selections. In this case, a more minimal loading state should be used to indicate ongoing activity.
+4. **Confirmation**: If your layout does not incorporate optimistic updates or lacks error messaging for failed updates, it is crucial to use a confirmation button as a loading state to clearly communicate the progress of the update.
 
 By employing these loading states, users can have a better understanding of the process and remain informed throughout their interactions with the component.
 
