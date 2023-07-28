@@ -57,12 +57,14 @@ Select panels can be activated by either a regular [button](/components/button),
 <img
   width="960"
   alt="Multi-select"
-  src="https://github.com/primer/design/assets/980622/251ddaa5-28da-41db-84b0-6a4329fe1b11"
+  src="https://github.com/primer/design/assets/980622/928a4bb2-c3f8-4620-9e37-42d9b91204c1"
 />
 
-If the select panel doesn't have an additional checkbox in the footer, an instant selection can be made, resulting in the panel closing immediately upon selection. This behavior is indicated by a checkmark on the items.
+If your selection doesn't trigger a serie of events upon submission and doesn't include a checkbox in the footer, you may consider not adding a cancel/save button. In this scenario, when a selection is made, the select panel will instantly close similar to a menu. This behavior is indicated by a checkmark on the selected item.
+For example switching a branch is easily reversible and doesn't pose any risk of sending notifications to other users.
 
-On the other hand, when the footer includes a checkbox it requires the presence of both a cancel and confirmation button. This allows users to utilize the checkbox before they confirm their choices. Visual radio buttons in the items convey this behavior, although they are not semantically radio buttons.
+However, if the select panel does cause a serie events upon selection or if the footer includes additional form elements like a checkbox, it becomes necessary to include cancel/save buttons. In such cases, the behavior is indicated visually by radio buttons, which allows users to confirm their choices, before submitting their selections.
+For example setting the wrong assignee on an pull request poses the risk of sending notifications to the wrong user therefore the cancel/save button is crucial.
 
 ### List (multi-select)
 
@@ -324,7 +326,7 @@ When an additional checkbox is added to the footer, declarative buttons are requ
 The select panel offers multiple methods for clearing data, depending on the context.
 
 1. For both single and multi-selection modes that include a search/filter input, an [x-circle-fill](/foundations/icons/x-circle-fill-16) icon appears as soon as the input has a value. This enables users to swiftly clear the input value when needed.
-2. In multi-selection mode, when at least one item is selected and search functionality is present, an deselect all [icon button](/components/icon-button) is provided in the header. This button allows users to deselect all items in the list with a single click.
+2. In multi-selection mode, when at least one item is selected and search functionality is present, a deselect all [icon button](/components/icon-button) is provided in the header. This button allows users to deselect all items in the list with a single click.
 3. In multi-selection mode without search functionality, the header contains a checkbox that facilitates selecting or deselecting all items in the list in a single click.
 
 <DoDontContainer>
