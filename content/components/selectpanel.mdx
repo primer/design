@@ -77,7 +77,7 @@ To indicate an instant selection, we use checkmarks to show the selected option.
 The multi-select list allows you to choose multiple items from a list and has additional features like **select all** or **indeterminate selections**.
 
 The **select all** option at the top of the list allows for quickly deselecting or selecting all values.
-However, when you separate items in groups this option isn't available anymore.
+However, when implementing search functionality, this option becomes unavailable.
 
 Additionally, It can only be used when all available options can be returned. As an example, if the list is too large to retrieve all options at once such as API endpoints returning limited results then this feature may not be suitable.
 We should refrain from putting a strain on API endpoints to return all the possible results at once as this could result in a performance downgrade in a scenario of large lists as virtualization is currently not built into this component.
