@@ -27,12 +27,12 @@ It's important to understand the differences between the select panel and [actio
 <img
   width="960"
   alt="Select panel for assigning labels to an issue. 'Apply labels to this issue' heading, close button in upper right hand corner. Search input with a magnifer icon as a visible label, listbox of label options and the first three are selected with a visual checkbox. The footer contains a button to edit labels, and cancel and apply buttons. Purple labels are overlayed onto select panel: Overlay (dialog) pointing to the container, Search input pointing to the input, role='listbox' bracket of the listbox content, Optional action control to the button in the lower left corner, Explicit confirm / submission buttons bracket for the apply and cancel buttons in the lower right corner."
-  src="https://github.com/primer/design/assets/980622/6e4b27cc-7a90-4958-af26-791c23e02b7d"
+  src="https://github.com/primer/design/assets/980622/d396ea70-d8a5-4e52-ae3e-7596a3ef39b6"
 />
 
 The select panel is composed of three main areas: a header, a scrollable list, and an optional footer.
 
-- **Header:** The header always includes a title and a close button. Additionally, it can have an optional search/filter field to find items quicker. When a selection is made, a "clear all" button should also be present.
+- **Header:** The header always includes a title and a close button. Additionally, it can have an optional search/filter field to find items quicker. When a selection is made, a "Deselect all" button should also be present.
 - **List (scrollable):** The scrollable list consists of [action list](/components/action-list) items, which can be either single or multi-select options.
 - **Footer (Optional):** In most cases, especially in multi-select scenarios, the select panel includes a footer that incorporates a "Cancel" and an "Apply" button also refered to as declaritive actions. If any additional controls are required, such as an extra checkbox or button, a footer becomes necessary as well.
 
@@ -69,7 +69,7 @@ On the other hand, when the footer includes a checkbox it requires the presence 
 <img
   width="960"
   alt="Multi-select"
-  src="https://github.com/primer/design/assets/980622/33176d07-2853-4318-bf5d-df395e700fa9"
+  src="https://github.com/primer/design/assets/980622/bfaa7eca-9a12-432d-9184-38f024a7cd32"
 />
 
 The multi-select list allows you to choose multiple items from a list and has additional features like **select all** or **indeterminate selections**.
@@ -209,7 +209,7 @@ Including a search or filter input field not only accelerates the selection proc
     <img
       width="464"
       alt="Mouse cursor indicating a clicking action on the apply button."
-      src="https://github.com/primer/design/assets/980622/babe1e82-c840-4321-a8a1-fcb9e74c335e"
+      src="https://github.com/primer/design/assets/980622/467defc6-6786-47d3-89d9-1afd93fda757"
     />
     <Caption>Always keep the search/filter input in the sticky header.</Caption>
   </Do>
@@ -217,7 +217,7 @@ Including a search or filter input field not only accelerates the selection proc
     <img
       width="464"
       alt="Mouse cursor indicating a click action outside of the dialog."
-      src="https://github.com/primer/design/assets/980622/5838a2ad-1665-42b2-bc90-01044b9df62f"
+      src="https://github.com/primer/design/assets/980622/9e643c6b-5d14-4680-b5b5-d7f6f5aa6a6a"
     />
     <Caption>Don’t place the search/filter input in the scrollable area.</Caption>
   </Dont>
@@ -317,7 +317,13 @@ When an additional checkbox is added to the footer, declarative buttons are requ
 
 ### Clearing
 
-Within the select panel, there are multiple ways to clear data. This can involve either clearing the search/filter input or clearing the current selection. It is crucial to avoid confusing their functionality, as one is related to the list itself, while the other pertains solely to the search/filter input.
+<img width="960" alt="" src="https://github.com/primer/design/assets/980622/5328affe-0c35-4fbf-8f8e-ca3ee95083d4" />
+
+Within the select panel, there are multiple ways to clear data.
+
+- **Search/filter input**: Includes an x-circle-fill icon to clear the input value easily.
+- **List (search)**: Provides an Icon button in the header specifically designed to deselect all items in the list with a single click.
+- **List (no search)**: Features a list header containing a checkbox to efficiently select/deselect all items in the list at once.
 
 <DoDontContainer>
   <Do>
@@ -326,7 +332,7 @@ Within the select panel, there are multiple ways to clear data. This can involve
       alt="Mouse cursor indicating a clicking action on the apply button."
       src="https://github.com/primer/design/assets/980622/4e11eb8a-c515-49c8-9b48-75330b72a963"
     />
-    <Caption>Display a clear button to remove the input value when it is not empty.</Caption>
+    <Caption>Display a clear icon within the input to clear it's value.</Caption>
   </Do>
   <Dont>
     <img
@@ -334,7 +340,7 @@ Within the select panel, there are multiple ways to clear data. This can involve
       alt="Mouse cursor indicating a click action outside of the dialog."
       src="https://github.com/primer/design/assets/980622/079feed7-4ddc-476a-b639-ea17de141b9d"
     />
-    <Caption>Don't forget to show a clear button when the input value is not empty.</Caption>
+    <Caption>Don't forget to display a clear icon when the input has a value.</Caption>
   </Dont>
 </DoDontContainer>
 
@@ -358,7 +364,9 @@ The clear selection [icon button](/components/icon-button) is displayed as soon 
       alt="Mouse cursor indicating a click action outside of the dialog."
       src="https://github.com/primer/design/assets/980622/af95eaee-976b-48ab-8fb2-b31389318fca"
     />
-    <Caption>Don't forget to show a clear button in the header when one or more items are selected.</Caption>
+    <Caption>
+      Don't forget to display a clear button in the header when one or more items are selected in a multi-select panel.
+    </Caption>
   </Dont>
 </DoDontContainer>
 
@@ -389,7 +397,7 @@ When the select panel is activated through an [action menu](/components/action-m
 
 ### Appearance
 
-<img width="1338" alt="" src="https://github.com/primer/design/assets/980622/ff89b152-0929-46c1-b87a-1158504946ad" />
+<img width="1338" alt="" src="https://github.com/primer/design/assets/980622/28aeeca1-01d7-444f-964f-6a2744c1ced5" />
 
 The select panel can appear as a nonmodal dialog or modal dialog.
 
