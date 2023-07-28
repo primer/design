@@ -79,8 +79,7 @@ The multi-select list allows you to choose multiple items from a list and has ad
 The **select all** option at the top of the list allows for quickly deselecting or selecting all values.
 However, when implementing search functionality, this option becomes unavailable.
 
-Additionally, It can only be used when all available options can be returned. As an example, if the list is too large to retrieve all options at once such as API endpoints returning limited results then this feature may not be suitable.
-We should refrain from putting a strain on API endpoints to return all the possible results at once as this could result in a performance downgrade in a scenario of large lists as virtualization is currently not built into this component.
+The **select all** option can only be used when it's possible to get all available options. For instance, if the list is too big to retrieve all options at once, like when API endpoints return limited results then this feature is disabled. We should avoid overloading API endpoints with requests for all possible results at once, as it could lead to performance issues since this component lacks virtualization capabilities.
 
 The **indeterminate selections** option is useful for performing bulk actions on lists. For example, if you have 20 selected items, but some of them have different labels attached, an indeterminate checkbox (represented by a horizontal line) is shown for labels that are not set on all items.
 
