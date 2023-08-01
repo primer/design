@@ -41,17 +41,17 @@ Examples of UI that might result in a disorienting experience if removed:
 - The "New issue" button on the issues page
 - Submit buttons on forms
 
-### Replacing with a blankslate component
+### Replacing UI with a message
 
-<img width="960" alt="Two images: 1. comment box; 2. blankslate in place of comment box" src="https://github.com/primer/react/assets/2313998/a9670e6c-b3ae-42db-9c32-99e807bd7b85">
-
-If the affected area is large enough, replace the affected UI with a [blankstate](/components/blankslate) component that explains why the expected UI isn't there.
-
-### Replacing with a message
+#### Inline content and smaller elements
 
 <img width="960" alt="Two images: 1. Image of Memex table with populated content cells; 2. Image of Memex table with missing content message in cells" src="https://github.com/primer/react/assets/2313998/2ddfad87-b445-4524-8a7a-64f4fca2ee09">
 
 Smaller parts of the UI that cannot be accurately rendered but are too important to exclude entirely can often be replaced with a short error message.
+
+<!-- TODO: Try and come up with more specific guidance about how to use `fg.warning` -->
+
+By default, degrade the content with an error message. Show a warning icon before the message to help differentiate it from non-degraded content. The message may be colored with `fg.warning` to draw more attention to it. Be mindful of rendering too many error messages in `fg.warning` on the page. Rendering too many error messages on the page in `fg.warning` could be jarring and make the page feel broken instead of degraded.
 
 <DoDontContainer>
   <Do>
@@ -72,11 +72,9 @@ Smaller parts of the UI that cannot be accurately rendered but are too important
   </Dont>
 </DoDontContainer>
 
-<!-- TODO: I'm not sure if `fg.warning` should be used by default. It could be very loud. -->
-<!-- By default, show a warning icon before the message and color the icon and the message with `fg.warning`. If the page is likely to have many pieces of content. -->
-
 <!-- TODO: come up with a realistic example of a lot of error messages being rendered in a small area -->
-<!-- Rendering too many error messages in a small area will be jarring and over-emphasize that something is wrong. If there's an area of the page that is mostly unavailable, either supress rendering entirely, or replace the entire area with a [blankslate](/components/blankslate) component if it is too critical to not be rendered. -->
+
+If there's an area of the page that is mostly unavailable, either supress rendering entirely, or replace the entire area with a [blankslate](/components/blankslate) component if it is too critical to not be rendered.
 
 <DoDontContainer>
   <Do>
@@ -97,13 +95,27 @@ Smaller parts of the UI that cannot be accurately rendered but are too important
   </Dont>
 </DoDontContainer>
 
-### Handling unavailable count numbers
-
 ![Three images of repo tabs: 1. Tabs have counts; 2. Tabs don't have counts; 3. Tabs don't have counts, and but they show a tooltip.]()
 
 When the data required to calculate a count is unavailable, default to hiding the number. If the count is shown inside of an interactive element, a tooltip may be displayed on focus and hover to explain the missing count.
 
 <!-- TODO: Decide if we need to come up with a pattern for replacing (instead of hiding) numbers in an unavailable count. -->
+
+#### Panels and larger areas
+
+<img width="960" alt="Two images: 1. comment box; 2. blankslate in place of comment box" src="https://github.com/primer/react/assets/2313998/a9670e6c-b3ae-42db-9c32-99e807bd7b85">
+
+If the affected area is large enough, replace the affected UI with a [blankstate](/components/blankslate) component that explains why the expected UI isn't there.
+
+<!-- TODO: update blankslate component guidelines with guidance on when to use the bordered vs non-bordered variant -->
+
+#### Dialogs (modal and non-modal)
+
+![Four images: 1. A user hovercard OR the dialog that appears when you click "Review changes" on a PR (non-modal dialog); 2. A degraded version of that; 3. 'Edit details' modal that appears when you edit a column in a Memex project board (modal dialog); 4. A degraded version of that]()
+
+If the content of a dialog is not critical and cannot be rendered, prevent the dialog from even being opened. For non-critical dialogs that appear on hover, remove the hover interaction. For non-critical dialogs that appear on click, remove the button that triggers the dialog. For example, if a user's profile data cannot is unavailable, don't show a hovercard when their avatar is hovered.
+
+If the dialog is a core part of a workflow, replace the content of the dialog with a [blankstate](/components/blankslate) component explaining why the expected UI isn't there.
 
 ## Degraded navigation
 
@@ -127,7 +139,7 @@ There may be cases where a page has to degrade it's own navigation. Common types
 
 ### Handling non-functional[buttons](/components/button)
 
-![Decision tree for how to handle a non-functional button]()
+<img width="960" alt="Decision tree for how to handle a non-functional button" src="https://github.com/primer/design/assets/2313998/a1984e19-9fbe-4cbd-8fce-06d9237fe49e">
 
 #### Removing a non-functional button
 
