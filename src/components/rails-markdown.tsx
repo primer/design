@@ -85,7 +85,7 @@ export default function RailsMarkdown({text, parentRailsId}) {
   }
 
   const mustacheViewContext = {
-    link_to_system_arguments_docs: `[System arguments](https://primer.style/view-components/lookbook/system_arguments)`,
+    link_to_system_arguments_docs: `[System arguments](https://primer.style/view-components/lookbook/pages/system_arguments)`,
     link_to_typography_docs: `[Typography](${withPrefix('/foundations/typography')})`,
     link_to_accessibility: `[Accessibility](${withPrefix('/guides/accessibility/accessibility-at-github')})`,
     link_to_octicons: `[Octicons](${withPrefix('/foundations/icons')})`,
