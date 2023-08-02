@@ -1,13 +1,13 @@
 ---
-title: Graceful degradation (new name TBD)
+title: Degraded experiences
 description: How to preserve functionality and quality user experience when critical services are unavailable.
 ---
 
 import {Box} from '@primer/react'
 
 <Note>
-  These guidelines focus on cases where there is a system error such as a database outage. They are not intended as
-  general design guidance for error handling.
+  For now, these guidelines focus on cases where there is a system error such as a database outage. They are not
+  intended as general design guidance for error handling.
 </Note>
 
 When there is a failure that prevents the user from seeing or interacting with something, we aim to provide as good of a user experience as possible. Instead of blocking an entire page from rendering, we should give users as much functionality as possible.
