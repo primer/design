@@ -54,7 +54,7 @@ export function ChildPages({of: title}: {of: string}) {
               {item.title}
             </Link>
           </Heading>
-          <Text as="p" sx={{m: 0, maxWidth: '80ch'}}>
+          <Text as="p" sx={{m: 0, maxWidth: '80ch', fontSize: 2, color: 'fg.subtle'}}>
             {descriptionsByPath[item.url]}
           </Text>
         </Box>

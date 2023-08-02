@@ -4,7 +4,6 @@ const fetch = require('node-fetch')
 const fs = require('fs')
 const railsHelpers = require('./src/rails-helpers')
 
-
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   const config = getConfig()
   // Add our `__DEV__` and `process.env.NODE_ENV` defines
@@ -82,9 +81,9 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
   // Save the current version of Primer React to the GraphQL store.
   // This will be the latest version at the time the site is built.
   // If a new version is released, we'll need to rebuild the site.
-  const {version} = await fetch(
-    'https://unpkg.com/@primer/react/package.json', {redirect: 'follow'}
-  ).then(res => res.json())
+  const {version} = await fetch('https://unpkg.com/@primer/react/package.json', {redirect: 'follow'}).then(res =>
+    res.json(),
+  )
 
   const nodeData = {
     version,
@@ -102,9 +101,9 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
   actions.createNode(newNode)
 
   // Save the Primer React data to the GraphQL store
-  const content = await fetch(
-    `https://unpkg.com/@primer/react/generated/components.json`, {redirect: 'follow'}
-  ).then(res => res.json())
+  const content = await fetch(`https://unpkg.com/@primer/react/generated/components.json`, {redirect: 'follow'}).then(
+    res => res.json(),
+  )
 
   for (const component of Object.values(content.components)) {
     const newNode = {
@@ -124,9 +123,9 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
   // Save the current version of Octicons to the GraphQL store.
   // This will be the latest version at the time the site is built.
   // If a new version is released, we'll need to rebuild the site.
-  const {version} = await fetch(
-    'https://unpkg.com/@primer/octicons/package.json', {redirect: 'follow'}
-  ).then(res => res.json())
+  const {version} = await fetch('https://unpkg.com/@primer/octicons/package.json', {redirect: 'follow'}).then(res =>
+    res.json(),
+  )
 
   const nodeData = {
     version,
@@ -144,9 +143,9 @@ async function sourceOcticonData({actions, createNodeId, createContentDigest}) {
   actions.createNode(newNode)
 
   // Save the icon data to the GraphQL store
-  const octiconData = await fetch(
-    'https://unpkg.com/@primer/octicons/build/data.json', {redirect: 'follow'}
-  ).then(res => res.json())
+  const octiconData = await fetch('https://unpkg.com/@primer/octicons/build/data.json', {redirect: 'follow'}).then(
+    res => res.json(),
+  )
 
   for (const icon of Object.values(octiconData)) {
     for (const [height, data] of Object.entries(icon.heights)) {
@@ -222,7 +221,6 @@ async function sourceFigmaData({actions, createNodeId, createContentDigest}) {
 exports.createPages = async ({actions, graphql}) => {
   await createComponentPages({actions, graphql})
   await createIconPages({actions, graphql})
-  await createSystemArgumentsPage({actions, graphql})
 
   const {data} = await graphql(`
     query {
@@ -269,15 +267,6 @@ exports.createPages = async ({actions, graphql}) => {
       }
     }
   `)
-
-  async function createSystemArgumentsPage({actions, _graphql}) {
-    const layout = path.resolve(__dirname, 'src/layouts/system-arguments-layout.tsx')
-
-    actions.createPage({
-      path: `/foundations/system-arguments`,
-      component: layout,
-    })
-  }
 
   const components = data.allMdx.nodes
     .filter(node => Boolean(node.frontmatter.title))
@@ -341,7 +330,7 @@ async function createComponentPages({actions, graphql}) {
     if (frontmatter.railsIds) {
       const statuses = []
 
-      frontmatter.railsIds.forEach((railsId) => {
+      frontmatter.railsIds.forEach(railsId => {
         let status
 
         for (const railsComponent of data.allRailsComponent.nodes) {
@@ -367,7 +356,7 @@ async function createComponentPages({actions, graphql}) {
         fromPath: `/${slug}/rails/latest`,
         toPath: `/${slug}/rails/${railsHelpers.latestStatusFrom(statuses)}`,
         redirectInBrowser: true,
-        force: true
+        force: true,
       })
     }
 
