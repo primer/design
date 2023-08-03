@@ -48,6 +48,7 @@ export const query = graphql`
       a11y_reviewed
       short_name
       is_form_component
+      accessibility_docs
 
       props: parameters {
         name
@@ -90,6 +91,7 @@ export const query = graphql`
         status
         a11y_reviewed
         short_name
+        accessibility_docs
 
         props: parameters {
           name
@@ -123,8 +125,6 @@ export const query = graphql`
     }
   }
 `
-
-const baseUrl = 'https://primer.style/view-components'
 
 function RailsComponentArguments({props, parentRailsId}) {
   if (props.length > 0) {
@@ -200,6 +200,19 @@ function RailsComponentPreviews({previews, showPreviews}) {
   }
 }
 
+function AccessibilityDocs({text, parentRailsId}) {
+  if (text) {
+    return (
+      <>
+        <H2>Accessibility</H2>
+        <RailsMarkdown text={text} parentRailsId={parentRailsId} />
+      </>
+    )
+  } else {
+    return <></>
+  }
+}
+
 function RailsComponent({data, showPreviews, parentRailsId}) {
   const {props, slots, methods, previews} = data
 
@@ -214,7 +227,7 @@ function RailsComponent({data, showPreviews, parentRailsId}) {
 }
 
 export default function RailsComponentLayout({data}) {
-  const {name, railsId, a11y_reviewed, status, previews, slots, is_form_component} = data.railsComponent
+  const {name, railsId, a11y_reviewed, status, previews, slots, is_form_component, accessibility_docs} = data.railsComponent
   const allRailsComponents = data.allRailsComponent.nodes
 
   const title = data.sitePage?.context.frontmatter.title
@@ -242,12 +255,16 @@ export default function RailsComponentLayout({data}) {
     ],
   }
 
-  if (slots.length > 0) {
-    tableOfContents.items.push({url: '#slots', title: 'Slots'})
+  if (accessibility_docs) {
+    tableOfContents.items.splice(1, 0, {url: '#accessibility', title: 'Accessibility'})
   }
 
   if (previews.length > 0) {
     tableOfContents.items.push({url: '#examples', title: 'Examples'})
+  }
+
+  if (slots.length > 0) {
+    tableOfContents.items.push({url: '#slots', title: 'Slots'})
   }
 
   const slugger = new GithubSlugger()
@@ -339,6 +356,8 @@ export default function RailsComponentLayout({data}) {
 
             <H2>Description</H2>
             <RailsMarkdown text={data.railsComponent.description} parentRailsId={railsId} />
+
+            <AccessibilityDocs text={data.railsComponent.accessibility_docs} parentRailsId={railsId} />
 
             <RailsComponent data={data.railsComponent} showPreviews={true} parentRailsId={railsId} />
 
