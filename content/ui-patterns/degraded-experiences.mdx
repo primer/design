@@ -61,6 +61,14 @@ Examples of UI that might be disorienting to remove:
 
 ### Replacing UI with a message
 
+<img
+  width="960"
+  alt="Two images: 1. Assignees removed from issue sidebar; 2. Assignee column in a Memex table with 'data could not be loaded' message in cells"
+  src="https://github.com/primer/react/assets/2313998/a2da5f80-1e32-423c-85b8-ca77f936d31c"
+/>
+
+We don't want users to think they've suffered data loss. If we know a user created something, don't show a generic "empty state". It's better to explain that it's unavailable or remove it entirely.
+
 #### Inline content and smaller elements
 
 Smaller parts of the UI that cannot be accurately rendered but are too important to exclude entirely can often be replaced with a short error message.
@@ -204,14 +212,14 @@ Rendering a page without global navigation could make a user feel stuck. A link 
 
 There may be cases where a page has to degrade it's own navigation. Common types of page navigation include [underline nav](/components/underline-nav) (for example, a repo page) and [sidebar navigation](/components/nav-list) (for example, settings pages).
 
-## Degraded actions
+## Degraded interactions
 
 ### Handling non-functional buttons
 
 <img
   width="960"
   alt="Decision tree for how to handle a non-functional button"
-  src="https://github.com/primer/design/assets/2313998/cf352939-ce54-43fa-a24e-d3bf90756f00"
+  src="https://github.com/primer/react/assets/2313998/7f31760d-8604-d6c-99a5-bf4e22159f32"
 />
 
 #### Removing a non-functional button
@@ -304,6 +312,26 @@ Show the menu items, but disable them and show a message explaining why they're 
 If an action menu contains menu items that are very closely related (for example: the action menu for adding a file to a repo) and we can detect that none of the menu items are available, then indicate a problem on the button that triggers the action menu. Use an icon in the button to indicate that something is wrong, and (optionally) show a tooltip on hover or focus.
 
 {/* <!-- It's unclear if we'll have any use cases for the following components, so I'm leaving them out until we do: Tabs, Form controls, Links, Segmented controls, Toggle switches --> */}
+
+##### Handling degraded forms
+
+<img
+  width="456"
+  alt="Populated form that cannot be submitted"
+  src="https://github.com/primer/react/assets/2313998/d0494ff2-dea0-4286-b7d6-f6a3d0f6d1db"
+/>
+
+If a form's data cannot be saved, don't remove or disable the form fields or the submit button. Instead, inform the user that the form is in a read-only state and cannot be saved. If they still try and submit the form, show a dialog explaining that the form cannot be saved.
+
+<img
+  width="456"
+  alt="Two images: 1. partially available form data; 2. entirely unavailable form data"
+  src="https://github.com/primer/react/assets/2313998/acf64e19-6b07-4eb5-a87e-0e622f81e819"
+/>
+
+If a form's data cannot even be read, remove the form entirely and replace it with a message explaining why the form is unavailable.
+
+If only some of the form fields' data cannot be read, disable the affected fields and show an error message below those fields explaining that the data is unavailable. Disabling the fields adds another hint that something is wrong, and the field data is not actually empty.
 
 ## Waiting for a timeout
 
