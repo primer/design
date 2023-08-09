@@ -60,7 +60,7 @@ export default function CssComponentLayout({data}) {
           <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Primer CSS is no longer actively maintained</Text>
           <Text>The <Link as={GatsbyLink} to="https://github.com/primer/css">CSS library</Link> is still available, but these components will not receive new features or major changes moving forward. We encourage you to use Primer React or View Components wherever possible.</Text>
         </Note>
-        <Box sx={{display: 'flex', mt: 6, alignItems: 'start', gap: [null, 7, 8, 9]}}>
+        <Box sx={{display: 'flex', mt: 4, alignItems: 'start', gap: [null, 7, 8, 9]}}>
           <Box sx={{width: '100%'}}>
             {/* @ts-ignore */}
             <Box
