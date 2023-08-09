@@ -35,7 +35,7 @@ export default function CssComponentLayout({data}) {
   const name = data.sitePage?.context.frontmatter.cssId || ''
   const title = data.sitePage?.context.frontmatter.title || name
   const description = data.sitePage?.context.frontmatter.description || ''
-  const stories = [{id: `deprecated-${name}--docs`}]
+  const stories = [{id: `deprecated-${name}--default`}]
 
   return (
     <BaseLayout title={title} description={description}>
