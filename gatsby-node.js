@@ -314,6 +314,7 @@ async function createComponentPages({actions, graphql}) {
   const reactComponentLayout = path.resolve(__dirname, 'src/layouts/react-component-layout.tsx')
   const railsComponentLayout = path.resolve(__dirname, 'src/layouts/rails-component-layout.tsx')
   const figmaComponentLayout = path.resolve(__dirname, 'src/layouts/figma-component-layout.tsx')
+  const cssComponentLayout = path.resolve(__dirname, 'src/layouts/css-component-layout.tsx')
 
   for (const {slug, frontmatter} of data.allMdx.nodes) {
     if (frontmatter.reactId) {
@@ -366,6 +367,16 @@ async function createComponentPages({actions, graphql}) {
         component: figmaComponentLayout,
         context: {
           figmaId: frontmatter.figmaId,
+          parentPath: `/${slug}`,
+        },
+      })
+    }
+    if (frontmatter.cssId) {
+      actions.createPage({
+        path: `/${slug}/css`,
+        component: cssComponentLayout,
+        context: {
+          cssId: frontmatter.cssId,
           parentPath: `/${slug}`,
         },
       })
