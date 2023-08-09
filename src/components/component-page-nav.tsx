@@ -15,7 +15,7 @@ export function ComponentPageNav({
   includeRails?: boolean
   includeFigma?: boolean
   includeCSS?: boolean
-  current?: 'overview' | 'react' | 'rails' | 'figma'
+  current?: 'overview' | 'react' | 'rails' | 'figma' | 'css'
 }) {
   return (
     <UnderlineNav>

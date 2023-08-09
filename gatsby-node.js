@@ -299,6 +299,7 @@ async function createComponentPages({actions, graphql}) {
             reactId
             figmaId
             railsIds
+            cssId
           }
         }
       }
