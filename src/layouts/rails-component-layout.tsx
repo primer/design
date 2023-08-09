@@ -29,6 +29,7 @@ export const query = graphql`
           reactId
           railsIds
           figmaId
+          cssId
         }
       }
     }

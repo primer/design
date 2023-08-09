@@ -3,9 +3,10 @@ import StorybookLink from '@primer/gatsby-theme-doctocat/src/components/storyboo
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
+import {Note} from '@primer/gatsby-theme-doctocat'
 import {LinkExternalIcon} from '@primer/octicons-react'
 import {Box, Heading, Label, Link, Text} from '@primer/react'
-import {graphql} from 'gatsby'
+import {graphql, Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import {StorybookEmbed} from '../components/storybook-embed'
 import {BaseLayout} from '../components/base-layout'
@@ -55,19 +56,12 @@ export default function CssComponentLayout({data}) {
             current="css"
           />
         </Box>
-        <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: [null, 7, 8, 9]}}>
-          <Box
-            sx={{
-              width: 220,
-              flex: '0 0 auto',
-              position: 'sticky',
-              top: HEADER_HEIGHT + 24,
-              maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 24px)`,
-              display: ['none', null, 'block'],
-            }}
-          >
-          </Box>
-          <Box sx={{minWidth: 0}}>
+        <Note variant="warning">
+          <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Primer CSS is no longer actively maintained</Text>
+          <Text>The <Link as={GatsbyLink} to="https://github.com/primer/css">CSS library</Link> is still available, but these components will not receive new features or major changes moving forward. We encourage you to use Primer React or View Components wherever possible.</Text>
+        </Note>
+        <Box sx={{display: 'flex', mt: 6, alignItems: 'start', gap: [null, 7, 8, 9]}}>
+          <Box sx={{width: '100%'}}>
             {/* @ts-ignore */}
             <Box
               sx={{
@@ -100,25 +94,12 @@ export default function CssComponentLayout({data}) {
                 ) : null}
               </Box>
             </Box>
-            {/* Narrow table of contents */}
-            <Box
-              sx={{
-                display: ['block', null, 'none'],
-                mb: 5,
-                borderColor: 'border.muted',
-                bg: 'canvas.subtle',
-                borderWidth: '1px',
-                borderStyle: 'solid',
-                borderRadius: 2,
-              }}
-            >
-            </Box>
 
             <H2>Examples</H2>
             {stories.length > 0 ? (
               <StorybookEmbed framework="css" height={300} stories={stories} />
             ) : (
-              // If there are no stories, link to the component's page in the Primer React docs
+              // If there are no stories, link to the component's page in the Primer CSS Storybook
               <Link
                 sx={{display: 'inline-flex', gap: 1, alignItems: 'center'}}
                 href={`https://primer.style/css/${name}`}
