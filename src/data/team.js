@@ -1,5 +1,19 @@
 const teamContent = [
   {
+    name: 'Jessica Kuo',
+    title: 'Primer Systems Designer Intern',
+    handle: 'jesskuo4',
+    cssFeature: `animation: jump 1s infinite`,
+    questionOne: `Coming from a background in human-centered design and engineering (HCDE), I enjoy collaborating with designers and engineers from various teams to ensure that the design system remains adaptive in addressing evolving needs. Working on design systems provides a unique opportunity to shape the foundational elements that drive consistency, branding, and cohesive user experiences across an entire organization. In addition, it allows me to learn how to look at our products and experiences at a systems-first, future-proof level.`,
+    questionTwo: `I'm immensely grateful for the online design community, a nurturing space where designers from all walks of life share their knowledge with the next generation— [Steve Jobs](https://www.apple.com/stevejobs/), [Julie Zhuo](https://www.juliezhuo.com/), [Ethan Eismann](https://twitter.com/eeismann) and many others. This collective effort continuously inspires my own creative journey to create accessible, beautiful, and seamless experiences. 
+    
+    I want to express my sincerest gratitude to the design team at GitHub, who mentored and supported me in discoverying my passion for design systems: [Natalya Shelburne](http://www.artist-developer.com/), [Katie Langerman](https://www.langermank.com/), and [Cole Bemis](https://colebemis.com/). Ultimately, it is the collective wisdom, creativity, and collaborations that fuel my joy in designing.`,
+    favoriteTools: `Copilot, Figma, Rewatch, GitHub, Youtube, Twitter, Primer.style`,
+    avatar: 'https://avatars.githubusercontent.com/u/131988618?v=4',
+    gif: 'https://github.com/primer/primer.style/assets/131988618/58718b0b-bc31-4f51-8428-aecce94ac1e0',
+    alumni: true,
+  },
+  {
     name: 'Tyler Jones',
     title: 'Accessibility Software Engineer',
     handle: 'tylerjdev',
