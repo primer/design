@@ -1,5 +1,4 @@
 import {Note, StatusLabel} from '@primer/gatsby-theme-doctocat'
-import {LinkExternalIcon} from '@primer/octicons-react'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import {Box, Heading, Label, Link, Text} from '@primer/react'
 import FigmaLink from '@primer/gatsby-theme-doctocat/src/components/figma-link'

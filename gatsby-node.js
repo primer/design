@@ -3,6 +3,7 @@ const defines = require('./babel-defines')
 const fetch = require('node-fetch')
 const fs = require('fs')
 const railsHelpers = require('./src/rails-helpers')
+const GithubSlugger = require('github-slugger')
 
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   const config = getConfig()
@@ -32,6 +33,55 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   await sourcePrimerRailsData({actions, createNodeId, createContentDigest})
   await sourceOcticonData({actions, createNodeId, createContentDigest})
   await sourceFigmaData({actions, createNodeId, createContentDigest})
+  await sourceDotcomSharedComponentsData({actions, createNodeId, createContentDigest})
+}
+
+async function sourceDotcomSharedComponentsData({actions, createNodeId, createContentDigest}) {
+  // @TODO: eventually get this from a dotcom build artifact
+  const sharedComponents = JSON.parse(fs.readFileSync('shared_components.json'))
+  const slugger = new GithubSlugger()
+
+  for (sharedComponent of sharedComponents) {
+    const {component: name} = sharedComponent
+
+    const newNode = {
+      ...sharedComponent,
+      id: createNodeId(`dotcom-shared-${name}`),
+      internal: {
+        type: 'SharedComponent',
+        contentDigest: createContentDigest(sharedComponent),
+      },
+    }
+
+    actions.createNode(newNode)
+
+    const sharedComponentsPath = '/github-staff/github-shared-components'
+    const componentPath = `${sharedComponentsPath}/${slugger.slug(name)}`
+
+    actions.createRedirect({
+      fromPath: componentPath,
+      toPath: `${sharedComponentsPath}#${name[0].toLowerCase()}`,
+      redirectInBrowser: true,
+      force: true
+    })
+
+    const searchDoc = {
+      title: name,
+      path: componentPath,
+      rawBody: name
+    }
+
+    const searchNode = {
+      ...searchDoc,
+      id: createNodeId(`shared-component-search-doc-${name}`),
+      internal: {
+        type: 'CustomSearchDoc',
+        contentDigest: createContentDigest(searchDoc)
+      }
+    }
+
+    actions.createNode(searchNode)
+  }
 }
 
 async function sourcePrimerRailsData({actions, createNodeId, createContentDigest}) {

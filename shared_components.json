@@ -1,0 +1,477 @@
+[
+  {
+    "component": "AnalyticsProvider"
+  },
+  {
+    "component": "Assignees",
+    "storyIds": [
+      "shared-components-assignees--assignees-example"
+    ]
+  },
+  {
+    "component": "CodeMirror",
+    "storyIds": [
+      "shared-components-codemirror--example"
+    ]
+  },
+  {
+    "component": "CopilotSymbolButton"
+  },
+  {
+    "component": "CopyToClipboardButton",
+    "storyIds": [
+      "shared-components-copytoclipboard--copy-to-clipboard-example"
+    ]
+  },
+  {
+    "component": "CurrentRepository"
+  },
+  {
+    "component": "DatePicker",
+    "storyIds": [
+      "shared-components-date-picker--single",
+      "shared-components-date-picker--multi",
+      "shared-components-date-picker--range"
+    ]
+  },
+  {
+    "component": "DiffLinePart",
+    "storyIds": [
+      "shared-components-diffs-difflinepart--addition",
+      "shared-components-diffs-difflinepart--context",
+      "shared-components-diffs-difflinepart--deletion",
+      "shared-components-diffs-difflinepart--hunk",
+      "shared-components-diffs-difflinepart--injected-context",
+      "shared-components-diffs-difflinepart--empty"
+    ]
+  },
+  {
+    "component": "HunkHeaderDiffLine",
+    "storyIds": [
+      "shared-components-diffs-hunkheaderdiffline--example",
+      "shared-components-diffs-hunkheaderdiffline--with-hunk-button"
+    ]
+  },
+  {
+    "component": "EmptyDiffLine",
+    "storyIds": [
+      "shared-components-diffs-emptydiffline--example"
+    ]
+  },
+  {
+    "component": "FeatureRequest",
+    "storyIds": [
+      "shared-components-featurerequest--feature-request-example"
+    ]
+  },
+  {
+    "component": "FlashError",
+    "storyIds": [
+      "shared-components-flasherror--with-prefix",
+      "shared-components-flasherror--with-prefix-and-rule-errors",
+      "shared-components-flasherror--without-prefix",
+      "shared-components-flasherror--without-prefix-with-rule-errors",
+      "shared-components-flasherror--renders-null-without-error-message"
+    ]
+  },
+  {
+    "component": "GitIgnoreDropdown",
+    "storyIds": [
+      "shared-components-gitignoredropdown--default",
+      "shared-components-gitignoredropdown--with-initial-selection"
+    ]
+  },
+  {
+    "component": "GitHubAvatar",
+    "storyIds": [
+      "shared-components-githubavatar--git-hub-avatar-example"
+    ]
+  },
+  {
+    "component": "GrowthBanner",
+    "storyIds": [
+      "shared-components-growthbanner--base"
+    ]
+  },
+  {
+    "component": "IconButtonWithTooltip"
+  },
+  {
+    "component": "CreateIssue"
+  },
+  {
+    "component": "CreateIssueDialog"
+  },
+  {
+    "component": "IssueTemplatePicker"
+  },
+  {
+    "component": "CreateIssueButton"
+  },
+  {
+    "component": "CreateIssueFooter"
+  },
+  {
+    "component": "CreateIssueButtonLoading"
+  },
+  {
+    "component": "IssueCreateContext"
+  },
+  {
+    "component": "RepositoryAndTemplatePickerDialog"
+  },
+  {
+    "component": "IssueFormElements",
+    "storyIds": [
+      "shared-components-issueform--issue-form-example"
+    ]
+  },
+  {
+    "component": "IssueViewer"
+  },
+  {
+    "component": "IssueViewerContext"
+  },
+  {
+    "component": "IssueNavigationContext"
+  },
+  {
+    "component": "IssueViewerLoader"
+  },
+  {
+    "component": "Body"
+  },
+  {
+    "component": "IssueTimeline"
+  },
+  {
+    "component": "MetadataSection"
+  },
+  {
+    "component": "ScrollToTop"
+  },
+  {
+    "component": "use-nav-data-neighbours"
+  },
+  {
+    "component": "BodyLoading"
+  },
+  {
+    "component": "HeaderState"
+  },
+  {
+    "component": "Shared"
+  },
+  {
+    "component": "ReactionViewer"
+  },
+  {
+    "component": "ProjectsSection"
+  },
+  {
+    "component": "ProjectsSection"
+  },
+  {
+    "component": "Section"
+  },
+  {
+    "component": "ReadonlySectionHeader"
+  },
+  {
+    "component": "SectionHeader"
+  },
+  {
+    "component": "AssigneePicker"
+  },
+  {
+    "component": "ItemPickersContext"
+  },
+  {
+    "component": "ItemPicker"
+  },
+  {
+    "component": "SharedEmptyPicker"
+  },
+  {
+    "component": "ProjectPicker"
+  },
+  {
+    "component": "LabelPicker"
+  },
+  {
+    "component": "MilestonePicker"
+  },
+  {
+    "component": "OrganizationPicker"
+  },
+  {
+    "component": "PullRequestPicker"
+  },
+  {
+    "component": "ProjectPicker"
+  },
+  {
+    "component": "RepositoryPicker",
+    "storyIds": [
+      "shared-components-repositorypicker--repository-picker-example"
+    ]
+  },
+  {
+    "component": "JSResource"
+  },
+  {
+    "component": "KeyboardKey",
+    "storyIds": [
+      "shared-components-keyboardkey--condensed",
+      "shared-components-keyboardkey--full"
+    ]
+  },
+  {
+    "component": "LabelToken",
+    "storyIds": [
+      "shared-components-labeltoken--label-token-example"
+    ]
+  },
+  {
+    "component": "LabelsList",
+    "storyIds": [
+      "shared-components-labelslist--empty",
+      "shared-components-labelslist--several-labels"
+    ]
+  },
+  {
+    "component": "LeadingContent"
+  },
+  {
+    "component": "Description"
+  },
+  {
+    "component": "DescriptionItem"
+  },
+  {
+    "component": "ListItem",
+    "storyIds": [
+      "shared-components-listview--sample-actions",
+      "shared-components-listview--item"
+    ]
+  },
+  {
+    "component": "ListViewMetadata",
+    "storyIds": [
+      "shared-components-listview--metadata"
+    ]
+  },
+  {
+    "component": "ListView",
+    "storyIds": [
+      "shared-components-listview--list"
+    ]
+  },
+  {
+    "component": "ListViewContext"
+  },
+  {
+    "component": "ListViewSelectionContext"
+  },
+  {
+    "component": "ListItemContext"
+  },
+  {
+    "component": "MarkdownContext"
+  },
+  {
+    "component": "MarkdownEditor"
+  },
+  {
+    "component": "Nav",
+    "storyIds": [
+      "features-react-core-navigation-test-nav--nav-example"
+    ]
+  },
+  {
+    "component": "ControlledTooltip",
+    "storyIds": [
+      "shared-components-portaltooltip-controlledtooltip--example"
+    ]
+  },
+  {
+    "component": "PortalTooltip",
+    "storyIds": [
+      "shared-components-portaltooltip-portaltooltip--base"
+    ]
+  },
+  {
+    "component": "UsePortalTooltip"
+  },
+  {
+    "component": "PresenceAvatars",
+    "storyIds": [
+      "shared-components-presenceavatars--example"
+    ]
+  },
+  {
+    "component": "ProductTip",
+    "storyIds": [
+      "shared-components-producttip--base"
+    ]
+  },
+  {
+    "component": "PromotionCard",
+    "storyIds": [
+      "shared-components-promotioncard--base"
+    ]
+  },
+  {
+    "component": "QueryBuilder",
+    "storyIds": [
+      "shared-components-querybuilder--query-builder-example"
+    ]
+  },
+  {
+    "component": "ReactSSR"
+  },
+  {
+    "component": "ErrorBoundary",
+    "storyIds": [
+      "shared-components-errorboundary--no-error",
+      "shared-components-errorboundary--error-fallback",
+      "shared-components-errorboundary--default-error-fallback"
+    ]
+  },
+  {
+    "component": "FeatureFlagProvider"
+  },
+  {
+    "component": "JsonRoute"
+  },
+  {
+    "component": "Link",
+    "storyIds": [
+      "shared-components-link--docs",
+      "shared-components-link--example"
+    ]
+  },
+  {
+    "component": "Render"
+  },
+  {
+    "component": "RefSelector",
+    "storyIds": [
+      "shared-components-refselector--example",
+      "shared-components-refselector--loading-error"
+    ]
+  },
+  {
+    "component": "FixedSizeVirtualList",
+    "storyIds": [
+      "shared-components-refselector-fixedsizevirtuallist--example"
+    ]
+  },
+  {
+    "component": "HighlightedText",
+    "storyIds": [
+      "shared-components-refselector-highlightedtext--example"
+    ]
+  },
+  {
+    "component": "PreloadedQueryBoundary",
+    "storyIds": [
+      "shared-components-preloadedqueryboundary--no-error",
+      "shared-components-preloadedqueryboundary--error-fallback",
+      "shared-components-preloadedqueryboundary--default-error-fallback"
+    ]
+  },
+  {
+    "component": "RelayRoute"
+  },
+  {
+    "component": "RelayComponents"
+  },
+  {
+    "component": "RenderPhaseProvider"
+  },
+  {
+    "component": "SafeHTML",
+    "storyIds": [
+      "shared-components-safehtml--box",
+      "shared-components-safehtml--text",
+      "shared-components-safehtml--div",
+      "shared-components-safehtml--unsafe-box",
+      "shared-components-safehtml--unsafe-text",
+      "shared-components-safehtml--unsafe-div"
+    ]
+  },
+  {
+    "component": "ScreenSize"
+  },
+  {
+    "component": "SearchDropdown",
+    "storyIds": [
+      "shared-components-searchdropdown--search-dropdown-no-selection",
+      "shared-components-searchdropdown--search-dropdown-with-selection"
+    ]
+  },
+  {
+    "component": "SidePanel",
+    "storyIds": [
+      "shared-components-sidepanel--example"
+    ]
+  },
+  {
+    "component": "SingleSignOnBanner",
+    "storyIds": [
+      "shared-components-singlesignonbanner--single-sign-on-banner-example"
+    ]
+  },
+  {
+    "component": "LoadingSkeleton",
+    "storyIds": [
+      "shared-components-loadingskeleton--skeleton-example"
+    ]
+  },
+  {
+    "component": "SplashDialog",
+    "storyIds": [
+      "shared-components-splashdialog--example"
+    ]
+  },
+  {
+    "component": "RenderHook"
+  },
+  {
+    "component": "Toast",
+    "storyIds": [
+      "shared-components-toast--toast-example"
+    ]
+  },
+  {
+    "component": "PercentageCircle"
+  },
+  {
+    "component": "ToastContext"
+  },
+  {
+    "component": "Toasts"
+  },
+  {
+    "component": "TrialBanner",
+    "storyIds": [
+      "shared-components-trialbanner--base"
+    ]
+  },
+  {
+    "component": "TestAliveSubscription"
+  },
+  {
+    "component": "UseClipboard"
+  },
+  {
+    "component": "ObservableBox"
+  },
+  {
+    "component": "ValidationErrorPopover",
+    "storyIds": [
+      "shared-components-validationerrorpopover--example"
+    ]
+  }
+]
