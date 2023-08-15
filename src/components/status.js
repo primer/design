@@ -4,6 +4,7 @@ import {DotFillIcon, AccessibilityInsetIcon, ListUnorderedIcon} from '@primer/oc
 import React from 'react'
 import styled from 'styled-components'
 import StatusRows from './status-rows'
+import { useRails } from './rails-provider'
 
 const Table = styled.table`
   width: 100%;
@@ -94,9 +95,10 @@ const statusFieldTypes = [
 export function StatusTable() {
   const [components, setComponents] = React.useState([])
   const [selectedField, setSelectedField] = React.useState(initialFieldTypes[0])
+  const { actions: railsActions, data: railsData } = useRails()
 
   React.useEffect(() => {
-    getComponents()
+    getComponents(railsActions, railsData)
       .then(components => setComponents(components))
       .catch(error => console.error(error))
   }, [])
@@ -181,16 +183,12 @@ export function StatusTable() {
   )
 }
 
-async function getComponents() {
+async function getComponents(railsActions, railsData) {
   const handleError = error => {
     console.error(error)
   }
 
   // Get component status data
-  const viewComponents = await fetch(`https://primer.github.io/view_components/components.json`)
-    .then(res => res.json())
-    .catch(handleError)
-
   const reactComponents = await fetch(`https://primer.github.io/react/components.json`)
     .then(res => res.json())
     .catch(handleError)
@@ -201,8 +199,31 @@ async function getComponents() {
       data: reactComponents,
     },
     viewComponent: {
-      url: 'https://primer.style/view-components',
-      data: viewComponents,
+      url: '',
+      data: (() => {
+        const vcs = []
+
+        railsData.allRailsComponent.nodes.forEach(vc => {
+          const componentInfo = railsActions.getRailsComponentInfo(vc.railsId)
+
+          if (componentInfo) {
+            const id =
+              componentInfo.page.context.frontmatter.reactId ||
+                vc.railsId.split('::').slice(-1)[0]
+
+            vcs.push({
+              id: id,
+              displayName: vc.name,
+              description: vc.description,
+              path: componentInfo.urlPath,
+              status: vc.status,
+              a11yReviewed: vc.a11y_reviewed
+            })
+          }
+        })
+
+        return vcs
+      })(),
     },
   }
 
