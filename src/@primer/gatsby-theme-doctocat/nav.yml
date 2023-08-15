@@ -284,6 +284,8 @@
       url: /components/underline-panels
 - title: Deprecated components
   children:
+    - title: Box overlay
+      url: /deprecated-components/box-overlay
     - title: Dropdown
       url: /deprecated-components/dropdown
     - title: Menu
