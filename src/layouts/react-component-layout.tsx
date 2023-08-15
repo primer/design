@@ -95,6 +95,7 @@ export default function ReactComponentLayout({data}) {
             includeReact={data.sitePage.context.frontmatter.reactId}
             includeRails={data.sitePage.context.frontmatter.railsIds}
             includeFigma={data.sitePage.context.frontmatter.figmaId}
+            includeCSS={data.sitePage.context.frontmatter.cssId}
             current="react"
           />
         </Box>

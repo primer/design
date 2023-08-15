@@ -223,6 +223,7 @@ export default function RailsComponentLayout({data}) {
   const reactId = data.sitePage.context.frontmatter.reactId
   const railsIds = data.sitePage.context.frontmatter.railsIds
   const figmaId = data.sitePage.context.frontmatter.figmaId
+  const cssId = data.sitePage.context.frontmatter.cssId
 
   const subcomponents = []
   const componentStack = [data.railsComponent]
