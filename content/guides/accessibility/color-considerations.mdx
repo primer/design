@@ -1,0 +1,144 @@
+---
+title: Color considerations
+description: Color is an important aspect of creating accessible, inclusive experiences. 
+---
+
+## Overview
+
+This guidance covers considerations that can't automatically be integrated into Primer. It supplements [accessibility guidance given in the Color portion of our Foundations documentation](https://primer.style/design/foundations/color#accessibility).
+
+### Design tokens
+
+The majority of color contrast considerations should be handled by [Primer color design tokens](https://primer.style/design/foundations/color#how-to-use-color-for-product-ui). Ensure that solutions for the following considerations integrate designt tokens as a method of creating accessible experiences.
+
+### Determining contrast
+
+[WebAIM's Contrast Checker tool](https://webaim.org/resources/contrastchecker/) is the recommended way to calculate color contrast ratios.
+
+### The APCA
+
+The [Advanced Accessible Perceptual Contrast Algorithm](https://www.myndex.com/APCA/) (<abr>APCA</abbr>) is a proposal and is **not normative**. In terms of WCAG, and therefore, MAS-C compliance, this means that color contrast is valid **only** if it meets WCAG 2.1 criteria. 
+
+A color value that is APCA-compliant **may not** be WCAG compliant until APCA is integrated into WCAG 3.0. WCAG 3.0 is still a work in progress and currently does not have an anticipated release date.
+
+## Compliance 
+
+The following guidance is based on one or more **normative** Web Content Accessibility Guidelines (<abbr>WCAG</abbr>) success criterion. This means that it is objective requirements with implications that affect MAS-C compliance efforts, as well as international laws regarding accessibility.
+
+Non-normative suggestions are also supplied, but marked as such.
+
+## Visual themes
+
+GitHub offers two parent themes: Day (light) and Night (dark). Each parent theme has a default appearance, and then a suite of sub-themes. Sub-themes include considerations for high and low contrast experiences, as well as certain vision conditions.
+
+It is possible to set GitHub to use a dark sub-theme when a parent Day theme has been set, and vice-versa. This allows a user to have a fine-grained control over their experience.
+
+### Default theme
+
+GitHub uses the default Day (light) theme when a user visits the site in a logged out state. Because the visitor is logged out, they are unable to adjust the theme in the [Appearance settings](https://github.com/settings/appearance).
+
+Because of this, [the default Day theme **must** to satisfy WCAG) criteria for color-related concerns](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/primer/color-modes.md#guidance). From a high-level, this means that **all** GitHub content displayed using the default Day theme must:
+
+- Pass color contrast requirements, and
+- Have the mechanism for accessing and changing the theme be fully WCAG compliant.
+
+This is the strongest guarantee we have that: 
+
+1. Content can be perceived—and therefore understood and used—across a wide range of vision conditions, and that
+2. The mechanism to adjust GitHub's theme can be operated by the widest range of input modes.
+
+This allows users to use GitHub in a logged-out state. If a user is logged in, it also enables them to address their own specific usability and access needs, as well as aesthetic desires.
+
+### Non-default themes
+
+[All sub-themes **do not** need to meet WCAG color contrast requirements](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/primer/color-modes.md#guidance), provided the default Day theme and its content is accessible. This guidance is derived from [WCAG 2.1 Technique G174](https://www.w3.org/WAI/WCAG21/Techniques/general/G174).
+
+Certain themes are specifically designed to create a low contrast effect, notably the Dark Dimmed theme. 
+
+In this use case, a user selecting this theme is likely intentionally expressing a desire for an experience with less visual contrast. Like other theme selections, this may be to satisfy aesthetic sensibilities, or access needs that are derived from visual conditions that make a higher contrast experience unusable. In the case of access needs, a higher contrast experience may actually be less accessible for the user.
+
+The availability of the Dark Dimmed theme treatment allows users to customize their GitHub experience without having to resort to browser extensions or other user-hosted modifications. Of note is the portability of this theme, in that it will automatically be available across multiple sessions and devices.
+
+While other sub-themes are not required to meet WCAG color contrast requirements, GitHub should strive to ensure they can be whenever possible. 
+
+As other sub-themes are not specifically designed to create a lessened contrast experience, there is less certainty that a user who is using the sub-theme has no contrast-related access needs. 
+
+Because of this, sub-themes such as Light/Dark Protanopia & Deuteranopia should strive to be WCAG color contrast compliant. This is especially relevant for Light/Dark High Contrast sub-themes.
+
+## Inputs
+
+Being able to perceive the boundaries of an input is vital. Meeting WCAG color contrast requirements helps to ensure the widest possible range of users can perform the data entry required to operate GitHub successfully.
+
+Broadly-speaking, there are four overall considerations for input contrast:
+
+1. Text,
+2. Borders, 
+3. Selected state contrast, and
+4. Icons.
+
+Combined, meeting contrast requirements allow a user to understand:
+
+1. What the input is for,
+2. What area of the input a user can interact with, and
+3. What state the input is in.
+
+If a computed color value in any of the four considerations is not compliant, it may endanger one or more portions of user understanding and operation of the input.
+
+### Text contrast
+
+Text portions of an input **must** meet a contrast ratio of `4.5:1` for "normal text", or `3:1` for "large text". This applies to both an input's label and its user-provided text content.
+
+The majority of GitHub input text size is "normal text". Both "normal text" and "large text" are WCAC-specific terms. More information about this can be found on [the Key Terms subsection of SC 1.4.3: Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#dfn-large-scale).
+
+### Border contrast
+
+Borders communicate **the boundaries of an input**, and are considered non-text contrast. This includes inputs that allow for freeform user input such as text, and also pre-specified inputs such as checkboxes.
+
+Borders of an input **must** meet a contrast ratio of `3:1`. This is calculated by the border's computed color value compared to the computed background color the input is placed on.
+
+### Selected state contrast
+
+Selection state communicates **if a user has chosen an input**, and is considered non-text contrast. Examples of this are a checkbox's check, a radio's dot, and a select menu option's background color.
+
+Selected state of an input **must** meet a contrast ratio of `3:1`. This is calculated by the border's computed color value compared to the computed background color the input is placed on.
+
+### Icon contrast
+
+Icons can either be:
+
+1. Functional, or
+2. Decorative.
+
+#### Functional icons
+
+If the icon is the sole means of determining an input's purpose, it is considered functional. An example of this is an [IconButton](https://primer.style/design/components/icon-button).
+
+Functional icons **must** meet a contrast ratio of `3:1`. This is calculated by the icon's computed color value compared to the computed background color the input is placed on.
+
+#### Decorative icons
+
+Icons that have an accompanying text label can be considered decorative. Decorative icons **do not** need to meet WCAG-compliant contrast ratios.
+
+The reason for this is that the text label communicates the input's purpose, provided its computed color value is WCAG compliant. An example of this is a button with both a [trash Octicon](https://primer.style/design/foundations/icons/trash-16) **and** a text label of "Delete".
+
+Beyond the scope of normative WCAG guidance, a further consideration is if making a decorative icon color contrast compliant is useful for aiding in facilitating understanding, even if it is not required to be.
+
+## Further reading
+
+### Resources
+
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+presentation that uses sufficient contrast](https://www.w3.org/WAI/WCAG21/Techniques/general/G174)
+
+### Primer
+
+- [Foundations/Color](https://primer.style/design/foundations/color)
+
+### WCAG
+
+- [SC 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html)
+- [SC 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
+- [SC 1.4.11 Non-text Contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html)
+- [SC 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html)
+- [WCAG 2.1 Technique G174: Providing a control with a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient contrast](https://www.w3.org/WAI/WCAG21/Techniques/general/G174)
+
