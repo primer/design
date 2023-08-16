@@ -9,11 +9,6 @@ import {Link, Text} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
 
-<Note variant="warning">
-  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Guidelines for this component are in progress</Text>
-  <Text>Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link></Text>
-</Note>
-
 ## Usage
 
 Toasts are used to provide relevant feedback to the user, typically after they've taken an action. Primer includes styles for success, warning, error, loading, and default toasts. Some examples include:
@@ -23,7 +18,7 @@ Toasts are used to provide relevant feedback to the user, typically after they'v
 - Notifying the user if an action failed to complete
 - Providing general information
 
-Toasts are best used in context of the page they're referring to (rather than a global notification that can appear on any page) and should require minimal user interaction. Toasts are best used to display time-sensitive information. For global notices and messaging, see the [flash component](#flash-alerts).
+Toasts are best used in context of the page they're referring to (rather than a global notification that can appear on any page) and should require minimal user interaction. Toasts are best used to display time-sensitive information. For global notices and messaging, see the [flash component](/components/flash).
 
 Toasts should be brief and not bog down the experience with superfluous copy. If multiple toasts appear on the page, they will stack naturally.
 
