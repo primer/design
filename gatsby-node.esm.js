@@ -1,8 +1,8 @@
-const path = require('path')
-const defines = require('./babel-defines')
-const fetch = require('node-fetch')
-const fs = require('fs')
-const railsHelpers = require('./src/rails-helpers')
+import * as path from 'path'
+import * as fs from 'fs'
+import * as defines from './babel-defines'
+import fetch from 'node-fetch'
+import { latestStatusFrom } from './src/rails-status'
 
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   const config = getConfig()
@@ -299,7 +299,6 @@ async function createComponentPages({actions, graphql}) {
             reactId
             figmaId
             railsIds
-            cssId
           }
         }
       }
@@ -315,7 +314,6 @@ async function createComponentPages({actions, graphql}) {
   const reactComponentLayout = path.resolve(__dirname, 'src/layouts/react-component-layout.tsx')
   const railsComponentLayout = path.resolve(__dirname, 'src/layouts/rails-component-layout.tsx')
   const figmaComponentLayout = path.resolve(__dirname, 'src/layouts/figma-component-layout.tsx')
-  const cssComponentLayout = path.resolve(__dirname, 'src/layouts/css-component-layout.tsx')
 
   for (const {slug, frontmatter} of data.allMdx.nodes) {
     if (frontmatter.reactId) {
@@ -356,7 +354,7 @@ async function createComponentPages({actions, graphql}) {
 
       actions.createRedirect({
         fromPath: `/${slug}/rails/latest`,
-        toPath: `/${slug}/rails/${railsHelpers.latestStatusFrom(statuses)}`,
+        toPath: `/${slug}/rails/${latestStatusFrom(statuses)}`,
         redirectInBrowser: true,
         force: true,
       })
@@ -368,16 +366,6 @@ async function createComponentPages({actions, graphql}) {
         component: figmaComponentLayout,
         context: {
           figmaId: frontmatter.figmaId,
-          parentPath: `/${slug}`,
-        },
-      })
-    }
-    if (frontmatter.cssId) {
-      actions.createPage({
-        path: `/${slug}/css`,
-        component: cssComponentLayout,
-        context: {
-          cssId: frontmatter.cssId,
           parentPath: `/${slug}`,
         },
       })
@@ -488,6 +476,3 @@ exports.onPostBuild = async ({graphql}) => {
     JSON.stringify({schemaVersion: 1, components}),
   )
 }
-
-require = require('esm')(module)
-module.exports = require('./gatsby-node.esm.js')

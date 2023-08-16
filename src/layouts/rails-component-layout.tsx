@@ -13,6 +13,7 @@ import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
 import {LookbookEmbed} from '../components/lookbook-embed'
 import RailsMarkdown from '../components/rails-markdown'
+import { RailsProvider } from '../components/rails-provider'
 
 export const query = graphql`
   query RailsComponentPageQuery($componentId: String!, $parentPath: String!) {
@@ -127,12 +128,12 @@ export const query = graphql`
   }
 `
 
-function RailsComponentArguments({props, parentRailsId}) {
+function RailsComponentArguments({props}) {
   if (props.length > 0) {
     return (
       <>
         <H2>Arguments</H2>
-        <PropsTable props={props} parentRailsId={parentRailsId} />
+        <PropsTable props={props} />
       </>
     )
   } else {
@@ -140,7 +141,7 @@ function RailsComponentArguments({props, parentRailsId}) {
   }
 }
 
-function RailsComponentSlots({slots, parentRailsId}) {
+function RailsComponentSlots({slots}) {
   if (slots.length > 0) {
     return (
       <>
@@ -152,8 +153,8 @@ function RailsComponentSlots({slots, parentRailsId}) {
                 <InlineCode>{slot.name}</InlineCode>
               </H3>
               {/* @ts-ignore */}
-              <RailsMarkdown text={slot.description} parentRailsId={parentRailsId} />
-              <PropsTable props={slot.parameters} parentRailsId={parentRailsId} />
+              <RailsMarkdown text={slot.description} />
+              <PropsTable props={slot.parameters} />
             </>
           )
         })}
@@ -164,7 +165,7 @@ function RailsComponentSlots({slots, parentRailsId}) {
   }
 }
 
-function RailsComponentMethods({methods, parentRailsId}) {
+function RailsComponentMethods({methods}) {
   if (methods.length > 0) {
     return (
       <>
@@ -176,8 +177,8 @@ function RailsComponentMethods({methods, parentRailsId}) {
                 <InlineCode>{method.name}</InlineCode>
               </H3>
               {/* @ts-ignore */}
-              <RailsMarkdown text={method.description} parentRailsId={parentRailsId} />
-              <PropsTable props={method.parameters} parentRailsId={parentRailsId} />
+              <RailsMarkdown text={method.description} />
+              <PropsTable props={method.parameters} />
             </>
           )
         })}
@@ -201,12 +202,12 @@ function RailsComponentPreviews({previews, showPreviews}) {
   }
 }
 
-function AccessibilityDocs({text, parentRailsId}) {
+function AccessibilityDocs({text}) {
   if (text) {
     return (
       <>
         <H2>Accessibility</H2>
-        <RailsMarkdown text={text} parentRailsId={parentRailsId} />
+        <RailsMarkdown text={text} />
       </>
     )
   } else {
@@ -214,15 +215,15 @@ function AccessibilityDocs({text, parentRailsId}) {
   }
 }
 
-function RailsComponent({data, showPreviews, parentRailsId}) {
+function RailsComponent({data, showPreviews}) {
   const {props, slots, methods, previews} = data
 
   return (
     <>
-      <RailsComponentArguments props={props} parentRailsId={parentRailsId} />
+      <RailsComponentArguments props={props} />
       <RailsComponentPreviews previews={previews} showPreviews={showPreviews} />
-      <RailsComponentSlots slots={slots} parentRailsId={parentRailsId} />
-      <RailsComponentMethods methods={methods} parentRailsId={parentRailsId} />
+      <RailsComponentSlots slots={slots} />
+      <RailsComponentMethods methods={methods} />
     </>
   )
 }
@@ -306,68 +307,70 @@ export default function RailsComponentLayout({data}) {
   }
 
   return (
-    <BaseLayout title={title} description={description}>
-      <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
-        <Heading as="h1" sx={{fontSize: 7}}>{title}</Heading>
-        {description ? (
-          <Text as="p" sx={{fontSize: 3, m: 0, mb: 3, maxWidth: '60ch'}}>
-            {description}
-          </Text>
-        ) : null}
-        <Box sx={{mb: 4}}>
-          <ComponentPageNav
-            basePath={data.sitePage.path}
-            includeReact={reactId}
-            includeRails={railsIds}
-            includeFigma={figmaId}
-            current="rails"
-          />
-        </Box>
-        <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: [null, 7, 8, 9]}}>
-          <Box
-            sx={{
-              width: 220,
-              flex: '0 0 auto',
-              position: 'sticky',
-              top: HEADER_HEIGHT + 24,
-              maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 24px)`,
-              display: ['none', null, 'block'],
-            }}
-          >
-            <Heading as="h3" sx={{fontSize: 1, display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
-              On this page
-            </Heading>
-            <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
+    <RailsProvider>
+      <BaseLayout title={title} description={description}>
+        <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
+          <Heading as="h1" sx={{fontSize: 7}}>{title}</Heading>
+          {description ? (
+            <Text as="p" sx={{fontSize: 3, m: 0, mb: 3, maxWidth: '60ch'}}>
+              {description}
+            </Text>
+          ) : null}
+          <Box sx={{mb: 4}}>
+            <ComponentPageNav
+              basePath={data.sitePage.path}
+              includeReact={reactId}
+              includeRails={railsIds}
+              includeFigma={figmaId}
+              current="rails"
+            />
           </Box>
-          <Box sx={{'flexGrow': 1}}>
-            <Box sx={{display: 'flex', gap: 2, mb: 4}}>
-              <Label size="large">v{data.primerRailsVersion.version}</Label>
-              <StatusLabel status={sentenceCase(status)} />
-              <AccessibilityLabel a11yReviewed={a11y_reviewed} short={false} />
-              {statuses.length > 1 && <Box sx={{marginLeft: 'auto', marginTop: '-4px'}}>
-                <StatusMenu currentStatus={status} statuses={statuses} parentPath={data.sitePage.path} />
-              </Box>}
+          <Box sx={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'start', gap: [null, 7, 8, 9]}}>
+            <Box
+              sx={{
+                width: 220,
+                flex: '0 0 auto',
+                position: 'sticky',
+                top: HEADER_HEIGHT + 24,
+                maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 24px)`,
+                display: ['none', null, 'block'],
+              }}
+            >
+              <Heading as="h3" sx={{fontSize: 1, display: 'inline-block', fontWeight: 'bold', pl: 3}} id="toc-heading">
+                On this page
+              </Heading>
+              <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
             </Box>
+            <Box sx={{'flexGrow': 1}}>
+              <Box sx={{display: 'flex', gap: 2, mb: 4}}>
+                <Label size="large">v{data.primerRailsVersion.version}</Label>
+                <StatusLabel status={sentenceCase(status)} />
+                <AccessibilityLabel a11yReviewed={a11y_reviewed} short={false} />
+                {statuses.length > 1 && <Box sx={{marginLeft: 'auto', marginTop: '-4px'}}>
+                  <StatusMenu currentStatus={status} statuses={statuses} parentPath={data.sitePage.path} />
+                </Box>}
+              </Box>
 
-            {/* @ts-ignore */}
-            {is_form_component && <Note>
-              <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Forms framework</Text>
-              The <InlineCode>{name}</InlineCode> component is part of the <Link as={GatsbyLink} to="/ui-patterns/forms/rails">Primer forms framework</Link>.
-              If you're building a form, please consider using the framework instead of this standalone component.
-            </Note>}
+              {/* @ts-ignore */}
+              {is_form_component && <Note>
+                <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Forms framework</Text>
+                The <InlineCode>{name}</InlineCode> component is part of the <Link as={GatsbyLink} to="/ui-patterns/forms/rails">Primer forms framework</Link>.
+                If you're building a form, please consider using the framework instead of this standalone component.
+              </Note>}
 
-            <H2>Description</H2>
-            <RailsMarkdown text={data.railsComponent.description} parentRailsId={railsId} />
+              <H2>Description</H2>
+              <RailsMarkdown text={data.railsComponent.description} />
 
-            <AccessibilityDocs text={data.railsComponent.accessibility_docs} parentRailsId={railsId} />
+              <AccessibilityDocs text={data.railsComponent.accessibility_docs} />
 
-            <RailsComponent data={data.railsComponent} showPreviews={true} parentRailsId={railsId} />
+              <RailsComponent data={data.railsComponent} showPreviews={true} />
 
-            {renderSubComponents(subcomponents)}
+              {renderSubComponents(subcomponents)}
+            </Box>
           </Box>
         </Box>
-      </Box>
-    </BaseLayout>
+      </BaseLayout>
+    </RailsProvider>
   )
 }
 
@@ -392,8 +395,7 @@ function StatusMenu({currentStatus, statuses, parentPath}) {
 
 // TODO: Make table responsive
 function PropsTable({
-  props,
-  parentRailsId,
+  props
 }: {
   props: Array<{
     name: string
@@ -401,7 +403,6 @@ function PropsTable({
     default: string
     description: string
   }>
-  parentRailsId: string
 }) {
   if (props.length == 0) {
     return <></>
@@ -430,7 +431,7 @@ function PropsTable({
               </Box>
             </td>
             <td valign="top">
-              {prop.default ? <RailsMarkdown text={prop.default} parentRailsId={parentRailsId} /> : null}
+              {prop.default ? <RailsMarkdown text={prop.default} /> : null}
             </td>
             <td>
               <InlineCode>{prop.type}</InlineCode>
@@ -449,7 +450,7 @@ function PropsTable({
                 }}
               >
                 {/* @ts-ignore */}
-                <RailsMarkdown text={prop.description} parentRailsId={parentRailsId} />
+                <RailsMarkdown text={prop.description} />
               </Box>
             </td>
           </tr>
