@@ -6,7 +6,7 @@ const statusOrder = [
   'stable'
 ]
 
-const latestStatusFrom = (statuses) => {
+export const latestStatusFrom = (statuses) => {
   let highestRank = -1
   let latestStatus = null
 
@@ -21,5 +21,3 @@ const latestStatusFrom = (statuses) => {
 
   return latestStatus
 }
-
-module.exports.latestStatusFrom = latestStatusFrom

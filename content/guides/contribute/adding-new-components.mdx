@@ -5,7 +5,7 @@ description: Guidance to help you get your components added to Primer. The prima
 
 ## On-ramp from product to Primer
 
-The process starts with a new component being introduced as a custom component in a feature team's app and becoming a Primer component once it matures and gets more usage.
+The process starts with a new component being introduced as a custom React component in a feature team's app and becoming a Primer component once it matures and gets more usage.
 
 This guidance is intended for GitHub staff members who are introducing design patterns that are not yet supported by Primer components. Contributions from Primer consumers who don't work at GitHub are welcome and encouraged, but these steps assume the reader is working on a feature team at GitHub.
 
@@ -50,6 +50,12 @@ It would be even better if your component has gone through an a11y design review
 ### 5. Ready to upstream
 
 Now your component has satisfied enough criteria that it's well on it's way to being at the “Alpha” maturity status! From here, your team or the Primer maintainers will be in a good position to adopt your component and iterate on it until it reaches the “Alpha” maturity status.
+
+## Avoiding duplication
+
+New components should never have the same name as an existing Primer component - especially if it's distinctly different from the existing component. The only exception is if you're introducing the React implementation of a component that has already been created in [Primer ViewComponents](https://github.com/primer/view_components/).
+
+If you're creating a modified version of an existing component, try to modify it in Primer first. If your changes are rejected by Primer, you can iterate on a "fork" of the component with a new name until it can be upstreamed. See [the flowchart](https://primer.style/design/guides/contribute/handling-new-patterns#process-summarized-as-flowchart) in the "Handling new patterns" guidelines.
 
 ## Upstreaming to Primer
 
