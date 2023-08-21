@@ -1591,9 +1591,10 @@
   version "0.5.1"
   resolved "https://registry.npmjs.org/@primer/component-metadata/-/component-metadata-0.5.1.tgz"
 
-"@primer/gatsby-theme-doctocat@^4.6.3":
-  version "4.6.3"
-  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-4.6.3.tgz#82fc1a30fcae5c5390ad66a15b9308af15f7e9e7"
+"@primer/gatsby-theme-doctocat@^4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-4.7.0.tgz#7b8b763e783ede78cf629a552b8681096e413013"
+  integrity sha512-i7DkLfVsMIZqs0gqj/R5dQ0KEREuKVNzQ2qBxqwCWGz5aQox3QyMT+YAKpQjVu/YQKb17G12csg0rVhR81X/bg==
   dependencies:
     "@babel/preset-env" "^7.5.5"
     "@babel/preset-react" "^7.0.0"
