@@ -67,6 +67,30 @@ The availability of the Dark Dimmed theme treatment allows users to customize th
 
 GitHub should strive to ensure all themes that don't specifically deal with an intentionally-lowered contrast experience (Dark Dimmed) are color contrast compliant whenever possible. While this is not a normative requirement, it proactively helps an unknown number of users with unknown access needs.
 
+### High contrast themes, high contrast mode, and forced colors mode
+
+GitHub offers two high contrast themes, Light and Dark High Contrast. In addition some, but **not all** operating systems offer forced color and high contrast mode experiences. 
+
+#### High contrast themes
+
+High contrast themes can be enabled with or without forced color and high contrast modes enabled. Some users may be unaware of, or unable to access these modes. Other users may not need them.
+
+#### High contrast mode
+
+A high contrast mode is a signal to the operating system to increase the visual distinction between different UI elements. On the web, it is a flag that can be targeted with a media query. 
+
+The presence of an enabled high contrast mode experience does not guarantee a high contrast web experience is present—that is an experience the website has to intentionally provide.
+
+GitHub currently **does not** auto-opt a user into its high contrast themes if a user has enabled high contrast mode on their device.
+
+#### Forced colors mode
+
+Forced color mode is another media query. Unlike high contrast mode, forced colors mode adapts **all** operating system content. This includes **all** web content.
+
+A forced color mode will update all GitHub content's visual presentation regardless of what theme a user has selected. It uses a suite of heuristics to determien content meaning and then assign a dynamic color keyword value to it.
+
+Forced color mode content presentation **should not** be overridden to satisfy aesthetic desires. Instead, it should be adjusted to ensure maximum legibility and accuracy of applied color keywords.
+
 ## Inputs
 
 Being able to perceive the boundaries of an input is vital. Meeting WCAG color contrast requirements helps to ensure the widest possible range of users can perform the data entry required to operate GitHub successfully.
