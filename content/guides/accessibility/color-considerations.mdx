@@ -95,11 +95,12 @@ Forced color mode content presentation **should not** be overridden to satisfy a
 
 Being able to perceive the boundaries of an input is vital. Meeting WCAG color contrast requirements helps to ensure the widest possible range of users can perform the data entry required to operate GitHub successfully.
 
-Broadly-speaking, there are four overall considerations for input contrast:
+Broadly-speaking, there are five overall considerations for input contrast:
 
 1. Text,
 2. Borders, 
-3. Selected state contrast, and
+3. Selected state,
+4. Validation state, and
 4. Icons.
 
 Combined, meeting contrast requirements allow a user to understand:
@@ -127,6 +128,18 @@ Borders of an input **must** meet a contrast ratio of `3:1`. This is calculated 
 Selection state communicates **if a user has chosen an input**, and is considered non-text contrast. Examples of this are a checkbox's check or a radio's dot.
 
 Selected state of an input **must** meet a contrast ratio of `3:1`. This is calculated by the border's computed color value compared to the computed background color the input is placed on.
+
+### Validation state contrast
+
+Validation state communicates if the content a user has submitted meets the requirements or not. Examples of this are an inline error message with a text input, or a checkmark icon to indicate password criteria have been met.
+
+Validation state **must not** rely on color as the sole way of determining if an input is valid. Accompanying text or icons can help accomplish this.
+
+- If the validation message is **only text**, it **must** meet a contrast ratio of `4.5:1` for "normal text", or `3:1` for "large text". 
+- If the validation message is **only** an icon, it **must** meet a contrast ratio of of `3:1`. 
+- If the validation message is both **text and an icon**, it **must** meet a contrast ratio of `4.5:1` for "normal text", or `3:1` for "large text". In this context the icon is considered decorative. It is still encouraged to make the icon meet a `3:1` contrast ratio, however.
+
+Contrast for validation state is calculated by the text or icon's computed color value compared to the computed background color the input is placed on.
 
 ### Icon contrast
 
