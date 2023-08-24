@@ -20,8 +20,6 @@ export default ComponentLayout
   alt="three examples of tooltips on interactive elements"
 />
 
-## Usage
-
 <Note variant="danger">
   <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>⚠️ Usage Warning ⚠️</Text>
   <Text>
@@ -30,12 +28,13 @@ export default ComponentLayout
   </Text>
 </Note>
 
-The tooltip component adds a tooltip to add context to interactive elements on the page.
+## Usage
 
-- Reserve tooltips for components like icon buttons.
-- Keep your tooltip text minimal.
-- Only include tooltips on other components as a last resort.
+- Reserve tooltips for components such as icon buttons.
+- Keep the tooltip text minimal.
 - **Never** include tooltips on non-interactive components (`div`, `span`, `p`).
+
+### Best practices
 
 <DoDontContainer>
   <Do>
@@ -92,7 +91,7 @@ The tooltip component adds a tooltip to add context to interactive elements on t
   <img
     width="456"
     alt="icon button with tooltip as a label"
-    src="https://github.com/github/primer/assets/18661030/558ef7a5-3757-407a-a7fa-5f32e799d8b1"
+    src="https://github.com/primer/design/assets/18661030/b06d4fc2-d4e6-482d-a9b9-05eb866ce3e1"
   />
   <Box as="p" mt="0">
     For interactive controls with no visible text label, a tooltip can be used to provide one. This label should be
@@ -112,7 +111,7 @@ The tooltip component adds a tooltip to add context to interactive elements on t
   <img
     width="456"
     alt="icon button with tooltip as a description"
-    src="https://github.com/github/primer/assets/18661030/e6e6a3df-0e02-4c44-9b4d-f2e44c83dc9e"
+    src="https://github.com/primer/design/assets/18661030/2d0cd085-2454-406e-8c99-bc8bd3dd20db"
   />
   <Box as="p" mt="0">
     For interactive controls that require additional context, a tooltip can be used to provide it. The `label` is also
@@ -128,11 +127,17 @@ By default, the Tooltip component will position itself below the interactive con
 <img
   width="960"
   role="presentation"
-  src="https://github.com/github/primer/assets/18661030/ff78c4d2-721d-45b7-a357-f6d1e9a7cba8"
+  src="https://github.com/primer/design/assets/18661030/c620d282-1efd-4556-9d9c-770c37359fc9"
   alt="tooltips rendered in all possible positions surrounding a control"
 />
 
 ## Alternatives to tooltips
+
+Before adding a tooltip, please consider: Is this information essential and necessary? Can the UI be made clearer? Can the information be shown on the page by default? See Tooltip alternatives for more accessible alternatives.
+
+We use aria-label for tooltip contents. However, aria-label replaces the text content of an element in screen readers, so only use Tooltip on elements with no existing text content.
+
+A tooltip may only be used on an element that is interactive such as a button or a link. Even if an element is focusable, a tooltip may only be used if the element does something when it's clicked.
 
 ### 1. Persist the content
 
@@ -234,11 +239,3 @@ If you are unsure which alternative is more suited to your scenario and need hel
 
 - [Your tooltips are bogus](https://heydonworks.com/article/your-tooltips-are-bogus/)
 - [erb lint rule: NoAriaLabelMisuseCounter](https://github.com/github/erblint-github/blob/main/docs/rules/accessibility/no-aria-label-misuse-counter.md#no-aria-label-misuse-counter)
-
-## Accessibility
-
-Before adding a tooltip, please consider: Is this information essential and necessary? Can the UI be made clearer? Can the information be shown on the page by default? See Tooltip alternatives for more accessible alternatives.
-
-We use aria-label for tooltip contents. However, aria-label replaces the text content of an element in screen readers, so only use Tooltip on elements with no existing text content.
-
-A tooltip may only be used on an element that is interactive such as a button or a link. Even if an element is focusable, a tooltip may only be used if the element does something when it's clicked.
