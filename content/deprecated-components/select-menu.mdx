@@ -1,0 +1,17 @@
+---
+title: Select menu
+description: Select menu provides advanced support for navigation, filtering, and more.
+cssId: selectmenu
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+
+<Note variant="warning">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Usage for this component is not encouraged</Text>
+  <Text>Instead, please see <Link as={GatsbyLink} to="/components/action-menu">action menu</Link>.</Text>
+</Note>
+
+Select menu is only available right now as a [CSS component](/deprecated-components/select-menu/css). Select menu can make use of JavaScript-enabled live filtering, selected states, tabbed lists, and keyboard navigation with a bit of markup. To see all examples of this component, view it in the [Primer CSS storybook](https://primer.style/css/storybook/?path=/docs/deprecated-selectmenu--docs).

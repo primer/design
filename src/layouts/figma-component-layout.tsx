@@ -23,6 +23,7 @@ export const query = graphql`
           reactId
           figmaId
           railsIds
+          cssId
         }
       }
     }
@@ -92,6 +93,7 @@ export default function FigmaComponentLayout({data}) {
             includeReact={data.sitePage.context.frontmatter.reactId}
             includeRails={data.sitePage.context.frontmatter.railsIds}
             includeFigma={data.sitePage.context.frontmatter.figmaId}
+            includeCSS={data.sitePage.context.frontmatter.cssId}
             current="figma"
           />
         </Box>

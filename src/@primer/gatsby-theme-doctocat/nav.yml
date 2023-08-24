@@ -266,6 +266,8 @@
       url: /components/textarea
     - title: Timeline
       url: /components/timeline
+    - title: Toast
+      url: /components/toast
     - title: Toggle switch
       url: /components/toggle-switch
     - title: Token
@@ -280,6 +282,16 @@
       url: /components/underline-nav
     - title: Underline panels
       url: /components/underline-panels
+- title: Deprecated components
+  children:
+    - title: Box overlay
+      url: /deprecated-components/box-overlay
+    - title: Dropdown
+      url: /deprecated-components/dropdown
+    - title: Menu
+      url: /deprecated-components/menu
+    - title: Select menu
+      url: /deprecated-components/select-menu
 - title: GitHub staff
   url: /github-staff
   children:

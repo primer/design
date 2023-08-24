@@ -7,13 +7,15 @@ export function ComponentPageNav({
   includeReact,
   includeRails,
   includeFigma,
+  includeCSS,
   current,
 }: {
   basePath: string
   includeReact?: boolean
   includeRails?: boolean
   includeFigma?: boolean
-  current?: 'overview' | 'react' | 'rails' | 'figma'
+  includeCSS?: boolean
+  current?: 'overview' | 'react' | 'rails' | 'figma' | 'css'
 }) {
   return (
     <UnderlineNav>
@@ -33,6 +35,11 @@ export function ComponentPageNav({
       {includeFigma ? (
         <UnderlineNav.Link as={GatsbyLink} to={`${basePath}/figma`} selected={current === 'figma'}>
           Figma
+        </UnderlineNav.Link>
+      ) : null}
+      {includeCSS ? (
+        <UnderlineNav.Link as={GatsbyLink} to={`${basePath}/css`} selected={current === 'css'}>
+          CSS
         </UnderlineNav.Link>
       ) : null}
     </UnderlineNav>
