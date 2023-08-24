@@ -9,16 +9,9 @@ cssId: tooltip
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
-import {Link, Text} from '@primer/react'
+import {Link, Text, Box} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
-
-<img
-  width="960"
-  role="presentation"
-  src="https://github.com/primer/primitives/assets/18661030/172aa8f6-2273-4719-bb63-8dd678ffcbc9"
-  alt="three examples of tooltips on interactive elements"
-/>
 
 <Note variant="danger">
   <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>⚠️ Usage Warning ⚠️</Text>
@@ -29,6 +22,13 @@ export default ComponentLayout
 </Note>
 
 ## Usage
+
+<img
+  width="960"
+  role="presentation"
+  src="https://github.com/primer/primitives/assets/18661030/172aa8f6-2273-4719-bb63-8dd678ffcbc9"
+  alt="three examples of tooltips on interactive elements"
+/>
 
 - Reserve tooltips for components such as icon buttons.
 - Keep the tooltip text minimal.
