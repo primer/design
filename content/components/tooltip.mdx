@@ -24,6 +24,30 @@ The tooltip component adds a tooltip to add context to interactive elements on t
   alt="three examples of tooltips on interactive elements"
 />
 
+## Accessibility
+
+<Note variant="danger">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>⚠️ Usage Warning ⚠️</Text>
+  <Text>
+    Tooltips as a UI pattern should be our last resort for conveying information because it is hidden by default and
+    often with zero or little visual indicator of its existence.
+  </Text>
+</Note>
+
+Before adding a tooltip, please consider: Is this information essential and necessary? Can the UI be made clearer? Can the information be shown on the page by default? See Tooltip alternatives for more accessible alternatives.
+
+We use aria-label for tooltip contents. However, aria-label replaces the text content of an element in screen readers, so only use Tooltip on elements with no existing text content.
+
+A tooltip may only be used on an element that is interactive such as a button or a link. Even if an element is focusable, a tooltip may only be used if the element does something when it's clicked.
+
+### Tooltip alternatives
+
+Most UI cases don't call for tooltips. Learn some [alternative methods to use in place of tooltips](../guides/accessibility/tooltip-alternatives.mdx).
+
+## Best practices
+
+If it has been determined that a tooltip is appropriate, follow these best practices. See [alternative methods to use in place of tooltips](../guides/accessibility/tooltip-alternatives.mdx) for more examples of best practices.
+
 <DoDontContainer>
   <Do>
     <img
@@ -45,23 +69,3 @@ The tooltip component adds a tooltip to add context to interactive elements on t
     </Caption>
   </Dont>
 </DoDontContainer>
-
-## Accessibility
-
-<Note variant="danger">
-  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>⚠️ Usage Warning ⚠️</Text>
-  <Text>
-    Tooltips as a UI pattern should be our last resort for conveying information because it is hidden by default and
-    often with zero or little visual indicator of its existence.
-  </Text>
-</Note>
-
-Before adding a tooltip, please consider: Is this information essential and necessary? Can the UI be made clearer? Can the information be shown on the page by default? See Tooltip alternatives for more accessible alternatives.
-
-We use aria-label for tooltip contents. However, aria-label replaces the text content of an element in screen readers, so only use Tooltip on elements with no existing text content.
-
-A tooltip may only be used on an element that is interactive such as a button or a link. Even if an element is focusable, a tooltip may only be used if the element does something when it's clicked.
-
-### Tooltip alternatives
-
-Most UI cases don't call for tooltips. Learn some [alternative methods to use in place of tooltips](../guides/accessibility/tooltip-alternatives.mdx).
