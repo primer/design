@@ -1,5 +1,5 @@
 ---
-title: Tooltip alternatives
+title: Tooltips
 description: Most UI cases don't call for tooltips. Learn some alternative methods to use in place of tooltips.
 ---
 
@@ -7,7 +7,7 @@ import {Box, Text} from '@primer/react'
 
 ## Overview
 
-Tooltips are often used to convey information. However, tooltips are rarely appropriate, and its misuse can result in a myriad of accessibility issues.
+Tooltips are often used to convey information. However, tooltips are rarely appropriate, and their misuse can result in a myriad of accessibility issues.
 Always consider **not** using a tooltip for an improved user experience.
 
 ## Why?
@@ -71,103 +71,4 @@ If you determine that tooltips are appropriate for your use case, make sure to c
 
 ## Alternatives to tooltips
 
-### 1. Persist the content
-
-If possible, persist the content so it's always available rather than using a tooltip, which hides content by default. This ensures that the content is always discovered and surfaced to users regardless of device.
-
-<DoDontContainer>
-  <Do>
-    <img
-      width="456"
-      alt="Information about how many discussions can be pinned added to the confirmation dialog"
-      src="https://github.com/primer/primitives/assets/18661030/e66db2af-723c-4cfa-8d97-47a42f17047d"
-    />
-    <Caption>Find an appropriate permanent place to display additional information.</Caption>
-  </Do>
-  <Dont>
-    <img
-      width="456"
-      alt="Information about how many discussions can be pinned within tooltip on non-interactive element"
-      src="https://github.com/primer/primitives/assets/18661030/283a5677-ea86-40de-9a84-6751a9b531f8"
-    />
-    <Caption>Don't use a tooltip to add additional helpful information</Caption>
-  </Dont>
-</DoDontContainer>
-
-### 2. Don't duplicate content
-
-If the tooltip duplicates content that is already available on the page, remove it.
-
-<DoDontContainer>
-  <Do>
-    <img
-      width="456"
-      alt="Pointer hovering over a link with no tooltip"
-      src="https://github.com/primer/primitives/assets/18661030/d62b048f-1095-41d8-8bfb-fef204ba50dc"
-    />
-    <Caption>Remove any duplicate tooltip text.</Caption>
-  </Do>
-  <Dont>
-    <img
-      width="456"
-      alt="Screenshot of tooltip with GitHub username, @inkblotty, on a static span that says @inkblotty"
-      src="https://github.com/primer/primitives/assets/18661030/78046a69-57f2-4fcd-9f17-fc06576d704f"
-    />
-    <Caption>Don't set tooltips that duplicate the trigger element content.</Caption>
-  </Dont>
-</DoDontContainer>
-
-### 3. Use a modal
-
-Consider using a modal, which is accessible for mobile users and allows you to structure content that may otherwise be crammed into a tooltip.
-
-<DoDontContainer>
-  <Do>
-    <img
-      width="456"
-      alt="Screenshot of GitHub Actions page with a modal that conveys workflow file information about a runner"
-      src="https://user-images.githubusercontent.com/40274682/160210527-2319e408-d433-407f-aac2-66eaf9e63246.png"
-    />
-    <Caption>Do use a pattern that is accessible to a larger number of users such as a modal</Caption>
-  </Do>
-  <Dont>
-    <img
-      width="456"
-      alt="Screenshot of GitHub Actions page using a tooltip on a static element to convey long workflow file information"
-      src="https://github.com/primer/primitives/assets/18661030/f1107770-cf3b-4bc1-9f75-a766833c67e0"
-    />
-    <Caption>Don't place long content inside a tooltip</Caption>
-  </Dont>
-</DoDontContainer>
-
-### 4. Use a summary disclosure
-
-Consider using a summary disclosure that is accessible for mobile users and also offers the ability to show or hide content.
-
-<DoDontContainer>
-  <Do>
-    <img
-      width="800"
-      alt="Screenshot of GitHub pricing page that uses a summary disclosure to hide and show additional information on each point"
-      src="https://user-images.githubusercontent.com/40274682/160211684-6c102dd6-4039-4c7b-8c52-eeeb71a27db5.png"
-    />
-    <Caption>Do use a pattern that is accessible to a larger number of users such as a summary disclosure</Caption>
-  </Do>
-  <Dont>
-    <img
-      width="800"
-      alt="Screenshot of GitHub pricing page using a tooltip to hide and show long descriptions on each point"
-      src="https://github.com/primer/primitives/assets/18661030/8efbc68b-7fa9-409d-a020-2e5d75337005"
-    />
-    <Caption>Don't use tooltips on non-interactive elements</Caption>
-  </Dont>
-</DoDontContainer>
-
-### Other
-
-If you are unsure which alternative is more suited to your scenario and need help, consult a designer or the GitHub Accessibility team (if you are GitHub staff) for advice.
-
-## Additional resources
-
-- [Your tooltips are bogus](https://heydonworks.com/article/your-tooltips-are-bogus/)
-- [erb lint rule: NoAriaLabelMisuseCounter](https://github.com/github/erblint-github/blob/main/docs/rules/accessibility/no-aria-label-misuse-counter.md#no-aria-label-misuse-counter)
+See [Tooltip interface guidelines](../../components/tooltip.mdx) for example alternatives to using tooltips.
