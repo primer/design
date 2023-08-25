@@ -2,7 +2,10 @@ import * as path from 'path'
 import * as fs from 'fs'
 import * as defines from './babel-defines'
 import fetch from 'node-fetch'
+import GithubSlugger from 'github-slugger'
 import { latestStatusFrom } from './src/rails-status'
+import { Octokit } from '@octokit/rest'
+import JSZip from 'jszip'
 
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   const config = getConfig()
@@ -35,16 +38,31 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   await sourceDotcomSharedComponentsData({actions, createNodeId, createContentDigest})
 }
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type SharedComponent implements Node {
+      component: String!
+      storyIds: [String!]
+      status: String!
+      path: String!
+    }
+  `
+  createTypes(typeDefs)
+}
+
 async function sourceDotcomSharedComponentsData({actions, createNodeId, createContentDigest}) {
-  // @TODO: eventually get this from a dotcom build artifact
-  const sharedComponents = JSON.parse(fs.readFileSync('shared_components.json'))
+  const sharedComponents = await getSharedComponentsData()
   const slugger = new GithubSlugger()
 
-  for (sharedComponent of sharedComponents) {
+  for (const sharedComponent of sharedComponents) {
     const {component: name} = sharedComponent
 
     const newNode = {
-      ...sharedComponent,
+      component: sharedComponent.component,
+      storyIds: sharedComponent.storyIds,
+      status: sharedComponent.meta.status,
+      path: sharedComponent.meta.path,
       id: createNodeId(`dotcom-shared-${name}`),
       internal: {
         type: 'SharedComponent',
@@ -81,6 +99,77 @@ async function sourceDotcomSharedComponentsData({actions, createNodeId, createCo
 
     actions.createNode(searchNode)
   }
+}
+
+async function getSharedComponentsData() {
+  if (!process.env.GITHUB_TOKEN) {
+    console.log('No GITHUB_TOKEN in environment, falling back to using shared_components.json')
+    return JSON.parse(fs.readFileSync('shared_components.json', 'utf8'))
+  }
+
+  const client = new Octokit({
+    auth: process.env.GITHUB_TOKEN
+  })
+
+  console.log('Listing dotcom workflow runs...')
+
+  const workflowRuns = await client.rest.actions.listWorkflowRuns({
+    owner: 'github',
+    repo: 'github',
+    workflow_id: 'preview-pages-build.yml',
+    branch: 'dump_component_info',
+    status: 'success',
+    per_page: 1
+  })
+
+  if (workflowRuns.data.workflow_runs.length == 0) {
+    console.log('No workflow runs found 🤔')
+    return
+  }
+
+  const workflowRunId = workflowRuns.data.workflow_runs[0].id
+  console.log(`Workflow run ${workflowRunId} found`)
+
+  console.log('Listing workflow run artifacts...')
+  const artifacts = await client.rest.actions.listWorkflowRunArtifacts({
+    owner: 'github',
+    repo: 'github',
+    run_id: workflowRunId
+  })
+
+  const artifactId = (() => {
+    for (const artifact of artifacts.data.artifacts) {
+      if (artifact.name == 'shared-components-manifest') {
+        return artifact.id
+      }
+    }
+
+    return null
+  })()
+
+  if (artifactId) {
+    console.log(`Found artifact ${artifactId}`)
+  } else {
+    console.log('No artifacts found for workflow run 🤯')
+    return
+  }
+
+  console.log('Downloading artifact...')
+  const artifactContents = await client.rest.actions.downloadArtifact({
+    owner: 'github',
+    repo: 'github',
+    artifact_id: artifactId,
+    archive_format: 'zip'
+  })
+
+  console.log('Extracting artifact...')
+
+  const zip = new JSZip();
+  const zipData = await zip.loadAsync(artifactContents.data)
+  const manifestRaw = await zipData.file('shared_components.json').async('string')
+  const manifest = JSON.parse(manifestRaw)
+
+  return manifest
 }
 
 async function sourcePrimerRailsData({actions, createNodeId, createContentDigest}) {

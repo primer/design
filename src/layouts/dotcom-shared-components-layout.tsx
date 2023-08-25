@@ -1,23 +1,44 @@
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
-import {Box, Heading, Text} from '@primer/react'
+import {Box, Heading, Label, Text} from '@primer/react'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import {graphql, useStaticQuery} from 'gatsby'
 import { H3 } from '@primer/gatsby-theme-doctocat/src/components/heading'
 import {LinkExternalIcon} from '@primer/octicons-react'
 
+function SharedComponentStatusLabel({status}) {
+  const variant = (() => {
+    if (status === 'draft') {
+      return 'attention'
+    } else {
+      return 'default'
+    }
+  })()
+
+  return <Label sx={{marginLeft: '5px'}} variant={variant}>{status}</Label>
+}
+
 function SharedComponentLink({component}) {
   const urlForComponent = (component) => {
     return `https://ui.githubapp.com/storybook/?path=/story/${component.storyIds[0]}`
   }
 
-  if (component.storyIds) {
+  if (component.storyIds.length > 0) {
     return <Box>
-      <a target="_blank" href={urlForComponent(component)}>{component.component} <LinkExternalIcon/></a>
+      <a target="_blank" href={urlForComponent(component)}>
+        {component.component} <LinkExternalIcon/>
+      </a>
+      &nbsp;
+      <SharedComponentStatusLabel status={component.status}></SharedComponentStatusLabel>
     </Box>
   } else {
-    return <Box>{component.component}</Box>
+    return <Box>
+      <a target="_blank" href={`https://github.com/github/github/blob/master/${component.path}`}>
+        {component.component} <LinkExternalIcon/>
+      </a>
+      <SharedComponentStatusLabel status={component.status}></SharedComponentStatusLabel>
+    </Box>
   }
 }
 
@@ -39,6 +60,8 @@ export default function DotcomSharedComponentsLayout({pageContext, children}) {
         nodes {
           component
           storyIds
+          status
+          path
         }
       }
     }
