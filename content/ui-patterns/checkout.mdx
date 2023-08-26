@@ -1,0 +1,121 @@
+---
+title: Checkout experiences
+description: These guidelines demonstrate best practices for using language sharable components for billing, payment information and designing custom versions of our checkout pages. 
+---
+
+If you're looking for mockups to get started, please refer to this [Figma library](https://www.figma.com/file/UtZycS2oSOn2kPmoTd6gkE/Checkout-experiences?type=design&node-id=422-94602&mode=design) for checkout experiences.
+
+## Page types
+
+    ### Full pages
+    Use full pages when you need to collect or confirm substantial user's information such as seats, billing, plan types, payment, etc. 
+    Full page experiences are great for confirming plan upgrades, as well as to review new sponsorships and marketplace app purchases.
+
+    Use cases:
+    - Upgrading to into a new plan.
+    - Buying licenses to a new product (example GitHub Advanced Security).
+    - Confirming and editing marketplace purchases.
+    
+    ![full page experience](https://github.com/github/design/assets/3300215/542e01e4-bf86-4925-b50a-4ea5548269cf)
+
+
+### Light-weight checkout
+Use dialog for checkout when you need to select items upon purchase without redirecting users to a new page. 
+
+Dialog experience allows:
+- Selecting an item to purchase and pay.
+- Confirm amount to purchase and preview the price before making a final purchase.
+- Manage the seats/licenses to purchase again for large amounts (list allow sorting).
+- Error handling.
+
+Use cases:
+- Buying Copilot seats for organizations and enterprise.
+- Users requesting additional seats.
+
+![light-weight experience](https://github.com/github/design/assets/3300215/8cb80969-33d1-432f-b6e7-4e0b9d991ab0)
+
+
+## Anatomy
+    ### Full pages
+    ![image](https://github.com/github/design/assets/3300215/7ecdcb0b-d079-4cfe-9886-54c06a12c04b)
+
+    ### Light-weight checkout (dialog)
+
+    ![The anatomy - dialog content](https://user-images.githubusercontent.com/3300215/263131370-5e221bc1-a744-4cf2-9297-a70ac013bc99.png)
+
+## Guiding recommendations
+
+<DoDontContainer>
+<Do>
+
+- Have a clear way to cancel or go back to a previous step.
+
+</Do>
+<Dont>
+
+- Avoid using disabled buttons.
+- Avoid hiding CTAs when form information is missing. Use Error states instead.
+
+</Dont>
+</DoDontContainer>
+
+![Example of an order summary with a cancel button and a confirmation modal with a back button](https://github.com/github/design/assets/3300215/5904dfae-5958-4b1d-8d9b-bf6650d9b889)
+
+<DoDontContainer stacked>
+  <Do>
+    <img
+      src="https://github.com/github/design/assets/3300215/dcf9d4e1-0ad1-4795-8d92-939069151c17"
+      alt="Example of a checkout page with a left side column highlighted on the form section"
+    />
+    <Caption>
+      Custom forms and customer’s details should be collected on the left column.
+    </Caption>
+  </Do>
+  </DoDontContainer>
+
+<DoDontContainer>
+<Do>
+
+- Order or purchase summary should be on the right column followed by confirmation buttons.
+- CTAs for purchase or confirmation is always followed by a disclaimer.
+
+</Do>
+<Dont>
+
+- Avoid placing a confirmation button far from dollar amounts.
+
+</Dont>
+</DoDontContainer>
+
+![Examples of checkout pages focusing on order summary in the right column](https://github.com/github/design/assets/3300215/42d26bd4-d103-421d-a01f-e8e3546c49a3)
+
+<DoDontContainer>
+<Do>
+
+- Use clear language in CTAs to stay in context with the action to be followed.
+
+</Do>
+<Dont>
+
+- Avoid being vague with examples such as: “Purchase” or “Confirm”.
+
+</Dont>
+</DoDontContainer>
+
+![Examples of headings matching button language](https://github.com/github/design/assets/3300215/5f40ddc6-5580-482d-a9f8-e8186fe33c83)
+
+<DoDontContainer>
+<Do>
+
+- Keep total amount to be charged as “Due today” below any cost breakdown.
+- Use muted tones for dates and cost breakdowns.
+
+</Do>
+<Dont>
+
+- Don’t use multiple variations of font sizes or banners for attention.
+
+</Dont>
+</DoDontContainer>
+
+![Examples of headings matching button language](https://github.com/github/design/assets/3300215/5f40ddc6-5580-482d-a9f8-e8186fe33c83)
