@@ -34,11 +34,11 @@ An example level A Success Criterion is [SC 1.4.1 Use of Color](https://www.w3.o
 
 ## Compliance 
 
-The following guidance is based on one or more **normative** Web Content Accessibility Guidelines (<abbr>WCAG</abbr>) success criterion. This means that it is objective requirements with implications that affect MAS-C compliance efforts, as well as international laws regarding accessibility.
+The following guidance is based on one or more **normative** Web Content Accessibility Guidelines (<abbr>WCAG</abbr>) success criterion. This means that it is objective requirements with implications that affect [MAS-C compliance efforts](https://github.com/github/accessibility/blob/main/docs/measuring-ourselves/microsoft-accessibility-standards.md#microsoft-accessibility-standards-mas), as well as international laws regarding accessibility.
 
 An example of **the difference between non-normative and normative considerations** would be the difference between the overall choice of color used the actual value of the color:
 
-### Non-normative choice
+### Non-normative choices
 
 A design could use a dark shade of purple as the background color as a **non-normative aesthetic choice**. Reasons for going with dark purple could be: 
 
@@ -55,7 +55,7 @@ The **normative requirement** for going with dark purple would be [comparing the
 
 The [Advanced Accessible Perceptual Contrast Algorithm](https://www.myndex.com/APCA/) (<abbr>APCA</abbr>) is a proposal and is **not normative**. In terms of WCAG, and therefore, MAS-C compliance, this means that color contrast is valid **only** if it meets WCAG 2.1 criteria. 
 
-A color value that is APCA-compliant **might not** be WCAG compliant until APCA is integrated into WCAG 3.0. WCAG 3.0 is still a work in progress and currently does not have an anticipated release date.
+A color value that is APCA-compliant **might not** be WCAG-compliant until APCA is integrated into WCAG 3.0. WCAG 3.0 is still a work in progress and currently does not have an anticipated release date.
 
 ## Visual themes
 
@@ -74,7 +74,7 @@ It is possible to set GitHub to use a dark sub-theme when a parent Day theme has
 
 GitHub uses the default Day (light) theme when a user visits the site in a logged out state. When not logged in, users are unable to adjust the theme in the [Appearance settings](https://github.com/settings/appearance).
 
-Because of this, [the default Day theme **must** satisfy WCAG criteria for color-related concerns](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/primer/color-modes.md#guidance). From a high-level, this means that **all** GitHub content displayed using the default Day theme must:
+Because of this, [the default Day theme **must** satisfy WCAG criteria for color-related concerns](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/primer/color-modes.md#guidance). From a high-level, this means that **all** GitHub content displayed using the default Day theme **must**:
 
 - Pass color contrast requirements, and
 - Have the mechanism for accessing and changing the theme be fully WCAG compliant.
@@ -88,9 +88,9 @@ This allows users to use GitHub in a logged-out state. If a user is logged in, i
 
 ### Non-default themes
 
-[All sub-themes **do not** need to meet WCAG color contrast requirements](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/primer/color-modes.md#guidance), provided the default Day theme and its content is accessible. This guidance is derived from [WCAG 2.1 Technique G174](https://www.w3.org/WAI/WCAG21/Techniques/general/G174).
+[The Night (dark) and **all** Day and Night sub-themes **do not** need to meet WCAG color contrast requirements](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/primer/color-modes.md#guidance), provided the default Day theme and its content is accessible. This guidance is derived from [WCAG 2.1 Technique G174](https://www.w3.org/WAI/WCAG21/Techniques/general/G174).
 
-Certain themes are specifically designed to create a low contrast effect, notably the Dark Dimmed theme. In this use case, a user selecting this theme is likely **intentionally** expressing a desire for an experience with less visual contrast.
+Certain themes are specifically designed to create a low contrast effect, notably the Dark Dimmed sub-theme. In this use case, a user selecting this theme is likely **intentionally** expressing a desire for an experience with less visual contrast.
 
 Like other theme selections, this may be to satisfy: 
 
@@ -100,13 +100,13 @@ Like other theme selections, this may be to satisfy:
 
 In the case of access needs, a higher contrast experience may actually be less accessible for the user.
 
-The availability of the Dark Dimmed theme treatment allows users to customize their GitHub experience without having to resort to browser extensions or other user-hosted modifications. Of note is the portability of this theme, in that it will automatically be available across multiple sessions and devices.
+The availability of the Dark Dimmed theme treatment allows users to customize their GitHub experience without having to resort to browser extensions or other user-hosted modifications. Of note is the portability of this theme, in that it will automatically be available across multiple sessions, browsers, and devices.
 
-GitHub should strive to ensure all themes that don't specifically deal with an intentionally-lowered contrast experience (Dark Dimmed) are color contrast compliant whenever possible. While this is not a normative requirement, it proactively helps an unknown number of users with unknown access needs.
+GitHub should strive to ensure all themes that don't specifically deal with an intentionally-lowered contrast experience are color contrast compliant whenever possible. While this is not a normative requirement, it proactively helps an unknown number of users with unknown access needs.
 
 ### High contrast themes, high contrast mode, and forced colors mode
 
-GitHub offers two high contrast themes: 
+GitHub offers two high contrast sub-themes: 
 
 1. Light High Contrast, and 
 2. Dark High Contrast. 
@@ -115,19 +115,25 @@ In addition some, but **not all** operating systems offer forced color and high 
 
 #### High contrast themes
 
+These **are** provided by GitHub.
+
 High contrast themes can be enabled with or without forced color and high contrast modes enabled. Some users may be unaware of, or unable to access these modes. Other users may not need them.
 
 #### High contrast mode
 
+This **is not** provided by GitHub.
+
 A high contrast mode is a signal to the operating system to increase the visual distinction between different UI elements. On the web, it is a flag that can be targeted with a media query. 
 
-The presence of an enabled high contrast mode experience does not guarantee a high contrast web experience is present—that is an experience the website has to intentionally provide.
+The presence of an enabled high contrast mode experience does not guarantee a high contrast web experience is generated—that is an experience the website has to intentionally provide.
 
 GitHub currently **does not** auto-opt a user into its high contrast themes if a user has enabled high contrast mode on their device.
 
 #### Forced colors mode
 
-Forced color mode is another media query. Unlike high contrast mode, forced colors mode adapts **all** operating system content. This includes **all** web content.
+This **is not** provided by GitHub.
+
+Forced color mode is another media query. Unlike high contrast mode, forced colors mode automatically adapts **all** operating system content. This includes **all** web content.
 
 A forced color mode will update all GitHub content's visual presentation regardless of what theme a user has selected. It uses a suite of heuristics to determine content meaning and then assign a dynamic color keyword value to it.
 
@@ -135,16 +141,16 @@ Forced color mode content presentation **should not** be overridden to satisfy a
 
 ## Inputs and buttons
 
-**Different kinds of UI have their contrast compliance determined in different ways**. This is because different parts of them are visually significant for understanding purpose, and therefore impact for being interacted with.
+**Different kinds of UI have their contrast compliance determined in different ways**. This is because different parts of them are visually significant for understanding purpose.
 
 The difference between **inputs** and **buttons** may be confusing. Understanding the difference between the two types of UI helps to understand why they are evaluated differently for color contrast purposes.
 
 At a high-level:
 
 - Buttons **perform a predetermined action** when pressed. Examples of this are submitting form input, triggering a dialog, or saving user-entered content.
-- Inputs **collect information for eventual submission**. Examples of this are single and multiline text-entry areas, checkbox selections and radio choices, and comboboxes.
+- Inputs **collect information for eventual submission**. Examples of this are single and multiline text-entry areas, checkbox selections/radio choices, and comboboxes.
 
-Inputs and buttons are combined to form data collection and transmission experiences such a contact form or a Pull Request submission. 
+Inputs and buttons are combined to form data collection and transmission experiences such as a contact form or a Pull Request submission. 
 
 ### Inputs
 
@@ -192,7 +198,7 @@ Inputs without visible borders must use their background color instead. In this 
 
 #### Input selected state contrast
 
-Selection state communicates **if a user has chosen an input**, and is considered non-text contrast. Examples of this are a checkbox's check or a radio's dot.
+Selection state communicates **if a user has chosen an input option**, and is considered non-text contrast. Examples of this are a checkbox's check or a radio's dot.
 
 <img src={InputSelectionState} alt="A wireframe illustration of a checkbox input with a checkmark indicating it has been placed in a selected state. A label pointing to the checkmark reads, 'Communicates user choice.' A label pointing to the checkbox's border reads, 'Communicates interactive area boundary.'" />
 
@@ -200,14 +206,14 @@ Selected state of an input **must** meet a contrast ratio of `3:1`. This is calc
 
 #### Input validation state contrast
 
-Validation state communicates if the content a user has submitted meets the requirements or not. Examples of this are an inline error message with a text input, or a checkmark icon to indicate password criteria have been met.
+Validation state communicates if the content a user has submitted meets the intake requirements or not. Examples of this are an inline error message with a text input, or a checkmark icon to indicate password criteria have been met.
 
 Validation state **must not** rely on color as the sole way of determining if an input is valid. Accompanying text or icons can help accomplish this.
 
 <img src={InputValidationState} alt="A wireframe illustration of a text input with an error message and icon. Its label reads, 'Email address.' It's user-provided text content reads, 'asdf.' The error message reads, 'Error message', and the the error icon is a warning symbol. A label pointing to the error message reads, 'Communicates validation status.' A label pointing to the text input's border reads, 'Reinforces validation status.'" />
 
 - If the validation message is **only text**, it **must** meet a contrast ratio of `4.5:1` for "normal text", or `3:1` for "large text". 
-- If the validation message is **only** an icon, it **must** meet a contrast ratio of of `3:1`. 
+- If the validation message is **only** an icon, it **must** meet a contrast ratio of `3:1`. 
 - If the validation message is both **text and an icon**, it **must** meet a contrast ratio of `4.5:1` for "normal text", or `3:1` for "large text". In this context the icon is considered decorative. It is still encouraged to make the icon meet a `3:1` contrast ratio, however.
 
 Contrast for validation state is calculated by the text or icon's computed color value compared to the computed background color the input is placed on.
@@ -257,7 +263,7 @@ Beyond the scope of normative WCAG guidance, a further consideration is if the i
 
 ##### Decorative icons
 
-Buttons with icons that **also** have an accompanying text label can be considered decorative. Decorative icons **do not** need to meet WCAG-compliant contrast ratios.
+Buttons with a text label that **also** have an accompanying icons can consider their icons as decorative. Decorative icons **do not** need to meet WCAG-compliant contrast ratios.
 
 The reason for this is that the text label communicates the input's purpose, provided its computed color value is WCAG compliant. The icon in this circumstance reinforces the text label. 
 
@@ -273,13 +279,13 @@ The contrast of a button's border color compared to the input's background color
 
 #### Button disabled state contrast
 
-Broadly-speaking, buttons **should not** be disabled until form validation criteria has been met. An example of this is disabling a submit button until a user has filled out all required fields.
+Broadly-speaking, buttons **should not** be disabled until form validation criteria has been met. An example of behaviro to avoid is disabling a submit button until a user has filled out all required fields.
 
 If a button needs to be placed in a disabled state, [it **does not** need to be color contrast compliant](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html#inactive-controls). Other WCAG criteria may affect this treatment, however.
 
 Beyond the scope of normative WCAG guidance, a further consideration is there are other ways to visually communicate a disabled button, or to design the system in system in such a way that a button cannot circumstantially be placed in a disabled state. 
 
-While a button's disabled state is exempt normative compliance, consider that the control may be invisible or unpredictably disappear from the perspective of a user experiencing low vision conditions.
+While a button's disabled state is exempt from normative compliance, consider that the control may be invisible or unpredictably disappear from the perspective of a user experiencing low vision conditions.
 
 ## Patterns that might be confusing
 
@@ -305,7 +311,7 @@ Resources, articles, and guidelines that informed this documentation:
 
 - [Assistive technology: Operating System and Browser Accessibility Display Modes](https://www.a11yproject.com/posts/operating-system-and-browser-accessibility-display-modes/)
 - [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
-presentation that uses sufficient contrast](https://www.w3.org/WAI/WCAG21/Techniques/general/G174)
+- [Technique G174: Providing a control with a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient contrast](https://www.w3.org/WAI/WCAG21/Techniques/general/G174)
 
 ### Primer
 
