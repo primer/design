@@ -103,8 +103,8 @@ async function sourceDotcomSharedComponentsData({actions, createNodeId, createCo
 
 async function getSharedComponentsData() {
   if (!process.env.GITHUB_TOKEN) {
-    console.log('No GITHUB_TOKEN in environment, falling back to using shared_components.json')
-    return JSON.parse(fs.readFileSync('shared_components.json', 'utf8'))
+    console.log('No GITHUB_TOKEN in environment, falling back to using recipe_metadata.json')
+    return JSON.parse(fs.readFileSync('recipe_metadata.json', 'utf8'))
   }
 
   const client = new Octokit({
@@ -139,7 +139,7 @@ async function getSharedComponentsData() {
 
   const artifactId = (() => {
     for (const artifact of artifacts.data.artifacts) {
-      if (artifact.name == 'shared-components-manifest') {
+      if (artifact.name == 'recipe-metadata') {
         return artifact.id
       }
     }
@@ -166,7 +166,7 @@ async function getSharedComponentsData() {
 
   const zip = new JSZip();
   const zipData = await zip.loadAsync(artifactContents.data)
-  const manifestRaw = await zipData.file('shared_components.json').async('string')
+  const manifestRaw = await zipData.file('recipe_metadata.json').async('string')
   const manifest = JSON.parse(manifestRaw)
 
   return manifest
