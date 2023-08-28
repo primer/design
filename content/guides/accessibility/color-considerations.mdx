@@ -72,9 +72,15 @@ It is possible to set GitHub to use a dark sub-theme when a parent Day theme has
 
 ### Default theme
 
-GitHub uses the default Day (light) theme when a user visits the site in a logged out state. When not logged in, users are unable to adjust the theme in the [Appearance settings](https://github.com/settings/appearance).
+GitHub uses: 
 
-Because of this, [the default Day theme **must** satisfy WCAG criteria for color-related concerns](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/primer/color-modes.md#guidance). From a high-level, this means that **all** GitHub content displayed using the default Day theme **must**:
+- **The default Day (light) theme** when a user visits the site in a logged out state and their operating system is set to light mode.
+- **The default Night (dark) theme** when a user visits the site in a logged out state and their operating system is set to dark mode.
+- Whatever theme the user has set in their account settings. 
+
+When not logged in, users are unable to adjust the theme in the [Appearance settings](https://github.com/settings/appearance).
+
+Because of this, [the default Day **and** Night theme **must both** satisfy WCAG criteria for color-related concerns](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/primer/color-modes.md#guidance). From a high-level, this means that **all** GitHub content displayed using the default Day and Night theme **must**:
 
 - Pass color contrast requirements, and
 - Have the mechanism for accessing and changing the theme be fully WCAG compliant.
