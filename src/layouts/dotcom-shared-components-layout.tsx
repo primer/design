@@ -1,6 +1,6 @@
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
-import {Box, Heading, Label, Text} from '@primer/react'
+import {Box, Heading, Label, Link, Text} from '@primer/react'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import {graphql, useStaticQuery} from 'gatsby'
@@ -26,17 +26,17 @@ function SharedComponentLink({component}) {
 
   if (component.storyIds.length > 0) {
     return <Box>
-      <a target="_blank" href={urlForComponent(component)}>
+      <Link target="_blank" href={urlForComponent(component)}>
         {component.component} <LinkExternalIcon/>
-      </a>
+      </Link>
       &nbsp;
       <SharedComponentStatusLabel status={component.status}></SharedComponentStatusLabel>
     </Box>
   } else {
     return <Box>
-      <a target="_blank" href={`https://github.com/github/github/blob/master/${component.path}`}>
+      <Link target="_blank" href={`https://github.com/github/github/blob/master/${component.path}`}>
         {component.component} <LinkExternalIcon/>
-      </a>
+      </Link>
       <SharedComponentStatusLabel status={component.status}></SharedComponentStatusLabel>
     </Box>
   }
