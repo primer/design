@@ -1,0 +1,21 @@
+---
+title: Box overlay
+description: Box overlay is used to create a floating box that appears on top of the page content.
+cssId: boxoverlay
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+
+## Usage
+
+<Note variant="warning">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Usage for this component is not encouraged</Text>
+  <Text>Instead, please see <Link as={GatsbyLink} to="/components/dialog">dialog</Link>.</Text>
+</Note>
+
+Box overlay is only available as a [CSS component](/deprecated-components/box-overlay/css). Use box overlay with the `details` and `details-dialog`. The box overlay appears on top of the page content.
+
+Box overlays come in three widths, default (440px), narrow (320px), and wide (640px).
