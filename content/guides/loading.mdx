@@ -1,0 +1,268 @@
+---
+title: Loading
+description: How to loading states to help users stay informed and engaged while waiting.
+---
+
+## Overview
+
+Performance is a priority at GitHub, and the first approach is to improve the speed of our processes. However, there are times when we can't avoid making users wait. In these cases, maintaining [visibility of system status](https://www.nngroup.com/articles/visibility-system-status/) through loading states can help users feel stable and in control.
+
+Without indicating that something is loading, users may thing a process has silently failed. This can lead to confusion and frustration.
+
+Some of our components already have loading states built in. Rely on component-specific patterns before designing your own loading experiences.
+
+For example:
+
+- [DataTable](/components/tree-view/#loading-state)
+- [SelectPanel](/components/select-panel/#loading-state)
+- [TreeView](/components/tree-view/#loading-state)
+- ???
+
+## Loading indicators
+
+Loading indicators reassure users that their request is actively being executed, and can sometimes be used to set an expectation for how long they'll be waiting. They may even reduce the users' perception of time.
+{/* <!-- They keep users informed and could help preserve trust or confidence in the quality of GitHub's software. --> */}
+
+### Determinate loading
+
+![A progress bar with accompanying text being shown during a longer process]()
+_TODO: come up with an actual determinate loading example_
+
+Determinate loading indicators may be used when the progress or duration of a process can be known or estimated. This type of loading gives the user a hint of how much longer they'll have to wait.
+
+Determinate loading indicators work best for processes that are likely to take longer (approximately more than 3 seconds). Shorter waiting times don't give the user enough time to process the information conveyed by a determinate loading indicator.
+
+{/\*<!--
+TODO: instead of describing the approaches, show them in image examples
+
+Could use one of these approaches:
+
+- [ProgressBar](/components/progress-bar)
+- Textual representation of progress (for example, "3 of 10 items loaded", "42% complete")
+- Some combination of the two
+  -->\*/}
+
+### Indeterminate loading
+
+Indeterminate loading indicators may be used when the progress or duration of a process is variable or unknown. This type of loading gives the user a sense that something is happening, but not how long it will take.
+
+#### Spinner
+
+![The status checks being replaced by a spinner]()
+
+A [spinner](/ui-packages/spinner) is the most versatile indeterminate loading indicator. It may be used in place of content that is loading, or adjacent to a loading message
+
+#### Content skeleton
+
+![TreeView in a skeleton loading state]()
+
+For large areas of loading content, the loading content may be replaced by a vague representation of the content. This shows users the general shape of the page and could make them perceive the real content as loading faster.
+
+Skeleton loaders may be used when we can approximate the rough shape of the content. It would feel weird if we showed a skeleton loader and then the content looks totally different from the shape of the skeleton.
+
+The [tree view](/components/tree-view) and [data table](/components/data-table) components support these states by default.
+
+#### Loading text
+
+![Loading text replacing a form submit button]()
+
+A text-based loading indicator may be used to replace inline elements such as a submit button. Loading text should be accompanied by a spinner or some other animation to convey that the process is active.
+
+#### Animated icon or illustration
+
+_TODO: maybe don't encourage this unless I can find some examples?_
+
+![Some place where we use the Mona loader]()
+
+An animated icon or illustration may be used as a "branding moment" for special loading states. This should be used sparingly.
+
+{/\*
+
+<!--
+TODO: instead of describing the approaches, show them in image examples
+Could use one of these approaches:
+
+- Spinner
+- "Skeleton" content
+  - Helps the user know what to expect by giving them a vague representation of the content using simple shapes
+- Animated icon/illustration _TODO: maybe don't encourage this unless I can find some examples?_
+- Loading text (for example, "Loading...", "Submitting...")
+-->*/}
+
+### Animation
+
+_TODO: consider moving this to the Spinner docs_
+
+Animating loading indicators helps reassure the user that _something_ is happening and the process is active and the system isn't frozen. However, animation can become distracting or overwhelming. Animation in progress indicators should be subtle, and we should avoid letting a page get overtaken by progress indicators.
+
+## Scoping loading indicators to page content
+
+Loading indicators should be placed nearest to the content they are standing in for. When content does eventually load, avoid a layout shift as much as possible.
+
+Avoid making users wait for UI if the relevant data has loaded.
+
+### Large areas
+
+![3 images: 1. Spinner replacing status check box; 2. Spinner replacing PR/issues sidebar sections; 3. Spinner replacing modal content]()
+
+Position your loading state in the center of the region, but ensure it's still visible within the viewport.
+
+Determinate or indeterminate loaders may be used
+
+### Small areas
+
+To avoid information overload and visual noise, consider replacing a series of adjacent loading indicators with a single loading indicator.
+
+{/* <!-- Avoid grouping too many loading indicators in one spot. It's too visually noisey, and not helpful. Instead, try to group multiple loading indicators into a single indicator. --> */}
+
+<DoDontContainer>
+  <Do>
+    <img src="" alt="" width="456" />
+    <Caption>Reduce the number of loading indicators shown on a page.</Caption>
+  </Do>
+  <Dont>
+    <img src="" alt="" width="456" />
+    <Caption>Don't show a loading indicator for every piece of loading content on the page.</Caption>
+  </Dont>
+</DoDontContainer>
+
+Don't use determinate loaders in place of smaller components. It would lead to information overload and add too much visual noise.
+
+<DoDontContainer>
+  <Do>
+    <img src="" alt="" width="456" />
+    <Caption>
+      Use determinate loading indicators in areas with enough whitespace to help users focus on the relevant
+      information.
+    </Caption>
+  </Do>
+  <Dont>
+    <img src="" alt="" width="456" />
+    <Caption>Don't crowd determinate loading indicators into areas that are already dense with information.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Navigation items
+
+_TODO: bring content over from degraded-experiences.mdx_
+
+## Adapting to different wait times
+
+The following is meant as a general guidance. Sometimes we can't even give a rough estimate how long a process will take due to unknown variables such as network speed, device performance, and server load.
+
+_TODO: consider defining a general network speed to consider when estimating how long something will take to load_
+
+Less than 1 second: Don't show a loading state. Seeing a loading indicator flash on the screen could be distracting and make the product feel slower than it is.
+1–3 seconds: Use an indeterminate loading state. The user won't have enough time to process the information in a determinate loading state, and potentially cause frustration or confusion about missing information.
+3–10 seconds: Use a determinate loading state if possible to keep the user informed about why they're waiting so long.
+More than 10 seconds: Use a determinate loading state and avoid blocking other interactions by treating the process as a background task if possible. This reduces the interruption caused by a lengthy process, and could make wait times feel shorter if a user can shift their focus to other tasks. For example, the user can still interact with a pull request while they're waiting for CI actions to run.
+_TODO: try and give more details about ways to keep users engaged for 10+ second waits_
+_TODO: consider strategies for setting the expectation that a process will take a long time before the user initiates something likely to have a 10+ second wait_
+
+## Lifecycle of a loading state
+
+- **Process initiated:** The moment just before loading begins. Usually initiated by a user action such as clicking a button or submitting a form
+- **Process in progress:** The process is underway. This is the actual loading state.
+- **Process complete:** The process has finished successfully, and the user can continue with their task. Sometimes this step can include some indication of success, such as a green checkmark or a success message. _TODO: figure out when it's appropriate to show a success message_
+- **Process failed:** There was an error, and the process could not be completed. This step should include an error message that explains what went wrong and what the user's next time may be. For example, if the user can retry the process, include a button to do so.
+
+## Incremental loading
+
+Whenever possible, show each item in a collection as soon as it loads. Don't wait for every item in the collection to load before showing the items.
+
+{/\*<!--
+Possible examples:
+
+- a list of issues (or something else)
+- A PR or Issue page - whole page is loading, show loader in entire area - main content loads, show loader in sidebar area - some sidebar stuff loads, show loader replacing one section in the sidebar - last sidebar section loads, no loaders are shown
+  -->\*/}
+
+<DoDontContainer>
+  <Do>
+    <img src="" alt="" width="456" />
+    <Caption>Show content as soon as it's loaded.</Caption>
+  </Do>
+  <Dont>
+    <img src="" alt="" width="456" />
+    <Caption>Don't wait for all content in a collection to be loaded before showing it.</Caption>
+  </Dont>
+</DoDontContainer>
+
+![Show something loading in phases - 1. Skeleton; 2. Text; 3. Actions; 4. Images]()
+_TODO: come up with an example_
+
+Whenever possible, prioritize the most important pieces of data to load first. This shows the user the most important content first and gives them a chance to interact with things sooner. This could be especially helpful for somebody on a slow network.
+
+![Some multi-step process]()
+_TODO: come up with an example_
+
+When a process takes a long time because it has multiple steps, consider progressively updating the status in any loading indicators to keep users informed what exactly is happening behind the scenes. Not only is this more engaging than a vague loading indicator, but it's an opportunity to help users understand what's happening instead of feeling like the process happens in a black box.
+
+## Accessibility
+
+### Conveying loading indicators
+
+![A spinner replacing the content of the status check box at the bottom of a pull request]()
+
+Loading indicators are visual and need to be accessible to assistive technologies. This can be done with a visually hidden text element we associate using `aria-labelledby`, or attributes such as `alt` (on an `img` element) and `title` (on a `svg` element).
+
+You may default to a generic label such as "loading", but try to be specific when possible. For example, when a spinner replaces status checks in a pull request, it could have the label "loading status checks".
+
+### Conveying status
+
+Communicate when a process has been initiated, when it's in progress, and when it has been completed or if it has failed.
+
+There are many cases where it will be obvious that a process has completed or failed. For example, a page load or a new element getting focused.
+_TODO: what guidelines can we come up with to help users decide how/if to move focus after loading is completed_
+
+For other cases, the status will need to be manually conveyed to assistive technologies. Use a `role="status"` message or put content in an `aria-live` element that communicates the status of a process.
+
+### Preventing partially loaded content from being announced
+
+If an `aria-live` region of a page is being updated, set `aria-busy="true"` on the live region until the updates are complete. Then, set `aria-busy="false"`. This prevent assistive technologies from announcing updates until the updates are complete.
+
+## Related links
+
+- [Patterns for saving](/ui-patterns/saving)
+- [Spinner](/components/spinner)
+- [ProgressBar](/components/progress-bar)
+
+---
+
+## Draft notes (not part of the guidelines)
+
+These are just for me while I develop these guidelines
+
+### Updates to support these guidelines
+
+- Allow `ProgressBar` to be animated so users don't get concerned that something might be broken
+- Content skeleton component(s)
+
+### Other points to get across:
+
+- Don't show a loading indicator to delay showing an error message. Show the error message immediately if we know the process has failed.
+- Prevent users from re-initiating a process since it would restart the process and make the wait time longer, or could result in duplicate submissions
+- How to properly use skeleton loaders
+  - Don't replace interactive elements like buttons or form controls with skeleton states
+  - Use them to give a rough outline of the shape of the content
+  - Make sure they mostly look like the content they're replacing. If you can't make them look mostly like the content they're replacing, use another loading indicator instead.
+
+### Other things to consider:
+
+- More a11y details
+- What if something _starts_ as indeterminate but then we get enough data that it can become determinate?
+
+### Questions for a11y:
+
+- How can we help people decide what to do with
+- Can we block a user from re-initiating a process while it's in a loading state?
+  - Use-case examples:
+    - Blocking the screen with a loading overlay
+    - Replace a "Submit" or "Load more" button with a loading message
+- What are some ways to indicate that something is loading that don't rely on the user being able to see the UI?
+  - Use-case examples:
+    - Prepending a loading indicator to a piece of loading content such as a nav item or menu item
+- How might we determine where focus should move after a process has completed?
+  - Use-case examples: (need to come up with more specific examples)
+    - Saving some update
+    - Re-running an action
