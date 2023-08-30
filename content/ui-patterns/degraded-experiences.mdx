@@ -150,6 +150,27 @@ When the data required to calculate a count is unavailable, default to hiding th
 
 </Box>
 
+##### Handling activity indicators
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+When the data is unavailable to determine whether to show an activity indicator (most commonly used for notification badges), default to hiding the indicator.
+
+<img
+  width="456"
+  alt="Image of the notification link button in the global nav without a badge"
+  src="https://github.com/primer/react/assets/2313998/27a9c14e-875e-4f08-ab04-43af1bac289b"
+/>
+
+</Box>
+
 {/* <!-- TODO: Decide if we need to come up with a pattern for replacing (instead of hiding) numbers in an unavailable count. --> */}
 
 #### Panels and larger areas
@@ -186,31 +207,107 @@ If you're not using a component that supports error states, replace the content 
 
 ## Degraded navigation
 
-### Global navigation
+Some links can be static (for example, `https://github.com/`), but many links are made from dynamic data (for example: `https://github.com/{org}/{repo}/issues/{issue-number}`).
 
-{/* <!-- TODO: Figure out examples of global nav content that may be affected by outages --> */}
+When a dynamic link in the navigation is not yet available, fall back to not rendering it.
+
+If the page is in a state where we're not sure if a link is available, the navigation item should be put in a loading state. Refer to the pattern guidelines for [loading](/ui-patterns/loading) for more information.
+
+{/* If a navigation item is shown in a loading state and fails to load, don't suppress rendering of the item without informing the user that loading has failed. In the global navigation header, the global error banner will suffice. When navigation is in an overlay that obscures the global error banner (such a the left and right side sheets), place an error banner in the overlay. */}
+
+### Global navigation header
 
 <img
   width="960"
   alt="Example of a degraded global nav"
-  src="https://github.com/primer/design/assets/2313998/7806b211-8145-4f6e-9f47-0ec7380eeb33"
+  src="https://github.com/primer/react/assets/2313998/da4f257f-681d-4bfa-9810-77a3391fc2ab"
 />
 
-Never suppress rendering of the global navigation, but items within the navigation affected by a system error may be removed.
+Never suppress rendering of the global navigation header. Rendering a page without global navigation header could make a user feel stuck. Instead, suppress rendering of individual navigation items affected by a system error.
 
-Rendering a page without global navigation could make a user feel stuck. A link to the home page should always be available, even if the contents of the homepage will be broken.
+Most of the links in the global navigation header are static and will not need to be degraded anyway.
 
-### Other page navigation
+#### Global navigation side sheets
 
-{/* <!-- TODO: Figure out examples of page nav content that may be affected by outages --> */}
+The left and right global navigation [side sheets](/components/dialog#side-sheets) lazy-load some of their content when the nav is first opened. For example, repos and teams in the left global navigation side sheet.
+
+If the user can see a loading state before a failure, inform them that there was a failure. If the user does not see a loading state before a failure, you may skip rendering the affected links. See the interface guidelines about [loading patterns](/ui-patterns/loading#navigation) for more information about how to handle navigation loading states.
+
+{/* <!-- TODO: Move the following examples to loading state guidelines --><!-- START examples to loading state guidelines --> */}
+
+##### Sequential and related groups of navigation items
 
 <img
   width="960"
-  alt="Example(s) of a degraded page nav(s)"
-  src="https://github.com/primer/design/assets/2313998/88842c83-d1ac-48a9-9f0d-2493a3d09f9a"
+  alt="3 images. 1. Repos and teams loading; 2: Repos and teams both failed; 3: Repos and teams both succeeded"
+  src="https://github.com/primer/react/assets/2313998/55148339-4609-4058-8c3f-e08cab5fbd1e"
 />
 
-There may be cases where a page has to degrade it's own navigation. Common types of page navigation include [underline nav](/components/underline-nav) (for example, a repo page) and [sidebar navigation](/components/nav-list) (for example, settings pages).
+If sequential groups or navigation links are unable to load, replace both groups with a single loading indicator and a single error message.
+
+##### Non-sequential groups of navigation items
+
+<img
+  width="960"
+  alt="3 images. 1. Repos, teams, and organizations loading; 2: Repos and teams both failed; 3: All groups succeeded"
+  src="https://github.com/primer/react/assets/2313998/3258b2da-2a82-4ab2-baac-2ed5aa770bc0"
+/>
+
+<Note>
+  This example is for demonstration purposes only. At the time these guidelines were written, there is no
+  "Organizations" group, and teams and repositories data are loaded via a single controller.
+</Note>
+
+If non-sequential groups or navigation links are in a loading state, preserve the group headings and replace the contents of each group with a single loading indicator. If loading fails, show a single error message in the side-sheet.
+
+##### Individual navigation items
+
+<img
+  width="960"
+  alt="3 images. 1. Some items in right side-sheet are loading; 2: Some items in right side-sheet failed; 3: All items in right side-sheet succeeded"
+  src="https://github.com/primer/react/assets/2313998/eea5ec26-0145-4ec9-8f5c-409eb98a988f"
+/>
+
+If some links in the right side sheet cannot be loaded, show a banner above the [nav list](components/nav-list) notifying the user that some navigation items are unavailable.
+
+<img
+  width="960"
+  alt="4 images. 1. Nav items loading - grouped items replaced with single loading state; 2: Loaded; 3. Nav items loading - sequential ungrouped items where each is replaced with a loading state; 4: Loaded"
+  src="https://github.com/primer/react/assets/2313998/da9500d3-92d1-4048-96ec-ac14fc11b1c2"
+/>
+
+Default to replacing each loading navigation item with its own loading indicator. However, if a group of related links in a nav list are unable to load, replace the links with an error message but preserve the group heading.
+{/* Default to replacing each loading navigation item with its own loading indicator. If a sequential navigation items have a relationship and are loaded via a single controller, replace them with an a single loading indicator. */}
+
+{/* <!-- END examples to loading state guidelines --> */}
+
+##### Degraded side sheet group actions
+
+<img
+  width="960"
+  alt="2 images: 1. Default left side sheet; 2. Search icons and show more buttons/links are not rendered"
+  src="https://github.com/primer/react/assets/2313998/f14940ed-a17e-45cb-a507-4113abb21311"
+/>
+
+If the data to render the "Show more" link or button at the bottom of a nav list group is unavailable, just don't render it.
+
+If the data to render the search button in a nav list group is unavailable, just don't render it.
+
+{/* <!-- TODO: Decide whether we should have "inert" states for nav links, or if we should just not show them and rely on error messages --> */}
+
+### Page navigation
+
+<img
+  width="960"
+  alt="Examples of a degraded page navs"
+  src="https://github.com/primer/react/assets/2313998/0069f1f5-9cfa-43b3-80ae-46771a3aa8ed"
+/>
+
+There may be cases where a page has to degrade it's own navigation. If the data required to render a page navigation link is unavailable, don't render the navigation link.
+
+If data required to render notification badges or counts is not available, don't render the badge. This was also mentioned above in the [Handling unavailable counts](#handling-unavailable-counts) section.
+
+Common types of page navigation include [underline nav](/components/underline-nav) (for example, a repo page) and [sidebar navigation](/components/nav-list) (for example, settings pages).
 
 ## Degraded interactions
 
@@ -219,7 +316,7 @@ There may be cases where a page has to degrade it's own navigation. Common types
 <img
   width="960"
   alt="Decision tree for how to handle a non-functional button"
-  src="https://github.com/primer/react/assets/2313998/7f31760d-8604-d6c-99a5-bf4e22159f32"
+  src="https://github.com/primer/react/assets/2313998/80b3fd79-3a7e-423d-b944-7ec7a1d001c3"
 />
 
 #### Removing a non-functional button
