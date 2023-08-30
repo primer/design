@@ -213,8 +213,6 @@ When a dynamic link in the navigation is not yet available, fall back to not ren
 
 If the page is in a state where we're not sure if a link is available, the navigation item should be put in a loading state. Refer to the pattern guidelines for [loading](/ui-patterns/loading) for more information.
 
-{/* If a navigation item is shown in a loading state and fails to load, don't suppress rendering of the item without informing the user that loading has failed. In the global navigation header, the global error banner will suffice. When navigation is in an overlay that obscures the global error banner (such a the left and right side sheets), place an error banner in the overlay. */}
-
 ### Global navigation header
 
 <img
@@ -265,15 +263,15 @@ If non-sequential groups or navigation links are in a loading state, preserve th
 <img
   width="960"
   alt="3 images. 1. Some items in right side-sheet are loading; 2: Some items in right side-sheet failed; 3: All items in right side-sheet succeeded"
-  src="https://github.com/primer/react/assets/2313998/eea5ec26-0145-4ec9-8f5c-409eb98a988f"
+  src="https://github.com/primer/design/assets/2313998/c39c86c9-a4ad-4516-9057-40812922c2a6"
 />
 
-If some links in the right side sheet cannot be loaded, show a banner above the [nav list](components/nav-list) notifying the user that some navigation items are unavailable.
+If some links in the right side sheet cannot be loaded, shoe each [nav list](components/nav-list) item in an inert state. The users should still be able to hover, click, and focus inert items, but they don't link to anywhere. Optionally, a tooltip may be displayed explaining that the navigation item is unavailable.
 
 <img
   width="960"
-  alt="4 images. 1. Nav items loading - grouped items replaced with single loading state; 2: Loaded; 3. Nav items loading - sequential ungrouped items where each is replaced with a loading state; 4: Loaded"
-  src="https://github.com/primer/react/assets/2313998/da9500d3-92d1-4048-96ec-ac14fc11b1c2"
+  alt="5 images. 1. Nav items loading - grouped items replaced with single loading state; 2: All items in group loaded; 3. Nav items loading - sequential ungrouped items where each is replaced with a loading state. Their labels are replaced with text that says 'Loading...'; 4: Nav items loading - sequential ungrouped items where each is replaced with a loading state; 5: All items in the group are loaded."
+  src="https://github.com/primer/design/assets/2313998/315f1028-2409-46bb-87fe-5541527344cb"
 />
 
 Default to replacing each loading navigation item with its own loading indicator. However, if a group of related links in a nav list are unable to load, replace the links with an error message but preserve the group heading.
