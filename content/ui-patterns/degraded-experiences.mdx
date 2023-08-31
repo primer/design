@@ -218,18 +218,41 @@ If the page is in a state where we're not sure if a link is available, the navig
 <img
   width="960"
   alt="Example of a degraded global nav"
-  src="https://github.com/primer/react/assets/2313998/da4f257f-681d-4bfa-9810-77a3391fc2ab"
+  src="https://github.com/primer/design/assets/2313998/3427b08a-e30d-43b0-80b3-2f3431a90461"
 />
 
 Never suppress rendering of the global navigation header. Rendering a page without global navigation header could make a user feel stuck. Instead, suppress rendering of individual navigation items affected by a system error.
 
 Most of the links in the global navigation header are static and will not need to be degraded anyway.
 
-#### Global navigation side sheets
+### Global navigation side sheets
 
 The left and right global navigation [side sheets](/components/dialog#side-sheets) lazy-load some of their content when the nav is first opened. For example, repos and teams in the left global navigation side sheet.
 
 If the user can see a loading state before a failure, inform them that there was a failure. If the user does not see a loading state before a failure, you may skip rendering the affected links. See the interface guidelines about [loading patterns](/ui-patterns/loading#navigation) for more information about how to handle navigation loading states.
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+If we know specifically what groups couldn't be loaded, provide those details in the error message. Otherwise, show a generic error message.
+
+</div>
+
+<img
+  width="456"
+  alt="2 images: 1. Error banner with details about what couldn't load; 2. Generic error banner"
+  src="https://github.com/primer/design/assets/2313998/a664acf4-321a-4359-8749-51f256d76ac5"
+/>
+
+</Box>
 
 {/* <!-- TODO: Move the following examples to loading state guidelines --><!-- START examples to loading state guidelines --> */}
 
@@ -238,17 +261,17 @@ If the user can see a loading state before a failure, inform them that there was
 <img
   width="960"
   alt="3 images. 1. Repos and teams loading; 2: Repos and teams both failed; 3: Repos and teams both succeeded"
-  src="https://github.com/primer/react/assets/2313998/55148339-4609-4058-8c3f-e08cab5fbd1e"
+  src="https://github.com/primer/design/assets/2313998/ba52e203-a0fa-4a55-a592-f436ffc2fda3"
 />
 
-If sequential groups or navigation links are unable to load, replace both groups with a single loading indicator and a single error message.
+If sequential groups or navigation links are unable to load, replace both groups with a single loading indicator and a single error message above the [nav list](components/nav-list).
 
 ##### Non-sequential groups of navigation items
 
 <img
   width="960"
   alt="3 images. 1. Repos, teams, and organizations loading; 2: Repos and teams both failed; 3: All groups succeeded"
-  src="https://github.com/primer/react/assets/2313998/3258b2da-2a82-4ab2-baac-2ed5aa770bc0"
+  src="https://github.com/primer/design/assets/2313998/14cbb97d-ebd2-44ca-b434-56454c9f6d47"
 />
 
 <Note>
@@ -256,29 +279,67 @@ If sequential groups or navigation links are unable to load, replace both groups
   "Organizations" group, and teams and repositories data are loaded via a single controller.
 </Note>
 
-If non-sequential groups or navigation links are in a loading state, preserve the group headings and replace the contents of each group with a single loading indicator. If loading fails, show a single error message in the side-sheet.
+If non-sequential groups of navigation links are in a loading state, preserve the group headings and replace the contents of each group with a single loading indicator. If loading fails, show a single error message above the [nav list](components/nav-list).
 
-##### Individual navigation items
+### Individual navigation items
 
 <img
   width="960"
   alt="3 images. 1. Some items in right side-sheet are loading; 2: Some items in right side-sheet failed; 3: All items in right side-sheet succeeded"
-  src="https://github.com/primer/design/assets/2313998/c39c86c9-a4ad-4516-9057-40812922c2a6"
+  src="https://github.com/primer/design/assets/2313998/1b619fa0-0870-4356-a5a6-78519a36f539"
 />
 
-If some links in the right side sheet cannot be loaded, shoe each [nav list](components/nav-list) item in an inert state. The users should still be able to hover, click, and focus inert items, but they don't link to anywhere. Optionally, a tooltip may be displayed explaining that the navigation item is unavailable.
+If some links in the right side sheet cannot be loaded, default to showing each [nav list](components/nav-list) item in an inert state. The users should still be able to hover, click, and focus inert items, but they don't link to anywhere. Optionally, a tooltip may be displayed explaining that the navigation item is unavailable. An error banner is not necessary for this case.
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+If we don't know specifically which links failed to load (for example, some users will never see the "Your enterprises" link), then hide the links and show a generic error message above the [nav list](components/nav-list).
+
+</div>
 
 <img
-  width="960"
-  alt="5 images. 1. Nav items loading - grouped items replaced with single loading state; 2: All items in group loaded; 3. Nav items loading - sequential ungrouped items where each is replaced with a loading state. Their labels are replaced with text that says 'Loading...'; 4: Nav items loading - sequential ungrouped items where each is replaced with a loading state; 5: All items in the group are loaded."
-  src="https://github.com/primer/design/assets/2313998/315f1028-2409-46bb-87fe-5541527344cb"
+  width="456"
+  alt="Generic error banner with hidden items"
+  src="https://github.com/primer/design/assets/2313998/c991bbbd-a2ad-4c8f-a873-a33475927059"
 />
 
-Default to replacing each loading navigation item with its own loading indicator. However, if a group of related links in a nav list are unable to load, replace the links with an error message but preserve the group heading.
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+Default to replacing each loading navigation item with the item in a loading state. If we know what the link's label is, show it. If we don't know what the link's label is, show generic loading text in its place.
+
+</div>
+
+<img
+  width="456"
+  alt="3 images: 1. Loading unknown labels; 2. Loading known labels; 3. Success"
+  src="https://github.com/primer/design/assets/2313998/d82dec1a-0eb0-4577-a7d4-091dda395f5d"
+/>
+
+</Box>
 
 {/* <!-- END examples to loading state guidelines --> */}
 
-##### Degraded side sheet group actions
+#### Degraded side sheet group actions
 
 <img
   width="960"
