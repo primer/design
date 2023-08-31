@@ -90,7 +90,6 @@ export default function DotcomSharedComponentsLayout({pageContext, children}) {
 
   const tableOfContents = {
     items: [
-      {url: '#finding-these-components', title: 'Finding these components'},
       {url: '#related-reading', title: 'Related reading'},
       {url: '#components', title: 'Components'}
     ],
