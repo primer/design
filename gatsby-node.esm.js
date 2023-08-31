@@ -117,7 +117,7 @@ async function getSharedComponentsData() {
     owner: 'github',
     repo: 'github',
     workflow_id: 'preview-pages-build.yml',
-    branch: 'dump_component_info',
+    branch: 'master',
     status: 'success',
     per_page: 1
   })
