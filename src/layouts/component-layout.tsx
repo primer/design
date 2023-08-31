@@ -5,6 +5,8 @@ import {Box, Heading, Text} from '@primer/react'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
+import {AccessibilityLink} from '../components/accessibility-link'
+import {H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 
 export default function ComponentLayout({pageContext, children, path}) {
   const {title, description, reactId, railsIds, figmaId, cssId} = pageContext.frontmatter
@@ -91,6 +93,12 @@ export default function ComponentLayout({pageContext, children, path}) {
               }}
             >
               {children}
+              {reactId ? (
+                <Box sx={{mt: 5}}>
+                  <H3>Known accessibility issues (only available to GitHub staff)</H3>
+                  <AccessibilityLink label={reactId} />
+                </Box>
+              ) : null}
             </Box>
           </Box>
         </Box>
