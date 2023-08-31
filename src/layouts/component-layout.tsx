@@ -6,14 +6,20 @@ import React from 'react'
 import {withPrefix} from 'gatsby'
 import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
-import {navItems} from '@primer/gatsby-theme-doctocat/src/components/nav-items'
+import navItems from '@primer/gatsby-theme-doctocat/src/nav.yml'
+
+type NavItemData = {
+  title: string,
+  url?: string,
+  children?: NavItemData[]
+}
 
 export default function ComponentLayout({pageContext, children, path}) {
   const {title, description, reactId, railsIds, figmaId, cssId} = pageContext.frontmatter
 
-  const getPageAncestry = (url, object) => {
-    const result = []
-    const buildArray = (node, path) => {
+  const getPageAncestry = (url: string, object: NavItemData[]) => {
+    const result: NavItemData[] = []
+    const buildArray = (node: NavItemData, path: string) => {
       if (node.url === path) {
         result.push({title: node.title, url: node.url})
       } else if (node.children) {
@@ -42,11 +48,11 @@ export default function ComponentLayout({pageContext, children, path}) {
       <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
         {breadcrumbData.length > 1 ? (
           <Breadcrumbs sx={{mb: 4}}>
-            {breadcrumbData.map(item => (
+            {breadcrumbData.map(item => item.url ? (
               <Breadcrumbs.Item key={item.url} href={withPrefix(item.url)} selected={path === item.url}>
                 {item.title}
               </Breadcrumbs.Item>
-            ))}
+            ): null).filter(item => item)}
           </Breadcrumbs>
         ) : null}
         <Heading as="h1" sx={{fontSize: 7}}>{title}</Heading>
