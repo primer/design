@@ -1,0 +1,25 @@
+[
+  {
+    "component": "ItemPicker",
+    "storyIds": [],
+    "meta": {
+      "id": "item-picker",
+      "name": "Item picker",
+      "path": "ui/packages/item-picker/components/ItemPicker.tsx",
+      "status": "draft"
+    }
+  },
+  {
+    "component": "ListView",
+    "storyIds": [
+      "shared-components-listview--docs",
+      "shared-components-listview--list"
+    ],
+    "meta": {
+      "id": "list-view",
+      "name": "List view",
+      "path": "ui/packages/list-view/src/ListView.tsx",
+      "status": "draft"
+    }
+  }
+]
