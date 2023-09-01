@@ -12,6 +12,7 @@ description:
 import {Box, Button, Heading, Link} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '../components/accessibility-link'
 
 <ImageContainer>
   <img
@@ -248,3 +249,12 @@ A nav list organizes navigation links for the user's current context and indicat
 </div>
 
 </Box>
+
+{reactId ? (
+  <Box sx={{mt: 5}}>
+    <Heading as="h3">
+      Known accessibility issues (only available to GitHub staff
+    </Heading>
+    <AccessibilityLink label={reactId} />
+  </Box>
+  ) : null}
