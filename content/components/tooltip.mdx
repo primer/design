@@ -9,11 +9,10 @@ cssId: tooltip
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
-import {Link, Text, Note} from '@primer/react'
+import {Box, Heading, Link, Text, Note} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
 import {AccessibilityLink} from '~/src/components/accessibility-link'
-
 
 ## Usage
 
@@ -42,3 +41,7 @@ A tooltip may only be used on an element that is interactive such as a button or
 ### Tooltip alternatives
 
 Most UI cases don't call for tooltips. Learn some [alternative methods to use in place of tooltips](/../guides/accessibility/tooltip-alternatives).
+
+### Open accessibility issues
+
+ <AccessibilityLink label={tooltip} />
