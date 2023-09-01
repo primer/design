@@ -4,7 +4,7 @@ on:
   # Manual deploy
   workflow_dispatch:
   # Scheduled deploy
-  schedule: 
+  schedule:
     - cron: '0 0 * * *' # Every day at midnight UTC time
   # Deploy on change to main
   push:
@@ -17,13 +17,65 @@ permissions:
   id-token: write
 
 jobs:
-  build_deploy:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - id: get-dotcom-access-token
+        uses: camertron/github-app-installation-auth-action@v1
+        with:
+          app-id: ${{ vars.DOTCOM_SHARED_COMPONENTS_APP_ID }}
+          private-key: ${{ secrets.DOTCOM_SHARED_COMPONENTS_APP_PRIVATE_KEY }}
+          client-id: ${{ vars.DOTCOM_SHARED_COMPONENTS_APP_CLIENT_ID }}
+          client-secret: ${{ secrets.DOTCOM_SHARED_COMPONENTS_APP_CLIENT_SECRET }}
+          installation-id: ${{ vars.DOTCOM_SHARED_COMPONENTS_APP_INSTALLATION_ID }}
+
+      - name: Checkout default branch
+        uses: actions/checkout@v2
+        with:
+          version: 16
+
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build
+        env:
+          GITHUB_TOKEN: ${{ steps.get-dotcom-access-token.outputs.access-token }}
+
+      - name: Archive build output
+        run: "tar --dereference --directory public -cvf artifact.tar ."
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: github-pages
+          path: artifact.tar
+
+  deploy:
     if: ${{ github.repository == 'primer/design' }}
-    name: Production
-    # SHA for security hardening. Points at last verified HEAD of main branch.
-    uses: primer/.github/.github/workflows/deploy.yml@0cec9b9914f358846163f2428663b58da41028c9
-    with:
-      node_version: 16
-      install: yarn
-      build: yarn build
-      output_dir: public
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+        with:
+          preview: false

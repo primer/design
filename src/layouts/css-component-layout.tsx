@@ -31,7 +31,6 @@ export const query = graphql`
 `
 
 export default function CssComponentLayout({data}) {
-  console.log(data.sitePage)
   const name = data.sitePage?.context.frontmatter.cssId || ''
   const title = data.sitePage?.context.frontmatter.title || name
   const description = data.sitePage?.context.frontmatter.description || ''
