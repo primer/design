@@ -42,17 +42,6 @@ function SharedComponentLink({component}) {
   }
 }
 
-function SharedComponentGroup({groupKey, components}) {
-  return (
-    <>
-      <H3>{groupKey}</H3>
-      {components.map(component => {
-        return <SharedComponentLink component={component} />
-      })}
-    </>
-  )
-}
-
 export default function DotcomSharedComponentsLayout({pageContext, children}) {
   const data = useStaticQuery(graphql`
     query DotcomSharedComponentsPageQuery {
@@ -66,25 +55,6 @@ export default function DotcomSharedComponentsLayout({pageContext, children}) {
       }
     }
   `)
-
-  const alphabetizedComponents = {}
-
-  for (const component of data.allSharedComponent.nodes) {
-    const firstLetter = component.component.toUpperCase()[0]
-
-    if (!alphabetizedComponents[firstLetter]) {
-      alphabetizedComponents[firstLetter] = []
-    }
-
-    alphabetizedComponents[firstLetter].push(component)
-  }
-
-  for (const firstLetter of Object.keys(alphabetizedComponents)) {
-    alphabetizedComponents[firstLetter].sort((a, b) => {
-      if (a.component === b.component) return 0
-      return a.component > b.component ? 1 : -1
-    })
-  }
 
   const {title, description} = pageContext.frontmatter
 
@@ -121,8 +91,8 @@ export default function DotcomSharedComponentsLayout({pageContext, children}) {
           <Box sx={{'flexGrow': 1}}>
             {children}
 
-            {Object.keys(alphabetizedComponents).sort().map(firstLetter => {
-              return <SharedComponentGroup groupKey={firstLetter} components={alphabetizedComponents[firstLetter]} />
+            {data.allSharedComponent.nodes.map(component => {
+              return <SharedComponentLink component={component} />
             })}
           </Box>
         </Box>
