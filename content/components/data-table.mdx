@@ -177,6 +177,14 @@ Some strategies for adapting the table for narrow viewports include:
 
 </div>
 
+#### Place duplicated rows before the original row(s)
+
+<div>
+
+If table rows have an action that allows them to be duplicated, place the new rows immediately before their originating row or rows. For example, if the first row and third row are duplicated, the first row becomes the third row, and the newly duplicated rows become the first and second.
+
+</div>
+
 </Box>
 
 ### Do's and Don'ts
@@ -531,6 +539,37 @@ match that query.
 />
 </Box>
 
+### Row selection
+
+{/* ![Video of DataTable with row selection. The first 3 rows are selected, and the select-all checkbox is in an indeterminate state. The header changes to show the batch row actions when one or more rows are selected.]() */}
+
+A data table component can support the ability to have one or more rows selected. A batch of selected rows can then have actions applied to them.
+
+Selection functionality must be present on **all** rows of a data table. Only having a subset of rows be selectable **is not** supported.
+
+Each row may be selected or deselected individually, or all at once by using the "Select all rows" checkbox in the header of the checkbox column.
+
+### Selecting all rows
+
+{/* ![Video of selecting all rows w/ the "Select all rows" checkbox, deselecting the first three rows, then deselecting all rows w/ the "Select all rows" checkbox]() */}
+
+Activating the "Select all rows" checkbox in the header of the checkbox column will place **all** data table body rows on the currently displayed page in a selected state.
+
+The "Select all rows" checkbox is also placed in a checked state if **all** data table rows are selected on the currently displayed paginated page.
+
+If one or more data table rows are placed in a selected state, The "Select all rows" checkbox `input` is also placed in an [indeterminate state](https://html.spec.whatwg.org/multipage/input.html#checkbox-state-(type=checkbox)).
+
+Un-checking the "Select all rows" checkbox will place all associated data table rows in an unchecked state.
+
+### Row selection considerations for pagination
+
+{/* ![Video of selecting all rows on page one, then going to page two, then going back to page one.]() */}
+
+If the data table is paginated, the "Select all rows" checkbox is activated, all rows on the currently displayed page are selected. Rows on pages that are not the currently displayed will **not** be selected. 
+For example, consider a paginated data table that displays 25 rows per page, with a total of 400 rows in the table. All rows on the current page are selected by the user. Deleting the selected rows should remove only the displayed rows, as to avoid unintentionally applying a destructive act to the  other 375 rows.
+
+A selected row's state **does not** persist if another page is requested. For example, consider a data table component that displays 15 rows per page. On page two, a user selects row 21, and then requests page one. Row 21's selected state is changed to deselected after page one's content is displayed.
+
 ## Accessibility
 
 ### Labeling and describing the table
@@ -609,7 +648,42 @@ The pagination control for a DataTable uses `button` elements, and not `a` eleme
 </Box>
 </Box>
 
+### Focus management guidance for actions that affect row content
+
+#### Deleting content
+
+{/* ![A video of a row being deleted and focus moving to the next row]() */}
+
+If a row is deleted via a row-level action, focus behavior observes the following:
+
+1. Focus is moved to the following row, provided one exists.
+2. If a following row does not exist, move focus to the previous row.
+3. If all rows are deleted, focus is moved to the first interactive item prior to the opening `table` tag.
+
+For situations 1 and 2, focus is placed on the first interactive element in the row's row-level action. If no row-level action is present, focus is instead placed on the row's `checkbox` input.
+
+The following behavior should be honored when a set of selected rows are deleted:
+
+- Focus **should not** be managed, as the table-level action for row deletion should handle focus management.
+- An accompanying `aria-live` announcement should be made following the activation of the table-level delete action, confirming which rows were deleted.
+    - A sample announcement could be: "{n} selected rows deleted from table: {table title}"
+
+#### Duplicating content
+
+{/* ![A video of a row being duplicated and focus moving to the duplicated row]() */}
+
+If a row is duplicated via a row-level action, focus is moved to the duplicated row's first focusable item.
+
+The following behavior should be honored when a set of selected rows are duplicated:
+
+- Focus **should not** be managed, as the table-level action for row duplication should handle focus management.
+- An accompanying `aria-live` announcement should be made following the activation of the table-level duplication action, confirming which rows were duplicated.
+    - A sample announcement could be: "{n} selected rows duplicated from table: {table title}"
+
+If selected rows are in a contiguous set, the set of duplicated rows are placed before the first row in the set. Focus is then placed on the first focusable item of the duplicated set.
+
 ## Related components and patterns
 
-- [ActionBar](/components/action-bar)
+- [Action bar](/components/action-bar)
+- [Checkbox](/components/checkbox)
 - [Pagination](/components/pagination)
