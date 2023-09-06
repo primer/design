@@ -148,7 +148,26 @@ The description appears directly under the title of the component. It may be aut
 
 - Any component-specific accessibility considerations should be documented. This could include keyboard navigation, touch targets, and any specific usage guidelines with regards to assistive technology. See [Segmented control](/components/segmented-control#accessibility).
 
+- If there are any accessibility issues that need to be addressed, but are not yet resolved, they should be documented here as well.
+
+- **Known issues**: Add a "Known issues" section that links to all GitHub issues that are labeled with both the `accessibility` label and the `component: name` label. See example below.
+  
+  Step 1. Import the component at the top of the file:
+  
+  `import {AccessibilityLink} from '~/src/components/accessibility-link'`
+
+ Step 2. Add section to the markdown content under the Accessibility heading. If there is no Accessiblity section, you will need to add one:
+  ```markdown
+  ## Accessibility 
+
+  ### Known accessibility issues (GitHub staff only)
+
+  <AccessibilityLink label="Truncate"/>
+  ```
+
 #### Related components and patterns
+
+- Any components or patterns that you may want to reference as related to this component. This could include components that are similar, or components that are used in conjunction with this component. See [Autocomplete](/components/autocomplete#related-components-and-patterns) as an example.
 
 ## Review process
 
