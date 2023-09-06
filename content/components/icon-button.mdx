@@ -10,6 +10,7 @@ figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=1491
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <img
   role="presentation"
@@ -33,6 +34,10 @@ Icon buttons have the same [size](/components/button#sizing-and-spacing) and [va
 ## Accessibility
 
 Even though the label is visually hidden, a text label needs to be defined so a screen reader can read that label to the user.
+
+### Known accessibility issues
+
+ <AccessibilityLink label="IconButton"/>
 
 ## Related links
 

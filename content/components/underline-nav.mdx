@@ -10,6 +10,7 @@ figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=1884
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 ## Usage
 
@@ -81,6 +82,10 @@ Items can be activated using a cursor or keyboard
 | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box> | Activates the focused item.   |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Tab</Box>   | Moves focus to the next item. |
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="UnderlineNav"/>
 
 ## Related links
 

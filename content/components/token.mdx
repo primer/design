@@ -8,6 +8,7 @@ figmaId: token
 import {Box} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 ## Overview
 
@@ -206,6 +207,10 @@ To make tokens accessible to keyboard users and those who require accessible con
 - when in focus a token must have a visible focus outline
 - if a token can be removed, the keyboard focus must be moved to the previous token after deletion. If no token remains, it must focus on the input itself.
 - if a close button is used, it’s name should use the token’s label to make it unique
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Token"/>
 
 ## Related links
 

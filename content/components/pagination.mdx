@@ -9,6 +9,7 @@ cssId: pagination
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <img
   width="960"
@@ -75,3 +76,9 @@ You can specify how many page links before or after the current page will be sho
 />
 
 If you want to prevent users from skipping pages and force them to navigate sequentially, you may hide the page numbers and only show the previous and next page links.
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Pagination"/>
