@@ -9,7 +9,7 @@ description: Action menu is composed of action list and overlay patterns used fo
 import {Box, Button, Heading, Link} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
-import {IssueOpenedIcon} from '@primer/octicons-react'
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <Note>
   Looking for <a href="/guides/contribute">contributors</a> to add submenus to the React and Rails implementation, as
@@ -475,9 +475,9 @@ See [focus management](/guides/accessibility/focus-management) for more informat
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageDown</Box>   | Move focus to last item                                         |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Esc</Box>        | Close menu                                                      |
 
-### Accessibility issues (only available to GitHub staff)
+### Known accessibility issues
 
-<IssueOpenedIcon /> <a href="https://github.com/github/primer/issues?q=is%3Aopen+is%3Aissue+label%3A%22component%3A+actionmenu%22+label%3Aaccessibility"> View open accessibility issues related to this component</a>
+ <AccessibilityLink label="ActionMenu"/>
 
 ## Related components
 
