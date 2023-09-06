@@ -12,7 +12,7 @@ rails: https://primer.style/view-components/components/alpha/dialog
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
-
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 import {Box} from '@primer/react'
 import {Caption} from '@primer/gatsby-theme-doctocat'
 
@@ -429,3 +429,7 @@ When a dialog is opened, the first interactive element (typically the close butt
   src="https://user-images.githubusercontent.com/18661030/185997276-25cd8796-42e2-41f6-b5be-551f6a02349b.png"
 />
 <Caption>When a dialog is closed, focus is returned to the trigger button.</Caption>
+
+### Known accessibility issues
+
+ <AccessibilityLink label="Dialog"/>

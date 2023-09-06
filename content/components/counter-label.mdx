@@ -10,6 +10,7 @@ rails: https://primer.style/view-components/components/beta/counter
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <img
   width="960"
@@ -24,3 +25,7 @@ Use counter label to add a count to navigational elements and buttons.
 ## Accessibility
 
 Always use counter label with adjacent text that provides supplementary information regarding what the count is for. For instance, Counter should be accompanied with text such as issues or pull requests.
+
+### Known accessibility issues
+
+ <AccessibilityLink label="CounterLabel"/>

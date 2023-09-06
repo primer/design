@@ -12,6 +12,7 @@ rails: https://primer.style/view-components/components/beta/flash
 import {Heading, Link} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <img
   width="960"
@@ -70,3 +71,7 @@ Banners contain options to add an icon, button, or dismiss button to the content
 ## Accessibility
 
 The flash component should trigger notifications for users utilizing assistive technology. They should be considered as part of the overall messaging in the product and do not recieve focus (therefore, they do not _require_ a dismiss button).
+
+### Known accessibility issues
+
+ <AccessibilityLink label="Flash"/>

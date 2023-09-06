@@ -9,6 +9,7 @@ rails: https://primer.style/view-components/components/beta/details
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 import {Box, Text} from '@primer/react'
 
@@ -17,3 +18,9 @@ import {Box, Text} from '@primer/react'
 The details component can reveal additional information by using a button to toggle between hidden and visible. It includes a summary followed by the content that's hidden or visible.
 
 By default, the information is hidden. When triggered, it expands and displays the information.
+
+## Accessibility
+
+### Known accessibility issues
+
+ <AccessibilityLink label="Details"/>
