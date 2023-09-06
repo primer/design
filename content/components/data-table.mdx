@@ -10,8 +10,6 @@ import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 import {Box, Heading} from '@primer/react'
 
-<Note>This component is not available in production yet</Note>
-
 ## Anatomy
 
 <img
@@ -423,8 +421,6 @@ Options:
 
 ### Row actions cell options
 
-<!-- TODO: apply a layout -->
-
 <Box display="flex" flexDirection="column" sx={{gap: 3, 'h4': { margin: 0 }}}>
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
@@ -576,7 +572,8 @@ The table must have a title, and can optionally have a subtitle to describe more
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
 <Box as="p" flex={1}>
-  The row header string will be prepended to the ARIA text of action buttons. For examples, Download {`{row header}`}“, “Actions:{`{row header}`}”
+  The row header string will be prepended to the ARIA text of action buttons. For examples, Download {`{row header}`}“,
+  “Actions:{`{row header}`}”
 </Box>
 
 <img
@@ -589,7 +586,9 @@ The table must have a title, and can optionally have a subtitle to describe more
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
 <Box as="p" flex={1}>
-  To handle cases where the row header can be very long, we should give consumers the option to specify a shorter string to identify the rows. For example, if an issue title is used as the row header, we could use the issue number instead of the full issue title.
+  To handle cases where the row header can be very long, we should give consumers the option to specify a shorter string
+  to identify the rows. For example, if an issue title is used as the row header, we could use the issue number instead
+  of the full issue title.
 </Box>
 
 <img
