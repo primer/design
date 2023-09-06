@@ -257,7 +257,7 @@ If the answer is yes, designing the feature inside a dialog provides an easy way
 
 ### Nested dialogs
 
-It is acceptable to have up to two nested dialogs as long as the dialog is implemented correctly. For example, upon closing the second nested dialog, focus should return to the trigger control for this dialog within the first dialog. When the two stacked dialogs are open, pressing `Esc` should only close the top-level dialog. When one clicks outside of the second dialog with a mouse, only the second dialog should close.
+It is acceptable to have up to two nested dialogs as long as the dialog is implemented with [expected focus management behavior](#trigger-elements-and-keyboard-focus). Upon closing the second nested dialog, focus should return to the trigger control within the first dialog. When the two stacked dialogs are open, pressing `Esc` should only close the top-level dialog. When one clicks outside of the second dialog with a mouse, only the second dialog should close.
 
 However, having more than three nested dialogs is discouraged because it adds unnecessary complexity to the user experience and can be disorienting for some users.
 
