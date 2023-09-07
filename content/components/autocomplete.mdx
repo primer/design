@@ -12,6 +12,8 @@ rails: https://primer.style/view-components/components/beta/autocomplete
 import {Box} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
 
 ## Overview
 
@@ -108,3 +110,9 @@ If multiple values can be selected, the default behavior is to move the selected
 By default, menu items are filtered based on whether or not they match the value of the text input. The default filter is case-insensitive.
 
 Custom filtering logic can be applied if the default filtering behavior does not make sense for your use case. However, it is strongly discouraged to disable filtering entirely.
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="AutoComplete"/>
