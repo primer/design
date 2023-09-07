@@ -8,6 +8,7 @@ railsIds:
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 import {Box, Text} from '@primer/react'
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <img
   width="960"
@@ -85,6 +86,10 @@ Tab nav and tab panels are almost identical. Reference the [tab nav accessibilit
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>      | Activates the focused tab.                                                                           |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowLeft</Box>  | Activates the previous tab. If a user is focused on the first tab, wrap to activate the last tab.    |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowRight</Box> | Activates the mext tab. If a user is focused on the last tab, wrap to activate the first tab.        |
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="TabPanels"/>
 
 ## Related links
 

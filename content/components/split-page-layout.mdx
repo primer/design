@@ -9,6 +9,7 @@ import ComponentLayout from '~/src/layouts/component-layout'
 import {Link, Text} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <Note variant="warning">
   <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Guidelines for this component are in progress</Text>
@@ -17,3 +18,9 @@ export default ComponentLayout
 
 ## Usage
 This component provides structure for a split layout, including independent scrolling for the pane and content regions. This is useful for responsive list and detail patterns when an item in the pane updates the page content on selection.
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="SplitPageLayout"/>

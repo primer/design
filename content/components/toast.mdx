@@ -8,6 +8,7 @@ import ComponentLayout from '~/src/layouts/component-layout'
 import {Link, Text} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 ## Usage
 
@@ -39,4 +40,6 @@ Toasts are non-modal components and should contain `role=log`, which implies the
 
 Toasts are generally informative and should not receive focus when they appear. For that reason, we suggest you **avoid using interactive elements** in the component (aside from a dismiss action). Keep in mind that, even without an explicit dismiss action, the user can always hit `esc` to dismiss the toast. For more information on how interactive children affect web accessibility, [check out this issue](https://github.com/jackbsteinberg/std-toast/issues/29).
 
+### Known accessibility issues (GitHub staff only)
 
+ <AccessibilityLink label="Toast"/>
