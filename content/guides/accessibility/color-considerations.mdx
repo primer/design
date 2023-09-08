@@ -36,7 +36,7 @@ An example level A Success Criterion is [SC 1.4.1 Use of Color](https://www.w3.o
 
 The following guidance is based on one or more **normative** Web Content Accessibility Guidelines (<abbr>WCAG</abbr>) success criterion. This means that the guidance is based on objective requirements with implications that affect [MAS-C compliance efforts](https://github.com/github/accessibility/blob/main/docs/measuring-ourselves/microsoft-accessibility-standards.md#microsoft-accessibility-standards-mas), as well as international laws regarding accessibility.
 
-An example of **the difference between non-normative and normative considerations** would be the difference between the overall choice of color used the actual value of the color:
+An example of **the difference between non-normative and normative considerations** would be the difference between the overall choice of color used, and then the actual value of the color.
 
 ### Non-normative choices
 
@@ -66,7 +66,7 @@ GitHub offers two parent themes:
 
 Each parent theme has a default appearance, and then a suite of sub-themes. Sub-themes include considerations for high and low contrast experiences, as well as certain vision conditions.
 
-<img src={ButtonFunctionalIcon} alt="GitHub's theme picker showing Day and Night parent themes, with swatches for each of the nine sub-themes. The Day theme is active. Cropped screenshot'" />
+<img src={ThemePicker} alt="GitHub's theme picker showing Day and Night parent themes, with swatches for each of the nine sub-themes. The Day theme is active. Cropped screenshot'" />
 
 It is possible to set GitHub to use a dark sub-theme when a parent Day theme has been set, and vice-versa. This allows a user to have a fine-grained control over their experience.
 
@@ -108,7 +108,7 @@ In the case of access needs, a higher contrast experience may actually be less a
 
 The availability of the Dark Dimmed theme treatment allows users to customize their GitHub experience without having to resort to browser extensions or other user-hosted modifications. Of note is the portability of this theme, in that it will automatically be available across multiple sessions, browsers, and devices.
 
-GitHub should strive to ensure all themes that don't specifically deal with an intentionally-lowered contrast experience are color contrast compliant whenever possible. While this is not a normative requirement, it proactively helps an unknown number of users with unknown access needs.
+GitHub should strive to ensure all themes that don't specifically deal with an intentionally-lowered contrast experience are color contrast compliant. While this is not a normative requirement, it proactively helps an unknown number of users with unknown access needs.
 
 ### High contrast themes, high contrast mode, and forced colors mode
 
@@ -169,7 +169,7 @@ Broadly-speaking, there are four overall considerations for input contrast:
 1. Text,
 2. Borders, 
 3. Selected state, and
-4. Validation state, and
+4. Validation state.
 
 Combined, meeting contrast requirements allow a user to understand:
 
@@ -180,11 +180,11 @@ Combined, meeting contrast requirements allow a user to understand:
 
 If a computed color value in any of the four considerations is not compliant, it may endanger one or more portions of user understanding and operation of the input.
 
+<img src={InputText} alt="A wireframe illustration of a text input. Its label reads, 'Name.' It's user-provided text content reads, 'Mona Lisa.' A label pointing to the label reads, 'Communicates purpose.' A label pointing to the user provided content reads, 'Communicates user choice.'" />
+
 #### Input text contrast
 
 Text portions of an input **must** meet a contrast ratio of `4.5:1` for "normal text", or `3:1` for "large text". This applies to both an input's visible label and its user-provided text content.
-
-<img src={InputText} alt="A wireframe illustration of a text input. Its label reads, 'Name.' It's user-provided text content reads, 'Mona Lisa.' A label pointing to the label reads, 'Communicates purpose.' A label pointing to the user provided content reads, 'Communicates user choice.'" />
 
 The majority of GitHub input text size is "normal text". Both "normal text" and "large text" are WCAG-specific terms. More information about this can be found on [the Key Terms subsection of SC 1.4.3: Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#dfn-large-scale).
 
