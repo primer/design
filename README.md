@@ -6,6 +6,8 @@ Documentation for all things Primer, including components, UI patterns, foundati
 
 This repository is evolving as our documentation needs change. See our [contribution guides here](https://primer.style/design/guides/contribute/documentation). 
 
+[Project board](https://github.com/orgs/github/projects/4503/views/16) (GitHub staff only)
+
 ## Local development
 
 1. Clone this repo, e.g. with:
@@ -31,7 +33,7 @@ We deploy this site using [GitHub Pages](https://pages.github.com/). Every push 
 - For a more detailed walk-through, check out this [tutorial video](https://www.loom.com/share/ac56f610076f41878d0351b4a1c44a6b?sid=1bd5a46d-a7ea-4e0d-bb08-ed9e8c8bfe12). 
 
 ### I need help getting started. 
-- Check out our [getting start guides](https://primer.style/design/guides) or ping us in [Slack](https://github.slack.com/archives/CSGAVNZ19) (GitHub staff only)
+- Check out our [getting started guides](https://primer.style/design/guides) or ping us in [Slack](https://github.slack.com/archives/CSGAVNZ19) (GitHub staff only)
 
 ### I noticed a bug in the documentation!
 - Feel free to open a pull request or issue directly in this repository, or ping us in [Slack](https://github.slack.com/archives/CSGAVNZ19) (GitHub staff only)
