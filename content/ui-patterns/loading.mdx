@@ -3,12 +3,7 @@ title: Loading
 description: How to use loading states to help users stay informed and engaged while waiting.
 ---
 
-import ComponentLayout from '~/src/layouts/component-layout'
-export default ComponentLayout
-
-import {Box, Text} from '@primer/react'
-
-## Overview
+import {Box} from '@primer/react'
 
 Performance is a priority at GitHub, and the first approach is to improve the speed of our processes. However, there are times when we can't avoid making users wait. In these cases, maintaining [visibility of system status](https://www.nngroup.com/articles/visibility-system-status/) through loading states can help users feel stable and in control.
 
@@ -129,25 +124,29 @@ The following is meant as a general guidance. Sometimes we can't even give a rou
   src="https://github.com/primer/design/assets/2313998/7b42b9aa-c517-4620-833a-d12b7e6084bd"
 />
 
-Less than 1 second: Don't show a loading state. Seeing a loading indicator flash on the screen could be distracting and make the product feel slower than it is.
-1–3 seconds: Use an indeterminate loading state. The user won't have enough time to process the information in a determinate loading state, and potentially cause frustration or confusion about missing information.
-3–10 seconds: Use a determinate loading state if possible to keep the user informed about why they're waiting so long.
-More than 10 seconds: Use a determinate loading state and avoid blocking other interactions by treating the process as a background task if possible. This reduces the interruption caused by a lengthy process, and could make wait times feel shorter if a user can shift their focus to other tasks. For example, the user can still interact with a pull request while they're waiting for CI actions to run.
-_TODO: try and give more details about ways to keep users engaged for 10+ second waits_
-_TODO: consider strategies for setting the expectation that a process will take a long time before the user initiates something likely to have a 10+ second wait_
+**Less than 1 second:** Don't show a loading state. Seeing a loading indicator flash on the screen could be distracting and make the product feel slower than it is.
+
+**1–3 seconds:** Use an indeterminate loading state. The user won't have enough time to process the information in a determinate loading state, and potentially cause frustration or confusion about missing information.
+
+**3–10 seconds:** Use a determinate loading state if possible to keep the user informed about why they're waiting so long.
+
+**More than 10 seconds:** Use a determinate loading state and avoid blocking other interactions by treating the process as a background task if possible. This reduces the interruption caused by a lengthy process, and could make wait times feel shorter if a user can shift their focus to other tasks. For example, the user can still interact with a pull request while they're waiting for CI actions to run.
 
 ## Lifecycle of a loading state
 
 <img
   width="960"
   alt="4 images: 1. explicitly excluded loading indicator; 2. button in loading state; 3. success banner; 4. error banner"
-  src="https://github.com/primer/design/assets/2313998/10847c35-4af6-4299-84b9-8955841d94ee"
+  src="https://github.com/primer/design/assets/2313998/91f1ecd4-78e3-4178-a505-749ab05f3efa"
 />
 
-- **Process initiated:** The moment just before loading begins. Usually initiated by a user action such as clicking a button or submitting a form
-- **Process in progress:** The process is underway. This is the actual loading state.
-- **Process complete:** The process has finished successfully, and the user can continue with their task. If the user isn't navigated to a new context when the task has completed, this step may include some indication of success, such as a green checkmark or a success message.
-- **Process failed:** There was an error, and the process could not be completed. This step should include an error message that explains what went wrong and what the user's next time may be. For example, if the user can retry the process, include a button to do so.
+**Process initiated:** The moment just before loading begins. Usually initiated by a user action such as clicking a button or submitting a form
+
+**Process in progress:** The process is underway. This is the actual loading state.
+
+**Process complete successfully:** The process has finished successfully, and the user can continue with their task. If the user isn't navigated to a new context when the task has completed, this step may include some indication of success, such as a green checkmark or a success message.
+
+**Process failed:** There was an error, and the process could not be completed. This step should include an error message that explains what went wrong and what the user's next time may be. For example, if the user can retry the process, include a button to do so.
 
 ## Incremental loading
 
@@ -234,9 +233,9 @@ To avoid information overload and visual noise, consider replacing a series of a
   </Dont>
 </DoDontContainer>
 
-## Navigation items
+### Navigation items
 
-_TODO: bring content over from degraded-experiences.mdx_
+_TODO: bring content over from degraded-experiences.mdx once the PR merges_
 
 ## Accessibility
 
@@ -280,8 +279,6 @@ However, the button that initiates the a loading process may not be disabled.
 
 </Box>
 
-{/* NOTE: This is the same video used above under the "Loading text" heading */}
-
 <CustomVideoPlayer
   width="456"
   loop
@@ -299,43 +296,3 @@ Animated loading indicators help reassure the user that the system isn't frozen,
 - [Patterns for saving](/ui-patterns/saving)
 - [Spinner](/components/spinner)
 - [ProgressBar](/components/progress-bar)
-
----
-
-## Draft notes (not part of the guidelines)
-
-These are just for me while I develop these guidelines
-
-### Updates to support these guidelines
-
-- Allow `ProgressBar` to be animated so users don't get concerned that something might be broken
-- Content skeleton component(s)
-
-### Other points to get across:
-
-- Don't show a loading indicator to delay showing an error message. Show the error message immediately if we know the process has failed.
-- Prevent users from re-initiating a process since it would restart the process and make the wait time longer, or could result in duplicate submissions(?)
-- More info on how to properly use skeleton loaders
-  - Don't replace interactive elements like buttons or form controls with skeleton states(?)
-
-### Other things to consider:
-
-- More a11y details
-- What if something _starts_ as indeterminate but then we get enough data that it can become determinate?
-
-### Questions for a11y:
-
-- How can we help people decide when to announce the changing status of a process? Process statuses identified so far: initiated, in-progress, completed, failed.
-- Can we block a user from re-initiating a process while it's in a loading state?
-  - Use-case examples:
-    - Blocking the screen with a loading overlay
-    - Replace a "Submit" or "Load more" button with a loading message
-- What are some ways to indicate that something is loading that don't rely on the user being able to see the UI?
-  - Use-case examples:
-    - Prepending a loading indicator to a piece of loading content such as a nav item or menu item
-- How might we determine where focus should move after a process has completed?
-  - Use-case examples: (need to come up with more specific examples)
-    - Saving some update
-    - Re-running an action
-- Should we advise against disabling form inputs after a form has been submitted?
-- Can we block the UI while something is loading? If so, what's the best way to handle it?
