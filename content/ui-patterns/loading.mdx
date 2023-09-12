@@ -242,7 +242,7 @@ _TODO: bring content over from degraded-experiences.mdx_
 
 ### Conveying loading indicators
 
-Loading indicators are visual and need to be accessible to assistive technologies. This can be done with a visually hidden text element we associate using `aria-labelledby`, or attributes such as `alt` (on an `img` element) and `title` (on a `svg` element).
+Loading indicators are visual and need to be accessible to assistive technologies. This can be done with a text element we associate using `aria-labelledby`, or attributes such as `alt` (on an `img` element) and `title` (on a `svg` element). The loading text element may be visually hidden.
 
 You may default to a generic label such as "loading", but try to be specific when possible. For example, when a spinner replaces status checks in a pull request, it could have the label "loading status checks".
 
@@ -250,14 +250,49 @@ You may default to a generic label such as "loading", but try to be specific whe
 
 Communicate when a process has been initiated, when it's in progress, and when it has been completed or if it has failed.
 
-There are many cases where it will be obvious that a process has completed or failed. For example, a page load or a new element getting focused.
-_TODO: what guidelines can we come up with to help users decide how/if to move focus after loading is completed_
+There are many cases where it will be obvious that a process has completed or failed, and we won't need an additional announcement. For example, a page load or a new element getting focused.
 
 For other cases, the status will need to be manually conveyed to assistive technologies. Use a `role="status"` message or put content in an `aria-live` element that communicates the status of a process.
 
 ### Preventing partially loaded content from being announced
 
 If an `aria-live` region of a page is being updated, set `aria-busy="true"` on the live region until the updates are complete. Then, set `aria-busy="false"`. This prevent assistive technologies from announcing updates until the updates are complete.
+
+### Focus management
+
+Follow existing focus patterns. When focus needs to move, it should go to the most logical and predictable. Before implementing your own focus management strategy for a loading state, confirm that the component hasn't already implemented it. For example, when a [dialog](/components/dialog) closes, focus is automatically moved back to the control that opened the dialog.
+
+If the completed process results in navigating to a new page, just rely on the browser's default focus behavior for new pages.
+
+If the process fails and a validation message is shown, move focus to the first focusable element in the error message. See the [form validation guidelines](/ui-patterns/forms/overview#validation-on-submit) for more info.
+
+If the process loads new content, move focus to first focusable element in the newly loaded content. This pattern is also described in the [tree view focus guidelines](/components/tree-view#focus-out).
+
+### Disabling controls during loading
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+You may disable form controls after the user submits the form to avoid confusion over whether changes that were made during the submission process will be saved.
+
+However, the button that initiates the a loading process may not be disabled.
+
+</Box>
+
+{/* NOTE: This is the same video used above under the "Loading text" heading */}
+
+<CustomVideoPlayer
+  width="456"
+  loop
+  autoplay
+  src="https://github.com/primer/react/assets/2313998/b596a8c0-ec5c-4548-a650-d8c0262ea120"
+/>
+</Box>
+
+### Motion considerations
+
+Animated loading indicators help reassure the user that the system isn't frozen, and should not be disabled when for users that prefer reduced motion. However, the animation in loading indicators should be kept as subtle as possible. Large, flashy animations would be harmful to users with sensitivity to motion.
 
 ## Related links
 
