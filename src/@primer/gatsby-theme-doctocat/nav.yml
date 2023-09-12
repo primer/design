@@ -114,6 +114,8 @@
           url: /foundations/icons/design-guidelines
 - title: UI patterns
   children:
+    - title: Data visualization
+      url: /ui-patterns/data-visualization
     - title: Empty states
       url: /ui-patterns/empty-states
     - title: Feature onboarding
