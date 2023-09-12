@@ -23,17 +23,20 @@ require "view_component"
 require "primer/view_components/engine"
 ```
 
-It's important to load css directly from the gem. Otherwise lots of components will have a "broken css" look.
+##### CSS
 
-Load it as js module into the pipeline. Update app/assets/config/manifest.js with:
+Load CSS as a JS module into the pipeline. Update `app/assets/config/manifest.js` with:
+
 ```js
 //= link primer_view_components.css
 ```
 
-so you can use this inside the template
+Add it in your `application.html.erb` in the `<head>` tag:
 ```erb
 <%= stylesheet_link_tag("primer_view_components") %>
 ```
+
+##### JS
 
 Optionally, to add the JavaScript behaviours, in your `application.html.erb` in the `<head>` tag add:
 
