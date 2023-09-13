@@ -1,0 +1,65 @@
+---
+title: Data visualization
+description: Data visualizations are helpful tools for conveying complex data in an engaging and understandable way. They're commonly used in dashboards and insights pages.
+---
+
+## Chart anatomy
+
+<img
+  src="https://user-images.githubusercontent.com/7265547/267488208-cf204662-bf3a-45a1-9c8f-1c21aa2a4549.png"
+  alt="A depiction of the anatomy of a chart component"
+/>
+
+| Name         | Description                                                                                                                                                                                                          | Required                        |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| Header       | Use to describe the contents of your chart. Keep the header title concise, but descriptive.                                                                                                                          | Yes                             |
+| Subheader    | Use a sub header to provide additional context. If you choose not to show axis titles on your chart, you must give users context to the data on screen via a short description. ex. Showing new repositories by date | Yes                             |
+| Legend       | Only show a legend when showing more than 1 data set                                                                                                                                                                 | Sometimes                       |
+| Marks        | Chart marks are how you represent date on a chart. Common types of marks include bar, line, and area.                                                                                                                | Sometimes                       |
+| Axis Titles  | Axis titles help users understand what is being measured in the displayed chart. If your chart doesn’t use titles, you must provide context to users via a description in the sub header.                            | Sometimes                       |
+| Axis Labels  | Axis labels show the units of measurement for the chart.                                                                                                                                                             | Yes                             |
+| Graph Lines  | Graph lines help users read the chart marks by connecting context to the axis labels. Some chart types only use horizontal lines and others only use vertical lines.                                                 | Yes                             |
+| Axis         | The axis borders define the bounds of the chart.                                                                                                                                                                     | Yes                             |
+| Point        | A point is a visual cue that is highlighted on hover.                                                                                                                                                                | Yes (used for line charts only) |
+| Crosshair    | A crosshair is a visual cue shown in line charts, to help users connect the point to the axis label.                                                                                                                 | Yes (used for line charts only) |
+| Tooltip      | Tooltips are shown on hover to display data at a given point on a chart. Note that there are single tooltips and multi-line tooltips.                                                                                | Yes                             |
+| Toolbar Menu | The toolbar menu contains actions for additional chart interactions. For many chart types, users should be able to preview the data in a table and download the data in a CSV format.                                | Yes for most simple charts      |
+
+## Charts we support
+
+You may see a number of different types of charts across GitHub, including the prolific contributions graph. Today, we support the creation of a specific set of charts and data visualizations, including:
+
+- Bar charts
+- Line charts
+- Area charts
+- Progress bars
+
+We don't currently support the creation of new:
+
+- Donut charts
+- Sparklines
+
+## Choosing chart colors
+
+Stacked bar charts and progress bars should have a high contrast divider line between each segment. It helps to visually delineate between chart colors.
+
+Chart / visualization marks need to be at a 3:1 ratio with the background.
+
+### Our set of color values
+
+When stacking multiple colors for chart marks, draw in order from the following colors.
+
+| Primary chart marks \| 1 - 7 datasets                                                 | Secondary chart marks \| 8 - 16 datasets                                              |
+| :------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------ |
+| ![""](https://swatch-sid.vercel.app?mode=light&token=scale.blue.5) `scale.blue.5`     | ![""](https://swatch-sid.vercel.app?mode=light&token=scale.blue.7) `scale.blue.7`     |
+| ![""](https://swatch-sid.vercel.app?mode=light&token=scale.green.4) `scale.green.4`   | ![""](https://swatch-sid.vercel.app?mode=light&token=scale.green.6) `scale.green.6`   |
+| ![""](https://swatch-sid.vercel.app?mode=light&token=scale.orange.4) `scale.orange.4` | ![""](https://swatch-sid.vercel.app?mode=light&token=scale.orange.6) `scale.orange.6` |
+| ![""](https://swatch-sid.vercel.app?mode=light&token=scale.gray.6) `scale.gray.6`     | ![""](https://swatch-sid.vercel.app?mode=light&token=scale.gray.7) `scale.gray.7`     |
+| ![""](https://swatch-sid.vercel.app?mode=light&token=scale.pink.5) `scale.pink.5`     | ![""](https://swatch-sid.vercel.app?mode=light&token=scale.pink.8) `scale.pink.8`     |
+| ![""](https://swatch-sid.vercel.app?mode=light&token=scale.yellow.4) `scale.yellow.4` | ![""](https://swatch-sid.vercel.app?mode=light&token=scale.yellow.6) `scale.yellow.6` |
+| ![""](https://swatch-sid.vercel.app?mode=light&token=scale.red.5) `scale.red.5`       | ![""](https://swatch-sid.vercel.app?mode=light&token=scale.red.7) `scale.red.7`       |
+| ![""](https://swatch-sid.vercel.app?mode=light&token=scale.purple.5) `scale.purple.5` | ![""](https://swatch-sid.vercel.app?mode=light&token=scale.purple.7) `scale.purple.7` |
+
+**Note:** There aren’t clear rules on contrast between chart mark colors. We try our best to have reasonable contrast between elements so that they are distinguishable, because specific colors look similar for some types of colorblindness. (e.g. blue and purple look visually similar to some colorblind users). Again, this is where the high contrast divider line becomes helpful for bar charts and progress bars.
+
+Sometimes there’s also meaning that is being conveyed with color that represents a state (error, success, critical), so in those cases, it can make sense to change the colors based on the semantic intent.
