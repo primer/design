@@ -11,6 +11,7 @@ rails: https://primer.style/view-components/components/beta/popover
 import {Box, Text} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 ## Usage
 
@@ -40,6 +41,10 @@ Unlike other messaging components, popovers should never include critical inform
 - Popovers should be announced by screen readers, including their content and role on the page.
 
 - When a popover is opened, focus should be moved to the popover so that keyboard users can interact with it. When the popover is closed, focus should be returned to the element that triggered it. For more on this, see the accessibility guidelines [on focus management](/guides/accessibility/focus-management).
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Popover"/>
 
 ## Related links
 
