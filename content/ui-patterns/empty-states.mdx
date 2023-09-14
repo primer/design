@@ -25,7 +25,7 @@ If the space is empty because this the feature hasn't been used yet, convey the 
 
 If the space is empty because the feature is temporarily empty, convey that the feature is empty because of the nature of the feature. For example, if a user is trying to view notificartions but has no notifications yet.
 
-If the space is empty because something went wrong, concisely summarize the problem. For example, if a user us trying to view a list of their repositories, but repositories can't be fetched due to a database outage.
+If the space is empty because something went wrong, concisely summarize the problem. For example, "Repositories could not be loaded due to a system error" would be a sufficient summary if a user cannot view a list of their repositorie due to a database outage.
 
 ### Secondary text
 
@@ -39,7 +39,7 @@ If the space is empty because something went wrong, explain what they can do to 
 
 Blankslates can and are encouraged to use one primary link or action. The action copy should be kept brief and descriptive. If it requires further specification, consider adding an Octicon before the copy.
 
-If the space is empty because this the feature hasn't been used yet, this action should lead to a feature or component creation flow.
+If the space is empty because this the feature hasn't been used yet, the action should initiate a creation flow or link to a feature.
 
 If the space is empty because something went wrong, the action should lead to a solution, a way to get more information, or a way to get help.
 
@@ -77,9 +77,11 @@ Empty states should explain features _in addition_ to conveying intention. In th
 
 ### For errors
 
-Avoid language that's overly technical. If an error code is shown (for example, HTTP 500), make sure it's for relevant for diagnostic purposes or necessary transparency. Avoid using obscure error codes altogether
+Avoid language that's overly technical. If an error code is shown (for example, HTTP 500), make sure it's for relevant for diagnostic purposes or necessary transparency. Avoid using obscure error codes altogether.
 
-When possible, concisely describe what the problem is while being as specific as possible. Vague messages like "There was a problem" can be frustrating. Overly specific/literal technical explanations like "The US East-2 database cluster responsible for PR and issue comment data is down" give the user an excessive amount of information and could make less technical users feel dumb. The way the user understands how GitHub works may be different from how it's literally built.
+When possible, concisely describe what the problem is while being as specific as possible. For example, "Form could not be submitted. Some required fields were empty."
+
+Vague messages like "There was a problem" can be frustrating. Overly specific/literal technical explanations like "The US East-2 database cluster responsible for PR and issue comment data is down" give the user an excessive amount of information and could make less technical users feel dumb. The way the user understands how GitHub works may be different from how it's literally built.
 
 ## First time user experiences
 
