@@ -46,8 +46,8 @@ In addition to a global banner, we should inform users about availability issues
 
 <img
   width="456"
-  alt="Image of a page with a banner at the top explaining an error"
-  src="https://github.com/primer/design/assets/2313998/b4a577c5-1243-435f-8dfc-c2a9d292530e"
+  alt="Image of a page with a banner at the top explaining an error. The banner says Some content and actions may be unavailable. Try refreshing. If the problem persists, check the GitHub status page, or contact support.''"
+  src="https://github.com/primer/design/assets/2313998/fbc520d4-e02f-4b8e-8281-403f31e8edc1"
 />
 
 </Box>
@@ -92,7 +92,7 @@ Smaller parts of the UI that cannot be accurately rendered but are too important
 
 By default, replace the affected content with an error message. Show a warning icon before the message to help differentiate it from non-degraded content. The message may be colored with `fg.warning` to draw more attention to it.
 
-Be mindful that rendering too many error messages on the page in `fg.warning` could be jarring and make the page feel broken instead of degraded.
+Be mindful that rendering too many error messages on the page in `fg.warning` could be jarring and make the page feel broken instead of degraded. As a general guideline, we suggest limiting pages to 5 or less outage messages.
 
 <DoDontContainer>
   <Do>
@@ -440,20 +440,6 @@ There are two recommended ways an inert button should respond to user input:
   alt="A video of a 'broken' button that shows a tooltip and opens an error dialog when activated"
   src="https://github.com/primer/design/assets/2313998/7786d3f9-c70c-4109-a49d-549231ccf79d"
 />
-
-#### Disabling a non-functional button
-
-<>{/* <!-- TODO: Come up with a visual example where it's safe to disable the button. --> */}</>
-
-<img
-  width="960"
-  alt="Example of a button that can be disabled because it has sufficient context explaining why it is disabled"
-  src="https://github.com/primer/design/assets/2313998/e8ec073d-b0c9-4f41-aa6c-dae29aaf7fca"
-/>
-
-If a button is non-functional and there is already enough context for the user to understand why it's disabled, there's no need to respond to user input, so the button can safely be disabled.
-
-For more info, see the guidance on [disabling links and buttons](https://accessibility-playbook.github.com/link-and-button-guidance#disabling-links-and-buttons) from GitHub's Accessibility Playbook (only available to GitHub staff).
 
 ### Handling action menus with non-functional items
 
