@@ -236,7 +236,7 @@ If we know specifically what groups couldn't be loaded, provide those details in
 
 <>{/*<!-- TODO: Move the following examples to loading state guidelines --><!-- START examples to loading state guidelines -->*/}</>
 
-##### Sequential and related groups of navigation items
+#### Sequential and related groups of navigation items
 
 <img
   width="960"
@@ -246,7 +246,7 @@ If we know specifically what groups couldn't be loaded, provide those details in
 
 If sequential groups or navigation links are unable to load, replace both groups with a single loading indicator and a single error message above the [nav list](components/nav-list).
 
-##### Non-sequential groups of navigation items
+#### Non-sequential groups of navigation items
 
 <img
   width="960"
@@ -408,7 +408,7 @@ An inert button is the accessible option because buttons may not be disabled if 
 There are two recommended ways an inert button should respond to user input:
 
 1. **Show a dialog on click:** When a user tries to activate an inert the button, open a [dialog](/components/dialog) that explains why the action cannot be completed and give them a path forward if possible. It is required to provide some kind of feedback when a user clicks a button.
-2. **Show a tooltip on hover or focus:** Before a user tries to activate a non-functional control, a [tooltip](/components/tooltip) with additional context may be displayed on hover or focus. It is _not_ required to respond to hover and focus.
+2. **Show a tooltip on hover or focus:** Before a user tries to activate a non-functional control, a [tooltip](/components/tooltip) with additional context may be displayed on hover or focus. It is *not* required to respond to hover and focus.
 
 <CustomVideoPlayer
   width="960"
@@ -505,7 +505,7 @@ If only some of the form field data cannot be read, disable the affected fields 
 <>
 {/*<!-- TODO: un-comment this when in loading guidelines PR -->*/}
 {/*<!-- ## Waiting for a timeout -->*/}
-{/*<!-- There could be cases where we're waiting for data to load before determining that it's unavailable. In this case, refer to Primer's general [loading state guidance (coming soon)](/ui-patterns/loading) or the component-specific loading state guidelines (if the component has loading states). -->*/}
+{/*<!-- There could be cases where we're waiting for data to load before determining that it's unavailable. In this case, refer to Primer's general [loading state guidance](/ui-patterns/loading) or the component-specific loading state guidelines (if the component has loading states). -->*/}
 </>
 
 ## CLI
@@ -525,4 +525,3 @@ A common (but inaccessible) pattern is to show a tooltip with more information w
 - [Tooltip](/components/tooltip)
 - [Messaging](/ui-patterns/messaging)
 - [Empty states](/ui-patterns/empty-states)
-- [Loading states (coming soon)]()
