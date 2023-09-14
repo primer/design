@@ -113,31 +113,6 @@ Be mindful that rendering too many error messages on the page in `fg.warning` co
   </Dont>
 </DoDontContainer>
 
-##### Managing the density of inline error messages
-
-<>{/* <!-- TODO: come up with a realistic example of a lot of error messages being rendered in a small area --> */}</>
-
-If there's an area of the page that is mostly unavailable, either supress rendering entirely, or replace the entire area with a [blankslate](/components/blankslate) component if it is too critical to not be rendered.
-
-<DoDontContainer>
-  <Do>
-    <img
-      width="456"
-      alt="Image TBD"
-      src="https://github.com/primer/design/assets/2313998/d7cbe6dd-ad09-40b0-be86-2b2241794cd9"
-    />
-    <Caption>Replace an area with a lot of broken parts with a blankslate.</Caption>
-  </Do>
-  <Dont>
-    <img
-      width="456"
-      alt="Image TBD"
-      src="https://github.com/primer/design/assets/2313998/7c190bcd-3826-41a0-b67d-f54a96c295d7"
-    />
-    <Caption>Don't render a bunch of error messages in a small area.</Caption>
-  </Dont>
-</DoDontContainer>
-
 ##### Handling unavailable counts
 
 <Box
@@ -435,10 +410,10 @@ There are two recommended ways an inert button should respond to user input:
 1. **Show a dialog on click:** When a user tries to activate an inert the button, open a [dialog](/components/dialog) that explains why the action cannot be completed and give them a path forward if possible. It is required to provide some kind of feedback when a user clicks a button.
 2. **Show a tooltip on hover or focus:** Before a user tries to activate a non-functional control, a [tooltip](/components/tooltip) with additional context may be displayed on hover or focus. It is _not_ required to respond to hover and focus.
 
-<img
+<CustomVideoPlayer
   width="960"
-  alt="A video of a 'broken' button that shows a tooltip and opens an error dialog when activated"
-  src="https://github.com/primer/design/assets/2313998/7786d3f9-c70c-4109-a49d-549231ccf79d"
+  loop
+  src="https://github.com/primer/design/assets/2313998/b6b18d76-443c-4ee7-a03f-db58dcba4109"
 />
 
 ### Handling action menus with non-functional items
