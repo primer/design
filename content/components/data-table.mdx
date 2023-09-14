@@ -6,6 +6,7 @@ description: Data table is a 2-dimensional data structure where each row is an i
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 import {Box, Heading} from '@primer/react'
 
@@ -608,6 +609,10 @@ The pagination control for a DataTable uses `button` elements, and not `a` eleme
   For loading content via a custom loading method, this also includes the initial loading period. An announcement should not be made if content is retrieved before 750ms.
 </Box>
 </Box>
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="DataTable"/>
 
 ## Related components and patterns
 

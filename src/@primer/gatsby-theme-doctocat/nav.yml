@@ -114,6 +114,8 @@
           url: /foundations/icons/design-guidelines
 - title: UI patterns
   children:
+    - title: Data visualization
+      url: /ui-patterns/data-visualization
     - title: Empty states
       url: /ui-patterns/empty-states
     - title: Degraded experiences
@@ -129,6 +131,7 @@
     - title: Saving
       url: /ui-patterns/saving
 - title: Components
+  url: /components
   children:
     - title: Action bar
       url: /components/action-bar

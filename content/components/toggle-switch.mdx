@@ -11,6 +11,7 @@ rails: https://primer.style/view-components/components/alpha/toggleswitch
 import {Box} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 ## Anatomy
 
@@ -158,18 +159,6 @@ export default ComponentLayout
   />
 </Box>
 
-## Accessibility
-
-### Keyboard navigation
-
-Toggle switches should have the same keyboard navigation features as a button. A toggle switch may be focused using the `Tab` key, and pressing the `Enter` or `Space` key will toggle the switch.
-
-### Touch target
-
-When the UI is rendered on a touch-screen device, ensure that the toggle switch has a large enough touch target size. The toggle switch should respond to hovers, clicks, and taps anywhere in the touch target area, even if it isn't directly on the control.
-
-![Diagram showing touch target size on medium and small toggle switches](https://user-images.githubusercontent.com/2313998/226448740-1506ddb5-3cdb-4aef-9a3b-0d66839e7d11.png)
-
 ## Mixed values
 
 Since a toggle switch can only be "on" or "off", it could be confusing to use a switch to represent mixed values.
@@ -218,3 +207,19 @@ A toggle switch should never be used as a replacement for a checkbox. See [savin
     <Caption>Don't use a toggle switch as a replacement for a checkbox</Caption>
   </Dont>
 </DoDontContainer>
+
+## Accessibility
+
+### Keyboard navigation
+
+Toggle switches should have the same keyboard navigation features as a button. A toggle switch may be focused using the `Tab` key, and pressing the `Enter` or `Space` key will toggle the switch.
+
+### Touch target
+
+When the UI is rendered on a touch-screen device, ensure that the toggle switch has a large enough touch target size. The toggle switch should respond to hovers, clicks, and taps anywhere in the touch target area, even if it isn't directly on the control.
+
+![Diagram showing touch target size on medium and small toggle switches](https://user-images.githubusercontent.com/2313998/226448740-1506ddb5-3cdb-4aef-9a3b-0d66839e7d11.png)
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="ToggleSwitch"/>

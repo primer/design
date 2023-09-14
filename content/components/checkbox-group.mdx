@@ -8,6 +8,7 @@ railsIds:
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <img
   width="960"
@@ -47,6 +48,10 @@ Use checkbox group to allow users to select multiple items from a list of indivi
 
 Once a user checks an option from a checkbox group, the result should not be saved or applied until the user has explicitly submitted their input using a "save" or "submit" button. See the [saving pattern guidelines](../ui-patterns/saving) for more information.
 Alternative: you can use a [toggle switch](/components/toggle-switch) to immediately toggle something on and off as long as it's not in the context of a bigger form that applies other input values when submited
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="CheckboxGroup"/>
 
 ## Related links
 
