@@ -234,7 +234,7 @@ If we know specifically what groups couldn't be loaded, provide those details in
 
 </Box>
 
-<>{/* <!-- TODO: Move the following examples to loading state guidelines --><!-- START examples to loading state guidelines --> */}</>
+<>{/*<!-- TODO: Move the following examples to loading state guidelines --><!-- START examples to loading state guidelines -->*/}</>
 
 ##### Sequential and related groups of navigation items
 
@@ -317,7 +317,7 @@ Default to replacing each loading navigation item with the item in a loading sta
 
 </Box>
 
-<>{/* <!-- END examples to loading state guidelines --> */}</>
+<>{/*<!-- END examples to loading state guidelines -->*/}</>
 
 #### Degraded side sheet group actions
 
@@ -428,7 +428,7 @@ Show the menu items, but disable them and show a message explaining why they're 
 
 If an action menu contains menu items that are very closely related (for example: the action menu for adding a file to a repo) and we can detect that none of the menu items are available, then indicate a problem on the button that triggers the action menu. Use an icon in the button to indicate that something is wrong, and (optionally) show a tooltip on hover or focus.
 
-##### Handling degraded forms
+### Handling degraded forms
 
 <Box
   mb={3}
@@ -438,8 +438,13 @@ If an action menu contains menu items that are very closely related (for example
   flexDirection={['column', 'column', 'column', 'column', 'row']}
   sx={{gap: 3}}
 >
+<div>
+
+#### Failed submission
 
 If a form's data cannot be saved, don't remove or disable the form fields or the submit button. Instead, inform the user that the form is in a read-only state and cannot be saved. If they still try and submit the form, show a dialog explaining that the form cannot be saved.
+
+</div>
 
 <img
   width="456"
@@ -458,7 +463,13 @@ If a form's data cannot be saved, don't remove or disable the form fields or the
   sx={{gap: 3}}
 >
 
+<div>
+
+#### No form data is available
+
 If none of the form data cannot even be read, remove the form entirely and replace it with a message explaining why the form is unavailable.
+
+</div>
 
 <img
   width="456"
@@ -476,7 +487,13 @@ If none of the form data cannot even be read, remove the form entirely and repla
   sx={{gap: 3}}
 >
 
+<div>
+
+#### Form data is partially available
+
 If only some of the form field data cannot be read, disable the affected fields and show an error message below those fields explaining that the data is unavailable. Disabling the fields adds another hint that something is wrong, and the field data is not actually empty.
+
+</div>
 
 <img
   width="456"
@@ -486,9 +503,9 @@ If only some of the form field data cannot be read, disable the affected fields 
 </Box>
 
 <>
-{/* <!-- TODO: un-comment this when in loading guidelines PR --> */}
-{/* <!-- ## Waiting for a timeout --> */}
-{/* <!-- There could be cases where we're waiting for data to load before determining that it's unavailable. In this case, refer to Primer's general [loading state guidance (coming soon)](/ui-patterns/loading) or the component-specific loading state guidelines (if the component has loading states). --> */}
+{/*<!-- TODO: un-comment this when in loading guidelines PR -->*/}
+{/*<!-- ## Waiting for a timeout -->*/}
+{/*<!-- There could be cases where we're waiting for data to load before determining that it's unavailable. In this case, refer to Primer's general [loading state guidance (coming soon)](/ui-patterns/loading) or the component-specific loading state guidelines (if the component has loading states). -->*/}
 </>
 
 ## CLI
