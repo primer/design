@@ -1,18 +1,27 @@
 ---
 title: Degraded experiences
-description: How to preserve functionality and quality user experience when critical services are unavailable.
+description: Ensuring that a page still renders and primary experiences are still available during downtime of optional service dependencies.
 ---
 
 import {Box} from '@primer/react'
 
-<Note>
-  For now, these guidelines focus on cases where there is a system error such as a database outage. They are not
-  intended as general design guidance for error handling.
-</Note>
+<Note>The primary audience for this guidance is GitHub staff.</Note>
 
-When there is a failure that prevents the user from seeing or interacting with something, we aim to provide as good of a user experience as possible. Instead of blocking an entire page from rendering, we should give users as much functionality as possible.
+Using the "blast" analogy for availability incidents, graceful degradation is about reducing the effect of a blast, not about preventing the blast or reducing the blast radius. The "blast" still happens and affects all experiences it did before, but with a reduced effect.
 
-We should communicate that there is an problem and guide users around that problem as much as possible. We should not try to conceal or downplay that something is wrong. Ideally we can strike a balance and give the user just the right amount of context without overwhelming them with error messages. A page with too many error messages could communicate an unnecessarily reactionary and negative tone.
+We should communicate that there is an problem and guide users around that problem as much as possible without trying to to conceal or downplay that something is wrong.
+
+## Whether to render an error page instead
+
+If there's an outage that doesn't affect the primary experiences of the page, it's best to render a degraded page to reduce disruptions. Don't attempt to render a page that won't be useful to the user.
+
+GitHub's internal article about graceful degradation describes the difference between primary and secondary experiences:
+
+> **Primary experiences** are those experiences that are essential for the page to be useful to the user. In case of availability incidents, if any of these experiences can't be provided to users, then it makes sense to show an error page instead. For example, on the issue page, the issue title and description are primary experiences.
+
+> **Secondary experiences** are those experiences that are not essential for the page to be useful to the user. Instead, they enrich the page to make it more useful to some users for certain workflows. In case of availability incidents, if any of these experiences can't be provided to users, then it makes sense to show the page without them as the page is still likely useful to most users. For example, on the issue page, the unread notifications indicator is a secondary experience, as are the counters for the number of projects, issues, PR's, etc. in the repository navigation bar.
+
+— [The Hub - Graceful Degradation in the Monolith](https://thehub.github.com/epd/engineering/dev-practicals/graceful-degradation/) (only available to GitHub staff)
 
 ## Global system notification
 
@@ -69,6 +78,8 @@ Examples of UI that might be disorienting to remove:
 
 We don't want users to think they've suffered data loss. If we know a user created something, don't show a generic "empty state". It's better to explain that it's unavailable or remove it entirely.
 
+Ideally we can strike a balance and give the user just the right amount of context without overwhelming them with error messages. A page with too many error messages could communicate an unnecessarily reactionary and negative tone.
+
 #### Inline content and smaller elements
 
 Smaller parts of the UI that cannot be accurately rendered but are too important to exclude entirely can often be replaced with a short error message.
@@ -78,8 +89,6 @@ Smaller parts of the UI that cannot be accurately rendered but are too important
   alt="Two images: 1. Image of Memex table with populated content cells; 2. Image of Memex table with missing content message in cells"
   src="https://github.com/primer/design/assets/2313998/fffb1ff8-33cc-405a-9149-44d67a51b1d0"
 />
-
-{/* <!-- TODO: Try and come up with more specific guidance and examples for how to use `fg.warning` --> */}
 
 By default, replace the affected content with an error message. Show a warning icon before the message to help differentiate it from non-degraded content. The message may be colored with `fg.warning` to draw more attention to it.
 
@@ -106,7 +115,7 @@ Be mindful that rendering too many error messages on the page in `fg.warning` co
 
 ##### Managing the density of inline error messages
 
-{/* <!-- TODO: come up with a realistic example of a lot of error messages being rendered in a small area --> */}
+<>{/* <!-- TODO: come up with a realistic example of a lot of error messages being rendered in a small area --> */}</>
 
 If there's an area of the page that is mostly unavailable, either supress rendering entirely, or replace the entire area with a [blankslate](/components/blankslate) component if it is too critical to not be rendered.
 
@@ -171,8 +180,6 @@ When the data is unavailable to determine whether to show an activity indicator 
 
 </Box>
 
-{/* <!-- TODO: Decide if we need to come up with a pattern for replacing (instead of hiding) numbers in an unavailable count. --> */}
-
 #### Panels and larger areas
 
 <img
@@ -182,8 +189,6 @@ When the data is unavailable to determine whether to show an activity indicator 
 />
 
 If the affected area is large enough, replace the affected UI with a [blankstate](/components/blankslate) component that explains why the expected UI isn't there.
-
-{/* <!-- TODO: update blankslate component guidelines with guidance on when to use the bordered vs non-bordered variant --> */}
 
 #### Dialogs (modal and non-modal)
 
@@ -254,7 +259,7 @@ If we know specifically what groups couldn't be loaded, provide those details in
 
 </Box>
 
-{/* <!-- TODO: Move the following examples to loading state guidelines --><!-- START examples to loading state guidelines --> */}
+<>{/* <!-- TODO: Move the following examples to loading state guidelines --><!-- START examples to loading state guidelines --> */}</>
 
 ##### Sequential and related groups of navigation items
 
@@ -337,7 +342,7 @@ Default to replacing each loading navigation item with the item in a loading sta
 
 </Box>
 
-{/* <!-- END examples to loading state guidelines --> */}
+<>{/* <!-- END examples to loading state guidelines --> */}</>
 
 #### Degraded side sheet group actions
 
@@ -350,8 +355,6 @@ Default to replacing each loading navigation item with the item in a loading sta
 If the data to render the "Show more" link or button at the bottom of a nav list group is unavailable, just don't render it.
 
 If the data to render the search button in a nav list group is unavailable, just don't render it.
-
-{/* <!-- TODO: Decide whether we should have "inert" states for nav links, or if we should just not show them and rely on error messages --> */}
 
 ### Page navigation
 
@@ -402,8 +405,6 @@ Default to removing non-functional buttons from the UI. Don't remove buttons tha
 
 #### Indicating a button is non-functional without disabling it
 
-{/* <!-- TODO: Decide whether this should be added to the component API, or use the existing Button API. If so, maybe its it's own component that composes Button+Tooltip+Dialog. --> */}
-
 <Box
   mb={3}
   display="flex"
@@ -442,7 +443,7 @@ There are two recommended ways an inert button should respond to user input:
 
 #### Disabling a non-functional button
 
-{/* <!-- TODO: Come up with a visual example where it's safe to disable the button. --> */}
+<>{/* <!-- TODO: Come up with a visual example where it's safe to disable the button. --> */}</>
 
 <img
   width="960"
@@ -466,9 +467,18 @@ Show the menu items, but disable them and show a message explaining why they're 
 
 If an action menu contains menu items that are very closely related (for example: the action menu for adding a file to a repo) and we can detect that none of the menu items are available, then indicate a problem on the button that triggers the action menu. Use an icon in the button to indicate that something is wrong, and (optionally) show a tooltip on hover or focus.
 
-{/* <!-- It's unclear if we'll have any use cases for the following components, so I'm leaving them out until we do: Tabs, Form controls, Links, Segmented controls, Toggle switches --> */}
-
 ##### Handling degraded forms
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+If a form's data cannot be saved, don't remove or disable the form fields or the submit button. Instead, inform the user that the form is in a read-only state and cannot be saved. If they still try and submit the form, show a dialog explaining that the form cannot be saved.
 
 <img
   width="456"
@@ -476,25 +486,49 @@ If an action menu contains menu items that are very closely related (for example
   src="https://github.com/primer/react/assets/2313998/d0494ff2-dea0-4286-b7d6-f6a3d0f6d1db"
 />
 
-If a form's data cannot be saved, don't remove or disable the form fields or the submit button. Instead, inform the user that the form is in a read-only state and cannot be saved. If they still try and submit the form, show a dialog explaining that the form cannot be saved.
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+If none of the form data cannot even be read, remove the form entirely and replace it with a message explaining why the form is unavailable.
 
 <img
   width="456"
-  alt="Two images: 1. partially available form data; 2. entirely unavailable form data"
-  src="https://github.com/primer/react/assets/2313998/acf64e19-6b07-4eb5-a87e-0e622f81e819"
+  alt="An error message in replacing a form"
+  src="https://github.com/primer/design/assets/2313998/c15954b0-f64e-4fae-94f5-1c2d474b1e06"
 />
+</Box>
 
-If a form's data cannot even be read, remove the form entirely and replace it with a message explaining why the form is unavailable.
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
 
-If only some of the form fields' data cannot be read, disable the affected fields and show an error message below those fields explaining that the data is unavailable. Disabling the fields adds another hint that something is wrong, and the field data is not actually empty.
+If only some of the form field data cannot be read, disable the affected fields and show an error message below those fields explaining that the data is unavailable. Disabling the fields adds another hint that something is wrong, and the field data is not actually empty.
 
-## Waiting for a timeout
+<img
+  width="456"
+  alt="A form with some fields disabled. Disabled fields have error messages."
+  src="https://github.com/primer/design/assets/2313998/a869762c-33f5-4cf9-bd95-d76d776f233c"
+/>
+</Box>
 
-There could be cases where we're waiting for data to load before determining that it's unavailable. In this case, refer to Primer's general [loading state guidelines (coming soon)]() or the component-specific loading state guidelines (if the component has loading states).
-
-## Entire page fails to load
-
-If an error is critical enough to prevent the entire page from loading, fall back to showing a default error page. For example, the HTTP 500 server error page.
+<>
+{/* <!-- TODO: un-comment this when in loading guidelines PR --> */}
+{/* <!-- ## Waiting for a timeout --> */}
+{/* <!-- There could be cases where we're waiting for data to load before determining that it's unavailable. In this case, refer to Primer's general [loading state guidance (coming soon)](/ui-patterns/loading) or the component-specific loading state guidelines (if the component has loading states). --> */}
+</>
 
 ## CLI
 
@@ -505,8 +539,6 @@ It's confusing and frustrating when a command silently fails. If a command fails
 Never disable an interactive control that is non-functional due to availability issues.
 
 A common (but inaccessible) pattern is to show a tooltip with more information when a user hovers an error message or a disabled button. However, tooltips may only be used on focusable elements.
-
-{/* <!-- TODO: determine what other a11y considerations that need to be documented --> */}
 
 ## Related links
 
