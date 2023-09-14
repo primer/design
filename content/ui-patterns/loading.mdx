@@ -25,6 +25,8 @@ Animation in loading indicators helps reassure the user that the process is acti
 
 ### Determinate loading indicators
 
+<Box display="flex" flexDirection="column" sx={{gap: 5, 'h4': { marginTop: 0 }}}>
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
@@ -40,24 +42,32 @@ Determinate loading indicators work best for processes that are likely to take l
 
 ### Indeterminate loading indicators
 
+<div>
+
 Indeterminate loading indicators may be used when the progress or duration of a process is variable or unknown.
 
 This type of loading gives the user a sense that something is happening, but not how long it will take.
 
+</div>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
+
+<div>
+
 #### Spinner
 
-<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
-
 A [spinner](/ui-packages/spinner) is the most versatile indeterminate loading indicator. It may be used in place of content that is loading, or adjacent to a loading message
+
+</div>
 
 <img width="456" alt="PR status checks being replaced by a spinner" src="https://github.com/primer/design/assets/2313998/4f4e897e-bbda-4cbc-bd0f-962450c6b5b6" />
 </Box>
 
-#### Content skeleton
-
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
 <Box flex={1}>
+
+#### Content skeleton
 
 For large areas of loading content, the loading content may be replaced by a vague representation of the content. This shows users the general shape of the page and could make them perceive the real content as loading faster.
 
@@ -75,13 +85,15 @@ The [tree view](/components/tree-view) and [data table](/components/data-table) 
 />
 </Box>
 
-#### Loading text
-
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
 <Box flex={1}>
 
+#### Loading text
+
 A text-based loading indicator may be used to replace inline elements such as a submit button. Loading text may be accompanied by a spinner or some other animation to convey that the process is active.
+
+For details on how to implement this accessibly, see the [Button loading state](#button-loading-state) portion in this pattern's accessibility guidelines.
 
 </Box>
 
@@ -93,15 +105,16 @@ A text-based loading indicator may be used to replace inline elements such as a 
 />
 </Box>
 
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
 #### Animated icon or illustration
 
 _TODO: reconsider if we really want to endorse this by mentioning it in Primer docs_
 
-<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+An animated icon or illustration may be used as a "branding moment" for special loading states. This should be used sparingly.
 
-<Box flex={1}>
-  An animated icon or illustration may be used as a "branding moment" for special loading states. This should be used
-  sparingly.
 </Box>
 
 <CustomVideoPlayer
@@ -110,6 +123,7 @@ _TODO: reconsider if we really want to endorse this by mentioning it in Primer d
   autoplay
   src="https://github.com/primer/react/assets/2313998/d5a49e2d-315c-4d55-b929-ef2e6a648712"
 />
+</Box>
 </Box>
 
 ## Adapting to different wait times
@@ -284,6 +298,27 @@ However, the button that initiates the a loading process may not be disabled.
   loop
   autoplay
   src="https://github.com/primer/react/assets/2313998/b596a8c0-ec5c-4548-a650-d8c0262ea120"
+/>
+</Box>
+
+### Button loading state
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+When implementing a "loading" button state, don't remove the button from the DOM or pass the `disabled` attribute. Doing so would remove focus from the button, creating a confusing experience for assistive technologies such as a screen reader.
+
+Instead, render the loading text in an element that is positioned on top of the button to create the illusion that the button is hidden. This will also prevent people who use a mouse cursor from clicking the button while it's in a loading state. To prevent keyboard users from activating the button, remove the click handler while the button is in a loading state.
+
+Set the button's `aria-disabled` attribute to `"true"` while it's hidden by the loading text.
+
+</Box>
+
+<img
+  width="456"
+  alt="Exploded view of a save profile button with a layer above it that says 'Saving...'"
+  src="https://github.com/primer/design/assets/2313998/04a8ce24-c808-4b6d-8531-d4ad0054e211"
 />
 </Box>
 
