@@ -303,15 +303,11 @@ However, the button that initiates the a loading process may not be disabled.
 
 ### Button loading state
 
-<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'start', gap: 3}}>
 
 <Box flex={1}>
 
 When implementing a "loading" button state, don't remove the button from the DOM or pass the `disabled` attribute. Doing so would remove focus from the button, creating a confusing experience for assistive technologies such as a screen reader.
-
-Instead, render the loading text in an element that is positioned on top of the button to create the illusion that the button is hidden. This will also prevent people who use a mouse cursor from clicking the button while it's in a loading state. To prevent keyboard users from activating the button, remove the click handler while the button is in a loading state.
-
-Set the button's `aria-disabled` attribute to `"true"` while it's hidden by the loading text.
 
 </Box>
 
@@ -321,6 +317,10 @@ Set the button's `aria-disabled` attribute to `"true"` while it's hidden by the 
   src="https://github.com/primer/design/assets/2313998/04a8ce24-c808-4b6d-8531-d4ad0054e211"
 />
 </Box>
+
+Instead, render the loading text in an element that is positioned on top of the button to create the illusion that the button is hidden. This will also prevent people who use a mouse cursor from clicking the button while it's in a loading state. To prevent keyboard users from activating the button, remove the click handler while the button is in a loading state.
+
+Set the button's `aria-disabled` attribute to `"true"` while it's hidden by the loading text.
 
 ### Motion considerations
 
