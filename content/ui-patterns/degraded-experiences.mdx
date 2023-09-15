@@ -9,7 +9,7 @@ import {Box} from '@primer/react'
 
 Using the "blast" analogy for availability incidents, graceful degradation is about reducing the effect of a blast, not about preventing the blast or reducing the blast radius. The "blast" still happens and affects all experiences it did before, but with a reduced effect.
 
-We should communicate that there is an problem and guide users around that problem as much as possible without trying to to conceal or downplay that something is wrong.
+Don't try to conceal or downplay that something is wrong. Communicate that there is a problem and guide users around that problem as much as possible.
 
 ## Whether to render an error page instead
 
@@ -60,13 +60,63 @@ Before making a decision about how to handle UI with unavailable content, check 
 
 ### Removing UI
 
-You can remove affected UI if it's not critical to core workflows and it wouldn't be confusing to render the rest of the page without that UI. For example: it's ok to hide the reactions button.
+You can remove the affected UI if it's not critical to core workflows and it wouldn't be confusing to render the rest of the page without that UI. For example: it's ok to hide the reactions button.
 
 Examples of UI that might be disorienting to remove:
 
 - The comment box on issues and pull requests
 - The "New issue" button on the issues page
 - Submit buttons on forms
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+#### Handling unavailable counts
+
+When the data required to calculate a count is unavailable, default to hiding the number. If the count is shown inside of an interactive element, a tooltip may be displayed on focus and hover to explain the missing count.
+
+</div>
+
+<img
+  width="456"
+  alt="Two images of repo tabs: 1. Tabs have counts; 2. Tabs don't have counts;"
+  src="https://github.com/primer/design/assets/2313998/21911be0-07cc-4d27-8ae2-30f02641b511"
+/>
+
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+#### Handling activity indicators
+
+When the data is unavailable to determine whether to show an activity indicator (most commonly used for notification badges), default to hiding the indicator.
+
+</div>
+
+<img
+  width="456"
+  alt="Image of the notification link button in the global nav without a badge"
+  src="https://github.com/primer/react/assets/2313998/27a9c14e-875e-4f08-ab04-43af1bac289b"
+/>
+
+</Box>
 
 ### Replacing UI with a message
 
@@ -76,9 +126,9 @@ Examples of UI that might be disorienting to remove:
   src="https://github.com/primer/react/assets/2313998/a2da5f80-1e32-423c-85b8-ca77f936d31c"
 />
 
-We don't want users to think they've suffered data loss. If we know a user created something, don't show a generic "empty state". It's better to explain that it's unavailable or remove it entirely.
+We don't want users to think they've suffered data loss. If we know a user created something, don't show a generic "empty state". It's better to explain that it's unavailable, or remove the entire section from the page (including the section's heading). For example, I might think my repositories were deleted if I'm on an organization page (like [https://github.com/primer/](https://github.com/primer/)) and the repositories aren't listed there.
 
-Ideally we can strike a balance and give the user just the right amount of context without overwhelming them with error messages. A page with too many error messages could communicate an unnecessarily reactionary and negative tone.
+Ideally we can strike a balance and give the user just the right amount of context without overwhelming them with error messages. A page with too many error messages could communicate an unnecessarily reactionary and negative tone. As a general guideline, we suggest limiting pages to 5 or less outage messages.
 
 #### Inline content and smaller elements
 
@@ -92,7 +142,7 @@ Smaller parts of the UI that cannot be accurately rendered but are too important
 
 By default, replace the affected content with an error message. Show a warning icon before the message to help differentiate it from non-degraded content. The message may be colored with `fg.warning` to draw more attention to it.
 
-Be mindful that rendering too many error messages on the page in `fg.warning` could be jarring and make the page feel broken instead of degraded. As a general guideline, we suggest limiting pages to 5 or less outage messages.
+Be mindful that rendering too many error messages on the page in `fg.warning` could be jarring and make the page feel broken instead of degraded.
 
 <DoDontContainer>
   <Do>
@@ -112,48 +162,6 @@ Be mindful that rendering too many error messages on the page in `fg.warning` co
     <Caption>Don't attempt to render UI that is missing critical information.</Caption>
   </Dont>
 </DoDontContainer>
-
-##### Handling unavailable counts
-
-<Box
-  mb={3}
-  display="flex"
-  alignItems="flex-start"
-  justifyContent="space-between"
-  flexDirection={['column', 'column', 'column', 'column', 'row']}
-  sx={{gap: 3}}
->
-
-When the data required to calculate a count is unavailable, default to hiding the number. If the count is shown inside of an interactive element, a tooltip may be displayed on focus and hover to explain the missing count.
-
-<img
-  width="456"
-  alt="Two images of repo tabs: 1. Tabs have counts; 2. Tabs don't have counts;"
-  src="https://github.com/primer/design/assets/2313998/21911be0-07cc-4d27-8ae2-30f02641b511"
-/>
-
-</Box>
-
-##### Handling activity indicators
-
-<Box
-  mb={3}
-  display="flex"
-  alignItems="flex-start"
-  justifyContent="space-between"
-  flexDirection={['column', 'column', 'column', 'column', 'row']}
-  sx={{gap: 3}}
->
-
-When the data is unavailable to determine whether to show an activity indicator (most commonly used for notification badges), default to hiding the indicator.
-
-<img
-  width="456"
-  alt="Image of the notification link button in the global nav without a badge"
-  src="https://github.com/primer/react/assets/2313998/27a9c14e-875e-4f08-ab04-43af1bac289b"
-/>
-
-</Box>
 
 #### Panels and larger areas
 
