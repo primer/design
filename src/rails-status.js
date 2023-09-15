@@ -21,3 +21,16 @@ export const latestStatusFrom = (statuses) => {
 
   return latestStatus
 }
+
+export const compareStatuses = (first, second) => {
+  const firstRank = statusOrder.indexOf(first)
+  const secondRank = statusOrder.indexOf(second)
+
+  if (firstRank > secondRank) {
+    return 1
+  } else if (firstRank < secondRank) {
+    return -1
+  } else {
+    return 0
+  }
+}
