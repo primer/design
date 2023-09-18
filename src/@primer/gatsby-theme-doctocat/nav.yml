@@ -116,10 +116,10 @@
   children:
     - title: Data visualization
       url: /ui-patterns/data-visualization
-    - title: Empty states
-      url: /ui-patterns/empty-states
     - title: Degraded experiences
       url: /ui-patterns/degraded-experiences
+    - title: Empty states
+      url: /ui-patterns/empty-states
     - title: Feature onboarding
       url: /ui-patterns/feature-onboarding
     - title: Forms
