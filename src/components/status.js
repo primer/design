@@ -5,6 +5,7 @@ import React from 'react'
 import styled from 'styled-components'
 import StatusRows from './status-rows'
 import { useRails } from './rails-provider'
+import { compareStatuses } from '../rails-status'
 
 const Table = styled.table`
   width: 100%;
@@ -201,7 +202,7 @@ async function getComponents(railsActions, railsData) {
     viewComponent: {
       url: '',
       data: (() => {
-        const vcs = []
+        const vcs = {}
 
         railsData.allRailsComponent.nodes.forEach(vc => {
           const componentInfo = railsActions.getRailsComponentInfo(vc.railsId)
@@ -211,18 +212,21 @@ async function getComponents(railsActions, railsData) {
               componentInfo.page.context.frontmatter.reactId ||
                 vc.railsId.split('::').slice(-1)[0]
 
-            vcs.push({
-              id: id,
-              displayName: vc.name,
-              description: vc.description,
-              path: componentInfo.urlPath,
-              status: vc.status,
-              a11yReviewed: vc.a11y_reviewed
-            })
+            // only replace entry if status is greater
+            if (!vcs[id] || compareStatuses(vc.status, vcs[id].status) > 0) {
+              vcs[id] = {
+                id: id,
+                displayName: vc.name,
+                description: vc.description,
+                path: componentInfo.urlPath,
+                status: vc.status,
+                a11yReviewed: vc.a11y_reviewed
+              }
+            }
           }
         })
 
-        return vcs
+        return Object.values(vcs)
       })(),
     },
   }
