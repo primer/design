@@ -106,8 +106,7 @@ export const RailsProvider = ({children}) => {
     const parentComponent = findParentComponentForRailsId(railsId, data.allRailsComponent.nodes)
 
     // No parent component means the component isn't a top-level component or a subcomponent of a
-    // top-level component, i.e. it's not documented in this system at all; return the ID
-    // instead of a link.
+    // top-level component, i.e. it's not documented in this system at all; return null.
     if (!parentComponent) return null
 
     // We're dealing with a top-level component, so link to the parent.
