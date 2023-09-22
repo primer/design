@@ -89,26 +89,6 @@ The [tree view](/components/tree-view) and [data table](/components/data-table) 
 
 <Box flex={1}>
 
-#### Loading text
-
-A text-based loading indicator may be used to replace inline elements such as a submit button. Loading text may be accompanied by a spinner or some other animation to convey that the process is active.
-
-For details on how to implement this accessibly, see the [Button loading state](#button-loading-state) portion in this pattern's accessibility guidelines.
-
-</Box>
-
-<CustomVideoPlayer
-  width="456"
-  loop
-  autoplay
-  src="https://github.com/primer/react/assets/2313998/b596a8c0-ec5c-4548-a650-d8c0262ea120"
-/>
-</Box>
-
-<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
-
-<Box flex={1}>
-
 #### Animated icon or illustration
 
 _TODO: reconsider if we really want to endorse this by mentioning it in Primer docs_
@@ -125,6 +105,10 @@ An animated icon or illustration may be used as a "branding moment" for special 
 />
 </Box>
 </Box>
+
+#### Loading text
+
+Text may accompany any of the above loading indicators to give the user more context about the process.
 
 ## Adapting to different wait times
 
@@ -297,30 +281,37 @@ However, the button that initiates the a loading process may not be disabled.
   width="456"
   loop
   autoplay
-  src="https://github.com/primer/react/assets/2313998/b596a8c0-ec5c-4548-a650-d8c0262ea120"
+  src="https://github.com/primer/design/assets/2313998/cc592284-08d9-4330-8f36-548f27615706"
 />
 </Box>
 
 ### Button loading state
 
+_TODO: Refine this content once the a11y team confirms we interpretted their feedback correctly_
+_TODO: Consider moving most of the button loading state details to the [Button interface guidelines](/components/button)_
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'start', gap: 3}}>
 
 <Box flex={1}>
 
-When implementing a "loading" button state, don't remove the button from the DOM or pass the `disabled` attribute. Doing so would remove focus from the button, creating a confusing experience for assistive technologies such as a screen reader.
+When implementing a "loading" button state, don't remove the button from the DOM or pass the `disabled` attribute. Doing so would make it impossible to tab to the button. If the button was just focused and activated, it would reset focus. Resetting focus would disrupt the keyboard navigation flow, and creates a confusing experience for assistive technologies such as screen readers.
 
 </Box>
 
 <img
   width="456"
-  alt="Exploded view of a save profile button with a layer above it that says 'Saving...'"
-  src="https://github.com/primer/design/assets/2313998/04a8ce24-c808-4b6d-8531-d4ad0054e211"
+  alt="A button in a loading state with a11y annotations"
+  src="replace-me-with-real-src"
 />
 </Box>
 
-Instead, render the loading text in an element that is positioned on top of the button to create the illusion that the button is hidden. This will also prevent people who use a mouse cursor from clicking the button while it's in a loading state. To prevent keyboard users from activating the button, remove the click handler while the button is in a loading state.
+Once the button is activated (and is in a loading state), it becomes `aria-disabled` and receives `aria-describedby` that indicates that it's processing and may take a while. 
 
-Set the button's `aria-disabled` attribute to `"true"` while it's hidden by the loading text.
+A separate, visually hidden element should be rendered outside of the `<button>` with a message to communicate the loading status. For example, "Saving profile".
+
+The visually hidden status message element receives `aria-live="polite"` and `aria-busy="true"` attributes.
+
+If an error prevents process from being completed, focus should be brought to an h2 (or next relevant heading) of the error banner. 
 
 ### Motion considerations
 
