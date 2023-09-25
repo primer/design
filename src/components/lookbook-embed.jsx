@@ -3,14 +3,14 @@ import { useScript } from 'usehooks-ts'
 
 const baseUrl = ( () => {
   if (process.env["NODE_ENV"] == "production") {
-    return 'https://primer.style/view-components/lookbook/'
+    return 'https://primer.style/view-components'
   } else {
-    return 'http://localhost:4000/lookbook/'
+    return 'http://localhost:4000'
   }
 })()
 
 export function LookbookEmbed({railsId}) {
-  const lookbookJs = useScript('https://view-components-storybook.eastus.cloudapp.azure.com/lookbook-assets/js/lookbook.js', {
+  const lookbookJs = useScript(`${baseUrl}/lookbook-assets/js/lookbook.js`, {
     removeOnUnmount: false
   })
 
@@ -22,10 +22,10 @@ export function LookbookEmbed({railsId}) {
 
   return (
     <lookbook-embed
-      app={baseUrl}
+      app={`${baseUrl}/lookbook`}
       preview={`${railsId}Preview`}
       scenario="*"
-      panels="source"
+      panels="source,params,assets"
       actions="open"
       display-option-controls="false"
     />
