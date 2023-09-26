@@ -3,7 +3,7 @@ import { useScript } from 'usehooks-ts'
 
 const baseUrl = ( () => {
   if (process.env["NODE_ENV"] == "production") {
-    return 'https://primer.style/view-components'
+    return 'https://primer.style'
   } else {
     return 'http://localhost:4000'
   }
@@ -22,7 +22,7 @@ export function LookbookEmbed({railsId}) {
 
   return (
     <lookbook-embed
-      app={`${baseUrl}/lookbook`}
+      app={`${baseUrl}/view-components/lookbook`}
       preview={`${railsId}Preview`}
       scenario="*"
       panels="source,params,assets"
