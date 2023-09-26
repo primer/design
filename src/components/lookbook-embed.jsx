@@ -9,6 +9,14 @@ const baseUrl = ( () => {
   }
 })()
 
+const previewPath = ( () => {
+  if (process.env["NODE_ENV"] == "production") {
+    return '/view-components'
+  } else {
+    return ''
+  }
+})()
+
 export function LookbookEmbed({railsId}) {
   const lookbookJs = useScript(`${baseUrl}/lookbook-assets/js/lookbook.js`, {
     removeOnUnmount: false
@@ -22,11 +30,11 @@ export function LookbookEmbed({railsId}) {
 
   return (
     <lookbook-embed
-      app={`${baseUrl}/view-components/lookbook`}
+      app={`${baseUrl}${previewPath}/lookbook`}
       preview={`${railsId}Preview`}
       scenario="*"
       panels="source,params,assets"
-      actions="open"
+      actions="inspect"
       display-option-controls="false"
     />
   )
