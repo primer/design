@@ -189,12 +189,12 @@ function RailsComponentMethods({methods}) {
   }
 }
 
-function RailsComponentPreviews({previews, showPreviews}) {
+function RailsComponentPreviews({railsId, previews, showPreviews}) {
   if (showPreviews && previews.length > 0) {
     return (
       <>
         <H2>Examples</H2>
-        <LookbookEmbed height={300} previews={previews} />
+        <LookbookEmbed railsId={railsId} />
       </>
     )
   } else {
@@ -221,7 +221,7 @@ function RailsComponent({data, showPreviews}) {
   return (
     <>
       <RailsComponentArguments props={props} />
-      <RailsComponentPreviews previews={previews} showPreviews={showPreviews} />
+      <RailsComponentPreviews railsId= {data.railsId} previews={previews} showPreviews={showPreviews} />
       <RailsComponentSlots slots={slots} />
       <RailsComponentMethods methods={methods} />
     </>
@@ -297,7 +297,7 @@ export default function RailsComponentLayout({data}) {
                 <H2>{subcomponent.name}</H2>
                 {/* @ts-ignore */}
                 <RailsMarkdown text={subcomponent.description} />
-                <RailsComponent {...{data: subcomponent, showPreviews: false, parentRailsId: railsId}} />
+                <RailsComponent {...{data: subcomponent, showPreviews: false}} />
               </>
             )
           })}
