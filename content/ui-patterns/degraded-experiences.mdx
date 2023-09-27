@@ -65,7 +65,7 @@ You can remove the affected UI if it's not critical to core workflows and it wou
 Examples of UI that might be disorienting to remove:
 
 - The comment box on issues and pull requests
-- The "New issue" button on the issues page
+- The "Request changes" button in the pull request "Changes" tab
 - Submit buttons on forms
 
 <Box
@@ -122,8 +122,8 @@ When the data is unavailable to determine whether to show an activity indicator 
 
 <img
   width="960"
-  alt="Two images: 1. Assignees removed from issue sidebar; 2. Assignee column in a Memex table with 'data could not be loaded' message in cells"
-  src="https://github.com/primer/design/assets/2313998/d4166a45-a6ae-4cf9-a191-b97f9b8856e5"
+  alt="A screenshot of the Primer organization page. The repositories list is replaced with a message informing the user that the repositories are temporarily unavailable."
+  src="https://github.com/primer/design/assets/2313998/3a2ce19a-2699-483a-a967-5b2e7e3d86d8"
 />
 
 We don't want users to think they've suffered data loss. If we know a user created something, don't show a generic "empty state". It's better to explain that it's unavailable, or remove the entire section from the page (including the section's heading). For example, I might think my repositories were deleted if I'm on an organization page (like [https://github.com/primer/](https://github.com/primer/)) and the repositories aren't listed there.
@@ -371,7 +371,7 @@ Default to removing non-functional buttons from the UI. Don't remove buttons tha
   <Do>
     <img
       width="456"
-      alt="New issue button hidden"
+      alt="Comment reaction button hidden"
       src="https://github.com/primer/design/assets/2313998/18e1af85-5a6c-40a7-aae0-d1bedc515420"
     />
     <Caption>Hide non-critical buttons.</Caption>
@@ -379,8 +379,8 @@ Default to removing non-functional buttons from the UI. Don't remove buttons tha
   <Dont>
     <img
       width="456"
-      alt="Comment react button hidden"
-      src="https://github.com/primer/design/assets/2313998/0e4db742-53cf-4671-bd9d-eca8ad316929"
+      alt="Request changes button hidden"
+      src="https://github.com/primer/design/assets/2313998/97fb7cc0-1fde-43ec-8b7d-b57fe3b3771a"
     />
     <Caption>Don't hide buttons that part of core workflows.</Caption>
   </Dont>
