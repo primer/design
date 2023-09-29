@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 /* This component scrolls to the element that has an ID matching
  * the value of the ?anchor query parameter. It is designed to
@@ -7,28 +7,37 @@ import React from "react"
  * fragments (i.e. the part after '#') when redirecting.
  */
 export default function ScrollToAnchor() {
-  const url = new URL(window.location.href)
+  useEffect(() => {
+    const onPageLoad = () => {
+      // wait for browser to finish laying things out
+      setTimeout(() => {
+        const url = new URL(window.location.href)
 
-  // only do our thing if the URL doesn't have a hash already
-  if (url.hash.length === 0) {
-    const anchor = url.searchParams.get('anchor')
+        // only do our thing if the URL doesn't have a hash already
+        if (url.hash.length === 0) {
+          const anchor = url.searchParams.get('anchor')
 
-    if (anchor) {
-      // alter the URL by converting the anchor query param into
-      // a hash
-      url.searchParams.delete('anchor')
-      url.hash = `#${anchor}`
-      window.history.pushState(null, "", url)
-
-      document.addEventListener('readystatechange', () => {
-        // only scroll when the page is fully loaded, i.e. has
-        // stopped jumping around/resizing
-        if (document.readyState === 'complete') {
-          document.querySelector(`#${anchor}`)?.scrollIntoView()
+          if (anchor) {
+            // alter the URL by converting the anchor query param into
+            // a hash
+            url.searchParams.delete('anchor')
+            url.hash = `#${anchor}`
+            window.history.pushState(null, "", url)
+            document.querySelector(`#${anchor}`)?.scrollIntoView()
+          }
         }
-      })
+      }, 500)
     }
-  }
+
+    // check if the page has already loaded
+    if (document.readyState === 'complete') {
+      onPageLoad()
+    } else {
+      window.addEventListener('load', onPageLoad)
+      // remove the event listener when component unmounts
+      return () => window.removeEventListener('load', onPageLoad)
+    }
+  }, [])
 
   return (
     <></>
