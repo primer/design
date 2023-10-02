@@ -284,18 +284,20 @@ Stretch to fill available space, and min width is the width of the widest cell i
 
 May have a min and max width constraint.
 
-<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
-  <img
-    width="456"
-    role="presentation"
-    src="https://user-images.githubusercontent.com/2313998/205382519-b97666be-05bd-4449-a4d9-b924c3bbe70a.png"
-  />
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3, 'img': {width: '100%'}}}>
+  <div>
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205382519-b97666be-05bd-4449-a4d9-b924c3bbe70a.png"
+    />
+  </div>
 
-  <img
-    width="456"
-    role="presentation"
-    src="https://user-images.githubusercontent.com/2313998/205361220-078f56f6-0681-4e64-bab3-7860f179d066.png"
-  />
+  <div>
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361220-078f56f6-0681-4e64-bab3-7860f179d066.png"
+    />
+  </div>
 </Box>
 
 #### Grow or collapse
@@ -304,17 +306,22 @@ Stretch to fill available space in the parent **or shrink** to fit in the availa
 
 May have a min and max width constraint. Without a min width constraint, the column could collapse to a width of 0px.
 
-<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
-  <img
-    width="456"
-    role="presentation"
-    src="https://user-images.githubusercontent.com/2313998/231308670-2979a7db-9207-4c7e-a30e-56c0afc15392.png"
-  />
-  <img
-    width="456"
-    role="presentation"
-    src="https://user-images.githubusercontent.com/2313998/231308671-fba97361-45f7-4c4b-bf5d-54bf9940fe1b.png"
-  />
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3, 'img': {width: '100%'}}}>
+  <div>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/231308670-2979a7db-9207-4c7e-a30e-56c0afc15392.png"
+    />
+  </div>
+
+  <div>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/231308671-fba97361-45f7-4c4b-bf5d-54bf9940fe1b.png"
+    />
+  </div>
 </Box>
 
 #### Auto
@@ -323,28 +330,40 @@ The column is the width of its widest cell. Not intended for use with columns wh
 
 May have a min and max width constraint.
 
-<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
-  <img
-    width="456"
-    role="presentation"
-    src="https://user-images.githubusercontent.com/2313998/205361223-f9becdb3-64ca-44b2-a350-2d33e2b20b1f.png"
-  />
-  <img
-    width="456"
-    role="presentation"
-    src="https://user-images.githubusercontent.com/2313998/205361224-f39ba3d5-feb4-464a-9059-2784bb91eec9.png"
-  />
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3, marginBottom: 3, 'img': {width: '100%'}}}>
+  <div>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361223-f9becdb3-64ca-44b2-a350-2d33e2b20b1f.png"
+    />
+  </div>
+
+  <div>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361224-f39ba3d5-feb4-464a-9059-2784bb91eec9.png"
+    />
+  </div>
 </Box>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<div>
 
 #### Explicit width
 
 Will be exactly that width and will not grow or shrink to fill the parent.
+
+</div>
 
 <img
   width="456"
   role="presentation"
   src="https://user-images.githubusercontent.com/2313998/205385940-7dca1d5d-b2ae-4faf-a656-5b2bbec7b85f.png"
 />
+</Box>
 
 #### Action column
 
@@ -481,6 +500,8 @@ If one of the actions is heavily used, pull it out for easier access. Do not pul
 
 ### Sorting
 
+<Box display="flex" flexDirection="column" sx={{gap: 3}}>
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
 <Box as="p" flex={1}>
@@ -496,15 +517,17 @@ If one of the actions is heavily used, pull it out for easier access. Do not pul
 />
 </Box>
 
-#### States
-
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
-<Box as="ul" flex={1}>
-  <li>Unsorted (default)</li>
-  <li>Ascending sort active</li>
-  <li>Descending sort active</li>
-  <li>Sort in progress</li>
+<Box flex={1}>
+
+#### States
+
+- Unsorted (default)
+- Ascending sort active
+- Descending sort active
+- Sort in progress
+
 </Box>
 
 <img
@@ -514,11 +537,11 @@ If one of the actions is heavily used, pull it out for easier access. Do not pul
 />
 </Box>
 
-### Filtering
-
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
 
-<Box as="p" flex={1}>
+<Box flex={1}>
+
+### Filtering
 
 A [filter input](/components/filter-input) is used to write a query and only show rows that
 match that query.
@@ -530,6 +553,8 @@ match that query.
   role="presentation"
   src="https://user-images.githubusercontent.com/2313998/207115488-96f5b4c6-b870-4fca-b049-9d7574eb48ca.png"
 />
+</Box>
+
 </Box>
 
 ## Accessibility
