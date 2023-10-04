@@ -341,7 +341,7 @@ export default function RailsComponentLayout({data}) {
               </Heading>
               <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
             </Box>
-            <Box sx={{'flexGrow': 1}}>
+            <Box sx={{'flexGrow': 1, minWidth: 0}}>
               <Box sx={{display: 'flex', gap: 2, mb: 4}}>
                 <Label size="large">v{data.primerRailsVersion.version}</Label>
                 <StatusLabel status={sentenceCase(status)} />
