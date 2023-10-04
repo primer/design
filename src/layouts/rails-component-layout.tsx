@@ -5,6 +5,7 @@ import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
+import LookbookLink from '@primer/gatsby-theme-doctocat/src/components/lookbook-link'
 import {ActionList, ActionMenu, Box, Heading, Label, Link, Text} from '@primer/react'
 import {sentenceCase} from 'change-case'
 import {graphql, Link as GatsbyLink, navigate} from 'gatsby'
@@ -342,13 +343,44 @@ export default function RailsComponentLayout({data}) {
               <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
             </Box>
             <Box sx={{'flexGrow': 1}}>
-              <Box sx={{display: 'flex', gap: 2, mb: 4}}>
-                <Label size="large">v{data.primerRailsVersion.version}</Label>
-                <StatusLabel status={sentenceCase(status)} />
-                <AccessibilityLabel a11yReviewed={a11y_reviewed} short={false} />
-                {statuses.length > 1 && <Box sx={{marginLeft: 'auto', marginTop: '-4px'}}>
-                  <StatusMenu currentStatus={status} statuses={statuses} parentPath={data.sitePage.path} />
-                </Box>}
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: ['column', null, null, null, 'row'],
+                  justifyContent: 'space-between',
+                  gap: 3,
+                  mb: 4,
+                }}
+              >              
+                <Box sx={{display: 'flex', gap: 2, mb: 4}}>
+                  <Label size="large">v{data.primerRailsVersion.version}</Label>
+                  <StatusLabel status={sentenceCase(status)} />
+                  <AccessibilityLabel a11yReviewed={a11y_reviewed} short={false} />
+                  {statuses.length > 1 && <Box sx={{marginLeft: 'auto', marginTop: '-4px'}}>
+                    <StatusMenu currentStatus={status} statuses={statuses} parentPath={data.sitePage.path} />
+                  </Box>}
+                </Box>
+                <Box
+                  as={'ul'}
+                  sx={{
+                    display: 'flex',
+                    gap: 3,
+                    alignItems: 'center',
+                    m: 0,
+                    p: 0,
+                    paddingInline: 0,
+                    listStyle: 'none',
+                    fontSize: 1,
+                    '& > li': {
+                      display: 'flex',
+                    },
+                  }}
+                >
+                  <SourceLink href={`https://github.com/primer/view_components/blob/main/app/components/primer/alpha/${name}`} />
+                  {stories.length > 0 ? (
+                    <LookbookLink href={`https://primer.style/react/storybook/?path=/story/${stories[0].id}`} />
+                  ) : null}
+                </Box>
               </Box>
 
               {/* @ts-ignore */}
