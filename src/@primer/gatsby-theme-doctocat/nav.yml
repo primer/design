@@ -124,6 +124,8 @@
       url: /ui-patterns/feature-onboarding
     - title: Forms
       url: /ui-patterns/forms/overview
+    - title: Loading
+      url: /ui-patterns/loading
     - title: Messaging
       url: /ui-patterns/messaging
     - title: Progressive disclosure
