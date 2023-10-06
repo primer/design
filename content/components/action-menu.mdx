@@ -9,6 +9,7 @@ description: Action menu is composed of action list and overlay patterns used fo
 import {Box, Button, Heading, Link} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <Note>
   Looking for <a href="/guides/contribute">contributors</a> to add submenus to the React and Rails implementation, as
@@ -157,7 +158,7 @@ The focus should always remain on menu items, and therefore the menu shouldn't i
       src="https://user-images.githubusercontent.com/980622/234083619-40ebf8b6-6194-4e66-a7e8-597ee43f9ed8.png"
     />
     <Caption>
-      Don't add form controls like a filterable input, use <a href="/components/selectpanel">SelectPanel</a> instead.
+      Don't add form controls like a filterable input, use [select panel](/components/selectpanel) instead.
     </Caption>
   </Dont>
 </DoDontContainer>
@@ -473,6 +474,10 @@ See [focus management](/guides/accessibility/focus-management) for more informat
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>End</Box>        | Move focus to last item                                         |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageDown</Box>   | Move focus to last item                                         |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Esc</Box>        | Close menu                                                      |
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="ActionMenu"/>
 
 ## Related components
 

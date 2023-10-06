@@ -11,6 +11,7 @@ figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=2036
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 import {Box} from '@primer/react'
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <img
   width="960"
@@ -95,6 +96,10 @@ If we assume that the `sr-only` class is used to only hide the element visually,
 ### Keyboard navigation
 
 Each link in the tab nav should be a single Tab stop. The arrow keys should not move focus between tabs or activate tabs.
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="TabNav"/>
 
 ## Related links
 

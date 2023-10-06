@@ -9,6 +9,7 @@ figmaId: radio
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 ## Usage
 
@@ -32,6 +33,12 @@ Radio buttons have static dimensions and three different states when checked or 
 - Radio buttons cannot be unchecked, so only use radio buttons when a selection is required
 - An individual radio should not have its own validation message or style. Instead, show a validation message on the [radio group](/components/radio-group). For more information, see the [Validation Message](../ui-patterns/forms/overview#validation) section in the Forms documentation.
 - An individual radio button cannot be marked as required. Instead, make a selection required using the [radio group](/components/radio-group). For more information, see the [Required field indicator](../ui-patterns/forms/overview#required-field-indicator) in the Forms documentation.
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Radio"/>
 
 ## Related links
 

@@ -2,7 +2,10 @@ import * as path from 'path'
 import * as fs from 'fs'
 import * as defines from './babel-defines'
 import fetch from 'node-fetch'
+import GithubSlugger from 'github-slugger'
 import { latestStatusFrom } from './src/rails-status'
+import { Octokit } from '@octokit/rest'
+import JSZip from 'jszip'
 
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
   const config = getConfig()
@@ -32,6 +35,141 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   await sourcePrimerRailsData({actions, createNodeId, createContentDigest})
   await sourceOcticonData({actions, createNodeId, createContentDigest})
   await sourceFigmaData({actions, createNodeId, createContentDigest})
+  await sourceDotcomSharedComponentsData({actions, createNodeId, createContentDigest})
+}
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type SharedComponent implements Node {
+      component: String!
+      storyIds: [String!]
+      status: String!
+      path: String!
+    }
+  `
+  createTypes(typeDefs)
+}
+
+async function sourceDotcomSharedComponentsData({actions, createNodeId, createContentDigest}) {
+  const sharedComponents = await getSharedComponentsData()
+  const slugger = new GithubSlugger()
+
+  for (const sharedComponent of sharedComponents) {
+    const {component: name} = sharedComponent
+
+    const newNode = {
+      component: sharedComponent.component,
+      storyIds: sharedComponent.storyIds,
+      status: sharedComponent.meta.status,
+      path: sharedComponent.meta.path,
+      id: createNodeId(`dotcom-shared-${name}`),
+      internal: {
+        type: 'SharedComponent',
+        contentDigest: createContentDigest(sharedComponent),
+      },
+    }
+
+    actions.createNode(newNode)
+
+    const sharedComponentsPath = '/github-staff/github-shared-components'
+    const componentPath = `${sharedComponentsPath}/${slugger.slug(name)}`
+
+    actions.createRedirect({
+      fromPath: componentPath,
+      toPath: `${sharedComponentsPath}#${name[0].toLowerCase()}`,
+      redirectInBrowser: true,
+      force: true
+    })
+
+    const searchDoc = {
+      title: name,
+      path: componentPath,
+      rawBody: name
+    }
+
+    const searchNode = {
+      ...searchDoc,
+      id: createNodeId(`shared-component-search-doc-${name}`),
+      internal: {
+        type: 'CustomSearchDoc',
+        contentDigest: createContentDigest(searchDoc)
+      }
+    }
+
+    actions.createNode(searchNode)
+  }
+}
+
+async function getSharedComponentsData() {
+  if (!process.env.GITHUB_TOKEN) {
+    console.log('No GITHUB_TOKEN in environment, falling back to using recipe_metadata.json')
+    return JSON.parse(fs.readFileSync('recipe_metadata.json', 'utf8'))
+  }
+
+  const client = new Octokit({
+    auth: process.env.GITHUB_TOKEN
+  })
+
+  console.log('Listing dotcom workflow runs...')
+
+  const workflowRuns = await client.rest.actions.listWorkflowRuns({
+    owner: 'github',
+    repo: 'github',
+    workflow_id: 'preview-pages-build.yml',
+    branch: 'master',
+    status: 'success',
+    per_page: 1
+  })
+
+  if (workflowRuns.data.workflow_runs.length == 0) {
+    console.log('No workflow runs found 🤔')
+    return
+  }
+
+  const workflowRunId = workflowRuns.data.workflow_runs[0].id
+  console.log(`Workflow run ${workflowRunId} found`)
+
+  console.log('Listing workflow run artifacts...')
+  const artifacts = await client.rest.actions.listWorkflowRunArtifacts({
+    owner: 'github',
+    repo: 'github',
+    run_id: workflowRunId
+  })
+
+  const artifactId = (() => {
+    for (const artifact of artifacts.data.artifacts) {
+      if (artifact.name == 'recipe-metadata') {
+        return artifact.id
+      }
+    }
+
+    return null
+  })()
+
+  if (artifactId) {
+    console.log(`Found artifact ${artifactId}`)
+  } else {
+    console.log('No artifacts found for workflow run 🤯')
+    return
+  }
+
+  console.log('Downloading artifact...')
+  const artifactContents = await client.rest.actions.downloadArtifact({
+    owner: 'github',
+    repo: 'github',
+    artifact_id: artifactId,
+    archive_format: 'zip'
+  })
+
+  console.log('Extracting artifact...')
+
+  const zip = new JSZip();
+  const zipData = await zip.loadAsync(artifactContents.data)
+  const manifestRaw = await zipData.file('recipe_metadata.json').async('string')
+  const manifest = JSON.parse(manifestRaw)
+
+  return manifest
 }
 
 async function sourcePrimerRailsData({actions, createNodeId, createContentDigest}) {

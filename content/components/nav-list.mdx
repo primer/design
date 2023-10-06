@@ -4,10 +4,12 @@ description: Nav list renders a vertical list of navigation links.
 reactId: nav_list
 railsIds:
 - Primer::Alpha::NavList
+- Primer::Beta::NavList
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <img
   width="960"
@@ -138,6 +140,10 @@ Do not replace your NavList with a [tree view](/components/tree-view) to support
 Nav lists should always be labeled for assistive technologies, even if the label is visually hidden.
 
 Nav list items are links, so they should never contain buttons or other clickable elements.
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="NavList"/>
 
 ## Related links
 

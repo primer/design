@@ -9,6 +9,7 @@ figmaId: branch_name
 import {Box, Text} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <img
   width="960"
@@ -41,3 +42,9 @@ Branch name is rendered as a link by default. You can also represent the branch 
   alt="An image showing a branch name component as a link and a branch name component as plain text."
   src="https://user-images.githubusercontent.com/586552/204637507-08c61b68-c474-4d64-9d64-91bf46fcff42.png"
 />
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="BranchName"/>

@@ -10,6 +10,7 @@ componentId: relative_time
 import {Box} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 ## Overview
 
@@ -183,3 +184,7 @@ Any part of the time can be rendered with or without a leading zero.
 ## Accessibility
 
 A relative date is treated like a [time](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) element. It contains a [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title) showing the precise localised date.
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="RelativeTime"/>

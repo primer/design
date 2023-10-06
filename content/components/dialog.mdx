@@ -5,14 +5,14 @@ description:
   more.
 reactId: dialog
 railsIds:
-- Primer::Alpha::Dialog
+  - Primer::Alpha::Dialog
 figmaId: dialog
 rails: https://primer.style/view-components/components/alpha/dialog
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
-
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 import {Box} from '@primer/react'
 import {Caption} from '@primer/gatsby-theme-doctocat'
 
@@ -255,6 +255,12 @@ If the answer is yes, designing the feature inside a dialog provides an easy way
   </Dont>
 </DoDontContainer>
 
+### Nested dialogs
+
+It is acceptable to have up to two nested dialogs as long as the dialog is implemented with [expected focus management behavior](#trigger-elements-and-keyboard-focus). Upon closing the second nested dialog, focus should return to the trigger control within the first dialog. When the two stacked dialogs are open, pressing `Esc` should only close the top-level dialog. When one clicks outside of the second dialog with a mouse, only the second dialog should close.
+
+However, having more than three nested dialogs is discouraged because it adds unnecessary complexity to the user experience and can be disorienting for some users.
+
 ### Deep linking
 
 It's crucial to consider if the dialog should be accessible via a link. For instance, if our users intend to link to this specific content from outside GitHub.
@@ -346,7 +352,9 @@ This consideration is essential for maximizing productivity.
   </Do>
   <Dont>
     <img width="464" alt="" src="https://github.com/primer/design/assets/980622/df59604f-c459-4aff-8db7-3e23000c91ac" />
-    <Caption>Unless it's a global action, avoid side sheets in pages where content does not stretch the full width of the page.</Caption>
+    <Caption>
+      Unless it's a global action, avoid side sheets in pages where content does not stretch the full width of the page.
+    </Caption>
   </Dont>
 </DoDontContainer>
 
@@ -429,3 +437,7 @@ When a dialog is opened, the first interactive element (typically the close butt
   src="https://user-images.githubusercontent.com/18661030/185997276-25cd8796-42e2-41f6-b5be-551f6a02349b.png"
 />
 <Caption>When a dialog is closed, focus is returned to the trigger button.</Caption>
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Dialog"/>

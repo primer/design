@@ -8,6 +8,7 @@ railsIds:
 
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <img
   width="960"
@@ -55,6 +56,10 @@ A vertical orientation makes options easier to visually scan. A horizontal orien
 - Once a user checks an option from a radio group, the result should not be saved or applied until the user has explicitly submitted their input using a "save" or "submit" button. A radio group is a single tab stop, and the options can be navigated using the arrow keys: this means assistive technologies like a screen reader cannot "read" an option without selecting it. See the [saving pattern guidelines](../ui-patterns/saving) for more information.
   - Alternative: you can use a [segmented control](/components/segmented-control) to immediately apply the selection as long as it's not in the context of a bigger form that applies other input values when submited
 - Radio groups must be labeled. The label may be visually hidden, but visible labels are preferred.
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="RadioGroup"/>
 
 ## Related links
 

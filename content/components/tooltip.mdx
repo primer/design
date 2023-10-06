@@ -12,6 +12,7 @@ import ComponentLayout from '~/src/layouts/component-layout'
 import {Link, Text, Box} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 <Note variant="danger">
   <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>⚠️ Usage Warning ⚠️</Text>
@@ -238,6 +239,13 @@ If you are unsure which alternative is more suited to your scenario and need hel
 
 ## Additional resources
 
+
 - [Your tooltips are bogus](https://heydonworks.com/article/your-tooltips-are-bogus/)
 - [erb lint rule: NoAriaLabelMisuseCounter](https://github.com/github/erblint-github/blob/main/docs/rules/accessibility/no-aria-label-misuse-counter.md#no-aria-label-misuse-counter)
 - [Rails tooltip linter](https://github.com/primer/view_components/blob/main/lib/primer/view_components/linters/tooltipped_migration.rb)
+
+
+### Known accessibility issues
+
+ <AccessibilityLink label="tooltip"/>
+

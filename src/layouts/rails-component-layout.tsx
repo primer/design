@@ -189,12 +189,12 @@ function RailsComponentMethods({methods}) {
   }
 }
 
-function RailsComponentPreviews({previews, showPreviews}) {
+function RailsComponentPreviews({railsId, previews, showPreviews}) {
   if (showPreviews && previews.length > 0) {
     return (
       <>
         <H2>Examples</H2>
-        <LookbookEmbed height={300} previews={previews} />
+        <LookbookEmbed railsId={railsId} />
       </>
     )
   } else {
@@ -221,7 +221,7 @@ function RailsComponent({data, showPreviews}) {
   return (
     <>
       <RailsComponentArguments props={props} />
-      <RailsComponentPreviews previews={previews} showPreviews={showPreviews} />
+      <RailsComponentPreviews railsId= {data.railsId} previews={previews} showPreviews={showPreviews} />
       <RailsComponentSlots slots={slots} />
       <RailsComponentMethods methods={methods} />
     </>
@@ -297,7 +297,7 @@ export default function RailsComponentLayout({data}) {
                 <H2>{subcomponent.name}</H2>
                 {/* @ts-ignore */}
                 <RailsMarkdown text={subcomponent.description} />
-                <RailsComponent {...{data: subcomponent, showPreviews: false, parentRailsId: railsId}} />
+                <RailsComponent {...{data: subcomponent, showPreviews: false}} />
               </>
             )
           })}
@@ -341,7 +341,7 @@ export default function RailsComponentLayout({data}) {
               </Heading>
               <TableOfContents aria-labelledby="toc-heading" items={tableOfContents.items} />
             </Box>
-            <Box sx={{'flexGrow': 1}}>
+            <Box sx={{'flexGrow': 1, minWidth: 0}}>
               <Box sx={{display: 'flex', gap: 2, mb: 4}}>
                 <Label size="large">v{data.primerRailsVersion.version}</Label>
                 <StatusLabel status={sentenceCase(status)} />
@@ -409,53 +409,55 @@ function PropsTable({
   }
 
   return (
-    <Table>
-      <colgroup>
-        <col style={{width: '25%'}} />
-        <col style={{width: '15%'}} />
-        <col style={{width: '60%'}} />
-      </colgroup>
-      <thead>
-        <tr>
-          <th align="left">Name</th>
-          <th align="left">Default</th>
-          <th align="left">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        {props.map(prop => (
-          <tr key={prop.name}>
-            <td valign="top">
-              <Box sx={{display: 'flex', gap: 2, alignItems: 'center'}}>
-                <Text sx={{fontFamily: 'mono', fontSize: 1, whiteSpace: 'nowrap'}}>{prop.name}</Text>
-              </Box>
-            </td>
-            <td valign="top">
-              {prop.default ? <RailsMarkdown text={prop.default} /> : null}
-            </td>
-            <td>
-              <InlineCode>{prop.type}</InlineCode>
-              <Box
-                sx={{
-                  '&:not(:empty)': {
-                    mt: 2,
-                  },
-                  color: 'fg.muted',
-                  '& > :first-child': {
-                    mt: 0,
-                  },
-                  '& > :last-child': {
-                    mb: 0,
-                  },
-                }}
-              >
-                {/* @ts-ignore */}
-                <RailsMarkdown text={prop.description} />
-              </Box>
-            </td>
+    <Box sx={{overflow: 'auto'}}>
+      <Table>
+        <colgroup>
+          <col style={{width: '25%'}} />
+          <col style={{width: '15%'}} />
+          <col style={{width: '60%'}} />
+        </colgroup>
+        <thead>
+          <tr>
+            <th align="left">Name</th>
+            <th align="left">Default</th>
+            <th align="left">Description</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+        <tbody>
+          {props.map(prop => (
+            <tr key={prop.name}>
+              <td valign="top">
+                <Box sx={{display: 'flex', gap: 2, alignItems: 'center'}}>
+                  <Text sx={{fontFamily: 'mono', fontSize: 1, whiteSpace: 'nowrap'}}>{prop.name}</Text>
+                </Box>
+              </td>
+              <td valign="top">
+                {prop.default ? <RailsMarkdown text={prop.default} /> : null}
+              </td>
+              <td>
+                <InlineCode>{prop.type}</InlineCode>
+                <Box
+                  sx={{
+                    '&:not(:empty)': {
+                      mt: 2,
+                    },
+                    color: 'fg.muted',
+                    '& > :first-child': {
+                      mt: 0,
+                    },
+                    '& > :last-child': {
+                      mb: 0,
+                    },
+                  }}
+                >
+                  {/* @ts-ignore */}
+                  <RailsMarkdown text={prop.description} />
+                </Box>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </Box>
   )
 }
