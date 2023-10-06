@@ -55,28 +55,6 @@ export default ComponentLayout
   </Dont>
 </DoDontContainer>
 
-<DoDontContainer>
-  <Do>
-    <img
-      width="800"
-      alt=""
-      src="https://github.com/primer/primitives/assets/18661030/d5528bb1-cf2e-41f6-b029-d861fb28375b"
-    />
-    <Caption>Do use tooltips for icon buttons that serve unique purposes</Caption>
-  </Do>
-  <Dont>
-    <img
-      width="800"
-      alt=""
-      src="https://github.com/primer/primitives/assets/18661030/9713ad8b-9f52-44fd-8b46-06d5151b813f"
-    />
-    <Caption>
-      Don’t use tooltips for icon buttons that appear in a group of other controls which share the same functionality,
-      such as opening a context menu.
-    </Caption>
-  </Dont>
-</DoDontContainer>
-
 ## Options
 
 ### Label
@@ -94,8 +72,9 @@ export default ComponentLayout
     src="https://github.com/primer/design/assets/18661030/b06d4fc2-d4e6-482d-a9b9-05eb866ce3e1"
   />
   <Box as="p" mt="0">
-    For interactive controls with no visible text label, a tooltip can be used to provide one. This label should be
-    short and descriptive just as you would for a button with visible text.
+    For interactive controls with no visible text label such as an icon button, a tooltip can be used to provide one.
+    This label should be short and descriptive just as you would for a button with visible text. The `label` serves as
+    the accessible name for the control utilitizing `aria-labelledby` under the hood.
   </Box>
 </Box>
 
@@ -116,7 +95,8 @@ export default ComponentLayout
   <Box as="p" mt="0">
     For interactive controls that require additional context, a tooltip can be used to provide it. The `label` is also
     required, and the description will be announced to a screen reader in addition to the label. Keep the description
-    short and descriptive.
+    short and descriptive. The `description` is intended to supplement the control's label by utilitizing
+    `aria-describedby` under the hood.
   </Box>
 </Box>
 
