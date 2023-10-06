@@ -19,7 +19,8 @@ import {AccessibilityLink} from '~/src/components/accessibility-link'
   <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>⚠️ Usage Warning ⚠️</Text>
   <Text>
     Tooltips as a UI pattern should be the last resort for conveying information as they are hidden by default and often
-    with zero or little visual indicator of its existence. See [tooltip alternatives](___) before using this component.
+    with zero or little visual indicator of its existence. See{' '}
+    <Link href="#alternatives-to-tooltips">tooltip alternatives</Link> before using this component.
   </Text>
 </Note>
 
@@ -45,7 +46,7 @@ import {AccessibilityLink} from '~/src/components/accessibility-link'
       alt="Icon buttons with tooltips for edit, favorite, and sponsor"
       src="https://github.com/primer/primitives/assets/18661030/e9f86af8-3792-4794-af68-ad0efccd8bc8"
     />
-    <Caption>Use a tooltip to on an icon button to help convey the purpose of the action</Caption>
+    <Caption>Use a tooltip on an icon button to help convey the purpose of the action</Caption>
   </Do>
   <Dont>
     <img
@@ -74,15 +75,15 @@ import {AccessibilityLink} from '~/src/components/accessibility-link'
     src="https://github.com/primer/design/assets/18661030/b06d4fc2-d4e6-482d-a9b9-05eb866ce3e1"
   />
   <Box as="p" mt="0">
-    For interactive controls with no visible text label such as an icon button, a tooltip can be used to provide one.
-    This label should be short and descriptive just as you would for a button with visible text. The `label` serves as
-    the accessible name for the control utilitizing `aria-labelledby` under the hood.
+    Icon buttons have a visually hidden label utilizing `aria-label`. To instead display that label in a tooltip, the
+    `label` option should be used. The `label` serves as the accessible name for the control utilitizing
+    `aria-labelledby` under the hood.
   </Box>
 </Box>
 
 ### Description
 
-The `description` is intended to supplement the control's text label by utilitizing `aria-describedby` under the hood, and will be announced to a screen reader in addition to the label. Keep the description short and descriptive.
+The `description` is intended to supplement the control's text label by utilitizing `aria-describedby` under the hood, and will be announced to a screen reader in addition to the label. Keep the description short and concise.
 
 #### Icon button with visually hidden label
 
@@ -99,8 +100,8 @@ The `description` is intended to supplement the control's text label by utilitiz
     src="https://github.com/primer/design/assets/18661030/2d0cd085-2454-406e-8c99-bc8bd3dd20db"
   />
   <Box as="p" mt="0">
-    Icon buttons have a visually hidden label utilizing `aria-label`. To instead display that label in a tooltip, the
-    `label` option should be used.
+    Icon buttons have a visually hidden label utilizing `aria-label`. To provide context in addition to the visually
+    hidden label, use the `description` option.
   </Box>
 </Box>
 
@@ -119,7 +120,7 @@ The `description` is intended to supplement the control's text label by utilitiz
     src="https://github.com/primer/design/assets/18661030/a85cc241-c194-498d-b6ad-8e973fd18aca"
   />
   <Box as="p" mt="0">
-    For buttons that have a visible label, the `description` option can be used to provide additional context.
+    For buttons that have a visible label, the `description` option can also be used to provide additional context.
   </Box>
 </Box>
 
@@ -245,7 +246,5 @@ If you are unsure which alternative is more suited to your scenario and need hel
 - [Rails tooltip linter](https://github.com/primer/view_components/blob/main/lib/primer/view_components/linters/tooltipped_migration.rb)
 
 ### Known accessibility issues
-
-{' '}
 
 <AccessibilityLink label="tooltip" />
