@@ -80,6 +80,10 @@ export default ComponentLayout
 
 ### Description
 
+The `description` is intended to supplement the control's text label by utilitizing `aria-describedby` under the hood, and will be announced to a screen reader in addition to the label. Keep the description short and descriptive.
+
+#### Icon button with visually hidden label
+
 <Box
   mb={3}
   display="flex"
@@ -93,10 +97,27 @@ export default ComponentLayout
     src="https://github.com/primer/design/assets/18661030/2d0cd085-2454-406e-8c99-bc8bd3dd20db"
   />
   <Box as="p" mt="0">
-    For interactive controls that require additional context, a tooltip can be used to provide it. The `label` is also
-    required, and the description will be announced to a screen reader in addition to the label. Keep the description
-    short and descriptive. The `description` is intended to supplement the control's label by utilitizing
-    `aria-describedby` under the hood.
+    Icon buttons have a visually hidden label utilizing `aria-label`. To instead display that label in a tooltip, the
+    `label` option should be used.
+  </Box>
+</Box>
+
+#### Button with visible label
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="Button labeled Notifications with tooltip as a description"
+    src="https://github.com/primer/design/assets/18661030/a85cc241-c194-498d-b6ad-8e973fd18aca"
+  />
+  <Box as="p" mt="0">
+    For buttons that have a visible label, the `description` option can be used to provide additional context.
   </Box>
 </Box>
 
@@ -219,3 +240,4 @@ If you are unsure which alternative is more suited to your scenario and need hel
 
 - [Your tooltips are bogus](https://heydonworks.com/article/your-tooltips-are-bogus/)
 - [erb lint rule: NoAriaLabelMisuseCounter](https://github.com/github/erblint-github/blob/main/docs/rules/accessibility/no-aria-label-misuse-counter.md#no-aria-label-misuse-counter)
+- [Rails tooltip linter](https://github.com/primer/view_components/blob/main/lib/primer/view_components/linters/tooltipped_migration.rb)
