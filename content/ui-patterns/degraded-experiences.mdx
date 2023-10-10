@@ -54,69 +54,7 @@ In addition to a global banner, we should inform users about availability issues
 
 ## Degraded page content
 
-If part of the UI cannot be rendered or would be rendered without critical information, default to not rendering it at all.
-
 Before making a decision about how to handle UI with unavailable content, check if it already has guidelines on handling errors or empty states.
-
-### Removing UI
-
-You can remove the affected UI if it's not critical to core workflows and it wouldn't be confusing to render the rest of the page without that UI. For example: it's ok to hide the reactions button.
-
-Examples of UI that might be disorienting to remove:
-
-- The comment box on issues and pull requests
-- The "Request changes" button in the pull request "Changes" tab
-- Submit buttons on forms
-
-<Box
-  mb={3}
-  display="flex"
-  alignItems="flex-start"
-  justifyContent="space-between"
-  flexDirection={['column', 'column', 'column', 'column', 'row']}
-  sx={{gap: 3}}
->
-
-<div>
-
-#### Handling unavailable counts
-
-When the data required to calculate a count is unavailable, default to hiding the number. If the count is shown inside of an interactive element, a tooltip may be displayed on focus and hover to explain the missing count.
-
-</div>
-
-<img
-  width="456"
-  alt="Two images of repo tabs: 1. Tabs have counts; 2. Tabs don't have counts;"
-  src="https://github.com/primer/design/assets/2313998/0f368a1d-78fa-4ec4-92ab-7f587fb93a7e"
-/>
-
-</Box>
-
-<Box
-  mb={3}
-  display="flex"
-  alignItems="flex-start"
-  justifyContent="space-between"
-  flexDirection={['column', 'column', 'column', 'column', 'row']}
-  sx={{gap: 3}}
->
-
-<div>
-
-#### Handling activity indicators
-
-When the data is unavailable to determine whether to show an activity indicator (most commonly used for notification badges), default to hiding the indicator.
-
-</div>
-
-<img
-  width="456"
-  alt="Image of the notification link button in the global nav without a badge"
-  src="https://github.com/primer/design/assets/2313998/4f39547c-749b-4e44-a15f-05d18a1dc0c1"
-/>
-
-</Box>
 
 ### Replacing UI with a message
 
@@ -192,6 +130,68 @@ If you're not using a component that supports error states, replace the content 
   alt="Two images: 1. 'Edit details' modal that appears when you edit a column in a Memex project board 2. A degraded versin of that"
   src="https://github.com/primer/design/assets/2313998/bde4367e-8881-41f5-9d06-a2ea5cd79fd6"
 />
+
+### Removing UI
+
+Be careful about choosing to remove affected UI without explanation. This could cause users to be confused about whether that part of the UI is hidden due to an error, or if it's been permanently removed.
+
+However, you may remove UI that's not critical to core workflows and it wouldn't be confusing to render the rest of the page without that UI. For example: it's ok to hide unavailable activity indicators.
+
+Examples of UI that would be disorienting to remove:
+
+- The comment box on issues and pull requests
+- The "Request changes" button in the pull request "Changes" tab
+- Submit buttons on forms
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+#### Handling unavailable counts
+
+When the data required to calculate a count is unavailable, default to hiding the number. If the count is shown inside of an interactive element, a tooltip may be displayed on focus and hover to explain the missing count.
+
+</div>
+
+<img
+  width="456"
+  alt="Two images of repo tabs: 1. Tabs have counts; 2. Tabs don't have counts;"
+  src="https://github.com/primer/design/assets/2313998/0f368a1d-78fa-4ec4-92ab-7f587fb93a7e"
+/>
+
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+#### Handling activity indicators
+
+When the data is unavailable to determine whether to show an activity indicator (most commonly used for notification badges), default to hiding the indicator.
+
+</div>
+
+<img
+  width="456"
+  alt="Image of the notification link button in the global nav without a badge"
+  src="https://github.com/primer/design/assets/2313998/4f39547c-749b-4e44-a15f-05d18a1dc0c1"
+/>
+
+</Box>
 
 ## Degraded navigation
 
