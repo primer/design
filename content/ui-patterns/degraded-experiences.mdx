@@ -58,13 +58,13 @@ Before making a decision about how to handle UI with unavailable content, check 
 
 ### Replacing UI with a message
 
+We don't want users to think they've suffered data loss. If we know a user created something, don't show a generic "empty state". It's better to explain that it's unavailable, or remove the entire section from the page (including the section's heading). For example, I might think my repositories were deleted if I'm on an organization page (like [https://github.com/primer/](https://github.com/primer/)) and the repositories aren't listed there.
+
 <img
   width="960"
   alt="A screenshot of the Primer organization page. The repositories list is replaced with a message informing the user that the repositories are temporarily unavailable."
   src="https://github.com/primer/design/assets/2313998/3a2ce19a-2699-483a-a967-5b2e7e3d86d8"
 />
-
-We don't want users to think they've suffered data loss. If we know a user created something, don't show a generic "empty state". It's better to explain that it's unavailable, or remove the entire section from the page (including the section's heading). For example, I might think my repositories were deleted if I'm on an organization page (like [https://github.com/primer/](https://github.com/primer/)) and the repositories aren't listed there.
 
 Ideally we can strike a balance and give the user just the right amount of context without overwhelming them with error messages. A page with too many error messages could communicate an unnecessarily reactionary and negative tone. As a general guideline, we suggest limiting pages to 5 or less outage messages.
 
