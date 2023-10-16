@@ -48,7 +48,7 @@
           url: /guides/accessibility/semantic-html
         - title: Text resize and respacing
           url: /guides/accessibility/text-resize-and-respacing
-        - title: Tooltip alternatives
+        - title: Tooltips
           url: /guides/accessibility/tooltip-alternatives
     - title: Contribute
       url: /guides/contribute
@@ -124,6 +124,8 @@
       url: /ui-patterns/feature-onboarding
     - title: Forms
       url: /ui-patterns/forms/overview
+    - title: Loading
+      url: /ui-patterns/loading
     - title: Messaging
       url: /ui-patterns/messaging
     - title: Progressive disclosure

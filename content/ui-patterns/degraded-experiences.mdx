@@ -242,91 +242,6 @@ If we know specifically what groups couldn't be loaded, provide those details in
 
 </Box>
 
-<>{/*<!-- TODO: Move the following examples to loading state guidelines --><!-- START examples to loading state guidelines -->*/}</>
-
-#### Sequential and related groups of navigation items
-
-<img
-  width="960"
-  alt="3 images. 1. Repos and teams loading; 2: Repos and teams both failed; 3: Repos and teams both succeeded"
-  src="https://github.com/primer/design/assets/2313998/ba52e203-a0fa-4a55-a592-f436ffc2fda3"
-/>
-
-If sequential groups or navigation links are unable to load, replace both groups with a single loading indicator and a single error message above the [nav list](components/nav-list).
-
-#### Non-sequential groups of navigation items
-
-<img
-  width="960"
-  alt="3 images. 1. Repos, teams, and organizations loading; 2: Repos and teams both failed; 3: All groups succeeded"
-  src="https://github.com/primer/design/assets/2313998/14cbb97d-ebd2-44ca-b434-56454c9f6d47"
-/>
-
-<Note>
-  This example is for demonstration purposes only. At the time these guidelines were written, there is no
-  "Organizations" group, and teams and repositories data are loaded via a single controller.
-</Note>
-
-If non-sequential groups of navigation links are in a loading state, preserve the group headings and replace the contents of each group with a single loading indicator. If loading fails, show a single error message above the [nav list](components/nav-list).
-
-### Individual navigation items
-
-<img
-  width="960"
-  alt="3 images. 1. Some items in right side-sheet are loading; 2: Some items in right side-sheet failed; 3: All items in right side-sheet succeeded"
-  src="https://github.com/primer/design/assets/2313998/1b619fa0-0870-4356-a5a6-78519a36f539"
-/>
-
-If some links in the right side sheet cannot be loaded, default to showing each [nav list](components/nav-list) item in an inert state. The users should still be able to hover, click, and focus inert items, but they don't link to anywhere. Optionally, a tooltip may be displayed explaining that the navigation item is unavailable. An error banner is not necessary for this case.
-
-<Box
-  mb={3}
-  display="flex"
-  alignItems="flex-start"
-  justifyContent="space-between"
-  flexDirection={['column', 'column', 'column', 'column', 'row']}
-  sx={{gap: 3}}
->
-
-<div>
-
-If we don't know specifically which links failed to load (for example, some users will never see the "Your enterprises" link), then hide the links and show a generic error message above the [nav list](components/nav-list).
-
-</div>
-
-<img
-  width="456"
-  alt="Generic error banner with hidden items"
-  src="https://github.com/primer/design/assets/2313998/a6275e1c-72b8-49b0-a9cf-689ec763a000"
-/>
-
-</Box>
-
-<Box
-  mb={3}
-  display="flex"
-  alignItems="flex-start"
-  justifyContent="space-between"
-  flexDirection={['column', 'column', 'column', 'column', 'row']}
-  sx={{gap: 3}}
->
-
-<div>
-
-Default to replacing each loading navigation item with the item in a loading state. If we know what the link's label is, show it. If we don't know what the link's label is, show generic loading text in its place.
-
-</div>
-
-<img
-  width="456"
-  alt="3 images: 1. Loading unknown labels; 2. Loading known labels; 3. Success"
-  src="https://github.com/primer/design/assets/2313998/d82dec1a-0eb0-4577-a7d4-091dda395f5d"
-/>
-
-</Box>
-
-<>{/*<!-- END examples to loading state guidelines -->*/}</>
-
 #### Degraded side sheet group actions
 
 <img
@@ -510,11 +425,9 @@ If only some of the form field data cannot be read, disable the affected fields 
 />
 </Box>
 
-<>
-{/*<!-- TODO: un-comment this when in loading guidelines PR -->*/}
-{/*<!-- ## Waiting for a timeout -->*/}
-{/*<!-- There could be cases where we're waiting for data to load before determining that it's unavailable. In this case, refer to Primer's general [loading state guidance](/ui-patterns/loading) or the component-specific loading state guidelines (if the component has loading states). -->*/}
-</>
+## Waiting for a timeout
+
+There could be cases where we're waiting for data to load before determining that it's unavailable. In this case, refer to Primer's general [loading state guidance](/ui-patterns/loading). If the component has its own loading state guidelines, refer to those.
 
 ## CLI
 
@@ -531,5 +444,6 @@ A common (but inaccessible) pattern is to show a tooltip with more information w
 - [Blankslate](/components/blankslate)
 - [Dialog](/components/dialog)
 - [Tooltip](/components/tooltip)
+- [Loading](/ui-patterns/loading)
 - [Messaging](/ui-patterns/messaging)
 - [Empty states](/ui-patterns/empty-states)
