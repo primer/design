@@ -3,6 +3,10 @@ title: Foundations
 description: Design concepts and constraints that can help create a better mobile experiences for GitHub.
 ---
 
+import ScrollToAnchor from '~/src/components/scroll-to-anchor'
+
+<ScrollToAnchor />
+
 ## Spacing and layout
 
 In general, our apps conform to an 8-point grid layout. However, we defer many component sizes, spacings, and layouts to the platform (iOS + Android) in order to let them deal with cross-device responsiveness, tablet transformations, and OS accessibility settings. When designing custom components, make sure elements are spaced and aligned to an 8-point grid (half-steps of 4pts are included).
