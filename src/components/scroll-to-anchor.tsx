@@ -8,38 +8,22 @@ import React, { useEffect } from "react"
  */
 export default function ScrollToAnchor() {
   useEffect(() => {
-    const onPageLoad = () => {
-      // wait for browser to finish laying things out
-      setTimeout(() => {
-        const url = new URL(window.location.href)
+    const url = new URL(window.location.href)
 
-        // only do our thing if the URL doesn't have a hash already
-        if (url.hash.length === 0) {
-          const anchor = url.searchParams.get('anchor')
+    // only do our thing if the URL doesn't have a hash already
+    if (url.hash.length === 0) {
+      const anchor = url.searchParams.get('anchor')
 
-          if (anchor) {
-            // alter the URL by converting the anchor query param into
-            // a hash
-            url.searchParams.delete('anchor')
-            url.hash = `#${anchor}`
-            window.history.pushState(null, "", url)
-            document.querySelector(`#${anchor}`)?.scrollIntoView()
-          }
-        }
-      }, 500)
-    }
-
-    // check if the page has already loaded
-    if (document.readyState === 'complete') {
-      onPageLoad()
-    } else {
-      window.addEventListener('load', onPageLoad)
-      // remove the event listener when component unmounts
-      return () => window.removeEventListener('load', onPageLoad)
+      if (anchor) {
+        // alter the URL by converting the anchor query param into
+        // a hash
+        url.searchParams.delete('anchor')
+        url.hash = `#${anchor}`
+        window.history.pushState(null, "", url)
+        document.querySelector(`#${anchor}`)?.scrollIntoView()
+      }
     }
   }, [])
 
-  return (
-    <></>
-  )
+  return null
 }
