@@ -123,7 +123,7 @@ When the data is unavailable to determine whether to show an activity indicator 
 <img
   width="960"
   alt="A screenshot of the Primer organization page. The repositories list is replaced with a message informing the user that the repositories are temporarily unavailable."
-  src="https://github.com/primer/design/assets/2313998/3a2ce19a-2699-483a-a967-5b2e7e3d86d8"
+  src="https://github.com/primer/design/assets/2313998/086d37cf-0794-4b87-ba88-e99fb6bcba73"
 />
 
 We don't want users to think they've suffered data loss. If we know a user created something, don't show a generic "empty state". It's better to explain that it's unavailable, or remove the entire section from the page (including the section's heading). For example, I might think my repositories were deleted if I'm on an organization page (like [https://github.com/primer/](https://github.com/primer/)) and the repositories aren't listed there.
@@ -172,6 +172,29 @@ Be mindful that rendering too many error messages on the page in `fg.warning` co
 />
 
 If the affected area is large enough, replace the affected UI with a [blankstate](/components/blankslate) component that explains why the expected UI isn't there.
+
+##### Blankslate guidance for degraded content
+
+<img
+  width="960"
+  alt="A diagram of a blankslate component used to notify users of unavailable data. The labeled parts are: 'Leading visual (required)', 'Primary text', 'Secondary text (required)', and 'Secondary action'"
+  src="https://github.com/primer/design/assets/2313998/fd1b78f5-4c03-4ce7-9b72-a61c2496c364"
+/>
+
+- **Leading visual**: Use the [alert icon](https://primer.style/design/foundations/icons/alert-24). Default to using `fgColor-muted` as the fill color. Using `fgColor-attention` could be too harsh and over-emphasize the error. Reference: [Primer Primitives functional colors](https://primer.style/primitives/storybook/?path=/story/color-functional-all--all).
+- **Primary text**: You may optionally use the primary text for a title that succinctly describes the error.
+- **Secondary text**: Use the secondary text to describe what's wrong and how (or if) the user can do anything to get around the issue.
+- **Secondary action**: Use the secondary action for any action or link to places with more information.
+
+We have yet to identify a case where a primary action would be appropriate. Theoretically, a primary action may be appropriate if it initiates an action that will resolve the problem.
+
+For help with writing error copy for the blankslate component, see the following parts of the empty state guidelines:
+
+- [Error state content and copy](/ui-patterns/empty-states#error-states)
+- [Empty state primary text](/ui-patterns/empty-states#primary-text)
+- [Empty state secondary text](/ui-patterns/empty-states#for-errors)
+
+For more information about the blankslate component, reference the [blankslate interface guidelines](/components/blankslate).
 
 #### Dialogs (modal and non-modal)
 
