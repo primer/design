@@ -10,6 +10,7 @@ jobs:
         id: link-report
         uses: celinekurpershoek/link-checker@v1.0.2
         with:
-          url: "https://primer.style"
+          url: "https://primer.style/"
+          recursiveLinks: true
       - name: Get the result
         run: echo "${{steps.link-report.outputs.result}}"
