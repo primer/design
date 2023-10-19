@@ -1,0 +1,16 @@
+name: Broken link check
+on: [push]
+
+jobs:
+  broken_link_checker_job:
+    runs-on: ubuntu-latest
+    name: Check for broken links
+    steps:
+      - name: Check for broken links
+        id: link-report
+        uses: celinekurpershoek/link-checker@v1.0.2
+        with:
+          url: "https://primer.style/"
+          recursiveLinks: true
+      - name: Get the result
+        run: echo "${{steps.link-report.outputs.result}}"
