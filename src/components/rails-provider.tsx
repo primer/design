@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {PropsWithChildren} from 'react'
 import { createContext, useContext } from 'react';
 import { graphql, useStaticQuery, withPrefix } from 'gatsby'
 import GithubSlugger from 'github-slugger'
+import { latestStatusFrom } from '../rails-status'
+import {Link} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
 
 const slugger = new GithubSlugger()
 
@@ -10,10 +13,12 @@ export type RailsComponentInfo = {
   railsId: string
   name: string
   page: any
+  mdxPage: any
 }
 
 export type RailsActions = {
   getRailsComponentInfo: (railsId: string) => RailsComponentInfo | null
+  getLatestComponentPath: (name: string) => string | null
 }
 
 export const RailsContext = createContext({actions: {} as RailsActions, data: {}})
@@ -25,6 +30,15 @@ export const useRails = () => {
 export const RailsProvider = ({children}) => {
   const data = useStaticQuery(graphql`
     query RailsPagesQuery {
+      allMdx {
+        nodes {
+          slug
+          frontmatter {
+            railsIds
+          }
+        }
+      }
+
       allSitePage {
         nodes {
           path
@@ -102,6 +116,20 @@ export const RailsProvider = ({children}) => {
     return null
   }
 
+  const findMdxPageForRailsId = (railsId: string) => {
+    for (const page of data.allMdx.nodes) {
+      if (page.frontmatter) {
+        const railsIds = page.frontmatter.railsIds
+
+        if (railsIds && railsIds.includes(railsId)) {
+          return page
+        }
+      }
+    }
+
+    return null
+  }
+
   const getRailsComponentInfo = (railsId: string): RailsComponentInfo | null => {
     const parentComponent = findParentComponentForRailsId(railsId, data.allRailsComponent.nodes)
 
@@ -118,7 +146,8 @@ export const RailsProvider = ({children}) => {
           urlPath: parentUrl,
           railsId: railsId,
           name: parentComponent.name,
-          page: findPageForRailsId(railsId)
+          page: findPageForRailsId(railsId),
+          mdxPage: findMdxPageForRailsId(railsId)
         }
       } else {
         return null
@@ -133,16 +162,40 @@ export const RailsProvider = ({children}) => {
         urlPath: urlToChild(childComponent, parentComponent)!,
         railsId: childComponent.railsId,
         name: childComponent.name,
-        page: findPageForRailsId(childComponent.railsId)
+        page: findPageForRailsId(childComponent.railsId),
+        mdxPage: findMdxPageForRailsId(childComponent.railsId)
       }
     }
 
     return null
   }
 
+  const statusesByName = {}
+
+  for (const railsComponent of data.allRailsComponent.nodes) {
+    if (!statusesByName[railsComponent.name]) {
+      statusesByName[railsComponent.name] = []
+    }
+
+    statusesByName[railsComponent.name].push(railsComponent.status)
+  }
+
+  const getLatestComponentPath = (name: string): string | null => {
+    if (!statusesByName[name]) return null
+
+    const status = latestStatusFrom(statusesByName[name]) as string
+    const statusConst = status.slice(0, 1).toUpperCase() + status.slice(1)
+    const railsId = `Primer::${statusConst}::${name}`
+    const componentInfo = getRailsComponentInfo(railsId)
+    if (!componentInfo) return null
+
+    return `/${componentInfo.mdxPage.slug}/rails/${status}`
+  }
+
   const value = {
     actions: {
-      getRailsComponentInfo: getRailsComponentInfo
+      getRailsComponentInfo: getRailsComponentInfo,
+      getLatestComponentPath: getLatestComponentPath
     },
 
     data: data
@@ -153,4 +206,24 @@ export const RailsProvider = ({children}) => {
       {children}
     </RailsContext.Provider>
   )
+}
+
+type RailsComponentLinkProps = {
+  name: string
+}
+
+export const RailsComponentLink = (props: PropsWithChildren<RailsComponentLinkProps>) => {
+  const { actions: railsActions } = useRails()
+
+  if (railsActions.getLatestComponentPath) {
+    const componentPath = railsActions.getLatestComponentPath(props.name)
+
+    if (componentPath) {
+      return <Link as={GatsbyLink} to={componentPath}>{props.children}</Link>
+    } else {
+      return props.children
+    }
+  } else {
+    return props.children
+  }
 }
