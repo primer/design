@@ -365,14 +365,13 @@ However, the button that initiates the a loading process may not be semantically
 ### Button loading state
 
 <>
-{/*<!-- _TODO: Refine this content once the a11y team confirms we interpretted their feedback correctly_ -->*/}
-{/*<!-- _TODO: Consider moving most of the button loading state details to the [Button interface guidelines](/components/button)_ -->*/}
+{/*<!-- _TODO: Move most of the button loading state details to the [Button interface guidelines](/components/button) after we add the loading state to the "Options" section of those docs._ -->*/}
 </>
 
 <img
   width="960"
   alt="A button in a loading state with a11y annotations"
-  src="https://github.com/primer/design/assets/2313998/f5d20468-9c9c-4b85-8111-a26373e7c88b"
+  src="https://github.com/primer/design/assets/2313998/aa5303d6-04d0-44c7-bafe-438344c929b6"
 />
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'start', gap: 3, marginTop: 3}}>
@@ -381,7 +380,7 @@ However, the button that initiates the a loading process may not be semantically
 
 When implementing a "loading" button state, don't remove the button from the DOM or pass the `disabled` attribute. Doing so would make it impossible to tab to the button. If the button was just focused and activated, it would reset focus. Resetting focus would disrupt the keyboard navigation flow, and creates a confusing experience for assistive technologies such as screen readers.
 
-Once the button is activated (and is in a loading state), it becomes `aria-disabled` and receives `aria-describedby` that indicates that it's processing and may take a while. 
+Once the button is activated (and is in a loading state), it get the attribute `aria-disabled="true"`. 
 
 A separate, visually hidden element should be rendered outside of the `<button>` with a message to communicate the loading status. For example, "Saving profile".
 
@@ -390,7 +389,7 @@ A separate, visually hidden element should be rendered outside of the `<button>`
 <CustomVideoPlayer loop autoplay width="456" src="https://github.com/primer/design/assets/2313998/ffaff3c9-5428-4d67-95e5-693a5f8880a4" />
 </Box>
 
-The visually hidden status message element receives `aria-live="polite"` and `aria-busy="true"` attributes.
+This message should be in an ARIA live region, using `aria-live="polite"`. The live region must be present on page load, but the message inside the live region should only be rendered while the button is in a loading state.
 
 If an error prevents process from being completed, focus should be brought to an `<h2>` (or next relevant heading) of the error banner. 
 
