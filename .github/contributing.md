@@ -1,7 +1,7 @@
 # Contributing
 
 ## Creating pages
-To create a new page, just create a new file in the `pages/design` directory. (Note: pages outside of the `design` subdirectory will not be accessible from `primer.style/design`!)
+To create a new page, just create a new file in the `pages/design` directory. (Note: pages outside of the `design` subdirectory will not be accessible from `primer.style`!)
 
 The URL for each page reflects its path within the `pages` directory, so:
 

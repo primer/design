@@ -9,7 +9,7 @@ If you are writing documentation, please read the [documentation guidelines](htt
 ## Design guidelines template
 Even though some guidelines follow a different format, most can use the following template as a starting point. Required sections are indicated.
 
-💡 The [action list component](https://primer.style/design/components/action-list) documentation is a good example of design guidelines.
+💡 The [action list component](https://primer.style/components/action-list) documentation is a good example of design guidelines.
 
 | Section                  | Description                                                                        | Notes                                                                                                                                           |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|

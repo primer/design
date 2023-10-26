@@ -188,6 +188,37 @@ Action list items can be selected. Single selections are represented with a [`ch
         <Box as="p">For destructive or irremediable actions, show a confirmation dialog for extra friction. If the action is not destructive, present the user a way to undo the action instead of asking for confirmation. <a href="https://alistapart.com/article/neveruseawarning/">Never use a warning when you mean undo</a>.</Box>
         <Box as="p">Place danger items at the end of the list.</Box>
     </Box>
+
+<Box justifyContent="center">
+    <img
+        width="464"
+        alt="An action list with the first item in an inactive state"
+        src="https://github.com/primer/design/assets/2313998/05c6199a-a0b1-4a11-beda-73203f38cabf"
+    />
+    <img
+        width="464"
+        alt="An action list with the first item in an inactive state. A cursor is hovering the alert icon in the leading visual slot."
+        src="https://github.com/primer/design/assets/2313998/0d44f9fc-b219-43d7-8b81-a5baf93ada77"
+    />
+</Box>
+<Box sx={{h3: {marginTop: 0}}}>
+
+### Inactive items
+
+Inactive action list item text still needs to meet an accessible color contrast ratio.
+
+If there's a leading visual, replace it with an alert icon.
+
+If there's *not* a leading visual, use an alert icon as the leading visual.
+
+It's required to show a tooltip with context about why the item is inactive. It should be triggered by the leading visual.
+
+Optionally, you may open a dialog when the user clicks the leading visual to show more detailed information about why the item is inactive.
+
+See the [accessibility](#accessibility) section for information on the assistive technology user experience.
+
+</Box>
+
 </Box>
 
 ## Examples
@@ -257,6 +288,35 @@ A nav list organizes navigation links for the user's current context and indicat
 If an action list is being used to display a filtered list of options, a screen reader should announce when filtering is completed.
 
 For more information, see the [conveying status (filter results)](/ui-patterns/loading#filter-results) section of the loading state pattern guidelines.
+
+### Tooltips and dialogs on inactive items
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+If an action list item is inactive, it will no longer be an `<a>` or `<button>`, so it will not be focusable.
+
+Having a tooltip on the leading visual is the only way to distinguish between the inactive items, and for keyboard-only screen reader users, it's the only way to see these are inactive.
+
+The tooltip and optional dialog should be triggered by a button element that wraps the leading visual.
+
+</div>
+
+<img
+    width="464"
+    alt="An action list with the first item in an inactive state. There is an annotation with HTML markup showing an SVG element wrapped in a button element."
+    src="https://github.com/primer/design/assets/2313998/181c60b1-4dc3-484d-a9d1-eb4fb14e55c2"
+/>
+
+</Box>
 
 ### Known accessibility issues (GitHub staff only)
 

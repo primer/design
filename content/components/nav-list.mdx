@@ -26,12 +26,16 @@ A nav list organizes navigation links for the user's current context and indicat
 <img
   width="960"
   role="presentation"
-  src="https://user-images.githubusercontent.com/2313998/226925589-4fe71751-5026-4c16-99f2-10c7c83ac4d7.png"
+  src="https://github.com/primer/design/assets/2313998/a3d4180b-239e-40a8-8a11-d7cf40405159"
 />
 
 **Resting:** The default state. The link is not the one currently being shown.
 
 **Current:** Indicates that this link is the current view being shown.
+
+**Inactive:** Indicates that the link href is unavailable due to a system error. See [degraded experience guidelines](/ui-patterns/degraded-experiences#degraded-navigation) for more information.
+
+**Loading:** Indicates that the link href is still being calculated. See [loading guidelines](/ui-patterns/loading#navigation) for more information.
 
 **Expanded sub-items:** The item is expanded to show its sub-items.
 
@@ -140,6 +144,8 @@ Do not replace your NavList with a [tree view](/components/tree-view) to support
 Nav lists should always be labeled for assistive technologies, even if the label is visually hidden.
 
 Nav list items are links, so they should never contain buttons or other clickable elements.
+
+Inactive nav list items are not rendered as `<a>` tags since we don't know the href value. The only focusabe part of the item is the leading visual. See the [action list accessibility guidelines](/components/action-list#tooltips-and-dialogs-on-inactive-items) for more details.
 
 ### Known accessibility issues (GitHub staff only)
 

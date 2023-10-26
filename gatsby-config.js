@@ -10,7 +10,6 @@ module.exports = {
     shortName: '',
     description: 'Principles, standards, and usage guidelines for designing GitHub interfaces.',
   },
-  pathPrefix: '/design',
   plugins: [
     {
       resolve: '@primer/gatsby-theme-doctocat',

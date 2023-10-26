@@ -5,8 +5,8 @@
   "scripts": {
     "start": "gatsby develop",
     "clean": "gatsby clean",
-    "build": "gatsby build --prefix-paths",
-    "serve": "gatsby serve --prefix-paths",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
     "build:preview": "gatsby build",
     "now-build": "yarn build",
     "lint": "eslint .",
