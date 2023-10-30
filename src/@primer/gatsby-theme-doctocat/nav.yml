@@ -57,8 +57,6 @@
           url: /guides/contribute/how-to-contribute
         - title: Design
           url: /guides/contribute/design
-        - title: Content
-          url: /guides/contribute/content
         - title: Documentation
           url: /guides/contribute/documentation
         - title: Handling new patterns
@@ -112,6 +110,8 @@
           url: /foundations/icons/octovisuals
         - title: Design guidelines
           url: /foundations/icons/design-guidelines
+    - title: Content
+      url: /foundations/content
 - title: UI patterns
   children:
     - title: Data visualization
