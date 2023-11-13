@@ -244,7 +244,7 @@ If sequential groups or navigation links are unable to load, replace both groups
 <img
   width="960"
   alt="3 images. 1. Repos, teams, and organizations loading; 2: Repos and teams both failed; 3: All groups succeeded"
-  src="https://github.com/primer/design/assets/2313998/14cbb97d-ebd2-44ca-b434-56454c9f6d47"
+  src="https://github.com/primer/design/assets/2313998/ee62d85f-b2a8-4766-b42b-3234699d865e"
 />
 
 <Note>
@@ -259,7 +259,7 @@ If non-sequential groups of navigation links are in a loading state, preserve th
 <img
   width="960"
   alt="3 images. 1. Some items in right side-sheet are loading; 2: Some items in right side-sheet failed; 3: All items in right side-sheet succeeded"
-  src="https://github.com/primer/design/assets/2313998/1b619fa0-0870-4356-a5a6-78519a36f539"
+  src="https://github.com/primer/design/assets/2313998/3ab14657-8ab3-45e4-b47a-ef9eee76da4b"
 />
 
 If some links in the right side sheet cannot be loaded, default to showing each [nav list](components/nav-list) item in an inactive state. The users should still be able to hover, click, and focus inactive items, but they don't link to anywhere. Optionally, a tooltip may be displayed explaining that the navigation item is unavailable. An error banner is not necessary for this case.
@@ -282,7 +282,7 @@ If we don't know specifically which links failed to load (for example, some user
 <img
   width="456"
   alt="Generic error banner with hidden items"
-  src="https://github.com/primer/design/assets/2313998/a6275e1c-72b8-49b0-a9cf-689ec763a000"
+  src="https://github.com/primer/design/assets/2313998/7fd2f27b-baed-4f98-9039-7061d9a5e205"
 />
 
 </Box>
@@ -307,7 +307,7 @@ It is ok to show sequential navigation items in a loading state to avoid a layou
 <img
   width="456"
   alt="3 images: 1. Loading unknown labels; 2. Loading known labels; 3. Success"
-  src="https://github.com/primer/design/assets/2313998/d82dec1a-0eb0-4577-a7d4-091dda395f5d"
+  src="https://github.com/primer/design/assets/2313998/e6011246-7ded-430b-9989-c40777583a28"
 />
 
 </Box>
@@ -327,6 +327,25 @@ Communicate when a process has been initiated, when it's in progress, and when i
 There are many cases where it will be obvious that a process has completed or failed, and we won't need an additional announcement. For example, a page load or a new element getting focused.
 
 For other cases, the status will need to be manually conveyed to assistive technologies. Use a `role="status"` message or put content in an `aria-live` element that communicates the status of a process.
+
+#### Filter results
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3, mb: 3}}>
+
+<div>
+
+If the user needs to wait for filtering to complete, a screen reader should announce how many results were returned from filtering. For example: "No items match the filter", or "5 items match the filter".
+
+To ensure that assistive technology is informed about the filter update, put the message in an element that has a `role` of `"status"`. The element with `role="status"` must always be rendered, not just when the message should be announced.
+
+Implementations of this pattern can be seen in the following examples:
+- [Lookbook - Autocomplete](https://view-components-storybook.eastus.cloudapp.azure.com/view-components/lookbook/inspect/primer/alpha/auto_complete/playground)
+- [Storybook - ActionList](https://primer.style/react/storybook/?path=/story/components-actionlist-examples--async-list-with-spinner)
+
+</div>
+
+<img width="456" role="presentation" src="https://github.com/primer/design/assets/2313998/61171c17-274d-416b-81a7-825a610fdd24" />
+</Box>
 
 ### Preventing partially loaded content from being announced
 
@@ -365,14 +384,13 @@ However, the button that initiates the a loading process may not be semantically
 ### Button loading state
 
 <>
-{/*<!-- _TODO: Refine this content once the a11y team confirms we interpretted their feedback correctly_ -->*/}
-{/*<!-- _TODO: Consider moving most of the button loading state details to the [Button interface guidelines](/components/button)_ -->*/}
+{/*<!-- _TODO: Move most of the button loading state details to the [Button interface guidelines](/components/button) after we add the loading state to the "Options" section of those docs._ -->*/}
 </>
 
 <img
   width="960"
   alt="A button in a loading state with a11y annotations"
-  src="https://github.com/primer/design/assets/2313998/f5d20468-9c9c-4b85-8111-a26373e7c88b"
+  src="https://github.com/primer/design/assets/2313998/aa5303d6-04d0-44c7-bafe-438344c929b6"
 />
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'start', gap: 3, marginTop: 3}}>
@@ -381,7 +399,7 @@ However, the button that initiates the a loading process may not be semantically
 
 When implementing a "loading" button state, don't remove the button from the DOM or pass the `disabled` attribute. Doing so would make it impossible to tab to the button. If the button was just focused and activated, it would reset focus. Resetting focus would disrupt the keyboard navigation flow, and creates a confusing experience for assistive technologies such as screen readers.
 
-Once the button is activated (and is in a loading state), it becomes `aria-disabled` and receives `aria-describedby` that indicates that it's processing and may take a while. 
+Once the button is activated (and is in a loading state), it get the attribute `aria-disabled="true"`. 
 
 A separate, visually hidden element should be rendered outside of the `<button>` with a message to communicate the loading status. For example, "Saving profile".
 
@@ -390,7 +408,7 @@ A separate, visually hidden element should be rendered outside of the `<button>`
 <CustomVideoPlayer loop autoplay width="456" src="https://github.com/primer/design/assets/2313998/ffaff3c9-5428-4d67-95e5-693a5f8880a4" />
 </Box>
 
-The visually hidden status message element receives `aria-live="polite"` and `aria-busy="true"` attributes.
+This message should be in an ARIA live region, using `aria-live="polite"`. The live region must be present on page load, but the message inside the live region should only be rendered while the button is in a loading state.
 
 If an error prevents process from being completed, focus should be brought to an `<h2>` (or next relevant heading) of the error banner. 
 
