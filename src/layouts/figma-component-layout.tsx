@@ -1,4 +1,4 @@
-import {Note, StatusLabel} from '@primer/gatsby-theme-doctocat'
+import {Note} from '@primer/gatsby-theme-doctocat'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import {Box, Heading, Label, Link, Text} from '@primer/react'
 import FigmaLink from '@primer/gatsby-theme-doctocat/src/components/figma-link'
@@ -33,7 +33,6 @@ export const query = graphql`
     figmaComponent(figmaId: {eq: $figmaId}, status: {ne: "DEPRECATED"}) {
       name
       figmaId
-      status
       updatedAt
       componentUrl: url
       thumbnails {
@@ -67,7 +66,7 @@ const lastUpdated = date => {
 }
 
 export default function FigmaComponentLayout({data}) {
-  const {name, componentUrl, status, updatedAt, properties, thumbnails} = data.figmaComponent || {}
+  const {name, componentUrl, updatedAt, properties, thumbnails} = data.figmaComponent || {}
   const description = data.sitePage?.context.frontmatter.description || ''
   const title = data.sitePage?.context.frontmatter.title || name
 
@@ -152,9 +151,6 @@ export default function FigmaComponentLayout({data}) {
                   >
                     <li>
                       <Label size="large">{lastUpdated(updatedAt)}</Label>
-                    </li>
-                    <li>
-                      <StatusLabel status={sentenceCase(status)} />
                     </li>
                   </Box>
                   <Box
