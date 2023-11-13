@@ -274,8 +274,8 @@ Common types of page navigation include [underline nav](/components/underline-na
 
 <img
   width="960"
-  alt="Decision tree for how to handle a non-functional button. Could removing the button be disorienting? If no, don't render the button. If yes: does it respond to a hover or click? If yes, use an inert button. If no, use a disabled button."
-  src="https://github.com/primer/design/assets/2313998/4f93c6ef-0f0f-427b-b81c-2fdac957c9b3"
+  alt="Decision tree for how to handle a non-functional button. Could removing the button be disorienting? If no, don't render the button. If yes: does it respond to a hover or click? If yes, use an inactive button. If no, use a disabled button."
+  src="https://github.com/primer/react/assets/2313998/89a15946-ecc8-498b-a9e1-4802c3bc49b1"
 />
 
 #### Removing a non-functional button
@@ -303,41 +303,9 @@ Default to removing non-functional buttons from the UI. Don't remove buttons tha
 
 #### Indicating a button is non-functional without disabling it
 
-<Box
-  mb={3}
-  display="flex"
-  alignItems="flex-start"
-  justifyContent="space-between"
-  flexDirection={['column', 'column', 'column', 'column', 'row']}
-  sx={{gap: 3}}
->
+If a button is too critical to be omitted and responds to user input by showing more info about why it's non-functional, use an inactive button.
 
-<div>
-
-If a button is too critical to be omitted and responds to user input by showing more info about why it's non-functional, use an inert button. An inert button has the same styles as a disabled button, but it still reponds to user input.
-
-An inert button is the accessible option because buttons may not be disabled if they respond to user input. For example, if a button shows a tooltip when hovered or focused, or a dialog when clicked.
-
-</div>
-
-<img
-  width="456"
-  alt="A default button and an inert button"
-  src="https://github.com/primer/design/assets/2313998/fd1a7c99-b8c3-43fd-9f74-ae509e9efa31"
-/>
-
-</Box>
-
-There are two recommended ways an inert button should respond to user input:
-
-1. **Show a dialog on click:** When a user tries to activate an inert the button, open a [dialog](/components/dialog) that explains why the action cannot be completed and give them a path forward if possible. It is required to provide some kind of feedback when a user clicks a button.
-2. **Show a tooltip on hover or focus:** Before a user tries to activate a non-functional control, a [tooltip](/components/tooltip) with additional context may be displayed on hover or focus. It is *not* required to respond to hover and focus.
-
-<CustomVideoPlayer
-  width="960"
-  loop
-  src="https://github.com/primer/design/assets/2313998/f7837087-a6ff-4572-9ef6-d5dfad158b88"
-/>
+For more information, see the the [inactive button guidelines](/components/button#inactive)
 
 ### Handling action lists and menus with non-functional items
 
