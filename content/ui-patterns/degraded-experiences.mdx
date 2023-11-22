@@ -171,11 +171,11 @@ Be mindful that rendering too many error messages on the page in `fg.warning` co
   src="https://github.com/primer/design/assets/2313998/d3b0f293-64fc-4bd5-94af-041d92090874"
 />
 
-If the affected area is large enough, replace the affected UI with a [blankstate](/components/blankslate) component that explains why the expected UI isn't there.
+If the affected area is large enough, replace the affected UI with a [blankslate](/components/blankslate) component that explains why the expected UI isn't there.
 
 #### Dialogs (modal and non-modal)
 
-If the content of a dialog is not critical and cannot be rendered, prevent the dialog from even being opened. For non-critical dialogs that appear on hover, remove the hover interaction. For non-critical dialogs that appear on click, remove the button that triggers the dialog. For example, if a user's profile data cannot is unavailable, don't show a hovercard when their avatar is hovered.
+If the content of a dialog is not critical and cannot be rendered, prevent the dialog from even being opened. For non-critical dialogs that appear on hover, remove the hover interaction. For non-critical dialogs that appear on click, remove the button that triggers the dialog. For example, if a user's profile data is unavailable, don't show a hovercard when their avatar is hovered.
 
 If the dialog is a core part of a workflow, replace the content of the dialog with a message explaining why the expected UI isn't there. If you're using a dialog component that supports error states (for example, [select panel](/components/select-menu#select-panel)), follow the component's guidelines for rendering error messages.
 
@@ -185,7 +185,7 @@ If the dialog is a core part of a workflow, replace the content of the dialog wi
   src="https://github.com/primer/design/assets/2313998/653cc04b-e88e-4235-8c04-47b8dba57351"
 />
 
-If you're not using a component that supports error states, replace the content of the dialog with a [blankstate](/components/blankslate) component explaining why the expected UI isn't there.
+If you're not using a component that supports error states, replace the content of the dialog with a [blankslate](/components/blankslate) component explaining why the expected UI isn't there.
 
 <img
   width="960"
@@ -199,7 +199,7 @@ Some links can be static (for example, `https://github.com/`), but many links ar
 
 When a dynamic link in the navigation is not yet available, fall back to not rendering it.
 
-If the page is in a state where we're not sure if a link is available, the navigation item should be put in a loading state. Refer to the pattern guidelines for [loading](/ui-patterns/loading) for more information.
+If the page is in a state where we're not sure if a link is available, the navigation item should be put in a loading state. Refer to the pattern guidelines of [loading](/ui-patterns/loading) for more information.
 
 ### Global navigation header
 
