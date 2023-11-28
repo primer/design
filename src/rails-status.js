@@ -14,19 +14,10 @@ const statusOrder = [
  * @returns {string | null} latest status if valid, `null` otherwise
  */
 export const latestStatusFrom = (statuses) => {
-  let highestRank = -1
-  let latestStatus = null
-
-  for (const status of statuses) {
-    const rank = statusOrder.indexOf(status)
-
-    if (rank > highestRank) {
-      highestRank = rank
-      latestStatus = status
-    }
-  }
-
-  return latestStatus
+  return statuses
+      .filter(status => statusOrder.includes(status))
+      .sort(compareStatuses)
+      .at(-1) ?? null
 }
 
 /**
