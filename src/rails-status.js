@@ -9,7 +9,7 @@ const statusOrder = [
 
 /**
  * Get the latest status, based on the order of precedence
- * 
+ *
  * @param {readonly string[]} statuses list of status to pick from
  * @returns {string | null} latest status if valid, `null` otherwise
  */
@@ -17,12 +17,12 @@ export const latestStatusFrom = (statuses) => {
   return statuses
       .filter(status => statusOrder.includes(status))
       .sort(compareStatuses)
-      .at(-1) ?? null
+      .at(-1) || null
 }
 
 /**
  * Compare function, which is compatible with #Array.sort.
- * 
+ *
  * @param {string} first
  * @param {string} second
  * @returns {1 | 0 | -1} sorting order
