@@ -156,7 +156,7 @@ Buttons allow users to initiate an action or command when clicked or tapped. The
   </Box>
 </Box>
 
-### Color
+### Variants
 
 <Box
   mb={3}
@@ -232,6 +232,62 @@ Buttons allow users to initiate an action or command when clicked or tapped. The
     Danger buttons should be used sparingly to warn of a destructive action, typically resulting in the opening of a confirmation dialog.
 
   </Box>
+</Box>
+
+### Inactive
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<img
+  width="456"
+  alt="An button that looks like a disabled primary button, but it has a focus state"
+  src="https://github.com/primer/design/assets/2313998/167f846f-0a86-4f04-bac3-4af9843e8933"
+/>
+
+<div>
+
+An inactive button has styles that make the button appear "muted". The style is the same for all button variants.
+
+An inactive button an accessible alternative to a disabled button. They're intended to be used for buttons that are non-functional, but cannot be removed from the page.
+
+Unlike a disabled button, an inactive button can respond to user input. For example, if a button shows a tooltip when hovered or focused, or a dialog when clicked.
+
+If you need to use an inactive button, it's best to have something else on the page that informs users about the issue that broke the button's normal functionality. For example, showing a [global banner](/ui-patterns/degraded-experiences#global-system-notification) for service outages.
+
+</div>
+
+</Box>
+
+<Box
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<CustomVideoPlayer
+  width="456"
+  loop
+  src="https://github.com/primer/design/assets/2313998/b74267b7-3c7b-4343-88f8-fdfe6d076e31"
+/>
+
+<Box sx={{flexBasis: 0, flexGrow: 1}}>
+
+There are two recommended ways an inactive button should respond to user input:
+
+1. **Show a dialog on click:** When a user tries to activate an inactive the button, open a [dialog](/components/dialog) that explains why the action cannot be completed and give them a path forward if possible. It is required to provide some kind of feedback when a user clicks a button.
+2. **Show a tooltip on hover or focus:** Before a user tries to activate a non-functional control, a [tooltip](/components/tooltip) with additional context may be displayed on hover or focus. It is *not* required to respond to hover and focus.
+
+</Box>
+
 </Box>
 
 ## Best practices
@@ -348,6 +404,12 @@ Limit primary button usage. Only use one primary button on the page, whenever po
 </DoDontContainer>
 
 ## Accessibility
+
+### Do not disable buttons
+
+There are rare cases where it's ok to disable a button, but it should generally be avoided. Disabling a button makes it invisible to assistive technologies such as screen readers.
+
+For more information on disabled controls, see GitHub's [link and button a11y guidance](https://accessibility-playbook.github.com/link-and-button-guidance#disabling-links-and-buttons) (GitHub staff only).
 
 ### Descriptive buttons
 

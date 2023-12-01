@@ -1,6 +1,7 @@
 ---
 title: Action menu
 reactId: action_menu
+figmaId: action_menu
 railsIds:
 - Primer::Alpha::ActionMenu
 description: Action menu is composed of action list and overlay patterns used for quick actions and selections.
@@ -419,10 +420,27 @@ On smaller viewports, the menu should always be re-positioned to fit within the 
 Here is an overview of [action list](/components/action-menu) items that are compatible with menus:
 
 - **Action**: Triggers an action or dialog. Trailing visuals can be used for keyboard shortcuts.
-- **Single/multi select**: Represented by a [check](/design/foundations/icons/check-16) and never a HTML checkbox. Trailing visuals can be used for keyboard shortcuts.
-- **Submenu**: Represented by a [chevron-right](/design/foundations/icons/chevron-right-16) as a trailing visual.
+- **Single/multi select**: Represented by a [check](/foundations/icons/check-16) and never a HTML checkbox. Trailing visuals can be used for keyboard shortcuts.
+- **Submenu**: Represented by a [chevron-right](/foundations/icons/chevron-right-16) as a trailing visual.
 - **Section header**: To add clarification to a section.
 - **Divider**: To create sections for your selections, actions or submenus.
+
+#### Inactive items
+
+<img
+  width="960"
+  alt="Three examples: 1. An action menu that works just fine; 2. An action menu with some items disabled; 3. An action menu with all items disabled"
+  src="https://github.com/primer/design/assets/2313998/c49774be-9bf3-4e93-8537-5810d3f5579a"
+/>
+
+If items in a menu have been affected by a system error such as an outage, they may be put into an inactive state with a message in each item explaining why it's disabled.
+
+If an action menu contains menu items that are very closely related (for example: the action menu for adding a file to a repo) and we can detect that none of the menu items are available, then put the button that triggers the action menu into an [inactive state](/components/button#inactive).
+
+Inactive action menu items follow the same patterns as inactive action list items except:
+- The message explaining why it's unavailable is renderd in the item, not a tooltip. Action menu items don't hide the message in a tooltip because the menu is already hidden until the user opens it.
+  - Hiding the message in a tooltip would require the user to do another interaction, and the UI could feel chaotic with so many layers.
+- No [alert icon](/foundations/icons/alert-16) leading visual is necessary since it would be redundant with the error message
 
 ## Accessibility
 

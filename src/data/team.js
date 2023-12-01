@@ -5,8 +5,8 @@ const teamContent = [
     handle: 'jesskuo4',
     cssFeature: `animation: jump 1s infinite`,
     questionOne: `Studying engineering and design, I enjoy collaborating with designers and engineers from various teams to ensure that the design system remains adaptive in addressing evolving needs. Working on design systems provides a unique opportunity to shape the foundational elements that drive consistency, branding, and cohesive user experiences across an entire organization. In addition, it allows me to learn how to look at our products and experiences at a systems-first, future-proof level.`,
-    questionTwo: `I'm immensely grateful for the online design community, a nurturing space where designers from all walks of life share their knowledge with the next generation— [Steve Jobs](https://www.apple.com/stevejobs/), [Julie Zhuo](https://www.juliezhuo.com/), [Ethan Eismann](https://twitter.com/eeismann) and many others. This collective effort continuously inspires my own creative journey to create accessible, beautiful, and seamless experiences. 
-    
+    questionTwo: `I'm immensely grateful for the online design community, a nurturing space where designers from all walks of life share their knowledge with the next generation— [Steve Jobs](https://www.apple.com/stevejobs/), [Julie Zhuo](https://www.juliezhuo.com/), [Ethan Eismann](https://twitter.com/eeismann) and many others. This collective effort continuously inspires my own creative journey to create accessible, beautiful, and seamless experiences.
+
     I want to express my sincerest gratitude to the design team at GitHub, who mentored and supported me in discoverying my passion for design systems: [Natalya Shelburne](http://www.artist-developer.com/), [Katie Langerman](https://www.langermank.com/), and [Cole Bemis](https://colebemis.com/). Ultimately, it is the collective wisdom, creativity, and collaborations that fuel my joy in designing.`,
     favoriteTools: `Copilot, Figma, Rewatch, GitHub, Youtube, Twitter, Primer.style`,
     avatar: 'https://avatars.githubusercontent.com/u/131988618?v=4',
@@ -30,7 +30,7 @@ const teamContent = [
     title: 'Engineering Manager',
     handle: 'raytalks',
     questionOne: `Having worked in and with several different software development teams before, I've learned it takes more than a process to deliver fast, reliable, high performant, quality products.
-  
+
   Combining design and engineering on a stable system, while creating the most astonishing, accessible experience for our end users and developers is pure joy.`,
     questionTwo: `I was fortunate to have had great mentors and colleagues who supported me througout my career and taught me the nitty gritty of programming. I'm a big fan of Katrina Owen, co-founder and director of [Exercism](https://exercism.org/). I adore the work of management leaders like [Camille Fournier](https://twitter.com/skamille),
       and I devour books where I can learn about people like [Erin Meyer's](https://erinmeyer.com/books/the-culture-map/) The Culture Map.`,
@@ -60,11 +60,11 @@ const teamContent = [
     questionOne:
       'I love how they foster an environment and culture of continuously learning, growing, and connecting within a community. Being able to support people in their day-to-day work is so rewarding to me, especially when these tools or resources help to improve the access of everything we make.',
     questionTwo: `I've always loved watching talks by [Alan Kay](https://en.wikipedia.org/wiki/Alan_Kay). The way he thinks about the future and inventing for it makes me so hopeful and excited.
-  
+
   I also enjoy revisiting talks from [Sebastian Markbåge](https://twitter.com/sebmarkbage), [Nicholas Matsakis](https://twitter.com/nikomatsakis), and [Sandi Metz](https://twitter.com/sandimetz). I learn something new each time as I hear them talk about their approach to writing code and incrementally evolving complex systems over time.
-  
+
   When it comes to accessibility, I am forever grateful for all the resources, writing, and presentations from [Adrian Roselli](https://twitter.com/aardrian), [Sarah Higley](https://twitter.com/codingchaos), and [Scott O'Hara](https://twitter.com/scottohara). Their work has been so influential to my own.
-  
+
   Finally, when it comes to building and supporting teams I've loved going through resources from [Julie Zhou](https://twitter.com/joulee), [Lara Hogan](https://twitter.com/lara_hogan), and [Will Larson](https://twitter.com/lethain).
       `,
     favoriteTools: 'NeoVim, GitHub, ARIA APG, coffee, Figma, Spotify',
@@ -157,10 +157,10 @@ const teamContent = [
     title: 'Engineering Manager',
     handle: 'lesliecdubs',
     questionOne: `As an agency developer early in my career, it seemed we were always building the same UI with different styles. So why not build once, with enough flexibility to customize for many clients?
-  
+
   Later, it became clear to me that systems could boost the end user's experience through more than speed to production; systems multiply consistency, usability, and accessibility. And who doesn't want a top-notch, inclusive user experience which the makers can ship more quickly?`,
     questionTwo: `We stand on the shoulders of giants. I deeply appreciate the former colleagues who have helped me learn and grow, all of the folks who write and speak in the design systems space, and the work of management leaders like [Lara Hogan](https://larahogan.me/), [Camille Fournier](https://twitter.com/skamille), [Sarah Drasner](https://www.engmanagement.dev/), and Caree Youngman.
-  
+
   The playful, innovative work of my friend [Charlie Gerard](https://charliegerard.dev/projects) never fails to inspire and remind me what humans in tech are capable of creating.`,
     favoriteTools: `VS Code, React, CSS, axe Accessibility Linter, Netlify, and a big mug`,
     avatar: 'https://user-images.githubusercontent.com/3902488/153995479-15e25bf5-3f81-4f05-8569-213f668590d4.jpeg',
@@ -239,9 +239,9 @@ const teamContent = [
     handle: 'langermank',
     questionOne: `I have a background in design but also love writing code, and design systems are very welcoming to multi-disciplinary folks. I love how design systems bring people together across orgs and create a shared language for collaboration.`,
     questionTwo: `Medium posts from [Nathan Curtis](https://medium.com/@nathanacurtis) kept me afloat while I worked on my first design system, along with the community in Jina's [Design Systems slack](https://design.systems/).
-  
+
   I've learned my favorite CSS trickery from [Andy Bell](https://piccalil.li/), [Rachel Andrew](https://rachelandrew.co.uk/css/), [Stephanie Eckles](https://thinkdobecreate.com/), [Sara Soueidan](https://www.sarasoueidan.com/), and [Una](https://una.im/).
-  
+
   Various design podcasts including [SimpleBits](https://show.simplebits.com/), [Honest Designers](https://www.honestdesigners.com/), [Design Details](https://designdetails.fm/), [Design Better](https://www.designbetter.co/podcast), and [CSS Podcast](https://thecsspodcast.libsyn.com/)`,
     favoriteTools: `VS Code, Firefox dev tools, CSS, Figma, Pika, Notion`,
     avatar: 'https://user-images.githubusercontent.com/18661030/133150912-f74c0a6b-2e8a-4547-9d80-872a7d0ff8db.jpg',
@@ -421,7 +421,7 @@ const teamContent = [
     cssFeature: 'fill: currentColor;',
     questionOne: `I love organization and lists. I have a lists for things from movies to boba tea orders. I like to bring this into my design work as well, creating components and cohesiveness across platforms to make it easier for people to create great products.`,
     questionTwo: `When I first began learning about design, I was inspired by the people who contributed back to the community by teaching and opening up to students. Resources like [Students Who Design](https://studentswho.design/) and [Design Details](https://designdetails.fm) helped me figure out how I wanted to make a positive impact in tech.
-  
+
     More recently, I've been inspired by design agencies and companies that are testing the boundaries of design outside of what is accepted as 'common pratice'. I enjoy seeing unique animation and motion used to convey information, emotion, and storytelling.`,
     favoriteTools: 'Sketch, Figma, Atom, Dropbox Paper, Twitter, Ping Pong, Ukulele',
     avatar: 'https://user-images.githubusercontent.com/6846673/59784198-bb703500-9276-11e9-8ec6-a02fc3eb2fc5.jpg',
@@ -436,7 +436,7 @@ const teamContent = [
     cssFeature: 'fill: currentColor;',
     questionOne: `Ok, this might sound weird, but I really enjoy looking at UIs. There is something satisfying, seeing a bunch of components getting thrown on a page that fit well together, forming a balanced interface for users to interact with. I also enjoy building UIs and helping others to do the same.`,
     questionTwo: `Thinking back, seeing the CSS Zen Garden was really inspiring. Also the CSS "demo scene" found in places like [CodePen](https://codepen.io/) is nuts. Admittedly, not always practical, but fun to check out.
-  
+
     I also got inspired and learned a lot from methodologies like OOCSS, SMACSS, BEM, SUIT and nowadays CSS-in-JS. The "how to organize CSS" is a challenging, but also interesting problem to solve.`,
     favoriteTools: 'DevTools, Atom, Figma, Sketch, iA Writer, LICEcap, Things, coffee, headphones.',
     avatar: 'https://user-images.githubusercontent.com/378023/54094782-ad448a00-43e6-11e9-93e0-b5960fa86e89.png',
@@ -449,10 +449,10 @@ const teamContent = [
     handle: 'jhuashao',
     cssFeature: 'align-items: center;',
     questionOne: `I first found out about design systems through my last internship, which was focused on building up a design system for the New York Times. I kept learning more and more about this emerging field, and really started to grow an affinity for it.
-  
+
     Design Systems seemed to blend all aspects of my interests: Product Design, Front-End Development, Graphic Design, Typography, Illustration, etc. I’m drawn to design systems as it’s a field that welcomes individuals who have too many interests to count, and find themselves at intersections of many different passions. `,
     questionTwo: `I draw in a lot of inspiration from so many different facets of my life. I’m really fortunate to come from a diverse set of backgrounds to be able to see parallels that emerge from a variety of industries.
-  
+
     The field of Graphic Design has a tremendous influence on me, and some of the designers and studios I’m inspired by are: [Natasha Jen](https://www.pentagram.com/about/natasha-jen), [Barron Webster](https://barronwebster.com/), [Maxime Buschi](https://www.youtube.com/watch?v=diBifN7qBgw), [Michael Bierut](https://www.pentagram.com/about/michael-bierut), [Eric Hu](http://erichu.info/), [Micah Barrett](http://micahbarrett.design/), [Draw Down Books](https://draw-down.com/), [Wei Huang](https://twitter.com/w__h_?lang=en), [Josh Schaub](http://joshschaub.ch/), [Morcoskey](https://morcoskey.com/), and [David Rudnik](https://davidrudnick.org/). I’ve always been inspired by those who are experimenting at the intersection of design and technology: [Tristan Harris](http://www.tristanharris.com/), [Brad Frost](http://bradfrost.com/), [Studio No-Plans](https://no-plans.com/), [Marie Otsuka](http://motsuka.com/), [Ben Wilkins](https://twitter.com/thatbenlifetho?lang=en), [Jon Gold](https://jon.gold/), [Bret Victor](http://worrydream.com/),  and [Chris Novello](http://chrisnovello.com/). I also love typography, and have a lot of admiration for type-designers and foundries: [Colophon Foundry](https://www.colophon-foundry.org/), [Kris Sowersby (Klim Type)](https://klim.co.nz/), [Matthew Carter](https://www.myfonts.com/person/Matthew_Carter/), [Richard Lipton](https://lipton.typenetwork.com/), [Lucas Sharp](http://lucassharp.com/), [Grilli Type](https://www.grillitype.com/), and [James Edmondson (OHnotypeco)](https://ohnotype.co/). There’s so many more people that I’ve learned and drawn inspiration from to mention and praise, so feel free to reach out! I’d love to share and discuss. <3`,
     favoriteTools: 'VScode, Figma, Adobe Creative Suite, Zero-Sugar Redbull',
     avatar: 'https://user-images.githubusercontent.com/24916540/47465791-490c8b00-d7a3-11e8-8dc8-9cc968a47b62.jpg',
@@ -467,7 +467,7 @@ const teamContent = [
     cssFeature: 'align-items: center;',
     questionOne: `I came into design systems very organically. When I began my career in the agency world, I worked within constraints of branding and style guidelines of our various clients. At the time I didn't fully recognize these guidelines as what we now refer to as design systems. As my career continued to grow I noticed that I began to be far more interested in how various companies/brands packaged the many pieces that made up their brand and/or products. I love how design systems bring together all the pieces in order to unleash endless creativity but still maintain the necessary constraints.`,
     questionTwo: `I get a lot of my inspiration from the community I've built via Dribbble. A few of my favorites are the dynamic duo that makes of [TheLittleLabs](https://www.thelittlelabs.com/), Camilo and Aradhana, the illustration work by [Enisaurus](https://www.enisaurus.com/), and [Kendrick Kidd](http://www.kendrickkidd.com/).
-  
+
     When I first started my career, [Frank Chimero](https://frankchimero.com/) was a huge inspiration. His book, [The Shape of Design](https://frankchimero.com/design/the-shape-of-design/), really helped to form my philosophy and approach to problems and how to cultivate a design process. Along with that but not design related, [Jason Fried](https://twitter.com/jasonfried) has been a great inspiration to how I approach work. His book (written alongside David Heinemeier Hansson) [Rework](https://basecamp.com/books/rework) still is the best, no nonsense, business book I've ever read.`,
     favoriteTools: 'Figma, Atom, Keynote, Bear Notes, Spark Mail, Spotify',
     avatar: 'https://user-images.githubusercontent.com/10384315/48450021-61941380-e759-11e8-90e0-7b41f6cbb6e8.jpg',
