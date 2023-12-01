@@ -327,7 +327,9 @@ When the form fails validation, guide the user to the invalid inputs:
 
 - If the form has 3 or more errors, you may show an [interactive summary of errors](#interactive-summary-of-errors)
 - If an interactive summary of errors is not shown, the first invalid input should be focused and scrolled into the viewport
+- Each invalid `input` should be marked as `aria-invalid=true`
 - The inline error message should be tied to each invalid input using `aria-describedby`
+  - If the inline error message is removed from the DOM, _also_ remove the `aria-describedby` attribute from the form input.
 
 Live regions should not be used for form validation. Always use focus management (e.g. moving focus to the first link in the interactive summary, or the first invalid field), and appropriate markup to connect the error message to the field.
 
