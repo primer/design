@@ -290,6 +290,31 @@ There are two recommended ways an inactive button should respond to user input:
 
 </Box>
 
+### Loading
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<img
+  width="456"
+  alt="An button that looks disabled, but the text is replaced with a spinning loading indicator"
+  src="https://github.com/primer/design/assets/2313998/332baaba-6c0d-4d6c-b9cb-57616d35d9f2"
+/>
+
+<div>
+
+You may use a button loading state if we need to wait for a button's action to be completed. Refer to the accessibility section's [button loading state](#button-loading-state) guidance for more information.
+
+</div>
+
+</Box>
+
 ## Best practices
 
 ### Primary and outline button usage
@@ -416,6 +441,35 @@ For more information on disabled controls, see GitHub's [link and button a11y gu
 Labeling buttons properly lets users know what will happen when they activate the control, lessens errors, and increases confidence.
 
 Read more about [descriptive buttons](/guides/accessibility/descriptive-buttons).
+
+### Button loading state
+
+<img
+  width="960"
+  alt="A button in a loading state with a11y annotations"
+  src="https://github.com/primer/design/assets/2313998/87f87136-1414-4ae7-8e4b-1b4d6e6b2d20"
+/>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'start', gap: 3, mt: 3, mb: 3}}>
+
+<Box flex={1}>
+
+When implementing a "loading" button state, don't remove the button from the DOM or pass the `disabled` attribute. Doing so would make it impossible to tab to the button. If the button was just focused and activated, it would reset focus. Resetting focus would disrupt the keyboard navigation flow, and creates a confusing experience for assistive technologies such as screen readers.
+
+Once the button is activated (and is in a loading state), it get the attribute `aria-disabled="true"`. 
+
+A separate, visually hidden element should be rendered outside of the `<button>` with a message to communicate the loading status. For example, "Saving profile".
+
+</Box>
+
+<CustomVideoPlayer loop autoplay width="350" src="https://github.com/primer/design/assets/2313998/b138567f-3ba8-49ab-9fa1-80a4fe30b034" />
+
+</Box>
+
+This message should be in an ARIA live region, using `aria-live="polite"`. The live region must be present on page load, but the message inside the live region should only be rendered while the button is in a loading state.
+
+If an error prevents process from being completed, focus should be brought to an `<h2>` (or next relevant heading) of the error banner. 
+
 
 ### Known accessibility issues (GitHub staff only)
 
