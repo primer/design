@@ -51,7 +51,8 @@ const teamContent = [
     cssFeature: 'grid-template-areas',
     avatar: 'https://avatars.githubusercontent.com/u/31220082?v=4',
     gif: 'https://user-images.githubusercontent.com/31220082/186910263-f0d4c470-a8ea-472e-aa6e-f41a585620ee.gif',
-    alumni: false,
+    alumni: true,
+    color: 'orange',
   },
   {
     name: 'Josh Black',
@@ -136,7 +137,8 @@ const teamContent = [
     favoriteTools: 'VS Code, Notes, Figma, GitHub, Vercel, Spotify',
     avatar: 'https://user-images.githubusercontent.com/912236/176458039-9c71869d-66c6-4329-a0e7-c5c7ddcdd722.jpg',
     gif: 'https://user-images.githubusercontent.com/912236/176458822-7710da14-9036-478b-807d-733922240761.gif',
-    alumni: false,
+    alumni: true,
+    color: 'orange',
   },
   {
     name: 'Keith Cirkel',
