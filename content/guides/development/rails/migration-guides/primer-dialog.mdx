@@ -112,7 +112,7 @@ As mentioned earlier, Primer allows usage of [`system_arguments`](https://primer
 #### How can I handle `<include-fragment>` in `Primer::Alpha::Dialog`?
 We can add the `<include-fragment>` inside of the dialog body:
 
-```
+```ruby
 <% d.with_body do %>
 	<include-fragment src="/issues">
 		<%= render(Primer::Beta::Spinner.new(my: 6, display: :block)) %>
@@ -147,6 +147,7 @@ Would be the following when using `Primer::Alpha::Dialog`:
     <% end %>
 <% end %>
 ```
+
 There may be some additional options, such as if deferring loading of the `include-fragment` by using the `loading="lazy"`. 
 Additional options available can be found within the [documentation for `include-fragment`](https://github.com/github/include-fragment-element).
 
