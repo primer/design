@@ -331,7 +331,7 @@ When the form fails validation, guide the user to the invalid inputs:
 - The inline error message should be tied to each invalid input using `aria-describedby`
   - If the inline error message is removed from the DOM, _also_ remove the `aria-describedby` attribute from the form input.
 
-Live regions should not be used for form validation. Always use focus management (e.g. moving focus to the first link in the interactive summary, or the first invalid field), and appropriate markup to connect the error message to the field.
+Live regions should not be used for form validation. Always use focus management (e.g. moving focus to the first link in the interactive summary, or the first invalid field), and appropriate markup to connect the error message to the field. If there are no focusable elements in the error summary banner, you may focus on the heading in the banner.
 
 After a form has been submitted and failed validation, you may switch to inline validation to provide quicker feedback.
 
