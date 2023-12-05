@@ -124,7 +124,7 @@ There may be slight differences with how `include-fragment` loads, so it's impor
 
 Some `details-dialogs` will include a `<include-fragment>` element without `src` being directly applied onto the element. This is usually due to the `src` being applied elsewhere, such as [on the `details-dialog` element itself](https://github.com/github/details-dialog-element#deferred-loading).
 
-For example:
+For example the following code example:
 
 ```html
 <details>
@@ -135,7 +135,7 @@ For example:
 </details>
 ```
 
-Would be the following when using `Primer::Alpha::Dialog`:
+Could be migrated to `Primer::Alpha::Dialog` in the code example below:
 
 ```ruby
 <%= render(Primer::Alpha::Dialog.new(title: "Robots", visually_hide_title: true)) do |d| %>
