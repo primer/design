@@ -1,0 +1,161 @@
+This guide will show you how to upgrade from the now deprecated `<details-dialog>` element to the latest [`Primer::Alpha::Dialog`](/components/dialog)
+component.
+
+### Moving away from `<details-dialog>`
+`details-dialog` uses the `details` and `summary` elements to render a dialog. This is different than our [Primer `Dialog` component](https://primer.style/design/components/dialog/rails/alpha) that uses a container with `role="dialog"` attached.
+
+The `<details-dialog>` element comes with three specific parts:
+
+1. The trigger which uses the `summary` element. 
+2. The dialog's body (`details-dialog`) that lives within the `details` element, sibling to the `summary` element. 
+3. The `<details>` wrapper that contains both the trigger button (`summary`) and the dialog itself (`details-dialog`). 
+
+For example, here's how `details-dialog` might be used:
+
+```html
+<details>
+  <summary>Open dialog</summary>
+  <details-dialog>
+    Modal content
+    <button type="button" data-close-dialog>Close</button>
+  </details-dialog>
+</details>
+```
+
+`Primer::Alpha::Dialog is built in a similar way, but unlike `details-dialog`, the Primer `Dialog` provides addiitonal features, such as supplying a close button by default.
+
+Here's an example on how we might render `Primer::Alpha::Dialog`:
+
+```Ruby
+render(Primer::Alpha::Dialog.new(title: 'Dialog Title', subtitle: 'Optional Sub-title', size: :large)) do |d|
+  d.with_show_button { "Open dialog" }
+  d.with_body { "Modal content" }
+end
+```
+
+Both will render similar dialogs with a few differences.
+
+* Styling
+* Functionality and semantics
+
+#### Styling differences
+`<details-dialog>` and `Primer::Alpha::Dialog` will have some minor style differences, such as with padding and margins as well as how the dialog is displayed once rendered. 
+There may be additional style differences based on the usage of custom classes within `<details-dialog>`. 
+For custom class usage, we _may_ apply those classes onto `Primer::Alpha::Dialog`, but we'd prefer usage of [`system_arguments`](https://primer.style/view-components/lookbook/pages/system_arguments/) instead of a Primer CSS class, if applicable.
+It's important to note that you might not be able to achieve a 1:1 match coming from a `<details-dialog>` element, but in most cases you'll be able to achieve a similar looking dialog.
+
+#### Functionality and semantic differences
+`details-dialog` is rendered as a `details/summary` pair with `role="dialog"` attached to the wrapper within the `details` element to mark it as a `dialog` for AT.
+This pairing mainly relies on the native semantics of the `details/summary` pairing, with the `summary` element being the trigger, and the `details` element acting as the container for both the trigger and the "Dialog".
+`details-dialog` does not require a developer to add an accessible name to the `Dialog`, unlike `Primer::Alpha::Dialog`, which requires a name to be added via `title` which is referenced as the name of the `Dialog` role.
+The `Primer::Alpha::Dialog` component also provides a close button by default, whereas for `details-dialog`, the developer must add one themselves.
+
+#### Converting a dialog
+
+Here's how a `details-dialog` might appear:
+
+```html
+<details class="float-right" id="confirm-submit">
+	<%= render Primer::ButtonComponent.new(tag: :summary, scheme: :danger) do %> Continue with step <% end %>
+	<details-dialog class="anim-fade-in fast Box Box--overlay d-flex flex-column">
+		<div class="Box-header">
+			<button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close Dialog" data-close-dialog>
+			<%= primer_octicon(:x) %>
+			</button>
+			<h3 class="Box-title">Do you want to continue with this action?</h3>
+		</div>
+
+		<%= render(Primer::Beta::Flash.new(scheme: :danger, full: true, icon: "alert")) do %>
+			Please follow all steps listed below.
+		<% end %>
+		<div class="Box-body overflow-auto">
+			<ul class="mb-3 ml-3">
+				<li>Step 1: Do action</li>
+				<li>Step 2: Do second action</li>
+				<li>Step 3: Do third action</li>
+			</ul>
+			<%= render Primer::ButtonComponent.new(block: true, scheme: :danger, "data-close-dialog": "", "data-toggle-for": "continue-action") do %>
+				I understand, continue
+			<% end %>
+		</div>
+	</details-dialog>
+</details>
+```
+
+If we wanted to convert the `details-dialog` above to use `Primer::Alpha::Dialog`, we can do the following:
+
+```ruby
+<%= render(Primer::Alpha::Dialog.new(title: "Do you want to continue with this action?")) do |d| %>
+	<% d.with_show_button(color: :danger) { 'Continue with action' } %>
+	<% d.with_body(p: 0) do %>
+		<%= render(Primer::Beta::Flash.new(scheme: :danger, full: true, icon: "alert", mt: 1)) do %>
+			Please follow all steps listed below.
+		<% end %>
+		<div class="Box-body overflow-auto">
+			<ul class="mb-3 ml-3">
+				<li>Step 1: Do action</li>
+				<li>Step 2: Do second action</li>
+				<li>Step 3: Do third action</li>
+			</ul>
+			<%= render Primer::ButtonComponent.new(block: true, scheme: :danger, "data-close-dialog": "", "data-toggle-for": "continue-action") do %>
+				I understand, continue
+			<% end %>
+		</div>
+	<% end %>
+<% end %>
+```
+
+In the example above, both the title and close button will be handled by the component. 
+For the button that triggers the dialog, the `show_button` slot can be used and supplied with text to render a button that will show the dialog. 
+As mentioned earlier, Primer allows usage of [`system_arguments`](https://primer.style/view-components/lookbook/pages/system_arguments/) to further customize styles on a component. 
+
+##### What do I do with an ID that lives in `details-dialog`?
+Any ID or `data-*` attributes that live within `details-dialog` should be applied to the `Primer::Alpha::Dialog`, as these may be essential for the dialog to function the same.
+
+##### How do I handle `<include-fragment>` in `Primer::Alpha::Dialog`?
+We can add the `<include-fragment>` inside of the dialog body:
+
+```
+<% d.with_body do %>
+	<include-fragment src="/issues" preload>
+		<%= render(Primer::Beta::Spinner.new(my: 6, display: :block)) %>
+	</include-fragment>
+<% end %>
+```
+
+There may be slight differences with how `include-fragment` loads, so it's important to take extra caution when using.
+
+Some `details-dialogs` will include a `<include-fragment>` element without `src` being directly applied onto the element. This is usually due to the `src` being applied elsewhere, such as [on the `details-dialog` element itself](https://github.com/github/details-dialog-element#deferred-loading).
+
+For example:
+
+```html
+<details>
+  <summary>Robots</summary>
+  <details-dialog src="/robots" preload>
+    <include-fragment>Loading…</include-fragment>
+  </details-dialog>
+</details>
+```
+
+Would be the following when using `Primer::Alpha::Dialog`:
+
+```ruby
+<%= render(Primer::Alpha::Dialog.new(title: "Robots", visually_hide_title: true)) do |d| %>
+    <% d.with_show_button { 'Robots' } %>
+    <% d.with_body do %>
+        <include-fragment src="/robots" preload>
+            Loading…
+        </include-fragment>
+    <% end %>
+<% end %>
+```
+
+Please see the following for complete descriptions and examples.
+
+* [`Primer::Alpha::Dialog` component](/components/dialog/rails/alpha/)
+* [`Primer::Alpha::Dialog` Lookbook examples](https://primer.style/view-components/lookbook/inspect/primer/alpha/dialog/default)
+
+<p>&nbsp;</p>
+
+[&larr; Back to development docs](/guides/development/rails#upgrading-deprecated-components)
