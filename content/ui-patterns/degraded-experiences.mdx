@@ -58,13 +58,13 @@ Before making a decision about how to handle UI with unavailable content, check 
 
 ### Replacing UI with a message
 
-We don't want users to think they've suffered data loss. Instead of a generic "empty state, it is better to explain that it's unavailable, or remove the entire section from the page (including the section's heading). For example, as a user, I might think my repositories were deleted if I am on an organization page (like [https://github.com/primer/](https://github.com/primer/)) and the repositories aren't listed there.
-
 <img
   width="960"
   alt="A screenshot of the Primer organization page. The repositories list is replaced with a message informing the user that the repositories are temporarily unavailable."
-  src="https://github.com/primer/design/assets/2313998/3a2ce19a-2699-483a-a967-5b2e7e3d86d8"
+  src="https://github.com/primer/design/assets/2313998/086d37cf-0794-4b87-ba88-e99fb6bcba73"
 />
+
+We don't want users to think they've suffered data loss. If we know a user created something, don't show a generic "empty state". It's better to explain that it's unavailable, or remove the entire section from the page (including the section's heading). For example, I might think my repositories were deleted if I'm on an organization page (like [https://github.com/primer/](https://github.com/primer/)) and the repositories aren't listed there.
 
 Ideally we can strike a balance and give the user just the right amount of context without overwhelming them with error messages. A page with too many error messages could communicate an unnecessarily reactionary and negative tone. As a general guideline, we suggest limiting pages to 5 or less outage messages.
 
@@ -109,14 +109,50 @@ Be mindful that rendering too many error messages on the page in `fg.warning` co
   src="https://github.com/primer/design/assets/2313998/d3b0f293-64fc-4bd5-94af-041d92090874"
 />
 
-If the affected area is large enough, replace the affected UI with a [blankslate](/components/blankslate) component that explains why the expected UI isn't there.
+If the affected area is large enough, replace the affected UI with a [blankstate](/components/blankslate) component that explains why the expected UI isn't there.
+
+##### Blankslate guidance for degraded content
+
+<img
+  width="960"
+  alt="A diagram of a blankslate component used to notify users of unavailable data. The labeled parts are: 'Leading visual (required)', 'Primary text', 'Secondary text (required)', and 'Secondary action'"
+  src="https://github.com/primer/design/assets/2313998/fd1b78f5-4c03-4ce7-9b72-a61c2496c364"
+/>
+
+- **Leading visual**: Use the [alert icon](https://primer.style/design/foundations/icons/alert-24). Default to using `fgColor-muted` as the fill color. Using `fgColor-attention` could be too harsh and over-emphasize the error. Reference: [Primer Primitives functional colors](https://primer.style/primitives/storybook/?path=/story/color-functional-all--all).
+- **Primary text**: You may optionally use the primary text for a title that succinctly describes the error.
+- **Secondary text**: Use the secondary text to describe what's wrong and how (or if) the user can do anything to get around the issue.
+- **Secondary action**: Use the secondary action for any action or link to places with more information.
+
+We have yet to identify a case where a primary action would be appropriate. Theoretically, a primary action may be appropriate if it initiates an action that will resolve the problem.
+
+For help with writing error copy for the blankslate component, see the following parts of the empty state guidelines:
+
+- [Error state content and copy](/ui-patterns/empty-states#error-states)
+- [Empty state primary text](/ui-patterns/empty-states#primary-text)
+- [Empty state secondary text](/ui-patterns/empty-states#for-errors)
+
+For more information about the blankslate component, reference the [blankslate interface guidelines](/components/blankslate).
 
 #### Dialogs (modal and non-modal)
 
-If the content of a dialog is not critical and cannot be rendered, prevent the dialog from even being opened. For non-critical dialogs that appear on hover, remove the hover interaction. For non-critical dialogs that appear on click, remove the button that triggers the dialog. For example, if a user's profile data is unavailable, don't show a hovercard when their avatar is hovered.
+If the content of a dialog is not critical and cannot be rendered, prevent the dialog from even being opened. For non-critical dialogs that appear on hover, remove the hover interaction. For non-critical dialogs that appear on click, remove the button that triggers the dialog. For example, if a user's profile data cannot is unavailable, don't show a hovercard when their avatar is hovered.
 
 If the dialog is a core part of a workflow, replace the content of the dialog with a message explaining why the expected UI isn't there. If you're using a dialog component that supports error states (for example, [select panel](/components/select-menu#select-panel)), follow the component's guidelines for rendering error messages.
 
+<img
+  width="960"
+  alt="Two images: 1. Label or assignee SelectPanel 2. A degraded versin of that"
+  src="https://github.com/primer/design/assets/2313998/653cc04b-e88e-4235-8c04-47b8dba57351"
+/>
+
+If you're not using a component that supports error states, replace the content of the dialog with a [blankstate](/components/blankslate) component explaining why the expected UI isn't there.
+
+<img
+  width="960"
+  alt="Two images: 1. 'Edit details' modal that appears when you edit a column in a Memex project board 2. A degraded versin of that"
+  src="https://github.com/primer/design/assets/2313998/bde4367e-8881-41f5-9d06-a2ea5cd79fd6"
+/>
 <img
   width="960"
   alt="Two images: 1. Label or assignee SelectPanel 2. A degraded versin of that"
