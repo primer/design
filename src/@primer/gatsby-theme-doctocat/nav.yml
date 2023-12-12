@@ -185,8 +185,6 @@
       url: /components/details
     - title: Dialog
       url: /components/dialog
-    - title: Filter input
-      url: /components/filter-input
     - title: Flash
       url: /components/flash
     - title: Form control
