@@ -1,4 +1,4 @@
-z---
+---
 title: Messaging
 description: Messaging components are used to provide important and relevant information to the user, including feedback, contextual information, product updates, and more.
 ---
@@ -119,12 +119,36 @@ Popovers are used to call attention to a new feature, change to an existing feat
 
 Unlike other messaging components, popovers should never include critical information (such as errors) and should always include a dismiss action.
 
-# States
+## Message states
 
-## Info
+### Info
+The info state should be used to provide additional information that when missed to not prevent users from performing their desired actions.
+An info may be:
+- a setting that impacts the current view
+- a feature that is now available for you
+- additional details about a section or action that are more important than normal
 
-## Warning
+### Warning
+The warning state should be used if a user action is required prevent a problem in the future. Additionally if information is provided that is very important so that missing this information may lead to unwanted consequences.
+A warning can be:
+- 2FA will be required soon and the users is not using it
+- performing this action will have drastic effects e.g. deleting or archiving a repo, etc.
+- performing an action will incur costs for the first time
+- the system is experiencing temporary problems that impact the quality of service but do not make working completly impossible
 
-## Error
 
-## Success
+### Error
+The error state should be used if an error results from users input or in the systems (GitHub).
+An error can be:
+- invalid content in a form input
+- a submitted action can't be performed due to an issue with the system
+- content can't be loaded due to an issue with the system
+- the users has insufficant permissions to access something
+- the users needs to update information to be able to access the service (e.g. no 2FA set up, invalid billing details)
+
+### Success
+The success state should be used if a user action has a successful outcome.
+A success can be:
+- a complex valid form input value that needs outside confirmation (e.g. username or password creation)
+- a saved content that can't be see in the UI
+- connecting a service or enabling something that is not visible in the UI
