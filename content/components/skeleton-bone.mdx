@@ -1,0 +1,58 @@
+---
+title: Skeleton bone
+description: Use skeleton bone to render a skeleton loader in a size and shape not provided by skeleton avatar or text components.
+reactId: skeleton_bone
+figmaId: skeleton_bone
+---
+
+<CustomVideoPlayer
+  width="960"
+  loop
+  autoplay
+  src=""
+/>
+
+## Usage
+
+A skeleton bone can be any size or shape, and may be used to render a skeleton loader to replace content that cannot accurately be replaced by a skeleton avatar or skeleton text component.
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+For example, you may want to render a skeleton loader in place of a hero image in a content card that is still loading.
+
+<img
+  src=""
+  role="presentation"
+  width="456"
+/>
+
+</Box>
+
+## Options
+
+Width and height are provided 
+
+### Width
+
+### Height
+
+## Acccessibility
+
+Refer to the loading pattern [accessibility guidelines](/ui-patterns/loading#accessibility). Specifically, the secion about [avoiding over-announcing loading states](/ui-patterns/loading#avoiding-over-announcing-loading-states).
+
+### Known accessibility issues (GitHub staff only)
+
+<AccessibilityLink label="SkeletonBone"/>
+
+## Related links
+
+- [Loading](/ui-patterns/loading)
+- [Skeleton avatar](/components/skeleton-avatar)
+- [Skeleton text](/components/skeleton-text)
