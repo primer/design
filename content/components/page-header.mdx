@@ -299,6 +299,41 @@ The title bar can include a static page title, actions, and leading and trailing
 
 ## Accessibility
 
+### Landmark usage
+
+<-- docs -->
+
+### Heading Structure
+
+<-- docs -->
+
+### Dom Ordering
+
+The recommended dom order of the page header components is:
+
+1. PageHeader.TitleArea
+  1. PageHeader.LeadingVisual
+  2. PageHeader.Title
+  3. PageHeader.TrailingVisual
+2. ContextArea
+  1. ContextArea.ParentLink
+  2. ContextArea.ContextBar
+  3. ContextArea.ContextAreaActions
+3. PageHeader.LeadingAction
+4. PageHeader.TrailingAction
+5. PageHeader.Actions
+
+The main motivation behind this ordering is to make sure all interactive content in the page header comes after the main heading of the page (PageHeader.Title). With this approach, we can ensure that the screen reader users who are navigating through heading menu don't miss any of those interactive content. 
+
+Note that the visual and DOM ordering of the elements can only differ if the page heading never contains one or more focusable elements. If the heading includes any focusable elements, the visual and the DOM order must match.
+
+<img
+  src="https://github.com/primer/design/assets/1446503/3cf81858-f76c-4bfd-af4f-f800a82fd135"
+  role="presentation"
+  width="993"
+  alt="Page header components dom order"
+/>
+
 ### Known accessibility issues (GitHub staff only)
 
  <AccessibilityLink label="PageHeader"/>
