@@ -301,29 +301,31 @@ The title bar can include a static page title, actions, and leading and trailing
 
 ### Landmark usage
 
-<-- docs -->
-
 ### Heading Structure
-
-<-- docs -->
 
 ### Dom Ordering
 
 The recommended dom order of the page header components is:
 
-1. PageHeader.TitleArea
-  1. PageHeader.LeadingVisual
-  2. PageHeader.Title
-  3. PageHeader.TrailingVisual
-2. ContextArea
-  1. ContextArea.ParentLink
-  2. ContextArea.ContextBar
-  3. ContextArea.ContextAreaActions
-3. PageHeader.LeadingAction
-4. PageHeader.TrailingAction
-5. PageHeader.Actions
+```jsx
+<PageHeader.TitleArea>
+  <PageHeader.LeadingVisual>...</PageHeader.LeadingVisual>
+  <PageHeader.Title as="h1">...</PageHeader.Title>
+  <PageHeader.TrailingVisual>...</PageHeader.TrailingVisual>
+</PageHeader.TitleArea>
+<PageHeader.ContextArea>
+  <PageHeader.ParentLink>...</PageHeader.ParentLink>
+  <PageHeader.ContextBar>...</PageHeader.ContextBar>
+  <PageHeader.ContextAreaActions>...</PageHeader.ContextAreaActions>
+</PageHeader.ContextArea>
+<PageHeader.LeadingAction>...</PageHeader.LeadingAction>
+<PageHeader.TrailingAction>...</PageHeader.TrailingAction>
+<PageHeader.Actions>...</PageHeader.Actions>
+<PageHeader.Description>...</PageHeader.Description>
+<PageHeader.Navigation>...</PageHeader.Navigation>
+```
 
-The main motivation behind this ordering is to make sure all interactive content in the page header comes after the main heading of the page (PageHeader.Title). With this approach, we can ensure that the screen reader users who are navigating through heading menu don't miss any of those interactive content. 
+The main motivation behind this ordering is to make sure all interactive content in the page header comes after the main heading of the page (PageHeader.Title). With this approach, we can ensure that the screen reader users who are navigating through heading menu don't miss any of those interactive content.
 
 Note that the visual and DOM ordering of the elements can only differ if the page heading never contains one or more focusable elements. If the heading includes any focusable elements, the visual and the DOM order must match.
 
