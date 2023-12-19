@@ -1,16 +1,15 @@
 ---
 title: Messaging
+description: Messaging components are used to provide important and relevant information to the user, including feedback, contextual information, product updates, and more.
 ---
 
-import {Box, Flex} from '@primer/components'
-
-Messaging components are used to provide important and relevant information to the user, including feedback, contextual information, product updates, and more.
+import {Box} from '@primer/react'
 
 Primer includes three different messaging components:
 
-- [Toasts](https://primer.style/css/components/toasts)
-- [Flash alerts](https://primer.style/css/components/alerts)
-- [Popovers](https://primer.style/css/components/popover)
+- Toasts
+- [Flash alerts](../components/flash)
+- [Popovers](../components/popover) 
 
 ## Messaging types
 
@@ -61,7 +60,7 @@ Toasts should be brief and not bog down the experience with superfluous copy. If
 
 ### Accessibility
 
-Toasts are non-modal components and should contain `role=log`, which implies the element has `aria-live="polite"`. This notifies the user of the toast via Assistance Technologies without having to change focus to the toast. You can read more about `role=log` [here](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23).
+Toasts are non-modal components and should contain `role=log`, which implies the element has `aria-live="polite"`. This notifies the user of the toast via Assistance Technologies without having to change focus to the toast. You can read more about `role=log` at [W3: Using `role=log` to identify sequential information updates](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23).
 
 Toasts are generally informative and should not receive focus when they appear. For that reason, we suggest you **avoid using interactive elements** in the component (aside from a dismiss action). Keep in mind that, even without an explicit dismiss action, the user can always hit `esc` to dismiss the toast. For more information on how interactive children affect web accessibility, [check out this issue](https://github.com/jackbsteinberg/std-toast/issues/29).
 
@@ -104,7 +103,7 @@ They typically do not timeout on their own, but can include a dismiss action for
 
 ## Popovers
 
-<Flex flexDirection={['column', 'row', 'row']}>
+<Box display="flex" flexDirection={['column', 'row', 'row']}>
   <Box mr="3"  mb="2">
     <img width="262" src="https://user-images.githubusercontent.com/586552/63109550-8111d400-bf57-11e9-8714-46607da2f2ba.png" />
 
@@ -112,7 +111,7 @@ They typically do not timeout on their own, but can include a dismiss action for
   <Box mb="2">
     <img width="386" src="https://user-images.githubusercontent.com/586552/63109551-8111d400-bf57-11e9-893b-2cdeffffd147.png" />
   </Box>
-</Flex>
+</Box>
 
 Popovers are used to call attention to a new feature, change to an existing feature, or to provide additional context. Popovers can be helpful for flows that require light onboarding or instruction.
 

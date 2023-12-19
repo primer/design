@@ -1,0 +1,54 @@
+---
+title: Avatar
+description: Avatar is an image that represents a user or organization.
+reactId: avatar
+railsIds:
+- Primer::Beta::Avatar
+figmaId: avatar
+---
+
+import {Box, Text} from '@primer/react'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  width="960"
+  alt="An image showing two different avatars, a user and an organization."
+  src="https://user-images.githubusercontent.com/586552/203206390-f57e83e5-6950-4036-8e67-869ca99f510c.png"
+/>
+
+## Usage
+
+Use avatars to represent users, organizations, bots, or teams. On GitHub, avatars are either rounded squares or circles.
+
+## Options
+
+### Size
+
+Avatars start at 16px and increment by base-4 until 32px. At 32px, the scale switches to base-8 up to 48px.
+64px is the largest size in this scale.
+
+<img
+  width="960"
+  alt="An image showing avatars ranging in size from smallest to largest."
+  src="https://user-images.githubusercontent.com/586552/207139770-429f7327-c3e5-4e38-aa58-185a03d82304.png"
+/>
+
+### Shape
+
+Avatars appear as two different shapes, each with their own functional purpose.
+
+- **Circle avatars** represent individual people.
+- **Square avatars** represent non-human entities, such as bots, teams, or organizations
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Avatar"/>
+
+## Related components
+
+- [Avatar pair](/components/avatar-pair)
+- [Avatar stack](/components/avatar-stack)

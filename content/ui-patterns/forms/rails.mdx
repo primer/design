@@ -1,0 +1,40 @@
+---
+title: Forms in Rails
+description: Primer contains a framework for declaratively building Rails forms. It was designed specifically for accessibility and consistency with the Primer design system.
+current_page: rails
+---
+
+import {Link} from 'gatsby'
+import {Heading} from '@primer/react'
+import FormsLayout from '~/src/layouts/forms-layout'
+export default FormsLayout
+
+Creating accessible forms can be challenging. Forms are a common source of accessibility issues, and can hinder someone from successfully completing and submitting a form. This can be true even for people who do not use assistive technologies.
+
+The Primer forms framework is designed to be accessible by default, integrate deeply with Rails, follow web standards, and adhere to Primer's [form interface guidelines](/ui-patterns/forms/overview).
+
+## Example
+
+Forms are defined as Ruby classes...
+
+```ruby
+class SignInForm < ApplicationForm
+  form do |sign_in_form|
+    sign_in_form.text_field(name: :username, label: "Username")
+    sign_in_form.text_field(name: :password, label: "Password")
+    sign_in_form.submit(label: "Sign in")
+  end
+end
+```
+
+...and rendered like view components.
+
+```erb
+<%= primer_form_with(url: "/sign-in") do |f| %>
+  <%= render(SignInForm.new(f)) %>
+<% end %>
+```
+
+## Documentation
+
+The forms framework is capable of much more. For full documentation, see the <Link href="https://primer.style/view-components/lookbook/pages/forms/introduction"><LinkExternalIcon /> Primer forms docs</Link>.

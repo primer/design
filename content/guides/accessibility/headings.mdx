@@ -1,0 +1,65 @@
+---
+title: Headings
+description: Headings play a critical role in communicating the structure of a page. Find out why they're critical and how to create an accessible hierarchy in your pages.
+---
+
+## Overview
+
+Headings play a critical role in communicating the structure of a page. Heading levels range from `<h1>` to `<h6>`.
+
+### Best practices
+
+- Avoid skipping heading levels. `<h1>` should be followed by `<h2>` and so on.
+- Do not use heading elements solely for resizing text.
+- Avoid setting more than one `<h1>` per page. `<h1>` should be reserved to describe the page as a whole, similar to a page `<title>`. (Dialog headings are excepted from this rule.)
+
+## Why?
+
+A correct heading structure is critical for enabling users to navigate quickly within a page. Headings are by far the most common navigation technique for screen reader users.
+[67.7% of surveyed screen reader users](https://webaim.org/projects/screenreadersurvey9/#finding) responded that they are first likely to navigate via the headings when trying
+to find information on a lengthy web page. A proper heading structure also allows sighted users to visually scan and find what they want on a page quickly.
+
+An improper heading structure can cause a confusing navigation experience.
+
+## Guidelines
+
+### For designers
+
+In your designs, annotate the heading level. Properly labeled headings are one of the most important things a designer can do for developer handoff.
+
+### For engineers
+
+As you're developing a page, use tools like [Accessibility Insights](https://accessibilityinsights.io/docs/en/web/overview/) and [HeadingsMap](https://chrome.google.com/webstore/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi/related?hl=en)
+to verify the heading structure. You may also inspect the DOM structure of your page using the browser inspector, but using an extension will surface heading levels more easily.
+
+## Examples
+
+<DoDontContainer stacked>
+  <Do>
+    <Caption>Do follow a clear heading hierarchy</Caption>
+    <img
+      src="https://user-images.githubusercontent.com/40274682/157987874-e415dcc6-887f-4d8d-ab8a-bcdfbdad5e77.png"
+      alt="A GitHub discussions page with sequential, h1, h2, h3, and h4 headings"
+    />
+  </Do>
+  <Dont>
+    <Caption>
+      Don't use multiple h1s, skip over heading hierarchy for visual effect, or forget to label sections of information
+      with headings
+    </Caption>
+    <img
+      src="https://user-images.githubusercontent.com/40274682/157987882-edb92d5a-1fd3-4ef6-b5bb-bd08851eacd8.png"
+      alt="A GitHub discussion page with two h1 headings, which display an h3 before h2 headings"
+    />
+  </Dont>
+</DoDontContainer>
+
+## Additional resources
+
+- [WebAIM: Headings](https://webaim.org/techniques/semanticstructure/#headings)
+- [W3: Headings](https://www.w3.org/WAI/tutorials/page-structure/headings/)
+- [Medium: Headings for the visually inclined](https://medium.com/@inkblotty/headings-for-the-visually-inclined-c537e87865f)
+
+### Related WCAG guidelines and success criteria:
+
+- [1.3.1: Info and Relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships)

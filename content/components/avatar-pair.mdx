@@ -1,0 +1,53 @@
+---
+title: Avatar pair
+description: Avatar pair is composed of two avatars, one larger one and a smaller one, overlaid slightly.
+reactId: avatar_pair
+figmaId: avatar_pair
+---
+
+import {Box, Text} from '@primer/react'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  width="960"
+  alt="An image showing two different avatars, one larger and one smaller, to represent a parent-child combination."
+  src="https://user-images.githubusercontent.com/586552/203213337-c7d0f683-4971-4ef3-b480-c4743b929634.png"
+/>
+
+## Usage
+
+Use avatar pair to display two avatars when one is secondary to the other.
+
+## Options
+
+Avatar pair has two parent-child combinations: the parent as the circle and the child as the square, and vice-versa.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/586552/203212171-7fff46e1-e250-4b9f-8e4c-a9acab8eec8b.png"
+      alt=""
+    />
+    <Caption>Parent as the circle avatar (human) and child as the square (entity).</Caption>
+  </div>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/586552/203212177-e872b53e-6a2c-4539-a148-a5d86298fde6.png"
+      alt=""
+    />
+    <Caption>Parent as the square avatar (entity) and child as the circle (human).</Caption>
+  </div>
+</Box>
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="AvatarPair"/>
+
+## Related components
+
+- [Avatar](/components/avatar)
+- [Avatar stack](/components/avatar-stack)

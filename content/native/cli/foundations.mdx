@@ -1,0 +1,275 @@
+---
+title: Foundations
+description: Design concepts and constraints that can help create a better Terminal like experience for GitHub.
+---
+
+import {DoDontContainer, Do, Dont, Caption} from '@primer/gatsby-theme-doctocat'
+import ScrollToAnchor from '~/src/components/scroll-to-anchor'
+
+<ScrollToAnchor />
+
+## Language
+
+Language is the most important tool at our disposal for creating a clear, understandable product. Having clear language helps us create memorable commands that are clear in what they will do.
+
+We generally follow this structure:
+
+| gh  | `<command>` | `<subcommand>` | [value] | [flags]   | [value] |
+| --- | ----------- | -------------- | ------- | --------- | ------- |
+| gh  | issue       | view           | 234     | --web     | -       |
+| gh  | pr          | create         | -       | --title   | “Title” |
+| gh  | repo        | fork           | cli/cli | --clone   | false   |
+| gh  | pr          | status         | -       | -         | -       |
+| gh  | issue       | list           | -       | --state   | closed  |
+| gh  | pr          | review         | 234     | --approve | -       |
+
+**Command:** The object you want to interact with
+
+**Subcommand:** The action you want to take on that object. Most `gh` commands contain a command and subcommand. These may take arguments, such as issue/PR numbers, URLs, file names, OWNER/REPO, etc.
+
+**Flag:** A way to modify the command, also may be called “options”. You can use multiple flags. Flags can take values, but don’t always. Flags always have a long version with two dashes `(--state)` but often also have a shortcut with one dash and one letter `(-s)`. It’s possible to chain shorthand flags: `-sfv` is the same as `-s -f -v`
+
+**Values:** Are passed to the commands or flags
+
+- The most common command values are:
+  - Issue or PR number
+  - The “owner/repo” pair
+  - URLs
+  - Branch names
+  - File names
+- The possible flag values depend on the flag:
+  - `--state` takes `{closed | open | merged}`
+  - `--clone` is a boolean flag
+  - `--title` takes a string
+  - `--limit` takes an integer
+
+_Tip: To get a better sense of what feels right, try writing out the commands in the CLI a few different ways._
+
+<DoDontContainer>
+  <Do>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497420-8ab255c3-62b4-42d7-a126-028984471cb2.png"
+      width="100%"
+    />
+    <Caption>Use a flag for modifiers of actions</Caption>
+  </Do>
+  <Dont>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497413-06bb4d3c-e543-45d1-99f4-9e2cfc218179.png"
+      width="100%"
+    />
+    <Caption>Avoid making modifiers their own commands</Caption>
+  </Dont>
+</DoDontContainer>
+
+**When designing your command’s language system:**
+
+- Use [GitHub language](/native/cli/getting-started#make-it-feel-like-github)
+- Use unambiguous language that can’t be confused for something else
+- Use shorter phrases if possible and appropriate
+
+<DoDontContainer>
+  <Do>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497419-5b3785c7-5360-4553-975d-27c492feb5d9.png"
+      width="100%"
+    />
+    <Caption>Use language that can't be misconstrued</Caption>
+  </Do>
+  <Dont>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497411-0d5c778e-e03a-49da-9628-d0d34d11c4ec.png"
+      width="100%"
+    />
+    <Caption>
+      Avoid language that can be interpreted in multiple ways ("open in browser" or "open a pull request" here)
+    </Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497417-c8e5d51c-9280-4cae-9b4b-6a3f70b88786.png"
+      width="100%"
+    />
+    <Caption>Use understood shorthands to save characters to type</Caption>
+  </Do>
+  <Dont>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497409-678c95f4-0c47-41ac-b81b-f1cadfe69516.png"
+      width="100%"
+    />
+    <Caption>Avoid long words in commands if there's a reasonable alternative</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Typography
+
+Everything in a command line interface is text, so type hierarchy is important. All type is the same size and font, but you can still create type hierarchy using font weight and space.
+
+<img
+  src="https://user-images.githubusercontent.com/980622/215497511-7162553d-a1a7-4703-a640-b349ba06e7bf.png"
+  alt="An example of normal weight, and bold weight. Italics is striked through since it's not used."
+/>
+
+- People customize their fonts, but you can assume it will be a monospace
+- Monospace fonts inherently create visual order
+- Fonts may have variable unicode support
+
+### Accessibility
+
+If you want to ensure that a screen reader will read a pause, you can use a:
+
+- period (`.`)
+- comma (`,`)
+- colon (`:`)
+
+## Spacing
+
+You can use the following to create hierarchy and visual rhythm:
+
+- Line breaks
+- Tables
+- Indentation
+
+<DoDontContainer stacked>
+  <Do>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497385-27dc586e-92c9-414f-9b19-92688f096119.png"
+    />
+    <Caption>Use space to create more legible output</Caption>
+  </Do>
+  <Dont>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497381-34fff043-bcc9-4307-9459-f1a549ca399b.png"
+    />
+    <Caption>Not using space makes output difficult to parse</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Color
+
+Terminals reliably recognize the 8 basic ANSI colors. There are also bright versions of each of these colors that you can use, but less reliably.
+
+<img
+  src="https://user-images.githubusercontent.com/980622/215497351-fd41be98-14fc-4b52-b8dc-32fb65f76eb2.png"
+  alt="A table describing the usage of the 8 basic colors."
+/>
+
+### Things to note
+
+- Background color is available but we haven’t taken advantage of it yet.
+- Some terminals do not reliably support 256-color escape sequences.
+- Users can customize how their terminal displays the 8 basic colors, but that’s opt-in (for example, the user knows they’re making their greens not green).
+- Only use color to [enhance meaning](/components/icon#usage), not to communicate meaning.
+
+## Iconography
+
+Since graphical image support in terminal emulators is unreliable, we rely on Unicode for iconography. When applying iconography consider:
+
+- People use different fonts that will have varying Unicode support
+- Only use iconography to [enhance meaning](/components/icon#usage), not to communicate meaning
+
+_Note: In Windows, Powershell’s default font (Lucida Console) has poor Unicode support. Microsoft suggests changing it for more Unicode support._
+
+**Symbols currently used:**
+
+```bash
+✓ 	Success
+- 	Neutral
+✗   Failure
++ 	Changes requested
+! 	Alert
+```
+
+<DoDontContainer>
+  <Do>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497402-6d7a375c-9530-4f8b-82e1-06653f42e15b.png"
+      width="100%"
+    />
+    <Caption>Use checks for success messages</Caption>
+  </Do>
+  <Dont>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497405-ce95e7f7-574c-4aae-ae52-0c4ef2c6b050.png"
+      width="100%"
+    />
+    <Caption>Don't use checks for failure messages</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497406-95470c4c-7d90-4254-b7a2-39371eee716c.png"
+      width="100%"
+    />
+    <Caption>Use checks for success of closing or deleting</Caption>
+  </Do>
+  <Dont>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497407-373927e0-ab3b-44e6-846d-1d1d70bc6c01.png"
+      width="100%"
+    />
+    <Caption>Don't use alerts when closing or deleting</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Scriptability
+
+Make choices that ensure that creating automations or scripts with GitHub commands is obvious and frictionless. Practically, this means:
+
+- Create flags for anything interactive
+- Ensure flags have clear language and defaults
+- Consider what should be different for terminal vs machine output
+
+### In terminal
+
+<img
+  src="https://user-images.githubusercontent.com/980622/215497378-70bbe5b1-74dc-4b95-a329-c8f7e2908bae.png"
+  alt="An example of gh pr list"
+/>
+
+### Through pipe
+
+<img
+  src="https://user-images.githubusercontent.com/980622/215497375-a872df76-840a-489b-b0ed-61e37afed9c8.png"
+  alt="An example of gh pr list piped through the cat command"
+/>
+
+### Differences to note in machine output
+
+- No color or styling
+- State is explicitly written, not implied from color
+- Tabs between columns instead of table layout, since `cut` uses tabs as a delimiter
+- No truncation
+- Exact date format
+- No header
+
+## Customizability
+
+Be aware that people exist in different environments and may customize their setups. Customizations include:
+
+- **Shell:** shell prompt, shell aliases, PATH and other environment variables, tab-completion behavior
+- **Terminal:** font, color scheme, and keyboard shortcuts
+- **Operating system**: language input options, accessibility settings
+
+The CLI tool itself is also customizable. These are all tools at your disposal when designing new commands.
+
+- Aliasing: [`gh alias set`](https://cli.github.com/manual/gh_alias_set)
+- Preferences: [`gh config set`](https://cli.github.com/manual/gh_config_set)
+- Environment variables: `NO_COLOR`, `EDITOR`, etc

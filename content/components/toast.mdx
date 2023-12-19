@@ -1,0 +1,45 @@
+---
+title: Toast
+description: Toasts are used to show live, time-sensitive feedback to users.
+cssId: toast
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+## Usage
+
+Toasts are used to provide relevant feedback to the user, typically after they've taken an action. Primer includes styles for success, warning, error, loading, and default toasts. Some examples include:
+
+- Confirmation that an action was successfully taken
+- Communicating that an action is pending
+- Notifying the user if an action failed to complete
+- Providing general information
+
+Toasts are best used in context of the page they're referring to (rather than a global notification that can appear on any page) and should require minimal user interaction. Toasts are best used to display time-sensitive information. For global notices and messaging, see the [flash component](/components/flash).
+
+Toasts should be brief and not bog down the experience with superfluous copy. If multiple toasts appear on the page, they will stack naturally.
+
+<DoDontContainer>
+  <Do>
+    <img src="https://user-images.githubusercontent.com/586552/63106528-06de5100-bf51-11e9-8a5e-98583ed74874.png" />
+    <Caption>Use brief and direct communication.</Caption>
+  </Do>
+  <Dont>
+    <img src="https://user-images.githubusercontent.com/586552/63106527-06de5100-bf51-11e9-858c-72de6a5c728a.png" />
+    <Caption>Don't use wordy and redundant copy, and avoid exceeding 140 characters.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Accessibility
+
+Toasts are non-modal components and should contain `role=log`, which implies the element has `aria-live="polite"`. This notifies the user of the toast via Assistance Technologies without having to change focus to the toast. You can read more about `role=log` at [W3: Using `role=log` to identify sequential information updates](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23).
+
+Toasts are generally informative and should not receive focus when they appear. For that reason, we suggest you **avoid using interactive elements** in the component (aside from a dismiss action). Keep in mind that, even without an explicit dismiss action, the user can always hit `esc` to dismiss the toast. For more information on how interactive children affect web accessibility, [check out this issue](https://github.com/jackbsteinberg/std-toast/issues/29).
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Toast"/>

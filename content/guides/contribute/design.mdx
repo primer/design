@@ -1,0 +1,51 @@
+---
+title: Design
+description: Guidelines for building design patterns using Primer.
+---
+
+Design flexible, robust, and repeatable patterns that build on a set of solid foundations.
+
+## Design system foundations
+
+Primer is the stable trusted layer. At its foundations are typography, color, spacing, and layout.
+
+➡️ [Primer design guidelines](https://primer.style/)
+
+## Upcoming patterns and proposals
+
+To avoid duplicated efforts and to accommodate upcoming changes, keep up with the Primer Roadmap.
+
+➡️ [Primer Roadmap](https://github.com/orgs/github/projects/2759/views/29) (GitHub staff only)
+
+## Context and use cases
+
+When creating a new pattern, we advise starting with an audit of similar patterns that already exist as well as identifying opportunity areas where the new pattern can be used. Consider as many different use cases as possible. The goal is to create patterns that are flexible, reusable, and that solve concrete problems.
+
+Finally, consider where a pattern will live in the context of a system. A pattern designed for a specific context is not likely to be considered a reusable component.
+
+## Share early, and often
+
+There are many opportunities to get feedback from Primer maintainers.
+
+**Systems designers** provide extra context and considerations for designing with system-wide considerations
+**Accessibility designers** provide context and considerations for accessible and inclusive design
+**Product designers** consider the designs in the context of their own product area and whether their specific use cases could benefit from your work
+**Design engineers** can consider how something may be implemented, what is realistic within the existing constraints, and what is unfeasible.
+
+There are different ways you can ask for and get feedback:
+
+- (GitHub staff only) [Open an issue requesting a Primer Design Review](https://github.com/github/primer/#need-a-primer-pattern-or-octicon-)
+- (GitHub staff only) Attend Primer or Primer Accessibility open office hours
+
+## Design checklist
+
+All design patterns for Primer Library consideration should at minimum:
+
+- [ ] **Leverage Primer**: Leverages the foundational building blocks and tools of Primer. Reuses or extends existing patterns and primitives rather than creating overrides
+  - [ ] Colors, spacing, sizes, and typographic styles from [@primer/primitives](https://github.com/primer/primitives/)
+  - [ ] All icons come from [@primer/octicons](https://github.com/primer/octicons/)
+  - [ ] Considers the criteria in the [responsive design guidelines](https://primer.style/foundations/responsive)
+- [ ] **Maintain high design quality:** Visually in harmony with GitHub UI and all visual elements are used are in their correct context
+- [ ] **Prioritize code as a top concern:** Designed with code quality and component API top of mind
+- [ ] **Be inclusive:** Designs follow Primer [accessibility guidelines](https://primer.style/guides/accessibility/guidelines) and considers a global audience
+- [ ] **Have documentation:** Design patterns are [documented](https://primer.style/guides/contribute/documentation) for easy adoption

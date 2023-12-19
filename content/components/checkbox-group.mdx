@@ -1,0 +1,62 @@
+---
+title: Checkbox group
+description: Checkbox group renders a set of checkboxes.
+reactId: checkbox_group
+railsIds:
+- Primer::Alpha::CheckBoxGroup
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  width="960"
+  alt="An image of a checkbox group showing two selections"
+  src="https://user-images.githubusercontent.com/586552/205333350-f767c1ee-61b9-49e8-963d-0fad537749e9.png"
+/>
+
+## Usage
+
+Use checkbox group to allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
+
+### Best practices
+
+- Put checkboxes in a logical order
+- If users are only allowed to select a single option, consider using a [radio group](/components/radio-group) instead
+- Each checkbox's state should be independent from other checkboxes in the group. For example: checking one checkbox should not check or disable any other checkboxes
+
+## Anatomy
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/224140255-57987086-f2b3-47be-9ee7-99af26ea6846.png"
+/>
+
+**Label:** A title that labels the group of options and helps users understand the relationship between the options in the group.
+
+**Required indicator:** Indicates that a selection is required.
+
+**Caption:** May be used to provide additional context about the checkbox group when the label alone is not sufficient
+
+**Options:** A list of options represented using [checkboxes](/components/checkbox).
+
+**Validation message:** A message explaining why the selection failed validation. See the [form pattern documentation](../ui-patterns/forms/overview#validation) for more information on form validation patterns.
+
+## Accessibility
+
+Once a user checks an option from a checkbox group, the result should not be saved or applied until the user has explicitly submitted their input using a "save" or "submit" button. See the [saving pattern guidelines](../ui-patterns/saving) for more information.
+Alternative: you can use a [toggle switch](/components/toggle-switch) to immediately toggle something on and off as long as it's not in the context of a bigger form that applies other input values when submited
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="CheckboxGroup"/>
+
+## Related links
+
+- [Forms](../ui-patterns/forms/overview)
+- [Form control](/components/form-control)
+- [Checkbox](/components/checkbox)
+- [Radio](/components/radio)
+- [Radio group](/components/radio-group)

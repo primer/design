@@ -1,0 +1,94 @@
+---
+title: Adding new components
+description: Guidance to help you get your components added to Primer. The primary audience for this guidance is GitHub staff.
+---
+
+## On-ramp from product to Primer
+
+The process starts with a new component being introduced as a custom React component in a feature team's app and becoming a Primer component once it matures and gets more usage.
+
+This guidance is intended for GitHub staff members who are introducing design patterns that are not yet supported by Primer components. Contributions from Primer consumers who don't work at GitHub are welcome and encouraged, but these steps assume the reader is working on a feature team at GitHub.
+
+### 1. Exists and is discoverable
+
+Your component should have:
+
+- A name
+- A description
+- At least 1 Storybook story
+
+This is the least refined phase of a new component: it just needs to exist. If you've already decided that this is a component worth sharing with other teams, it just needs to be discoverable and pass basic accessibility checks.
+
+For guidance on what makes a pattern worth sharing, check out the documentation: [Handling new patterns](/guides/contribute/handling-new-patterns).
+
+### 2. Meets basic design quality checks
+
+Check the design against the criteria in the [pattern design checklist](https://primer.style/guides/contribute/design#design-checklist).
+
+The criteria in the pattern design checklist ensure your pattern is sturdy enough to be used in production and easily picked up by other designers or engineers. For a more detailed quality check, you can refer to the [product design checklist](https://github.com/github/product-design/blob/main/resources/design-checklist.md) (GitHub staff only).
+
+### 3. Has documentation
+
+The most basic documentation your component should have:
+
+- Storybook stories demonstrate all of the pattern's features and options
+- At least meets the [MVP component documentation criteria](https://github.com/primer/blob/main/content/components/component-documentation-guidelines/component-MVP-documentation-guidelines.md)
+
+Documentation makes your pattern easier for others to use, and helps the team understand how your pattern could be adopted into Primer.
+
+Resources for writing documentation:
+
+- [Component documentation criteria](https://github.com/primer/blob/main/content/components/component-documentation-guidelines/component-documentation-guidelines.md)
+- [Primer documentation guidelines](https://primer.style/guides/contribute/documentation)
+
+### 4. Is accessible
+
+Your component likely meets basic accessibility requirements if it passes axe checks and follows the guidance in the [Product Accessibility Checkpoints](https://github.com/github/accessibility-playbook/blob/main/content/product-lifecycle-checkpoints.mdx) (GitHub staff only) in our accessibility playbook.
+
+It would be even better if your component has gone through an a11y design review and a a11y engineering review. Every new component we add to Primer goes through rigorous testing by the accessibility team, so your component will be better prepared for adopting and releasing in Primer.
+
+### 5. Ready to upstream
+
+Now your component has satisfied enough criteria that it's well on it's way to being at the “Alpha” maturity status! From here, your team or the Primer maintainers will be in a good position to adopt your component and iterate on it until it reaches the “Alpha” maturity status.
+
+## Avoiding duplication
+
+New components should never have the same name as an existing Primer component - especially if it's distinctly different from the existing component. The only exception is if you're introducing the React implementation of a component that has already been created in [Primer ViewComponents](https://github.com/primer/view_components/).
+
+If you're creating a modified version of an existing component, try to modify it in Primer first. If your changes are rejected by Primer, you can iterate on a "fork" of the component with a new name until it can be upstreamed. See [the flowchart](https://primer.style/guides/contribute/handling-new-patterns#process-summarized-as-flowchart) in the "Handling new patterns" guidelines.
+
+## Upstreaming to Primer
+
+Primer has a strict process for adding new components to ensure they meet certain quality criteria and are accessible.
+
+**Initiated by Primer:** If a component gains enough traction that it's being regularly used by multiple feature teams, the Primer maintainers will create and prioritize an issue to upstream it.
+
+**Initiated by a feature team:** If a feature team feels that the component is ready to be upstreamed to Primer, anybody is welcome to create an issue to review the component with Primer maintainers. During that review, the Primer will decide whether or not the component is a good candidate for upstreaming. Use the [Primer pattern proposal issue template](https://github.com/github/primer/issues/new?assignees=&labels=proposal%2C+needs+triage&template=01-pattern-proposal.md&title=%5BProposal%5D+).
+
+### How do Primer maintainers arrive at a decision to upstream?
+
+- Is the pattern frequently used by multiple feature teams?
+- Is this a pattern we want to encourage because it does a good job solving a particular design, engineering, or accessibility problem?
+- Will there be any negative consequences from adding this new component? For example, a negative impact on performance
+- Does it fit in with a “theme” of any existing Primer components? For example, a new data input component would fit in nicely with our existing form components and other patterns for data input
+- Is the time we'd have to invest in owning and maintaining the component worth it?
+
+### Who are the decision makers and stakeholders involved?
+
+The Primer maintainers (designers and engineers) will decide if a component should be upstreamed using input from feature teams and the criteria described above.
+
+### How do Primer maintainers vet components once they're upstreamed?
+
+Once a component is upstreamed, it goes through a [component lifecycle maturity](/guides/component-lifecycle) process until it reaches the stable level.
+
+Once a component meets “Alpha” criteria it's considered safe to be use in production, but consumers can expect breaking changes as it matures to “Beta”. We aim to get all or most components to the “Stable” level of maturity criteria.
+
+## Adding components directly to Primer
+
+Although Primer has a high barrier of entry for introducing new components, contributions from everyone are welcome and encouraged. The contribution documentation and the Primer team members are available to guide new component contributions.
+
+Primer maintainers often lack the bandwidth to do the work for you, but will do their best to answer your questions and help get your contribution to the “Alpha” maturity level.
+
+## Adding more general patterns
+
+If you're pitching design patterns that are lower-level than a component (for example, [data saving patterns](https://primer.style/ui-patterns/saving), [focus management utility](https://github.com/primer/behaviors/blob/main/docs/focus-zone.md)), you can create an issue or pull request, share your idea at the Primer patterns weekly working session (only available to GitHub staff), or post to one of Primer's Slack channels (only available to GitHub staff).

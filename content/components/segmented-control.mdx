@@ -1,0 +1,478 @@
+---
+title: Segmented control
+description:
+  Segmented control is used to pick one choice from a linear set of closely related choices, and immediately apply
+  that selection.
+reactId: segmented_control
+railsIds:
+- Primer::Alpha::SegmentedControl
+figmaId: segmented_control
+rails: https://primer.style/view-components/components/alpha/segmentedcontrol
+---
+
+import {Box, Text} from '@primer/react'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+## Anatomy
+
+![A diagram of a segmented control with three buttons. The labeled parts of the segmented control are: the selected third button, the icon in the second button, and the text label in the second button.](https://user-images.githubusercontent.com/2313998/182705417-c0e1dddb-6c6b-4746-9a02-0e3a9eb17017.png)
+
+## Usage
+
+A segmented control should only be used to change a value; it's similar to a group of radio inputs.
+
+A segmented control should not be used as a form of navigation: use tabs instead. If your primary use case is to hide or show content, that's a good hint that you should reach for tabs or another navigation pattern instead.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/200646211-c7dd9308-76f8-46b5-a189-4ff332e3921f.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use tabs for navigation or toggling content visibility.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/200646212-f17f7da8-276a-4f0e-80eb-d561fe250caf.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use a segmented control for navigation or toggling content visibility.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Content
+
+### Buttons
+
+A segmented control should have 2–5 choices with text labels, or up to 6 icon-only buttons. Too many choices can be difficult to parse and take up too much horizontal space. If there are more than 5 choices, use another choice selection pattern such as a group of radio inputs or a dropdown menu.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182705421-fb58f024-323f-48b8-81ae-70db5fc0aed1.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use a segmented control for picking from 5 (6 for icon-only buttons) or fewer options.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182705422-2cb47d94-952c-4a7a-8f2f-627cc1ef3204.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use a segmented control for more than 5 options.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182705424-d85bee5f-3996-4078-9185-6c494e7d6067.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>
+      Use a segmented control for selecting from a list of static values. You may use an auxiliary dropdown adjacent to
+      the segmented control.
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182705425-c79d6522-1f0e-40d9-8c4d-78bef58cceae.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use a segmented control with a choice that is a dropdown.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Button icons
+
+<Box
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Text as="p" mt="0">
+    An icon can be rendered in a segmented control button as a visual cue to help users understand the choice that
+    button represents.
+  </Text>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/182705434-baf679ea-14de-4b62-b83f-f833c1058694.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
+
+#### Effective visual cues
+
+Be consistent with the way visual cues are used in each button of the segmented control. Use either all icons, all text labels, or all text labels with icons.
+
+Do not change icons to communicate state.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182705431-fe063f8f-6678-44b7-81a4-9ed3a6968a1e.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use icons as a visual cue to communicate what the choice does.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182705433-d5533bac-8f7c-4a9d-8501-a304cdba4619.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Change or add icons to indicate whether the choice is selected.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182711267-c71a91e0-7bde-435b-a0e3-72ca4ea34e55.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Keep the visual cues in each button consistent.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182711268-f61ec450-fb10-41ba-b736-5fe1e5bddc87.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't mix visual cues between buttons.</Caption>
+  </Dont>
+</DoDontContainer>
+
+#### Icon-only buttons
+
+Use icons without a visible text label sparingly, and only with icons that are easily understood by an average GitHub user. When a segment has an icon without a visible text label, the text label should be shown in a tooltip.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182705427-29e7dfe2-b714-4baf-96d9-2871b46eaf05.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use icons without a visible label when the icon's meaning is obvious.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182705428-112e7ebf-d483-49f1-aabf-44866c31b7f9.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use obscure icons without a visible label.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Button label text
+
+Segmented control button labels should be nouns or noun phrases that succinctly describe the choice. Button labels may not wrap to multiple lines.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182705434-baf679ea-14de-4b62-b83f-f833c1058694.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Phrase choice labels as nouns or noun phrases with as few characters as possible.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182705435-e5ee0c9e-d4e7-4db5-b865-7f1001fb3e3e.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Phrase choice labels as an action or with unnecessarily long strings of text.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Contextual information
+
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="0">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Label
+    </Text>
+    <Text as="p" mt="0">
+      Segmented controls must have a text label, even if the label is only accessible to screen readers. A visible label
+      is the most direct way to identify what the control is used for, but the location and surrounding elements of the
+      control often give enough context to visually hide the label.
+    </Text>
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Caption
+    </Text>
+    <Text as="p" mt="0">
+      An optional caption may be used to provide additional context to help users make a selection or explain what
+      effect the selection will have. Caption text should be as short as possible.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/182711443-bf68d139-dfd9-477f-853e-de217a96f5d8.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
+
+See the [layout](#layout) section for ways to compose a segmented control with a label.
+
+## Interaction
+
+Selections are mutually exclusive. Once a selection has been made, it can only be deselected by making a new selection.
+
+A segmented control does not require a "Save" button to apply the selection. When a choice is selected, the selection immediately affects an object, state, or view.
+
+## Layout
+
+### Composing the control with a label and caption
+
+#### Single-column
+
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Box as="figcaption" mt="0">
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Single-column
+    </Text>
+    <Text as="p" mt="0">
+      A single-column layout is the same way form controls (for example, text inputs) are layed out. The single-column
+      layout is useful for preserving horizontal space.
+    </Text>
+  </Box>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/182710235-f26b3fa2-fac5-47ff-8334-034d62abb021.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
+
+A single-column layout is the same way form controls (for example, text inputs) are layed out. The single-column layout is useful for preserving horizontal space.
+
+#### Two-column
+
+<Box display="flex" mb={3} flexWrap="wrap" sx={{gap: 3}}>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/182705438-d16f8eeb-8809-4d48-9c3c-528b637d7c2c.png"
+    role="presentation"
+    width="456"
+  />
+  <img
+    src="https://user-images.githubusercontent.com/2313998/182705440-b08a9a2c-0782-4468-9d83-1d8a7f8f77a9.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
+
+A two-column layout can be used to:
+
+- Align the control with adjacent elements
+- Conserve vertical space
+- Group related controls in a way that is easy to scan
+
+### Fill available width
+
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <Text as="p" mt="0">
+    A segmented control's width can stretch each button evenly to fill the width of the control's parent. This option is
+    intended to make the segmented control easier to adapt into different layouts.
+  </Text>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/182705451-8eb238e0-7a4e-4c6c-a9ed-291e35ce1bf1.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
+
+### Responsive design
+
+There are cases where a segmented control needs to be placed in a spot that is too narrow to accommodate all of its options. In these cases, the control can be adapted to fit in the narrow area without sacrificing usability.
+
+<Box
+  as="figure"
+  display="flex"
+  alignItems="center"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+  <figcaption>
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Convert to an action menu
+    </Text>
+    <Text as="p" mt="0">
+      Swapping out the segmented control for an action menu is especially helpful when:
+      <Box as="ul" mt={1} pl="1rem">
+        <li>The icons cannot be understood without visible text labels</li>
+        <li>The control is still too wide when text labels are hidden</li>
+      </Box>
+    </Text>
+  </figcaption>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/182705449-0b054ec5-26e3-4bff-b5c0-313966badadf.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
+
+<Box
+  as="figure"
+  display="flex"
+  alignItems="center"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  m={0}
+  mb={5}
+  sx={{gap: 3}}
+>
+  <figcaption>
+    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
+      Only show icons
+    </Text>
+    <Text as="p" mt="0">
+      If your segmented control uses icons that can be understood without a visible text label, then you can hide the
+      text labels and rely only on icons. The text from the hidden label will still be visible in a tooltip.
+    </Text>
+  </figcaption>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/182705450-6a68767c-f7e5-4e3d-972f-38d30267df71.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182705447-1f9ef99d-b6f2-4a98-af13-d34654236d30.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>
+      Replace the segmented control with an action menu or use icons that are easily understood without text labels.
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/2313998/182705446-bfa04d0b-dbfa-4d1b-b732-c50503d65735.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Wrap the buttons to multiple lines, use an overflow button, or remove buttons</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Accessibility
+
+A segmented control is treated like a [list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul) where each [list item](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) contains a button.
+
+Do not treat a segmented control like any of the following ARIA roles:
+
+- [`radiogroup`](https://developer.mozilla.org/en-US/docs/web/accessibility/aria/roles/radiogroup_role), which would require a save button to apply the changes.
+- [`tablist`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tablist_role), which is used to switch between [tab panels](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tabpanel_role) of different content.
+- [`toolbar`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role), which is a collection of function buttons.
+
+These other roles have their own keyboard navigation rules and are treated differently by screen readers and other assistive technologies. Designs that treat segmented controls like tabs or radio buttons would be confusing for users who interact with the web using assistive technologies.
+
+### Keyboard navigation
+
+<Box
+  as="figure"
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+
+<div>
+
+#### `Tab`
+
+`Tab` behaves just like it would in a list of focusable elements.
+
+When tabbing into the segmented control from an adjacent focusable element, the first or last button receives focus.
+
+- Focus will be brought to the first segmented control button if focus is being moved from _before_ the segmented control.
+- Focus will be brought to the last segmented control button if focus is being moved from _after_ the segmented control.
+
+#### `Enter` or `Space`
+
+Pressing `Enter` or `Space` while focused on a deselected button selects that button. This is the default behavior for buttons.
+
+If the focused button is already selected, pressing `Enter` or `Space` should not deselect the button.
+
+#### `Arrow Left` or `Arrow Right`
+
+Unlike radio groups and toolbars, the left and right arrow keys do not change the focus or selection.
+
+</div>
+
+<Box flexShrink={0}>
+  <CustomVideoPlayer
+    width="456"
+    autoplay
+    loop
+    src="https://user-images.githubusercontent.com/2313998/183119490-af7db406-63e5-4395-ba2f-76941691b497.mp4"
+  />
+</Box>
+</Box>
+
+### Touch targets
+
+<Box
+  as="figure"
+  display="flex"
+  flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
+  m={0}
+  mb={3}
+  sx={{gap: 3}}
+>
+
+<Text as="p" mt="0">Ensure segmented control buttons have a large enough touch target size. On devices that have a pointer with limited accuracy (such as touchscreen phones), provide a larger touch target area. The buttons should respond to hovers, clicks, and taps anywhere in the touch target area, even if it isn't directly on the control.</Text>
+  <img
+    src="https://user-images.githubusercontent.com/2313998/182705453-f0a68ed8-4e07-4ce3-8c09-0ead2d08b816.png"
+    role="presentation"
+    width="456"
+  />
+</Box>
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="SegmentedControl"/>

@@ -1,0 +1,71 @@
+---
+title: Padding
+description: Padding utilities are based on a global spacing scale which helps keep horizontal and vertical spacing consistent. These utilities help us reduce the amount of custom CSS that could share the same properties, and allows to achieve many different page layouts using the same styles.
+---
+
+## Shorthand
+
+Since padding utilities have many variations and will be used in many places, we use a shorthand naming convention to help keep class names succinct.
+
+| Shorthand | Description              |
+| --------- | ------------------------ |
+| p         | padding                  |
+| t         | top                      |
+| r         | right                    |
+| b         | bottom                   |
+| l         | left                     |
+| x         | horizontal, left & right |
+| y         | vertical, top & bottom   |
+| 0         | 0                        |
+| 1         | 4px                      |
+| 2         | 8px                      |
+| 3         | 16px                     |
+| 4         | 24px                     |
+| 5         | 32px                     |
+| 6         | 40px                     |
+| 7         | 48px                     |
+| 8         | 64px                     |
+| 9         | 80px                     |
+| 10        | 96px                     |
+| 11        | 112px                    |
+| 12        | 128px                    |
+
+_**Note:** The gray in the examples below represents the element, and the yellow represents the padding._
+
+## Uniform padding
+
+Use uniform spacing utilities to apply equal padding to all sides of an element. These utilities can be used with a spacing scale from 0-6.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-padding--uniform'}]} height="150" />
+
+## Directional padding
+
+Use directional utilities to apply padding to an individual side, or the X and Y axis of an element. Directional utilities can change or override default padding, and can be used with a spacing scale of 0-6.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-padding--directional'}]} height="100" />
+
+## Extended directional padding
+
+The extended directional padding scale starts from spacer `7` and goes up to `12`. All directions and their responsive variants are supported, except for `px`.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-padding--directional-extended'}]} height="200" />
+
+## Responsive padding
+
+All padding utilities can be adjusted per [breakpoint](/foundations/css-utilities/grid#breakpoints) using the following formula: <br /> `p-[direction]-[breakpoint]-[spacer]`. Each responsive style is applied to the specified breakpoint and up.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-padding--responsive'}]} height="100" />
+
+## Responsive container padding
+
+`.p-responsive` is a padding class that adds padding on the left and right sides of an element. It is intended to be used with [container styles](/foundations/css-utilities/grid#containers).
+
+- On **0 to sm** screens, it gives the element padding of `$spacer-3`
+- On **sm to lg** screens it gives the element padding of `$spacer-6`
+- On **lg and wider** screens, it gives the element padding of `$spacer-3`
+
+It's the equivalent of adding the `.px-3 .px-sm-6 .px-lg-3` utility classes.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-padding--responsive-container'}]} height="100" />
+
+> Note: Since the example is shown in an `iframe` it won't show the change to `$spacer-3` for the `lg` breakpoint.

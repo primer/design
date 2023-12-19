@@ -1,0 +1,111 @@
+---
+title: Foundations
+---
+
+import ScrollToAnchor from '~/src/components/scroll-to-anchor'
+
+<ScrollToAnchor />
+
+These are the foundational design concepts and constraints that can help inform design decisions. The core considerations for GitHub Desktop include platform differences and relationships to Primer Web guidelines.
+
+## Color
+
+The color scheme file is the only element inherited directly from Primer CSS. For the most part, Deskotp uses the same palette as Primer CSS, with a few exceptions:
+
+- Use blue for the primary buttons (rather than the green buttons on github.com)
+- Use blue for tab underlines (orange is used on github.com)
+
+### Dark mode
+
+GitHub Desktop has a dark mode users can choose in their app preferences. It's displayed using a theme that essentially converts all the elements to their dark mode equivalents.
+
+## Iconography
+
+import icons from '../../images/desktop-icons.png'
+
+GitHub Desktop uses [octicons](https://primer.style/octicons/), but doesn't inherit updates, instead they're duplicated into the Desktop code base. There are icons that are unique to Desktop:
+
+- Stash: Uses the octicon for ‘modified’ but made to appear stacked
+- Commit co-author: Person with plus sign
+- Avatar default: The old version (a filled in silhouette with rounded container) is used instead of the newer outlined style due to the context
+- Force push icon: Push arrow with outline of two more arrows to make it look more extreme
+- Repo force push: Repo with arrow with triple outline above
+
+<img src={icons} alt="" />
+
+Some older octicons have also been used in the illustrations (check mark, question mark, ufo with speech bubble with telescope, planet with thumbs up).
+
+## Illustrations
+
+GitHub Desktop has its own set of illustrations, which were adopted from a previous GitHub Universe with a space theme. Illustrations primarily show up in the welcome wizard and empty states for lists areas. Because Desktop has a dark mode, hard-coded colors need to look good on either white or dark gray backgrounds. They are composed of 1 or 2 swatches that get swapped out with a css invert filter on. If a shadow is included in the illustration, it needs to be translucent.
+
+All of the illustrations can be found in the [desktop repo](https://github.com/desktop/desktop/tree/development/app/static/common).
+
+## Platforms
+
+Desktop is built using Electron, which allows it to be cross-platform. With Electron, it’s possible to implement anything that can be implemented on github.com, and more. For example, in the future, multiple desktop windows could be part of the app experience. Though Electron enables a cross-platform app, there are a few key differentiating features between macOS and Windows that need to be considered when designing for GitHub Desktop.
+
+### Button order
+
+#### Button order on macOS
+
+The secondary button is always on the left, whether it’s the default or cancel, and the primary action is on the right. This is aligned with the Primer guidelines used on github.com.
+
+Example: "Cancel | Let’s Do This"
+
+#### Button order on Windows
+
+The default button is always on the far right and the primary action is on the left. This differs from the Primer guidelines and should be taken into consideration for Windows users.
+
+Example: "Let’s do this | Cancel"
+
+### Capitalization
+
+#### Capitalization on macOS
+
+Title case is used for headlines and buttons. This is different from Primer guidelines, so it needs to be taken into consideration.
+
+Example: "Current Repository"
+
+#### Capitalization on Windows
+
+Sentence case is used for headlines and buttons, which is aligned with Primer guidelines.
+
+Example: "Current repository"
+
+### Menu bar
+
+#### Menu bar on macOS
+
+The menu bar on macOS sits at the top of the screen, disconnected from the GitHub Desktop window. The system menu bar is used.
+
+#### Menu bar on Windows
+
+The menu bar on Windows sits directly on top of the GitHub Desktop UI, with no separation or ability to disconnect it. The menu bar is a custom design, so when considering changing elements in the topbar (the top of the Desktop interface), consider the Windows menu bar in relation.
+
+## Relationship to Primer Web
+
+GitHub Desktop's architecture and Primer Web are not compatible. For that reason, Desktop has its own set of components and CSS that leverage Primer Web, and doesn't take advantage of Primer updates to the code directly, with the exception of the color scheme file.
+
+## Spacing
+
+GitHub Desktop uses a 10 pixel grid (different from the 8px grid used by Primer). Changing the spacing scale has been considered and is documented in [this PR](https://github.com/desktop/desktop/compare/spacing-scale-spike-v2).
+
+## System Elements
+
+The following UI elements use system-generated code that has not been customized or styled:
+
+- Context menus
+- Tooltips
+- Dropdowns
+- Menu bar on macOS (Windows uses a custom menu bar)
+
+## Typography
+
+GitHub Desktop uses system fonts. When creating design mockups for GitHub Desktop, consider that:
+
+- In Figma, use macOS fonts (Primer Web defaults) for mocking up designs, unless the feature is Windows-specific.
+- Windows' system font is Segoe UI, and type styles for Windows are included in the Figma library to make it easy to switch from SF Pro to Segoe to show the difference between Mac and Windows screens. Segoe UI reads a little smaller and tighter, so it may be worth adjusting the point size to make it feel consistent with macOS.
+- Styles and sizes follow the same guidelines as Primer Web, with the addition of `text-x-small` (11pt and used for all small, secondary text).
+
+[Download Segoe UI (Mac only)](https://aka.ms/SegoeFonts)

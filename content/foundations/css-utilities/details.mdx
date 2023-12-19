@@ -1,0 +1,33 @@
+---
+title: Details
+description: Details classes are created to enhance the native behaviors of details elements.
+---
+
+## Fullscreen click area
+
+Use `.details-overlay` to expand the click area of `<summary>` to cover the full screen, so user can click anywhere on a page to close `<details>`.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-details--overlay'}]} height="130" />
+
+## Darkened fullscreen click area
+
+Use `.details-overlay-dark` darken the click area overlay. Useful for modals.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-details--overlay-dark'}]} height="130" />
+
+## Custom caret
+
+Use `.details-reset` to remove the default caret (that little triangle on the left). You then can add the `.dropdown-caret` on the right of the text.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-details--caret'}]} height="130" />
+
+## Using button styles with the details summary element
+
+You can add `.btn` and `.btn-*` classes to any
+[`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
+element so that it gains the appearance of a button, and
+selected/active styles when the parent
+[`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
+element is open.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-details--summary'}]} height="170" />

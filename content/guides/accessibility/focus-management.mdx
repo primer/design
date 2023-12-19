@@ -1,0 +1,81 @@
+---
+title: Focus management
+description: Managing focus within a page or application is essential for users to successfully navigate, complete actions, and understand where they are.
+---
+
+## Overview
+
+Managing focus within a page or application is essential for users to successfully navigate, complete actions, and understand where they are. A focus indicator is usually seen visually as a blue outline around an interactive element when that element has focus.
+
+## Why?
+
+Not all users are able to use a mouse to navigate a web page or application. Keyboard-only and screen reader users rely on navigating and using a web page with only a keyboard, so they will be unable to perform certain actions if they cannot navigate to all elements.
+
+To meet [WCAG Guideline 2.1 (Keyboard Accessible)](https://www.w3.org/TR/WCAG21/#keyboard-accessible), all interactive elements need to be accessed and activated by a keyboard alone.
+
+## How to test focus management
+
+To verify proper focus management, try using the feature or page with only a keyboard. Use the Tab key to navigate forward and Shift + Tab to move backwards. Some elements will use the arrow keys for keyboard navigation, such as toolbars and dropdowns.
+
+While using the feature, you should make sure that:
+
+- You can navigate to every interactive element (for example: buttons, form fields, links)
+- You see a visual focus indicator for every element (for example: a blue outline)
+- The tabbing order is logical based on the page structure and content
+- You are not trapped anywhere, and focus is never lost (for example: when deleting a comment, focus is returned to a logical place)
+- If you can trigger a new element (for example: a modal), focus is moved to that modal when opened, and returned to the page when closed
+
+## Guidelines
+
+### For designers
+
+In your designs, annotate how the focus should move through various states of a feature, if applicable, for the user. Include where the focus should be when: an item is deleted, an item is added, an action triggers a page refresh, a modal is opened, a modal is closed, etc.
+
+Keep in mind high-contrast mode, dark mode, and light mode. Ensure the focus indicator meets the minimum color contrast ratio.
+
+### For engineers
+
+Most interactive elements will have a focus indicator automatically. For example, if you use a `<button>` element, it should automatically receive focus when using a keyboard. If you need to create your own focus indicator, you can do so with the CSS pseudo-class [`:focus`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus). You may also need to add/remove a class with JavaScript to apply/remove the focus indicator.
+
+A common complaint when using `:focus` is that when a user clicks on a button, for example, they see the focus indicator which isn't always necessary for a mouse user. This may lead to an engineer removing the `outline` entirely — never remove the focus indicator unless you are replacing it with a `border` or some other visual indicator. Using [`:focus-visible`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible) will prevent the focus indicator from being seen for mouse users, but show it for keyboard users.
+
+You may need to programmatically determine where the focus should be when an event happens. For example, when you open a modal, you will need to programmatically move focus to an element inside of it. One way of doing this is by setting `document.activeElement` to the element you want to have focus.
+
+See the [Primer Behaviors repo](https://github.com/primer/behaviors) for existing behaviors related to focus, such as focus trapping.
+
+## Examples
+
+### Complex components
+
+Certain components may have specific focus requirements. Let's use modals as an example. A modal is typically triggered by a button. When a user presses a button, focus needs to move to the modal, or it will be completely unusable to some users. The focus needs to remain inside the modal until it is dismissed. A common mistake is to not trap focus inside of the modal, which will allow a user to navigate to elements on the page behind the modal with the modal still open. Another consideration is where the focus should return when the modal is closed. Typically the element that triggered the modal is where focus should return, unless there is a more logical element. [See more information on expected modal behavior](https://www.w3.org/TR/wai-aria-practices-1.2/#dialog_modal).
+
+### Adding content
+
+When adding content to the page, focus should move to the first item that is added, unless a more logical spot is determined. For example: if there is a “Load more” button that reveals additional comments when pressed, the focus should move to the first comment that is newly added.
+
+### Removing content
+
+When removing content, focus should return to a logical spot. By default, if you remove an item and don't tell the focus where to go next, it will return to the `body` element and the user will need to navigate through the entire page again to get to where they were. For example, if deleting a comment within a thread, move the focus to either a “write comment” input if one exists, or the menu of the next comment. If there is no other comment, use the previous comment. This is just a suggestion, use best judgement when deciding what will be logical for a user.
+
+### Filtering
+
+Filtering is a very complex topic. Accessibility guidance will vary depending on the filter implementation, but when done right, focus management should only play a small role. For example, if you have five filters and apply the first filter, you do not want to be moved to the results because you may not be ready to move on. Focus should instead continue to remain on the selected element.
+Focus management really only applies when a selected filter is removed from the page. For instance, if a "Clear" filter is applied which removes the "Clear" element, follow the focus management guidance provided in [Removing content](#removing-content).
+
+If the filter is implemented as a link causing a full page reload, the focus may get lost. In this implementation, focus management is a nice to have rather than a requirement. It is much more important to ensure there is a skip link and a proper heading structure is in place to support efficient navigation.
+
+## Additional resources
+
+### Good focus management
+
+- [Improve Accessibility in Your React App By Managing Focus in Mutable Content](https://medium.com/swlh/improve-accessibility-in-your-react-app-by-managing-focus-in-mutable-content-4ddf4ed92186)
+- [Focus management and inert](https://css-tricks.com/focus-management-and-inert/)
+- [Removing Headaches from Focus Management](https://developers.google.com/web/updates/2016/03/focus-start-point)
+- [Deep-dive: Focus management](https://github.com/github/accessibility/blob/main/docs/deep-dive-notes/2021-12-1-focus-managaement.md) (link only accessible to GitHub staff)
+
+### Related WCAG guidelines and success criteria
+
+- [2.1 Keyboard Accessible](https://www.w3.org/TR/WCAG21/#keyboard-accessible)
+- [2.4 Navigable](https://www.w3.org/TR/WCAG21/#navigable)
+- [2.4.3 Focus Order](https://www.w3.org/TR/WCAG21/#focus-order)
+- [2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)

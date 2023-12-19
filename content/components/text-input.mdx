@@ -1,0 +1,170 @@
+---
+title: Text input
+description: Text input is used to set a value that is a single line of text.
+reactId: text_input
+railsIds:
+- Primer::Alpha::TextField
+figmaId: text_input
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/224445194-dceef3a4-25f3-4d0e-a1f4-fdaf868f6179.png"
+/>
+
+## Usage
+
+Use a text input to allow users to input short free-form text. It may also be used as a number input when `type="number"` is passed to the component.
+
+### States
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/224445195-5a403459-ad36-452c-a6c6-7534eb78f3df.png"
+/>
+
+**Focused:** The input has been navigated to and is ready to accept input.
+
+**Disabled:** The input cannot accept input or become focused.
+
+**Loading:** Some process has been initiated by the input but has not finished.
+
+**Invalid:** The value failed validation.
+
+**Valid:** The value passed validation.
+
+For more information about the "valid" and "invalid" states, see the [validation section](../ui-patterns/forms/overview#validation) of the form design pattern guidelines.
+
+### Best practices
+
+- Only use placeholder text to show an example of the expected input. Never use placeholder text for critical information.
+- Use the width of the text input to give users a hint about how long the value is expected to be
+- If your field accepts free-form text _or_ an option from a predetermined list, consider using an [autocomplete input](/components/autocomplete)
+
+## Anatomy
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/6905903/274238980-22a35352-95c7-49bb-8b35-3c8741426b89.png"
+/>
+
+**Label (required):** The input's title. It should be as concise as possible and convey the purpose of the input. The label may be visually hidden in rare cases, but a label must be defined for assistive technologies such as a screen reader.
+
+**Required indicator:** Indicates that a value is required. Must be shown for any required field, even if all fields in the form are required.
+
+**Input (required):** Accepts user free-form text input
+
+**Leading visual:** An icon or short piece of text to reinforce the purpose of the input. Appears before the input's value.
+
+**Trailing visual:** The same as a leading visual, but appears after the input's value.
+
+**Trailing action:** An action that affects the input. Most commonly used for a button that clears the input.
+
+**Caption:** Provides additional context about the field to help users fill in the correct data or explain how the data will be used. Caption text should be as short as possible. Caption text may be displayed at the same time as a validation message, or it may be hidden if it only provides redundant information.
+
+**Validation message:** A single validation message may be displayed to provide helpful information for a user to complete their task. It is most commonly used to explain why a value is invalid so they can correct it and submit the form.
+
+## Options
+
+### Sizes
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/224445197-4b71262c-e1cc-4495-88d5-e46c6474d3cc.png"
+/>
+
+A text input can be made smaller or larger depending on the context it's being used in.
+
+You can make an input smaller if it is being used in a tight space with other small elements. You can make an input larger if it's in an open space or feels out of proportion with adjacent large elements.
+
+### Width
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/224445198-7217e528-ed15-4fe9-aba9-264c7bc62e1b.png"
+/>
+
+By default, a text input will be given a default width by the browser.
+
+However, you can render a text input to fill the width of its parent element, or set the width to whatever makes sense for your use-case. When setting a custom width, consider the length of the expected value.
+
+### Monospace
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/224445199-c8f27a2b-18e3-4ac7-9764-1d32b1fdc9c7.png"
+/>
+
+The value of the text input may be rendered in a monospace font. Use this variant for inputs related to code. For example, setting a personal access token in a configuration.
+
+### With a trailing action
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/224445201-7f81cf2c-992c-470b-b702-4b45d57c3234.png"
+/>
+
+A trailing action may be used to render a single action that affects the input. A trailing action is most commonly used for a button that clears the input.
+
+Ideally the trailing action button is an icon without a text label. It is also possible to render the button with a text label, but it should be avoided whenever possible.
+
+Avoid using a trailing action with a trailing visual.
+
+### With leading and trailing visuals
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/224445202-42904c00-1eff-4f57-98ae-045020688b11.png"
+/>
+
+Leading and trailing visuals are typically shown as an icon to reinforce the purpose of the input.
+
+Icons are preferred, but you may also use a short piece of text in the leading or trailing visual slots when appropriate. For example, text may be used to show a unit such as "minutes", "$", or "%"
+
+Avoid overwhelming the text input by using both a leading and trailing visual. If you're trying to provide more context about the input, consider using text in the input caption.
+
+#### Effects of loading state
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/224445204-0a43967d-fcd7-4cb6-92dd-51fcd25d95d7.png"
+/>
+
+When a text input is processing some action like performing a search, a loading indicator is shown. To avoid a layout shift, either the leading or trailing visual will be replaced with the loading indicator. The text input component has internal logic to decide which visual to replace, but it can be overridden and explicitly set to show at the start or end of the input.
+
+### With tokens
+
+See [text input with tokens](/components/text-input-with-tokens)
+
+## Accessibility
+
+- Text inputs must be labeled. The label may be visually hidden, but visible labels are preferred.
+- [Placeholder text](/guides/accessibility/placeholders) is **never** an acceptable substitute for a label because:
+  - The placeholder text disappears as soon as the input has a value
+  - Placeholder text colors are typically too light to meet the minimum color contrast ratio required for accessibility
+  - Screen readers do not read placeholder text as a label
+- Text inputs whose value is used to filter a list of results should be paired with an announcement for the effect of the filter. For more information, see the [conveying status (filter results)](/ui-patterns/loading#filter-results) section of the loading state pattern guidelines.
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="TextInput"/>
+
+## Related links
+
+- [Forms](../ui-patterns/forms/overview)
+- [Autocomplete](/components/autocomplete)
+- [Text input with tokens](/components/text-input-with-tokens)
+11

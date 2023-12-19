@@ -1,0 +1,48 @@
+---
+title: Radio
+description: Radio button is a form control for making a single selection from a short list of options.
+reactId: radio
+railsIds:
+- Primer::Alpha::RadioButton
+figmaId: radio
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+## Usage
+
+Use a radio button in a [radio group](/components/radio-group) to allow users to select one option from a short list of options.
+
+See the [radio group guidelines](/components/radio-group) for more information about usage.
+
+### States
+
+Radio buttons have static dimensions and three different states when checked or unchecked: rest (default), focus, and disabled.
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/224133514-c583baf4-6dfc-444d-8714-dfc88cc00ff9.png"
+/>
+
+### Best practices
+
+- A radio button may not be used on it's own: it _must_ be rendered in a group of related radio buttons using a [radio group](/components/radio-group).
+- Radio buttons cannot be unchecked, so only use radio buttons when a selection is required
+- An individual radio should not have its own validation message or style. Instead, show a validation message on the [radio group](/components/radio-group). For more information, see the [Validation Message](../ui-patterns/forms/overview#validation) section in the Forms documentation.
+- An individual radio button cannot be marked as required. Instead, make a selection required using the [radio group](/components/radio-group). For more information, see the [Required field indicator](../ui-patterns/forms/overview#required-field-indicator) in the Forms documentation.
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Radio"/>
+
+## Related links
+
+- [Forms](../ui-patterns/forms/overview)
+- [Form control](/components/form-control)
+- [Checkbox](/components/checkbox)
+- [Radio group](/components/radio-group)

@@ -1,0 +1,163 @@
+---
+title: Getting started
+description: Primer is also a design system for Terminal like implementations of GitHub. If you’re just starting out with creating those kind of experiences, here’s a list of principles and design foundations to get you started.
+---
+
+import {DoDontContainer, Do, Dont, Caption} from '@primer/gatsby-theme-doctocat'
+import ScrollToAnchor from '~/src/components/scroll-to-anchor'
+
+<ScrollToAnchor />
+
+## Principles
+
+### Reasonable defaults, easy overrides
+
+Optimize for what most people will need to do most of the time, but make it easy for people to adjust it to their needs. Often this means considering the default behavior of each command, and how it might need to be adjusted with flags.
+
+### Make it feel like GitHub
+
+Using this tool, it should be obvious that it’s GitHub and not anything else. Use details that are specific to GitHub, such as language or color. When designing output, reflect the GitHub.com interface as much as possible and appropriate.
+
+<DoDontContainer>
+  <Do>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497434-62e03bc6-8b64-4f08-8d0d-c931def35c03.png"
+      width="100%"
+    />
+    <Caption>Use language accurate to GitHub.com</Caption>
+  </Do>
+  <Dont>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497426-4c1d30df-91df-4e42-a293-ad590768f20d.png"
+      width="100%"
+    />
+    <Caption>Don't use language that GitHub.com doesn't use</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497433-e050966e-a102-4d50-93c3-bfa6d7251560.png"
+      width="100%"
+    />
+    <Caption>Use sentence case</Caption>
+  </Do>
+  <Dont>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/215497423-4eeea07a-7a2e-4af7-a486-c9a773c29454.png"
+      width="100%"
+    />
+    <Caption>Don't use title case</Caption>
+  </Dont>
+</DoDontContainer>
+
+#### Resources
+
+- [GitHub Brand Content Guide](https://brand.github.com)
+
+### Reduce cognitive load
+
+Command line interfaces are not as visually intuitive as graphical interfaces. They have very few affordances (indicators of use), rely on memory, and are often unforgiving of mistakes. We do our best to design our commands to mitigate this.
+
+Reducing cognitive load is necessary for [making an accessible product](https://www.w3.org/TR/coga-usable/#summary) .
+
+#### Ways to reduce cognitive load
+
+- Include confirm steps, especially for riskier commands
+- Include headers to help set context for output
+- Ensure consistent command language to make memorizing easier
+- Ensure similar commands are visually and behaviorally parallel. \* For example, any create command should behave the same
+- Anticipate what people might want to do next. \* For example, we ask if you want to delete your branch after you merge.
+- Anticipate what mistakes people might make
+
+### Bias towards terminal, but make it easy to get to the browser
+
+We want to help people stay in the terminal wherever they might want to maintain focus and reduce context switching, but when it’s necessary to jump to GitHub.com make it obvious, fast, and easy. Certain actions are probably better to do in a visual interface.
+
+<img
+  src="https://user-images.githubusercontent.com/980622/215497436-cccc800d-4f68-4a40-8a93-3f6b5ae741b2.png"
+  alt="A prompt asking 'What's next?' with the choice 'Preview in browser' selected."
+/>
+<Caption>A preview in browser step helps users create issues and pull requests more smoothly.</Caption>
+
+<img
+  src="https://user-images.githubusercontent.com/980622/215497438-3b664837-0182-4d94-9433-f9a59ad642ff.png"
+  alt="The gh pr create command with title and body flags outputting a pull request URL."
+/>
+<Caption>Many commands output the relevant URL at the end.</Caption>
+
+<img
+  src="https://user-images.githubusercontent.com/980622/215497440-5d1f2ebb-b8b8-4dc6-8104-68c125dd85d0.png"
+  alt="The gh issue view command with the --web flag. The output is opening a URL in the browser."
+/>
+<Caption>Web flags help users jump to the browser quickly</Caption>
+
+## Process
+
+When designing for the command line, consider:
+
+### 1. What the command does
+
+- What makes sense to do from a terminal? What doesn’t?
+- What might people want to automate?
+- What is the default behavior? What flags might you need to change that behavior?
+- What might people try and fail to do and how can you anticipate that?
+
+### 2. What the command is called
+
+- What should the [command language system](/native/cli/foundations#language) be?
+- What should be a command vs a flag?
+- How can you align the language of the new command with the existing commands?
+
+### 3. What the command outputs
+
+- What can you do to make the CLI version [feel like the GitHub.com version](/native/cli/getting-started#make-it-feel-like-github), using [color](/native/cli/foundations#color), [language](/native/cli/foundations#language), [spacing](/native/cli/foundations#spacing), info shown, etc?
+- How should the [machine output](/native/cli/foundations#scriptability) differ from the interactive behavior?
+
+### 4. How you explain your command
+
+- You will need to provide a short and long description of the command for the [help pages](/components/help).
+
+### 5. How people discover your command
+
+- Are there ways to integrate CLI into the feature where it exists on other platforms?
+
+## Prototyping
+
+When designing for GitHub CLI, there are several ways you can go about prototyping your ideas.
+
+### Google Docs
+
+<img
+  src="https://user-images.githubusercontent.com/980622/215497389-fc902fb0-e0c0-40f7-a745-d6469af09936.png"
+  alt="A screenshot of the Google Docs template"
+/>
+
+Best for simple quick illustrations of most ideas
+
+Use [this template](https://docs.google.com/document/d/1JIRErIUuJ6fTgabiFYfCH3x91pyHuytbfa0QLnTfXKM/edit?usp=sharing), or format your document with these steps:
+
+1. Choose a dark background (File > Page Setup > Page Color)
+1. Choose a light text color
+1. Choose a monospace font
+
+#### Tips
+
+- Mix it up since people’s setups change so much. Not everyone uses dark background!
+- Make use of the document outline and headers to help communicate your ideas
+
+### Figma
+
+<img
+  src="https://user-images.githubusercontent.com/980622/215497367-3d6febe7-3565-4ff1-9725-fc7b6eaa25a3.png"
+  alt="A screenshot of the Figma library"
+/>
+
+If you need to show a process unfolding over time, or need to show a prototype that feels more real to users, Figma or code prototypes are best.
+
+[**Figma library**](https://www.figma.com/file/zYsBk5KFoMlovE4g2f4Wkg/Primer-Command-Line) (accessible to GitHub staff only)

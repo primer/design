@@ -1,0 +1,73 @@
+---
+title: Semantic HTML
+description: Understand when and how to use semantic HTML to improve the experience of the largest number of users possible.
+---
+
+## Overview
+
+Semantic HTML provides meaning to the content of a web page. It involves using the correct HTML element for the job. Semantic HTML breaks the page up into meaningful sections.
+
+## Why?
+
+Many groups of people benefit from properly used semantic HTML. Using the correct elements allows assistive technology to accurately convey the purpose of the content to the user. Without it, they will not be able to navigate easily. Other benefits of using semantic HTML are SEO and code readability.
+
+## How to test for semantic HTML
+
+HTML validators, automated tooling, unit tests, and linters are a few ways to test for proper HTML. Most automated tools can catch some incorrect usage of HTML elements. For example, if heading levels are out of order, it will be reported as a violation. Keep in mind that [automated tools only catch around 20-25% of accessibility errors](https://www.essentialaccessibility.com/blog/automated-accessibility-testing-tools-how-much-do-scans-catch#:~:text=For%20WCAG%202.1%20AA%20tests,by%20yes%20or%20no%20conditions.).
+
+This is a subset of the tools available:
+
+- [HTML validator](https://validator.w3.org/)
+- Automated tools
+  - [aXe DevTools](https://www.deque.com/axe/devtools/)
+  - [Lighthouse](https://github.com/GoogleChrome/lighthouse)
+- Linting
+  - [Primer ViewComponents](https://github.com/primer/view_components/blob/main/docs/content/linting.md)
+  - [Primer React](https://github.com/primer/react/blob/main/contributor-docs/CONTRIBUTING.md#linting)
+  - [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+  - [erblint-github](https://github.com/github/erblint-github)
+
+## Guidelines
+
+### For designers
+
+In your designs, annotate what HTML elements should be used for various parts of the design, if appropriate. Understand that most designs are achievable with CSS alone, agnostic of the HTML elements used.
+
+### For engineers
+
+Think about the content that will populate an element in order to determine what HTML element should be used. Are you building a navigation? Use the `<nav>` element instead of nested `<div>` elements. You may need to add interactivity to more complex elements, such as `<dialog>`. Some elements may require additional ARIA attributes to convey things such as state, but be careful to [use these only when necessary](https://www.w3.org/TR/using-aria/#notes2).
+
+## Common mistakes
+
+- Using improper elements to achieve the desired visual style
+  - Example: using an `<h1>` tag for a heading that should be an `<h3>` because the visual style of the `<h1>` is desired
+  - Solve: use CSS for visual styling
+- Using the `title` attribute
+  - It is inaccessible for many users, such as touch-only and keyboard-only users. Do not use.
+- Using improper markup
+  - Example: placing text in a `<div>` instead of a `<p>`
+  - Solve: use the proper element to depict the content that is inside
+- Using incorrect ARIA
+  - Example: using an `aria-label` on a non-interactive element such as a `<div>`
+  - Solve: only use ARIA when necessary, and if you _can_ use a native HTML element, you should. [More information on ARIA](https://www.w3.org/TR/using-aria/#notes2)
+- Duplicate IDs
+  - Example: two elements on the page with `id="anchor"`
+  - Solve: use unique IDs for every element on the page
+- Decorative elements not marked as decorative
+  - Example: an `<hr>` element not being marked as decorative
+  - Solve: add `role="presentation"` or `aria-hidden="true"` to elements that are for decorative purposes only
+
+## Reading order
+
+Screen readers and other assistive technologies convey the information to the user in the order that it is marked up in the code, not necessarily how it looks on the page. Ensure the order matches a logical order of information presented. One way to verify this is to view the page without styles and see if the order of content is logical.
+
+## Additional resources
+
+- [Deep Dive: Semantic HTML and ARIA](https://github.com/github/accessibility/blob/main/docs/deep-dive-notes/2022-02-16-semantic-html-and-aria.md) (Only accessible to GitHub staff)
+- [List of semantic elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+
+### Related WCAG guidelines and success criteria
+
+- [1.3.2 Meaningful Sequence](https://www.w3.org/TR/WCAG21/#meaningful-sequence)
+- [2.4.10 Section Headings](https://www.w3.org/TR/WCAG21/#section-headings)
+- [4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)

@@ -1,0 +1,56 @@
+---
+title: Checkbox
+description: Checkbox is a form control for single and multiple selections.
+reactId: checkbox
+railsIds:
+- Primer::Alpha::CheckBox
+figmaId: checkbox
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+## Usage
+
+Use checkboxes to allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
+
+### States
+
+Checkboxes have static dimensions and three different states: rest (default), focus, and disabled.
+
+<img
+  width="960"
+  alt="An image showing checkboxes with three different states, rest, focus, and disabled."
+  src="https://user-images.githubusercontent.com/586552/204882576-5b698ce7-c471-4f4e-9f33-c861842f5743.png"
+/>
+
+### Selected states
+
+Checkboxes are capable of showing two forms of selection: checked (left) or indeterminate (right).
+
+<img
+  width="960"
+  alt="An image showing checkboxes selected as checked and indeterminate"
+  src="https://user-images.githubusercontent.com/586552/204883614-01743d25-1f7d-4261-b59d-8dd7ceaf29d3.png"
+/>
+<Caption>The indeterminate state is colored in some browsers (e.g. Safari) and grey in others (e.g. Chrome).</Caption>
+
+### Best practices
+
+- An individual checkbox should not have its own validation message or style. Instead, show a validation message on the [checkbox group](/components/checkbox-group). For more information, see the [Validation Message](../ui-patterns/forms/overview#validation) section in the Forms documentation.
+- An individual checkbox button cannot be marked as required. Instead, make a selection required using the [checkbox group](/components/checkbox-group). For more information, see the [Required field indicator](../ui-patterns/forms/overview#required-field-indicator) in the Forms documentation.
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Checkbox"/>
+
+## Related links
+
+- [Forms](../ui-patterns/forms/overview)
+- [Form control](/components/form-control)
+- [Checkbox group](/components/checkbox-group)
+- [Radio](/components/radio)
+- [Radio group](/components/radio-group)

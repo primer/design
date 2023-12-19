@@ -1,0 +1,222 @@
+---
+title: Layout
+description: Change the document layout with display, float, alignment, and other utilities.
+---
+
+## Display
+
+Adjust the display of an element with `.d-block`, `.d-none`, `.d-inline`, `.d-inline-block`, `.d-table`, `.d-table-cell` utilities.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--display'}]} height="140" />
+
+### The HTML `hidden` attribute
+
+As of [Primer v10.10.0](https://github.com/primer/css/releases/v10.10.0), `primer-base` includes a rule that sets `display: none !important` for any element with the [`hidden` attribute][hidden]. You can safely use the `hidden` attribute with display utilities, but we suggest:
+
+1. Use the `hidden` attribute (and corresponding JavaScript property) if you're going to programmatically show and hide content.
+1. Use `d-none` and/or its responsive variants (`d-sm-block`, `d-lg-none`) to conditionally show content at different screen sizes.
+
+Rather than toggling the `d-none` class in JavaScript, you should toggle the `hidden` property on an element. This means that you won't have to restore any more specific display utility (`d-inline` or `d-flex`, for instance) just to work around the order in which they're listed in the stylesheet.
+
+```js
+// Good:
+element.hidden = !visible
+
+// Bad:
+element.classList.toggle('d-none', !visible)
+element.classList.toggle('d-inline', visible)
+```
+
+### `display:table` wrapping issues
+
+There are known issues with using `display:table` and wrapping long strings, particularly in Firefox. You may need to use `table-fixed` on elements with `d-table` and apply column widths to table cells, which you can do with our [column width styles](/foundations/css-utilities/grid#column-widths).
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--table'}]} height="100" />
+
+### Responsive display
+
+A selection of display utilities are able to be applied or changed per [breakpoint](/foundations/css-utilities/grid#breakpoints). `.d-block`, `.d-none`, `.d-inline`, and `.d-inline-block` are available as responsive utilities using the following formula: `d-[breakpoint]-[property]`. For example: `d-md-inline-block`. Each responsive display utility is applied to the specified breakpoint and up.
+
+In the following example, the `ul` element switches from `display: block` on mobile to `display: inline-block` at the `md` breakpoint, while the list items remain inline.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--responsive'}]} height="100" />
+
+### Responsive hide
+
+Hide utilities are able to be applied or changed per breakpoint using the following formula:<br /> `hide-[breakpoint]`, for example: `hide-sm`. Hide utilities act differently from other responsive styles and are applied to each **breakpoint-range only**.
+
+| Shorthand | Range            |
+| --------- | ---------------- |
+| -sm       | 0—543px          |
+| -md       | 544px—767px      |
+| -lg       | 768px—1011px     |
+| -xl       | 1012px and above |
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--responsive-hide'}]} height="100" />
+
+### Text direction
+
+`.direction-ltr` or `.direction-rtl` can be used to change the text direction. This is especially helpful when paired with `.d-table`, `.d-table-cell`, and `.v-align-middle` to create equal height, vertically centered, alternating content.
+
+## Visibility
+
+Adjust the visibility of an element with `.v-hidden` and `.v-visible`.
+
+## Overflow
+
+Adjust element overflow with `.overflow-hidden`, `.overflow-scroll`, and `.overflow-auto`, or use `.overflow-visible` to undo the effects of CSS with overflow issues. `.overflow-hidden` can also be used to create a new [block formatting context](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context) or clear floats.
+
+Overflow utilities can also target x- and y-axes independently via:
+
+- `.overflow-x-auto`
+- `.overflow-x-hidden`
+- `.overflow-x-scroll`
+- `.overflow-x-visible`
+- `.overflow-y-auto`
+- `.overflow-y-hidden`
+- `.overflow-y-scroll`
+- `.overflow-y-visible`
+
+Overflow utilities can be applied or changed per [breakpoint](/foundations/css-utilities/grid#breakpoints). Each **responsive** overflow utility is applied to the specified breakpoint and up, using the following formula: `overflow-[breakpoint]-[axis]-[property]`. For example: `overflow-x-scroll` or `overflow-md-x-visible`.
+
+## Floats
+
+Using floats are discouraged since [flexbox](/foundations/css-utilities/flexbox) offers more features and doesn't need to be cleared. If you still need it, you can use `.float-left` and `.float-right` to set floats, and `.clearfix` to clear.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--floats'}]} height="100" />
+
+### Responsive floats
+
+Float utilities can be applied or changed per [breakpoint](/foundations/css-utilities/grid#breakpoints). This can be useful for responsive layouts when you want an element to be full width on mobile but floated at a larger breakpoint.
+
+Each responsive float utility is applied to the specified breakpoint and up, using the following formula: `float-[breakpoint]-[property]`. For example: `float-md-left`. Remember to use `.clearfix` to clear.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--floats-responsive'}]} height="100" />
+
+## Alignment
+
+Adjust the alignment of an element with `.v-align-baseline`, `.v-align-top`, `.v-align-middle` or `.v-align-bottom`. The vertical-align property only applies to inline or table-cell boxes.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--align'}]} height="100" />
+
+Use `v-align-text-top` or `v-align-text-bottom` to adjust the alignment of an element with the top or bottom of the parent element's font.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--align-text'}]} height="100" />
+
+## Width and height
+
+Use `.width-fit` to set max-width 100%.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--width-fit'}]} height="500" />
+
+Use `.width-full` to set width to 100%.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--width-full'}]} height="100" />
+
+Use `.width-auto` to reset width to `auto` (initial value). Typically used with **responsive variants**. Resize the window to see the effect in the example below.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--width-auto'}]} height="100" />
+
+Use `.height-fit` to set max-height 100%.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--height-fit'}]} height="150" />
+
+Use `.height-full` to set height to 100%.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--height-full'}]} height="175" />
+
+## Position
+
+Position utilities can be used to alter the default document flow. **Be careful when using positioning, it's often unnecessary and commonly misused.**
+
+The position of an element depends on the content. Use `top-0`, `right-0`, `bottom-0`, and `left-0` to further specify an elements final position.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--position'}]} height="150" />
+
+Using the **responsive variants** (e.g. `.right-md-0`) can be helpful for positioning select menus, dropdowns, popovers etc. when the content gets shuffled around for certain responsive breakpoints. You can also use `auto` to "reset" a final position for wider breakpoints (e.g. `right-0 right-md-auto`).
+
+### Relative
+
+Use `.position-relative` to create a new stacking context.
+
+_Note how the other elements are displayed as if "Two" were in its normal position and taking up space._
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--position-relative'}]} height="200" />
+
+### Absolute
+
+Use `.position-absolute` to take elements out of the normal document flow.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--position-absolute'}]} height="150" />
+
+### Fixed
+
+Use `.position-fixed` to position an element relative to the viewport. **Be careful when using fixed positioning. It is tricky to use and can lead to unwanted side effects.**
+
+_Note: This example is shown in an `<iframe>` and therefore will not be positioned to the viewport of this page._
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--position-fixed'}]} height="150" />
+
+To fill an entire width or height, use opposing directions.
+
+_Note: fixed positioning has been disabled here for demonstration only._
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--position-fixed-filled'}]} height="100" />
+
+### Sticky
+
+Use `.position-sticky` to keep an element stuck to an edge as long as its parent is visible. Things to keep in mind:
+
+- Using the `.position-sticky` class by itself doesn't have any effect. An additional `[top|bottom|left|right]-0` class is needed. See the examples below.
+- Add a background color to sticky elements so it covers the content underneath.
+- Use `style="z-index: 1;"` (or higher) in case there are other elements with `z-index`.
+
+#### Top
+
+Combine `.position-sticky` with `.top-0` to keep an element stuck to the top.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--position-sticky-top'}]} height="250" />
+
+#### Bottom
+
+Combine `.position-sticky` with `.bottom-0` to keep an element stuck to the bottom. Can be used as a footer or toolbar.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--position-sticky-bottom'}]} height="250" />
+
+#### Left and right
+
+Combine `.position-sticky` with `.left-0` or `.right-0` to keep elements stuck to the left or right when scrolling horizontally.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--position-sticky-left-right'}]} height="110" />
+
+### Responsive position
+
+Position utilities can be applied or changed per breakpoint in responsive layouts. Each responsive position utility is applied to the specified breakpoint and up, using the following formula: `position-[breakpoint]-[property]`. For example: `position-md-absolute`.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--position-responsive'}]} height="100" />
+
+## Screen reader only
+
+Use `.sr-only` to position an element outside of the viewport for screen reader access only. **Even though the element can't be seen, make sure it still has a sensible tab order.**
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--screen-reader-only'}]} height="100" />
+
+## Show on focus
+
+Use `.show-on-focus` to visually hide an element and only show it when focused. This utility can be used to provide additional functionality for keyboard users.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--show-on-focus'}]} height="100" />
+
+## The media object
+
+Create a media object with utilities.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--media-object'}]} height="150" />
+
+Create a double-sided media object for a container with a flexible center.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-layout--media-object-double'}]} height="150" />
+
+You can also create a media object with [flexbox utilities](./flexbox#media-object) instead of floats which can be useful for changing the vertical alignment.
+
+[hidden]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden

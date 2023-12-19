@@ -1,14 +1,27 @@
 name: Lint
 on: [push]
 jobs:
-  all:
+  eslint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: actions/setup-node@master
+      - uses: actions/setup-node@v4
         with:
-          version: 14
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
       - name: install
         run: yarn
-      - name: lint
+      - name: Lint with ESLint
         run: yarn lint
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+      - name: install
+        run: yarn
+      - name: Lint with markdownlint
+        run: yarn markdownlint

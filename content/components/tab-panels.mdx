@@ -1,0 +1,97 @@
+---
+title: Tab panels
+description: Tab panels let users switch between views in the same context.
+railsIds:
+- Primer::Alpha::TabPanels
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {Box, Text} from '@primer/react'
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/231862745-5099ccae-9f65-4a8e-a6f5-cf5c1b6ba3c2.png"
+/>
+
+## Usage
+
+Tab panels are used to group related content into views that are shown and hidden. Each view has a corresponding tab that provides a label and controls the panel's visibility.
+
+Tabs in a tab panel should not be links that navigate the user to a new URL. If you want tab-like navigation, use a [tab nav](/components/tab-nav) instead.
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: "center", gap: 3}}>
+  <Box flex={1}>
+
+For example, a tab panel is used to switch between the "Branches" and "Tags" views in the branch selection dialog.
+
+  </Box>
+
+  <img
+    width="456"
+    role="presentation"
+    src="https://user-images.githubusercontent.com/2313998/231862746-9f35f3a6-6f31-4733-b1af-2bad9cd84745.png"
+  />
+</Box>
+
+### Best practices
+
+The same best practices apply to tab panels as they do to [tab nav](/components/tab-nav#best-practices).
+
+## Anatomy
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/231862747-ea4e4b3b-847f-4ead-8b73-aa9bfc99fb32.png"
+/>
+
+**Tab list:** A set of buttons used to switch between views. Each tab should concisely label the view it's associated with.
+
+**Tab panel:** The view associated with the active tab.
+
+
+## Options
+
+The same options are available to tab panels as they are to [tab nav](/components/tab-nav#options).
+
+## Accessibility
+
+### Keyboard navigation
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+  <Box flex={1}>
+
+Tabs, like all interactive elements, can be activated using a cursor or keyboard.
+
+When a user moves focus into the `tablist` using the Tab key, the active tab should be focused. A `tablist` is only a single Tab stop. Once focused, navigation through the `tablist` can then conducted with Left, Right, Home, and End keypresses. 
+
+  </Box>
+  <CustomVideoPlayer
+    width="456"
+    loop
+    src="https://user-images.githubusercontent.com/2313998/231858246-ea2439b5-9e49-4b9b-a047-5ea05b0d2b4c.mp4"
+  />
+</Box>
+
+### Other a11y guidance
+
+Tab nav and tab panels are almost identical. Reference the [tab nav accessibility guidelines](/components/tab-nav#accessibility) for more guidance.
+
+| Key(s)                                                                                                                                                         | Description                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Tab</Box>        | Moves focus from the tablist to the tab panel or next focusable node.                                |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>      | Activates the focused tab.                                                                           |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowLeft</Box>  | Activates the previous tab. If a user is focused on the first tab, wrap to activate the last tab.    |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowRight</Box> | Activates the mext tab. If a user is focused on the last tab, wrap to activate the first tab.        |
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="TabPanels"/>
+
+## Related links
+
+- [Tab nav](/components/tab-nav)
+- [Underline nav](/components/underline-nav)

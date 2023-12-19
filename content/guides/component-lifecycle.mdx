@@ -1,0 +1,59 @@
+---
+title: Component lifecycle
+description: Milestones that summarize the maturity lifecycle of UI components in Primer.
+---
+
+Components must meet all criteria _before_ proceeding to a given milestone.
+
+## Experimental
+
+The component exists as a proof-of-concept or is work in progress.
+
+- The component may be ready for preliminary usage depending on its maturity. Please file [an issue](https://primer.style/contribute/how-to-contribute#contribute-to-our-open-source-repos) to discuss further.
+
+## Alpha
+
+The component is ready for preliminary usage, with breaking changes expected.
+
+- The component does not have external dependencies. This could be external libraries or dependencies on libraries in an application (like GitHub.com)
+- The component is compatible with color modes and can adapt to different themes. The component does not reference any hard-coded static values and uses functional variables. Any temporary or app-level variables have been removed. Theme values (such as a new brand scheme) can be swapped out without touching the public API of the component.
+- The component is designed with responsiveness in mind. The component can adapt to different screen sizes, from mobile to large desktop screens. The component's interactive areas must be friendly to touch on devices with a coarse pointer method.
+- Component documentation includes example usage of the component.
+- Primary use cases tested and reviewed.
+- The component has robust unit test coverage on all critical paths, including branching logic and edge cases. This is measurable through metrics like 100% test coverage (where achievable).
+- The component has visual regression coverage of its default and interactive states.
+- The component has robust test coverage for its interactive (stateful) behaviour, which has been verified in end-to-end and/or open-box testing suites.
+- The component does not introduce any [axe](https://www.deque.com/axe/) violations.
+- The component has been manually reviewed for accessibility and any outstanding issues have been fixed.
+
+## Beta
+
+The component meets most maturity criteria, and use is encouraged for most scenarios.
+
+- The component is used in a production application in multiple instances. Expectation is three or more instances in dotcom for Primer ViewComponents, at least one or more instances for Primer React. Uses of the component have been reviewed for correctness.
+- Usage guidelines and configuration documentation covers common use cases. Implementation of additional features (secondary priorities) is expected during beta. Additional and most common use cases should be documented by this phase. Documentation should include a sandbox environment such as Storybook.
+- The design has been reviewed and any resulting issues have been addressed. Systems Designers have reviewed the current implementation, validated its responsive strategy, and how it’s used in production.
+- The component is compatible with server-side rendering (SSR).
+- The component does not introduce unnecessary performance regressions to the user experience or the Primer library.
+
+## Stable
+
+The component is significantly mature and usage is strongly encouraged, with long-term support expected.
+
+- The API remains stable, with no breaking changes for at least one month. Feedback on API usability has been sought from developers using the component and production use cases have been reviewed for correctness.
+- Documentation exists for the remaining implementation, usage, and design guidelines. Primer React and/or Primer ViewComponents documentation includes all props and variations, accessibility guidelines (including common misuses), and common scenarios. Design documentation is added to Interface Guidelines. Figma components are available in the Primer Web library.
+- Tooling (such as linters, codemods, etc.) exists to prevent further use of alternatives.
+
+## Deprecated
+
+The component will be removed in the future and should be avoided.
+
+- Documentation exists for the deprecation, including any alternative components to use instead.
+- When using the component, a warning is shown to the consumer.
+
+## Removed
+
+The component no longer exists in Primer.
+
+- The removal date has been announced and is at least one month away from the release date of the package that removes the component.
+- Manual and automated migration paths are documented and have been available for at least one month.

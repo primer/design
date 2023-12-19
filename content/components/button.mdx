@@ -1,0 +1,476 @@
+---
+title: Button
+description: Button is used to initiate actions on a page or form.
+reactId: button
+railsIds:
+- Primer::Beta::Button
+- Primer::ButtonComponent
+figmaId: button
+rails: https://primer.style/view-components/components/beta/button
+cssId: button
+---
+
+import {Box, Text} from '@primer/react'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  width="960"
+  alt="Image displaying each variation of button, from left: Secondary, Primary, Danger, Invisible."
+  src="https://github.com/primer/design/assets/980622/8a02c179-61d1-48a6-8dd8-7a0ccdfecef7"
+/>
+
+## Usage
+
+Buttons allow users to initiate an action or command when clicked or tapped. The button's label or text description indicates the purpose of the action to the user. At GitHub, buttons are a fundamental building block of our products. Most of the time, we use the "Default" button type, but other types of buttons may be used to indicate something special about the button's hierarchy or functionality.
+
+## Anatomy
+
+<img
+  width="960"
+  alt="Anatomy of a button, including the label, leading visual, trailing visual, and trailing action"
+  src="https://user-images.githubusercontent.com/586552/217702365-f8d6ce35-08e0-4d0b-a6d6-8af12d8ea8cf.png"
+/>
+
+## Options
+
+### Leading and trailing visuals
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="trailing action on a button"
+    src="https://user-images.githubusercontent.com/586552/217703058-f9ad11e2-162d-4073-bc7c-04a70890b84e.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Trailing actions</h4>
+    Trailing actions such as dropdown carets are always locked to the end of a button, which is particularly obvious for full width scenarios. If a button is a call-to-action (Submit, Save, Do this™, etc), its contents (visuals and button label) appear center-aligned inside the button container. If a button is used for selecting items (Weeks ▾, Iteration ▾, Sort ▾, Select™ ▾, etc), its contents (visuals and button label) appear left-aligned inside the button container.
+
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="leading visual on a button"
+    src="https://user-images.githubusercontent.com/586552/217703061-a5d658ee-b5af-4bf7-8771-59f4190fb2ea.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Leading visuals</h4>
+    Leading visuals provide additional context for a button label, such as a “search” icon next to the label for a search field submit. Leading visuals always apear locked to the button label, even if the button is full width.
+
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="trailing visual on a button"
+    src="https://user-images.githubusercontent.com/586552/217703062-40a5ef54-d89f-44b0-a7ab-5c7b23ec927b.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Trailing visuals</h4>
+    Trailing visuals such as counters display additional information about the action or task at hand.
+    Trailing visuals always apear locked to the button label, even if the button is full width.
+
+  </Box>
+</Box>
+
+### Sizing and spacing
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="button at medium size"
+    src="https://user-images.githubusercontent.com/586552/217703064-c8e13e96-585b-4a91-a4e8-0059ef7dd57e.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Medium (default)</h4>
+    Primer buttons are medium sized by default.
+    Medium is suitable for most interfaces and is considered the preferred size.
+
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="button at small size"
+    src="https://user-images.githubusercontent.com/586552/217703067-8a732463-0c5d-4722-b075-c01813f00482.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Small</h4>
+    Small buttons may be used when space is limited and if the action is less significant.
+
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="button at large size"
+    src="https://user-images.githubusercontent.com/586552/217703069-f37700df-22be-4e1a-a701-e34856927da6.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Large</h4>
+    Large buttons increase the significance of an action and should be used sparingly.
+    More often than not a medium sized button will be more appropriate.
+
+  </Box>
+</Box>
+
+### Variants
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="Primary button with green background"
+    src="https://user-images.githubusercontent.com/586552/217703071-524b0574-2f03-444e-95df-6be46782ee47.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Primary</h4>
+    Primary buttons represent the highest priority action in a page. There should only ever be one primary button (if any) in a button group, and typically only one primary button should be present in page.
+
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="Secondary button with gray background"
+    src="https://user-images.githubusercontent.com/586552/217703800-053ca7db-195b-4894-9114-907d6d56e5e1.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Secondary</h4>
+    Secondary buttons are the default button color scheme and are suitable for more interactions. They can be paired with a primary button to perform a secondary action, or used on their own.
+
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="Invisible button with transparent background"
+    src="https://user-images.githubusercontent.com/586552/217703072-3d4fc9d5-687d-42bd-a819-326b24b70ae0.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Invisible</h4>
+    Invisible buttons have a transparent background with translucent hover and active states, making them useful for compound components like ActionList.
+
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="Danger button with red background"
+    src="https://user-images.githubusercontent.com/586552/217703074-33192c43-21d5-44f4-abd3-e35c87ab8f7f.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Danger</h4>
+    Danger buttons should be used sparingly to warn of a destructive action, typically resulting in the opening of a confirmation dialog.
+
+  </Box>
+</Box>
+
+### Inactive
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<img
+  width="456"
+  alt="An button that looks like a disabled primary button, but it has a focus state"
+  src="https://github.com/primer/design/assets/2313998/167f846f-0a86-4f04-bac3-4af9843e8933"
+/>
+
+<div>
+
+An inactive button has styles that make the button appear "muted". The style is the same for all button variants.
+
+An inactive button an accessible alternative to a disabled button. They're intended to be used for buttons that are non-functional, but cannot be removed from the page.
+
+Unlike a disabled button, an inactive button can respond to user input. For example, if a button shows a tooltip when hovered or focused, or a dialog when clicked.
+
+If you need to use an inactive button, it's best to have something else on the page that informs users about the issue that broke the button's normal functionality. For example, showing a [global banner](/ui-patterns/degraded-experiences#global-system-notification) for service outages.
+
+</div>
+
+</Box>
+
+<Box
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<CustomVideoPlayer
+  width="456"
+  loop
+  src="https://github.com/primer/design/assets/2313998/b74267b7-3c7b-4343-88f8-fdfe6d076e31"
+/>
+
+<Box sx={{flexBasis: 0, flexGrow: 1}}>
+
+There are two recommended ways an inactive button should respond to user input:
+
+1. **Show a dialog on click:** When a user tries to activate an inactive the button, open a [dialog](/components/dialog) that explains why the action cannot be completed and give them a path forward if possible. It is required to provide some kind of feedback when a user clicks a button.
+2. **Show a tooltip on hover or focus:** Before a user tries to activate a non-functional control, a [tooltip](/components/tooltip) with additional context may be displayed on hover or focus. It is *not* required to respond to hover and focus.
+
+</Box>
+
+</Box>
+
+### Loading
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<img
+  width="456"
+  alt="An button that looks disabled, but the text is replaced with a spinning loading indicator"
+  src="https://github.com/primer/design/assets/2313998/332baaba-6c0d-4d6c-b9cb-57616d35d9f2"
+/>
+
+<div>
+
+You may use a button loading state if we need to wait for a button's action to be completed. Refer to the accessibility section's [button loading state](#button-loading-state) guidance for more information.
+
+</div>
+
+</Box>
+
+## Best practices
+
+### Primary and outline button usage
+
+Limit primary button usage. Only use one primary button on the page, whenever possible, to indicate its emphasis relative to other actions. Primary buttons have top priority in visual hierarchy, and using too many of them on a single view dilutes their effectiveness.
+
+### Button usage
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700259-ad2702e6-cf3d-4708-b62b-a44a6f54d9b2.png"
+      role="presentation"
+      width="456"
+      alt="An image showing a button with no line breaks"
+    />
+    <Caption>Keep button labels succinct with no line breaks.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700258-2ab8cdf3-22a2-4628-80dd-1489b28ea387.png"
+      role="presentation"
+      width="456"
+      alt="An image showing a button with a line break"
+    />
+    <Caption>Buttons should never contain line breaks and lose their button shape.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700257-558c4517-9df3-41a8-bc5c-4df9cca1d7d9.png"
+      role="presentation"
+      width="456"
+      alt="A button using sentance case"
+    />
+    <Caption>Use sentence case for labels.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700255-95b40748-a02a-4829-a373-aadc587e843d.png"
+      role="presentation"
+      width="456"
+      alt="A button with text in all caps"
+    />
+    <Caption>Don't use all-caps or other text formats.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700253-97df122e-b484-4ce8-a0cc-886d20cd8beb.png"
+      role="presentation"
+      width="456"
+      alt="A button showing :focus state"
+    />
+    <Caption>Show focus styles on keyboard :focus</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700252-064704cf-e8ff-46af-a859-acf114c3a19d.png"
+      role="presentation"
+      width="456"
+      alt="A button with the default :focus styles removed"
+    />
+    <Caption>Don't remove default button :focus styles.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700251-6b03cd5f-1fe9-4176-8347-35a1382ad9d3.png"
+      role="presentation"
+      width="456"
+      alt="Primary button placed at the end of the button group"
+    />
+    <Caption>Do place primary buttons at the end of a button group</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700250-b38baf90-bea5-470f-a69b-ec5ed32ca4d8.png"
+      role="presentation"
+      width="456"
+      alt="Primary button placed at the start of the button group"
+    />
+    <Caption>Don't place primary buttons at the start of a button group</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700248-e0db9c6c-05b6-488a-89b4-83f55ecaaaf1.png"
+      role="presentation"
+      width="456"
+      alt="A primary button next to a secondary button"
+    />
+    <Caption>Use a primary button with a secondary button</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/586552/217700246-62b420c4-523b-4706-a7f6-8a0f219d9b7e.png"
+      role="presentation"
+      width="456"
+      alt="Multiple primary buttons placed together"
+    />
+    <Caption>Don’t place multiple primary buttons together</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Accessibility
+
+### Do not disable buttons
+
+There are rare cases where it's ok to disable a button, but it should generally be avoided. Disabling a button makes it invisible to assistive technologies such as screen readers.
+
+For more information on disabled controls, see GitHub's [link and button a11y guidance](https://accessibility-playbook.github.com/link-and-button-guidance#disabling-links-and-buttons) (GitHub staff only).
+
+### Descriptive buttons
+
+Labeling buttons properly lets users know what will happen when they activate the control, lessens errors, and increases confidence.
+
+Read more about [descriptive buttons](/guides/accessibility/descriptive-buttons).
+
+### Button loading state
+
+<img
+  width="960"
+  alt="A button in a loading state with a11y annotations"
+  src="https://github.com/primer/design/assets/2313998/87f87136-1414-4ae7-8e4b-1b4d6e6b2d20"
+/>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'start', gap: 3, mt: 3, mb: 3}}>
+
+<Box flex={1}>
+
+When implementing a "loading" button state, don't remove the button from the DOM or pass the `disabled` attribute. Doing so would make it impossible to tab to the button. If the button was just focused and activated, it would reset focus. Resetting focus would disrupt the keyboard navigation flow, and creates a confusing experience for assistive technologies such as screen readers.
+
+Once the button is activated (and is in a loading state), it get the attribute `aria-disabled="true"`. 
+
+A separate, visually hidden element should be rendered outside of the `<button>` with a message to communicate the loading status. For example, "Saving profile".
+
+</Box>
+
+<CustomVideoPlayer loop autoplay width="350" src="https://github.com/primer/design/assets/2313998/b138567f-3ba8-49ab-9fa1-80a4fe30b034" />
+
+</Box>
+
+This message should be in an ARIA live region, using `aria-live="polite"`. The live region must be present on page load, but the message inside the live region should only be rendered while the button is in a loading state.
+
+If an error prevents process from being completed, focus should be brought to an `<h2>` (or next relevant heading) of the error banner. 
+
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Button"/>

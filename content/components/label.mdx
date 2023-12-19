@@ -1,0 +1,42 @@
+---
+title: Label
+description: Use the label component to add contextual metadata to a design.
+reactId: label
+railsIds:
+- Primer::Beta::Label
+cssId: issuelabel
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<Note variant="warning">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Guidelines for this component are in progress</Text>
+  <Text>Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link></Text>
+</Note>
+
+<img
+  width="960"
+  role="presentation"
+  src="https://github.com/primer/design/assets/2313998/c2bfee0c-8443-4076-aba8-27e6f2fbb4e0"
+/>
+
+## Usage
+
+A label is a piece of text that is stylized to differentiate it as contextual metadata. It can be used to add a status, category, or other metadata to a design.
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Label"/>
+
+## Related links
+
+- [Counter label](/components/counter-label/)
+- [Label group](/components/label-group/)
+- [State label](/components/state-label/)
+- [Token](/components/token/)

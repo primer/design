@@ -1,0 +1,128 @@
+---
+title: Responsive
+description: Supporting responsive experiences is an essential part of developing for the Web. Every page and feature at GitHub needs to adapt to the user’s device and their preferences.
+---
+
+## Definition
+
+[Responsive web design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design) is the practice of building a website suitable to work on every device and every screen size, no matter how large or small, mobile or desktop. Responsive web design is an accessibility requirement, focused around providing an intuitive and gratifying experience for everyone.
+
+At GitHub, being Responsive means our experiences are inherently adaptive. Interfaces should not only adjust layout and spacing when resizing a page, but work [efficiently](/foundations/introduction#design-for-efficiency) to provide an experience that is tailored to match the paradigms and affordances of the person’s device:
+
+- Responsive to the [form factor](<https://en.wikipedia.org/wiki/Form_factor_(design)>): adapt to viewport size, pointing device support, and to the device metaphors, power, and [affordances](https://www.interaction-design.org/literature/topics/affordances).
+- Responsive to the user preferences: respect browser’s default font size, reduced motion, color scheme, contrast preferences, etc.
+
+## Responsive to the device’s form factor
+
+Designing for the web means that people can open your page from virtually any type of device. When designing for GitHub, picture our users using desktops, tablets, and smartphones, but also [custom-built tiny cyberdecks](https://www.reddit.com/r/cyberDeck/top/?t=year) and [VR headsets](https://en.wikipedia.org/wiki/Virtual_reality_headset).
+
+### Device power
+
+GitHub cannot discriminate against devices and connection speeds. Experiences need to be fast and performant, even on low-powered devices and slow connections. [It’s not fully shipped until it’s fast](/foundations/zen).
+
+### Viewport size
+
+To guarantee maximum compatibility, pages should adapt to the [browser’s viewport size](https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts), without loss of information or functionality, starting at the following dimensions:
+
+- **Minimum viewport width**: 320px
+- **Minimum viewport height**: 256px
+
+Providing support at these smaller sizes enable people with low vision to use GitHub with a browser zoom enabled, up to 400% on a 1280px wide screen. [Read more about this accessibility requirement](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html).
+
+To understand how to break down a page to work on smaller viewports, check out [Responsive foundations](/foundations/layout#responsive-foundations) and [Responsive behavior](/foundations/layout#responsive-behavior) sections in the [Layout](/foundations/layout) page.
+
+<!--
+
+Todo: Link to Figma Templates
+
+> When designing a mobile-friendly rendering of a page, we recommend using a viewport width of **375px**, as this is the most common size among small smartphones. However, the page should still be tested and be fully functional at smaller widths for accessibility reasons, all the way to **320px**.
+
+-->
+
+### Pointing device
+
+Consider multimodal input capabilities when designing interfaces. Many devices possess the ability to respond to cursor, touch, keyboard, voice, and other forms of input simultaneously. Additionally, many devices have the ability to have their input augmented in ways you may not initially expect. For example, many smartphones can support mouse and keyboard-based input, although their browsers may not be able to detect the presence of this augumentation.
+
+Because of this, pointing device media queries such as `coarse` or `fine` are unreliable. Avoid relying on this type of query to conditionally modify parts of an interface.
+
+#### Minimum target
+
+When creating interactive targets in your design, ensure that they are large enough to easily tap or click on. The AA accessibility standard GitHub strives for requires a minimum target size of `24px`.
+However, it is recommended to aim for the AAA standard when possible. For more information on Target Size at the AAA level, refer to the [W3C documentation](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html).
+
+A common example of a hit target that may not meet the AAA standard on mobile is our `medium` size button, which is visually only 32px in height. Consider utilizing the `large` button size for circumstances like this, instead of attempting to adjust the button's touch target area to meet the AAA size requirement.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/980622/212349806-8329b722-9245-4911-9763-87a7eba6b328.png"
+      role="presentation"
+      width="456"
+      alt="A design that showcases a medium-sized button of 32px height, where the touch target has been increased to 44px by adding space above and below the button."
+    />
+    <Caption>While acceptable for AA try to increase the touch target to 44px on mobile to reach AAA</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/980622/212349813-b5389387-72b5-47bc-9c3a-ffa7c5609887.png"
+      role="presentation"
+      width="456"
+      alt="A design that illustrates a medium-sized button that is 32px in height and its touch target remains unchanged."
+    />
+    <Caption>Keep the 32px hit target for mobile touch targets.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<!--
+
+Todo: Touch-friendly strategy section.
+
+Examples of touch adaptation with out-of-boudaries touch targets, when applied to Button and IconButton components, following comparison with ActionListItem, which increases its height instead.
+
+Image source:
+https://www.figma.com/file/YlBTqHTbdRwYQt0bfIHvGw/Interface-guidelines?node-id=457%3A89625
+
+-->
+
+#### Hover support
+
+Browsers report if the primary input mechanism can hover over elements with the `hover` media feature.
+
+Devices that don’t support hovering such as smartphones and tablets may need adapted experiences so that the user can interact with the page without hovering over elements.
+
+Features that rely on hover such as tooltips or hovercards may not be available on these devices. Make sure the information presented is still accessible through other means, such as a direct link to a page with the information.
+
+<!--
+
+Todo: Do we include examples of device metaphors and afforances here as well?
+
+-->
+
+## Responsive to the user preferences
+
+People may set system preferences to change the way they prefer to interact with their devices. By default, GitHub must respect these preferences. Providing a way to override these options within the **User settings** is also recommended.
+
+On the web, these user preference media features include:
+
+- [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
+- [`prefers-contrast`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast)
+- [`prefers-reduced-motion`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
+- [`forced-colors`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors)
+- [`inverted-colors`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/inverted-colors)
+
+### Browser default font size
+
+Users may set their operating system or browsers to use larger or smaller fonts. GitHub should respect these preferences, as it enables people with low vision to increase the size of the text on the page.
+
+Primer design tokens are designed to support `rem` units, which are relative to the browser’s default font size. Use Primer-provided design tokens to ensure consistency across the system.
+
+To test this, change the size in the browser:
+
+- In Chrome: Go to `chrome://settings`. Under **Appearance**, change the font size.
+- In Firefox: In the menu button, select **Settings**. Under ”Language and Appearance” you can set different size. Default is `16`.
+
+## See also
+
+- [Viewport ranges](/foundations/layout#viewport-ranges)
+- [Responsive breakpoints](/foundations/layout#breakpoints)
+- [Responsive layout behavior](/foundations/layout#responsive-behavior)

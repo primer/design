@@ -1,0 +1,646 @@
+---
+title: Data table
+reactId: data_table
+figmaId: data_table
+description: Data table is a 2-dimensional data structure where each row is an item, and each column is a data point about the item.
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+import {Box, Heading} from '@primer/react'
+
+## Anatomy
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205361202-0f1735a7-0409-4c51-b095-1cdd0bc92bb3.png"
+/>
+
+### Table header
+
+The table header shows contextual information about the table and render controls that affect the table.
+
+- **Title:** A concise label that describes the table and its contents
+- **Subtitle:** A brief description to adds more context for the table when the title alone is not enough
+- **Actions:** Controls that affect the entire table
+- **Filter:** An input used to filter table data to make it easier for the user to focus only on the rows relevant to their task. Even though the filter affects the entire table, it's not considered an "action".
+
+### Column headers
+
+A very short label that describes the data in the column.
+
+Column headers are buttons that sort rows by the column data in ascending or descending order. Sort functionality may be disabled on a column-by-column basis.
+
+The column that contains row actions does not have a visible column header.
+
+### Row headers
+
+A row header identifies the item being represented in the row. They are typically the first cell in the row, and are visually distinct from the other cells in the row.
+
+### Row actions
+
+Actions that affect the item represented in the row.
+
+### Data cells
+
+The data for each row that is described by its corresponding column header and optional row header.
+
+### Pagination footer
+
+The pagination footer shows the user where they are in relation to the total number of rows and provides controls for navigating all rows.
+
+## Usage
+
+### When to use a data table
+
+- To navigate a lot of information at once and to make it easy to compare data points between rows or columns
+- If the data is easy to understand when all data points are displayed in a flat hierarchy
+
+### When to use something else
+
+#### Use a list or something else
+
+- When there are columns where the cells will usually be empty
+- If the data is easier to understand with grouping and hierarchy (sections, headings, subheadings, etc.)
+- When rows and columns are only a means of layout
+- For data with longform content such as paragraphs or long lists
+
+#### Use a data grid
+
+- If the primary purpose is to edit or otherwise interact with the cells (like a spreadsheet)
+- If rows or columns support some kind of user interaction
+
+### Best practices
+
+<Box display="grid" gridTemplateColumns={['', '', '', '', '18rem 1fr']} gridGap={[0, 0, 0, 0, 3]} sx={{'> h4': { margin: 0 }}}>
+
+#### Order rows intuitively
+
+<div>
+
+Data should be initially rendered in an intuitive order. For example, starting with the most recently created items.
+
+By default, sort alphabetically by the first column's content. Rows will be re-ordered as the user updates the sort
+parameters
+
+</div>
+
+#### Minimize the number of columns
+
+It's easier to scan many rows than it is to scan many columns. Consider swapping columns and rows when it's unlikely that there will ever be more rows than columns.
+
+#### Adapt column widths when necessary
+
+Use the column width options to appropriately size the columns depending on the content and the available horizontal space.
+
+#### Keep column headers short
+
+Column headers are short labels used to define the kind of data that is shown in that column.
+
+#### Keep cell content concise
+
+Cells should represent data in the shortest possible format. This makes the table easier to scan, and preserves horizontal space.
+
+#### Don't use a single column to show multiple pieces of data
+
+The column header should accurately represent the data point rendered in the column's cells. It would also be unclear which data point is being used when sorting.
+
+#### Make numbers easier to compare
+
+Right-align numeric values and use the `tabular-num` [font variant](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric) when possible.
+
+#### Avoid wrapping or truncation of cell content as much as possible
+
+<div>
+
+Ideally, the cell content is very short and the column will be wide enough to accommodate its content. In cases where it's not possible to fit the content, you may wrap or truncate the content.
+
+Cells that are likely to contain long strings may choose to wrap the content. This is the preferred way to accommodate long content because it doesn't hide the content.
+
+Content truncation is available as a last resort when column widths are set. The full content may be exposed in a tooltip.
+
+</div>
+
+#### By default, leave empty cells blank
+
+You may show a message to explain an absence of data. Just don't use a character like “x” or “-”. It creates a weird experience for assistive technologies like screen readers.
+
+#### Use “skeleton” placeholders to indicate loading content
+
+<div>
+
+The placeholder should match the real content as closely as possible.Use the following properties to adjust the size and alignment of the placeholder:
+
+- column width
+- alignment
+- whether or not there is a leading visual
+
+Don't worry about whether the text wraps. Ideally, the height of the cell will not change once the data is loaded. However, it wouldn't be possible to know how many lines of text the content wraps to.
+
+</div>
+
+#### Use pagination to accommodate tables with a large dataset
+
+By paginating, the user can focus on segments of a large dataset without being overwhelmed. Pagination also helps with performance by reducing the amount of data to be downloaded and the amount of content that needs to be rendered.
+
+#### Don't put too many or too few rows per page
+
+<div>
+
+If page length is too short, it would be annoying to browse the data in small segments. If page length is too long, users could get lost or overwhelmed.
+
+The following factors influence what the ideal page length would be for your use-case:
+
+- Whether rows can be filtered
+- Number of columns
+- Visual complexity of the rendered cells
+- Amount of context needed when reviewing the data
+
+These factors make it difficult to recommend an “ideal” page size for all use cases, but 20 rows is a good place to start.
+
+</div>
+
+#### Communicate when the table has no data to show
+
+Show a `Blankslate` component in place of the table
+
+#### Consider small screens
+
+<div>
+
+Some strategies for adapting the table for narrow viewports include:
+
+- Use the column width options
+- Remove less important columns
+- Scroll horizontally
+
+</div>
+
+</Box>
+
+### Do's and Don'ts
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361204-99082cdf-36d7-4248-9a77-0bf58ee7fae5.png"
+    />
+    <Caption role="presentation" color="fg.subtle">
+      Use a data table for data in a flat hierarchical structure
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361206-e066a62d-40dd-4956-aa69-e2766c3b7d0b.png"
+    />
+    <Caption role="presentation" color="fg.subtle">
+      Don't use a data table for information that has hierarchical relationships
+    </Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361208-4191728f-b130-4c44-b834-da7dc29abc81.png"
+    />
+    <Caption role="presentation" color="fg.subtle">
+      Restrict the data in a column to represent one type of data
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361210-dcd62746-c10e-40dc-ba6d-7b6c509693e3.png"
+    />
+    <Caption role="presentation" color="fg.subtle">
+      Don't group data in a column cell that isn't described by the column header
+    </Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361212-b35c07de-4f66-4dfb-b2ac-bffd01723879.png"
+    />
+    <Caption role="presentation" color="fg.subtle">
+      Leave the cell blank {`(preferred)`} or show text that explains the absence
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361213-5bf83f35-ec56-4aa4-807b-3687fbef6d0a.png"
+    />
+    <Caption role="presentation" color="fg.subtle">
+      Don't show a character, icon, or emoji to indicate a cell is empty
+    </Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361215-c7f15b31-bf91-49ec-8ee0-f85af5c86588.png"
+    />
+    <Caption role="presentation" color="fg.subtle">
+      Allow the title in the page header to act as a table title when appropriate
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361216-a10a8d67-5f04-4bf9-9b82-9ca851731698.png"
+    />
+    <Caption role="presentation" color="fg.subtle">
+      Don't repeat or rephrase the title in the page header as the table title
+    </Caption>
+  </Dont>
+</DoDontContainer>
+
+## Options
+
+### Column widths
+
+#### Grow (default)
+
+Stretch to fill available space, and min width is the width of the widest cell in the column. This is the same behavior as a CSS grid column with the value `minmax(auto, 1fr)`.
+
+May have a min and max width constraint.
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3, 'img': {width: '100%'}}}>
+  <div>
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205382519-b97666be-05bd-4449-a4d9-b924c3bbe70a.png"
+    />
+  </div>
+
+  <div>
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361220-078f56f6-0681-4e64-bab3-7860f179d066.png"
+    />
+  </div>
+</Box>
+
+#### Grow or collapse
+
+Stretch to fill available space in the parent **or shrink** to fit in the available space in the parent.
+
+May have a min and max width constraint. Without a min width constraint, the column could collapse to a width of 0px.
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3, 'img': {width: '100%'}}}>
+  <div>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/231308670-2979a7db-9207-4c7e-a30e-56c0afc15392.png"
+    />
+  </div>
+
+  <div>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/231308671-fba97361-45f7-4c4b-bf5d-54bf9940fe1b.png"
+    />
+  </div>
+</Box>
+
+#### Auto
+
+The column is the width of its widest cell. Not intended for use with columns whose content length varies a lot because a layout shift will occur when the content changes.
+
+May have a min and max width constraint.
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3, marginBottom: 3, 'img': {width: '100%'}}}>
+  <div>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361223-f9becdb3-64ca-44b2-a350-2d33e2b20b1f.png"
+    />
+  </div>
+
+  <div>
+    <img
+      width="456"
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/205361224-f39ba3d5-feb4-464a-9059-2784bb91eec9.png"
+    />
+  </div>
+</Box>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<div>
+
+#### Explicit width
+
+Will be exactly that width and will not grow or shrink to fill the parent.
+
+</div>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205385940-7dca1d5d-b2ae-4faf-a656-5b2bbec7b85f.png"
+/>
+</Box>
+
+#### Action column
+
+The action column would not accept a width. Its min-width would be the width of the actions.
+
+#### Filling available space
+
+If all columns have width constraints set and the row doesn't fill the table container, the difference is added to the width of the last column.
+
+### Cells
+
+<Box display="flex" flexDirection="column" sx={{gap: 3, 'h4': { margin: 0 }}}>
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+#### Density
+
+Options:
+
+- **Condensed:** Optimize for showing more information in a smaller area.
+- **Normal (default):** Shows a lot of information in a small area, but provides enough whitespace that the cells won't risk visually running together.
+- **Spacious:** Optimizes readability for tables with visually busy cell content.
+
+</Box>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205361229-8f29b673-93d5-414a-8e77-aa7b74e3c4b1.png"
+/>
+
+</Box>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+#### Text alignment
+
+- **Left (default):** Matches natural reading direction of text in right-to-left writing systems.
+- **Right:** Optimizes for comparing column data that is easier to compare when it's right-aligned. Most commonly used for numeric data.
+
+</Box>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205361230-91f0dcb1-7b50-4df4-937f-76eaa7f12b36.png"
+/>
+
+</Box>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+#### Content fitting
+
+- Wrapping (default)
+- Single-line truncation
+- Multi-line truncation
+
+</Box>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205361233-640aadba-27d7-41ac-920f-16422d684873.png"
+/>
+
+</Box>
+</Box>
+
+### Row actions cell options
+
+<Box display="flex" flexDirection="column" sx={{gap: 3, 'h4': { margin: 0 }}}>
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+#### 1 action
+
+Row actions are placed in the last column, and they don't require a visible column header.
+
+</Box>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205361234-183d525d-d23d-4e6a-85d7-b0a816c5215f.png"
+/>
+
+</Box>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+#### Multiple actions
+
+If you have multiple actions for a row, start by pulling them into a dropdown menu.
+
+</Box>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205361236-f200108e-6fa2-4c38-b0eb-fa2f695c5e15.png"
+/>
+
+</Box>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+#### 1 primary action, other actions in an overflow
+
+If one of the actions is heavily used, pull it out for easier access. Do not pull out more than 1 action.
+
+</Box>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205361238-f5219090-dd2f-4c6c-a9ab-6bab8b43d74c.png"
+/>
+
+</Box>
+</Box>
+
+## Interactions
+
+### Sorting
+
+<Box display="flex" flexDirection="column" sx={{gap: 3}}>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box as="p" flex={1}>
+  If a table is sortable, it must start with one column sorted on page load. Interacting with a column that is already
+  sorted will toggle the sort between ascending and descending. If a column is not sorted yet, the first click sorts in
+  ascending order.
+</Box>
+
+<CustomVideoPlayer
+  width="456"
+  loop
+  src="https://user-images.githubusercontent.com/2313998/217949039-8d6a3062-e7ec-40f6-b6d9-b80494a7e89b.mp4"
+/>
+</Box>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+#### States
+
+- Unsorted (default)
+- Ascending sort active
+- Descending sort active
+- Sort in progress
+
+</Box>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205361240-85add374-1599-48bf-b6f0-c8e958fbd2dc.png"
+/>
+</Box>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+### Filtering
+
+A [filter input (internal)](https://ui.githubapp.com/storybook/?path=/docs/recipes-filter--readme) is used to write a query and only show rows that
+match that query.
+
+</Box>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/207115488-96f5b4c6-b870-4fca-b049-9d7574eb48ca.png"
+/>
+</Box>
+
+</Box>
+
+## Accessibility
+
+### Labeling and describing the table
+
+The table must have a title, and can optionally have a subtitle to describe more context. If you encounter a case where there is enough context that the table doesn’t need a visible label, you may hide it so it’s only accessible to assistive technologies.
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} mb={3} sx={{gap: 3}}>
+
+<Box as="p" flex={1}>
+  If you use the table header, the table's title and subtitle will automatically be associated with the table for
+  assistive technologies.
+</Box>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205361243-62d0b497-a4ba-44b5-8e3e-258cdd6e53e1.png"
+/>
+</Box>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box as="p" flex={1}>
+  If your table's title exists somewhere else on the page (for example, in the PageHeader), then you must manually
+  associate that contextual information with the table using ARIA.
+</Box>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205361244-8a1f527a-e1f3-45a3-ab13-5fdf82476038.png"
+/>
+</Box>
+
+### Labeling actions
+
+<Box display="flex" flexDirection="column" sx={{gap: 3}}>
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box as="p" flex={1}>
+  The row header string will be prepended to the ARIA text of action buttons. For examples, Download {`{row header}`}“,
+  “Actions:{`{row header}`}”
+</Box>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205361247-dfea530d-9989-442b-8a50-9c66aa5d3733.png"
+/>
+</Box>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box as="p" flex={1}>
+  To handle cases where the row header can be very long, we should give consumers the option to specify a shorter string
+  to identify the rows. For example, if an issue title is used as the row header, we could use the issue number instead
+  of the full issue title.
+</Box>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/205361249-763772e1-d856-479e-a632-d185c27095db.png"
+/>
+</Box>
+
+### Pagination buttons
+
+The pagination control for a DataTable uses `button` elements, and not `a` elements. This is because activating the pagination control requests data, and does not have a corresponding URL to link to.
+
+### Loading and sorting content
+
+<Box as="p" flex={1}>
+  It is important to ensure parity between what can be seen visually when a table is loading or sorting content and what is announced to assistive technology. This is provided by the DataTable component automatically, but must be considered if a custom loading solution is otherwise utilized. 
+  For loading content via a custom loading method, this also includes the initial loading period. An announcement should not be made if content is retrieved before 750ms.
+</Box>
+</Box>
+
+### Known accessibility issues (GitHub staff only)
+
+<AccessibilityLink label="DataTable" />
+
+## Related components and patterns
+
+- [ActionBar](/components/action-bar)
+- [Pagination](/components/pagination)

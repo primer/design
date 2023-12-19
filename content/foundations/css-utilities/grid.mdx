@@ -1,0 +1,121 @@
+---
+title: Grid
+description: The grid is 12 columns and percentage-based. The number of columns a container spans can be adjusted across breakpoints for responsive layouts. The grid system works with a variety of layout utilities to achieve different results.
+---
+
+## Flexbox grids
+
+You can use [flex utilities](/utilities/flexbox) on the container and columns to create a flexbox grid.
+
+This can be useful for keeping columns the same height, justifying content and vertically aligning items. The flexbox grid is also great for working with responsive layouts.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--flexbox'}]} height="240" />
+
+## Float based grid
+
+Use `.clearfix` on the container and float utilities with columns for a floated grid layout.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--float'}]} height="110" />
+
+### Reversed float grid
+
+To reverse the order of columns, use `float-right` to float columns to the right.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--float-reversed'}]} height="110" />
+
+## Nesting
+
+You can infinitely nest grid layouts within other columns since the column widths are percentage based. With great flexibility comes great responsibility - be sensible with how far you nest!
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--nested'}]} height="100" />
+
+## Centering a column
+
+Use `.mx-auto` to center columns within a container.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--centered'}]} height="100" />
+
+## Column widths
+
+Column widths can be used with any other block or inline-block elements to add percentage-based widths.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--column-width'}]} height="125" />
+
+## Offset columns
+
+Using column offset classes can push a div over X number of columns. They work responsively using the [breakpoints outlined below](#responsive-grids).
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--column-offset'}]} height="150" />
+
+## Gutters
+
+Use gutter styles or padding utilities to create gutters. You can use the default gutter style, `gutter`, or either of its modifiers, `gutter-condensed` or `gutter-spacious`. Gutter styles also support responsive breakpoint modifiers. Gutter styles add padding to the left and right side of each column and apply a negative margin to the container to ensure content inside each column lines up with content outside of the grid.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--gutter'}]} height="100" />
+
+Use padding utilities to create gutters for more customized layouts.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--gutter-with-padding'}]} height="100" />
+
+## Inline-block grids
+
+Use column widths with `d-inline-block` as an alternative to floated grids.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--inline-block'}]} height="100" />
+
+You can use column widths and other utilities on elements such as lists to create the layout you need while keeping the markup semantically correct.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--inline-block-with-column-width'}]} height="300" />
+
+## Display table grids
+
+Using [display table utilities](/utilities/layout#display) with columns gives you some alternative layout options.
+
+A useful example is being able to keep the height of the container equal across a row when the length of content may differ.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--table'}]} height="250" />
+
+Note that table cells will fill the width of their container even when the total columns doesn't add up to 12.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--table-cell'}]} height="100" />
+
+## Responsive grids
+
+All the column width classes can be set per breakpoint to create responsive grid layouts. Each responsive style is applied to the specified breakpoint and up.
+
+### Breakpoints
+
+We use abbreviations for each breakpoint to keep the class names concise.
+
+| Shorthand | Description       |
+| --------- | ----------------- |
+| sm        | min-width: 544px  |
+| md        | min-width: 768px  |
+| lg        | min-width: 1004px |
+| xl        | min-width: 1280px |
+
+**Note:** The `lg` breakpoint matches our current page width of `980px` including left and right padding of `12px`. This is so that content doesn't touch the edges of the window when resized.
+
+<hr />
+
+In this example at the `sm` breakpoint 2 columns will show, at the `md` breakpoint 4 columns will show, and at the `lg` breakpoint 6 columns will show.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--responsive'}]} height="160" />
+
+For demonstration, this is how the above example would look at the `sm` breakpoint.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--responsive-small'}]} height="160" />
+
+This is how that same example would look at the `md` breakpoint.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--responsive-medium'}]} height="100" />
+
+This is how that example would look at the `lg` breakpoint.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--responsive-large'}]} height="100" />
+
+## Containers
+
+Container widths match our breakpoints and are available at a `sm`, `md`, `lg`, and `xl` size. Containers apply a max-width rather than a fixed width for responsive layouts, and they center the container.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-grid--container'}]} height="130" />

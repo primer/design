@@ -1,0 +1,492 @@
+---
+title: Flexbox
+description: Flex utilities can be used to apply flexbox behaviors to elements by using utility classes.
+---
+
+## Required reading
+
+Before using these utilities, **you should be familiar with CSS3 Flexible Box spec**. If you are not, check out MDN's guide:
+
+📖 **[Using CSS Flexible Boxes](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes)**
+
+## Flex container
+
+Use these classes to make an element lay out its content using the flexbox model. Each **direct** child of the flex container will become a flex item.
+
+```css
+.d-flex {
+  display: flex;
+}
+.d-inline-flex {
+  display: inline-flex;
+}
+```
+
+| Class            | Description                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------------- |
+| `.d-flex`        | The element behaves like a block and lays out its content using the flexbox model.           |
+| `.d-inline-flex` | The element behaves like an inline element and lays out its content using the flexbox model. |
+
+### Example using `.d-flex`
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--flex'}]} height="125" />
+
+### Example using `.d-inline-flex`
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--inline-flex'}]} height="125" />
+
+## Flex direction
+
+Use these classes to define the orientation of the main axis (`row` or `column`). By default, flex items will display in a row. Use `.flex-column` to change the direction of the main axis to vertical.
+
+```css
+.flex-row {
+  flex-direction: row;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+```
+
+| Class                  | Description                                 |
+| ---------------------- | ------------------------------------------- |
+| `.flex-row`            | The main axis runs left to right (default). |
+| `.flex-row-reverse`    | The main axis runs right to left.           |
+| `.flex-column`         | The main axis runs top to bottom.           |
+| `.flex-column-reverse` | The main axis runs bottom to top.           |
+
+### Example using `.flex-column`
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--column'}]} height="300" />
+
+### Example using `.flex-column-reverse`
+
+This example uses the responsive variant `.flex-sm-column-reverse` to override `.flex-column` Learn more about **[responsive flexbox utilities](#responsive-flex-utilities)**. Keep in mind that it won't affect screen readers or navigating with the keyboard and it's advised to keep the markup in a logical source order.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--column-reverse'}]} height="300" />
+
+### Example using `.flex-row`
+
+This example uses the responsive variant `.flex-sm-row` to override `.flex-column` Learn more about **[responsive flexbox utilities](#responsive-flex-utilities)**.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--row'}]} height="125" />
+
+### Example using `.flex-row-reverse`
+
+This example uses the responsive variant `.flex-sm-row-reverse` to override `.flex-column` Learn more about **[responsive flexbox utilities](#responsive-flex-utilities)**. Keep in mind that it won't affect screen readers or navigating with the keyboard and it's advised to keep the markup in a logical source order.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--row-reverse'}]} height="125" />
+
+## Flex wrap
+
+You can choose whether flex items are forced into a single line or wrapped onto multiple lines.
+
+```css
+.flex-nowrap         { flex-wrap: nowrap; }
+.flex-wrap           { flex-wrap: wrap; }
+.flex-wrap-reverse   { flex-wrap: wrap-reverse; }
+```
+
+
+| Class                | Description                                                          |
+| -------------------- | -------------------------------------------------------------------- |
+| `.flex-nowrap`       | Flex items are laid out in a single line, even if they overflow      |
+| `.flex-wrap`         | Flex items will break onto multiple lines (default)                  |
+| `.flex-wrap-reverse` | Behaves the same as wrap but cross-start and cross-end are permuted. |
+
+### `flex-nowrap` example
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--nowrap'}]} height="220" />
+
+
+### `flex-wrap` example
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--wrap'}]} height="125" />
+
+### `flex-wrap-reverse` example
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--wrap-reverse'}]} height="220" />
+
+## Justify content
+
+Use these classes to distribute space between and around flex items along the **main axis** of the container.
+
+```css
+.flex-justify-start {
+  justify-content: flex-start;
+}
+.flex-justify-end {
+  justify-content: flex-end;
+}
+.flex-justify-center {
+  justify-content: center;
+}
+.flex-justify-between {
+  justify-content: space-between;
+}
+.flex-justify-around {
+  justify-content: space-around;
+}
+```
+
+| Class                   | Default behavior                                                                        |
+| ----------------------- | --------------------------------------------------------------------------------------- |
+| `.flex-justify-start`   | Justify all items to the left                                                           |
+| `.flex-justify-end`     | Justify all items to the right                                                          |
+| `.flex-justify-center`  | Justify items to the center of the container                                            |
+| `.flex-justify-between` | Distribute items evenly. First item is on the start line, last item is on the end line. |
+| `.flex-justify-around`  | Distribute items evenly with equal space around them                                    |
+
+### flex-justify-start
+
+Use `.flex-justify-start` to align items to the start line. By default this will be on the left side of the container. If you are using `.flex-column`, the start line will be at the top of the container.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--justify-start'}]} height="125" />
+
+### flex-justify-end
+
+Use `.flex-justify-end` to align items to the end line. By default this will be on the right side of the container. If you are using `.flex-column`, the end line will be at the bottom of the container.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--justify-end'}]} height="125" />
+
+### flex-justify-center
+
+Use `.flex-justify-center` to align items in the middle of the container.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--justify-center'}]} height="125" />
+
+### flex-justify-between
+
+Use `.flex-justify-between` to distribute items evenly in the container. The first items will be on the start line and the last item will be on the end line.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--justify-between'}]} height="125" />
+
+### flex-justify-around
+
+Use `.flex-justify-around` to distribute items evenly, with an equal amount of space around them. Visually the spaces won't look equal, since each item has the same unit of space around it. For example, the first item only has one unit of space between it and the start line, but it has two units of space between it and the next item.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--justify-around'}]} height="125" />
+
+## Align items
+
+Use these classes to align items on the **cross axis**.
+
+The cross axis runs perpendicular to the main axis. By default the main axis runs horizontally, so your items will align vertically on the cross axis. If you use [flex-column](#flex-direction) to make the main axis run vertically, your items will be aligned horizontally.
+
+```css
+.flex-items-start {
+  align-items: flex-start;
+}
+.flex-items-end {
+  align-items: flex-end;
+}
+.flex-items-center {
+  align-items: center;
+}
+.flex-items-baseline {
+  align-items: baseline;
+}
+.flex-items-stretch {
+  align-items: stretch;
+}
+```
+
+| Class                  | Behavior                                                    |
+| ---------------------- | ----------------------------------------------------------- |
+| `.flex-items-start`    | Align items to the start of the cross axis                  |
+| `.flex-items-end`      | Align items to the end of the cross axis                    |
+| `.flex-items-center`   | Align items to the center of the cross axis                 |
+| `.flex-items-baseline` | Align items along their baselines                           |
+| `.flex-items-stretch`  | Stretch items from start of cross axis to end of cross axis |
+
+### flex-items-start
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-items-start'}]} height="190" />
+
+### flex-items-end
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-items-end'}]} height="190" />
+
+### flex-items-center
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-items-center'}]} height="190" />
+
+### flex-items-baseline
+
+With `.flex-items-baseline`, items will be aligned along their baselines even if they have different font sizes.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-items-baseline'}]} height="190" />
+
+### flex-items-stretch
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-items-stretch'}]} height="190" />
+
+## Align content
+
+When the main axis wraps, this creates multiple main axis lines and adds extra space in the cross axis. Use these classes to align the lines of the main axis on the cross axis.
+
+```css
+.flex-content-start {
+  align-content: flex-start;
+}
+.flex-content-end {
+  align-content: flex-end;
+}
+.flex-content-center {
+  align-content: center;
+}
+.flex-content-between {
+  align-content: space-between;
+}
+.flex-content-around {
+  align-content: space-around;
+}
+.flex-content-stretch {
+  align-content: stretch;
+}
+```
+
+| Class                   | Description                                                                                                         |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `.flex-content-start`   | Align content to the start of the cross axis                                                                        |
+| `.flex-content-end`     | Align content to the end of the cross axis                                                                          |
+| `.flex-content-center`  | Align content to the center of the cross axis                                                                       |
+| `.flex-content-between` | Distribute content evenly. First line is on the start of the cross axis, last line is on the end of the cross axis. |
+| `.flex-content-around`  | Stretch items from the start of the cross axis to the end of the cross axis.                                        |
+| `.flex-content-stretch` | Lines stretch to occupy available space.                                                                            |
+
+### flex-content-start
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-content-start'}]} height="340" />
+
+### flex-content-end
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-content-end'}]} height="340" />
+
+### flex-content-center
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-content-center'}]} height="340" />
+
+### flex-content-between
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-content-between'}]} height="340" />
+
+### flex-content-around
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-content-around'}]} height="340" />
+
+### flex-content-stretch
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-content-stretch'}]} height="340" />
+
+## Flex
+
+Use this class to specify the ability of a flex item to alter its dimensions to fill available space.
+
+```css
+.flex-1 {
+  flex: 1;
+}
+.flex-auto {
+  flex: auto;
+}
+.flex-grow-0 {
+  flex-grow: 0;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+```
+
+| Class            | Description                                               |
+| ---------------- | --------------------------------------------------------- |
+| `.flex-1`        | Fills available space                                     |
+| `.flex-auto`     | Fills available space and auto-sizes based on the content |
+| `.flex-grow-0`   | Prevents growing of a flex item                           |
+| `.flex-shrink-0` | Prevents shrinking of a flex item                         |
+
+### flex-1
+
+Adding `.flex-1` makes the item grow in size to take up all the space that is available.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--flex-1'}]} height="125" />
+
+Adding `.flex-1` to all flex items results in each item having the same size.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--flex-1-all'}]} height="125" />
+
+### flex-auto
+
+Using `.flex-auto` fills the available space but also takes the size of the content into account. Type in the editor below to see the effect.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--flex-auto'}]} height="125" />
+
+### flex-grow-0
+
+Add `.flex-grow-0` to prevent an item from growing. This can be useful when used as a responsive variant. For example to stop growing when the viewport gets wider.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--flex-grow-0'}]} height="125" />
+
+### flex-shrink-0
+
+Add `.flex-shrink-0` to prevent an item from shrinking. Note that for example text will not wrap and the flex items start to overflow if there is not enough space.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--flex-shrink-0'}]} height="160" />
+
+## Align self
+
+Use these classes to adjust the alignment of an individual flex item on the cross axis. This overrides any `align-items` property applied to the flex container.
+
+```css
+.flex-self-auto {
+  align-self: auto;
+}
+.flex-self-start {
+  align-self: flex-start;
+}
+.flex-self-end {
+  align-self: flex-end;
+}
+.flex-self-center {
+  align-self: center;
+}
+.flex-self-baseline {
+  align-self: baseline;
+}
+.flex-self-stretch {
+  align-self: stretch;
+}
+```
+
+| Class                 | Description                                                 |
+| --------------------- | ----------------------------------------------------------- |
+| `.flex-self-auto`     | Inherit alignment from parent                               |
+| `.flex-self-start`    | Align to the start of the cross axis                        |
+| `.flex-self-end`      | Align to the end of the cross axis                          |
+| `.flex-self-center`   | Align to center of cross axis                               |
+| `.flex-self-baseline` | Align baseline to the start of the cross axis               |
+| `.flex-self-stretch`  | Stretch item from start of cross axis to end of cross axis. |
+
+### flex-self-auto
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-self-auto'}]} height="190" />
+
+### flex-self-start
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-self-start'}]} height="190" />
+
+### flex-self-end
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-self-end'}]} height="190" />
+
+### flex-self-center
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-self-center'}]} height="190" />
+
+### flex-self-baseline
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-self-baseline'}]} height="190" />
+
+### flex-self-stretch
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--align-self-stretch'}]} height="190" />
+
+## Order
+
+Use these classes to change the order of flex items. Keep in mind that it won't affect screen readers or navigating with the keyboard and it's advised to keep the markup in a logical source order.
+
+```css
+.flex-order-1 {
+  order: 1;
+}
+.flex-order-2 {
+  order: 2;
+}
+.flex-order-none {
+  order: inherit;
+}
+```
+
+| Class              | Description                                            |
+| ------------------ | ------------------------------------------------------ |
+| `.flex-order-1`    | Set order to be 1                                      |
+| `.flex-order-2`    | Set order to be 2                                      |
+| `.flex-order-none` | Remove order (typically used with responsive variants) |
+
+### flex-order (1+2)
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--order'}]} height="125" />
+
+### flex-order-none
+
+Resize window to see the effect.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--order-none'}]} height="125" />
+
+## Responsive flex utilities
+
+All flexbox utilities can be adjusted per [breakpoint](/foundations/css-utilities/grid#breakpoints) using the following formulas:
+
+- `d-[breakpoint]-[property]` for `display`
+- `flex-[breakpoint]-[property]-[behavior]` for various flex properties
+
+Each responsive style is applied to the specified breakpoint and up.
+
+### Example classes
+
+```css
+/* Example classes */
+
+.d-sm-flex {
+}
+.d-md-inline-flex {
+}
+
+.flex-lg-row {
+}
+.flex-xl-column {
+}
+
+.flex-sm-wrap {
+}
+.flex-lg-nowrap {
+}
+
+.flex-lg-self-start {
+}
+```
+
+### Example usage
+
+Mixing flex properties:
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--responsive'}]} height="190" />
+
+## Example components
+
+The flex utilities can be used to create a number of components. Here are some examples.
+
+### Media object
+
+You can use flex utilities to make a simple media object, like this:
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--media-object'}]} height="180" />
+
+### Responsive media object
+
+Here is an example of a media object that is **vertically centered on large screens**, but converts to a stacked column layout on small screens.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-flexbox--media-object-responsive'}]} height="170" />
+
+## Flexbox bugs
+
+This section lists flexbox bugs that affect [browsers we currently support](https://github.com/primer/css/blob/main/.browserslistrc).
+
+1. **Minimum content sizing of flex items not honored.** Some browsers don't respect flex item size. Instead of respecting the minimum content size, items shrink below their minimum size which can create some undesirable results, such as overflowing text. The workaround is to apply `flex-shrink: 0;` to the items using `d-flex`. This can be applied with the `flex-shrink-0` utility. For more information read [philipwalton/flexbugs](https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored).
+2. **Some elements can't be flex containers.** Specifically, `<button>`, `<fieldset>`, and `<summary>` elements cannot be styled with `display: flex` in Safari. Instead of using `class="d-flex"` on these elements, you should nest an element within them, e.g. `<summary><div class="d-flex">...</div></summary>`.

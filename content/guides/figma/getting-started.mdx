@@ -1,0 +1,124 @@
+---
+title: Getting started
+description: Principles, standards, and usage guidelines for designing GitHub interfaces with Figma
+---
+import {LinkExternalIcon} from '@primer/octicons-react'
+
+## What are Figma libraries?
+Figma libraries contain UI components and design tokens (`variables` and `styles`). At GitHub we have one product design system library called _Primer Web_ that our teams at GitHub use to design GitHub. The components contained within Primer match what is available for developers in Primer React Components, Primer ViewComponents, and Primer CSS.
+
+## Installation
+To use a library in Figma enable (install) it from the **assets** tab (`option` + `2`).
+You can also directly open the _team library_ view via the command palette or with the shortcut `option` + `cmd` + `o`.
+
+<ImageBox caption="Navigate to the assets tab in the left sidebar and press the book icon to open the libraries overview.">
+  <img
+    width="490"
+    alt="Screenshot showing the assets tab in figma"
+    src="https://user-images.githubusercontent.com/813754/221525999-d0278cec-d79c-40fc-8150-532f97549dc8.png"
+  />
+</ImageBox>
+
+<ImageBox caption="Enable Primer Web and all other libraries you need in your file.">
+  <img
+    width="508"
+    alt="Screenshot showing the library overview in figma"
+    src="https://github.com/primer/react/assets/813754/675eb97e-479d-47db-bd29-f10c136f586a"
+  />
+</ImageBox>
+
+### Styles and variables
+
+Styles and variables are two ways to use [Primer Primitives](https://github.com/primer/primitives) (design tokens) in Figma.
+Our goal is to move everything over to variables, but at the moment only color and size tokens are supported. This is why we still provide text and shadow tokens using styles.
+
+### Understanding styles
+Figma libraries like _Primer Web_ provide styles for you to use. In contrast to local styles, styles from a library don't show up in the sidebar. However, once you open a selection to choose a `text style` or `shadow style` you will see the styles from team libraries as well.
+
+Available styles:
+- text styles
+- shadow styles
+
+To quickly find a style you can use the search box. E.g. search for `body` to bring up all body text styles as well as related ones.
+
+<ImageBox caption="Text style selector with search for 'body'">
+  <img
+    width="261"
+    alt="Screenshot showing the style selector in figma"
+    src="https://github.com/primer/react/assets/813754/4537b229-a663-499d-b0f0-d6be0d9fdadb"
+  />
+</ImageBox>
+
+### Understanding variables (primitives)
+Our Figma libraries use `variables` to represent design tokens. Variables from a library don't show up in the sidebar.
+However once you open a selection to choose a color, or size, etc. you will see the variables from team library as well.
+
+To use the `variables` you need to enable the `Primer Web` library in your file.
+
+Available variables:
+- color variables
+- size variables
+
+To quickly find a `variable` you can use the search box. E.g. use `accent` to bring up all accent colors or `fgColor` to find all text related colors. 
+
+<ImageBox caption="Color variables panel and panel with a search for 'fgCo'">
+  <img
+    width="509"
+    alt="Screenshot showing the color variable panel in figma"
+    src="https://github.com/primer/design/assets/813754/34835137-cc62-45ce-9abf-3573089eb278"
+  />
+</ImageBox>
+
+#### Scope
+Variables in Figma are _"scoped"_, meaning they can only be used in specific situations. Currently Figma offers the following scopes for color variables: `Frame fill`, `Shape fill`, `Text fill` , `Stroke`.
+
+For you this means that if you want to create a border using a `borderColor` you need to use a `stroke` (path tool) or a `border` around a `frame` or `shape`. Similarly `fgColors` can not be used for borders and `bgColors` can only be used for `frame fills` and `shape fills`.
+
+**Note:** There are two exceptions to this rule.
+1. Some `bgColors` are available for `borders` and `strokes` because we use them when placing things like notification dots on top of elements like an avatar.
+2. `fgColors` are also available for `shape fill`. This is nessary because icons are shapes, but use `fgColors`
+
+<ImageBox caption="Color variable panel with scope 'backgroundColor' and 'borderColor'">
+  <img
+    width="700"
+    alt="Screenshot showing the color variable panel with specific scopes in figma"
+    src="https://github.com/primer/design/assets/813754/8edb4f44-38c5-4ee1-a520-356c35f4b4ff"
+  />
+</ImageBox>
+
+<a href="https://help.figma.com/hc/en-us/sections/14506605769879-Variables">Learn more about Figma variables <LinkExternalIcon /></a>
+
+### Variables vs. styles
+Variables and styles are fairly similar, but there are some key differences. You can identify a color variables by the squared color representation and a style by the round one.
+
+**Styles** can be used for color, grids and shadows. The can have multiple colors, pictures or gradients combined in one style and they can be replaced using the style swap utility. However they can not be nested.
+
+**Variables** are more similar to design tokens in that they can only have a single raw value, either a color, string or number. However they can reference another valid variable e.g. the variable `fgColor/danger` can reference `base/color/red/4`. This makes variables a better choice to represent design tokens.
+
+## Understanding components
+At GitHub, we have created a [set of guidelines](https://github.com/primer/figma/blob/main/docs/authoring-components.md) that contributors and maintainers can reference when creating and updating components.
+
+Components in our libraries have been built to be easy to understand for consumers. When possible try to keep components small and simple. Avoid advanced methods/tricks if possible. 
+
+### Variants and component properties
+To make components dynamic, we favor [component properties <LinkExternalIcon />](https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties) over nesting, so users don't have to override parts of a component manually. 
+
+Whenever possible use components as they are without _detaching_.
+
+<a href="https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma">Learn more about Figma components <LinkExternalIcon /></a>
+
+## Using variable themes
+
+Primer Web provides _light mode_ and _dark mode_ using figma `variables`. This means you don't need a plugin to change between modes. Simply select any `frame` that uses `variables` or components with `variables`. Select the mode from the dropdown <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12"><path fill="#000" fill-opacity="1" fill-rule="evenodd" d="m5 1.381-4 2.31v4.618l4 2.31 4-2.31V3.691L5 1.38zm5 1.732L5 .227 0 3.113v5.774l5 2.887 5-2.887V3.113zm3 5.196-5 2.887 1 .578 5-2.887V3.113L9 .227 8 .804l5 2.887v4.618zM6 6c0 .552-.448 1-1 1-.552 0-1-.448-1-1 0-.552.448-1 1-1 .552 0 1 .448 1 1z"></path></svg> in the _layer_ section in the right sidebar
+
+<ImageBox caption="Switching the variable mode changes all nested items">
+  <CustomVideoPlayer
+  width="804"
+  loop
+  autoplay
+  src="https://github.com/primer/design/assets/813754/a58ce41e-e4de-4267-9219-4d180350a8f0"
+/>
+</ImageBox>
+
+### Video introduction to primer web variables and modes / themes (GitHub staff only)
+<a href="https://github.rewatch.com/video/qvryg0cscoowmpyx-figma-primer-web-update-to-figma-variables"><img src="https://thumbnails.rewatch.com/thumbs/qvryg0cscoowmpyx?fm=jpg&p=true&q=100" /></a>

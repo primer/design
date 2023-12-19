@@ -1,0 +1,41 @@
+---
+title: Moving Away From Primer::ButtonComponent
+---
+
+This guide will show you how to upgrade from the now deprecated
+`Primer::ButtonComponent` to the latest [`Primer::Beta::Button`](/components/button/rails)
+component.
+
+## Arguments
+
+The following arguments for the component initializer have changed between the deprecated and newer versions
+of the Primer Button.
+
+| From `Primer::ButtonComponent` | To `Primer::Beta::Button` | Notes |
+|--------------------------------|---------------------------|-------|
+| `dropdown`   | n/a      | removed in `Primer::Beta::Button`                  |
+| `group_item` | n/a      | removed in `Primer::Beta::Button`                  |
+| `scheme`     | `scheme` | removed `:outline` value. use `:invisible` instead |
+| `variant`    | `size`   | renamed; values remain the same                    |
+
+The remaining arguments have stayed the same.
+
+`Primer::Beta::Button` no longer supports the boolean settings for being part of
+a group, nor the dropdown caret via initializer argument. See the following for examples of how to replace
+this functionality.
+
+* Button groups: [`Primer::Beta::ButtonGroup`](/components/beta/buttongroup)
+* Trailing counter: [`trailing_visual` slot](https://primer.style/view-components/lookbook/inspect/primer/beta/button/trailing_visual)
+* Trailing caret: [`trailing_action` slot](https://primer.style/view-components/lookbook/inspect/primer/beta/button/trailing_action)
+
+## Slot Names
+
+The following slots have changed with the newer Primer Button.
+
+| From `Primer::ButtonComponent` | To `Primer::Beta::Button` | Notes |
+|--------------------------------|---------------------------|-------|
+| n/a | `trailing_action` | appears to the right of the `trailing_visual` slot |
+
+The remaining slot names have stayed the same.
+
+[&larr; Back to development docs](/guides/development/rails#upgrading-deprecated-components)

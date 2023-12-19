@@ -1,0 +1,98 @@
+---
+title: Button group
+description: Button group renders a series of buttons.
+reactId: button_group
+railsIds:
+- Primer::Beta::ButtonGroup
+figmaId: button_group
+rails: https://primer.style/view-components/components/beta/buttongroup
+---
+
+import {Box, Text} from '@primer/react'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  src="https://user-images.githubusercontent.com/586552/226987730-84d99d46-1dd4-4ddc-91b3-046d7eeedbad.png"
+  role="presentation"
+  width="960"
+  alt="An image showing a button group in medium and small sizes."
+/>
+
+## Usage
+
+Buttons can be grouped together as individual segments of related actions.
+
+Each segment in a button group is comprised from our default button component and can be visually represented with the same button types and states.
+
+Grouping buttons with a button group is better than rendering buttons close together for the following uses:
+
+- rendering a group of buttons next to one or more buttons
+- grouping multiple sets of buttons
+- saving horizontal space when rendering multiple closely-related buttons
+
+### Best practices
+
+- Use button groups to organize similar functionality. Don't group buttons just because they're close together.
+- For most use-cases, only default button types should be used in button groups. In rare cases, primary buttons can be included in button groups but there should only ever be one primary button (if any) in a button group.
+- Avoid grouping too many buttons together. It could be overwhelming to the user.
+- Do not use a button group to indicate a selection. Use a [segmented control](/components/segmented-control) instead.
+- Do not use a button group as a replacement for tab navigation. <!-- TODO: link to TabNav once it's merged -->
+- Avoid mixing buttons with text labels with icon-only buttons. However, it is acceptable to group a text-labeled button with an icon-only button with a [down-pointing triangle](https://primer.style/foundations/icons/triangle-down-16) that opens a dropdown menu of actions related to the button.
+- Do not group an [invisible](/components/button#invisible) button with buttons of another variant.
+
+## Options
+
+### Size
+
+Button groups only support medium (default) and small button sizes.
+
+<img
+  src="https://user-images.githubusercontent.com/586552/226987738-cf95c038-8fa7-4393-bf2c-014082145556.png"
+  role="presentation"
+  width="960"
+  alt="An image showing a button group in medium and small sizes."
+/>
+
+### Split buttons with a dropdown
+
+A button group can be shown as a split button with an action on the left and dropdown button with an additional list of actions.
+
+<img
+  src="https://user-images.githubusercontent.com/586552/226987739-a7aeadc7-9bc3-40d1-ba34-beefe32525ff.png"
+  role="presentation"
+  width="960"
+  alt="An image showing a button group in medium and small sizes."
+/>
+
+### Leading and trailing visuals
+
+Similarly to buttons, button segments can optionally include an icon and/or a counter.
+
+<img
+  src="https://user-images.githubusercontent.com/586552/226987735-471711f1-5342-4605-903d-889301eace46.png"
+  role="presentation"
+  width="960"
+  alt="An image showing a button group in medium and small sizes."
+/>
+
+## Accessibility
+
+A button group does not behave like a [toolbar](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role), so assistive technologies still interpret the buttons as unrelated. The grouping is purely visual.
+
+### Descriptive buttons
+
+Labeling buttons properly lets users know what will happen when they activate the control, lessens errors, and increases confidence.
+
+Read more about [descriptive buttons](/guides/accessibility/descriptive-buttons).
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="ButtonGroup"/>
+
+## Related links
+
+- [Button](/components/button)
+
+- [Segmented control](/components/segmented-control)

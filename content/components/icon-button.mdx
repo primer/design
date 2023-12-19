@@ -1,0 +1,47 @@
+---
+title: Icon button
+description: Icon button is used for buttons that show an icon in place of a text label.
+reactId: icon_button
+railsIds:
+- Primer::Beta::IconButton
+- Primer::IconButton
+figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=14919%3A49961&t=aWZ6bMYEtFusbdzZ-1
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  role="presentation"
+  width="960"
+  src="https://user-images.githubusercontent.com/2313998/226466889-81266a65-6099-457f-9770-99e4c3a0d712.png"
+/>
+
+## Usage
+
+Use an icon button when the purpose of your button may be easily understood using an icon in place of a text label.
+
+### Best practices
+
+- Verify that the button's purpose will still be understood using an icon without a text label. Consider your audience and the context where the button is being rendered.
+- Use a tooltip with a text label for the button so users can hover or focus the button to read a button label that makes it clear what the button does.
+
+## Options
+
+Icon buttons have the same [size](/components/button#sizing-and-spacing) and [variant](/components/button#color) options as a button with a text label.
+
+## Accessibility
+
+Even though the label is visually hidden, a text label needs to be defined so a screen reader can read that label to the user.
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="IconButton"/>
+
+## Related links
+
+<!-- TODO: link to Tooltip once it's merged -->
+
+- [Button usage](/ui-patterns/button-usage)
+- [Button](/components/button)

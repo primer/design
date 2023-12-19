@@ -1,0 +1,16 @@
+---
+title: Menu
+description: Use Menu to create vertical lists of navigational links.
+railsIds:
+- Primer::Alpha::Menu
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+
+<Note variant="warning">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Usage for this component is not encouraged</Text>
+  <Text>Instead, please see <Link as={GatsbyLink} to="/components/nav-list">nav list</Link>.</Text>
+</Note>

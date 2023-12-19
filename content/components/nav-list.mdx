@@ -1,0 +1,159 @@
+---
+title: Nav list
+description: Nav list renders a vertical list of navigation links.
+reactId: nav_list
+railsIds:
+- Primer::Alpha::NavList
+- Primer::Beta::NavList
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/226925586-19a376a1-7430-410f-b060-5e77fae41933.png"
+/>
+
+## Usage
+
+A nav list organizes navigation links for the user's current context and indicates which view they're currently on. It is typically used as a sidebar that changes what is rendered in the main content area.
+
+### States
+
+<img
+  width="960"
+  role="presentation"
+  src="https://github.com/primer/design/assets/2313998/a3d4180b-239e-40a8-8a11-d7cf40405159"
+/>
+
+**Resting:** The default state. The link is not the one currently being shown.
+
+**Current:** Indicates that this link is the current view being shown.
+
+**Inactive:** Indicates that the link href is unavailable due to a system error. See [degraded experience guidelines](/ui-patterns/degraded-experiences#degraded-navigation) for more information.
+
+**Loading:** Indicates that the link href is still being calculated. See [loading guidelines](/ui-patterns/loading#navigation) for more information.
+
+**Expanded sub-items:** The item is expanded to show its sub-items.
+
+**Collapsed sub-items:** The item has sub-items, but they are hidden.
+
+**Action list item interactive states:** Hover and focus states match the action list items.
+
+### Best practices
+
+- Nav list items should only ever be links. Do not try and add items to the nav list that are buttons or non-interactive content.
+  - If you need to render a list of actions or a list of actions mixed with links, use the [action list](/components/action-list) instead
+- Avoid inconsistent use of leading visuals. Ideally all items have a leading visual, or no items have them. This keeps the link text aligned at the start of the item, making the links easier to scan.
+- Associate related items using a [group](/components/nav-list#group-list-sections) or [divider](/components/nav-list#pseudo-grouping-using-a-divider) when it makes the content easier to understand.
+- Items should be listed in a logical or intuitive order.
+
+<DoDontContainer>
+  <Do>
+    <img
+      role="presentation"
+      width="456"
+      src="https://user-images.githubusercontent.com/2313998/226925595-ab08263b-600d-43be-b56a-c9b6af8950a1.png"
+    />
+    <Caption>Use leading visuals consistently.</Caption>
+  </Do>
+  <Dont>
+    <img
+      role="presentation"
+      width="456"
+      src="https://user-images.githubusercontent.com/2313998/226925597-717c5e21-5792-4d4c-94bc-5a798ca486ce.png"
+    />
+    <Caption>Avoid mixing items that have leading visuals with items that don't.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      role="presentation"
+      width="456"
+      src="https://user-images.githubusercontent.com/2313998/226925601-ad39870d-56d4-4696-911b-5f05ccd436d4.png"
+    />
+    <Caption>Only use dividers to visually group items.</Caption>
+  </Do>
+  <Dont>
+    <img
+      role="presentation"
+      width="456"
+      src="https://user-images.githubusercontent.com/2313998/226925603-d17f11b7-1c80-42d8-bd0e-4fc329ac6e2b.png"
+    />
+    <Caption>Don't use dividers to separate individual items.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Anatomy
+
+Nav list items are rendered using [action list](/components/action-list) items, so they share anatomy, styles, and some options.
+
+## Options
+
+### Leading and trailing visuals
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/226925606-c1d6d354-5692-410e-a27e-4e25f1c264ca.png"
+/>
+
+**Leading visuals** are commonly used to show a visual hint for what the item is. For example, an icon or avatar that represents the view being linked to.
+
+**Trailing visuals** are commonly used to show auxiliary information about the item. For example, a count of unread notifications on the page.
+
+Nav list items may have both a leading and a trailing visual.
+
+### Grouped list sections
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/226925613-71c86520-394d-46b7-a29d-090268d4e0cb.png"
+/>
+
+You can semantically group your nav list into multiple lists using groups. You can choose whether or not to show a label for each group.
+
+If you want to visually group your nav list into sections but don't want the semantics of nested `<ul>`s, you may use dividers to visually break your list into sections.
+
+Grouping should be used to make long or complex nav lists easier to comprehend.
+
+### Sub-items
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/226925617-c5a27545-905f-491e-9059-6389264ab77d.png"
+/>
+
+Sub-items may be collapsed or expanded under a top-level nav list item.
+
+The top-level nav list item cannot be a link; it only behaves as a toggle that expands and collapses the sub-items.
+
+Sub-items may be used to render nested navigation structures. Up to 4 levels of nesting are supported. If you need to handle a more deeply-nested navigation structure, reconsider the design of your navigation or the information hierarchy.
+
+Do not replace your NavList with a [tree view](/components/tree-view) to support a deeply nested navigation structure. A tree view is never an accessible replacement for navigation, as it serves a different purpose and is not recognized as navigation by assistive technologies.
+
+## Accessibility
+
+Nav lists should always be labeled for assistive technologies, even if the label is visually hidden.
+
+Nav list items are links, so they should never contain buttons or other clickable elements.
+
+Inactive nav list items are not rendered as `<a>` tags since we don't know the href value. The only focusabe part of the item is the leading visual. See the [action list accessibility guidelines](/components/action-list#tooltips-and-dialogs-on-inactive-items) for more details.
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="NavList"/>
+
+## Related links
+
+<!-- TODO: add SplitPageLayout when we have docs for it -->
+
+- [Action list](/components/action-list)
+- [Tree view](/components/tree-view)

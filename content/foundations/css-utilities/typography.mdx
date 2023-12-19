@@ -1,0 +1,79 @@
+---
+title: Typography
+description: Type utilities are designed to work in combination with line-height utilities so as to result in more sensible numbers wherever possible.
+---
+
+Font sizes are smaller on mobile and scale up at the `md` [breakpoint](/foundations/css-utilities/grid#breakpoints) to be larger on desktop.
+
+| Scale | Font size: mobile | Font size: desktop | 1.25 line height | 1.5 line height |
+| ----- | ----------------- | ------------------ | ---------------- | --------------- |
+| 00    | 40px              | 48px               | 60               | 72              |
+| 0     | 32px              | 40px               | 50               | 60              |
+| 1     | 26px              | 32px               | 40               | 48              |
+| 2     | 22px              | 24px               | 30               | 36              |
+| 3     | 18px              | 20px               | 25               | 30              |
+| 4     | 16px              | 16px               | 20               | 24              |
+| 5     | 14px              | 14px               | 17.5             | 21              |
+| 6     | 12px              | 12px               | 15               | 18              |
+
+## Heading utilities
+
+Use `.h1` – `.h6` to change an elements font size and weight to match our heading styles.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-typography--heading'}]} height="260" />
+
+These are particularly useful for changing the visual appearance while keeping the markup semantically correct. Be sure you keep the hierarchy appropriate for the page.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-typography--heading-semantic'}]} height="100" />
+
+## Type scale utilities
+
+Use `.f1` – `.f6` to change an elements font size while keeping inline with our type scale.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-typography--font-size'}]} height="280" />
+
+Lighter font-weight utilities are available in a limited range. Lighter font-weights reduce the legibility of text, particularly at small font sizes, so the scale only goes down to `f3` at 20px. The larger sizes`f0` and `f00` allow for lighter and larger type that is in keeping with our marketing styles.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-typography--font-size-light'}]} height="280" />
+
+## Line height styles
+
+Change the line height density with these utilities. Responsive variants are also available (e.g. `.lh-sm-condensed`).
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-typography--line-height'}]} height="280" />
+
+The `lh-0` utility class sets `line-height: 0 !important`, and can be used to remove vertical spacing from elements that inherit line-height but don't contain any text.
+
+## Typographic styles
+
+Change the font weight, styles, and alignment with these utilities.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-typography--typographic-styles'}]} height="600" />
+
+## Word-break
+
+There are two utilities for adjusting how lines and words of text break when they exceed the width of their containing element:
+
+1. `wb-break-word` sets `word-break: break-word` and `overflow-wrap: break-word`, which will only break words if they would exceed the line length _after wrapping_.
+
+2. `wb-break-all` sets `word-break: break-all`, which will force a word to break regardless of whether it's shorter than the line length. See [MDN's `word-break` docs](https://developer.mozilla.org/en-US/docs/Web/CSS/word-break#Values) for more info.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-typography--word-break'}]} height="410" />
+
+## Text alignment
+
+Use text alignment utilities to left align, center, or right align text.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-typography--text-alignment'}]} height="150" />
+
+## Responsive text alignment
+
+Use the following formula to make a text alignment utility responsive: `.text-[breakpoint]-[alignment]`
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-typography--text-alignment-responsive'}]} height="100" />
+
+## List styles
+
+Remove bullets from an unordered list or numbers from an ordered list by applying `.list-style-none` to the `<ul>`.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-typography--list'}]} height="100" />

@@ -4,21 +4,58 @@
   "version": "1.0.0",
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build --prefix-paths",
+    "clean": "gatsby clean",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "build:preview": "gatsby build",
     "now-build": "yarn build",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "markdownlint": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!.github\" \"!node_modules\""
   },
   "dependencies": {
-    "@loadable/component": "^5.10.2",
-    "@primer/gatsby-theme-doctocat": "^1.7.0",
-    "@primer/octicons-react": "^11.0.0",
-    "eslint": "5.8.0",
-    "eslint-plugin-github": "1.6.0",
-    "gatsby": "^2.32.13",
+    "@github/prettier-config": "^0.0.6",
+    "@octokit/auth-app": "^4.0.13",
+    "@octokit/rest": "^19.0.13",
+    "@primer/component-metadata": "^0.5.1",
+    "@primer/gatsby-theme-doctocat": "^4.7.1",
+    "@primer/octicons-react": "^17.3.0",
+    "@primer/react": "35.5.0",
+    "@svgr/webpack": "^6.5.1",
+    "@tanstack/react-query": "^4.23.0",
+    "change-case": "^4.1.2",
+    "downloadjs": "^1.4.7",
+    "eslint": "^8.21.0",
+    "eslint-plugin-github": "^4.3.7",
+    "gatsby": "^3.13.1",
     "gatsby-plugin-alias-imports": "^1.0.5",
-    "react": "16.9.x",
-    "react-bodymovin": "^2.0.0",
-    "react-dom": "16.9.x"
+    "gatsby-plugin-postcss": "^4.14.0",
+    "gatsby-plugin-styled-components": "^3.1.2",
+    "gatsby-plugin-svgr": "^3.0.0-beta.0",
+    "gatsby-plugin-typescript": "^2.12.1",
+    "jspdf": "^2.5.1",
+    "jszip": "^3.10.1",
+    "node-fetch": "^2.6.12",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-markdown": "^8.0.5",
+    "remark": "^14.0.2",
+    "remark-gfm": "^3.0.1",
+    "styled-components": "^4.2.0",
+    "svg2pdf.js": "^2.2.1",
+    "usehooks-ts": "^2.9.1",
+    "yarn": "^1.22.18"
   },
-  "private": true
+  "devDependencies": {
+    "@github/markdownlint-github": "^0.3.0",
+    "esm": "^3.2.25",
+    "markdownlint-cli2": "^0.5.1",
+    "markdownlint-cli2-formatter-pretty": "^0.0.3",
+    "mustache": "^4.2.0",
+    "path-browserify": "^1.0.1"
+  },
+  "resolutions": {
+    "sharp": "0.29.3"
+  },
+  "private": true,
+  "prettier": "@github/prettier-config"
 }

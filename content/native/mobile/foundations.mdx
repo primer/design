@@ -1,0 +1,151 @@
+---
+title: Foundations
+description: Design concepts and constraints that can help create a better mobile experiences for GitHub.
+---
+
+import ScrollToAnchor from '~/src/components/scroll-to-anchor'
+
+<ScrollToAnchor />
+
+## Spacing and layout
+
+In general, our apps conform to an 8-point grid layout. However, we defer many component sizes, spacings, and layouts to the platform (iOS + Android) in order to let them deal with cross-device responsiveness, tablet transformations, and OS accessibility settings. When designing custom components, make sure elements are spaced and aligned to an 8-point grid (half-steps of 4pts are included).
+
+- [HIG: Adaptivity and Layout](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/)
+- [Material Spacing](https://material.io/design/layout/spacing-methods.html#baseline-grid)
+
+## Color
+
+Because we support dark mode and high contrast color variants, working with colors on mobile requires a few special workflows and considerations. Our core color system is maintained in the [Mobile Design Toolkit](https://www.figma.com/file/csCViryWkkXwBsK1aLrO0X/Mobile-Design-Toolkit?node-id=1%3A532) Figma file. This is the source of truth. Changes here will propogate out to the Figma Team Library, the [Mobile Design Toolkit](https://www.figma.com/community/plugin/848205889935107396/Mobile-Design-Toolkit) plugin, and eventually into the iOS and Android apps as Xcassets and XML files.
+
+Adding and updating colors does take time and attention to detail. This should not deter us from iterating, adding new colors, or adjust color values when we find they are not working in production. The following notes and videos are meant to capture the existing processes.
+
+### Primer base
+
+We use the [Primer Primitives](https://www.figma.com/file/B5XPE8IwGPIZDAvN7jqWqx/Primer-Primitives?node-id=0%3A1&viewport=609%2C529%2C0.383825421333313) color values as our starting point for working with color in mobile. We always want to be inheriting upstream changes to different values.
+
+<img
+  width="1638"
+  alt="Primer Primitives base colors displayed together"
+  src="https://user-images.githubusercontent.com/1923260/87474815-f01d0000-c5e0-11ea-9b22-b6f43ad073c6.png"
+/>
+
+### Spectrum colors
+
+Because the mobile apps support dark mode, we want to make minor adjustments to the Primer colors so that they remain clear in a dark environment. Generally, we do this by increasing brightness (improve contrast) and decreasing saturation (reducing vibration). By doing this, we end up with a light/dark pairing for each color in the Primer system.
+
+<img
+  width="1641"
+  alt="Primer colors extended to support a dark mode variant"
+  src="https://user-images.githubusercontent.com/1923260/87474820-f14e2d00-c5e0-11ea-9891-9c71fe5776d8.png"
+/>
+
+### Functional colors
+
+When we begin implementing colors into the codebase, we immediately bump into two problems:
+
+1. Using Spectrum values like `gray-500` are not descriptive, and will lead to confusion about when to use which value
+2. To support dark mode and high contrast mode, we would have to use four separate Spectrum values to account for each variant (e.g. `gray100` in dark mode, `gray900` in light mode).
+
+To combat this, we abstract our Spectrum values into _Functional colors_. Functional colors describe their purpose in the application. For example, `iconTertiary` or `textPrimary`. These values are more readable to humans, and provide inherent context about when they should be used.
+
+Additionally, functional colors _abstract dark mode and high contrast mode_. For example, a functional color `textSecondary` might wrap the following sets of rules:
+
+- In light mode, normal contrast, use `gray800`
+- In light mode, high contrast, use `gray850`
+- In dark mode, normal contrast, use `gray200`
+- In dark mode, high contrast, use `gray150`
+
+Using code generation, we can dynamically extract XML files for Android, and Xcassets for iOS that contain these color abstractions.
+
+**Note:** Our functional color system is a work in progress! We currently cover text, icons, backgrounds, badges, and borders. But we should expect to expand and refine this system over time as we encounter new use cases and opportunities for clear abstraction.
+
+<img
+  width="1010"
+  alt="Example functional color set up showing icon colors"
+  src="https://user-images.githubusercontent.com/1923260/87474825-f1e6c380-c5e0-11ea-92b7-56e3c983fc5d.png"
+/>
+
+## Iconography
+
+Our mobile apps use GitHub's icon system, [Octicons](/octicons). Octicons come in two sizes, 16px and 24px.
+
+[Star the Octicons repo](https://github.com/primer/octicons) to follow along with the Octicons project. Open issues and pull requests to get support or ask for new icon additions to the system.
+
+### Icon colors
+
+In the Mobile Design Toolkit we have two functional icon colors: `iconPrimary` and `iconSecondary`. Each of these colors implements a different brightness of gray, adding visual prominence to more important or actionable icons. But when should you use either of these colors? And when should an icon be gray versus our blue `link` color?
+
+#### Link blue icons
+
+In general, an icon should be blue if it is:
+
+- Used in a navigation bar or toolbar. In other words, it is part of the app chrome.
+- It is a primary, highly-desirable action for a user to take on any given screen.
+
+We strive to use as few `link` tinted elements in a content view in order to draw attention to only the most important actionable interface elements. Adding too many blue buttons and icons dilutes the power of the color as a way to draw attention.
+
+| Example                                                                                                                      | Notes                                                                                                                                                                                                                                                                                                       |
+| ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![repo profile example](https://user-images.githubusercontent.com/1923260/87456404-1ed8ad80-c5c4-11ea-8fbf-4f252a429881.png) | On the repo profile, we follow our rules that nav bar iconography is `link` blue, because it's part of the app's chrome. The icons in the `Star` and `Watch` buttons are also blue to match the button labels and draw attention to the highly-desirable actions that we want users to take on this screen. |
+| ![triage sheet example](https://user-images.githubusercontent.com/1923260/87456413-213b0780-c5c4-11ea-95d9-b0932af9c2d4.png) | In the triage sheet, the primary purpose of this sheet is to manage assignees for a given issue. Because the _purpose_ of this view is to manage (or more likely, to add) assignees, we make the `( + )` icons blue.                                                                                        |
+
+#### Gray icons
+
+Generally, an icon could be filling one of four roles:
+
+- An icon that represents and _important actionable activity_, but is not the primary purpose of the view
+- An icon that represents an _unimportant actionable activity_
+- An icon that is _not actionable_ and serves as a _primary_ supporting graphic of a piece of text or a view
+- An icon that is _not actionable_ and only serves as a _decorative_ accessory
+
+Generally, important actionable elements and primary supporting graphics should use `iconPrimary`, while unimportant actionable elements and decorative accessories use `iconSecondary`.
+
+Let's look at some examples:
+
+| Example                                                                                                                          | Notes                                                                                                                                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ![user profile example](https://user-images.githubusercontent.com/1923260/88214970-3b09c980-cc18-11ea-91f4-7f470bbda304.png)     | The header metatdata icons are unimportant decorative accessories, and not actionable, so we tint them `secondary`. The Pinned section icon is not actionable, but is an important accessory to distinguish this content section, so it is tinted `primary`. |
+| ![settings example](https://user-images.githubusercontent.com/1923260/88214976-3d6c2380-cc18-11ea-986b-f91d646f236f.png)         | The accessory icons are not actionable, and not important decorations, so they are tinted `secondary`.                                                                                                                                                       |
+| ![repo profile example](https://user-images.githubusercontent.com/1923260/88214979-3e04ba00-cc18-11ea-9fee-051fc94a1854.png)     | The branch icon in the code browsing section header is an unactionable accessory tinted `secondary`.                                                                                                                                                         |
+| ![commit details example](https://user-images.githubusercontent.com/1923260/88214981-3e9d5080-cc18-11ea-827c-2e0f19611677.png)   | The commit icon is an important accessory, despite not being actionable, so it is tinted `primary`.                                                                                                                                                          |
+| ![search typeahead example](https://user-images.githubusercontent.com/1923260/88214984-3f35e700-cc18-11ea-8722-dd3106611c34.png) | The search typeahead icons are important supporting accessories to quickly distinguish the typeahead options, so they are tinted `primary`.                                                                                                                  |
+| ![edit favorites example](https://user-images.githubusercontent.com/1923260/88214987-3fce7d80-cc18-11ea-8831-065d30dd4ff5.png)   | The remove buttons when editing favorites are actionable, but not the primary action on this view, so they are tinted `secondary`.                                                                                                                           |
+
+#### Other icon colors
+
+It's possible for icons to be other colors besides gray and blue! For example, we use yellow star icons to indicate that you, the viewer, have starred a repository. We also use green eye icons to indicate that you are watching a repository. You might also find pink hearts when working with sponsors. And of course, we use green, red, and purple as issue and pull request icon tints to represent states (open, closed, merged).
+
+| Example                                                                                                                        | Notes                                                                                                                                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![starred repo example](https://user-images.githubusercontent.com/1923260/87458726-9fe57400-c5c7-11ea-86a1-b057644a45ac.png)   | In this example, the Star button gets a gray label and yellow icon to communicate the _state_ of the viewer's relationship to this repository. The gray label de-emphasizes the button, because un-starring is a generally undesirable action. |
+| ![commit details example](https://user-images.githubusercontent.com/1923260/88214981-3e9d5080-cc18-11ea-827c-2e0f19611677.png) | The state of the PR where this commit was created is tinted purple to indicate the PR was merged, therefore this commit was merged, too.                                                                                                       |
+
+## Typography
+
+While we can define our own custom type styles at any time, we prefer to lean on system defaults. System defaults allow us to inherit an enormous amount of functionality for free: dynamic type sizes, bi-directionality, dark mode, voiceover, internationalization, and more.
+
+- [iOS Typography Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/)
+- [The Material Design Type Scale](https://material.io/design/typography/the-type-system.html#type-scale)
+
+Our Android app takes advantage of the [Material Theming](https://material.io/design/material-theming/overview.html#material-theming) spec that allows us to use [Inter](https://rsms.me/inter/) as our default typeface, providing a more clear reading experience for interface text.
+
+### Type colors
+
+There are currently six functional colors used in the mobile toolkit:
+
+- `textPrimary`
+- `textSeconary`
+- `textTertiary`
+- `textPlaceholder`
+- `link`
+
+It is up to each designer's judgment, and through our critique process, to decide on the correct text values used for a screen. In general, for the `primary` → `tertiary` values, these should map closely to the visual hierarchy or importance hierarchy of content on a screen.
+
+<img
+  width="578"
+  alt="Image showing a repo profile list item and how typographic hierarchy maps to colors"
+  src="https://user-images.githubusercontent.com/1923260/88214609-b159fc00-cc17-11ea-954b-cfafcc42936c.png"
+/>
+
+The `link` color will render a blue color, affording an actionable element on the screen (like button, or a link).

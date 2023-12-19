@@ -1,0 +1,81 @@
+---
+title: Alternative text for images
+description: Alternative text on images allows assistive technology like screen readers to understand the purpose of an image on a page or allows them to skip it if purely decorative.
+---
+
+## Overview
+
+> Text alternatives are a primary way for making information accessible because they can be rendered through any sensory modality (for example, visual, auditory, or tactile) to match the needs of the user. Providing text alternatives allows the information to be rendered in a variety of ways by a variety of user agents. For example, a person who cannot see a picture can have the text alternative read aloud using synthesized speech.
+>
+> Source: https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html
+
+## Why?
+
+Images can make the web user experience better and more pleasant, especially for users with cognitive and learning disabilities. Not all images used in websites are accessible, and that can be a major barrier. Accessible images are beneficial for everyone, especially for people using screen readers and other assistive technologies, as well as search engine optimization (SEO).
+
+When screen readers come across images, graphs, and icons without an `alt` attribute, by default the screen reader will speak the name of the file, which most of the time can be unhelpful (for example: `final-final-truly-final-V2.jpg`).
+
+You can read more about why alternative text for images is important in the [Web Accessibility Tutorials Guidance on how to create websites that meet WCAG
+](https://www.w3.org/WAI/tutorials/images/#why-is-this-important).
+
+## Guidelines and examples
+
+### Informative and decorative images
+
+To help you determine the best way to communicate the information of an image to a screen reader user, you can use [the alt text decision tree provided by the W3C](https://www.w3.org/WAI/tutorials/images/decision-tree/).
+
+Depending the purpose of the images, they can be categorized into one of two categories: [informative](https://www.w3.org/WAI/tutorials/images/informative/) or [decorative](https://www.w3.org/WAI/tutorials/images/decorative/) images.
+
+- Informative images convey a simple concept or information that can be expressed in a short phrase or sentence. The `alt` text must contain the description of what is displayed visually in the image.
+- Decorative images don’t add information to the content of a page. For example, an image that is included to make the website more visually attractive. You will always get an affirmative answer to the question "if the image was removed, would the user still get all the information from the page?".
+
+### For designers
+
+When you create a new design and it includes images, include captions with a description for each of them. Annotate which images are informative and which ones are decorative.
+
+### For engineers
+
+As you're developing a new component, feature, or page that contains an image, use proper [semantic HTML](/guides/accessibility/semantic-html) and use the `<img>` element with proper alternative text using the `alt` attribute.
+
+Every `<img>` element must have an `alt` attribute. It could have content for informative images or be empty for decorative images, but it must always be present.
+
+### How to write good alt text
+
+A missing `alt` attribute is bad, but an `alt` attribute with wrong or useless information is not a better solution. When writing the `alt` text of an image, you should always have in mind some rules:
+
+- Keep it short. Avoid long, boring, or irrelevant information. The `alt` text should be the most concise description possible of the image’s purpose.
+- The alternative text should not include the words "button", "link", or "image". Screen readers already provide that information.
+- In [textual images](https://www.w3.org/WAI/tutorials/images/textual/) (images that contain words that are important to understanding the content), the words should be included in the text alternative.
+- Don't fill the `alt` text with keywords. The `alt` attribute is often misused as a place to store SEO keywords or copyright information.
+- Combine `alt` text with the caption or the content. If the image is sufficiently described in the text (for example, a simple diagram illustrating what's written in the web page text) it can have a brief `alt` text such as "A diagram of work flow as described in the body text".
+
+<DoDontContainer>
+  <Do>
+    <Caption>Every img element must have an 'alt' attribute.</Caption>
+    <Code className="language-html">{`<img src="image1.jpg" alt="A dog playing with a ball" />`}</Code>
+    <br />
+    <Caption>Leave the 'alt' attribute empty for decorative.</Caption>
+    <Code className="language-html">{`<img src="shape.png" alt="" />`}</Code>
+  </Do>
+  <Dont>
+    <Caption>Don't use an img element without an 'alt' attribute.</Caption>
+    <Code className="language-html">{`<img src="image1.jpg"/>`}</Code>
+  </Dont>
+</DoDontContainer>
+
+You can read more tips in the [Web Accessibility Tutorials Guidance on how to create websites that meet WCAG
+](https://www.w3.org/WAI/tutorials/images/tips/).
+
+## Additional resources
+
+- [WebAIM Alternative Text](https://webaim.org/techniques/alttext/)
+- [Deep Dive: Making your images accessible](https://github.com/github/accessibility/blob/main/docs/deep-dive-notes/2022-01-26-images.md) (Only accessible to GitHub staff)
+- [Accessible Images For When They Matter Most
+  ](https://www.smashingmagazine.com/2020/05/accessible-images/)
+
+### Related WCAG guidelines and success criteria
+
+- [Guideline 1.1 Text Alternatives](https://www.w3.org/TR/WCAG21/#text-alternatives)
+- [Understanding Success Criterion 1.1.1: Non-text Content](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html)
+- [H37 Technique - Using alt attributes on img elements](https://www.w3.org/WAI/WCAG21/Techniques/html/H37.html)
+- [HTML Spec - 4.8.4.4 Requirements for providing text to act as an alternative for images](https://html.spec.whatwg.org/multipage/images.html#alt)

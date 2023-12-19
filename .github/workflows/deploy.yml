@@ -1,0 +1,79 @@
+name: Deploy
+
+on:
+  # Manual deploy
+  workflow_dispatch:
+  # Scheduled deploy
+  schedule:
+    - cron: '0 0 * * *' # Every day at midnight UTC time
+  # Deploy on change to main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - id: get-dotcom-access-token
+        uses: camertron/github-app-installation-auth-action@v1
+        with:
+          app-id: ${{ vars.DOTCOM_SHARED_COMPONENTS_APP_ID }}
+          private-key: ${{ secrets.DOTCOM_SHARED_COMPONENTS_APP_PRIVATE_KEY }}
+          client-id: ${{ vars.DOTCOM_SHARED_COMPONENTS_APP_CLIENT_ID }}
+          client-secret: ${{ secrets.DOTCOM_SHARED_COMPONENTS_APP_CLIENT_SECRET }}
+          installation-id: ${{ vars.DOTCOM_SHARED_COMPONENTS_APP_INSTALLATION_ID }}
+
+      - name: Checkout default branch
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build
+        env:
+          GITHUB_TOKEN: ${{ steps.get-dotcom-access-token.outputs.access-token }}
+
+      - name: Archive build output
+        run: "tar --dereference --directory public -cvf artifact.tar ."
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: github-pages
+          path: artifact.tar
+
+  deploy:
+    if: ${{ github.repository == 'primer/design' }}
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+        with:
+          preview: false

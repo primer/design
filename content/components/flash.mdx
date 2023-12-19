@@ -1,0 +1,77 @@
+---
+title: Flash
+description: Flash alert informs users of successful or pending actions.
+reactId: flash
+railsIds:
+- Primer::Beta::Flash
+- Primer::Alpha::Banner
+figmaId: banner
+rails: https://primer.style/view-components/components/beta/flash
+---
+
+import {Heading, Link} from '@primer/react'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  width="960"
+  alt="Default, warning, critical, and success flash banners"
+  src="https://user-images.githubusercontent.com/586552/217706820-5e289d3d-40b4-4b05-b1ea-24d140d31d12.png"
+/>
+
+## Usage
+
+Flash alerts are used to display updates or alerts pertaining to any part of the system; this includes information regarding the user's account, the organization, the repo, and more.
+
+These updates are typically not user-initiated but rather alerts that require the user's attention. Similarly to toasts, flash alerts can convey a warning, error, success, or a neutral message. If additional context is needed, provide a link for the user to learn more.
+
+### Best practices
+
+- Use flash alerts sparingly and only when necessary. Flash alerts can disrupt the user experience and should only be used when and where relevant.
+
+- Though flash alerts don't need to be as concise as a typical Toast message, they should **be direct and not exceed two to three sentences**. Don't use headings or multiple type sizes in flash alerts, rely on the default paragraph size instead.
+
+- Don't show more than one flash alert at a time. For more information, see this article on [alert fatigue](https://www.nngroup.com/videos/alert-fatigue-user-interfaces/).
+
+- They do not typically timeout on their own, but can include a dismiss action for messages that can be closed.
+
+## Options
+
+### Types
+
+There are four types of flash banners, each with their own styles: Default, Warning, Danger, and Success.
+
+<img
+  width="960"
+  alt="Default, warning, critical, and success flash banners"
+  src="https://user-images.githubusercontent.com/586552/217706819-d5d615c5-4850-41fa-b1b1-51eaff2f6dd1.png"
+/>
+
+#### Full-width
+
+Full-width can be applied when attaching a banner to a container. It attaches only to the top of a container.
+
+<img
+  width="960"
+  alt="Full-width flash"
+  src="https://user-images.githubusercontent.com/586552/217706818-7b3bb10f-52e0-4f24-9f2b-e4b7ea5b8087.png"
+/>
+
+#### Accessories and actions
+
+Banners contain options to add an icon, button, or dismiss button to the content of the alert.
+
+<img
+  width="960"
+  alt="Flash with icon, button, and dismiss button."
+  src="https://user-images.githubusercontent.com/586552/217706817-8a647058-9ab6-40d9-a5f7-289d67150add.png"
+/>
+
+## Accessibility
+
+The flash component should trigger notifications for users utilizing assistive technology. They should be considered as part of the overall messaging in the product and do not recieve focus (therefore, they do not _require_ a dismiss button).
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Flash"/>

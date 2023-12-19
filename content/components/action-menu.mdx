@@ -1,0 +1,505 @@
+---
+title: Action menu
+reactId: action_menu
+figmaId: action_menu
+railsIds:
+- Primer::Alpha::ActionMenu
+description: Action menu is composed of action list and overlay patterns used for quick actions and selections.
+---
+
+import {Box, Button, Heading, Link} from '@primer/react'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<Note>
+  Looking for <a href="/guides/contribute">contributors</a> to add submenus to the React and Rails implementation, as
+  they are currently not available in this component.
+</Note>
+
+## Usage
+
+An action menu comprises a set of [action list](/components/action-list) items, where each item represents an action, command, submenu, or the current selection that can be either a single or multi-select. The action menu can be invoked by clicking on a [button](/components/button), [icon button](/components/icon-button), or right-clicking on the list items.
+
+<img
+  width="960"
+  alt="Three instances of action menus. The initial one comprises an icon button that provides two actions. The second one displays a button labeled View:Table and presents three choices (Table, Board, and Roadmap), with Table being the currently selected option. Finally, the third menu is a context menu that appears on right-click and contains a diverse set of options, including single select, submenus, and actions."
+  src="https://user-images.githubusercontent.com/980622/233374605-cee72894-fc5e-46f4-a1ea-e82aa26084ef.png"
+/>
+
+The action menu is an extremely versatile component that is not restricted to a single type of action list items at a time. It can be used to create a combination of single select, multi-select, commands, and submenus.
+
+By using dividers and section titles, a hierarchy can be established within the action menu, making it easier to navigate and understand. This allows users to quickly find and access the actions they need, while also providing a clear and organized structure to the menu.
+
+<img
+  src="https://user-images.githubusercontent.com/980622/234302061-4a6c820f-5467-4648-b70e-04d16ff2b5a5.png"
+  width="960"
+  alt="Five examples of how an action menu can be utilized, which includes a context menu, multi-select, single-select, actions, and a combination of multi-select and single-select."
+/>
+
+As the action menu is a highly adaptable component, it's crucial to keep the interactions with individual items limited. The following interactions are recommended:
+
+- `enter`, `click`, or `tap`: These actions trigger an action or navigate into a submenu, based on the selected item.
+- `arrow left`, `arrow up`, `arrow down`, `arrow right`: These actions can be used to navigate the menu, allowing the user to move between items and submenus with ease.
+
+Menus are a commonly used feature across multiple platforms, and both [Apple](https://developer.apple.com/design/human-interface-guidelines/components/menus-and-actions/menus) and [Microsoft](<https://learn.microsoft.com/en-us/previous-versions/windows/desktop/bb226797(v=vs.85)>) have detailed documentation on their menus. To create a pleasant user experience, it's important to follow their expected behavior closely.
+
+## Anatomy
+
+<img
+  width="960"
+  alt="Action menu opened with an internal `Settings` label. Several elements are emphasized, such as the trigger, actions, overlay menu, trailing visual shortcuts, trailing visual submenu indicator, and the 3 dot dialog indicator."
+  src="https://user-images.githubusercontent.com/980622/234074196-f67bf01e-29b6-4be1-a6fc-47fc532f536b.png"
+/>
+
+## Content
+
+### Open
+
+Action menus can be opened through a [button](/components/button), [icon button](/components/icon-button) or by right clicking list items that have a custom context menu associated with them.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486473-9cf0c64f-5ae6-40a5-bd0f-87d3ed34f90d.png"
+    />
+    <Caption>Use a button to open a menu.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/226486474-08b75358-bfcb-483d-bba0-25947a71c8de.png"
+    />
+    <Caption>Don’t use a link to open a menu.</Caption>
+  </Dont>
+</DoDontContainer>
+
+When using a button the menu can be opened by clicking or tapping it. When it's focused it can also be opened by hitting `return`, `space` or any `arrow` key.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/226486479-52730f0f-cc41-41e0-a996-a974899cbc4e.png"
+      alt=""
+    />
+    <Caption>Open by clicking the trigger button with a mouse</Caption>
+  </div>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/226486480-4a807f86-b2b0-4d12-8a43-8cc95d36d995.png"
+      alt=""
+    />
+    <Caption>Open by focusing the trigger button and hitting return, space, or any arrow key</Caption>
+  </div>
+</Box>
+
+### Close
+
+The menu will close when pressing the `esc` or `tab` key or when pressing `enter` when a item is focused.
+Additionally clicking outside the menu item or clicking on a item will close the menu as well.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/226486482-fc457572-342d-42d3-9da6-fa87ef009cea.png"
+      alt=""
+    />
+    <Caption>
+      Close the menu by clicking on an item, clicking on the trigger, or clicking anywhere outside the menu.
+    </Caption>
+  </div>
+  <div>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/226486483-e3d658ea-4148-47d6-95ed-5ca90cc55b38.png"
+      alt=""
+    />
+    <Caption>Close the menu by hitting enter on an item, esc or tab.</Caption>
+  </div>
+</Box>
+
+#### Single and multi select
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <CustomVideoPlayer
+      width="100%"
+      src="https://user-images.githubusercontent.com/18661030/226487362-b66daa5f-40b3-4f73-908c-19a74cabd435.mp4"
+    />
+    <Caption>Single select menu closes upon selection and may update the button label.</Caption>
+  </div>
+  <div>
+    <CustomVideoPlayer
+      width="100%"
+      src="https://user-images.githubusercontent.com/18661030/226487367-680395c7-1859-40a0-bbfc-53f37a686662.mp4"
+    />
+    <Caption>Multi select menu closes upon selection and can be re-opened to select more options.</Caption>
+  </div>
+</Box>
+
+### Avoid input controls
+
+The focus should always remain on menu items, and therefore the menu shouldn't include additional form elements like `button`, `input`, or `checkbox`.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234083626-6d8f4def-eccd-429b-b815-81071502a2a7.png"
+    />
+    <Caption>Use action menu for quick actions.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234083619-40ebf8b6-6194-4e66-a7e8-597ee43f9ed8.png"
+    />
+    <Caption>
+      Don't add form controls like a filterable input, use <Link href="/components/selectpanel">select panel</Link> instead.
+    </Caption>
+  </Dont>
+</DoDontContainer>
+
+While single and multi selection is offered within a menu, the underlying semantics are not true form elements.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234080409-c2a50287-c215-48e6-96fa-3fb48c636fc7.png"
+    />
+    <Caption>Use a checkmark icon for selections.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234080401-42a48754-b120-4077-84d1-59cc08f71367.png"
+    />
+    <Caption>Don't use form elements within a menu.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Alignment
+
+Consistent alignment of icons, titles, and trailing visuals is critical to ensure that the menu is easily scannable. This is especially important when combining single or multi-select items with non-select items.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234072131-9d984962-61d4-4590-94db-43aa7135d7d2.png"
+    />
+    <Caption>
+      When a menu includes a single select or multi select then all the items in the menu should be indented.
+    </Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232518089-417184b7-336e-440a-a302-0c1f7c8c4dda.png"
+    />
+    <Caption>Don't create invidiual alignments when your menu contains a single or multi select.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Icons
+
+When designing menus, it is crucial to adhere to the meaning of the icons used. If any item in the menu does not have a corresponding icon, then all items in that menu should be presented without icons.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234294137-0438d55e-0839-4d6a-9be9-9cd9332c09a8.png"
+    />
+    <Caption>When one of the items doesn't have an icon then remove icons altogether.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234294131-fcc8558b-4837-4d9a-b1d6-360384ed48b7.png"
+    />
+    <Caption>Don't mix items with or without icons as this makes it harder to read.</Caption>
+  </Dont>
+</DoDontContainer>
+
+Especially when providing single or multi select items that rely on a crossmark icon should be avoided as they could be confused with the item's checkmark.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232508225-59f21afe-1613-4ad0-8088-a8f2f6eb2ba9.png"
+    />
+    <Caption>Avoid the usage of icons if the icon conflicts with the selected states checkmark.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232508233-78d0460d-c891-42be-929d-ff0465313805.png"
+    />
+    <Caption>Don't use crossmark icons for single or multi select items.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Dividers
+
+To enhance the readability of menus that contain numerous item descriptions, it is recommended to incorporate dividers. This can effectively prevent the menu from becoming overwhelming.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234297298-76d14987-2ecb-4165-9f5d-ada0fd1c7e17.png"
+    />
+    <Caption>Introduce dividers for items with heavy descriptions to improve readability.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234297304-0cfdd597-fc79-4394-bb74-b37ec1276bd6.png"
+    />
+    <Caption>Don't forget to add dividers when the menu content starts to look heavy.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Trailing visuals
+
+Avoid using trailing visuals to add additional interactions, which reserves them for submenu indicators or keyboard shortcuts.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234299628-3c8a8613-7a2f-4f4a-83da-14eab2f28032.png"
+    />
+    <Caption>Create a new section for additional functionality.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234299623-927d9309-9991-496c-b707-b6f358583928.png"
+    />
+    <Caption>Don't store additional toggleable functionality in trailing visuals.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Multi-level
+
+A menu with multiple levels is a common UI component used in desktop and mobile applications. It allows users to access nested subitems without cluttering the screen.
+
+<img
+  width="960"
+  alt="Action menu opened with a label for the trigger (button), overlay (menu), and the internal action list."
+  src="https://user-images.githubusercontent.com/980622/232519615-d10c928d-5253-4c54-bc66-7fa1e0f85b08.png"
+/>
+
+It's important to understand that menus can't include additional form elements like inputs. That means if you want to provide a input that filters the subitems that you can't rely on this component. Alternatively, you can use a [select panel](/components/selectpanel) or open a [dialog](/components/dialog) instead of a submenu.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232558685-0874d0dd-6d58-42d6-a19b-be19cdf32cf8.png"
+    />
+    <Caption>If you want to present filterable data open a dialog instead of a submenu.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232547208-aa63f85b-cc9c-4fd2-8222-c26ac993c0cc.png"
+    />
+    <Caption>Don't use form elements inside a menu.</Caption>
+  </Dont>
+</DoDontContainer>
+
+Since you can't include form elements within a menu that also means that you can't combine a [select panel](/components/selectpanel) with a action menu.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234094256-abf3f1ad-2d90-48f9-84aa-a8e17cc64c47.png"
+    />
+    <Caption>If you want to present filterable data do this through a dialog.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/234094263-399afdd0-b2e5-45dc-a218-db4a7dcdd9be.png"
+    />
+    <Caption>Don't mix select panels with action menus.</Caption>
+  </Dont>
+</DoDontContainer>
+
+When using submenus, don't use the trailing visual to communicate selected values within its submenu.
+Leave this space for submenu indicators.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232562573-a687110d-06cb-4756-8fb3-6b7e05665dd4.png"
+    />
+    <Caption>Use trailing visuals for submenu indicators or keyboard shortcuts.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/232562567-bb96a0cb-a796-4834-bf91-e3ddff86c312.png"
+    />
+    <Caption>Don't use trailing visual to communicate selected items in submenus.</Caption>
+  </Dont>
+</DoDontContainer>
+
+On smaller viewports, the menu should always be re-positioned to fit within the viewport. This could mean that a submenu overlaps it's parent menu.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/233361999-3b5ab994-152d-455e-b9bc-a9170a1951b1.png"
+    />
+    <Caption>Reposition menus to stay within the viewport, especially on narrow viewports.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://user-images.githubusercontent.com/980622/233361993-cf3e0b21-e584-4780-a0e1-42f03fc4d395.png"
+    />
+    <Caption>Don't position menus off screen, especially on narrow viewports.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Options
+
+### Trigger
+
+<img
+  src="https://user-images.githubusercontent.com/980622/234255983-8db23940-e60f-408a-a697-c9846ae4334b.png"
+  width="960"
+  alt=""
+/>
+<Caption>
+  Menus can be triggered through a button, icon button or right clicking list items. For simple select menus that
+  display the selection in a button, a label must be persist either internally or externally.
+</Caption>
+
+### Items
+
+<img
+  src="https://user-images.githubusercontent.com/980622/234249718-84155711-6b31-4529-bf27-63f99c964957.png"
+  width="960"
+  alt=""
+/>
+
+Here is an overview of [action list](/components/action-menu) items that are compatible with menus:
+
+- **Action**: Triggers an action or dialog. Trailing visuals can be used for keyboard shortcuts.
+- **Single/multi select**: Represented by a [check](/foundations/icons/check-16) and never a HTML checkbox. Trailing visuals can be used for keyboard shortcuts.
+- **Submenu**: Represented by a [chevron-right](/foundations/icons/chevron-right-16) as a trailing visual.
+- **Section header**: To add clarification to a section.
+- **Divider**: To create sections for your selections, actions or submenus.
+
+#### Inactive items
+
+<img
+  width="960"
+  alt="Three examples: 1. An action menu that works just fine; 2. An action menu with some items disabled; 3. An action menu with all items disabled"
+  src="https://github.com/primer/design/assets/2313998/c49774be-9bf3-4e93-8537-5810d3f5579a"
+/>
+
+If items in a menu have been affected by a system error such as an outage, they may be put into an inactive state with a message in each item explaining why it's disabled.
+
+If an action menu contains menu items that are very closely related (for example: the action menu for adding a file to a repo) and we can detect that none of the menu items are available, then put the button that triggers the action menu into an [inactive state](/components/button#inactive).
+
+Inactive action menu items follow the same patterns as inactive action list items except:
+- The message explaining why it's unavailable is renderd in the item, not a tooltip. Action menu items don't hide the message in a tooltip because the menu is already hidden until the user opens it.
+  - Hiding the message in a tooltip would require the user to do another interaction, and the UI could feel chaotic with so many layers.
+- No [alert icon](/foundations/icons/alert-16) leading visual is necessary since it would be redundant with the error message
+
+## Accessibility
+
+See [focus management](/guides/accessibility/focus-management) for more information.
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt=""
+    src="https://user-images.githubusercontent.com/18661030/226486487-b03672c1-c314-4be0-b96b-d4c348b2ff4d.png"
+  />
+  <Box as="p" mt="0">
+    <h4>Menu mnemonics</h4>
+    When a menu is open, hitting a letter key for the first letter in an item to be selected will move focus to that item.
+    If two items have the same first letter, the first item in the list will be focused first, and hitting the letter key
+    again will focus the next item.
+  </Box>
+</Box>
+
+### Keyboard navigation
+
+#### Trigger button
+
+| Key                                                                                                                                                            | Action          |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>      | Opens the menu. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Space</Box>      | Opens the menu. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>  | Opens the menu. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowUp</Box>    | Opens the menu. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowLeft</Box>  | Opens the menu. |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowRight</Box> | Opens the menu. |
+
+#### Menu items
+
+| Key                                                                                                                                                            | Action                                                          |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowUp</Box>    | Cycle through items starting with current item to previous item |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>  | Cycle through items starting with current item to next item     |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowLeft</Box>  | Closes submenu and sets focus back to the parent item           |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowRight</Box> | Opens a submenu                                                 |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Home</Box>       | Move focus to first item                                        |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageUp</Box>     | Move focus to first item                                        |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>End</Box>        | Move focus to last item                                         |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageDown</Box>   | Move focus to last item                                         |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Esc</Box>        | Close menu                                                      |
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="ActionMenu"/>
+
+## Related components
+
+- [Action list](/components/action-list)
+- [Button](/components/button)
+- [Icon button](/components/icon-button)
+- [Select panel](/components/selectpanel)

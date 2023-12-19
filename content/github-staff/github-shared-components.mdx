@@ -1,0 +1,26 @@
+---
+title: GitHub shared components
+description: Application-specific components that are shared by GitHub feature teams but are not in Primer.
+---
+
+import DotcomSharedComponentsLayout from '~/src/layouts/dotcom-shared-components-layout'
+export default DotcomSharedComponentsLayout
+
+<Note>This information is only relevant to GitHub staff.</Note>
+
+These components are shared design patterns by GitHub feature teams developing application-specific components. We encourage relying only on Primer components where possible, and not all patterns will be upstreamed to Primer.
+
+They're shared with other teams by developing them as React components within the `ui/packages/` monorepo. This monorepo, along with the larger monolith, provides a solid foundation with baseline configurations for linting, accessibility scanning using Axe, and Storybook previews.
+
+Engineers building UI components should refer to the guidance on The Hub: [Building reusable UI Components](https://thehub.github.com/epd/engineering/dev-practicals/frontend/common-components/) (only available to GitHub staff).
+
+## Related reading
+
+- [Handling new patterns](/guides/contribute/handling-new-patterns)
+- [Upstreaming to Primer](/guides/contribute/adding-new-components#upstreaming-to-primer)
+
+## Shared components
+
+GitHub shared components are documented in a private Storybook instance: [ui/packages/ Storybook](https://gh.io/storybook) (only available to GitHub staff).
+
+Please note that these components are **owned by the feature teams**, and will not exist in our Figma component library, [Primer Web](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?type=design&node-id=1406%3A0&mode=design&t=Qi8hXoRhKLLrDhgf-1), unless they have been upstreamed into Primer.

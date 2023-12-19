@@ -1,0 +1,44 @@
+---
+title: Timeline
+description: The timeline component is used to display items on a vertical timeline, connected by timeline elements.
+reactId: timeline
+railsIds:
+- Primer::Beta::TimelineItem
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<Note variant="warning">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Guidelines for this component are in progress</Text>
+  <Text>Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link></Text>
+</Note>
+
+<br />
+
+<img
+  width="960"
+  role="presentation"
+  src="https://github.com/primer/design/assets/586552/f1ef5e7c-86fb-4131-be14-4831923065cf"
+  alt="timeline component item"
+/>
+
+## Usage
+
+Timeline displays items on a connected vertical timeline. It's primarily used to document the history and activity of a given pull request or issue.
+
+<img
+  width="960"
+  role="presentation"
+  src="https://github.com/primer/design/assets/586552/d44a8384-44fc-4879-9f1b-a4d33a53d994"
+  alt="timeline component"
+/>
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Timeline"/>

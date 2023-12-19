@@ -1,0 +1,49 @@
+---
+title: Pagehead
+description: Pagehead denotes the title and start of a given section.
+component: pagehead
+reactId: pagehead
+railsIds:
+- Primer::Beta::Subhead
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+import {RailsProvider, RailsComponentLink} from '~/src/components/rails-provider'
+
+<img
+  src="https://github.com/primer/design/assets/586552/a3f4a112-bb48-44c8-9c57-ab011a3cd032"
+  role="presentation"
+  width="960"
+  alt="Pagehead component"
+/>
+
+<RailsProvider>
+
+## Usage
+
+Pagehead is a heading component for the title and start of a given page section. The same component in our Rails framework is called <RailsComponentLink name="Subhead">Subhead</RailsComponentLink>.
+
+### Options
+
+**Basic pagehead**: The basic pagehead is the simplest form of the pagehead component which shows only a text layer.
+
+**Pagehead with avatars and actions**: Avatars can be included next to the pagehead title, and actions can be added after the title.
+
+<img
+  src="https://github.com/primer/design/assets/586552/b972eb5b-9af5-46dc-bf2b-6d3c2dc4ea53"
+  role="presentation"
+  width="960"
+  alt="Pagehead component showing variations including avatars and actions"
+/>
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Pagehead"/>
+
+</RailsProvider>

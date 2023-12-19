@@ -1,0 +1,437 @@
+---
+title: Forms
+description: Primer's form design guidelines aim to minimize the effort and cognitive load required to complete a task that requires data input from the user. For example, creating a new repo configuring settings, and logging in.
+current_page: overview
+---
+
+import {Box, Heading} from '@primer/react'
+import FormsLayout from '~/src/layouts/forms-layout'
+export default FormsLayout
+
+## Form control anatomy
+
+![diagrams labeling the anatomy of a text field and a checkbox field](https://user-images.githubusercontent.com/2313998/171692166-43d45c4b-509a-4f68-9e8b-1577658b493e.png)
+
+### Label (required)
+
+Labels should be descriptive and concise: aim for no more than 3 words. Write labels in sentence case. Examples: "Repository name", "Payment method".
+
+If you're having trouble keeping label text short, consider using a [caption](#caption) to provide more context.
+
+[Placeholder text](/guides/accessibility/placeholders) is never an acceptable substitute for a label because:
+
+- The placeholder text disappears as soon as the input has a value
+- Placeholder text colors are typically too light to meet the minimum color contrast ratio required for accessibility
+- Screen readers do not read placeholder text as a label
+
+### Required field indicator
+
+When a field is required to have a value, it should be visibly marked as required.
+
+This guidance applies to situations where all fields are required. The exception to this are common interaction patterns such as login forms, where there is the expectation that:
+
+- All items are required, and that
+- Input validation will help communicate the input being required if left out on submission.
+
+Fields visually marked as required should also be set as required in code. This creates a parity in experience for all users.
+
+An individual checkbox or radio button cannot be marked as required.
+
+### Input (required)
+
+The input is what the user interacts with to set the value of the form control. You may pre-fill inputs with smart default values, but be careful about making too many assumptions about what a user wants or needs.
+
+### Caption
+
+A caption may be used to provide additional context about the field to help users fill in the correct data or explain how the data will be used. Caption text should be as short as possible.
+
+Caption text may be displayed alongside a validation message, or it may be hidden if it only provides redundant information.
+
+Caption text may be used to augment the [label](#label-required), but should not be redundant with the label or any other parts of the form control. If the caption feels redundant, try removing it.
+
+<DoDontContainer>
+  <Do>
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/170069904-5ff41e86-a95f-4644-b1af-1b8a6225dc59.png"
+    />
+    <Caption>Use caption text that shows new information and provides helpful context</Caption>
+  </Do>
+  <Dont>
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/170069907-5a147b22-0856-4c61-91a2-f9c1db8e941d.png"
+    />
+    <Caption>Don’t use caption text that is redundant</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Validation message
+
+A single validation message may be displayed to provide helpful information for a user to complete their task. For example: explain why a value is invalid so they can correct it and submit the form.
+
+An individual checkbox or radio should not have its own validation message or style.
+
+<DoDontContainer>
+  <Do>
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/170069916-08bcf5c6-9a8f-4998-a246-39d7f020e94b.png"
+    />
+    <Caption>Show a validation message for the group of inputs</Caption>
+  </Do>
+  <Dont>
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/170069919-d557c4d8-ed4d-4a3c-80c7-3372359603ab.png"
+    />
+    <Caption>Don’t show a validation message for each input</Caption>
+  </Dont>
+</DoDontContainer>
+
+Information from the caption should not be repeated in the error message. Show the validation message and remove the caption. A validation message makes the field easier to spot when a user is scanning for invalid fields.
+
+<DoDontContainer>
+  <Do>
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/170069909-b9ad91e4-db88-42c0-bc83-d2f00f24a66e.png"
+    />
+    <Caption>Hide a caption that is redundant with the validation message</Caption>
+  </Do>
+  <Dont>
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/170069912-d8dfdde4-08bd-47ab-b9fe-3ab0f0f603a5.png"
+    />
+    <Caption>Don’t show a repetitive validation message</Caption>
+  </Dont>
+</DoDontContainer>
+
+For more information about form validation, see the [validation guidelines](#validation).
+
+## Input methods
+
+### Open-ended text
+
+![Text input, open-ended autocomplete text input, plain text input, textarea](https://user-images.githubusercontent.com/2313998/170069913-325a987b-9a75-4e83-826a-bb7ae73d6831.png)
+
+Use an open-ended text field when the field does not have a list of possible values. If the input is able to suggest values, use [autocomplete](/components/avatar-pair) to allow users to pick a value or enter their own.
+
+### A set of selectable options
+
+![Action menu, autocomplete input with limited options, checkbox group, radio group, select](https://user-images.githubusercontent.com/2313998/170069915-657a6291-2729-4e3e-abbc-b7611f8051dc.png)
+
+Show a set of selectable options when there is a finite number of possible values.
+
+## Structure
+
+Forms should have a structure that makes it easy for users to scan. Forms that flow vertically are easier for sighted users to scan visually.
+
+<DoDontContainer>
+  <Do>
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/170069921-98bb9035-2125-4807-b790-1da90e6bde3b.png"
+    />
+    <Caption>Default to vertically stacked form controls</Caption>
+  </Do>
+  <Dont>
+    <img
+      role="presentation"
+      src="https://user-images.githubusercontent.com/2313998/170069922-ed8a0ef7-0573-4f02-bd15-da6a5acbc527.png"
+    />
+    <Caption>Don’t lay out forms that flow into columns just to reduce the vertical space used by the form</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Order of form controls
+
+Form fields should be in a predictable order that flows intuitively.
+
+To achieve an intuitive flow:
+
+- Order fields by their relative level of importance
+- Keep related fields near each other
+- When possible, keep inputs that require keyboard input near each other so that users who use a mouse don't have to switch back and forth between clicking and typing
+
+### Sizing form controls
+
+#### Hint at the expected length of the value
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    width="456"
+    role="presentation"
+    src="https://user-images.githubusercontent.com/2313998/170069941-0e7ead2f-1e20-47dc-b7b0-e7a27480d2a5.png"
+  />
+  <Box>
+    <Box as="p" mt="0">
+      Form controls should be sized to fit their value. Start with the browser default width, and adjust as needed.
+    </Box>
+    <Box as="ul" pl="1rem">
+      <li>
+        Single-line text inputs get a default width set by the browser, but their width can be changed to fit the
+        approximate length of their text.
+        <ul>
+          <li>
+            If the text length could fall into a wide range, then either keep the browser-default length, or fill the
+            width of its parent.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Multi-line text inputs <a href="#textarea">Textarea</a> get a default width and height set by the browser, but
+        its dimensions can be changed to fit longer blocks of text.
+      </li>
+      <li>
+        Select dropdown widths are set by the browser to be as wide as the text of its longest option. We shouldn't
+        override this width unless it's to make the dropdown fill the width of its parent.
+      </li>
+      <li>Checkbox and radio inputs have static dimensions</li>
+    </Box>
+  </Box>
+</Box>
+
+#### Maintain page hierarchy
+
+Input components ship with size variants that adjust font size and padding to maintain consistent hierarchy with adjacent elements.
+
+### Grouping form controls
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    width="456"
+    alt="visually grouped of related inputs"
+    src="https://user-images.githubusercontent.com/2313998/170069926-230f01ae-6371-4b4b-9b79-c2a82a7f5d2e.png"
+  />
+  <Box as="p" mt="0">
+    When there is a collection of closely related fields, they should be labeled and visually grouped together. For
+    example: putting form controls closer together.
+  </Box>
+</Box>
+
+### Progressively disclosed form controls
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    width="456"
+    alt="form section where controls are hidden until the feature is enabled"
+    src="https://user-images.githubusercontent.com/2313998/170069928-5ea261f4-78c1-44d6-92f4-95392d12b47f.png"
+  />
+  <Box as="p" mt="0">
+    To keep forms concise, you may choose to hide or show form controls based on selections the user has made.
+  </Box>
+</Box>
+
+#### Nested form controls
+
+Sometimes, progressively disclosed form controls can be visually nested under a parent form control. A common pattern is to use a checkbox or radio “checked” state to decide whether to show a related form control.
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    width="456"
+    alt="Primary discipline radio buttons, selected 'Other' option reveals a text input"
+    src="https://user-images.githubusercontent.com/2313998/170069930-87ffd7f3-89db-4a0a-bca3-64d0244e54a3.png"
+  />
+  <Box as="p" mt="0">
+    If the parent form control provides sufficient visual context, you may visually hide the label. However, you must
+    specify text for a visually hidden label that is accessible to screen readers.
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Box flexGrow={1} flexShrink={0} flexBasis={['column', 'column', 'column', 'column', '456px']}>
+    <img
+      width="456"
+      alt="Checkbox that progressively discloses a dropdown with an internal label"
+      src="https://user-images.githubusercontent.com/2313998/170069931-24cf2caa-148d-49bd-b1dc-361ec1ea8b61.png"
+    />
+    <img
+      width="456"
+      alt="Checkbox that progressively discloses a labeled select input"
+      src="https://user-images.githubusercontent.com/2313998/170069932-37f1d07d-f7ef-4021-b74c-f217a990296f.png"
+    />
+  </Box>
+  <Box as="p" mt="0" flexShrink={1}>
+    If the parent form control does not provide sufficient context, a visible label should be shown. Make sure the label
+    of the nested form control doesn’t clash with the label of its parent form control.
+  </Box>
+</Box>
+
+See [progressive disclosure](/ui-patterns/progressive-disclosure) for more information.
+
+## Validation
+
+Use Primer instead of browser-native validation UI. Browser-native validation messages are not accessible to screen readers, and they visually clash with Primer styles.
+
+Disabled buttons are discouraged, as they don't clearly communicate what actions a user should take to complete a form.
+
+Instead, consider the following validation methods.
+
+### Validation statuses
+
+<Box mb={3} display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 3}}>
+  <Box flexGrow={1} flexBasis="0">
+    <img
+        alt="input with forbidden characters"
+        src="https://user-images.githubusercontent.com/2313998/170069933-233fd82d-7af8-4475-b73c-65bec80a3891.png"
+    />
+    <Box as="p" mt="0"><strong>Error messages:</strong> An invalid field should always have a message explaining why the value does not pass validation. The message should explain why the value is invalid, and unblock users from completing their task by guiding them to a valid value.</Box>
+  </Box>
+
+  <Box flexGrow={1} flexBasis="0">
+    <img
+        alt="valid repo name success"
+        src="https://user-images.githubusercontent.com/2313998/170069936-48ddd7de-9cdb-4c18-bccd-18fa4a39bcf0.png"
+    />
+    <Box as="p" mt="0"><strong>Success messages:</strong> A success message may be used when a user might need extra assurance that the field's value is valid. For example: when creating a repository name, it’s nice to be assured that the name is available and valid.</Box>
+  </Box>
+</Box>
+
+### Validation on submit
+
+The default behavior of the web is to perform validation when the user attempts to submit the form. This lets the user flow quickly through the form without interruption.
+
+When the form fails validation, guide the user to the invalid inputs:
+
+- If the form has 3 or more errors, you may show an [interactive summary of errors](#interactive-summary-of-errors)
+- If an interactive summary of errors is not shown, the first invalid input should be focused and scrolled into the viewport
+- Each invalid `input` should be marked as `aria-invalid=true`
+- The inline error message should be tied to each invalid input using `aria-describedby`
+  - If the inline error message is removed from the DOM, _also_ remove the `aria-describedby` attribute from the form input.
+
+Live regions should not be used for form validation. Always use focus management (e.g. moving focus to the first link in the interactive summary, or the first invalid field), and appropriate markup to connect the error message to the field. If there are no focusable elements in the error summary banner, you may focus on the heading in the banner.
+
+After a form has been submitted and failed validation, you may switch to inline validation to provide quicker feedback.
+
+#### Interactive summary of errors
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    width="456"
+    alt="a form for biographical information that has three invalid inputs"
+    src="https://user-images.githubusercontent.com/2313998/170069940-44aec752-e840-4e51-abe5-fd45226f0388.png"
+  />
+  <div>
+    <Box as="p" mt="0">
+      In a <a href="/ui-patterns/messaging#flash-alerts">flash alert</a> at the top of the form, list the invalid
+      inputs as anchor links. When the link is activated, place focus in its corresponding input.
+    </Box>
+    <Box as="p" mt="0">
+      When the flash alert appears, it should be focused.
+    </Box>
+  </div>
+</Box>
+
+### Inline validation
+
+<Note variant="warning">
+  Inline validation offers immediate feedback, but be sure to consider the following drawbacks.
+
+  <ul>
+    <li>There is a negative impact on perceived performance when validating server-side.</li>
+    <li>When a screen reader user moves focus from the invalid input to the next form control, they will be interrupted by the validation message of the previous form control.</li>
+  </ul>
+</Note>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Box flexShrink={0}>
+    <CustomVideoPlayer
+      width="456"
+      loop
+      src="https://user-images.githubusercontent.com/2313998/170273001-3e722629-bcb3-4677-83b5-cfde9296ca52.mp4"
+    />
+  </Box>
+  <Box as="p" mt="0">
+    If the form control is in a valid state, validation should be performed until after the user has made a change to
+    the input <strong>and has removed focus from the input</strong>.
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Box flexShrink={0}>
+    <CustomVideoPlayer
+      width="456"
+      loop
+      src="https://user-images.githubusercontent.com/2313998/170273004-913ba77a-041f-43e5-9809-0d2c303cf518.mp4"
+    />
+  </Box>
+  <Box as="p" mt="0">
+    Don't attempt to validate an input before the user is done with it. Validation may be performed as the user is
+    typing or making their selection, but only <strong>after the first time the input has been validated</strong> and
+    the <strong>input is in an invalid state</strong>. This gives the user early positive feedback by removing the error
+    if the user makes a change that fixes it.
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Box flexShrink={0}>
+    <CustomVideoPlayer
+      width="456"
+      loop
+      src="https://user-images.githubusercontent.com/2313998/170273002-677fea75-265a-42d7-b8e8-f5a07128ca38.mp4"
+    />
+  </Box>
+  <Box as="p" mt="0">
+    If the form control’s validation is likely to take more than 1 second, show a loading indicator.
+  </Box>
+</Box>
+
+## Submission
+
+Forms should follow consistent patterns for [submitting and saving data](/ui-patterns/saving).

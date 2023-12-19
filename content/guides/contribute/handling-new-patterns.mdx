@@ -1,0 +1,64 @@
+---
+title: Handling new patterns
+description: Guidance to help Primer consumers decide what to do when discovering a new design pattern. This primary audience for this guidance is GitHub staff.
+---
+
+We know that Primer isn't going to always have exactly what you want when designing a new feature. Explorations done by our product designers are what help us innovate and create components to solve problems that the Primer maintainers haven't considered yet. The Primer maintainers may incorporate those ideas by balancing that work with our bigger strategic initiatives to mature Primer.
+
+## Exploring new components that aren't ready for sharing
+
+We strongly prefer design patterns that are consistent and can be reused for other features, but there is room for patterns that aren't meant to be reused. Our goal isn't to only build a UI from existing components, it's to help all users complete tasks in the most efficient and pleasant way possible. As long as what you ship is accessible, visually consistent, and high-quality: go for it.
+
+Signs that your new component isn't ready to be shared outside of your app:
+
+- The component was rushed and has known issues that need to be addressed after launch
+- It solves a very specific design problem my team encountered, but is unlikely to be useful for other use-cases
+- It's a very complex component that applies to a use-case other apps don't often deal with
+
+## Sharing new components before they land in Primer
+
+GitHub's designers come up with innovative ways to solve difficult problems. Our teams and our products will be stronger if we make our good work available for others, even if it's not through Primer.
+
+There's a long process to vet something into Primer, and we understand how that doesn't always work with your team's deadlines to ship features. Instead of trying to add your new pattern directly into Primer you can start by focusing on how it works for the use-cases your team identified and share it for other designers to try out in their work.
+
+Signs that your component is a good candidate for sharing:
+
+- It's very likely to be used in more than one product
+- It's codifying a pattern that already exists but hasn't been distilled into one or more components for designers and engineers to use
+- The side effects of adding this component will help us move Primer forward. For example, adding form components forced us to consider the interaction patterns for saving or submitting data
+- I can clearly explain what the component is and how it should be used
+- It does not request data (like an API call) or have any other side effects that aren't available to all apps in the monolith
+- It does not require specific code dependencies that aren't available to all apps in the monolith
+- It's a new pattern that can be used to replace multiple different components that do the same thing but are slightly different
+- It solves my design problem much better than any existing components, and it's likely to be useful for other teams
+
+Your team is responsible for maintaining the new pattern (unless it gets upstreamed to Primer), but you can always come to Primer for feedback.
+
+For more information about piloting new components outside of Primer, read the guidance about the [on-ramp from product to Primer](/guides/contribute/adding-new-components#on-ramp-from-product-to-primer).
+
+## Adding new components directly to Primer
+
+Primer intentionally has a high barrier to entry. We want our consumers to be confident that anything they use from Primer is ready to be used in production. Of course, we want to mature Primer as long as it's the right time to make the investment required to add a new component.
+
+Signs that you should add directly to Primer:
+
+- It meets all of the criteria that make it a good candidate for sharing (listed in the previous section)
+- It does not require specific code dependencies that only live within the monolith
+- Taking the time to add this component to Primer won't block more impactful work
+- Somebody from my team can add the component to Primer with minimal help from a Primer maintainer
+- Primer maintainers have agreed that this component belongs in Primer and it can be added it in time to launch with my feature
+- It already exists outside of Primer and Primer maintainers agree it should upstreamed
+
+If you know your project is going to need support from Primer maintainers, it's best to come to us as early as possible. We can't design or build quality design patterns to unblock you at the last minute.
+
+## Upstreaming components
+
+For more information about introducing new components to Primer, read the guidance about [upstreaming components](/guides/contribute/adding-new-components#upstreaming-to-primer) and [adding components directly to Primer](/guides/contribute/adding-new-components#adding-components-directly-to-primer).
+
+## Process summarized as flowchart
+
+![Flowchart graphic titled, 'I identify a component I want to use'. When you've identified a component you want to use, first check if it's in Primer. If it exists in Primer and fully supports your use-case, use the component from Primer. If it exists in Primer and doesn't fully support your use-case, create a pattern proposal issue requesting that functionality. If the Primer maintainers accept your proposal, either your team or a Primer maintainer will undertake the issue, review it with the accessibility team, and ship a new release with the changes. If your proposal is rejected, you can build the component in the dotcom codebase in the ui/packages folder.
+If Primer does not support your use-case, check if something similar exists in dotcom. If it does, use that component. If it doesn't exist or doesn't fully support your use-case, build something that is generic enough to be reused by other teams in the ui/packages directory of dotcom.
+If your use-case is highly specialized and cannot be made generic enough to be used by other teams, build the component as a one-off pattern that is not intended to be reused.](https://user-images.githubusercontent.com/2313998/232840679-1acd65b0-af12-4402-9f41-fcf3e1031b8c.png)
+
+The "pattern proposal issue" referenced in the flowchart can be found here: [Primer pattern proposal](https://github.com/github/primer/issues/new?assignees=&labels=proposal%2C+needs+triage&template=01-pattern-proposal.md&title=%5BProposal%5D+) (GitHub staff only).

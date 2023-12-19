@@ -1,0 +1,70 @@
+---
+title: Placeholders
+description: Placeholders have many accessibility and usability concerns to be aware of.
+---
+
+## Overview
+
+Placeholders are hint text placed inside of an input. They are used to help suggest what kind of input should be provided, but have some accessibility considerations to be aware of.
+
+### Best practices
+
+- [Avoid using placeholders](https://primer.style/components/text-input#accessibility) if at all possible.
+- Instead, use a [caption](https://primer.style/ui-patterns/forms/overview#caption) to communicate this information.
+- If you must use a placeholder, be sure that the input also has a concise, descriptive label.
+
+## Why?
+
+Placeholders are typically styled using a light text treatment to visually communicate that they are suggestions, and not pre-filled input. However, this often means they are too light to be color contrast compliant. If the placeholder color treatment is darkened to be compliant, it risks being visually interpreted as pre-filled input.
+
+Placeholder length is also constrained by the width of the input it is used in. This means important information may be truncated, especially if the user relies on an increased font size.
+
+Additionally, activating an input that has a placeholder will cause the placeholder to disappear. If the placeholder contains important information, such as formatting requirements, it will no longer be able to be referenced. Compare this to a caption, which is always shown to the user.
+
+Placeholder information also cannot contain interactive information such as support links, or buttons that trigger tooltips. Unlike a placeholder, a caption can contain these pieces of information.
+
+`placeholder` attribute values can also factor into [accessible name computation](https://w3c.github.io/accname/) if a programatically associated `label` does not accompany the input. Although `placeholder` is not intended to be used this way, it can serve as last-ditch technique used by some assistive technology to try and determine the purpose of the input the placeholder declaraction is applied to. This can be confusing if the placeholder's content does not communicate the purpose of the input (ex: "No numbers or special characters").
+
+## Guidelines
+
+### For designers
+
+Use techniques like explanatory paragraphs and input captions to explain the content in a way that is always visually persistent. 
+
+Also ensure a visible label for the input is also utilized, and that the label has a concise, descriptive name that communicates the input's purpose.
+
+### For engineers
+
+Ensure that [the label](https://primer.style/components/text-input#anatomy) uses the `label` element, with a `for` attribute that references an `id` declared on the associated input.
+
+The placeholder color value should also be controlled by a design token to ensure it visually renders appropriately across different themes.
+
+## Examples
+
+<DoDontContainer>
+  <Do>
+    <Caption>Use an input caption</Caption>
+    <img
+      src="https://private-user-images.githubusercontent.com/634191/286024192-83f43de0-bf2f-4c54-bbde-a9855f9848b0.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE3MDExMjAwNzEsIm5iZiI6MTcwMTExOTc3MSwicGF0aCI6Ii82MzQxOTEvMjg2MDI0MTkyLTgzZjQzZGUwLWJmMmYtNGM1NC1iYmRlLWE5ODU1Zjk4NDhiMC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBSVdOSllBWDRDU1ZFSDUzQSUyRjIwMjMxMTI3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDIzMTEyN1QyMTE2MTFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iOTZiMTYzN2Q0YjYxN2E1YWFiOWYyYzU2NmQxYjVhZjU1YWNhNGEzYWQ4NzJhMzk0Y2MwMzM1MTM5Njc5ZTMxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.Sx7rGLqSxoEBm6-3M_io_25VApVdnjK0Ob9z2sBUVHc"
+      alt="A blank text input with a label that reads, 'Tracking code'. It also has a caption below it that reads, 'You can find the tracking code on the back of the package your device was mailed in.' The phrase 'back of the package' is styled to indicate that it is a link."
+    />
+  </Do>
+  <Dont>
+    <Caption>
+      Don't use multiple h1s, skip over heading hierarchy for visual effect, or forget to label sections of information
+      with headings
+    </Caption>
+    <img
+      src="https://private-user-images.githubusercontent.com/634191/286024512-b6f56b79-7692-4d26-84fd-c2b1d9b4f1f8.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE3MDExMjAwOTksIm5iZiI6MTcwMTExOTc5OSwicGF0aCI6Ii82MzQxOTEvMjg2MDI0NTEyLWI2ZjU2Yjc5LTc2OTItNGQyNi04NGZkLWMyYjFkOWI0ZjFmOC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBSVdOSllBWDRDU1ZFSDUzQSUyRjIwMjMxMTI3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDIzMTEyN1QyMTE2MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mNGJhY2NiMGU4YThhM2RjZWUzYmMxZTFjZTc4MjYwYzhiY2NiODU1YjZlMzJhMzFkMGEyODg1OGQ2OTI5NTI2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.GhC3IVy-OWouydZPniZeEGo8Ll9XOlRY_FzqMUBOG_4"
+      alt="A text input with a placeholder that reads, 'You can find the tracking code o'. The 'o' implies there is more content present, but it is being clipped by the input's width."
+    />
+  </Dont>
+</DoDontContainer>
+
+## Additional resources
+
+- [GOV.UK: Design System: Text input ](https://design-system.service.gov.uk/components/text-input/#avoid-placeholder-text)
+- [Nielsen Norman Group: Placeholders in Form Fields Are Harmful](https://www.nngroup.com/articles/form-design-placeholders/)
+- [Smashing Magazine: Don’t Use The Placeholder Attribute](https://www.smashingmagazine.com/2018/06/placeholder-attribute/)
+
+

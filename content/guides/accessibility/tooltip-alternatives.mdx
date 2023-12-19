@@ -1,0 +1,74 @@
+---
+title: Tooltips
+description: Most UI cases don't call for tooltips. Learn some alternative methods to use in place of tooltips.
+---
+
+import {Box, Text} from '@primer/react'
+
+## Overview
+
+Tooltips are often used to convey information. However, tooltips are rarely appropriate, and their misuse can result in a myriad of accessibility issues.
+Always consider **not** using a tooltip for an improved user experience.
+
+## Why?
+
+- Tooltips are hidden by default making it easy to miss, so they should never be used to convey critical information.
+- Tooltips are never accessible on mobile devices.
+- Tooltips should **never** be set on non-interactive elements (for example, `div`, `span`, `p`), and should only ever be set on interactive elements (for example, `button`, `a`). Tooltips on non-interactive elements are not accessible to keyboard users and screen reader users.
+
+## Guidelines
+
+### For designers
+
+- Reserve tooltips for components like icon buttons.
+- Keep your tooltip text minimal.
+- Only include tooltips on other components as a last resort.
+- **Never** include tooltips on non-interactive components (`div`, `span`, `p`).
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="456"
+      alt="Icon buttons with tooltips for edit, favorite, and sponsor"
+      src="https://github.com/primer/primitives/assets/18661030/e9f86af8-3792-4794-af68-ad0efccd8bc8"
+    />
+    <Caption>Use a tooltip to give a text label to an icon button</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      alt="Non-interactive text element activating a long and wordy tooltip on hover"
+      src="https://github.com/primer/primitives/assets/18661030/1d8d86a2-8ee7-40d2-8934-c3d36f34d9b3"
+    />
+    <Caption>Don't use tooltips on non-interactive elements</Caption>
+  </Dont>
+</DoDontContainer>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  alignItems="center"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Box as="p" mt="0">
+    <h4>Annotations</h4>If you have an appropriate tooltip in your design, annotate the tooltip carefully with the
+    preferred type (whether it's a label or description) to ensure proper semantics.
+  </Box>
+  <img
+    width="456"
+    alt="Mock of an icon button and its tooltip with an annotation pointing to the tooltip with 'label' text"
+    src="https://github.com/primer/primitives/assets/18661030/f25a684d-52f0-42aa-9e72-7aba11ffb98e"
+  />
+</Box>
+
+### For developers
+
+If you come across a design or a page with a tooltip on a static element (for example, `div`, `span`, `p`), remove it. Consult a designer for an alternative way of conveying the information.
+
+If you determine that tooltips are appropriate for your use case, make sure to carefully follow guidelines set in [Primer ViewComponents: Tooltip component](https://primer.style/view-components/components/alpha/tooltip).
+
+## Alternatives to tooltips
+
+See [Tooltip interface guidelines](../../components/tooltip.mdx) for example alternatives to using tooltips.

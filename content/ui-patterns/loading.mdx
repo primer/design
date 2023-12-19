@@ -1,0 +1,393 @@
+---
+title: Loading
+description: How to use loading states to help users stay informed and engaged while waiting.
+---
+
+import {Box} from '@primer/react'
+
+Performance is a priority at GitHub, and the first approach is to improve the speed of our processes. However, there are times when we can't avoid making users wait. In these cases, maintaining [visibility of system status](https://www.nngroup.com/articles/visibility-system-status/) through loading states can help users feel stable and in control.
+
+Without indicating that something is loading, users may think a process has silently failed. This can lead to confusion and frustration.
+
+Some of our components already have loading states built in. Rely on component-specific patterns before designing your own loading experiences.
+
+For example:
+
+- [Data table](https://primer.style/react/storybook/?path=/story/components-datatable-features--with-loading)
+- [Select panel](/components/selectpanel#loading)
+- [Tree view](/components/tree-view#asynchronously-loading-child-nodes)
+
+## Loading indicators
+
+Loading indicators reassure users that their request is actively being executed, and can sometimes be used to set an expectation for how long they'll be waiting. They may even reduce the users' perception of time.
+
+Animation in loading indicators helps reassure the user that the process is active and the system isn't frozen. However, animation can become distracting or overwhelming. Loading indicators' animation should be subtle, and we should avoid letting a page get overtaken by too many of them.
+
+### Determinate loading indicators
+
+<Box display="flex" flexDirection="column" sx={{gap: 5, 'h4': { marginTop: 0 }}}>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
+
+<Box flex={1}>
+
+Determinate loading indicators may be used when the progress or duration of a process is known or can be estimated. This type of loading gives the user an idea of how much longer they'll have to wait.
+
+Determinate loading indicators work best for processes that are likely to take longer (approximately 3 or more seconds). Shorter waiting times don't give the user enough time to process the information conveyed by a determinate loading indicator.
+
+</Box>
+
+<img width="456" alt="A progress bar with % completed text" src="https://github.com/primer/design/assets/2313998/973ab0ca-4f5c-4e06-98f2-e66fdf706943" />
+</Box>
+
+### Indeterminate loading indicators
+
+<div>
+
+Indeterminate loading indicators may be used when the progress or duration of a process is variable or unknown.
+
+This type of loading gives the user a sense that something is happening, but not how long it will take.
+
+</div>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
+
+<div>
+
+#### Spinner
+
+A [spinner](/ui-packages/spinner) is the most versatile indeterminate loading indicator. It may be used in place of content that is loading, or adjacent to a loading message
+
+</div>
+
+<img width="456" alt="PR status checks being replaced by a spinner" src="https://github.com/primer/design/assets/2313998/4f4e897e-bbda-4cbc-bd0f-962450c6b5b6" />
+</Box>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+#### Content skeleton
+
+For large areas of loading content, the loading content may be replaced by a vague representation of the content. This shows users the general shape of the page and could make them perceive the real content as loading faster.
+
+Skeleton loaders may be used when we can approximate the visual shape the loaded content will create on the page.
+
+The [tree view](/components/tree-view) and [data table](/components/data-table) components have these states implemented.
+
+</Box>
+
+<CustomVideoPlayer
+  width="456"
+  loop
+  autoplay
+  src="https://github.com/primer/react/assets/2313998/4bb7b7b6-482f-46c8-97d8-4b560066d287"
+/>
+</Box>
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+#### Animated icon or illustration
+
+An animated icon or illustration may be used as a "branding moment" for special loading states. This should be used sparingly.
+
+</Box>
+
+<CustomVideoPlayer
+  width="456"
+  loop
+  autoplay
+  src="https://github.com/primer/react/assets/2313998/d5a49e2d-315c-4d55-b929-ef2e6a648712"
+/>
+</Box>
+</Box>
+
+#### Loading text
+
+Text may accompany any of the above loading indicators to give the user more context about the process.
+
+## Adapting to different wait times
+
+The following is meant as general guidance since we can't accurately predict how long a process will take. It's difficult to give even a rough estimate of how long a process will take due to unknown variables such as network speed, device performance, and server load.
+
+<img
+  width="960"
+  alt="3 images: 1. crossed out loader; 2. spinner; 3. progress bar with text;"
+  src="https://github.com/primer/design/assets/2313998/7b42b9aa-c517-4620-833a-d12b7e6084bd"
+/>
+
+**Less than 1 second:** Don't show a loading state. Seeing a loading indicator flash on the screen could be distracting and make the product feel slower than it is.
+
+**1–3 seconds:** Use an indeterminate loading state. The user won't have enough time to process the information in a determinate loading state, and potentially cause frustration or confusion about missing information.
+
+**3–10 seconds:** Use a determinate loading state if possible to keep the user informed about why they're waiting so long.
+
+**More than 10 seconds:** Use a determinate loading state and avoid blocking other interactions by treating the process as a background task if possible. This reduces the interruption caused by a lengthy process, and could make wait times feel shorter if a user can shift their focus to other tasks. For example, the user can still interact with a pull request while they're waiting for CI actions to run.
+
+## Lifecycle of a loading state
+
+<img
+  width="960"
+  alt="4 images: 1. explicitly excluded loading indicator; 2. button in loading state; 3. success banner; 4. error banner"
+  src="https://github.com/primer/design/assets/2313998/91f1ecd4-78e3-4178-a505-749ab05f3efa"
+/>
+
+**Process initiated:** The moment just before loading begins. Usually initiated by a user action such as clicking a button or submitting a form
+
+**Process in progress:** The process is underway. This is the actual loading state.
+
+**Process complete successfully:** The process has finished successfully, and the user can continue with their task. If the user isn't navigated to a new context when the task has completed, this step may include some indication of success, such as a green checkmark or a success message.
+
+**Process failed:** There was an error, and the process could not be completed. This step should include an error message that explains what went wrong and what the user's next time may be. For example, if the user can retry the process, include a button to do so.
+
+## Incremental loading
+
+Whenever possible, show each item in a collection as soon as it loads. Don't wait for every item in the collection to load before showing the items.
+
+<DoDontContainer>
+  <Do>
+    <CustomVideoPlayer
+      width="456"
+      loop
+      src="https://github.com/primer/design/assets/2313998/6e7f87df-0d3e-4a58-a001-dd09e4510cc3"
+    />
+    <Caption>Show content as soon as it's loaded.</Caption>
+  </Do>
+  <Dont>
+    <CustomVideoPlayer
+      width="456"
+      loop
+      src="https://github.com/primer/design/assets/2313998/a06a4ee2-cbe6-4ec0-8551-16381c7bee49"
+    />
+    <Caption>Don't wait for all content in a collection to be loaded before showing it.</Caption>
+  </Dont>
+</DoDontContainer>
+
+Whenever possible, prioritize the most important pieces of data to load first. This shows the user the most important content first and gives them a chance to interact with things sooner. This could be especially helpful for somebody on a slow network.
+
+<img
+  width="960"
+  alt="4 images of a repo card from the feed loading: 1. Skeleton; 2. Text; 3. Actions; 4. Images"
+  src="https://github.com/primer/design/assets/2313998/ea5725c7-bec2-43a0-8cd9-43fba1a27a51"
+/>
+
+## Scoping loading indicators to page content
+
+A loading indicator should be placed nearest to the content they are standing in for. Avoid creating a jarring layout shift when the loaded content replaces the loading indicator.
+
+Replace loading indicators with loaded content or error feedback as soon as possible to avoid burdening users with unnecessarily long wait times.
+
+### Interstitial loading screen
+
+<CustomVideoPlayer
+  width="960"
+  loop
+  src="https://github.com/primer/design/assets/2313998/b5cc3e34-cac1-408f-bf9c-58a8d1655cc7"
+/>
+
+Some processes navigate you to a new page once they've completed, and use an interstitial loading page as a transition. This should be done sparingly because loading a new page is a bigger interuption than showing a loading indicator in context on the page.
+
+Interstitial loading screens are useful for:
+
+- processes that take a longer time (approximately 3 seconds or more) and result in a significant change such as the creation of a new repo
+- blocking the UI to prevent interruptions or changes to data
+
+### Large areas
+
+<img
+  width="960"
+  alt="3 images: 1. Spinner replacing status check box; 2. Spinner replacing PR/issues sidebar sections; 3. Spinner replacing modal content"
+  src="https://github.com/primer/design/assets/2313998/9347a9a1-088b-4bf0-829a-a38ba1644525"
+/>
+
+Position your loading state in the center of the region, but ensure it's still visible within the viewport.
+
+### Small areas
+
+To avoid information overload and visual noise, consider replacing a series of adjacent loading indicators with a single loading indicator.
+
+<DoDontContainer>
+  <Do>
+    <CustomVideoPlayer
+      width="456"
+      loop
+      src="https://github.com/primer/design/assets/2313998/eed9b892-39a1-45d4-b22b-5c92a4842c1d"
+    />
+    <Caption>Reduce the number of loading indicators shown on a page.</Caption>
+  </Do>
+  <Dont>
+    <CustomVideoPlayer
+      width="456"
+      loop
+      src="https://github.com/primer/design/assets/2313998/95960988-aab0-4c63-9a4e-441cde558ef4"
+    />
+    <Caption>Don't show a loading indicator for every piece of loading content on the page.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Navigation
+
+#### Sequential and related groups of navigation items
+
+<img
+  width="960"
+  alt="3 images. 1. Repos and teams loading; 2: Repos and teams both failed; 3: Repos and teams both succeeded"
+  src="https://github.com/primer/design/assets/2313998/ba52e203-a0fa-4a55-a592-f436ffc2fda3"
+/>
+
+If sequential groups or navigation links are unable to load, replace both groups with a single loading indicator and a single error message above the [nav list](components/nav-list).
+
+#### Non-sequential groups of navigation items
+
+<img
+  width="960"
+  alt="3 images. 1. Repos, teams, and organizations loading; 2: Repos and teams both failed; 3: All groups succeeded"
+  src="https://github.com/primer/design/assets/2313998/ee62d85f-b2a8-4766-b42b-3234699d865e"
+/>
+
+<Note>
+  This example is for demonstration purposes only. At the time these guidelines were written, there is no
+  "Organizations" group, and teams and repositories data are loaded via a single controller.
+</Note>
+
+If non-sequential groups of navigation links are in a loading state, preserve the group headings and replace the contents of each group with a single loading indicator. If loading fails, show a single error message above the [nav list](components/nav-list).
+
+#### Individual navigation items
+
+<img
+  width="960"
+  alt="3 images. 1. Some items in right side-sheet are loading; 2: Some items in right side-sheet failed; 3: All items in right side-sheet succeeded"
+  src="https://github.com/primer/design/assets/2313998/3ab14657-8ab3-45e4-b47a-ef9eee76da4b"
+/>
+
+If some links in the right side sheet cannot be loaded, default to showing each [nav list](components/nav-list) item in an inactive state. The users should still be able to hover, click, and focus inactive items, but they don't link to anywhere. Optionally, a tooltip may be displayed explaining that the navigation item is unavailable. An error banner is not necessary for this case.
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+If we don't know specifically which links failed to load (for example, some users will never see the "Your enterprises" link), then hide the links and show a generic error message above the [nav list](components/nav-list).
+
+</div>
+
+<img
+  width="456"
+  alt="Generic error banner with hidden items"
+  src="https://github.com/primer/design/assets/2313998/7fd2f27b-baed-4f98-9039-7061d9a5e205"
+/>
+
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+Default to replacing each loading navigation item with the item in a loading state. If we know what the link's label is, show it. If we don't know what the link's label is, show generic loading text in its place.
+
+It is ok to show sequential navigation items in a loading state to avoid a layout shift. However, sequential *groups* of navigation items should be replaced with a single loading indicator as mentioned in the [previous section](#sequential-and-related-groups-of-navigation-items).
+
+</div>
+
+<img
+  width="456"
+  alt="3 images: 1. Loading unknown labels; 2. Loading known labels; 3. Success"
+  src="https://github.com/primer/design/assets/2313998/e6011246-7ded-430b-9989-c40777583a28"
+/>
+
+</Box>
+
+## Accessibility
+
+### Conveying loading indicators
+
+Loading indicators are visual and need to be accessible to assistive technologies. This can be done with a text element we associate using `aria-labelledby`, or attributes such as `alt` (on an `img` element) and `title` (on a `svg` element). The loading text element may be visually hidden.
+
+You may default to a generic label such as "loading", but try to be specific when possible. For example, when a spinner replaces status checks in a pull request, it could have the label "loading status checks".
+
+### Conveying status
+
+Communicate when a process has been initiated, when it's in progress, and when it has been completed or if it has failed.
+
+There are many cases where it will be obvious that a process has completed or failed, and we won't need an additional announcement. For example, a page load or a new element getting focused.
+
+For other cases, the status will need to be manually conveyed to assistive technologies. Use a `role="status"` message or put content in an `aria-live` element that communicates the status of a process.
+
+#### Filter results
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3, mb: 3}}>
+
+<div>
+
+If the user needs to wait for filtering to complete, a screen reader should announce how many results were returned from filtering. For example: "No items match the filter", or "5 items match the filter".
+
+To ensure that assistive technology is informed about the filter update, put the message in an element that has a `role` of `"status"`. The element with `role="status"` must always be rendered, not just when the message should be announced.
+
+Implementations of this pattern can be seen in the following examples:
+- [Lookbook - Autocomplete](https://view-components-storybook.eastus.cloudapp.azure.com/view-components/lookbook/inspect/primer/alpha/auto_complete/playground)
+- [Storybook - ActionList](https://primer.style/react/storybook/?path=/story/components-actionlist-examples--async-list-with-spinner)
+
+</div>
+
+<img width="456" role="presentation" src="https://github.com/primer/design/assets/2313998/61171c17-274d-416b-81a7-825a610fdd24" />
+</Box>
+
+### Preventing partially loaded content from being announced
+
+If an `aria-live` region of a page is being updated, set `aria-busy="true"` on the live region until the updates are complete. Then, set `aria-busy="false"`. This prevent assistive technologies from announcing updates until the updates are complete.
+
+### Focus management
+
+Follow existing focus patterns. When focus needs to move, it should go to the most logical and predictable. Before implementing your own focus management strategy for a loading state, confirm that the component hasn't already implemented it. For example, when a [dialog](/components/dialog) closes, focus is automatically moved back to the control that opened the dialog.
+
+If the completed process results in navigating to a new page, just rely on the browser's default focus behavior for new pages.
+
+If the process fails and a validation message is shown, move focus to the first focusable element in the error message. See the [form validation guidelines](/ui-patterns/forms/overview#validation-on-submit) for more info.
+
+If the process loads new content, move focus to first focusable element in the newly loaded content. This pattern is also described in the [tree view focus guidelines](/components/tree-view#focus-out).
+
+### Disabling controls during loading
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{gap: 3}}>
+
+<Box flex={1}>
+
+You may disable form controls after the user submits the form to avoid confusion over whether changes that were made during the submission process will be saved.
+
+However, the button that initiates the a loading process may not be semantically disabled using `aria-disabled`. For more information about button loading states, see the [loading section](/components/button#loading) of the button component guidelines.
+
+</Box>
+
+<CustomVideoPlayer
+  width="456"
+  loop
+  autoplay
+  src="https://github.com/primer/design/assets/2313998/b138567f-3ba8-49ab-9fa1-80a4fe30b034"
+/>
+</Box>
+
+### Motion considerations
+
+Animated loading indicators help reassure the user that the system isn't frozen, and should not be disabled when for users that prefer reduced motion. However, the animation in loading indicators should be kept as subtle as possible. Large, flashy animations would be harmful to users with sensitivity to motion.
+
+## Related links
+
+- [Graceful degradation](/ui-patterns/degraded-experiences)
+- [Patterns for saving](/ui-patterns/saving)
+- [Spinner](/components/spinner)
+- [ProgressBar](/components/progress-bar)

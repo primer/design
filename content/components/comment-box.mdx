@@ -1,0 +1,207 @@
+---
+title: Comment box
+status: Experimental
+figmaId: comment_box
+description: Comment box allows users to write and preview comments.
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+## Anatomy
+
+<img
+  width="960"
+  alt="A diagram of a comment box with a heading, a tab nav, a toolbar and a textarea with a placeholder text."
+  src="https://user-images.githubusercontent.com/378023/197092931-b5207868-036b-4858-9fad-1195b2fd7604.png"
+/>
+
+## Content
+
+### Heading (required)
+
+A heading is shown above the comment box to establish the context and inform users about the purpose of the textarea that follows. The default heading is "Add a comment".
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/193514339-81bc5e18-3aab-4e15-919f-933fb5e74ef0.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use a different heading depending on the context.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/218910346-21023ac1-b251-4272-b0a0-ceb4dfc97075.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>
+      Don't use the term "Write". This may create confusion when navigating between the comment box's heading and the
+      "Write/Preview" tab nav.
+    </Caption>
+  </Dont>
+</DoDontContainer>
+
+It's recommended to _always_ show a heading to give users a permanent description of the comment box. In case the design doesn't have room for a heading, the `sr-only` class may be added to visually hide the heading.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/193514612-a0bdb034-4047-4491-affa-e3e5fc10d455.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>When the heading needs to be visually hidden, use the placholder text instead.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/218910567-0f0f5377-4b72-40ef-b1e5-e6cafada7453.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't visually hide the heading and remove the placholder text.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Placeholder text (optional)
+
+The placeholder text is meant to give users addtional hints. Keep in mind that it will disappear as soon as users start typing. By default a comment box has no placeholder text, but can help suggest features specific to an implementation, such as slash commands. Having a placeholder text can also help with improving usablity and making sure users know where to start typing. For example by adding a placeholder text like "Add your comment here...".
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/378023/195568002-a794f61a-e103-4350-97e7-7cb7fccb3a1e.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use a different placeholder text depending on the context.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/378023/218911032-29096ec5-be0b-4e4b-8670-7c095fcc85bf.png"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't repeat the heading also as placeholder text.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Tab nav
+
+A tab nav is used to toggle between write and preview mode. In **write mode** the entered text is rendered as typed (plain text).
+
+<img
+  src="https://user-images.githubusercontent.com/378023/193514697-e96fdb90-15d1-4557-8216-1772698a0888.png"
+  alt=""
+  width="960"
+/>
+
+When switching to **preview mode** the toolbar disappears and the text is rendered as HTML. Markdown formatting, autolinking and other features are supported as well.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/191464912-fb6dcdb1-f3d7-4d0c-bfdd-e44fab9e6b57.png"
+  alt=""
+  width="960"
+/>
+
+### Toolbar
+
+The toolbar provides the comment box with shortcuts to...
+
+- format Markdown
+- @-mention users or reference issues and pull requests
+- insert saved replies
+- attach images and files
+
+<img
+  src="https://user-images.githubusercontent.com/378023/193514788-20ceac63-2229-41bf-ad5e-7e4cafb19bf9.png"
+  alt=""
+  width="960"
+/>
+
+Additional toolbar items can be added based on context. They appear at the beginning of the toolbar separated with a divider.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/197093096-ea3a9f65-4dde-4636-a154-06b03add8788.png"
+  alt=""
+  width="960"
+/>
+
+### Textarea
+
+A textarea is used to write the comment. While typing it will automatically resize to fit the content until a certain max height is reached. The textarea can also be manually resized by dragging the handle in the bottom right corner.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/193514864-e0528816-7560-4fdd-b816-e076f74a9981.png"
+  alt=""
+  width="960"
+/>
+
+The default and minimum height is `100px`. For cases where users typically add a lot of content, like issues or pull request descriptions, the textarea can be configured to have an increased initial height:
+
+| Option            | value   |
+| ----------------- | ------- |
+| `small` (default) | `100px` |
+| `medium`          | `300px` |
+| `large`           | `500px` |
+
+## Messages
+
+A [flash alert](/ui-patterns/messaging#flash-alerts) is used to inform users about an event related to the comment box. Events include but are not limited to error or warning messages, uploading state or successful actions. The flash alert is shown undertneath the comment box.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/191891077-fd523ae4-7bb0-495d-be15-afca2b194ac4.png"
+  alt=""
+  width="960"
+/>
+
+## Responsive behavior
+
+The comment box's toolbar uses an [action bar](/components/action-bar) under the hood that is responsive by default. Toolbar items that don't fit in the available space are moved to an [overflow menu](/components/action-bar#overflow-menu).
+
+<img
+  src="https://user-images.githubusercontent.com/378023/197094055-a68f5cb1-a0df-4e39-8803-32338d7829cc.png"
+  alt=""
+  width="960"
+/>
+
+When the available space becomes narrow, the tab nav takes up full width and the toolbar moves to its own row underneath.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/197094061-d073e3fe-9f82-4592-a04c-3d9bb9cb7e5e.png"
+  alt=""
+  width="960"
+/>
+
+## Example usage
+
+A typical use of the comment box is at the bottom of a timeline or inline when replying to existing comments. Most often there is a cancel and a submit button at the bottom right of the comment box. Pro tips can also be shown to eductate users and help feature discovery.
+
+<img
+  src="https://user-images.githubusercontent.com/378023/197094065-ae2cdb9f-94a7-4703-a5b7-a9f4d5b224cf.png"
+  alt=""
+  width="960"
+/>
+
+## Accessibility
+
+### Keyboard navigation
+
+| Key   | description                                                                                                             |
+| ----- | ----------------------------------------------------------------------------------------------------------------------- |
+| `Tab` | Moves focus between the different parts of the comment box. The order is as follows: 1. tab nav 2. toolbar 3. textarea. |
+
+<img
+  src="https://user-images.githubusercontent.com/378023/193515190-f18d784f-43c2-4d9e-87c7-7c9ba4a08069.png"
+  alt=""
+  width="960"
+/>
+
+Note that tab nav and toolbar ([action bar](/components/action-bar#keyboard-navigation)) have their own keyboard navigation.
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="CommentBox"/>

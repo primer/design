@@ -1,0 +1,190 @@
+---
+title: Relative time
+description: Relative time displays time in a way that is clear, concise, and accessible.
+reactId: relative_time
+railsIds:
+- Primer::Beta::RelativeTime
+componentId: relative_time
+---
+
+import {Box} from '@primer/react'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+## Overview
+
+All dates and times displayed should use the relative time component, which is able to format and localise dates into the users given locale, as well as display times relative to the current date, while also updating in real-time.
+
+Dates and times almost always appear [relative](#relative-dates) to the current date, using short-hand formats to help users quickly determine how old something is or how soon something will be. For this, we use the relative time component which displays dates rounded to the nearest unit, for example, "a minute ago" or "20 days ago". For dates that are more than 1 month from the current date, it can be more useful to display the date-time, as these items are less "current" and more "historical".
+
+Some dates are especially sensitive and always should be displayed in a [precise](#precise-dates) date-time format, such as the creation or expiration of certificates and keys. When a user needs to take action before a particular time (such as an expiry date) then the precise date time should be displayed. These should display the weekday, the date, the month, and the year (if the year is not the current year), for example, "Thursday, 26 August 2021" or "Saturday, 31 December 2022".
+
+Some dates and times represent the start or (expected) end of an actively running task, for these the [elapsed or remaining](#elapsed-or-remaining-dates) time should be displayed, as this information is more useful than when a task started. This format should display all units that are greater than zero, for example, "2 minutes, 24 seconds" or "8 hours, 15 seconds". For ephemeral tasks where timing needs to be quickly consumed, or where a lot of times may be displayed together, a compact time notation can be used, for example, "2m 24s" or "8h 15s".
+
+## Usage
+
+This component does not include any styling. It formats a timestamp as a localized string or as relative text that auto-updates in the user's browser.
+
+## Options
+
+### Relative dates
+
+#### Past dates
+
+For past dates, the relative time component outputs different formats depending on the time difference. Within a month's time, the output shows a relative time[^1] in the format of `X seconds/minutes/hours/days ago`. If the time difference is less than 1 minute, it shows `just now`. If the date is in past months, the date time[^2] format `on D MMM` is used. If the date is in the past years, the output uses the long format[^3].
+
+[^1]: Relative time data is derived from the [Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) API.
+[^2]: Date time data is derived from the [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) API.
+[^3]: The long format output depends on the user agent's timezone. For example, it will be `on MMM D, YYYY` for US English that uses month-day-year order, `on D MMM, YYYY` for British English that uses day-month-year order or even `on YYYY MMM D` for Korean that uses year-month-day order.
+
+| Time difference | Format                           | Examples                                                                                       |
+| --------------- | -------------------------------- | ---------------------------------------------------------------------------------------------- |
+| < 1 minute      | just now                         | `just now`                                                                                     |
+| < 1 month       | X seconds/minutes/hours/days ago | `a minute ago`, `5 minutes ago`, `an hour ago`, `3 hours ago`, `yesterday`, `20 days ago`      |
+| > 1 month       | on MMM D                         | `on Nov 18`                                                                                    |
+| Past year       | localised                        | `on Nov 18, 2021` (US English), `on 18 Nov, 2021` (British Enligsh), `on 2021 Nov 18` (Korean) |
+
+<p>
+  <img
+    width="960"
+    alt="Relative time examples"
+    src="https://github.com/primer/design/assets/912236/d1e21038-edb6-4897-8ae7-778fd377a3ae"
+  />
+</p>
+
+#### Future dates
+
+Future dates also use different formats depending on the time difference. If the future date is due to happen within the a month's time, the relative time outputs the format of `in X seconds/minutes/hours/days`. If the time difference is less than 1 minute, it shows `just now`. If the date is in the following months, the format `on D MMM` is used. If the date is in the next year or further, the output uses the long format[^3].
+
+| Time difference | Format                                | Examples                                                                              |
+| --------------- | ------------------------------------- | ------------------------------------------------------------------------------------- |
+| < 1 minute      | just now                              | `just now`                                                                            |
+| < 1 month       | in X seconds / minutes / hours / days | `in a minute`, `in 2 minutes`, `in an hour`, `in 7 hours`, `tomorrow`, `in 14 days`   |
+| > 1 month       | on MMM D                              | `on Nov 18`                                                                           |
+| Next year       | localised                             | `on Aug 26, 2025` (US English), `on 26 Aug, 2025` (British Enligsh), `on 2025 Aug 26` |
+
+#### Standalone
+
+The relative dates can be used within a sentence, following the action that it's relative to, or as an independent elements when the content and the surrounding elements make it clear what the time is related to.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <div>
+    <img alt="" src="https://github.com/primer/design/assets/912236/2f59aa2a-c8b0-4345-896c-a7feb74615c2" />
+    <Caption>Use standalone relative dates on items where its title references the action.</Caption>
+  </div>
+  <div>
+    <img
+      alt=""
+      src="https://user-images.githubusercontent.com/912236/208956687-503e9f34-2e95-46d1-9333-cd9cc7238ed3.png"
+    />
+    <Caption>Use standalone relative dates a timeline item where the section title references the action.</Caption>
+  </div>
+</Box>
+
+#### Links
+
+The relative dates are used as plain text in most cases. However, they can be used to point to a list of historical changes, a timeline, or as an anchor link for nested information in a view. For example, a date could be used to link to a comment in a conversation thread.
+
+<img
+  width="960"
+  alt="A relative time as a link to a comment in a conversation."
+  src="https://user-images.githubusercontent.com/912236/208957419-46174cce-00c1-4d18-8551-62c7a89c8148.png"
+/>
+
+#### Responsive design and micro format
+
+Relative dates must remain readable and accessible in different screen sizes. We encourage to use long date formats (e.g. `2 months ago`) instead of the `micro` format (e.g. `2mo`) on mobile screens or narrow spaces, as it can be difficult for users to understand, it doesn't support browser translation, and causes issues with assistive technologies. For example, some screen readers, such as VoiceOver for mac, will read out `1m` as `1 meter`.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/912236/209098128-37111f46-3b53-4201-82d3-be5721effe5a.png"
+      role="presentation"
+    />
+    <Caption>Use readable, long date formats, and adapt the layout to the available space.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/912236/209098133-3452047c-4931-4460-bb3b-d4b9d9e51fb4.png"
+      role="presentation"
+    />
+    <Caption>
+      Don't use narrow date formats, specially if there's a prominent space available or the layout can be adapted to
+      the screen size.
+    </Caption>
+  </Dont>
+</DoDontContainer>
+
+### Precise dates
+
+For dates that needs to represent a precise date and time which the user should be aware of, dates should be displayed in a precise format that includes the weekday, date, month and if appropriate the hours minutes and seconds. This will take the format of `weekday, MMM D, YYYY, HH:MM:SS [AP]M`. The placement of these items may be different depending on locale.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://github.com/primer/design/assets/912236/151e9910-54a1-4f47-b6a3-f2ce084b9831"
+      role="presentation"
+    />
+    <Caption>Use precise dates for future relevant dates.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/912236/209115031-e493457c-f62b-454a-ab52-4ec62b17ce11.png"
+      role="presentation"
+    />
+    <Caption>Don't use relative dates for future specific dates.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/912236/209114717-1019f9f1-d0ae-4342-8ae3-849eda5dd835.png"
+      role="presentation"
+    />
+    <Caption>Use precise dates when the user needs to know the exact time of past dates.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/912236/209114722-6eedf092-49b2-4c61-8657-1a462710ebee.png"
+      role="presentation"
+    />
+    <Caption>Don't use relative dates for past specific dates.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Elapsed or remaining dates
+
+For dates which represent the start or (expected) end of a currently running task or job, it is more useful to display the elapsed time since the task began, or remaining time until the task ends. This takes the long format of `X years, X months, X days, X hours, X minutes, X seconds` or the compact format of `Xy Xm Xd Xh Xm Xs`. Any `0` values will not be displayed. For some tasks where the expected end time is further away and second precision is not needed, it may be useful to display less precise data, such as down-to-the-day, taking the format of `Xy Xm Xd`.
+
+| Precision | Format            | Examples                              |
+| --------- | ----------------- | ------------------------------------- |
+| second    | Xy Xm Xd Xh Xm Xs | `4s`, `5m 32s`, `1d 4h 32s`           |
+| day       | Xy Xm Xd          | `2y 3m`, `2y 8m 5d`, `2m 2d`, `1y 4d` |
+
+<div>
+  <img
+    alt=""
+    src="https://user-images.githubusercontent.com/912236/209115404-1100b345-da19-4d17-b42b-b78c2619cec9.png"
+  />
+  <Caption>Use elapsed dates to represent the duration of a single or multiple running tasks.</Caption>
+</div>
+
+### Word formatting
+
+By default, the time will be prefixed with "on", but this can be customized.
+
+Weekday names and month names are fully written out by default, but they may be abbreviated.
+
+### Number formatting
+
+Any part of the time can be rendered with or without a leading zero.
+
+## Accessibility
+
+A relative date is treated like a [time](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) element. It contains a [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title) showing the precise localised date.
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="RelativeTime"/>

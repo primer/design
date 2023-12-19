@@ -1,0 +1,31 @@
+---
+title: Counter label
+description: Counter label is a button with a numbered label accompanied by text.
+reactId: counter_label
+railsIds:
+- Primer::Beta::Counter
+figmaId: counter_label
+rails: https://primer.style/view-components/components/beta/counter
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  width="960"
+  alt="A image showing two examples of buttons with counters"
+  src="https://user-images.githubusercontent.com/586552/205141782-bfe137b1-6d83-4b9d-bcdd-bcd1877f864b.png"
+/>
+
+## Usage
+
+Use counter label to add a count to navigational elements and buttons.
+
+## Accessibility
+
+Always use counter label with adjacent text that provides supplementary information regarding what the count is for. For instance, Counter should be accompanied with text such as issues or pull requests.
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="CounterLabel"/>

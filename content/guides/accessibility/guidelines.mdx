@@ -1,0 +1,189 @@
+---
+title: Accessibility guidelines
+description: Basic guidelines for designers when creating or updating features.
+---
+
+import Code from '@primer/gatsby-theme-doctocat/src/components/code'
+
+For official guidance, always refer to the [WCAG 2.1 W3C documentation](https://www.w3.org/TR/WCAG21/). You can find failure examples for each WCAG standard, and techniques for fixing them in [How to Meet WCAG (Quick Reference)](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1&showtechniques=148&currentsidebar=%23col_customize#visual-presentation).
+
+## It starts with you
+
+Accessible experiences start with designers. Tacking on accessibility after a design is implemented costs businesses time and money, and it muddies the original design, leading to a poor user experience for people with and without disabilities.
+
+When we consider accessibility from the beginning, we design for everyone from the start.
+
+Consider how different people will experience your design. For an informative list on real-life disability situations, check [An Alphabet of Accessibility Issues](https://web.archive.org/web/20230307004829/https://the-pastry-box-project.net/anne-gibson/2014-july-31), published in The Pastry Box Project.
+
+## Feature checklist
+
+If you're designing a feature or experience in GitHub, use the following checklist to assess your design for accessibility:
+
+- [ ] Have you annotated the headings on your feature?
+- [ ] Have you defined the focus/tabbing order on your feature?
+- [ ] Have you added screen reader labels for elements that are not focusable? (Dynamic content changes, images and their alt text)
+- [ ] If this is a new page outside the GitHub monolith, are the landmarks annotated?
+- [ ] Does the text meet color contrast?
+- [ ] Do graphic objects meet color contrast?
+- [ ] With color removed, can you still understand the design?
+- [ ] Can all revealable information (hover card, tooltips, accordions) be accessed with a keyboard or a mouse?
+- [ ] If the user increases the text size to 200%, is the page still usable?
+- [ ] When the screen reduces in size (down to 320px wide), is everything usable without scrolling horizontally? (There are a few exceptions to this rule: check [1.4.10 - Reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html) for details)
+
+## Basic visual considerations
+
+WCAG 2.1 includes more nuanced considerations than what is listed here, but these basic considerations will give you a strong foothold into accessible design.
+
+### Color
+
+#### Contrast
+
+Text and user interface components on a page must meet a specific minimum contrast ratio to pass WCAG 2.1 AA standards.
+
+**Why?** People with low vision may have trouble reading or understanding important information. Depending on the contrast ratio, users may not see the item at all. Besides being perceived as disabled items, this makes users struggle with actions like making sure they select the correct option.
+
+<DoDontContainer stacked>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/40274682/102424769-bc476b80-3fc0-11eb-9831-c229ada406c0.png"
+      alt=""
+    />
+    <Caption>Buttons with sufficient text contrast</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/40274682/102424747-afc31300-3fc0-11eb-9e98-ecd806f6e266.png"
+      alt=""
+    />
+    <Caption>Buttons with insufficient text contrast</Caption>
+  </Dont>
+</DoDontContainer>
+
+- **Normal text (14pt)**: 4.5:1 minimum contrast
+- **Large text (14pt bold + , 18pt +)**: 3:1 minimum contrast
+- **Graphical objects and user interface components**: 3:1 minimum contrast
+
+**Note:** Disabled controls do not need to hit any specific contrast levels.
+
+Official WCAG guidelines:
+
+- [1.4.3 - Contrast (Minimum)(Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
+- [1.4.11 - Non-text Contrast (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html)
+- [1.4.1 - Use of color (Level AA)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
+
+#### Use of color
+
+The main point in the guideline [1.4.1 Use of Color](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html) is to make sure that color isn't the sole identifier. If you have an important transition that is only a change in color, make sure that color change has a 3:1 contrast ratio.
+
+A great way to test for this is to navigate that experience in greyscale mode.
+
+<DoDontContainer stacked>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/40274682/102531800-cb2d2d00-4057-11eb-8372-ef42011d3e0a.png"
+      alt=""
+    />
+    <Caption>Use color and a different shape to indicate issue status</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/40274682/102531791-c4061f00-4057-11eb-955f-82e511b663d5.png"
+      alt=""
+    />
+    <Caption>Don't use only color to indicate issue status</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Typography
+
+#### Links
+
+Assistive technology users will frequently browse a list of links for easy navigation. For this reason, make sure that the link text is meaningful and unique. There should be as few duplicated references as possible to prevent confusion.
+
+For more detail on accessible links, read the W3C's [Understanding 2.4.4 - Link Purpose](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html).
+
+<DoDontContainer stacked>
+  <Do>
+    <Code className="language-html">
+      {`<p>
+  Find out more about <a href="#url">GitHub Enterprise pricing</a>.<br />
+</p>`}
+    </Code>
+    <Caption>Make links meaningful and easy to understand</Caption>
+  </Do>
+  <Dont>
+    <Code className="language-html">
+      {`<p>
+  To find out more about GitHub Enterprise pricing,
+  <a href="#url">click here</a>.
+</p>`}
+    </Code>
+    <Caption>Don't create links that give no indication to the user</Caption>
+  </Dont>
+</DoDontContainer>
+
+#### Forms
+
+- All form inputs should have a visible label
+- Don't use placeholder text for titles, hints, or other important information.
+
+**Why?** Visible labels determine the purpose for inputs, and screen readers can read this information without extra code. If placeholder text contains important information and that information disappears when one starts to type, those with cognitive disabilities will have difficulty completing the form.
+
+#### Content on hover or focus
+
+Hover cards and tool tips need to be approached with care. To meet the bare minimum for accessibility, tooltips need to be:
+
+- **Dismissible**: Be able to dismiss tooltips without moving the pointer or keyboard focus (unless it's an input error or does not cover other content).
+- **Hoverable**: Pointer can move over the hover content without the content disappearing.
+- **Persistent**: The tooltip doesn't dismiss itself without user action.
+
+For more information read [1.4.13 Content on Hover or Focus](https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html).
+
+#### Text
+
+People using the web should be able to increase font size to 200% without losing content or functionality.
+
+If you'd like to go the extra mile and meet AAA guidelines, you can make sure that:
+
+- The width of text doesn't exceed 80 characters or glyphs
+- Text isn't justified (align text to the left and right)
+
+Read Primer's [typography](/foundations/typography) guidelines for more detail about using type on GitHub.
+
+## Keyboard accessibility
+
+All interactive elements need to be accessed and activated by a keyboard alone ([2.1 Keyboard Accessible](https://www.w3.org/TR/WCAG21/#keyboard-accessible)).
+
+- Tabbing should be used to access standalone controls (buttons, links, widgets), and arrow keys should be used to navigate within a composite control (group of standalone controls, list of checkboxes).
+- Some assistive technologies have keyboard combinations that override those of a web page, so don't rely on keyboard shortcuts as the only alternative to mouse actions.
+- Focus must be visible for all interactive elements. [Read more about focus management](/guides/accessibility/focus-management)
+
+## Resources
+
+### Understanding WCAG 2.1
+
+- [Knowbility.org](https://knowbility.org/search/?q=WCAG+2.1): Search for 'WCAG 2.1' on Knowbility to get a more clear and succinct interpretation of WCAG 2.1's official guidance.
+- The UK's Home Office designed [easy-to-read posters](https://github.com/UKHomeOffice/posters/blob/master/accessibility/dos-donts/posters_en-UK/accessibility-posters-set.pdf) on designing for accessibility, broken out into principles for various conditions. You can read about [designing the posters](https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/) on the team's accessibility blog.
+- The [a11yproject](https://www.a11yproject.com/resources/) includes a wealth of resources on web accessibility.
+
+### Pattern libraries
+
+- [WAI-ARIA Authoring Practices 1.2](https://www.w3.org/TR/wai-aria-practices-1.2/) is an in-depth list of UI patterns and how to implement them, from W3C.
+- [Inclusive components](https://inclusive-components.design/)
+- [a11ymatters patterns](https://www.a11ymatters.com/patterns) includes useful information for developers.
+
+### Screen readers
+
+Top three screen readers for computers ([data from WebAIM](https://webaim.org/projects/screenreadersurvey8/), August 2019):
+
+- NVDA (Windows)
+- JAWS (Windows)
+- VoiceOver (Mac)
+
+Top three screen readers for mobile devices ([data from WebAIM](https://webaim.org/projects/screenreadersurvey8/), August 2019):
+
+- VoiceOver (iOS)
+- TalkBack for Android (Android)
+- Voice Assistant (Android)
+
+Keep in mind that just like there are different browser implementations, there are also different assistive technologies and their behaviors can vary.

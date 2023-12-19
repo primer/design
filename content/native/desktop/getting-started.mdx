@@ -1,0 +1,41 @@
+---
+title: Getting started
+---
+
+import DesktopChangesView from '../../images/desktop-changesview.png'
+import ScrollToAnchor from '~/src/components/scroll-to-anchor'
+
+<ScrollToAnchor />
+
+## Getting started
+
+GitHub Desktop is a git workflow tool built on Electron. It's available on both macOS and Windows and was designed to feel like a native application, considering the core differences between the two platforms. It's meant to look platform agnostic and neutral, rather than mimicking the Primer styles used on github.com. These guidelines cover the basic principles and foundation elements to consider when designing for Desktop.
+
+<img src={DesktopChangesView} alt="" />
+
+## Principles
+
+Follow these principles to help guide your design choices.
+
+### Promote good git behavior
+
+Encourage using git sucessfully so that users can better communicate the work they've done to their teams and for their own records. For example, we encourage well written commit messages by making partial committing easy.
+
+### Balance the spectrum between “git” and “magic”
+
+Consider what the UI explicitly shows the user and what is hidden behind controls and feels like "magic". It's important to achieve a good balance between these two paradigms, so that users can understand what is happening and troubleshoot when necessary.
+
+### Prioritize beginners over advanced developers
+
+Always consider the needs of, and optimize for, beginner developers in favor of advanced developers.
+
+### Help developers learn as they go
+
+Use git terminology and add clarifying information and hints throughout to help users understand just enough of what’s going on behind the scenes. When git language is used accurately, users can more easily troubleshoot and learn concepts quickly.
+
+### Put what’s next front and center
+
+Always make it clear what the next step is after any given action. This helps beginner develolpers to learn common workflows.
+
+You can read more about how GitHub Desktop makes product decisions in the
+["What is GitHub Desktop and who is it for?"](https://github.com/desktop/desktop/blob/development/docs/process/what-is-desktop.md) document.

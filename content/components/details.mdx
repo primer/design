@@ -1,0 +1,26 @@
+---
+title: Details
+description: Details is a styled component to enhance the native behaviors of the <details> element.
+reactId: details
+railsIds:
+- Primer::Beta::Details
+rails: https://primer.style/view-components/components/beta/details
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+import {Box, Text} from '@primer/react'
+
+## Usage
+
+The details component can reveal additional information by using a button to toggle between hidden and visible. It includes a summary followed by the content that's hidden or visible.
+
+By default, the information is hidden. When triggered, it expands and displays the information.
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Details"/>

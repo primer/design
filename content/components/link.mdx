@@ -1,0 +1,283 @@
+---
+title: Link
+description: Links are used to apply styles to hyperlink text.
+reactId: link
+railsIds:
+- Primer::Beta::Link
+figmaId: link
+---
+
+import {Box, Text} from '@primer/react'
+import Code from '@primer/gatsby-theme-doctocat/src/components/code'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+## Usage
+
+Links enable users to navigate between pages or resources in a seamless way. Links can be used within a body of text or as a standalone element.
+
+Links navigate you to a new place or new content. **Do not** use links for triggering an action. Instead, use [buttons](/components/button), which are designed to activate a feature.
+
+Links should be concise and not exceed more than a few words.
+
+## Anatomy
+
+The link component can be displayed in default, muted, or blue colors. Links can be underlined, may include a leading visual or trailing visual, and can be either the default or small size.
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    width="400"
+    role="presentation"
+    src="https://user-images.githubusercontent.com/586552/225489084-4f4357b4-4c47-4a55-8770-76e03b8c500f.png"
+  />
+  <img
+    width="369"
+    role="presentation"
+    src="https://user-images.githubusercontent.com/586552/225489086-e604fbc8-e449-416e-bd26-cc80408c5d8d.png"
+  />
+</Box>
+
+## Accessibility
+
+Links play a key part in your experience on the web, but without proper consideration they can be frustrating to use, skipped over, or completely unnoticed.
+
+For assistive technologies like screen readers, links and buttons are expected to function differently from each other. If a link is activated and does not do what was expected, that can be disorienting and frustrating.
+
+A common way a screen reader might navigate the page is by going through a list of all the links on the page. Without context, "read more" or "click here" links are not helpful.
+
+People who have low or colorblind vision may have trouble identifying links that just use color to distinguish them from plain text, this is why keeping the underline styling on links within body text is important for identification.
+
+### How to test links
+
+#### Functionality and purpose
+
+A link's function is to _navigate_ to a different page or new content. If instead a feature on the page is activated, use a `<button>`. [Learn when to use a link or button](https://accessibility-playbook.github.com/link-and-button-guidance).
+
+A link's purpose must be obvious from the link text alone. If you can't get an idea of where a link will take you based on the link text without reading the sourrounding text, the link text should be updated. [Learn how to write good link text](#writing-link-text).
+
+This is important because screen readers allow users to browse through a list of links, where the link text is the only clue of where a link will take you.
+
+#### Visual distinction & contrast
+
+Like normal text, a link must have a `4.5:1` contrast against the background color that it is placed on. Use a [contrast checker](https://webaim.org/resources/contrastchecker/) to validate that your link meets this required contrast.
+
+If a link is sourrounded by text, it must be underlined or pass a `3:1` contrast against the sourrounding text as well. Alternativly an icon, a background shape or an outline can demarcate a link.
+
+Some examples of this are:
+
+- links within body text
+- a headline and subline which both are individual links
+- issue numbers or usernames within a commit line
+
+### Guidelines
+
+- Visually demarcate your links by using:
+  - the `accent.fg` color in combination with `fg.default` for the sourrounding text on any of the `canvas.[...]` colors
+  - an underline for the link text
+  - an icon before or after the link text
+  - using a background shape behind the link
+  - using a link color that has a `3:1` contrast against the sourrounding text color AND a `4.5:1` against the background color
+- Make sure a link's purpose can be understood from the link text alone, without needing the surrounding context.
+- Links should look like links, not buttons, except in rare circumstances, like calls to action.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/40274682/160483376-a88eb64f-ce80-4a11-93b5-6d882b1970eb.png"
+      alt="Markdown paragraph with descriptive links"
+    />
+    <Caption>Be descriptive with your links so that they can stand alone and be understood.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/40274682/160474793-2fd3085f-0813-43ed-8b43-c1a5f14aaea9.png"
+      alt="Markdown paragraph with links like 'Click here' and 'find out more'"
+    />
+    <Caption>Don't use generic terms like 'click here' that can't be understood out of context.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/40274682/160474794-06a75b30-06d3-475e-863f-605e8a6dad72.png"
+      alt="Underlined username link in issue subheading"
+    />
+    <Box
+      sx={{
+        marginTop: 2,
+        backgroundColor: 'neutral.subtle',
+        borderRadius: 6,
+      }}
+    >
+      <img
+        width="550"
+        alt="Underlined links in paragraph"
+        src="https://user-images.githubusercontent.com/586552/225663474-e54cf0aa-5b1a-4f24-bd31-7502127e6046.png"
+      />
+    </Box>
+    <Caption>Underline links in paragraphs and sentences</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/40274682/160474800-b505369e-1730-4c14-b426-70b5bd016a6c.png"
+      alt="Issue subheader with none of the links underlined"
+    />
+    <Box
+      sx={{
+        backgroundColor: 'neutral.subtle',
+        marginTop: 2,
+        borderRadius: 6,
+      }}
+    >
+      <img
+        width="550"
+        alt="Links using underline to highlight important text instead of link"
+        src="https://user-images.githubusercontent.com/586552/225663469-b8899b88-59f4-48a6-8e48-9ec3d0d45b37.png"
+      />
+    </Box>
+    <Caption>Don't use underlines for non-link highlights or forget to demarcate links</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <Box
+      sx={{
+        backgroundColor: 'neutral.subtle',
+        borderRadius: 6,
+      }}
+    >
+      <img
+        width="550"
+        alt="Links using the accent color and a muted grey both with a 3:1 contrast against the default text color"
+        src="https://user-images.githubusercontent.com/586552/225663478-c519d894-b898-42dd-b426-c6e260ac1341.png"
+      />
+    </Box>
+    <Caption>Use a link color that has a 3:1 contrast against the text color</Caption>
+  </Do>
+  <Dont>
+    <Box
+      sx={{
+        backgroundColor: 'neutral.subtle',
+        borderRadius: 6,
+      }}
+    >
+      <img
+        width="550"
+        alt="Links using a color with a contrast smaller than 3:1 against the default text color"
+        src="https://user-images.githubusercontent.com/586552/225663473-44503373-39f8-4eee-bb9e-ed82442bb47b.png"
+      />
+    </Box>
+    <Caption>Don't use a color that has less than a 3:1 contrast against the text color for links</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <Box
+      sx={{
+        backgroundColor: 'neutral.subtle',
+        borderRadius: 6,
+      }}
+    >
+      <img
+        width="550"
+        alt="Links with icon or background shape to demarcate it"
+        src="https://user-images.githubusercontent.com/586552/225663476-44cc0c51-705c-4b32-98ea-4a7db9ba9876.png"
+      />
+    </Box>
+    <Caption>Use an icon or a background shape to demarcate a link</Caption>
+  </Do>
+  <Dont>
+    <Box
+      sx={{
+        backgroundColor: 'neutral.subtle',
+        borderRadius: 6,
+      }}
+    >
+      <img
+        width="550"
+        alt="Links using other text styles to demaracte it"
+        src="https://user-images.githubusercontent.com/586552/225663470-4c66fea4-2e5d-4999-bfe1-44733ba1fa2a.png"
+      />
+    </Box>
+    <Caption>Don't use text styles like italic or bold to demarcate links</Caption>
+  </Dont>
+</DoDontContainer>
+
+### For engineers
+
+- Use Primer link components:
+  - [Rails component](/components/link/rails)
+  - [React component](/components/link/react)
+- Don't override the link styling provided in the components
+- Make sure links receive our global focus indicator styling when navigating the page with a keyboard (reference: [Focus management](/guides/accessibility/focus-management))
+- Don't use the `title` attribute
+  - Content within a `title` is inaccessible for many users, such as touch-only and keyboard-only users. If additional content needs to be associated with a link consider using a [tooltip](https://primer.style/view-components/components/alpha/tooltip) or [alternatives to a tooltip](/guides/accessibility/tooltip-alternatives).
+- Avoid adding side effects to link click events. Links should navigate, not affect the page.
+- Don't force links to open in a new tab/window by setting the `target` property.
+- Links should always open in a new window when clicking while holding Command/Control.
+
+### Common mistakes
+
+- Only adding an underline to a link when it has focus or is hovered over
+- Underlining every link on the page. For example, a navigation list is a list of links but navigational links don't have to be underlined because the intent is understood and an underline is not needed to identify the interactive nature of the control.
+
+### Writing link text
+
+Link text should be descriptive enough to convey the destination without relying on the surrounding text. Screen reader users often tab through links on a page to quickly find content without needing to listen to the full page.
+When link text is too generic like "Read more", the destination of the link is not conveyed.
+
+It may be acceptable in some scenarios to provide a more descriptive link text for screen reader users by setting the `aria-label`. However, this technique will result in divergence between the label and the text and is not an ideal, future-proof solution.
+Whenever possible, prefer a single descriptive link text that is available for both sighted users and screen reader users.
+
+If you must resort to the ARIA technique to provide a descriptive link text, follow these principles:
+
+1. The visible text is included in full as part of the accessible name to avoid a violation of [SC 2.5.3: Label in Name](https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html).
+2. The sentence that the link is a part of is well-formed and grammatical when read with both the visible text and the accessible name.
+
+<DoDontContainer>
+  <Do>
+    <Caption>
+      Accessible name fully includes the visible link text, "Learn more" and is well-formed with either label.
+    </Caption>
+    <Code className="language-html">{`There are various plans available.
+<a href="..." aria-label="Learn more about GitHub pricing plans">Learn more</a>`}</Code>
+    <br />
+  </Do>
+  <Dont>
+    <Caption>
+      Accessible name results in poorly-formed sentence, "Learn more about keyboard shortcuts allow you to access common
+      commands more quickly".{' '}
+    </Caption>
+    <Code className="language-html">{`<a href="..." aria-label="Learn more about keyboard shortcuts">Keyboard shortcuts</a> allow you to access common commands more quickly.`}</Code>
+  </Dont>
+</DoDontContainer>
+
+As demonstrated in the examples, this technique adds more complexity to the code and can introduce more problems than it solves so only use this technique if absolutely necessary.
+
+### Additional resources
+
+- [Color to Distinguish Links from Text](https://dequeuniversity.com/class/visual-design/color/distinguish-links-from-text) (requires a subscription to access the content)
+- [Accessibility Insights plugin](https://accessibilityinsights.io/en/): With the Accessibility Insights plugin installed, open the plugin, visit the **Assessment** option and select **7. Links**
+- [WebAIM: Links and Hypertext - Introduction to Links and Hypertext](https://webaim.org/techniques/hypertext/)
+- [erblint-github: Avoid generic link text](https://github.com/github/erblint-github/blob/main/docs/rules/accessibility/avoid-generic-link-text-counter.md)
+
+#### Related WCAG guidelines and success criteria
+
+- [Understanding Success Criterion 4.1.2: Name, Role, Value](https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html)
+- [Authoring Practices Guide - Links](https://www.w3.org/TR/wai-aria-practices-1.2/#link)
+- [Accessible Rich Internet Applications (WAI-ARIA) 1.2 (w3.org)](https://www.w3.org/TR/wai-aria-1.2/#link)
+- [Understanding Success Criterion 2.4.4: Link Purpose (In Context)](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html)
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Link"/>

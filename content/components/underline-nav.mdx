@@ -1,0 +1,93 @@
+---
+title: Underline nav
+description: The UnderlineNav is used to display navigation.
+componentId: underline_nav
+reactId: underline_nav
+railsIds:
+- Primer::Alpha::UnderlineNav
+figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=18843-67449&t=XqqSolC6AzRO9nae-11
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+## Usage
+
+The underline nav is used to provide navigation links to related views for the user's current context. It is typically used as primary navigation at the top of the page or as secondary or tertiary navigation when nested in views with a [nav list](/components/nav-list).
+
+## Anatomy
+
+![Anatomy of the UnderlineNav component](https://user-images.githubusercontent.com/175638/186432408-c2479dd2-31fe-4261-9f9a-e67d49b28e72.png)
+
+- **Item**: A navigation link.
+- **Current item**: The item currently selected is highlighted with an underline.
+- **Label**: Describes the navigation item.
+- **Leading icon (optional)**: An icon that identifies the navigation item.
+- **Counter (optional)**: Displays a count next to the label.
+- **Overflow menu**: A disclosure menu that displays additional items when there are too many to fit in the available space.
+
+## Options
+
+### Item
+
+The underline nav is composed of a list of items. Each item is a link that can be selected to navigate to a different page in the current context.
+
+#### Label text
+
+The title of the view associated with that tab. Keep labels clear, short, and concise.
+
+#### Leading icons
+
+Use an [Octicon](/foundations/icons) to improve the scannability of common items, but only when relevant. When adding leading icons, all items in the navigation should have one.
+
+Make sure that icons used are consistent across views, and that they are not repeated for different navigations across the product.
+
+#### Counters
+
+You may include a counter to indicate the number of related resources contained in the desitination page, such as the number of open issues.
+
+When loading multiple counters asynchronously, wait for all the data to be ready before displaying the counters, so you can avoid multiple layout shifts. Use the counter loading state while waiting for the data.
+
+## Layout
+
+### Placement
+
+The underline nav has two possible main placements depending on its intended usage:
+
+- As primary navigation: place it at the top of the page. Ensure any secondary and tertiary navigation is nested under the underline nav.
+- As secondary or tertiary navigation: place it above the main content of the page.
+
+In either scenarios, avoid stacking multiple uderline navs to display multiple levels of navigation.
+
+### Alignment
+
+Align the the underline nav to the left and, when possible, make the component span the available width.
+
+### Responsive design
+
+![The underline nav without overflowing items and the component on a smaller viewport showing the overflow menu](https://user-images.githubusercontent.com/175638/229456836-bfa1ddbb-5cef-4dbc-a0db-da77814c63a2.png)
+
+Underline nav handles overflowing items automatically by collapsing them into a disclosure menu. When some of the items don't fit the available space, the component will first hide leading icons to economize space and then move items to the overflow menu one by one.
+
+## Accessibility
+
+Set `aria-current` to `"page"` to indicate that the item represents the current page. Set `aria-current` to `"location"` to indicate that the item represents the current location on a page.
+
+### Keyboard navigation
+
+Items can be activated using a cursor or keyboard
+
+| Key(s)                                                                                                                                                    | Description                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box> | Activates the focused item.   |
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Tab</Box>   | Moves focus to the next item. |
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="UnderlineNav"/>
+
+## Related links
+
+- [Nav list](/components/nav-list)
+- [Tab nav](/components/tab-nav)

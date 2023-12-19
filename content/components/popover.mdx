@@ -1,0 +1,51 @@
+---
+title: Popover
+description: Popover is used to bring attention to specific user interface elements.
+reactId: popover
+railsIds:
+- Primer::Beta::Popover
+figmaId: popover
+rails: https://primer.style/view-components/components/beta/popover
+---
+
+import {Box, Text} from '@primer/react'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+## Usage
+
+The popover component is used to deliver context-specific information and functionality. It’s a small dialog to bring attention to specific user interface elements. It can provide additional information, options, or actions related to a specific element or task. Popovers can be helpful for flows that require light onboarding or instruction.
+
+Popovers may contain text, links, and buttons.
+
+Popover supports various caret positions, which you can specify, though the default is top. Note that the top-left, bottom-left, top-right, and bottom-right values modify the horizontal alignment of the popover.
+
+<img
+  src="https://user-images.githubusercontent.com/586552/227022626-625dad35-47d5-46ac-ba64-3c1285a37410.png"
+  role="presentation"
+  width="960"
+  alt="A popover component example"
+/>
+
+## Best practices
+
+Use sparingly to avoid cognitive overload. Though they can be used for a variety of things, they should be used sparingly to avoid cognitive overload. It's important to consider the context in which the popover appears. Are there other popovers on the page? Does it appear on page load, or require the user to open the popover?
+
+Unlike other messaging components, popovers should never include critical information (such as errors) and should always include a dismiss action.
+
+## Accessibility
+
+- Popovers should be operable using the keyboard alone, without requiring the use of a mouse or other pointing device.
+
+- Popovers should be announced by screen readers, including their content and role on the page.
+
+- When a popover is opened, focus should be moved to the popover so that keyboard users can interact with it. When the popover is closed, focus should be returned to the element that triggered it. For more on this, see the accessibility guidelines [on focus management](/guides/accessibility/focus-management).
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Popover"/>
+
+## Related links
+
+- [Feature onboarding](../ui-patterns/feature-onboarding)

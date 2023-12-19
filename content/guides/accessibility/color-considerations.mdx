@@ -1,0 +1,332 @@
+---
+title: Color considerations
+description: Color is an important aspect of creating accessible, inclusive experiences.
+---
+
+import ButtonTextOnly from '../../../src/images/accessibility/color-considerations/button-text-only.png'
+import ButtonFunctionalIcon from '../../../src/images/accessibility/color-considerations/button-functional-icon.png'
+import ButtonDecorativeIcon from '../../../src/images/accessibility/color-considerations/button-decorative-icon.png'
+import InputBorderContrast from '../../../src/images/accessibility/color-considerations/input-border-contrast.png'
+import InputSelectionState from '../../../src/images/accessibility/color-considerations/input-selection-state.png'
+import InputText from '../../../src/images/accessibility/color-considerations/input-text.png'
+import InputValidationState from '../../../src/images/accessibility/color-considerations/input-validation-state.png'
+import SearchCollapsed from '../../../src/images/accessibility/color-considerations/search-collapsed.png'
+import SearchExpanded from '../../../src/images/accessibility/color-considerations/search-expanded.png'
+import ThemePicker from '../../../src/images/accessibility/color-considerations/theme-picker.png'
+
+## Overview
+
+This guidance covers considerations that can't automatically be integrated into Primer. It supplements [accessibility guidance given in the Color portion of our Foundations documentation](https://primer.style/foundations/color#accessibility).
+
+### Design tokens
+
+The majority of color contrast considerations should be handled by [Primer color design tokens](https://primer.style/foundations/color#how-to-use-color-for-product-ui). Ensure that solutions for the following considerations integrate design tokens as a method of creating accessible experiences.
+
+### Determining contrast
+
+[WebAIM's Contrast Checker tool](https://webaim.org/resources/contrastchecker/) is the recommended way to calculate color contrast ratios.
+
+### Level AA support
+
+GitHub is **required** to honor WCAG AA-level compliance. This means that WCAG Success Criterion levels A and AA are **both** observed.
+
+An example level A Success Criterion is [SC 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html). An example level AA Success Criterion is [SC 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+
+## Compliance
+
+The following guidance is based on one or more **normative** Web Content Accessibility Guidelines (<abbr>WCAG</abbr>) success criterion. This means that the guidance is based on objective requirements with implications that affect [MAS-C compliance efforts](https://github.com/github/accessibility/blob/main/docs/measuring-ourselves/microsoft-accessibility-standards.md#microsoft-accessibility-standards-mas), as well as international laws regarding accessibility.
+
+An example of **the difference between non-normative and normative considerations** would be the difference between the overall choice of color used, and then the actual value of the color.
+
+### Non-normative choices
+
+A design could use a dark shade of purple as the background color as a **non-normative aesthetic choice**. Reasons for going with dark purple could be:
+
+- The team prefers how it looks over dark blue, dark green, dark gray, etc.,
+- The dark purple is a subtle reference to a brighter purple that is a core part of main palette,
+- The dark purple is part of a new branding update,
+- Etc.
+
+### Normative requirements
+
+The **normative requirement** for going with dark purple would be [comparing the final computed color value used for the dark purple background color against the color value used for text](https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=510094).
+
+### The APCA
+
+The [Advanced Accessible Perceptual Contrast Algorithm](https://www.myndex.com/APCA/) (<abbr>APCA</abbr>) is a proposal and is **not normative**. In terms of WCAG, and therefore, MAS-C compliance, this means that color contrast is valid **only** if it meets WCAG 2.1 criteria.
+
+A color value that is APCA-compliant **might not** be WCAG-compliant until APCA is integrated into WCAG 3.0. WCAG 3.0 is still a work in progress and currently does not have an anticipated release date.
+
+## Visual themes
+
+GitHub offers two parent themes:
+
+1. Day (light), and
+2. Night (dark).
+
+Each parent theme has a default appearance, and then a suite of sub-themes. Sub-themes include considerations for high and low contrast experiences, as well as certain vision conditions.
+
+<img src={ThemePicker} alt="GitHub's theme picker showing Day and Night parent themes, with swatches for each of the nine sub-themes. The Day theme is active. Cropped screenshot'" />
+
+It is possible to set GitHub to use a dark sub-theme when a parent Day theme has been set, and vice-versa. This allows a user to have a fine-grained control over their experience.
+
+### Default theme
+
+GitHub uses:
+
+- **The default Day (light) theme** when a user visits the site in a logged out state and their operating system is set to light mode.
+- **The default Night (dark) theme** when a user visits the site in a logged out state and their operating system is set to dark mode.
+- Whatever theme the user has set in their account settings.
+
+When not logged in, users are unable to adjust the theme in the [Appearance settings](https://github.com/settings/appearance).
+
+Because of this, [the default Day **and** Night theme **must both** satisfy WCAG criteria for color-related concerns](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/primer/color-modes.md#guidance). From a high-level, this means that **all** GitHub content displayed using the default Day and Night theme **must**:
+
+- Pass color contrast requirements, and
+- Have the mechanism for accessing and changing the theme be fully WCAG compliant.
+
+This is the strongest guarantee we have that:
+
+1. Content can be perceived—and therefore understood and used—across a wide range of vision conditions, and that
+2. The mechanism to adjust GitHub's theme can be operated by the widest range of input modes.
+
+This allows users to use GitHub in a logged-out state. If a user is logged in, it also enables them to address their own specific usability and access needs, as well as aesthetic desires.
+
+### Non-default themes
+
+[**All** Day and Night sub-themes **do not** need to meet WCAG color contrast requirements](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/primer/color-modes.md#guidance), provided all default Day and Night theme content is accessible. This guidance is derived from [WCAG 2.1 Technique G174](https://www.w3.org/WAI/WCAG21/Techniques/general/G174).
+
+Certain themes are specifically designed to create a low contrast effect, notably the Dark Dimmed sub-theme. In this use case, a user selecting this theme is likely **intentionally** expressing a desire for an experience with less visual contrast.
+
+Like other theme selections, this may be to satisfy:
+
+1. Aesthetic sensibilities,
+2. Access needs that are derived from visual conditions that make a higher contrast experience unusable, or
+3. A combination of both.
+
+In the case of access needs, a higher contrast experience may actually be less accessible for the user.
+
+The availability of the Dark Dimmed theme treatment allows users to customize their GitHub experience without having to resort to browser extensions or other user-hosted modifications. Of note is the portability of this theme, in that it will automatically be available across multiple sessions, browsers, and devices.
+
+GitHub should strive to ensure all themes that don't specifically deal with an intentionally-lowered contrast experience are color contrast compliant. While this is not a normative requirement, it proactively helps an unknown number of users with unknown access needs.
+
+### High contrast themes, high contrast mode, and forced colors mode
+
+GitHub offers two high contrast sub-themes:
+
+1. Light High Contrast, and
+2. Dark High Contrast.
+
+In addition some, but **not all** operating systems offer forced color and high contrast mode experiences.
+
+#### High contrast themes
+
+These **are** provided by GitHub.
+
+High contrast themes can be enabled with or without forced color and high contrast modes enabled. Some users may be unaware of, or unable to access these modes. Other users may not need them.
+
+#### High contrast mode
+
+This **is not** provided by GitHub.
+
+A high contrast mode is a signal to the operating system to increase the visual distinction between different UI elements. On the web, it is a flag that can be targeted with a media query.
+
+The presence of an enabled high contrast mode experience does not guarantee a high contrast web experience is generated—that is an experience the website has to intentionally provide.
+
+GitHub currently **does not** auto-opt a user into its high contrast themes if a user has enabled high contrast mode on their device.
+
+#### Forced colors mode
+
+This **is not** provided by GitHub.
+
+Forced color mode is another media query. Unlike high contrast mode, forced colors mode automatically adapts **all** operating system content. This includes **all** web content.
+
+A forced color mode will update all GitHub content's visual presentation regardless of what theme a user has selected. It uses a suite of heuristics to determine content meaning and then assign a dynamic color keyword value to it.
+
+Forced color mode content presentation **should not** be overridden to satisfy aesthetic desires. Instead, it should only be lightly adjusted to ensure maximum legibility and accuracy of applied color keywords.
+
+## Inputs and buttons
+
+**Different kinds of UI have their contrast compliance determined in different ways**. This is because different parts of them are visually significant for understanding purpose.
+
+The difference between **inputs** and **buttons** may be confusing. Understanding the difference between the two types of UI helps to understand why they are evaluated differently for color contrast purposes.
+
+At a high-level:
+
+- Buttons **perform a predetermined action** when pressed. Examples of this are submitting form input, triggering a dialog, or saving user-entered content.
+- Inputs **collect information for eventual submission**. Examples of this are single and multiline text-entry areas, checkbox selections/radio choices, and comboboxes.
+
+Inputs and buttons are combined to form data collection and transmission experiences such as a contact form or a Pull Request submission.
+
+### Inputs
+
+Being able to perceive the boundaries of an input is vital. Meeting WCAG color contrast requirements helps to ensure the widest possible range of users can perform the data entry required to operate GitHub successfully.
+
+#### Input considerations
+
+Broadly-speaking, there are four overall considerations for input contrast:
+
+1. Text,
+2. Borders,
+3. Selected state, and
+4. Validation state.
+
+Combined, meeting contrast requirements allow a user to understand:
+
+1. What the input is for,
+2. What area of the input a user can interact with,
+3. What information a user has entered into the input, and
+4. What state the input is in.
+
+If a computed color value in any of the four considerations is not compliant, it may endanger one or more portions of user understanding and operation of the input.
+
+<img src={InputText} alt="A wireframe illustration of a text input. Its label reads, 'Name.' It's user-provided text content reads, 'Mona Lisa.' A label pointing to the label reads, 'Communicates purpose.' A label pointing to the user provided content reads, 'Communicates user choice.'" />
+
+#### Input text contrast
+
+Text portions of an input **must** meet a contrast ratio of `4.5:1` for "normal text", or `3:1` for "large text". This applies to both an input's visible label and its user-provided text content.
+
+The majority of GitHub input text size is "normal text". Both "normal text" and "large text" are WCAG-specific terms. More information about this can be found on [the Key Terms subsection of SC 1.4.3: Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#dfn-large-scale).
+
+#### Input border contrast
+
+Borders communicate **the boundaries of an input**, and are considered non-text contrast. This includes inputs that allow for freeform user input such as text, and also pre-specified inputs such as checkboxes.
+
+Borders of an input **must** meet a contrast ratio of `3:1`. This is calculated by the border's computed color value compared to the computed background color the input is placed on.
+
+<img src={InputBorderContrast} alt="A wireframe illustration of a text input with a border. Its label reads, 'Email address.' A label pointing to the input's border reads, 'Communicates interactive area boundary.'" />
+
+The contrast of the input's border color compared to the input's background color **does not** need to meet a contrast ratio. The color of [the input's text against its background color](#input-text-contrast) still needs to be compliant, however.
+
+Inputs without visible borders must use their background color instead. In this case, the required contrast ratio is `3:1`, with the computed input background color and the color of the background of what the input is placed on.
+
+<img src={InputBorderContrast} alt="A wireframe illustration of a text input without a border. Its label reads, 'Phone number.' It's user-provided text content reads, '123-456-7890.' A label pointing to the input's background reads, 'Communicates interactive area boundary.'" />
+
+#### Input selected state contrast
+
+Selection state communicates **if a user has chosen an input option**, and is considered non-text contrast. Examples of this are a checkbox's check or a radio's dot.
+
+<img src={InputSelectionState} alt="A wireframe illustration of a checkbox input with a checkmark indicating it has been placed in a selected state. A label pointing to the checkmark reads, 'Communicates user choice.' A label pointing to the checkbox's border reads, 'Communicates interactive area boundary.'" />
+
+Selected state of an input such as a checkbox **must** meet a contrast ratio of `3:1`. This is calculated by the border's computed color value compared to the computed background color the input is placed on.
+
+#### Input validation state contrast
+
+Validation state communicates if the content a user has submitted meets the intake requirements or not. Examples of this are an inline error message with a text input, or a checkmark icon to indicate password criteria have been met.
+
+Validation state **must not** rely on color as the sole way of determining if an input is valid. Accompanying text or icons can help accomplish this.
+
+<img src={InputValidationState} alt="A wireframe illustration of a text input with an error message and icon. Its label reads, 'Email address.' It's user-provided text content reads, 'asdf.' The error message reads, 'Error message', and the the error icon is a warning symbol. A label pointing to the error message reads, 'Communicates validation status.' A label pointing to the text input's border reads, 'Reinforces validation status.'" />
+
+- If the validation message is **only text**, it **must** meet a contrast ratio of `4.5:1` for "normal text", or `3:1` for "large text".
+- If the validation message is **only** an icon, it **must** meet a contrast ratio of `3:1`.
+- If the validation message is both **text and an icon**, it **must** meet a contrast ratio of `4.5:1` for "normal text", or `3:1` for "large text". In this context the icon is considered decorative. It is still encouraged to make the icon meet a `3:1` contrast ratio, however.
+
+Contrast for validation state is calculated by the text or icon's computed color value compared to the computed background color the input is placed on.
+
+### Buttons
+
+Being able to perceive the name or icon of a button is vital. Meeting WCAG color contrast requirements helps to ensure the widest possible range of users can perform the actions required to operate GitHub successfully.
+
+#### Button considerations
+
+Broadly-speaking, there are four overall considerations for button contrast:
+
+1. Text,
+2. Icons,
+3. Borders, and
+4. Disabled state.
+
+Combined, meeting contrast requirements allow a user to understand:
+
+1. What the button is for, and
+2. What area of the button a user can interact with.
+
+#### Button text contrast
+
+The visible text portion that communicates the button's purpose **must** meet a contrast ratio of `4.5:1` for "normal text", or `3:1` for "large text".
+
+<img src={ButtonTextOnly} alt="A wireframe illustration of a button. Its text action reads, 'Cancel.' A label pointing to the text action reads, 'Communicates purpose.' A label pointing to the button's background and border reads, 'Reinforces interactive area.'" />
+
+The majority of GitHub input text size is "normal text". Both "normal text" and "large text" are WCAG-specific terms. More information about this can be found on [the Key Terms subsection of SC 1.4.3: Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#dfn-large-scale).
+
+#### Button icon contrast
+
+Icons can either be:
+
+1. Functional, or
+2. Decorative.
+
+##### Functional icons
+
+If the icon is the sole means of determining a button's purpose, it is considered functional. An example of this is an [IconButton](https://primer.style/components/icon-button).
+
+<img src={ButtonFunctionalIcon} alt="A wireframe illustration of a button. It only has the GitHub Octocat logo in its center, and no text. A label pointing to the icon reads, 'Communicates purpose.' A label pointing to the button's background and border reads, 'Reinforces interactive area.'" />
+
+Functional icons **must** meet a contrast ratio of `3:1`. This is calculated by the icon's computed color value compared to the computed background color the input is placed on.
+
+Beyond the scope of normative WCAG guidance, a further consideration is if the icon's meaning has cultural considerations or represents abstract functionality a user may not be familiar with.
+
+##### Decorative icons
+
+Buttons with a text label that **also** have an accompanying icons can consider their icons as decorative. Decorative icons **do not** need to meet WCAG-compliant contrast ratios.
+
+The reason for this is that the text label communicates the input's purpose, provided its computed color value is WCAG compliant. The icon in this circumstance reinforces the text label.
+
+An example of this is a button with both a [trash Octicon](https://primer.style/foundations/icons/trash-16) **and** a text label of "Delete".
+
+<img src={ButtonDecorativeIcon} alt="A wireframe illustration of a button. It only has the GitHub Octocat logo in its center, and no text. A label pointing to the icon reads, 'Communicates purpose.' A label pointing to the button's background and border reads, 'Reinforces interactive area.'" />
+
+Beyond the scope of normative WCAG guidance, a further consideration is if making a decorative icon color contrast compliant is useful for aiding in facilitating understanding, even if it is not required to be.
+
+#### Button border contrast
+
+The contrast of a button's border color compared to the input's background color **does not** need to meet a contrast ratio. Only the [button's text](#button-text-contrast) or [functional icon](#functional-icons) does.
+
+#### Button disabled state contrast
+
+Broadly-speaking, buttons **should not** be disabled until form validation criteria has been met. An example of behavior to avoid is disabling a submit button until a user has filled out all required fields.
+
+If a button needs to be placed in a disabled state, [it **does not** need to be color contrast compliant](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html#inactive-controls). Other WCAG criteria may affect this treatment, however.
+
+Beyond the scope of normative WCAG guidance, a further consideration is there are other ways to visually communicate a disabled button, or to design the system in such a way that a button cannot circumstantially be placed in a disabled state.
+
+While a button's disabled state is exempt from normative compliance, consider that the control may be invisible or unpredictably disappear from the perspective of a user experiencing low vision conditions.
+
+## Patterns that might be confusing
+
+Following are examples of unique GitHub UI that are worth specifically documenting:
+
+### GitHub's search
+
+GitHub's search **visually** looks like an input, but is coded as a button. Use of this approach is discouraged. The following documentation communicates how normative WCAG color contrast rules apply.
+
+<img src={SearchCollapsed} alt="GitHub's search in its collapsed state. It visually looks like a text input with a magnifying glass icon and placeholder text that reads, 'Type forward slash to search.' An accompanying faux submit button is also present, that looks like a command line prompt awaiting input. A label is pointing to the entire width of the search input and indicates that it is a HTML button element. Cropped screenshot." />
+
+This is because it triggers the dialog that displays the full search interface—a user **cannot** directly enter text into a faux-input field. Because of this, it is **treated like a button** in terms of normative color contrast evaluation.
+
+When the search dialog is displayed, the input that a user types in is treated as a text input for color contrast purposes.
+
+<img src={SearchExpanded} alt="GitHub's search in its expanded state. It visually looks like a text input with a magnifying glass icon. Below it are lists of popular owners and repositories, with the prompt to navigate to each entry. A label is pointing to the text input portion of the search input and indicates that it is a HTML input element with an attribute of 'text.' Cropped screenshot." />
+
+## Further reading
+
+Resources, articles, and guidelines that informed this documentation:
+
+### Resources
+
+- [Assistive technology: Operating System and Browser Accessibility Display Modes](https://www.a11yproject.com/posts/operating-system-and-browser-accessibility-display-modes/)
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- [Technique G174: Providing a control with a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient contrast](https://www.w3.org/WAI/WCAG21/Techniques/general/G174)
+
+### Primer
+
+- [Foundations/Color](https://primer.style/foundations/color)
+
+### WCAG
+
+- [SC 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html)
+- [SC 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
+- [SC 1.4.11 Non-text Contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html)
+- [SC 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html)
+- [WCAG 2.1 Technique G174: Providing a control with a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient contrast](https://www.w3.org/WAI/WCAG21/Techniques/general/G174)

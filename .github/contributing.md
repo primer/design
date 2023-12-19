@@ -1,7 +1,7 @@
 # Contributing
 
 ## Creating pages
-To create a new page, just create a new file in the `pages/design` directory. (Note: pages outside of the `design` subdirectory will not be accessible from `primer.style/design`!)
+To create a new page, just create a new file in the `pages/design` directory. (Note: pages outside of the `design` subdirectory will not be accessible from `primer.style`!)
 
 The URL for each page reflects its path within the `pages` directory, so:
 
@@ -26,4 +26,4 @@ You can write pages in any of the following formats:
 | JavaScript | `.js` | You must `export default` a React component
 
 [MDX]: https://mdxjs.com/
-[primer-markdown]: https://github.com/primer/primer/tree/master/modules/primer-markdown#documentation
+[primer-markdown]: https://primer.style/css/components/markdown

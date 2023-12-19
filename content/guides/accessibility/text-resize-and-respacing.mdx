@@ -1,0 +1,94 @@
+---
+title: Text resize and respacing
+description: People on the web should be able to resize text to improve legibility without blocking or obscuring any other part of the UI.
+---
+
+## Overview
+
+Users should be able to resize text and use custom text spacing without text being clipped, truncated, or obscured. In addition, interactive controls should not
+break.
+
+## Why?
+
+People with low-vision may rely on the browser's zoom functionality or update the font-size of a page to read content. Additionally, people with low-vision
+and people with dyslexia may increase text spacing with custom CSS to improve readability.
+
+When sites are built without adequate considerations around responsiveness (for example: setting fixed width and height, using non-relative font sizing), sites may become completely unreadable
+and unusable for some users.
+
+## How to test
+
+### Text resizing
+
+Most modern browsers support full-page zoom, while some also support text-only zoom (for example: Firefox). While WCAG does not specify how text should be resized, it is best practice for your
+page to be readable with full-page zoom and text-only zoom. Aside from using the browser zoom, some users may also resize text through browser font-size setting.
+
+Test your page by using browser zoom with magnification of up to 200%. Confirm that the text content does not overflow, overlap, or become truncated, and that interactive controls still work.
+
+Learn more about resize testing techniques at [TheA11yProject: Resize text](https://www.a11yproject.com/posts/resize-text/).
+
+### Text spacing
+
+Modify text spacing according to the [WCAG text spacing testing guidelines](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html). You can do this
+by changing the CSS using the browser inspector or by using a tool like [Steve Faulkner: text spacing bookmarklet](https://cdpn.io/stevef/debug/YLMqbo).
+
+Confirm that text is contained within the bounds of its container without overlapping or being cutoff.
+
+## Guidelines
+
+### For designers
+
+When creating a design, ensure that font sizes and element sizes are annotated with proper resizing techniques before handing it off to an engineer. There are a variety of techniques that
+can be employed to ensure responsive text and space resizing. This includes avoiding setting fixed height on a container to allow text content to expand, and using relative units such as `em` and `rem` instead of `px`.
+
+Learn more about the techniques at: [WCAG Resize text techniques](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html#techniques) and [WCAG Text spacing techniques](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html#techniques).
+
+### For engineers
+
+As you're developing a feature, make sure to test the page using the resize techniques described in [How to test](#how-to-test). Ensure that [WCAG Resize text techniques](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html#techniques) and
+[WCAG Text spacing techniques](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html#techniques) are employed.
+
+## Examples
+
+<DoDontContainer stacked>
+  <Do>
+    <Caption>Do ensure that the text does not overflow when text spacing is customized</Caption>
+    <img
+      width="600"
+      alt="Screenshot of a GitHub issue description with adjusted text spacing. The issue description is contained within the bounds of the container even with adjusted text spacing "
+      src="https://user-images.githubusercontent.com/16447748/157532517-38ae80a0-f5f8-47ec-b9fc-7d5ba5d27bd2.png"
+    />
+  </Do>
+  <Do>
+    <Caption>
+      Do use the browser zoom functionality to verify that the page is readable and functional, and make adjustments if
+      necessary
+    </Caption>
+    <img
+      width="800"
+      alt="Screenshot of a GitHub markdown toolbar that becomes unusable with overlapping controls at browser magnification of 200%"
+      src="https://user-images.githubusercontent.com/16447748/157534278-daa67dbd-ecfb-4964-ab45-13d6037355a0.png"
+    />
+  </Do>
+  <Dont>
+    <Caption>
+      Don't use a fixed height on text content containers. In the image below, the fixed height of the container causes
+      text to overflow out of bounds.
+    </Caption>
+    <img
+      width="600"
+      alt="Screenshot of a GitHub issue description where the container has a fixed height, causing the authored long description to overflow out of bounds"
+      src="https://user-images.githubusercontent.com/16447748/157533237-a18c1cfb-d962-4349-8cbd-a390174b4ebc.png"
+    />
+  </Dont>
+</DoDontContainer>
+
+## Additional resources
+
+- [DigitalA11y: Understanding SC 1.4.4 Resize text](https://www.digitala11y.com/understanding-sc-1-4-4-resize-text/)
+- [DequeUniversity: 1.4.12 Text Spacing (AA)](https://dequeuniversity.com/resources/wcag2.1/1.4.12-text-spacing)
+
+### Related WCAG guidelines and success criteria
+
+- [1.4.4 Resize text](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html)
+- [1.4.12 Text spacing](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html)

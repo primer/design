@@ -1,0 +1,109 @@
+---
+title: Tab nav
+description: Tab nav contains a set of links that let users navigate between different views in the same context.
+reactId: tab_nav
+railsIds:
+- Primer::Alpha::TabNav
+componentId: tab_nav
+figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=20366-72067&t=kKGC85STU5bcL0zg-4
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {Box} from '@primer/react'
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/228976777-6239662c-0926-4e13-be0d-be1a1eff08ed.png"
+/>
+
+## Usage
+
+A tab nav lets users navigate between related views in the same context. Each "tab" links to a different view that is shown when a user selects a tab.
+
+A tab nav is always a set of links, and each tab should have a unique URL. If you just want tabs that toggle between different views without changing the URL, use [tab panels](/components/tab-panels).
+
+### Best practices
+
+- One of the tabs should be selected by default when the user loads the page.
+- Keep tab labels as short as possible - ideally no more than three words.
+- Avoid overwhelming the user with too many tabs. Instead consider a navigation structure like a [nav list](/components/nav-list) that's meant to handle more links.
+- If a user navigates to a different tab panel, form data should not be automatically saved or submitted. Changes must be explicitly be saved or submitted.
+- Avoid nesting a tab nav within another tab nav view's content.
+- Don't force users to switch between multiple tabs to compare info. Each tab panel should have all of the information a user needs to complete their task.
+- Don't nest buttons or links in the tab title. The tab is already a link or button, so it cannot have a child element that is also a link or button.
+
+<!-- TODO: Insert guidance about when to use UnderlineNav instead of TabNav -->
+<!-- TODO: Add info about unread/unsaved tab status once we create the guidelines propsed in https://github.com/github/primer/issues/1886 -->
+
+## Anatomy
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/231862815-e28a4a38-dfc9-4b7f-ad12-2a312619fcea.png"
+/>
+
+**Links:** A set of links used to switch between views. Each tab should concisely label the view it's associated with.
+
+**View:** The view associated with the active tab.
+
+## Options
+
+<img
+  width="960"
+  role="presentation"
+  src="https://user-images.githubusercontent.com/2313998/229872878-1ad42b2f-28ea-43ff-b09f-02f2edf6b536.png"
+/>
+
+### With related content after the tabs
+
+Content or an action may be shown after the tabs as long as it's something that's relevant to the content in all of the tab panels. For example, a diff is shown after the tabs on a pull request.
+
+However, the related content's element(s) should be a sibling of the element that wraps the tabs, not a child.
+
+### Tabs with counts
+
+A [counter label](/components/counter-label) may be used to show a count after the text label if the tab contains enumerable content that would be helpful for users to know without activating the tab.
+
+### Tabs with icons
+
+An icon may be shown before the tab's text label to help users understand the purpose of the tab. For example, the number of files changed on a pull request's "Files changed" tab.
+
+## Accessibility
+
+Each tab must have a unique text label for assistive technologies like screen readers. Avoid using tabs that only use an icon as their label. If an icon makes the tab easier to understand, consider pairing the icon with a text label.
+
+Tabs may not overflow their container - they must be clickable without requiring the user to horizontally scroll. This is a violation of the [WCAG reflow criteria](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html).
+
+### Labeling counts
+
+If your tab shows a count of items, screen readers will read the number immediately after the tab's label. Consider whether it would sound awkward to the user, and add visually hidden text to help make it easier to understand what the number is for.
+
+For example, "Conversation 10" is confusing because there's no context for what the "10" is referring to. Instead, we can write our markup so screen readers will say "Conversation 10 comments".
+
+If we assume that the `sr-only` class is used to only hide the element visually, that might look something like this:
+
+```html
+<span>
+  Commits
+  <div class="badge">4<span class="sr-only">&nbsp;comments</span>
+</span>
+```
+
+### Keyboard navigation
+
+Each link in the tab nav should be a single Tab stop. The arrow keys should not move focus between tabs or activate tabs.
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="TabNav"/>
+
+## Related links
+
+- [Nav list](/components/nav-list)
+- [Tab panels](/components/tab-panels)
+- [Underline nav](/components/underline-nav)
+

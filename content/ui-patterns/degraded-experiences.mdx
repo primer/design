@@ -1,0 +1,448 @@
+---
+title: Degraded experiences
+description: Ensuring that a page still renders and primary experiences are still available during downtime of optional service dependencies.
+---
+
+import {Box} from '@primer/react'
+
+<Note>The primary audience for this guidance is GitHub staff.</Note>
+
+Using the "blast" analogy for availability incidents, graceful degradation is about reducing the effect of a blast, not about preventing the blast or reducing the blast radius. The "blast" still happens and affects all experiences it did before, but with a reduced effect.
+
+Don't try to conceal or downplay that something is wrong. Communicate that there is a problem and guide users around that problem as much as possible.
+
+## Whether to render an error page instead
+
+If there's an outage that doesn't affect the primary experiences of the page, it's best to render a degraded page to reduce disruptions. Don't attempt to render a page that won't be useful to the user.
+
+GitHub's internal article about graceful degradation describes the difference between primary and secondary experiences:
+
+> **Primary experiences** are those experiences that are essential for the page to be useful to the user. In case of availability incidents, if any of these experiences can't be provided to users, then it makes sense to show an error page instead. For example, on the issue page, the issue title and description are primary experiences.
+
+> **Secondary experiences** are those experiences that are not essential for the page to be useful to the user. Instead, they enrich the page to make it more useful to some users for certain workflows. In case of availability incidents, if any of these experiences can't be provided to users, then it makes sense to show the page without them as the page is still likely useful to most users. For example, on the issue page, the unread notifications indicator is a secondary experience, as are the counters for the number of projects, issues, PR's, etc. in the repository navigation bar.
+
+— [The Hub - Graceful Degradation in the Monolith](https://thehub.github.com/epd/engineering/dev-practicals/graceful-degradation/) (only available to GitHub staff)
+
+## Global system notification
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+If there is a critical system error that will degrade the user experience, show a [flash](/components/flash) banner at the top of the page above the global navigation. Having a global banner helps set the expectation that some parts of the usual UI might be missing or broken. Default to using the `"warning"` variant of the flash.
+
+Explain what's wrong and, if possible, link to a page with more detailed information. For example, if there's a database outage, we could link to the [GitHub status page](https://www.githubstatus.com/).
+
+In addition to a global banner, we should inform users about availability issues in context. The following guidelines discuss how to handle outages in the context of the affected UI.
+
+</div>
+
+<img
+  width="456"
+  alt="Image of a page with a banner at the top explaining an error. The banner says Some content and actions may be unavailable. Try refreshing. If the problem persists, check the GitHub status page, or contact support.''"
+  src="https://github.com/primer/design/assets/2313998/fbc520d4-e02f-4b8e-8281-403f31e8edc1"
+/>
+
+</Box>
+
+## Degraded page content
+
+Before making a decision about how to handle UI with unavailable content, check if it already has guidelines on handling errors or empty states.
+
+### Replacing UI with a message
+
+<img
+  width="960"
+  alt="A screenshot of the Primer organization page. The repositories list is replaced with a message informing the user that the repositories are temporarily unavailable."
+  src="https://github.com/primer/design/assets/2313998/086d37cf-0794-4b87-ba88-e99fb6bcba73"
+/>
+
+We don't want users to think they've suffered data loss. If we know a user created something, don't show a generic "empty state". It's better to explain that it's unavailable, or remove the entire section from the page (including the section's heading). For example, I might think my repositories were deleted if I'm on an organization page (like [https://github.com/primer/](https://github.com/primer/)) and the repositories aren't listed there.
+
+Ideally we can strike a balance and give the user just the right amount of context without overwhelming them with error messages. A page with too many error messages could communicate an unnecessarily reactionary and negative tone. As a general guideline, we suggest limiting pages to 5 or less outage messages.
+
+#### Inline content and smaller elements
+
+Smaller parts of the UI that cannot be accurately rendered but are too important to exclude entirely can often be replaced with a short error message.
+
+<img
+  width="960"
+  alt="Two images: 1. Image of Memex table with populated content cells; 2. Image of Memex table with missing content message in cells"
+  src="https://github.com/primer/design/assets/2313998/9c2feb5b-dbc0-46a8-b184-070bd90484fe"
+/>
+
+By default, replace the affected content with an error message. Show a warning icon before the message to help differentiate it from non-degraded content. The message may be colored with `fg.warning` to draw more attention to it.
+
+Be mindful that rendering too many error messages on the page in `fg.warning` could be jarring and make the page feel broken instead of degraded.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://github.com/primer/design/assets/2313998/cc137926-319f-4518-8454-b06b1ca0ec2c"
+      alt="Image of Memex table with missing content message in cells"
+      width="456"
+    />
+    <Caption>Render an error message in place of the content.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://github.com/primer/design/assets/2313998/efb6a333-b323-417e-a63f-a9e29cf83ab1"
+      alt="Image of Memex table with 'undefined of undefined'"
+      width="456"
+    />
+    <Caption>Don't attempt to render UI that is missing critical information.</Caption>
+  </Dont>
+</DoDontContainer>
+
+#### Panels and larger areas
+
+<img
+  width="960"
+  alt="Two images: 1. comment box; 2. blankslate in place of comment box"
+  src="https://github.com/primer/design/assets/2313998/d3b0f293-64fc-4bd5-94af-041d92090874"
+/>
+
+If the affected area is large enough, replace the affected UI with a [blankstate](/components/blankslate) component that explains why the expected UI isn't there.
+
+##### Blankslate guidance for degraded content
+
+<img
+  width="960"
+  alt="A diagram of a blankslate component used to notify users of unavailable data. The labeled parts are: 'Leading visual (required)', 'Primary text', 'Secondary text (required)', and 'Secondary action'"
+  src="https://github.com/primer/design/assets/2313998/fd1b78f5-4c03-4ce7-9b72-a61c2496c364"
+/>
+
+- **Leading visual**: Use the [alert icon](https://primer.style/design/foundations/icons/alert-24). Default to using `fgColor-muted` as the fill color. Using `fgColor-attention` could be too harsh and over-emphasize the error. Reference: [Primer Primitives functional colors](https://primer.style/primitives/storybook/?path=/story/color-functional-all--all).
+- **Primary text**: You may optionally use the primary text for a title that succinctly describes the error.
+- **Secondary text**: Use the secondary text to describe what's wrong and how (or if) the user can do anything to get around the issue.
+- **Secondary action**: Use the secondary action for any action or link to places with more information.
+
+We have yet to identify a case where a primary action would be appropriate. Theoretically, a primary action may be appropriate if it initiates an action that will resolve the problem.
+
+For help with writing error copy for the blankslate component, see the following parts of the empty state guidelines:
+
+- [Error state content and copy](/ui-patterns/empty-states#error-states)
+- [Empty state primary text](/ui-patterns/empty-states#primary-text)
+- [Empty state secondary text](/ui-patterns/empty-states#for-errors)
+
+For more information about the blankslate component, reference the [blankslate interface guidelines](/components/blankslate).
+
+#### Dialogs (modal and non-modal)
+
+If the content of a dialog is not critical and cannot be rendered, prevent the dialog from even being opened. For non-critical dialogs that appear on hover, remove the hover interaction. For non-critical dialogs that appear on click, remove the button that triggers the dialog. For example, if a user's profile data cannot is unavailable, don't show a hovercard when their avatar is hovered.
+
+If the dialog is a core part of a workflow, replace the content of the dialog with a message explaining why the expected UI isn't there. If you're using a dialog component that supports error states (for example, [select panel](/components/select-menu#select-panel)), follow the component's guidelines for rendering error messages.
+
+<img
+  width="960"
+  alt="Two images: 1. Label or assignee SelectPanel 2. A degraded versin of that"
+  src="https://github.com/primer/design/assets/2313998/653cc04b-e88e-4235-8c04-47b8dba57351"
+/>
+
+If you're not using a component that supports error states, replace the content of the dialog with a [blankstate](/components/blankslate) component explaining why the expected UI isn't there.
+
+<img
+  width="960"
+  alt="Two images: 1. 'Edit details' modal that appears when you edit a column in a Memex project board 2. A degraded versin of that"
+  src="https://github.com/primer/design/assets/2313998/bde4367e-8881-41f5-9d06-a2ea5cd79fd6"
+/>
+<img
+  width="960"
+  alt="Two images: 1. Label or assignee SelectPanel 2. A degraded versin of that"
+  src="https://github.com/primer/design/assets/2313998/653cc04b-e88e-4235-8c04-47b8dba57351"
+/>
+
+If you're not using a component that supports error states, replace the content of the dialog with a [blankslate](/components/blankslate) component explaining why the expected UI isn't there.
+
+<img
+  width="960"
+  alt="Two images: 1. 'Edit details' modal that appears when you edit a column in a Memex project board 2. A degraded versin of that"
+  src="https://github.com/primer/design/assets/2313998/bde4367e-8881-41f5-9d06-a2ea5cd79fd6"
+/>
+
+### Removing UI
+
+Be mindful when choosing to remove affected UI without explanation, as this could cause confusion for users about whether that part of the UI is hidden due to an error, or if it's been permanently removed.
+
+However, it is acceptable to remove UI that's not critical to core workflows and render the rest of the page without that UI. For example: choosing to hide unavailable activity indicators.
+
+Examples of UI that we do not recommend removing:
+
+- The comment box on issues and pull requests
+- The "Request changes" button in the pull request "Changes" tab
+- Submit buttons on forms
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+#### Handling unavailable counts
+
+When the data required to calculate a count is unavailable, default to hiding the number. If the count is shown inside of an interactive element, a tooltip may be displayed on focus and hover to explain the missing count.
+
+</div>
+
+<img
+  width="456"
+  alt="Two images of repo tabs: 1. Tabs have counts; 2. Tabs don't have counts;"
+  src="https://github.com/primer/design/assets/2313998/0f368a1d-78fa-4ec4-92ab-7f587fb93a7e"
+/>
+
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+#### Handling activity indicators
+
+When the data is unavailable to determine whether to show an activity indicator (most commonly used for notification badges), default to hiding the indicator.
+
+</div>
+
+<img
+  width="456"
+  alt="Image of the notification link button in the global nav without a badge"
+  src="https://github.com/primer/design/assets/2313998/4f39547c-749b-4e44-a15f-05d18a1dc0c1"
+/>
+
+</Box>
+
+## Degraded navigation
+
+Some links can be static (for example, `https://github.com/`), but many links are made from dynamic data (for example: `https://github.com/{org}/{repo}/issues/{issue-number}`).
+
+When a dynamic link in the navigation is not yet available, fall back to not rendering it.
+
+If the page is in a state where we're not sure if a link is available, the navigation item should be put in a loading state. Refer to the pattern guidelines for [loading](/ui-patterns/loading) for more information.
+
+### Global navigation header
+
+<img
+  width="960"
+  alt="4 global navigations - 1 in default state, 3 in various degraded states"
+  src="https://github.com/primer/design/assets/2313998/87795a92-1c25-479b-bdf2-2ef4b43fcae7"
+/>
+
+Never suppress rendering of the global navigation header. Rendering a page without global navigation header could make a user feel stuck. Instead, suppress rendering of individual navigation items affected by a system error.
+
+Most of the links in the global navigation header are static and will not need to be degraded anyway.
+
+### Global navigation side sheets
+
+The left and right global navigation [side sheets](/components/dialog#side-sheets) lazy-load some of their content when the nav is first opened. For example, repos and teams in the left global navigation side sheet.
+
+If the user can see a loading state before a failure, inform them that there was a failure. If the user does not see a loading state before a failure, you may skip rendering the affected links. See the interface guidelines about [loading patterns](/ui-patterns/loading#navigation) for more information about how to handle navigation loading states.
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+If we know specifically what groups couldn't be loaded, provide those details in the error message. Otherwise, show a generic error message.
+
+</div>
+
+<img
+  width="456"
+  alt="2 images: 1. Error banner with details about what couldn't load; 2. Generic error banner"
+  src="https://github.com/primer/design/assets/2313998/a664acf4-321a-4359-8749-51f256d76ac5"
+/>
+
+</Box>
+
+#### Degraded side sheet group actions
+
+<img
+  width="960"
+  alt="2 images: 1. Default left side sheet; 2. Search icons and show more buttons/links are not rendered"
+  src="https://github.com/primer/react/assets/2313998/f14940ed-a17e-45cb-a507-4113abb21311"
+/>
+
+If the data to render the "Show more" link or button at the bottom of a nav list group is unavailable, just don't render it.
+
+If the data to render the search button in a nav list group is unavailable, just don't render it.
+
+### Page navigation
+
+<img
+  width="960"
+  alt="Examples of a degraded page navs"
+  src="https://github.com/primer/react/assets/2313998/0069f1f5-9cfa-43b3-80ae-46771a3aa8ed"
+/>
+
+There may be cases where a page has to degrade it's own navigation. If the data required to render a page navigation link is unavailable, don't render the navigation link.
+
+If data required to render notification badges or counts is not available, don't render the badge. This was also mentioned above in the [Handling unavailable counts](#handling-unavailable-counts) section.
+
+Common types of page navigation include [underline nav](/components/underline-nav) (for example, a repo page) and [sidebar navigation](/components/nav-list) (for example, settings pages).
+
+## Degraded interactions
+
+### Handling non-functional buttons
+
+<img
+  width="960"
+  alt="Decision tree for how to handle a non-functional button. Could removing the button be disorienting? If no, don't render the button. If yes: does it respond to a hover or click? If yes, use an inactive button. If no, use a disabled button."
+  src="https://github.com/primer/react/assets/2313998/89a15946-ecc8-498b-a9e1-4802c3bc49b1"
+/>
+
+#### Removing a non-functional button
+
+Default to removing non-functional buttons from the UI. Don't remove buttons that are critical to a user's workflow—it may be disorienting.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="456"
+      alt="Comment reaction button hidden"
+      src="https://github.com/primer/design/assets/2313998/c1ff17ee-95ae-45a3-8978-77477c0e1a71"
+    />
+    <Caption>Hide non-critical buttons.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="456"
+      alt="Request changes button hidden"
+      src="https://github.com/primer/design/assets/2313998/5951427a-2c49-4ea8-a7c2-14b28a43ad30"
+    />
+    <Caption>Don't hide buttons that part of core workflows.</Caption>
+  </Dont>
+</DoDontContainer>
+
+#### Indicating a button is non-functional without disabling it
+
+If a button is too critical to be omitted and responds to user input by showing more info about why it's non-functional, use an inactive button.
+
+For more information, see the the [inactive button guidelines](/components/button#inactive)
+
+### Handling action lists and menus with non-functional items
+
+The action list and action menu components provide an inactive state for their items. See their documentation pages for more information:
+
+- [Inactive action list items](/components/action-list#inactive-items)
+- [Inactive action menu items](/components/action-menu#inactive-items)
+
+### Handling degraded forms
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+<div>
+
+#### Failed submission
+
+If a form's data cannot be saved, don't remove or disable the form fields or the submit button. Instead, inform the user that the form is in a read-only state and cannot be saved. If they still try and submit the form, show a dialog explaining that the form cannot be saved.
+
+</div>
+
+<img
+  width="456"
+  alt="Populated form that cannot be submitted"
+  src="https://github.com/primer/react/assets/2313998/d0494ff2-dea0-4286-b7d6-f6a3d0f6d1db"
+/>
+
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+#### No form data is available
+
+If none of the form data cannot even be read, remove the form entirely and replace it with a message explaining why the form is unavailable.
+
+</div>
+
+<img
+  width="456"
+  alt="An error message in replacing a form"
+  src="https://github.com/primer/design/assets/2313998/c15954b0-f64e-4fae-94f5-1c2d474b1e06"
+/>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+#### Form data is partially available
+
+If only some of the form field data cannot be read, disable the affected fields and show an error message below those fields explaining that the data is unavailable. Disabling the fields adds another hint that something is wrong, and the field data is not actually empty.
+
+</div>
+
+<img
+  width="456"
+  alt="A form with some fields disabled. Disabled fields have error messages."
+  src="https://github.com/primer/design/assets/2313998/a869762c-33f5-4cf9-bd95-d76d776f233c"
+/>
+</Box>
+
+## Waiting for a timeout
+
+There could be cases where we're waiting for data to load before determining that it's unavailable. In this case, refer to Primer's general [loading state guidance](/ui-patterns/loading). If the component has its own loading state guidelines, refer to those.
+
+## CLI
+
+It's confusing and frustrating when a command silently fails. If a command fails, immediately return an error message or wait for a timeout to expire and then return an error message.
+
+## Accessibility
+
+Never disable an interactive control that is non-functional due to availability issues.
+
+A common (but inaccessible) pattern is to show a tooltip with more information when a user hovers an error message or a disabled button. However, tooltips may only be used on focusable elements.
+
+## Related links
+
+- [Blankslate](/components/blankslate)
+- [Dialog](/components/dialog)
+- [Tooltip](/components/tooltip)
+- [Loading](/ui-patterns/loading)
+- [Messaging](/ui-patterns/messaging)
+- [Empty states](/ui-patterns/empty-states)

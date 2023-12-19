@@ -2,7 +2,7 @@
 
 ## Guidelines
 
-###  Principles
+### Principles
 
 * Accessibility: (Inclusive) consider a11y in design early, list of tools
 * Safety: designing for safety
@@ -37,7 +37,7 @@
 * Creating
 * Feature onboarding
 * Saving
-* Seaching and filtering
+* Searching and filtering
 
 ### Communication
 

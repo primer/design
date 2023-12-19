@@ -1,0 +1,31 @@
+---
+title: Animations
+description: Animations are reusable animation classes that you can use to emphasize an element. All of these animations will animate if you toggle their visibility using the "Toggle" button.
+---
+
+<StorybookEmbed
+  framework="css"
+  stories={[
+    {id: 'utilities-animation--fade-in'},
+    {id: 'utilities-animation--fade-out'},
+    {id: 'utilities-animation--fade-up'},
+    {id: 'utilities-animation--fade-down'},
+    {id: 'utilities-animation--scale-in'},
+    {id: 'utilities-animation--grow-x'},
+    {id: 'utilities-animation--pulse'},
+    {id: 'utilities-animation--hover'},
+    {id: 'utilities-animation--rotate'}
+  ]}
+/>
+
+| Animation | Description                                                                                                                                                                                                         |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Fade in   | The `.anim-fade-in` class is used to fade in an element on the page. This will run once when the element is revealed.                                                                                               |
+| Fade out  | The `.anim-fade-out` class is used to fade out an element on the page. This will run once when the element is revealed.                                                                                             |
+| Fade up   | The `.anim-fade-up` class is used to reveal an element on the page by sliding it up from below the fold. You should use this in a container with `overflow: hidden;` or on the bottom of the page.                  |
+| Fade down | The `.anim-fade-down` class is used to slide an element down hiding it. You should use this in a container with `overflow: hidden;` or on the bottom of the page.                                                   |
+| Scale in  | The `.anim-scale-in` class will scale the element in. This is useful on menus when you want them to appear more friendly.                                                                                           |
+| Grow x    | The `.anim-grow-x` class will grow an element width from 0-:100: real quick.                                                                                                                                        |
+| Pulse     | The `.anim-pulse` class will pulse an element infinitely.                                                                                                                                                           |
+| Hover     | The `.anim-hover-grow` class will increase the scale of the element upon hover.                                                                                                                                     |
+| Rotate    | The `.anim-rotate` class will rotate the element indefinitely around the coordinate specified by `transform-origin`. Most elements have a default of `transform-origin: 50% 50%` and will rotate around the center. |

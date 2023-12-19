@@ -1,0 +1,38 @@
+---
+title: Sub nav
+description: Use the sub nav component for navigation on a dashboard-type interface with another set of navigation components above it.
+reactId: sub_nav
+cssId: subnav
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<Note variant="warning">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Guidelines for this component are in progress</Text>
+  <Text>Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link></Text>
+</Note>
+
+<br />
+
+<img
+  src="https://github.com/primer/design/assets/586552/f4f48662-4269-4067-b1fb-b56e24ba8e4d"
+  role="presentation"
+  width="960"
+  alt="Subnav component"
+/>
+
+## Usage
+
+Use the subnav component for navigation on a dashboard-type interface with another set of navigation components above it. This helps distinguish navigation hierarchy.
+
+Make sure to properly label your subnav with an aria-label to provide context about the type of navigation contained in subnav.
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="SubNav"/>

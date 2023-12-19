@@ -1,0 +1,158 @@
+---
+title: Descriptive buttons
+description: Labeling buttons properly let's users know what will happen when they activate the control, lessens errors, and increases confidence.
+---
+
+## Overview
+
+In order for a button’s purpose to be clear to all users, it must have a meaningful name.
+
+### What is a meaningful name?
+
+A meaningful name describes the button’s purpose: the action that occurs when the button is activated (for example: removing a list item), and the action’s associated context (for example: the specific item to be removed). To avoid unnecessary verbosity, button names should be as succinct as possible while still being descriptive and unique.
+
+Refer to [Identifying GitHub comments](#identifying-github-comments) below for an example of a succinct, unique name. To explore how meaningful names can be set in code, refer to the [examples](#examples) below.
+
+### Why is a meaningful name necessary?
+
+Clear and consistent labels set user expectations for button actions, giving users confidence that activating a button will have the outcome they expect.
+
+Screen readers (for example: VoiceOver) provide overlays to enable users to jump to specific types of elements, including buttons. Elements are listed by their names. When buttons don’t have meaningful names, it’s not possible to determine which action will be performed when selecting them from the list.
+
+## How to test names
+
+When reviewing buttons on a page, ensure the following are true:
+
+- Each button has a non-empty name. Refer to [ACT 97a4e1: Button has non-empty accessible name](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/).
+- When buttons perform the same action, they have the same name.
+- When buttons perform different actions, they don’t have the same name.
+
+## Guidelines
+
+### For designers
+
+- When including an unlabeled, icon-only button in a design, recommend an accessible name.
+- When including multiple buttons that peform the same function in a design, use the same label for each.
+
+### For engineers
+
+- When a button doesn’t have a visible label (for example: an [IconButton](https://primer.style/view-components/components/iconbutton)), provide an accessible name. Refer to [ARIA 14: Using `aria-label` to provide an invisible label where a visible label cannot be used](https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA14).
+- Because `aria-label` doesn’t _supplement_ visible labels but rather _supplants_ them, when a button has a visible label, include that label in its accessible name. A good practice is to have the text of the label at the start of the name.
+- Don’t use `aria-label` when its content would be identical to a button’s visible label.
+- Don’t reuse the same (visible) label or (invisible) name for buttons which perform different actions.
+
+## Examples
+
+<DoDontContainer>
+  <Do>
+    <Code className="language-html">{`<button type="button">OK</button>`}</Code>
+    <Caption>The button does not have a redundant `aria-label` attribute.</Caption>
+  </Do>
+  <Dont>
+    <Code className="language-html">{`<button type="button" aria-label="OK">OK</button>`}</Code>
+    <Caption>The button has a redundant and unnecessary `aria-label` attribute.</Caption>
+  </Dont>
+</DoDontContainer>
+
+<DoDontContainer>
+  <Do>
+    <Code className="language-html">
+      {`<button type="button" aria-label="smockle’s profile"><img alt="smockle" src="https://avatars.githubusercontent.com/u/3104489?s=32"></button>`}
+    </Code>
+    <Caption>The button should have an accessible name.</Caption>
+  </Do>
+  <Dont>
+    <Code className="language-html">
+      {`<button type="button"><img src="https://avatars.githubusercontent.com/u/3104489?s=32"></button>`}
+    </Code>
+    <Caption>The button should not be missing a name.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Meaningful and unique names
+
+Each button in the example below has a unique name which describes its action (“Remove”) and its action’s context (for example: “'Apples'”).
+
+```HTML
+<script>
+  function removeItem(event) {
+    const item = event.target.closest("li");
+    item?.parentNode.removeChild(item);
+  }
+</script>
+<ul>
+  <li>Apples <button onclick="removeItem(event)" aria-label="Remove 'Apples'" type="button">❌</button></li>
+  <li>Bananas <button onclick="removeItem(event)" aria-label="Remove 'Bananas'" type="button">❌</button></li>
+  <li>Cantaloupes <button onclick="removeItem(event)" aria-label="Remove 'Cantaloupes'" type="button">❌</button></li>
+</ul>
+```
+
+Although each button in the example below performs a different action, they all have the same name: ❌ (“cross mark”). This name does not describe the action that occurs when a given button is activated, nor does it describe the action’s context.
+
+```HTML
+<script>
+  function removeItem(event) {
+    const item = event.target.closest("li");
+    item?.parentNode.removeChild(item);
+  }
+</script>
+<ul>
+  <li>Apples <button onclick="removeItem(event)" type="button">❌</button></li>
+  <li>Bananas <button onclick="removeItem(event)" type="button">❌</button></li>
+  <li>Cantaloupes <button onclick="removeItem(event)" type="button">❌</button></li>
+</ul>
+```
+
+## Additional resources
+
+### Terminology: “label” vs “name”
+
+When you review the Web Content Accessibility Guidelines (WCAG) below, you’ll encounter the terms “label” and “name”. Here are the definitions given for each:
+
+- [label](https://www.w3.org/TR/WCAG22/#dfn-labels):
+
+  > text or other component with a text alternative that is presented to a user to identify a component within Web content
+
+- [name](https://www.w3.org/TR/WCAG22/#dfn-name):
+  > text by which software can identify a component within Web content to the user (Note: This is unrelated to the `name` attribute in HTML.)
+
+The name may be hidden and only exposed by assistive technology, whereas a label is presented to all users. In many (but not all) cases, the label and the name are the same.
+
+### Related WCAG guidelines and success criteria
+
+- [SC 1.3.6 — Identify Purpose](https://www.w3.org/TR/WCAG22/#identify-purpose):
+
+  > …the purpose of user interface components…can be programmatically determined.
+
+- [SC 2.4.4 — Link Purpose (In Context)](https://www.w3.org/TR/WCAG22/#link-purpose-in-context):
+
+  > The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context…
+
+- [SC 2.4.9 — Link Purpose (Link Only)](https://www.w3.org/TR/WCAG22/#link-purpose-link-only):
+
+  > A mechanism is available to allow the purpose of each link to be identified from link text alone…
+
+- [SC 2.5.3 — Label in Name](https://www.w3.org/TR/WCAG22/#label-in-name):
+
+  > For user interface components with labels that include text…the name contains the text that is presented visually.
+
+- [SC 3.2.4 — Consistent Identification](https://www.w3.org/TR/WCAG22/#consistent-identification):
+
+  > Components that have the same functionality within a set of Web pages are identified consistently.
+
+- [SC 4.1.2 — Name, Role, Value](https://www.w3.org/TR/WCAG22/#name-role-value):
+
+  > For all user interface components…the name and role can be programmatically determined…
+
+### Related patterns and shared code
+
+#### Identifying GitHub comments
+
+When a button is associated with a specific comment, a comment indentifier should be included within the button’s name. [`reaction_target_identifier`](https://github.com/github/github/blob/016b875e0542c0781a3c6f5ed27c58c472cc6717/app/components/reactions/reactions_component.rb#L47-L51) (only accessible to GitHub staff) uses [`aria-label-date`](https://github.com/github/github/blob/9bea7b7d0d120df6b9b864fda39fe374479acc0d/app/components/application_component.rb#L68-L78) (only accessible to GitHub staff) to generate a concise, unique comment identifier.
+
+For example, `reaction_target_identifier` could be used in a reply-to-comment button’s name. In all cases, `reaction_target_identifier` adds the comment’s author and timestamp; conditionally, as needed, `reaction_target_identifier` adds progressively-verbose date information:
+
+> - Reply to benjiallen, 2:45PM today
+> - Reply to benjiallen, 2:45PM yesterday
+> - Reply to benjiallen, 2:45PM on November 19
+> - Reply to benjiallen, 2:45PM on November 19, 2021

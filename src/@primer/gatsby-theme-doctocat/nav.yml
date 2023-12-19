@@ -1,45 +1,328 @@
+- title: Guides
+  url: /guides
+  children:
+    - title: Introduction
+      url: /guides/introduction
+    - title: Figma
+      url: /guides/figma
+      children:
+        - title: Introduction
+          url: /guides/figma
+        - title: Getting started
+          url: /guides/figma/getting-started
+        - title: How to contribute
+          url: /guides/figma/contribute
+    - title: Development
+      url: /guides/development
+      children:
+        - title: React
+          url: /guides/development/react
+        - title: Rails
+          url: /guides/development/rails
+    - title: Component lifecycle
+      url: /guides/component-lifecycle
+    - title: Component status
+      url: /guides/status
+    - title: Accessibility
+      url: /guides/accessibility
+      children:
+        - title: Accessibility at GitHub
+          url: /guides/accessibility/accessibility-at-github
+        - title: Guidelines
+          url: /guides/accessibility/guidelines
+        - title: Tools
+          url: /guides/accessibility/tools
+        - title: Alternative text for images
+          url: /guides/accessibility/alternative-text-for-images
+        - title: Assistive technology announcements
+          url: /guides/accessibility/announcements
+        - title: Descriptive buttons
+          url: /guides/accessibility/descriptive-buttons
+        - title: Focus management
+          url: /guides/accessibility/focus-management
+        - title: Headings
+          url: /guides/accessibility/headings
+        - title: Links
+          url: /guides/accessibility/links
+        - title: Semantic HTML
+          url: /guides/accessibility/semantic-html
+        - title: Text resize and respacing
+          url: /guides/accessibility/text-resize-and-respacing
+        - title: Tooltips
+          url: /guides/accessibility/tooltip-alternatives
+    - title: Contribute
+      url: /guides/contribute
+      children:
+        - title: How to contribute
+          url: /guides/contribute/how-to-contribute
+        - title: Design
+          url: /guides/contribute/design
+        - title: Documentation
+          url: /guides/contribute/documentation
+        - title: Handling new patterns
+          url: /guides/contribute/handling-new-patterns
+        - title: Adding new components
+          url: /guides/contribute/adding-new-components
 - title: Foundations
   url: /foundations
   children:
     - title: Color
       url: /foundations/color
+    - title: Responsive
+      url: /foundations/responsive
+    - title: CSS utilities
+      url: /foundations/css-utilities
+      children:
+        - title: Getting started
+          url: /foundations/css-utilities/getting-started
+        - title: Animations
+          url: /foundations/css-utilities/animations
+        - title: Borders
+          url: /foundations/css-utilities/borders
+        - title: Box shadow
+          url: /foundations/css-utilities/box-shadow
+        - title: Colors
+          url: /foundations/css-utilities/colors
+        - title: Details
+          url: /foundations/css-utilities/details
+        - title: Flexbox
+          url: /foundations/css-utilities/flexbox
+        - title: Grid
+          url: /foundations/css-utilities/grid
+        - title: Layout
+          url: /foundations/css-utilities/layout
+        - title: Margin
+          url: /foundations/css-utilities/margin
+        - title: Padding
+          url: /foundations/css-utilities/padding
+        - title: Typography
+          url: /foundations/css-utilities/typography
+    - title: Layout
+      url: /foundations/layout
     - title: Typography
       url: /foundations/typography
+    - title: Icons and visuals
+      url: /foundations/icons
+      children:
+        - title: Octicons
+          url: /foundations/icons
+        - title: Octovisuals
+          url: /foundations/icons/octovisuals
+        - title: Design guidelines
+          url: /foundations/icons/design-guidelines
     - title: Content
       url: /foundations/content
-- title: Accessibility
-  url: /accessibility/accessibility-at-github
-  children:
-    - title: Accessibility at GitHub
-      url: /accessibility/accessibility-at-github
-    - title: Guidelines
-      url: /accessibility/guidelines
-    - title: Tools
-      url: /accessibility/tools
 - title: UI patterns
-  url: /ui-patterns
   children:
-    - title: Button usage
-      url: /ui-patterns/button-usage
+    - title: Data visualization
+      url: /ui-patterns/data-visualization
+    - title: Degraded experiences
+      url: /ui-patterns/degraded-experiences
     - title: Empty states
       url: /ui-patterns/empty-states
     - title: Feature onboarding
       url: /ui-patterns/feature-onboarding
+    - title: Forms
+      url: /ui-patterns/forms/overview
+    - title: Loading
+      url: /ui-patterns/loading
     - title: Messaging
       url: /ui-patterns/messaging
     - title: Progressive disclosure
-      url: /ui-patterns/progressive-disclosure    
+      url: /ui-patterns/progressive-disclosure
+    - title: Saving
+      url: /ui-patterns/saving
 - title: Components
   url: /components
   children:
+    - title: Action bar
+      url: /components/action-bar
     - title: Action list
       url: /components/action-list
+    - title: Action menu
+      url: /components/action-menu
+    - title: Anchored overlay
+      url: /components/anchored-overlay
     - title: Autocomplete
       url: /components/autocomplete
-    - title: Tokens
-      url: /components/tokens
-- title: Design tools
-  url: /tools
+    - title: Avatar
+      url: /components/avatar
+    - title: Avatar pair
+      url: /components/avatar-pair
+    - title: Avatar stack
+      url: /components/avatar-stack
+    - title: Blankslate
+      url: /components/blankslate
+    - title: Border box
+      url: /components/border-box
+    - title: Box
+      url: /components/box
+    - title: Branch name
+      url: /components/branch-name
+    - title: Breadcrumbs
+      url: /components/breadcrumbs
+    - title: Button
+      url: /components/button
+    - title: Button group
+      url: /components/button-group
+    - title: Checkbox
+      url: /components/checkbox
+    - title: Checkbox group
+      url: /components/checkbox-group
+    - title: Circle badge
+      url: /components/circle-badge
+    - title: Clipboard copy
+      url: /components/clipboard-copy
+    - title: Close button
+      url: /components/close-button
+    - title: Comment box
+      url: /components/comment-box
+    - title: Counter label
+      url: /components/counter-label
+    - title: Data table
+      url: /components/data-table
+    - title: Details
+      url: /components/details
+    - title: Dialog
+      url: /components/dialog
+    - title: Flash
+      url: /components/flash
+    - title: Form control
+      url: /components/form-control
+    - title: Header
+      url: /components/header
+    - title: Heading
+      url: /components/heading
+    - title: Hidden text expander
+      url: /components/hidden-text-expander
+    - title: Icon
+      url: /components/icon
+    - title: Icon button
+      url: /components/icon-button
+    - title: Image
+      url: /components/image
+    - title: Image crop
+      url: /components/image-crop
+    - title: Label
+      url: /components/label
+    - title: Label group
+      url: /components/label-group
+    - title: Layout
+      url: /components/layout
+    - title: Link
+      url: /components/link
+    - title: Markdown
+      url: /components/markdown
+    - title: Nav list
+      url: /components/nav-list
+    - title: Octicon symbols
+      url: /components/octicon-symbols
+    - title: Overlay
+      url: /components/overlay
+    - title: Pagehead
+      url: /components/pagehead
+    - title: Page header
+      url: /components/page-header
+    - title: Page layout
+      url: /components/page-layout
+    - title: Pagination
+      url: /components/pagination
+    - title: Popover
+      url: /components/popover
+    - title: Pointer box
+      url: /components/pointer-box
+    - title: Progress bar
+      url: /components/progress-bar
+    - title: Radio
+      url: /components/radio
+    - title: Radio group
+      url: /components/radio-group
+    - title: Relative time
+      url: /components/relative-time
+    - title: Segmented control
+      url: /components/segmented-control
+    - title: Select
+      url: /components/select
+    - title: Select panel
+      url: /components/selectpanel
+    - title: Spinner
+      url: /components/spinner
+    - title: Split page layout
+      url: /components/split-page-layout
+    - title: State label
+      url: /components/state-label
+    - title: Subnav
+      url: /components/subnav
+    - title: Tab container
+      url: /components/tab-container
+    - title: Tab nav
+      url: /components/tab-nav
+    - title: Tab panels
+      url: /components/tab-panels
+    - title: Text
+      url: /components/text
+    - title: Text input
+      url: /components/text-input
+    - title: Text input with tokens
+      url: /components/text-input-with-tokens
+    - title: Textarea
+      url: /components/textarea
+    - title: Timeline
+      url: /components/timeline
+    - title: Toast
+      url: /components/toast
+    - title: Toggle switch
+      url: /components/toggle-switch
+    - title: Token
+      url: /components/token
+    - title: Tooltip
+      url: /components/tooltip
+    - title: Tree view
+      url: /components/tree-view
+    - title: Truncate
+      url: /components/truncate
+    - title: Underline nav
+      url: /components/underline-nav
+    - title: Underline panels
+      url: /components/underline-panels
+- title: Deprecated components
   children:
-    - title: Figma
-      url: /tools/figma
+    - title: Box overlay
+      url: /deprecated-components/box-overlay
+    - title: Dropdown
+      url: /deprecated-components/dropdown
+    - title: Menu
+      url: /deprecated-components/menu
+    - title: Select menu
+      url: /deprecated-components/select-menu
+- title: GitHub staff
+  url: /github-staff
+  children:
+    - title: GitHub shared components
+      url: /github-staff/github-shared-components
+- title: Native
+  url: /native
+  children:
+    - title: CLI
+      url: /native/cli
+      children:
+        - title: Getting started
+          url: /native/cli/getting-started
+        - title: Foundations
+          url: /native/cli/foundations
+        - title: Components
+          url: /native/cli/components
+    - title: Desktop
+      url: /native/desktop
+      children:
+        - title: Getting started
+          url: /native/desktop/getting-started
+        - title: Foundations
+          url: /native/desktop/foundations
+    - title: Mobile
+      url: /native/mobile
+      children:
+        - title: Platforms
+          url: /native/mobile/platforms
+        - title: Foundations
+          url: /native/mobile/foundations

@@ -1,0 +1,39 @@
+---
+title: Heading
+description: Heading defines the hierarchical structure and importance of the content they contain.
+reactId: heading
+railsIds:
+- Primer::Beta::Heading
+figmaId: heading
+rails: https://primer.style/view-components/components/beta/heading
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  width="960"
+  alt="An image displaying each header from h1 to h6"
+  src="https://user-images.githubusercontent.com/586552/217705129-6422d0c0-dacc-4c98-90c0-9380fb001e83.png"
+/>
+
+## Usage
+
+Headings are used to structure the content on the page, with each heading representing a different level of importance. It is recommended to use headings in a logical manner to create a clear hierarchy and improve accessibility.
+
+- Heading should be used to communicate page organization and hierarchy.
+- Use heading as the title of a section or sub section.
+- Do not use heading for styling alone. For simply styling text, use text with relevant styling.
+
+The heading component will render an html h2 tag without any default styling.
+
+## Accessibility
+
+While sighted users rely on visual cues such as font size changes to determine what the heading is, assistive technology users rely on programatic cues that can be read out. When text on a page is visually implied to be a heading, ensure that it is coded as a heading. Additionally, visually implied heading level and coded heading level should be consistent. See [WCAG success criteria: 1.3.1: Info and Relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html).
+
+Headings allow assistive technology users to quickly navigate around a page. Navigation to text that is not meant to be a heading can be a confusing experience. [Learn more about best heading practices (WAI Headings)](https://www.w3.org/WAI/tutorials/page-structure/headings/).
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Heading"/>

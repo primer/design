@@ -1,0 +1,55 @@
+---
+title: State label
+description: State label is used for rendering the status of an item.
+reactId: state_label
+railsIds:
+- Primer::Beta::State
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Box, Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+## Usage
+Use state label to show the status of an issue or pull request.
+
+## Anatomy
+<img
+  width="960"
+  alt="State label showing an open and merged label"
+  src="https://github.com/primer/design/assets/586552/00cadd5f-67df-491a-b4a4-629a25a10188"
+/>
+
+### Types and states
+
+The State label variant can be used for issues, which uses the issues icon, or pull requests, which uses the pull request icon. 
+
+Status for the State label can be one of the following options: draft (gray), open (green), closed (purple for issues and red for pull requests), or merged (purple, used for pull requests
+ only).
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <img
+    width="369"
+    role="presentation"
+    alt="State label displayed for issues and pull requests"
+    src="https://github.com/primer/design/assets/586552/d779f1ac-e004-4ef7-8c6a-4249b3e394ea"
+  />
+  <img
+    width="400"
+    role="presentation"
+    alt="State labels displayed in all status variations, including draft, open, closed, and merged."
+    src="https://github.com/primer/design/assets/586552/b835e654-9414-462a-8488-af6d447b372c"
+  />
+</Box>
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="StateLabel"/>

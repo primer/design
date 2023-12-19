@@ -1,0 +1,86 @@
+---
+title: Blankslate
+description: Blankslate is used as placeholder to tell users why content is missing.
+componentId: blankslate
+figmaId: blankslate
+reactId: blankslate
+railsIds:
+  - Primer::Beta::Blankslate
+  - Primer::BlankslateComponent
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+## Anatomy
+
+The blankslate component is made up of several elements that work together to inform the user about a feature and how to proceed forward. Below are the different elements of the component and how to modify them.
+
+![Blankslate anatomy](https://github.com/primer/design/assets/813754/3e5f451c-6b2e-411a-b146-79483b14dbfb)
+
+### Graphic
+
+The graphic can bring delight, preview an interface element, or represent the goal of the feature. Graphics should be placed intentionally and with thought about the intention of the content. Graphics also differ in meaning and appeal to the user, which is why the Blankslate component has multiple variations. These variations are outlined later on this page.
+
+### Primary Text
+
+Use primary text to explain the purpose of the empty state, help users feel comfortable to engage with the content, or begin a feature flow. Primary text should sound welcoming, human, and convey the intention of the feature.
+
+### Secondary text
+
+This optional text is used to inform the user about the feature in more detail. Secondary text should be brief and non-redundant if possible. From the text, users should be able to understand the general purpose of the feature and how it may help them accomplish a goal.
+
+### Primary action
+
+Blankslates can and are encouraged to use one primary action. This button should lead to a feature or component creation flow. Button copy should be kept brief and descriptive. If a button requires further specification, consider adding an Octicon.
+
+### Secondary action
+
+Secondary actions are optional and are represented by a text link located below the primary action button. A secondary action is used to direct a user to additional content about the feature. This might look like `Learn more about X` or "`Check out the guide on X`.
+
+### Border
+
+The border is invisible by default, but can be added to help define the structure of the Blankslate component when needed. This can be particularly helpful in page layouts where the Blankslate is not the only content on the screen. For implementation, check out the [Primer CSS Blankslate component](https://primer.style/css/components/blankslate#add-border).
+
+## Variations
+
+Empty states have multiple variations that can be used in different contexts.
+
+### GitHub marketing icons
+
+[GitHub marketing icons](https://ghicons.github.com/) can be used to represent the feature where the Blankslate is found. Blankslates should default to using a GitHub marketing icon for graphic elements.
+
+![GH Icon Blankslate](https://github.com/primer/design/assets/813754/c2604fab-4fd2-4505-9399-af848694219f)
+
+### Code block
+
+Blankslates that use a list of steps or offer instructions in the format of code to get started with a feature can insert a `code` block. This is the case for getting started with packages in GitHub:
+
+![Code block Blankslate](https://github.com/primer/design/assets/813754/b44601fa-7698-48be-a884-037c724d334c)
+
+## Content and copy
+
+Empty states should explain features _in addition_ to conveying intention. In the example below, the primary text is used to provide a welcome invitation to creating a positive community while the secondary text supports this intent by informing the user on how to do this by providing a code of conduct.
+
+![code of conduct illustration Blankslate](https://github.com/primer/design/assets/813754/51aba49d-346d-496e-9631-1702888667e0)
+
+## First time user experiences
+
+For first time user experiences, use illustration Blankslates to playfully engage the user and introduce the Octocat as a symbol of GitHub. Primary text should welcome the user to the platform and feature. Secondary text should seek to educate the user, but at a simpler, less-technical level.
+
+![first time user Blankslate](https://github.com/primer/design/assets/813754/3caf0160-d369-40b6-86dc-d2eac967a21d)
+
+## In a narrow container
+
+When a Blankslate is rendered in a narrow area, the spacing and font sizes are reduced so that it's visually proportional to the narrow area it's being rendered in. This is implemented using container queries, so this will happen on any viewport size.
+
+![Blankslate with smaller spacing and text](https://github.com/primer/design/assets/2313998/95cd99e1-5d8a-4b2d-849e-430d17f61d02)
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="Blankslate"/>

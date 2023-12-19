@@ -1,0 +1,37 @@
+---
+title: Label group
+description: Use label group to add commonly used margins and other layout constraints to groups of Labels
+reactId: label_group
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<Note variant="warning">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Guidelines for this component are in progress</Text>
+  <Text>Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link></Text>
+</Note>
+
+<img
+  width="960"
+  role="presentation"
+  src="https://github.com/primer/react/assets/2313998/814ee0d8-d17f-46e1-b62e-ed5f3e7b8cab"
+/>
+
+## Usage
+
+A label group is a component to handle the layout of a collection of labels or tokens.
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="LabelGroup"/>
+
+## Related links
+
+- [Label](/components/label/)
+- [Token](/components/token/)

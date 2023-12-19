@@ -1,0 +1,50 @@
+---
+title: Avatar stack
+description: Avatar stack displays two or more avatars in an inline stack.
+reactId: avatar_stack
+railsIds:
+- Primer::Beta::AvatarStack
+figmaId: avatar_stack
+---
+
+import {Box, Text} from '@primer/react'
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<img
+  width="960"
+  alt="A diagram of three avatars stacked next to each other."
+  src="https://user-images.githubusercontent.com/586552/203208345-b110f45e-f7e5-4fab-b972-f5d31e809f22.png"
+/>
+
+## Usage
+
+Stacked avatars can be used to show multiple collaborators or participants when there is limited space available. When you hover over the stack, the avatars will reveal themselves.
+
+### Best practices
+
+- Use AvatarStack when space is limited
+- Don’t use AvatarStack if there is adequate space to show 4 avatars or less.
+
+## Anatomy
+
+Avatar stack displays a minimum of 2 avatars and a maximum of 4 avatars.
+Only the 20px avatar size is currently used in the avatar stack.
+
+## Options
+
+### Alignment
+
+The default avatar stack is left-aligned. You can right-align the component for layouts that are better suited for it.
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="AvatarStack"/>
+
+## Related components
+
+- [Avatar](/components/avatar)
+- [Avatar pair](/components/avatar-pair)

@@ -1,0 +1,59 @@
+---
+title: Borders
+description: Utilities for borders, and border radius.
+---
+
+## Default border
+
+The default border utility applies a solid, 1px border, with a default gray color.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-border--default'}]} height="80" />
+
+Borders can be applied to a specific edge or to the X and Y axes individually:
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-border--direction'}]} height="340" />
+
+Remove borders from all sides or a single side with `.border-0`, `.border-top-0`, `.border-right-0`, `.border-bottom-0`, `.border-left-0`.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-border--hide'}]} height="80" />
+
+## Border style
+
+Use `border-dashed` to give an element a dashed border.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-border--style'}]} height="80" />
+
+## Responsive borders
+
+You can adjust border widths on all sides or each side individually with responsive border utilities:
+
+- `border-(sm|md|lg|xl)` adds borders on all sides at and above the breakpoint. The `border-(sm|md|lg|xl)` shorthand is also supported.
+- `border-(sm|md|lg|xl)-0` removes borders from all sides at and above the breakpoint.
+- `border-(sm|md|lg|xl)-(top|right|bottom|left)` adds a border on the given side at and above the breakpoint.
+- `border-(sm|md|lg|xl)-(top|right|bottom|left)-0` the border from the given side at and above the breakpoint.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-border--responsive'}]} height="150" />
+
+## Border colors
+
+Border colors are documented on the [colors utilities page](/foundations/css-utilities/colors#border).
+
+## Rounded corners
+
+Use the following utilities to add or remove rounded corners: `rounded-0` removes rounded corners, `rounded-1` applies a border radius of 4px, `rounded-2` applies a border radius of 6px, and `rounded-3` applies a border radius of 8px. `.circle` applies a border radius of 50%, which turns square elements into perfect circles.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-border--rounded'}]} height="360" />
+
+You can also add rounded corners to each edge (top, right, bottom, left) with the following utilities:
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-border--rounded-direction'}]} height="240" />
+
+## Responsive rounded corners
+
+You can adjust border radius on all sides or each side individually with responsive border radius utilities:
+
+- `rounded-(sm|md|lg|xl)` adds a 6px rounded corner on all sides at and above the breakpoint.
+- `rounded-(sm|md|lg|xl)-(0|1|2|3|4)` adds a rounded corner on all sides at and above the breakpoint.
+- `rounded-(sm|md|lg|xl)-(top|right|bottom|left)-(0|1|2|3|4)` adds a rounded corner on the given side at and above the breakpoint.
+
+<StorybookEmbed framework="css" stories={[{id: 'utilities-border--rounded-responsive'}]} height="200" />
