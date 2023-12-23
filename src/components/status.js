@@ -89,7 +89,7 @@ const statusFieldTypes = [
   {type: 'Stable', name: 'Stable'},
   {type: 'Beta', name: 'Beta'},
   {type: 'Alpha', name: 'Alpha'},
-  {type: 'Draft', name: 'Draft'},
+  {type: 'Experimental', name: 'Experimental'},
   {type: 'Deprecated', name: 'Deprecated'},
 ]
 
