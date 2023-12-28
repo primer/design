@@ -438,6 +438,12 @@ When a dialog is opened, the first interactive element (typically the close butt
 />
 <Caption>When a dialog is closed, focus is returned to the trigger button.</Caption>
 
+### Live region usage
+Use extra caution when utilizing a live region that exists outside of the `<Dialog>` component. 
+This is because some browser and screen reader combinations will ignore the live region entirely if it does not exist within the dialog itself.
+
+If you need to use a live region whilst the dialog is active, place the live region within the dialog, rather than outside of it.
+
 ### Known accessibility issues (GitHub staff only)
 
  <AccessibilityLink label="Dialog"/>
