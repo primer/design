@@ -7,25 +7,37 @@ import {Box} from '@primer/react'
 
 Primer includes three different messaging components:
 
-- Toasts
-- [Flash alerts](../components/flash)
+- Announcement
+- [Banner](../components/flash)
 - [Popovers](../components/popover) 
+- Toasts
+- Callout
+- Inline message
 
 ## Messaging types
 
 It's important to consider the context when selecting a component to convey your message. Does the message need to interrupt the user flow? Is this a global message that needs to be shown on every page? Does it require the user to take an action, or is it more of a notice? Most messaging on GitHub falls into one of the following categories:
 
+**System updates**: inform the user of errors or necessary updates or changes to the product as it relates to them.
+_Announcement are best suited for this type of messaging._ 
+Since annoucements are present on every page, they must only be used for global informations like an error that makes the entire web experience slow or the need to update your authentication method to avoid loosing access to your account.
+
+Annoucements can not be dismissed, so they need to be removed once the cause for the annoucement is removed.
+
 **Feedback**: communicates something to the user based on an action they've taken or caused
+_Banners, toasts or inline messages are best suited for this type of messaging._
+When the action was taken before loading a page and the message is present on page load, a banner should be used.
+If the feedback is caused by an action on the current page, an inline message should be used when possible. 
+If the UI does not allow for inline messaging to be used, a toast can be used.
 
-- _Toasts or banners are best suited for this type of messaging._
+Sometimes complex feedback is shown in a banner instead of an inline message to group mutliple lines together. A common example is a form error summary.
 
-**Highlights**: bring attention to how and why to engage with a feature
+**Highlights**: bring attention to a specific section.
+_Banners and callouts are best suited when highlighting information about a feature or form._
+Banners should be used when highlighting information about important side-effects like incurring costs, permanently deleting content or removing access.
+Callouts are used when providing additional details about an action.
 
-- _Popovers are best suited for new features, callouts are the right choice when highlighting information about a feature or form._
-
-**Updates**: inform the user of errors or necessary updates or changes to the product as it relates to them.
-
-- _System alerts are best suited for this type of messaging._
+To decide between banner and callout is important to analyse if the information is a side-effect or expected as part of the action. For when creating a `codespace` the action is the `codespace` being created while the side-effect are the costs. However when upgrading your plan, the costs are an expected part of the purchasing action.
 
 ## Toasts
 
