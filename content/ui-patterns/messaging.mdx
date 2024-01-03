@@ -9,17 +9,76 @@ Primer includes three different messaging components:
 
 - Announcement
 - [Banner](../components/flash)
-- [Popovers](../components/popover) 
-- Toasts
+- [Popover](../components/popover)
+- Toast
 - Callout
 - Inline message
 
-## Messaging types
+## Message types
 
-It's important to consider the context when selecting a component to convey your message. Does the message need to interrupt the user flow? Is this a global message that needs to be shown on every page? Does it require the user to take an action, or is it more of a notice? Most messaging on GitHub falls into one of the following categories:
+Messaging holds differing levels of prominence, which can be used to determine the appropriate component to use. Most messages fall into one of the following categories, from most prominent to least:
+
+**System updates**: These types of message originate from GitHub and are not user initiated. A global site wide announcement (outage, missing payment details, critical and blocking) or messaging related to user account/permissions should use the **Announcement** component. System announcements related to a specific product area such as a single sign-on message should use the **Banner** component. System update type messages cannot be dismissed until the issue is resolved, or may be perminent if they are purely informative and not critical.
+
+(image here)
+
+**Feedback**: Communicates the result of a user action (subitting a form, toggling a setting, etc.) Feedback can be positive, negative, or a warning.Feedback is shown in either a **Banner** or **Inline message**. For forms, an inline message is used for individual field validation which may be combined with a banner if multiple fields have errors. Banners are typically placed near the top of the page, but still within the body content. Inline messages are placed near the action they are related to.
+
+(image here)
+
+**Awareness**: Communicates information that is relevant to the user but not necessarily related to an action they've taken. This type of message is typically used to provide context or additional information about a feature or product. A **Callout** might be used to suggest an action or helpful tip, while a **Popover** is typically used to announce a new feature and offers a link to learn more.
+
+(image here)
+
+## Message states
+
+### Info
+The info state should be used to provide additional information that when missed to not prevent users from performing their desired actions.
+An info may be:
+- a setting that impacts the current view
+- a feature that is now available for you
+- additional details about a section or action that are more important than normal
+
+### Warning
+The warning state should be used if a user action is required prevent a problem in the future. Additionally if information is provided that is very important so that missing this information may lead to unwanted consequences.
+A warning can be:
+- 2FA will be required soon and the users is not using it
+- performing this action will have drastic effects e.g. deleting or archiving a repo, etc.
+- performing an action will incur costs for the first time
+- the system is experiencing temporary problems that impact the quality of service but do not make working completly impossible
+
+
+### Error
+The error state should be used if an error results from users input or in the systems (GitHub).
+An error can be:
+- invalid content in a form input
+- a submitted action can't be performed due to an issue with the system
+- content can't be loaded due to an issue with the system
+- the users has insufficant permissions to access something
+- the users needs to update information to be able to access the service (e.g. no 2FA set up, invalid billing details)
+
+### Success
+The success state should be used if a user action has a successful outcome.
+A success can be:
+- a complex valid form input value that needs outside confirmation (e.g. username or password creation)
+- a saved content that can't be see in the UI
+- connecting a service or enabling something that is not visible in the UI
+
+## Placement (wip)
+
+### Above global navigation
+
+### Top of body
+
+### Inline
+
+### In a dialog
+
+
+## Dont want to delete this so just moving it down
 
 **System updates**: inform the user of errors or necessary updates or changes to the product as it relates to them.
-_Announcement are best suited for this type of messaging._ 
+_Announcement are best suited for this type of messaging._
 Since annoucements are present on every page, they must only be used for global informations like an error that makes the entire web experience slow or the need to update your authentication method to avoid loosing access to your account.
 
 Annoucements can not be dismissed, so they need to be removed once the cause for the annoucement is removed.
@@ -27,7 +86,7 @@ Annoucements can not be dismissed, so they need to be removed once the cause for
 **Feedback**: communicates something to the user based on an action they've taken or caused
 _Banners, toasts or inline messages are best suited for this type of messaging._
 When the action was taken before loading a page and the message is present on page load, a banner should be used.
-If the feedback is caused by an action on the current page, an inline message should be used when possible. 
+If the feedback is caused by an action on the current page, an inline message should be used when possible.
 If the UI does not allow for inline messaging to be used, a toast can be used. However, you should try to avoid toasts for critical messages, as there are some issues with discoverability for some users.
 
 Sometimes complex feedback is shown in a banner instead of an inline message to group mutliple lines together. A common example is a form error summary.
@@ -130,37 +189,3 @@ Popovers are used to call attention to a new feature, change to an existing feat
 **Use sparingly to avoid cognitive overload**. Though they can be used for a variety of things, they should be used sparingly to avoid cognitive overload. It's important to consider the context in which the popover appears. Are there other popovers on the page? Does it appear on page load, or require the user to open the popover?
 
 Unlike other messaging components, popovers should never include critical information (such as errors) and should always include a dismiss action.
-
-## Message states
-
-### Info
-The info state should be used to provide additional information that when missed to not prevent users from performing their desired actions.
-An info may be:
-- a setting that impacts the current view
-- a feature that is now available for you
-- additional details about a section or action that are more important than normal
-
-### Warning
-The warning state should be used if a user action is required prevent a problem in the future. Additionally if information is provided that is very important so that missing this information may lead to unwanted consequences.
-A warning can be:
-- 2FA will be required soon and the users is not using it
-- performing this action will have drastic effects e.g. deleting or archiving a repo, etc.
-- performing an action will incur costs for the first time
-- the system is experiencing temporary problems that impact the quality of service but do not make working completly impossible
-
-
-### Error
-The error state should be used if an error results from users input or in the systems (GitHub).
-An error can be:
-- invalid content in a form input
-- a submitted action can't be performed due to an issue with the system
-- content can't be loaded due to an issue with the system
-- the users has insufficant permissions to access something
-- the users needs to update information to be able to access the service (e.g. no 2FA set up, invalid billing details)
-
-### Success
-The success state should be used if a user action has a successful outcome.
-A success can be:
-- a complex valid form input value that needs outside confirmation (e.g. username or password creation)
-- a saved content that can't be see in the UI
-- connecting a service or enabling something that is not visible in the UI
