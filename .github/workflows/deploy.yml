@@ -54,14 +54,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.get-dotcom-access-token.outputs.access-token }}
 
-      - name: Archive build output
-        run: "tar --dereference --directory public -cvf artifact.tar ."
-
       - name: Upload artifact
-        uses: actions/upload-artifact@main
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
-          path: artifact.tar
+          path: public/
 
   deploy:
     if: ${{ github.repository == 'primer/design' }}
@@ -74,6 +70,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
         with:
           preview: false
