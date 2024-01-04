@@ -72,8 +72,18 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - id: get-dotcom-access-token
+        uses: camertron/github-app-installation-auth-action@v1
+        with:
+          app-id: ${{ vars.DOTCOM_SHARED_COMPONENTS_APP_ID }}
+          private-key: ${{ secrets.DOTCOM_SHARED_COMPONENTS_APP_PRIVATE_KEY }}
+          client-id: ${{ vars.DOTCOM_SHARED_COMPONENTS_APP_CLIENT_ID }}
+          client-secret: ${{ secrets.DOTCOM_SHARED_COMPONENTS_APP_CLIENT_SECRET }}
+          installation-id: ${{ vars.DOTCOM_SHARED_COMPONENTS_APP_INSTALLATION_ID }}
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
         with:
           preview: false
+        env:
+          GITHUB_TOKEN: ${{ steps.get-dotcom-access-token.outputs.access-token }}
