@@ -38,6 +38,8 @@ Messaging holds differing levels of prominence, which can be used to determine t
   src="https://github.com/primer/css/assets/18661030/41d3a706-9aa3-4f05-8bad-5176f49a7d5d"
 />
 
+Messaging components combine state with message type to provide the appropriate level of prominence. To determine which component to use for your message, start by identifying the message state. From there, follow the decision tree to pick a component best suited for your use case.
+
 ### Info
 
 Use the `info` state to highlight messages that help users complete a task or that provide additional context. This state is only used for information that is not critical to the user's experience.
@@ -45,7 +47,17 @@ Use the `info` state to highlight messages that help users complete a task or th
 Examples:
 - a setting that impacts the current view
 - a nudge towards a new feature
-- a non-blocking action to unlock additional features
+- a process is in progress
+- single sign on to access data
+
+<img
+  width="960"
+  alt="draft wip"
+  src="https://github.com/primer/css/assets/18661030/3fa52b6d-7e33-4f27-b0ec-d836375fe21a"
+/>
+
+(image of banner in context)
+(image of callout in context)
 
 ### Warning
 
@@ -56,6 +68,16 @@ Examples:
 - a degraded experience(link) due to connectivity or GitHub availability
 - a non-destructive action with side-effects like costs or access changes is about to take place
 
+<img
+  width="960"
+  alt="draft wip"
+  src="https://github.com/primer/css/assets/18661030/ae82693a-e18c-425f-9f63-e2077012e76b"
+/>
+
+(image of banner in context)
+(image of callout in context)
+(image of announcement in context)
+
 ### Success
 
 Use the `success` state to notify users that the results of an action were successful if it is not apparent from the UI.
@@ -64,13 +86,24 @@ Examples:
 - saving an account setting if its otherwise not clear the save has taken place
 - an issue has been transferred successfully
 
+<img
+  width="960"
+  alt="draft wip"
+  src="https://github.com/primer/css/assets/18661030/a3612e09-97b2-4ff5-903a-e85d1587ce50"
+/>
+
+(image of banner in context)
+(image of inline message in context)
+
 ### Unavailable
 
-Reserve the `unavailable` state for **inline** system related degraded experiences (see docs for more information).
+Reserve the `unavailable` state for **inline** system related degraded experiences.
 
 Examples:
 - a row of a data table could not be loaded
 - an item in a list could not be loaded
+
+See [degraded experiences](./degraded-experiences) for more information.
 
 ### Critical
 
@@ -79,6 +112,18 @@ Use the `critical` state to notify users that the results of an action were unsu
 Examples:
 - form field is invalid upon submitting
 - a delete or transfer button
+
+<img
+  width="960"
+  alt="draft wip"
+  src="https://github.com/primer/css/assets/18661030/91cb6c58-40f4-41cd-b406-b5ed7560c9ea"
+/>
+
+### Visual treatment
+
+Primer offers five states for messaging components: info, warning, success, unavailable, and critical. Each state has a corresponding icon and color combination to help communicate the message's intent.
+
+Icons sized at 14px and above utilize the outline variant, while smaller icons utilize the filled variant.
 
 ## Placement (wip)
 
