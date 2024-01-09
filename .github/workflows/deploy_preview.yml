@@ -40,11 +40,6 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
-
       - name: Build
         run: yarn build:preview
         env:
@@ -71,6 +66,10 @@ jobs:
     outputs:
       deployment_url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
