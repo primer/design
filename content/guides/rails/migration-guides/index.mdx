@@ -1,0 +1,38 @@
+---
+title: Migration guides
+---
+
+Primer ViewComponents are routinely deprecated as they mature. The following guides detail performing component upgrades.
+
+## Migrating from Primer CSS
+
+Many Primer CSS use cases are supported by Primer ViewComponents.
+
+When migrating from Primer CSS classes to ViewComponents, use this mapping to
+help guide your implementation. This list includes components currently in
+stable status.
+
+| Primer CSS Class | ViewComponent | Guide |
+|------------------|---------------|-------|
+| `State`                                                                                   | [`Primer::Beta::State`](/components/state-label/rails/beta)                | |
+| `breadcrumb-item`                                                                         | [`Primer::Beta::Breadcrumbs`](/components/breadcrumbs/rails/beta)          | |
+| `Counter`                                                                                 | [`Primer::Beta::Counter`](/components/counter-label/rails/beta)            | |
+| `Subhead`                                                                                 | [`Primer::Beta::Subhead`](/components/pagehead/rails/beta)                  | |
+| `blankslate`                                                                              | [`Primer::Beta::Blankslate`](/components/blankslate/rails/beta)            | |
+| [`.tooltipped`](https://primer.style/css/storybook/?path=/docs/deprecated-tooltip--docs)  | [`Primer::Alpha::Tooltip`](/components/tooltip/rails/alpha) and other options  | [Migrating from `.tooltipped`](/guides/rails/migration-guides/primer-css-tooltipped) |
+
+## Upgrading deprecated components
+
+As Primer ViewComponents are updated, there are often breaking changes and
+deprecations that require changes which cannot be auto-corrected with Rubocop or
+other tools. These guides will walk you through the upgrade process for specific
+components.
+
+| Deprecated Component | Replacement Component | Guide |
+|----------------------|-----------------------|-------|
+| `Primer::ButtonComponent` | [`Primer::Beta::Button`](/components/button/rails/beta) | [Upgrade to Primer::Beta::Button](/guides/rails/migration-guides/primer-button-component) |
+| `Primer::LayoutComponent` | [`Primer::Alpha::Layout`](/components/layout/rails/alpha) | [Upgrade to Primer::Alpha::Layout](/guides/rails/migration-guides/primer-layout-component) |
+| `Primer::LocalTime` | [`Primer::Beta::RelativeTime`](/components/relative-time/rails/beta) | [Upgrade to Primer::Beta::RelativeTime](/guides/rails/migration-guides/primer-local-time) |
+| `Primer::TimeAgoComponent` | [`Primer::Beta::RelativeTime`](/components/relative-time/rails/beta) | [Upgrade to Primer::Beta::RelativeTime](/guides/rails/migration-guides/primer-time-ago) |
+| `Primer::Truncate` | [`Primer::Beta::Truncate`](/components/truncate/rails/beta) | [Upgrade to Primer::Beta::Truncate](/guides/rails/migration-guides/primer-truncate) |
+| `<details-dialog>` | [`Primer::Alpha::Dialog`](/components/dialog/rails/alpha) | [Upgrade to Primer::Alpha::Dialog](/guides/rails/migration-guides/primer-dialog) |
