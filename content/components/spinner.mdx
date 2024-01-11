@@ -1,6 +1,6 @@
 ---
 title: Spinner
-description: Use Spinner to let users know that content is being loaded.
+description: Use Spinner to show users that an action is in progress.
 railsIds:
 - Primer::Beta::Spinner
 reactId: spinner
@@ -12,11 +12,52 @@ import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
 import {AccessibilityLink} from '~/src/components/accessibility-link'
 
-<Note variant="warning">
-  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Guidelines for this component are in progress</Text>
-  <Text>Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link></Text>
-</Note>
+## Usage
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
+
+<div>
+
+A spinner is an indeterminate loading indicator, meaning it's best for cases where the progress or duration of a process is variable or unknown.
+
+A spinner may be shown on it's own or paired with a loading message. Spinners may be used as a placeholder for loading content, or just as an indicator that some action is being processed.
+
+More detailed guidance about designing for loading states can be found in our [loading guidelines](/ui-patterns/loading).
+
+</div>
+
+<CustomVideoPlayer src="https://github.com/primer/design/assets/2313998/50234598-852a-46fc-be07-72bb6f35691b" width="456" autoplay loop />
+
+</Box>
+
+## Options
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
+
+<div>
+
+### Size
+
+The size of the spinner can be adjusted. The **medium** (default) variant works best for most cases. The **small** variant is optimized for being displayed inline with loading text. The **large** variant works well for replacing entire regions or pages that are still loading.
+
+</div>
+
+<img src="https://github.com/primer/design/assets/2313998/b31c4058-929f-471c-860e-6a8c2c6af21e" width="960" role="presentation" />
+
+</Box>
+
+## Accessibility
+
+By default, our spinner component provides a generic loading status announcement for assistive technologies. We recommend that you specify a custom announcement specific to your use-case. For example: "Loading changed files".
+
+To avoid duplicate announcements when a loading message is already being displayed in context, the component allows engineers to suppress the spinner's default loading announcement.
 
 ### Known accessibility issues (GitHub staff only)
 
- <AccessibilityLink label="Spinner"/>
+<AccessibilityLink label="Spinner"/>
+
+## Related links
+
+- [Loading guidelines](/ui-patterns/loading)
+
+<!-- TODO: link to Skeleton loaders once they're merged -->
