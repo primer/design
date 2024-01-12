@@ -2,29 +2,18 @@ import React from 'react'
 import navItems from '@primer/gatsby-theme-doctocat/src/nav.yml'
 import {Box, Heading, Link, Text} from '@primer/react'
 import {graphql, Link as GatsbyLink, useStaticQuery} from 'gatsby'
-
-type NavItems = Array<
-  | NavItem
-  | {
-      title: string
-      children: Array<
-        | NavItem
-        // Max depth is 2
-        | {
-            title: string
-            children: Array<NavItem>
-          }
-      >
-    }
->
+import ReactMarkdown from 'react-markdown'
 
 type NavItem = {
   title: string
   url: string
+  children?: NavItems
 }
 
-export function ChildPages({of: title}: {of: string}) {
-  const childItems = getChildItems(navItems, title)
+type NavItems = Array<NavItem>
+
+export function ChildPages({path}: {path: string}) {
+  const childItems = getChildItems(navItems, path)
   const data = useStaticQuery(graphql`
     query MyQuery {
       allSitePage {
@@ -55,7 +44,9 @@ export function ChildPages({of: title}: {of: string}) {
             </Link>
           </Heading>
           <Text as="p" sx={{m: 0, maxWidth: '80ch', fontSize: 2, color: 'fg.subtle'}}>
-            {descriptionsByPath[item.url]}
+            <ReactMarkdown>
+              {descriptionsByPath[item.url]}
+            </ReactMarkdown>
           </Text>
         </Box>
       ))}
@@ -63,18 +54,30 @@ export function ChildPages({of: title}: {of: string}) {
   )
 }
 
-function getChildItems(navItems: NavItems, title: string): NavItem[] {
-  const flatNavItems = navItems.flatMap(item => {
-    if ('children' in item) {
-      return [item, ...item.children]
+function getParentItem(navItems: NavItems, path: string): NavItem | null {
+  const segments = path.split("/")
+  let curItem: NavItem = { title: "", url: "", children: navItems }
+
+  for (const segment of segments) {
+    if (curItem.children) {
+      for (const navItem of curItem.children) {
+        if (navItem.title === segment) {
+          curItem = navItem;
+        }
+      }
+    } else {
+      return null
     }
-    return item
-  })
+  }
 
-  const item = flatNavItems.find(item => item.title === title)
+  return curItem
+}
 
-  if (item && 'children' in item) {
-    return item.children.filter(item => 'url' in item) as NavItem[]
+function getChildItems(navItems: NavItems, path: string): NavItem[] {
+  const parentNavItem = getParentItem(navItems, path)
+
+  if (parentNavItem && parentNavItem.children) {
+    return parentNavItem.children.sort((a, b) => a.title.localeCompare(b.title))
   }
 
   return []
