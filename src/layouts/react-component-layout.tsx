@@ -247,11 +247,11 @@ export default function ReactComponentLayout({data}) {
 
             <H2>Props</H2>
             <H3>{name}</H3>
-            <PropsTable props={componentProps} />
+            <ReactPropsTable props={componentProps} />
             {subcomponents?.map(subcomponent => (
               <>
                 <H3>{subcomponent.name}</H3>
-                <PropsTable props={subcomponent.props} />
+                <ReactPropsTable props={subcomponent.props} />
               </>
             ))}
           </Box>
@@ -269,7 +269,7 @@ function sentenceCase(str: string) {
 }
 
 // TODO: Make table responsive
-function PropsTable({
+function ReactPropsTable({
   props,
 }: {
   props: Array<{

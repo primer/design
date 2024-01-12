@@ -135,7 +135,7 @@ function RailsComponentArguments({props}) {
     return (
       <>
         <H2>Arguments</H2>
-        <PropsTable props={props} />
+        <RailsPropsTable props={props} />
       </>
     )
   } else {
@@ -156,7 +156,7 @@ function RailsComponentSlots({slots}) {
               </H3>
               {/* @ts-ignore */}
               <RailsMarkdown text={slot.description} />
-              <PropsTable props={slot.parameters} />
+              <RailsPropsTable props={slot.parameters} />
             </>
           )
         })}
@@ -180,7 +180,7 @@ function RailsComponentMethods({methods}) {
               </H3>
               {/* @ts-ignore */}
               <RailsMarkdown text={method.description} />
-              <PropsTable props={method.parameters} />
+              <RailsPropsTable props={method.parameters} />
             </>
           )
         })}
@@ -383,7 +383,7 @@ export default function RailsComponentLayout({data}) {
 }
 
 // TODO: Make table responsive
-function PropsTable({
+function RailsPropsTable({
   props
 }: {
   props: Array<{
