@@ -14,6 +14,8 @@ import {ComponentPageNav} from '../components/component-page-nav'
 import {LookbookEmbed} from '../components/lookbook-embed'
 import RailsMarkdown from '../components/rails-markdown'
 import { RailsProvider } from '../components/rails-provider'
+import { sortStatuses } from '../status-utils'
+import StatusMenu from '../components/status-menu'
 
 export const query = graphql`
   query RailsComponentPageQuery($componentId: String!, $parentPath: String!) {
@@ -229,7 +231,7 @@ function RailsComponent({data, showPreviews}) {
 }
 
 export default function RailsComponentLayout({data}) {
-  const {name, railsId, a11y_reviewed, status, previews, slots, is_form_component, accessibility_docs} = data.railsComponent
+  const {name, a11y_reviewed, status, previews, slots, is_form_component, accessibility_docs} = data.railsComponent
   const allRailsComponents = data.allRailsComponent.nodes
 
   const title = data.sitePage?.context.frontmatter.title
@@ -237,7 +239,6 @@ export default function RailsComponentLayout({data}) {
   const reactId = data.sitePage.context.frontmatter.reactId
   const railsIds = data.sitePage.context.frontmatter.railsIds
   const figmaId = data.sitePage.context.frontmatter.figmaId
-  const cssId = data.sitePage.context.frontmatter.cssId
 
   const subcomponents = []
   const componentStack = [data.railsComponent]
@@ -347,16 +348,23 @@ export default function RailsComponentLayout({data}) {
                 <StatusLabel status={sentenceCase(status)} />
                 <AccessibilityLabel a11yReviewed={a11y_reviewed} short={false} />
                 {statuses.length > 1 && <Box sx={{marginLeft: 'auto', marginTop: '-4px'}}>
-                  <StatusMenu currentStatus={status} statuses={statuses} parentPath={data.sitePage.path} />
+                  <StatusMenu currentStatus={status} statuses={statuses} parentPath={`${data.sitePage.path}/rails`} />
                 </Box>}
               </Box>
 
-              {/* @ts-ignore */}
               {is_form_component && <Note>
                 <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Forms framework</Text>
                 The <InlineCode>{name}</InlineCode> component is part of the <Link as={GatsbyLink} to="/ui-patterns/forms/rails">Primer forms framework</Link>.
                 If you're building a form, please consider using the framework instead of this standalone component.
               </Note>}
+
+              {status === "deprecated" &&
+                /* @ts-ignore */
+                <Note variant="warning">
+                  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>This component is deprecated</Text>
+                  <Text>Please consider using an alternative.</Text>
+                </Note>
+              }
 
               <H2>Description</H2>
               <RailsMarkdown text={data.railsComponent.description} />
@@ -371,25 +379,6 @@ export default function RailsComponentLayout({data}) {
         </Box>
       </BaseLayout>
     </RailsProvider>
-  )
-}
-
-function StatusMenu({currentStatus, statuses, parentPath}) {
-  return (
-    <ActionMenu>
-      <ActionMenu.Button><strong>Status: </strong>{sentenceCase(currentStatus)}</ActionMenu.Button>
-      <ActionMenu.Overlay width="medium">
-        <ActionList selectionVariant="single">
-          {statuses.map((status) => {
-            return(
-              <ActionList.Item selected={currentStatus === status} onSelect={() => navigate(`${parentPath}/rails/${status}`)}>
-                {sentenceCase(status)}
-              </ActionList.Item>
-            )
-          })}
-        </ActionList>
-      </ActionMenu.Overlay>
-    </ActionMenu>
   )
 }
 

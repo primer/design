@@ -1,6 +1,4 @@
 import {AccessibilityLabel, Note, StatusLabel} from '@primer/gatsby-theme-doctocat'
-import SourceLink from '@primer/gatsby-theme-doctocat/src/components/source-link'
-import StorybookLink from '@primer/gatsby-theme-doctocat/src/components/storybook-link'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
@@ -15,9 +13,10 @@ import ReactMarkdown from 'react-markdown'
 import {StorybookEmbed} from '../components/storybook-embed'
 import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
+import StatusMenu from '../components/status-menu'
 
 export const query = graphql`
-  query ReactComponentPageQuery($componentId: String!, $parentPath: String!) {
+  query ReactComponentPageQuery($componentId: String!, $parentPath: String!, $status: String!) {
     primerReactVersion {
       version
     }
@@ -34,7 +33,14 @@ export const query = graphql`
         }
       }
     }
-    reactComponent(componentId: {eq: $componentId}) {
+
+    allReactComponent(filter: {componentId: {eq: $componentId}}) {
+      nodes {
+        status
+      }
+    }
+
+    reactComponent(componentId: {eq: $componentId}, status: {eq: $status}) {
       name
       status
       a11yReviewed
@@ -62,6 +68,10 @@ export const query = graphql`
         }
       }
     }
+
+    deprecatedMdx: mdx(frontmatter: {reactId: {eq: $componentId}, reactStatus: {eq: "deprecated"}}) {
+      id
+    }
   }
 `
 
@@ -79,6 +89,14 @@ export default function ReactComponentLayout({data}) {
 
   const title = data.sitePage?.context.frontmatter.title || name
   const description = data.sitePage?.context.frontmatter.description || ''
+
+  const statuses: string[] = [];
+  for (const reactComponent of data.allReactComponent.nodes) {
+    statuses.push(reactComponent.status)
+  }
+
+  // this component has a dedicated page for its deprecated version
+  if (data.deprecatedMdx?.id !== undefined) statuses.push("deprecated")
 
   return (
     <BaseLayout title={title} description={description}>
@@ -152,27 +170,26 @@ export default function ReactComponentLayout({data}) {
                   <AccessibilityLabel a11yReviewed={a11yReviewed} short={false} />
                 </li>
               </Box>
-              <Box
-                as={'ul'}
-                sx={{
-                  display: 'flex',
-                  gap: 3,
-                  alignItems: 'center',
-                  m: 0,
-                  p: 0,
-                  paddingInline: 0,
-                  listStyle: 'none',
-                  fontSize: 1,
-                  '& > li': {
+              {statuses.length > 1 &&
+                <Box
+                  as={'ul'}
+                  sx={{
                     display: 'flex',
-                  },
-                }}
-              >
-                <SourceLink href={`https://github.com/primer/react/blob/main/src/${name}`} />
-                {stories.length > 0 ? (
-                  <StorybookLink href={`https://primer.style/react/storybook/?path=/story/${stories[0].id}`} />
-                ) : null}
-              </Box>
+                    gap: 3,
+                    alignItems: 'center',
+                    m: 0,
+                    p: 0,
+                    paddingInline: 0,
+                    listStyle: 'none',
+                    fontSize: 1,
+                    '& > li': {
+                      display: 'flex',
+                    },
+                  }}
+                >
+                  <StatusMenu currentStatus={status} statuses={statuses} parentPath={`${data.sitePage.path}/react`} />
+                </Box>
+              }
             </Box>
             {/* Narrow table of contents */}
             <Box
@@ -199,6 +216,14 @@ export default function ReactComponentLayout({data}) {
                 <TableOfContents aria-labelledby="toc-heading-narrow" items={tableOfContents.items} />
               </Box>
             </Box>
+
+            {status === "deprecated" &&
+              /* @ts-ignore */
+              <Note variant="warning">
+                <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>This component is deprecated</Text>
+                <Text>Please consider using an alternative.</Text>
+              </Note>
+            }
 
             <H2>Import</H2>
             {/* @ts-ignore */}

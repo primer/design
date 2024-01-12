@@ -1,0 +1,21 @@
+---
+title: Side nav
+description: Use side nav for a vertical list of navigational links, typically used on the left side of a page.
+---
+
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+import {ComponentPageNav} from '~/src/components/component-page-nav'
+
+<Box style={{marginBottom: "24px"}}>
+  <ComponentPageNav
+    basePath="/deprecated-components/side-nav"
+    includeReact={true}
+    current="overview"
+  />
+</Box>
+
+<Note variant="warning">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Usage of this component is not encouraged</Text>
+  <Text>Please use <Link as={GatsbyLink} to="/components/nav-list">nav list</Link> instead.</Text>
+</Note>
