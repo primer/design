@@ -12,6 +12,6 @@ export default function resolveScope(metastring) {
     ...primerComponents,
     ...octiconComponents,
     ...(metastring.includes('deprecated') ? deprecated : {}),
-    State
+    State,
   }
 }
