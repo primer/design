@@ -1,0 +1,74 @@
+---
+title: Rails
+description: Get started using Primer ViewComponents in your Rails application.
+source: https://github.com/primer/view_components
+---
+
+Primer ViewComponents is an implementation of the Primer Design System, using [ViewComponent](https://github.com/github/view_component).
+
+<Note variant="warning">This library is under active pre-1.0 development. Breaking changes are likely in patch releases.</Note>
+
+## Getting started
+
+In your `Gemfile`, add:
+
+```ruby
+gem "primer_view_components"
+```
+
+In `config/application.rb`, add **after the application definition**:
+
+```ruby
+require "view_component"
+require "primer/view_components"
+```
+
+### CSS
+
+Load CSS as a JS module into the pipeline. Update `app/assets/config/manifest.js` with:
+
+```js
+//= link primer_view_components.css
+```
+
+Add it in your `application.html.erb` in the `<head>` tag:
+
+```erb
+<%= stylesheet_link_tag("primer_view_components") %>
+```
+
+### JS
+
+Optionally, to add the JavaScript behaviours, in your `application.html.erb` in the `<head>` tag add:
+
+```erb
+<%= javascript_include_tag("primer_view_components") %>
+```
+
+Or alternatively, you can install the `@primer/view-components` npm package and in your JavaScript code add:
+
+```js
+import '@primer/view-components'
+```
+
+You can also import only the components you need:
+
+```js
+import '@primer/view-components/tab_container'
+```
+
+## Usage
+
+Render Primer ViewComponents in Rails templates:
+
+```erb
+<%= render(Primer::Beta::Counter.new(count: 25)) %>
+```
+
+## Dependencies
+
+In addition to the dependencies declared in the `gemspec`, Primer ViewComponents assumes the presence of [Primer CSS](https://primer.style/css).
+
+## More information
+
+See the [primer/view_components repository](https://github.com/primer/view_components) for more information about how to use and contribute to Primer ViewComponents. For component-specific documentation, check out the Rails section of component guidelines (example: [ActionList](/components/action-list/rails)).

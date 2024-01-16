@@ -12,13 +12,53 @@
           url: /guides/figma/getting-started
         - title: How to contribute
           url: /guides/figma/contribute
-    - title: Development
-      url: /guides/development
+    - title: Rails
+      url: /guides/rails
       children:
-        - title: React
-          url: /guides/development/react
-        - title: Rails
-          url: /guides/development/rails
+        - title: Getting started
+          url: /guides/rails
+        - title: Migration guides
+          url: /guides/rails/migration-guides
+    - title: React
+      url: /guides/react
+      children:
+        - title: Getting started
+          url: /guides/react
+        - title: Theming
+          url: /guides/react/theming
+        - title: Theme reference
+          url: /guides/react/theme-reference
+        - title: Linting
+          url: /guides/react/linting
+        - title: System props
+          url: /guides/react/system-props
+        - title: Core concepts
+          url: /guides/react/core-concepts
+        - title: Philosophy
+          url: /guides/react/philosophy
+        - title: Overriding styles
+          url: /guides/react/overriding-styles
+        - title: Server-side rendering
+          url: /guides/react/ssr
+        - title: Hooks
+          url: /guides/react/hooks
+          children:
+          - title: useSafeTimeout
+            url: /guides/react/hooks/use-safe-timeout
+          - title: useAnchoredPosition
+            url: /guides/react/hooks/use-anchored-position
+          - title: useFocusTrap
+            url: /guides/react/hooks/use-focus-trap
+          - title: useFocusZone
+            url: /guides/react/hooks/use-focus-zone
+          - title: useOnEscapePress
+            url: /guides/react/hooks/use-on-escape-press
+          - title: useOnOutsideClick
+            url: /guides/react/hooks/use-on-outside-click
+          - title: useOpenAndCloseFocus
+            url: /guides/react/hooks/use-open-and-close-focus
+          - title: useOverlay
+            url: /guides/react/hooks/use-overlay
     - title: Component lifecycle
       url: /guides/component-lifecycle
     - title: Component status
