@@ -211,6 +211,8 @@
       url: /components/checkbox-group
     - title: Circle badge
       url: /components/circle-badge
+    - title: Circle octicon
+      url: /components/circle-octicon
     - title: Clipboard copy
       url: /components/clipboard-copy
     - title: Close button

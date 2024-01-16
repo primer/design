@@ -323,6 +323,7 @@ export default function RailsComponentLayout({data}) {
               includeReact={reactId}
               includeRails={railsIds}
               includeFigma={figmaId}
+              includeCSS={cssId}
               current="rails"
             />
           </Box>
