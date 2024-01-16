@@ -102,7 +102,7 @@ As discussed above, the positioning algorithm needs to first measure the size of
 
 Every time `getAnchoredPosition` is called, it causes a [reflow](https://developers.google.com/speed/docs/insights/browser-reflow) because it needs to query the rendering engine for the positions of 3 elements: the anchor element, the floating element, and the closest ancestor of the floating element that is [_positioned_](https://developer.mozilla.org/en-US/docs/Web/CSS/position#types_of_positioning). Therefore, this function should not be called until it is needed (e.g. an overlay-style menu is invoked and displayed).
 
-## useAnchoredPosition hook
+## useAnchoredPosition hook (private to `@primer/react`)
 
 The `useAnchoredPosition` hook is used to provide anchored positioning data for React components. The hook returns refs that must be added to the anchor and floating elements, and a `position` object containing `top` and `left`. This position is tracked as state, so the component will re-render whenever it changes. It is the responsibility of the consumer to apply the top and left styles to the floating element in question.
 
