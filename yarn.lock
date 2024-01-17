@@ -2029,11 +2029,6 @@
   resolved "https://registry.npmjs.org/@primer/octicons-react/-/octicons-react-17.10.1.tgz"
   integrity sha512-27F3OyrZVifha5bw84lVnuoxcLWaQFiOZ840itfvzRqlDD03q+bUb0wrw26+hGbbXuX8I65rzxh75T32blZFIw==
 
-"@primer/octicons-react@^19.8.0":
-  version "19.8.0"
-  resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-19.8.0.tgz#f76ec3b3c0bea0c6ceb147d7f2d989e5f149f7e5"
-  integrity sha512-2Z+D7xTloFTLQVRUEbg0pQpe6aTL9RR+8RqBhjkrF+BFuVdM1ENOyjywaGEO7DIkPU5Zxlv0gxSlD85LQxL+sw==
-
 "@primer/primitives@7.8.4":
   version "7.8.4"
   resolved "https://registry.npmjs.org/@primer/primitives/-/primitives-7.8.4.tgz"
