@@ -1,0 +1,60 @@
+---
+title: Toasts and their alternatives
+description: Why we don't use toasts on github.com and their alternative patterns
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text, Box} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+/*This section feels more like an ADR?*/
+## Why no toasts?
+
+Our ultimate goal in notifying users about the status of an action is to allow them to complete their own goals as quickly as possible, whether that's confidence in a successful action or the clear path to correct a failed action.
+
+Toasts have become a quick pattern to reach for in order to display temporary messages to users, often to confirm an action has completed successfull or has failed. However, toasts are not accessible to all users, and they can be disruptive to the user experience or missed entirely. 
+
+### Usability and accessibility concerns with toasts
+- Toasts are often missed by users for a variety of reasons: 
+  - Ultrawide monitor
+  - Looking away from the computer screen for the duration of an auto-dismissing toast
+  - Assistive Technology reliability or setting for announcing aria-live components
+  - Zoomed in view
+    - Zoomed in view requires that focus is brought to a toast in order to be seen by someone using zoom on a screen. This can be distruptive to a user's orentiation of the screen, especially if not critial to their workflow.
+  - Toast fatigue (used too often for things that aren't important to a user's workflow)
+
+### Tiny history lesson
+Toasts started in the mobile space, where the intended use cases make more sense than on a desktop. 
+- Some situations have successful interactions that then present an undo option to the action you've just performed, like a sent email message. It's a lot easier to perform an undo action on a desktop with the availability of keyboard shortcuts to undo actions than it is on mobile, whose keyboards are often hidden unless in an active text editor, and don't contain modifier keys. 
+- Before Android coined Toasts, iOS created push notifications whose use case was to notify of non-critical new things in other areas of the product to explore at a user's leisure. 
+- Before Android toasts and iOS push notifications, we were notified "You've got mail" when receiving a new email message from AOL on a desktop computer, which lead to subsequent overuse of dialogs and notifications.
+
+### Our use cases
+GitHub has its own system for notifying our users of new or updated activity to be explored at their leisure in other parts of the product, GitHub notifications. With those use cases covered, we're left with a need to notify users of the status of actions they've taken on a page in the product to help them successfully complete their tasks.
+
+## Alternatives to toasts
+Rather than reach for a toast, we've found that there are better patterns to use in the majority of our use cases.
+
+/*Scenarios*/
+### 1. Successful actions
+
+### 2. Drag and drop
+
+### 3. Bulk editing 
+
+#### Using a SelectPanel to add or remove items
+
+#### Spreadsheet-style editing
+
+/* things to use*/
+### 1. Use a banner
+
+#### When to use a banner
+
+### 2. Use a modal dialog
+
+#### When to use a modal dialog
+
+### 3. Use inline validation
