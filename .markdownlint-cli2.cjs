@@ -12,6 +12,7 @@ const options = githubMarkdownOpinions.init({
   'ul-indent': false,
   'no-hard-tabs': false,
   'first-line-heading': false,
+  'no-space-in-code': false
 })
 
 module.exports = {
