@@ -227,10 +227,6 @@
       url: /components/details
     - title: Dialog
       url: /components/dialog
-    - title: Filter list
-      url: /components/filter-list
-    - title: Filtered search
-      url: /components/filtered-search
     - title: Flash
       url: /components/flash
     - title: Form control
@@ -337,6 +333,10 @@
       url: /deprecated-components/box-overlay
     - title: Dropdown
       url: /deprecated-components/dropdown
+    - title: Filter list
+      url: /deprecated-components/filter-list
+    - title: Filtered search
+      url: /deprecated-components/filtered-search
     - title: Menu
       url: /deprecated-components/menu
     - title: Select menu
