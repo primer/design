@@ -489,6 +489,14 @@ async function createComponentPages({actions, graphql}) {
           location: `/${slug}/react/${latestStatusFrom(statuses)}`
         }
       })
+
+      actions.createPage({
+        path: `/${slug}/react`,
+        component: redirectLayout,
+        context: {
+          location: `/${slug}/react/${latestStatusFrom(statuses)}`
+        }
+      })
     }
 
     if (frontmatter.railsIds) {
@@ -518,6 +526,14 @@ async function createComponentPages({actions, graphql}) {
 
       actions.createPage({
         path: `/${slug}/rails/latest`,
+        component: redirectLayout,
+        context: {
+          location: `/${slug}/rails/${latestStatusFrom(statuses)}`
+        }
+      })
+
+      actions.createPage({
+        path: `/${slug}/rails`,
         component: redirectLayout,
         context: {
           location: `/${slug}/rails/${latestStatusFrom(statuses)}`
