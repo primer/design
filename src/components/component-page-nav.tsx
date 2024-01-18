@@ -23,7 +23,7 @@ export function ComponentPageNav({
         Overview
       </UnderlineNav.Link>
       {includeReact ? (
-        <UnderlineNav.Link as={GatsbyLink} to={`${basePath}/react`} selected={current === 'react'}>
+        <UnderlineNav.Link as={GatsbyLink} to={`${basePath}/react/latest`} selected={current === 'react'}>
           React
         </UnderlineNav.Link>
       ) : null}

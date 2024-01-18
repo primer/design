@@ -5,7 +5,7 @@ import React from 'react'
 import styled from 'styled-components'
 import StatusRows from './status-rows'
 import { useRails } from './rails-provider'
-import { compareStatuses } from '../rails-status'
+import { compareStatuses } from '../status-utils'
 
 const Table = styled.table`
   width: 100%;

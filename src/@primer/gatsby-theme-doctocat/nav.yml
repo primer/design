@@ -333,10 +333,16 @@
       url: /deprecated-components/box-overlay
     - title: Dropdown
       url: /deprecated-components/dropdown
+    - title: Filter list
+      url: /deprecated-components/filter-list
+    - title: Filtered search
+      url: /deprecated-components/filtered-search
     - title: Menu
       url: /deprecated-components/menu
     - title: Select menu
       url: /deprecated-components/select-menu
+    - title: Side nav
+      url: /deprecated-components/side-nav
 - title: GitHub staff
   url: /github-staff
   children:
