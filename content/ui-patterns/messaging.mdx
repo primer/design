@@ -4,21 +4,20 @@ description: Messaging components are used to provide important and relevant inf
 ---
 
 import {Box} from '@primer/react'
+import {InfoIcon, CheckCircleIcon, StopIcon, AlertIcon} from '@primer/octicons-react'
 
 Primer includes six different messaging components:
 
 - Announcement
 - [Banner](../components/flash)
 - [Popover](../components/popover)
-- Toast
-- Callout
 - Inline message
 
 ## Message types
 
 Messaging holds differing levels of prominence, which can be used to determine the appropriate component to use. Most messages fall into one of the following categories, from most prominent to least:
 
-**System updates**: These types of message originate from GitHub and are not user initiated. A global site wide announcement (outage, missing payment details, critical and blocking) or messaging related to user account/permissions should use the **Announcement** component. System announcements related to a specific product area such as a single sign-on message should use the **Banner** component. System update type messages cannot be dismissed until the issue is resolved, or may be perminent if they are purely informative and not critical.
+**System updates**: These types of message originate from GitHub and are not user initiated. A global site wide announcement (outage, missing payment details, critical and blocking) or messaging related to user account/permissions should use the **Announcement** component. System announcements related to a specific product area such as a single sign-on message should use the **Banner** component. System update type messages cannot be dismissed until the issue is resolved, or may be perminent if they are purely informative.
 
 (image here)
 
@@ -26,7 +25,7 @@ Messaging holds differing levels of prominence, which can be used to determine t
 
 (image here)
 
-**Awareness**: Communicates information that is relevant to the user but not necessarily related to an action they've taken. This type of message is typically used to provide context or additional information about a feature or product. A **Callout** might be used to suggest an action or helpful tip, while a **Popover** is typically used to announce a new feature.
+**Awareness**: Communicates information that is relevant to the user but not necessarily related to an action they've taken. This type of message is typically used to provide context or additional information about a feature or product. A **Banner** using the `info` state might be used to suggest an action or helpful tip, while a **Popover** is typically used to announce a new feature.
 
 (image here)
 
@@ -38,8 +37,16 @@ Messaging holds differing levels of prominence, which can be used to determine t
   src="https://github.com/primer/css/assets/18661030/41d3a706-9aa3-4f05-8bad-5176f49a7d5d"
 />
 
-Messaging components combine state with message type to provide the appropriate level of prominence. To determine which component to use for your message, start by identifying the message state. From there, follow the decision tree to pick a component best suited for your use case.
+Messaging components combine state with message type to provide the appropriate level of prominence. To determine which component to use for your message, start by identifying the message state.
 
+### Overview
+
+| State | Use case |
+|--------|--------|
+| <Box sx={{color: 'accent.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><InfoIcon /><span>Info</span></Box> | Use to highlight important information that has an influence on the current view or offers an action |
+| <Box sx={{color: 'success.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><CheckCircleIcon /><span>Success</span></Box> | Informs about successfully completing action. |
+| <Box sx={{color: 'attention.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><StopIcon /><span>Warning</span></Box> | Warn users of side-effect of an action they are about to take or if something happens they may not know about which results in a specific state |
+| <Box sx={{color: 'danger.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><AlertIcon /><span>Critical</span></Box> | Inform user about an error that occurs or an action they are about to perform that results in lost access or content |
 
 ### Info
 
@@ -56,7 +63,7 @@ Examples:
 <img
   width="960"
   alt="draft wip"
-  src="https://github.com/github/github/assets/18661030/35b71f50-09c9-4e40-8189-0d591e72c18d"
+  src="https://github.com/primer/design/assets/18661030/1055049e-6db8-41d5-8cf8-e375bd0e8dea"
 />
 
 ### Warning
@@ -87,15 +94,15 @@ Examples:
 
 Use the `critical` state to notify users that the results of an action were unsuccessful, or to inform that an action is destructive. This state is typically used for form errors and confirmation dialogs.
 
-<img
-  width="960"
-  alt="draft wip"
-  src="https://github.com/github/github/assets/18661030/01910a2f-a16c-45a6-b017-01ccd68e0537"
-/>
-
 Examples:
 - form field is invalid upon submitting
 - a delete or transfer button
+
+<img
+  width="960"
+  alt="draft wip"
+  src="https://github.com/primer/design/assets/18661030/5da2e479-6bc7-46dc-9179-46002412b9f5"
+/>
 
 ### Neutral
 
@@ -114,9 +121,13 @@ Primer offers five states for messaging components: info, warning, success, unav
 
 Icons sized at 14px and above utilize the outline variant, while smaller icons utilize the filled variant.
 
-## Placement (wip)
+## Placement and persistance
+
+Message proximity and persistance also contribute to the prominence of a message.
 
 ### Above global navigation
+
+Announcements displayed above the global navigation are reserved for global, site wide issues that require immediate attention. These messages are not dismissable and should only be used for critical issues that impact the entire site.
 
 ### Top of body
 
