@@ -40,24 +40,24 @@ Messaging holds differing levels of prominence, which can be used to determine t
 
 Messaging components combine state with message type to provide the appropriate level of prominence. To determine which component to use for your message, start by identifying the message state. From there, follow the decision tree to pick a component best suited for your use case.
 
+
 ### Info
 
-Use the `info` state to highlight messages that help users complete a task or that provide additional context. This state is only used for information that is not critical to the user's experience.
+Use the `info` state to highlight messages that help users complete a task or that provide additional context.
 
 Examples:
-- a setting that impacts the current view
-- a nudge towards a new feature
-- a process is in progress
-- single sign on to access data
+- upgrade account to access a feature
+- notify that a process is in progress
+- single sign on or other account related notifications
+
+(image of banner in context)
+(image of callout in context)
 
 <img
   width="960"
   alt="draft wip"
-  src="https://github.com/primer/css/assets/18661030/3fa52b6d-7e33-4f27-b0ec-d836375fe21a"
+  src="https://github.com/github/github/assets/18661030/35b71f50-09c9-4e40-8189-0d591e72c18d"
 />
-
-(image of banner in context)
-(image of callout in context)
 
 ### Warning
 
@@ -65,14 +65,8 @@ Use the `warning` state to inform users of a potential issue, an important upcom
 
 Examples:
 - an account setting will become required soon
-- a degraded experience(link) due to connectivity or GitHub availability
+- a [degraded experience](./degraded-experiences) due to connectivity or GitHub availability
 - a non-destructive action with side-effects like costs or access changes is about to take place
-
-<img
-  width="960"
-  alt="draft wip"
-  src="https://github.com/primer/css/assets/18661030/ae82693a-e18c-425f-9f63-e2077012e76b"
-/>
 
 (image of banner in context)
 (image of callout in context)
@@ -80,44 +74,39 @@ Examples:
 
 ### Success
 
-Use the `success` state to notify users that the results of an action were successful if it is not apparent from the UI.
+Use the `success` state to notify users that the results of an action were successful if it is not apparent from other parts of the UI.
 
 Examples:
-- saving an account setting if its otherwise not clear the save has taken place
-- an issue has been transferred successfully
-
-<img
-  width="960"
-  alt="draft wip"
-  src="https://github.com/primer/css/assets/18661030/a3612e09-97b2-4ff5-903a-e85d1587ce50"
-/>
+- saving an account setting if there's no page reload or redirect
+- a background process has successfully completed
 
 (image of banner in context)
 (image of inline message in context)
-
-### Unavailable
-
-Reserve the `unavailable` state for **inline** system related degraded experiences.
-
-Examples:
-- a row of a data table could not be loaded
-- an item in a list could not be loaded
-
-See [degraded experiences](./degraded-experiences) for more information.
 
 ### Critical
 
 Use the `critical` state to notify users that the results of an action were unsuccessful, or to inform that an action is destructive. This state is typically used for form errors and confirmation dialogs.
 
+<img
+  width="960"
+  alt="draft wip"
+  src="https://github.com/github/github/assets/18661030/01910a2f-a16c-45a6-b017-01ccd68e0537"
+/>
+
 Examples:
 - form field is invalid upon submitting
 - a delete or transfer button
 
-<img
-  width="960"
-  alt="draft wip"
-  src="https://github.com/primer/css/assets/18661030/91cb6c58-40f4-41cd-b406-b5ed7560c9ea"
-/>
+### Neutral
+
+Reserve the `neutral` state for **inline** system related degraded experiences, or for surfacing account related permission messages.
+
+Examples:
+- a row of a data table could not be loaded
+- an item in a list could not be loaded
+- user does not have permissions to perform an action
+
+See [degraded experiences](./degraded-experiences) for more information.
 
 ### Visual treatment
 
