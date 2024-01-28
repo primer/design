@@ -460,6 +460,7 @@ async function createComponentPages({actions, graphql}) {
   const railsComponentLayout = path.resolve(__dirname, 'src/layouts/rails-component-layout.tsx')
   const figmaComponentLayout = path.resolve(__dirname, 'src/layouts/figma-component-layout.tsx')
   const cssComponentLayout = path.resolve(__dirname, 'src/layouts/css-component-layout.tsx')
+  const redirectLayout = path.resolve(__dirname, 'src/layouts/redirect-layout.tsx')
 
   for (const {slug, frontmatter} of data.allMdx.nodes) {
     if (frontmatter.reactId) {
@@ -481,11 +482,20 @@ async function createComponentPages({actions, graphql}) {
         }
       }
 
-      actions.createRedirect({
-        fromPath: `/${slug}/react/latest`,
-        toPath: `/${slug}/react/${latestStatusFrom(statuses)}`,
-        redirectInBrowser: true,
-        force: true,
+      actions.createPage({
+        path: `/${slug}/react/latest`,
+        component: redirectLayout,
+        context: {
+          location: `/${slug}/react/${latestStatusFrom(statuses)}`
+        }
+      })
+
+      actions.createPage({
+        path: `/${slug}/react`,
+        component: redirectLayout,
+        context: {
+          location: `/${slug}/react/${latestStatusFrom(statuses)}`
+        }
       })
     }
 
@@ -514,11 +524,20 @@ async function createComponentPages({actions, graphql}) {
         })
       })
 
-      actions.createRedirect({
-        fromPath: `/${slug}/rails/latest`,
-        toPath: `/${slug}/rails/${latestStatusFrom(statuses)}`,
-        redirectInBrowser: true,
-        force: true,
+      actions.createPage({
+        path: `/${slug}/rails/latest`,
+        component: redirectLayout,
+        context: {
+          location: `/${slug}/rails/${latestStatusFrom(statuses)}`
+        }
+      })
+
+      actions.createPage({
+        path: `/${slug}/rails`,
+        component: redirectLayout,
+        context: {
+          location: `/${slug}/rails/${latestStatusFrom(statuses)}`
+        }
       })
     }
 
