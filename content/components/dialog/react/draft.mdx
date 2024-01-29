@@ -8,6 +8,7 @@ reactStatus: draft
 ---
 
 import ReactComponentPage from '~/src/components/react-component-page'
+import ReactPropsTable from '~/src/components/react-props-table'
 import { graphql } from "gatsby"
 
 export const query = graphql`
@@ -98,6 +99,8 @@ By default, the Dialog component implements the design and interactions defined 
 ```
 
 ## Props
+
+<ReactPropsTable props={props.data.reactComponent.props} />
 
 ### DialogHeaderProps
 
