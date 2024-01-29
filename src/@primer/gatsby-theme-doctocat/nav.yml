@@ -235,6 +235,8 @@
       url: /components/header
     - title: Heading
       url: /components/heading
+    - title: Hidden
+      url: /components/hidden
     - title: Hidden text expander
       url: /components/hidden-text-expander
     - title: Icon
@@ -337,6 +339,12 @@
       url: /deprecated-components/filter-list
     - title: Filtered search
       url: /deprecated-components/filtered-search
+    - title: Inline autocomplete
+      url: /deprecated-components/inline-autocomplete
+    - title: Markdown editor
+      url: /deprecated-components/markdown-editor
+    - title: Markdown viewer
+      url: /deprecated-components/markdown-viewer
     - title: Menu
       url: /deprecated-components/menu
     - title: Select menu

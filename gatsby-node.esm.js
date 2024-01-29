@@ -215,6 +215,20 @@ async function sourcePrimerRailsData({actions, createNodeId, createContentDigest
   }
 }
 
+const reactIdMap = {
+  "drafts_dialog": "dialog",
+  "drafts_hidden": "hidden",
+  "drafts_inline_autocomplete": "inline_autocomplete",
+  "drafts_markdown_editor": "markdown_editor",
+  "drafts_markdown_viewer": "markdown_viewer",
+  "selectpanel_v2": "select_panel",
+  "tooltip_v2": "tooltip",
+}
+
+const normalizeReactId = (id) => {
+  return reactIdMap[id] || id
+}
+
 async function sourcePrimerReactData({actions, createNodeId, createContentDigest}) {
   // Save the current version of Primer React to the GraphQL store.
   // This will be the latest version at the time the site is built.
@@ -244,12 +258,14 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
   )
 
   for (const component of Object.values(content.components)) {
+    const componentId = normalizeReactId(component.id)
+
     const newNode = {
-      ...{...component, componentId: component.id},
-      id: createNodeId(`react-${component.id}`),
+      ...{...component, componentId: componentId},
+      id: createNodeId(`react-${componentId}-${component.status}`),
       internal: {
         type: 'ReactComponent',
-        contentDigest: createContentDigest({...component, componentId: component.id}),
+        contentDigest: createContentDigest({...component, componentId: componentId, status: component.status}),
       },
     }
 
@@ -435,6 +451,7 @@ async function createComponentPages({actions, graphql}) {
           slug
           frontmatter {
             reactId
+            reactStatus
             figmaId
             railsIds
             cssId
@@ -456,6 +473,18 @@ async function createComponentPages({actions, graphql}) {
     }
   `)
 
+  function reactComponentHasDedicatedPage(reactId, status) {
+    for (const {frontmatter} of data.allMdx.nodes) {
+      // any mdx page with a reactStatus field in its frontmatter is a custom page for that status,
+      // meaning a page should NOT be automatically generated for it
+      if (frontmatter.reactId === reactId && frontmatter.reactStatus === status) {
+        return true
+      }
+    }
+
+    return false
+  }
+
   const reactComponentLayout = path.resolve(__dirname, 'src/layouts/react-component-layout.tsx')
   const railsComponentLayout = path.resolve(__dirname, 'src/layouts/rails-component-layout.tsx')
   const figmaComponentLayout = path.resolve(__dirname, 'src/layouts/figma-component-layout.tsx')
@@ -468,6 +497,11 @@ async function createComponentPages({actions, graphql}) {
 
       for (const reactComponent of data.allReactComponent.nodes) {
         if (reactComponent.reactId === frontmatter.reactId) {
+          if (reactComponentHasDedicatedPage(reactComponent.reactId, reactComponent.status)) {
+            statuses.push(reactComponent.status)
+            continue;
+          }
+
           statuses.push(reactComponent.status)
 
           actions.createPage({

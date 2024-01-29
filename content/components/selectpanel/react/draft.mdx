@@ -1,0 +1,27 @@
+---
+title: SelectPanel
+description: Select panel is a semantic dialog that allows for complex selection options within an overlay.
+reactId: select_panel
+reactStatus: draft
+---
+
+import ReactComponentPage from '~/src/components/react-component-page'
+import { graphql } from "gatsby"
+
+export const query = graphql`
+  query PageHeaderDraftQuery($componentId: String! = "select_panel", $parentPath: String! = "/components/selectpanel", $status: String! = "draft") {
+    ...ReactComponentInfo
+  }
+`
+
+export default function Layout({data, children}) {
+  return <ReactComponentPage data={data} showImport={false} tocItems={[{url: "#import", title: "Import"}]}>
+    {children}
+  </ReactComponentPage>
+}
+
+## Import
+
+```js
+import {SelectPanel} from '@primer/react/drafts'
+```
