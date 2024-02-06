@@ -1,0 +1,140 @@
+---
+title: UI color system
+description:
+  Color is a fundamental piece in the Primer visual language. In this guide you will learn about the principles,
+  patterns, and abstractions that make Primer’s color system.
+---
+
+import {Box} from '@primer/react'
+import {Caption} from '@primer/gatsby-theme-doctocat'
+
+## Overview
+
+GitHub's UI offers a variety of different color modes. Every pattern in Primer is built to work across all color modes out of the box.
+
+When designing product interfaces in Figma, we recommend using **light mode** or **dark mode** as the Primer Web Figma library provides components and tokens in those two modes.
+You can learn more about using design tokens in Figma in our [Figma guidelines](../../guides/figma/getting-started#styles-and-variables).
+
+### Color design tokens
+
+Primer delivers colors in the form of [design tokens](https://primer.style/primitives). Design tokens are a layer of abstraction that allows better maintainability, consistency and easy theming. Within Primer, design tokens are represented as CSS variables for code and Figma variables for design. For a full reference table of all available design tokens, see the [color CSS variables](../../primitives/color) page.
+
+As an example of how color tokens work, when `bgColor-default` is referenced for a background color, the value of that token will automatically change depending on the color mode.
+
+<img
+  width="960"
+  alt="Same component shown in light mode and dark mode color palettes"
+  src="https://github.com/primer/react/assets/18661030/21726ed0-2175-44a3-a821-af002778c0b3"
+/>
+
+Primer design tokens are categorized into three groups: **base**, **functional**, and **component/pattern**, which can be inferred based on their naming conventions. To read more about the naming convention, see the [design token naming guidelines](../../primitives/naming-convention) page.
+
+<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5} marginBottom={5}>
+  <div>
+    <img
+      width="464"
+      src="https://github.com/primer/react/assets/18661030/d6141e8a-012a-41bd-a23b-67d33cfd2fce"
+      alt=""
+    />
+    <p>**Base** color tokens are the lowest level tokens and map directly to a raw value. They are **only** to be used as a reference for functional and component/pattern tokens. Base color tokens don't respect color modes and should never be used directly in code or design.</p>
+  </div>
+  <div>
+    <img
+      width="464"
+      src="https://github.com/primer/react/assets/18661030/deb7cba3-71e7-4fe5-a00e-88e3b6c8d87e"
+      alt=""
+    />
+    <p>**Functional** color tokens represent global UI patterns such as text, borders, shadows, and backgrounds. These are the most commonly used design tokens throughout all of Primer and GitHub UI. Functional color tokens reference base color tokens under the hood, and respect color modes.</p>
+  </div>
+</Box>
+
+<img
+  width="960"
+  alt="wip"
+  src="https://github.com/primer/react/assets/18661030/200cd7f0-91dd-4e4e-b574-26612bc191b8"
+/>
+
+**Component/pattern** color tokens represent component and pattern specific tokens. These tokens are limited and functional tokens are preferred. Component/pattern color tokens may reference both base and functional tokens under the hood, and respect color modes.
+
+## Functional color tokens
+
+### Neutral colors
+
+#### Foreground
+
+<img
+  width="960"
+  alt="wip"
+  src="https://github.com/primer/react/assets/18661030/b8f72aab-98eb-4b7a-a5fa-fd8d63e9b8cd"
+/>
+
+<StorybookEmbed
+  baseUrl="https://primer-b5d9560b27-26615723.drafts.github.io/storybook"
+  stories={[{id: 'color-functional-foreground--foreground'}]}
+  height="330"
+/>
+
+#### Background
+
+<img
+  width="960"
+  alt="wip"
+  src="https://github.com/primer/react/assets/18661030/477efd99-16a0-42f7-8bd4-68c05bb5376a"
+/>
+
+#### Border
+
+<img
+  width="960"
+  alt="wip"
+  src="https://github.com/primer/react/assets/18661030/6e916437-0bcd-4dd0-9e88-f014f27d1fd0"
+/>
+
+#### Shadow
+
+### Accent colors
+
+#### Muted
+
+<img
+  width="960"
+  alt="wip"
+  src="https://github.com/primer/react/assets/18661030/df33b03c-ef06-4dc6-9d85-f6dd9cd3f3f0"
+/>
+
+muted bg + border flash or gh comment images
+
+#### Emphasis
+
+<img
+  width="960"
+  alt="wip"
+  src="https://github.com/primer/react/assets/18661030/3e4ec1f8-cbc5-4ebf-9816-7f247474b9c6"
+/>
+
+#### Foreground
+
+<img
+  width="960"
+  alt="wip"
+  src="https://github.com/primer/react/assets/18661030/7fcd6efb-ec86-4460-98aa-e3e5be062bec"
+/>
+
+emphasis bg open label and emphasis border input label
+
+### Interactive states
+
+- explain 20 40 rule
+- control tokens
+
+<img
+  width="960"
+  alt="wip"
+  src="https://github.com/primer/react/assets/18661030/b3da4f14-cd0c-43a7-a8c6-2fb8acbc74a8"
+/>
+
+### Color roles
+
+Overview image
+
+Table explaining each role
