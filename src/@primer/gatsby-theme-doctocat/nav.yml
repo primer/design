@@ -111,8 +111,8 @@
     - title: Primitives
       url: /foundations/primitives
       children:
-        - title: Naming convention
-          url: /foundations/primitives/naming-convention
+        - title: Token names
+          url: /foundations/primitives/token-names
         - title: Color
           url: /foundations/primitives/color
         - title: Size
