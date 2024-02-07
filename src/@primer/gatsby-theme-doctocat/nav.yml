@@ -111,6 +111,8 @@
     - title: Primitives
       url: /foundations/primitives
       children:
+        - title: Getting started
+          url: /foundations/primitives/getting-started
         - title: Token names
           url: /foundations/primitives/token-names
         - title: Color
