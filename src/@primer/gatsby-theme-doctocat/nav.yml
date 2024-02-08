@@ -43,22 +43,22 @@
         - title: Hooks
           url: /guides/react/hooks
           children:
-          - title: useSafeTimeout
-            url: /guides/react/hooks/use-safe-timeout
-          - title: useAnchoredPosition
-            url: /guides/react/hooks/use-anchored-position
-          - title: useFocusTrap
-            url: /guides/react/hooks/use-focus-trap
-          - title: useFocusZone
-            url: /guides/react/hooks/use-focus-zone
-          - title: useOnEscapePress
-            url: /guides/react/hooks/use-on-escape-press
-          - title: useOnOutsideClick
-            url: /guides/react/hooks/use-on-outside-click
-          - title: useOpenAndCloseFocus
-            url: /guides/react/hooks/use-open-and-close-focus
-          - title: useOverlay
-            url: /guides/react/hooks/use-overlay
+            - title: useSafeTimeout
+              url: /guides/react/hooks/use-safe-timeout
+            - title: useAnchoredPosition
+              url: /guides/react/hooks/use-anchored-position
+            - title: useFocusTrap
+              url: /guides/react/hooks/use-focus-trap
+            - title: useFocusZone
+              url: /guides/react/hooks/use-focus-zone
+            - title: useOnEscapePress
+              url: /guides/react/hooks/use-on-escape-press
+            - title: useOnOutsideClick
+              url: /guides/react/hooks/use-on-outside-click
+            - title: useOpenAndCloseFocus
+              url: /guides/react/hooks/use-open-and-close-focus
+            - title: useOverlay
+              url: /guides/react/hooks/use-overlay
     - title: Component lifecycle
       url: /guides/component-lifecycle
     - title: Component status
