@@ -108,6 +108,19 @@
   children:
     - title: Color
       url: /foundations/color
+    - title: Primitives
+      url: /foundations/primitives
+      children:
+        - title: Getting started
+          url: /foundations/primitives/getting-started
+        - title: Token names
+          url: /foundations/primitives/token-names
+        - title: Color
+          url: /foundations/primitives/color
+        - title: Size
+          url: /foundations/primitives/size
+        - title: Typography
+          url: /foundations/primitives/typography
     - title: Responsive
       url: /foundations/responsive
     - title: CSS utilities
