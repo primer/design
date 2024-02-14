@@ -10,6 +10,8 @@ import {Caption} from '@primer/gatsby-theme-doctocat'
 
 ## Overview
 
+<img width="960" alt="wip" src="https://github.com/primer/primitives/assets/18661030/615e3e06-9289-4adc-ab85-2213fae96e8c" style="margin-bottom: 1rem;" />
+
 GitHub's UI offers a variety of different color modes. Every pattern in Primer is built to work across all color modes out of the box.
 
 When designing product interfaces in Figma, we recommend using **light mode** or **dark mode** as the Primer Web Figma library provides components and tokens in those two modes.
@@ -51,15 +53,11 @@ Primer design tokens are categorized into three groups: **base**, **functional**
 
 **Component/pattern** tokens are used for values that are more specific or unique than functional tokens. These tokens are limited and functional tokens are preferred. Component/pattern color tokens may reference both base and functional tokens under the hood, and respect color modes.
 
-## Functional color tokens
-
-When designing and building UI, reach for functional color tokens first. Tokens with the `default` suffix are the standard values, while `muted` and `emphasis` each impact the hierarchy respectively.
-
-### Neutral colors
+## Neutral colors
 
 Shades of gray used for text, borders, backgrounds, and shadows.
 
-#### Foreground
+### Foreground
 
 Foreground tokens use the `fgColor` property and are used for text and icons.
 
@@ -69,7 +67,7 @@ Foreground tokens use the `fgColor` property and are used for text and icons.
   src="https://github.com/primer/react/assets/18661030/b8f72aab-98eb-4b7a-a5fa-fd8d63e9b8cd"
 />
 
-#### Background
+### Background
 
 Background tokens use the `bgColor` property and are used for backgrounds and fills.
 
@@ -79,7 +77,7 @@ Background tokens use the `bgColor` property and are used for backgrounds and fi
   src="https://github.com/primer/react/assets/18661030/477efd99-16a0-42f7-8bd4-68c05bb5376a"
 />
 
-#### Border
+### Border
 
 Border tokens use the `borderColor` property and are used for borders and dividers.
 
@@ -89,24 +87,23 @@ Border tokens use the `borderColor` property and are used for borders and divide
   src="https://github.com/primer/react/assets/18661030/6e916437-0bcd-4dd0-9e88-f014f27d1fd0"
 />
 
-#### Shadow
+### Shadow
 
 Shadow tokens use the `shadow` property and are used for shadows and elevation.
 
 <img width="960" alt="wip" src="https://github.com/primer/primitives/assets/18661030/292d4828-5a30-45b6-9c9c-8cf582ced9cf" />
 
-### Accent colors
+## Accent colors
+
+Accents colors are typically used to communicate status, action, or emphasis. Each accent color is tied to a [role](#role) with a specific meaning. Color tokens are available for foreground, background, and border. Background and border colors have both a `muted` and `emphasis` option.
 
 <img
   width="960"
   alt="wip"
   src="https://github.com/primer/primitives/assets/18661030/165ceeae-9933-473a-976f-655c918be1c2"
-  style="margin-bottom: 1rem;"
 />
 
-Accents colors are typically used to communicate status, action, or emphasis. Each accent color is tied to a [role](#role) with a specific meaning. Color tokens are available for foreground, background, and border. Background and border colors have both a `muted` and `emphasis` option.
-
-#### Muted
+### Muted
 
 Muted background and border colors are often combined to draw attention to a specific piece of content with a subtle emphasis.
 
@@ -116,7 +113,7 @@ Muted background and border colors are often combined to draw attention to a spe
   src="https://github.com/primer/react/assets/18661030/df33b03c-ef06-4dc6-9d85-f6dd9cd3f3f0"
 />
 
-#### Emphasis
+### Emphasis
 
 Emphasis background colors provide a stronger emphasis for UI elements and are always combined with `fgColor-onEmphasis` tokens for text and icons.
 
@@ -126,7 +123,7 @@ Emphasis background colors provide a stronger emphasis for UI elements and are a
   src="https://github.com/primer/react/assets/18661030/3e4ec1f8-cbc5-4ebf-9816-7f247474b9c6"
 />
 
-#### Foreground
+### Foreground
 
 Foreground accent colors provide contrast against `muted` and default background colors and should be used for text and icons.
 
@@ -136,7 +133,7 @@ Foreground accent colors provide contrast against `muted` and default background
   src="https://github.com/primer/react/assets/18661030/7fcd6efb-ec86-4460-98aa-e3e5be062bec"
 />
 
-### Role
+## Color roles
 
 | Color roles                                                                       | Usage                                                               |
 | :-------------------------------------------------------------------------------- | :------------------------------------------------------------------ |
@@ -148,14 +145,3 @@ Foreground accent colors provide contrast against `muted` and default background
 | <Box sx={{display: 'inline-flex', alignContent: 'center', gap: '4px', verticalAlign: 'middle'}}><Box sx={{backgroundColor: 'closed.emphasis', height: '24px', width: '24px', borderRadius: 1}}></Box> `closed`</Box>       | Closed tasks, PRs or workflows         |
 | <Box sx={{display: 'inline-flex', alignContent: 'center', gap: '4px', verticalAlign: 'middle'}}><Box sx={{backgroundColor: 'done.emphasis', height: '24px', width: '24px', borderRadius: 1}}></Box> `done`</Box>           | Completed tasks, PRs or workflows      |
 | <Box sx={{display: 'inline-flex', alignContent: 'center', gap: '4px', verticalAlign: 'middle'}}><Box sx={{backgroundColor: 'sponsors.emphasis', height: '24px', width: '24px', borderRadius: 1}}></Box> `sponsors`</Box>           | Text and icons related to GitHub Sponsors      |
-
-### Interactive states
-
-- explain 20 40 rule
-- control tokens
-
-<img
-  width="960"
-  alt="wip"
-  src="https://github.com/primer/react/assets/18661030/b3da4f14-cd0c-43a7-a8c6-2fb8acbc74a8"
-/>
