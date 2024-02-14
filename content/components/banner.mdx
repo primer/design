@@ -16,6 +16,18 @@ For general design and usage guidelines of banners, see the [flash component](/c
 
 ## Accessibility
 
+### Focus management vs. a live region
+
+There was [extensive research](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/toast-flash-banner/accessible-banner-prototype.md#engineering-explorations-of-an-accessible-banner) done to determine how best to surface banners in the most accessible way. The answer is, it depends! You can reference the [accessible banner prototype docs](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/toast-flash-banner/accessible-banner-prototype.md#engineering-explorations-of-an-accessible-banner) for a very detailed explanation of scenarios tested.
+
+When deciding whether to focus a banner or use a live region, consider the following:
+
+* The criticality of the information - critical information (such as an error) should be as discoverable as possible
+* Where is a user's focus when the banner appears; would focus otherwise be lost if the banner is not focused?
+* Is there already a live region on the page that can be utilized? [Dynamic live regions can have some challenges](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/toast-flash-banner/accessible-banner-prototype.md#challenges-with-dynamically-inserted-live-region), so this method requires ample testing.
+
+Please reach out to the accessibility team if you need help determining the best approach for your use case!
+
 ### Known accessibility issues (GitHub staff only)
 
  <AccessibilityLink label="Banner"/>
