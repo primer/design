@@ -119,11 +119,6 @@
           url: /foundations/color/themes
         - title: Accessibility
           url: /foundations/color/accessibility
-    - title: Primitives
-      url: /foundations/primitives
-      children:
-        - title: Color
-          url: /foundations/primitives/color
     - title: Responsive
       url: /foundations/responsive
     - title: CSS utilities
