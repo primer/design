@@ -10,7 +10,7 @@ const baseUrls = {
   rails: 'https://primer.style/view-components/lookbook/',
 }
 
-const colorSchemes = [...Object.keys(theme.colorSchemes), 'light-dark-split']
+const colorSchemes = Object.keys(theme.colorSchemes)
 
 type StorybookEmbedProps = {
   framework?: 'react' | 'css'
@@ -31,7 +31,7 @@ export function StorybookEmbed({
   const [selectedStory, setSelectedStory] = React.useState(stories[0])
   const options = {
     id: selectedStory.id,
-    globals: framework === 'react' ? `colorScheme:${selectedColorScheme}` : `colorScheme:${selectedColorScheme}`,
+    globals: framework === 'react' ? `colorScheme:${selectedColorScheme}` : `theme:${selectedColorScheme}`,
   }
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const iframeUrl = `${baseUrl}/iframe.html?${new URLSearchParams(options)}`
