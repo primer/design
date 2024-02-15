@@ -11,7 +11,7 @@ import {Box} from '@primer/react'
 
 <img width="960" alt="wip" src="https://github.com/primer/primitives/assets/18661030/615e3e06-9289-4adc-ab85-2213fae96e8c" style="margin-bottom: 1rem;" />
 
-GitHub's UI offers two color modes, `light` and `dark`. Primer supports both color modes across nine [themes](../../primitives/getting-started#theming). Every pattern in Primer is built to work across all color modes out of the box.
+GitHub's UI offers two color modes, `light` and `dark`. Primer supports both color modes across nine [themes](../../foundations/primitives/getting-started#theming). Every pattern in Primer is built to work across all color modes out of the box.
 
 ### Color modes in Figma
 
@@ -20,7 +20,7 @@ You can learn more about using design tokens in Figma in our [Figma guidelines](
 
 ### Color design tokens
 
-Primer delivers colors in the form of [design tokens](../../primitives/getting-started). Design tokens are a layer of abstraction that allows for better maintainability, consistency and theming. Within Primer, design tokens are represented as CSS variables for code and Figma variables for design. For a full reference table of all available design tokens, see the [color CSS variables](../../primitives/color) page.
+Primer delivers colors in the form of [design tokens](../../foundations/primitives/getting-started). Design tokens are a layer of abstraction that allows for better maintainability, consistency and theming. Within Primer, design tokens are represented as CSS variables for code and Figma variables for design. For a full reference table of all available design tokens, see the [color CSS variables](../../foundations/primitives/color) page.
 
 As an example of how color tokens work, when `bgColor-default` is referenced for a background color, the value of that token will automatically change depending on the color mode.
 
@@ -32,7 +32,13 @@ As an example of how color tokens work, when `bgColor-default` is referenced for
 
 ### Design token categories
 
-Primer design tokens are categorized into three groups: **base**, **functional**, and **component/pattern**. To read more about the naming convention, see the [design token naming guidelines](../../primitives/naming-convention) page.
+Primer design tokens are categorized into three groups:
+
+- base
+- functional
+- component/pattern
+
+To read more about the naming convention, see the [design token naming guidelines](../../foundations/primitives/token-names) page.
 
 <img
   width="960"
@@ -43,16 +49,22 @@ Primer design tokens are categorized into three groups: **base**, **functional**
 
 **Base** color tokens are the lowest level tokens and map directly to a raw value. They are <strong>only</strong> to be used as a reference for functional and component/pattern tokens. Base color tokens don't respect color modes and should never be used directly in code or design.
 
+Example: `color-scale-pink-5`
+
 **Functional** color tokens represent global UI patterns such as text, borders, shadows, and backgrounds. These are the most commonly used design tokens throughout all of Primer and GitHub UI. Functional color tokens reference base color tokens under the hood, and respect color modes.
+
+Example: `borderColor-sponsors-emphasis`
 
 <img
   width="960"
   alt="wip"
-  src="https://github.com/primer/react/assets/18661030/200cd7f0-91dd-4e4e-b574-26612bc191b8"
+  src="https://github.com/primer/primitives/assets/18661030/4b91c346-24c4-4926-911d-de9d27c851d3"
   style="margin-bottom: 1rem; margin-top: 1rem;"
 />
 
 **Component/pattern** tokens are used for values that are more specific or unique than functional tokens. These tokens are limited and functional tokens are preferred. Component/pattern color tokens may reference both base and functional tokens under the hood, and respect color modes.
+
+Example: `focus-outlineColor`
 
 ## Neutral colors
 
@@ -146,3 +158,11 @@ Foreground accent colors provide contrast against `muted` and default background
 | <Box sx={{display: 'inline-flex', alignContent: 'center', gap: '4px', verticalAlign: 'middle'}}><Box sx={{backgroundColor: 'closed.emphasis', height: '24px', width: '24px', borderRadius: 1}}></Box> `closed`</Box>       | Closed tasks, PRs or workflows         |
 | <Box sx={{display: 'inline-flex', alignContent: 'center', gap: '4px', verticalAlign: 'middle'}}><Box sx={{backgroundColor: 'done.emphasis', height: '24px', width: '24px', borderRadius: 1}}></Box> `done`</Box>           | Completed tasks, PRs or workflows      |
 | <Box sx={{display: 'inline-flex', alignContent: 'center', gap: '4px', verticalAlign: 'middle'}}><Box sx={{backgroundColor: 'sponsors.emphasis', height: '24px', width: '24px', borderRadius: 1}}></Box> `sponsors`</Box>           | Text and icons related to GitHub Sponsors      |
+
+
+## Developers
+
+Colors are available in the form of CSS variables and CSS utility classes that can be used across all frameworks including React and Rails. Check out the references below for more information.
+
+- [Color CSS variables](../../foundations/primitives/color)
+- [Color CSS utility classes](../../foundations/css-utilities/colors)
