@@ -111,10 +111,8 @@
       children:
         - title: Overview
           url: /foundations/color/overview
-        - title: Base color scales
+        - title: Base scales
           url: /foundations/color/base-scales
-        - title: Themes
-          url: /foundations/color/themes
         - title: Accessibility
           url: /foundations/color/accessibility
     - title: Primitives
