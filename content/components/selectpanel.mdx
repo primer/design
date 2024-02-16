@@ -11,9 +11,7 @@ export default ComponentLayout
 
 ## Overview
 
-The select panel enables users to choose one or multiple items from a list and can be enhanced with additional controls like a search input to speed up selection. Offering more flexibility than an [Action Menu](/components/action-menu), it stays open after a selection and allows for the inclusion of extra form controls.
-
-For instance, the select panel is ideal for assigning individuals to tasks, adding labels to issues or pull requests, or selecting specific branches in a code repository.
+The select panel allows users to choose one or multiple items from a list of many and has search functionality included to speed up selection. It can also be enhanced with additional form controls in the footer. For instance, the select panel is ideal for assigning individuals to tasks, adding labels to issues or pull requests, or selecting specific branches in a code repository.
 
 ## Anatomy
 
@@ -48,6 +46,10 @@ The select panel provides both simple list-based single selection and complex mu
 />
 
 For single-item selection, if no consequential actions follow, the panel may close immediately, indicated by a checkmark on the selected item. However, when the selection triggers significant actions or the footer has additional elements (like a checkbox), declarative buttons are necessary. In such cases, the behavior is indicated visually by radio buttons, which allows users to confirm their choices, before submitting their selection.
+
+<Note>
+  For a simple list of pre-defined items without filtering or extra options/actions, consider using an [action menu](/components/action-menu).
+</Note>
 
 ### List (multi-select)
 
