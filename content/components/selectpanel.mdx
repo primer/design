@@ -137,6 +137,9 @@ Loading states should be used to indicate ongoing processes at various stages, e
 
 Select panels can be activated by regular [buttons](/components/button), [icon buttos](/components/icon-button), or [action menu items](/components/action-menu). Proper labeling is crucial for representing current selections, either internally (within the button) or externally (adjacent to the button). Focus will be placed on the first interactive element within the select panel.
 
+<Note>
+  When the select panel is activated through an [action menu](/components/action-menu), it should be displayed as a centered dialog using the `dialog` property.
+</Note>
 
 ### Closing
 
@@ -151,10 +154,6 @@ To close the select panel, pressing 'Esc', selecting a 'Cancel' option or clicki
 />
 
 The select panel can appear as either an anchored or centered dialog, depending on the trigger source.
-
-<Note>
-  When triggered from an action menu it must be a centered dialog.
-</Note>
 
 ### Responsive
 
@@ -412,7 +411,9 @@ In multi-selections with search capabilities, a **deselect all** [icon button](/
 
 ## Accessibility
 
-For enhanced accessibility, it's important to use explicit saving mechanisms in the select panel. This includes incorporating "Apply" and "Cancel" buttons for both single- and multi-selection scenarios. These buttons provide clear, accessible actions for users to confirm or revoke their selections. Automatic saving may be suitable for single selections that do not include additional form controls. In such cases, the selection process is straightforward and does not require further user confirmation, making it accessible and efficient. However, when the selection process involves additional steps or consequences, explicit saving mechanisms are crucial to ensure that all users, including those with accessibility needs, can confidently and accurately manage their selections.
+For enhanced accessibility, it's important to use explicit saving mechanisms in the select panel. This includes incorporating "Apply" and "Cancel" buttons for both single- and multi-selection scenarios. These buttons provide clear, accessible actions for users to confirm or revoke their selections.
+
+Automatic saving may be suitable for single selections that do not include additional form controls. In such cases, the selection process is straightforward and does not require further user confirmation, making it accessible and efficient. However, when the selection process involves additional steps or consequences, explicit saving mechanisms are crucial to ensure that all users, including those with accessibility needs, can confidently and accurately manage their selections.
 
 ## Related components
 
