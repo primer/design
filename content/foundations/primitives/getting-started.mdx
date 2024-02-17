@@ -52,6 +52,22 @@ Color tokens are grouped by individual theme files:
 @import '@primer/primitives/dist/css/functional/themes/dark-tritanopia.css';
 ```
 
+Utilizing CSS variables in SCSS or CSS files:
+
+```css
+.Text {
+  color: var(--fgColor-default);
+}
+```
+
+Utilizing CSS variables in React with Primer React (styled components):
+
+```javascript
+<Text sx={{color: 'var(--fgColor-default)'}}></Text>
+```
+
+**Note:** [legacy variables](../../guides/react/theme-reference) in Primer React from the `theme` object all resolve to CSS variables under the hood. While the new naming convention is not available as a JS object, you can continue using the legacy variables in your React components or switch to using CSS variables directly (recommended).
+
 ## Theming
 
 Primer color design tokens are made available within data-attribute selectors on the `body` tag or other high level dom element. There are three distinct data-attributes used to handle theming: `data-color-mode`, `data-light-theme`, and `data-dark-theme`.
@@ -67,6 +83,14 @@ The `data-light-theme` and `data-dark-theme` attributes are used to set the them
 ```html
 <body data-color-mode="light" data-light-theme="light" data-dark-theme="dark">
 ```
+
+To see theming in action, toggle between the theme in the following example:
+
+<StorybookEmbed
+  baseUrl="https://primer.style/primitives/storybook/"
+  stories={[{id: 'color-functional-roles--neutral'}]}
+  height="480"
+/>
 
 ### Available themes
 
