@@ -1,0 +1,72 @@
+---
+title: Accessibility
+description:
+  Primer color tokens are designed to be accessible by default. This guide provides more context around how to ensure new patterns meet GitHub's standards.
+---
+
+import {Box, Heading} from '@primer/react'
+
+## Guidelines
+
+### Assure adequate color contrast
+
+Color contrast between text and its background must meet [required WCAG standards](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
+
+The contrast requirements are:
+
+- 4.5:1 for normal text
+- 3:1 for large text (>24px)
+- 3:1 for UI elements and graphics
+- No contrast requirement for decorative and disabled elements
+
+Use an [online contrast checker](https://webaim.org/resources/contrastchecker/) or a [Figma plugin](/guides/accessibility/tools#contrast-plugin) to test your contrast.
+
+### Don't rely on color alone
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  alignItems="center"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Box as="p" mt="0">
+    <Heading sx={{mt: 0, mb: 3, fontSize: 2}} as="h4">
+      Show state with more than color
+    </Heading>
+    Color vision deficiency is different for different people. To make sure everyone can understand and use your UI you should
+    show state with more than a change in color. For example by using icons or changing the content.
+  </Box>
+  <img
+    width="456"
+    alt="Example icon that uses a distinct shape in addition to color to indicate an error."
+    src="https://user-images.githubusercontent.com/813754/187186864-8a825434-978b-4e21-bac2-9c1235d75e2c.png"
+  />
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  alignItems="start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <Box as="p" mt="0">
+    <Heading sx={{mt: 0, mb: 3, fontSize: 2}} as="h4">
+      Connect labels to graphs with lines or patterns
+    </Heading>
+    For charts and graphs you can position the labels on top or close to each section. You can also use patterns to distinguish
+    different parts.
+  </Box>
+  <img
+    width="456"
+    alt="Two graphs. One is a line graph and one is a pie graph. The line graph is demonstrating using unique shapes for each comparison line's plot symbol. The pie chart is demonstrating how each slice's label can use a line to point to its corresponding slide."
+    src="https://user-images.githubusercontent.com/813754/187186931-84bcc541-7cea-45f2-a686-21c5428e0620.png"
+  />
+</Box>
+
+### Additional guidance
+
+Reference [Color considerations](https://primer.style/guides/accessibility/color-considerations) for additional information about how color relates to compliance, and other focused documentation topics.

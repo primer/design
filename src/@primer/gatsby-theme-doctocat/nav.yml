@@ -108,6 +108,13 @@
   children:
     - title: Color
       url: /foundations/color
+      children:
+        - title: Overview
+          url: /foundations/color/overview
+        - title: Base scales
+          url: /foundations/color/base-scales
+        - title: Accessibility
+          url: /foundations/color/accessibility
     - title: Primitives
       url: /foundations/primitives
       children:
