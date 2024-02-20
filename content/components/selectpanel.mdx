@@ -55,7 +55,11 @@ For single-item selection, if no consequential actions follow, the panel may clo
   src="https://github.com/primer/design/assets/980622/bfaa7eca-9a12-432d-9184-38f024a7cd32"
 />
 
-This option allows choosing multiple items and includes features like "select all" for quick selection/deselection and "indeterminate selections" for bulk actions. Implementing a search function is recommended over displaying extensive lists to avoid performance issues.
+Use the search feature to manage extensive lists. This approach helps to prevent potential performance issues, particularly since this component does not support virtualization.
+
+The indeterminate selections feature is valuable for bulk actions on lists. For instance, if you have 20 selected items and some of them are tagged with different labels, an indeterminate checkbox (indicated by a horizontal line) appears for labels that are not uniformly applied to all items.
+
+For static lists that don’t require search, the ”Select all” option at the top of the list allows for quick selection or deselection of all values.
 
 ### Footer
 
