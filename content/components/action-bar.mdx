@@ -1,7 +1,7 @@
 ---
 title: Action bar
 status: Experimental
-description: Action bar contains a collection of horizontally aligned icon buttons.
+description: Action bar contains a collection of horizontally aligned buttons.
 figmaId: action_bar
 railsIds:
 - Primer::Alpha::ActionBar
@@ -14,7 +14,7 @@ import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 ## Usage
 
-Use an action bar to render multiple icon buttons in a row. Buttons can be split into groups by adding a divider. When there is not enough space, buttons that don't fit will be added to an overflow menu.
+Use an action bar to render multiple buttons in a row. Buttons can be split into groups by adding a divider. When there is not enough space, buttons that don't fit will be added to an overflow menu.
 
 ## Anatomy
 
@@ -28,7 +28,7 @@ Use an action bar to render multiple icon buttons in a row. Buttons can be split
 
 ### Buttons
 
-An action bar should only contain icon buttons with the `invisible` variant (no border/background).
+Default to using icon buttons with the `invisible` variant (no border/background).
 
 <DoDontContainer>
   <Do>
@@ -37,7 +37,8 @@ An action bar should only contain icon buttons with the `invisible` variant (no 
       role="presentation"
       width="456"
     />
-    <Caption>Use only invisible icon buttons in an action bar.</Caption>
+    {/* <!-- TODO: decide if we want to allow a danger button to be mixed into an action bar --> */}
+    <Caption>Only use buttons of the same variant in an action bar, and default to using the invisible variant.</Caption>
   </Do>
   <Dont>
     <img
@@ -46,6 +47,29 @@ An action bar should only contain icon buttons with the `invisible` variant (no 
       width="456"
     />
     <Caption>Don't use other variants or components in an action bar.</Caption>
+  </Dont>
+</DoDontContainer>
+
+Icon buttons are the default, but buttons may also have text labels. All buttons in an action bar should have the same type of content (icon, text, or icon with text).
+
+If the buttons use text labels and horizontally overflow the container, the overflow menu will still be triggered by an icon button with an ellipsis icon.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://github.com/primer/design/assets/2313998/522486fd-7197-497f-9c2b-ee558aec6c74"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use either icons or text labels, but not both in the same action bar.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://github.com/primer/design/assets/2313998/8c53fcad-3f36-40d5-8dea-9ccfcab8b9c2"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't mix types of button labels within the same action bar.</Caption>
   </Dont>
 </DoDontContainer>
 
