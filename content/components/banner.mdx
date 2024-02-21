@@ -10,34 +10,52 @@ import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 import {AccessibilityLink} from '~/src/components/accessibility-link'
 
-## Accessibility
-
-### Focus management vs. Live region announcement
-
 Banner can be used in one of two ways:
 
-* To highlight prominent information on a page.
-* To communicate feedback in response to a user action.
+1. To highlight prominent information on a page.
+2. To communicate feedback in response to a user action.
 
-Specifically, the latter scenario of communicating feedback requires the use of focus management or a live region announcement to guarantee that all users are immediately made aware of the feedback. This relates to [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html).
+## Accessibility
 
-Relevant scenarios where a focus management or a live region technique come into play to draw attention to the Banner include:
+### Feedback Banners
 
-* A user submits a form; An error banner is shown with a list of form errors that needs to be corrected.
-* A user submits a form; The submission successfully goes through and the form container is replaced with new content which includes a success banner.
-* A user saves a setting; An error banner is shown communicating that an unexpected error has occured and the setting was not saved.
+Banners that are used to communicate feedback require extra accessibility considerations to ensure they are surfaced immediately to all users including those using assistive technologies. This relates to [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html).
 
-How should one accessibly surface a feedback Banner? The answer is, it depends! You can reference the [accessible banner prototype docs (GitHub Staff only)](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/toast-flash-banner/accessible-banner-prototype.md#engineering-explorations-of-an-accessible-banner) for a very detailed explanation of scenarios tested.
+Example scenarios that require extra considerations include:
 
-When deciding whether to focus a banner or use a live region, consider the following:
+* When a user submits a form, an error banner is shown with a list of form errors that need to be corrected.
+* When a user submits a form, the submission successfully goes through and a success banner is shown.
+* When a user saves a setting, an error banner is shown to communicate that an unexpected error has occured and the setting was not saved.
+* When a user toggles an option, a warning banner is shown to warn the user of potential consequences.
 
-* How critical is the information?
-  * Critical information (such as an error) should be made as discoverable as possible. While moving focus to the Banner can be considered more disruptive than a live region announcement, it's more important that a user is able to discover the Banner so they can take an appropriate action. Prefer placing focus on the Banner over using a live region announcement in critical scenarios.
-  * For communicating non-critical information (such as a success), a live region announcement is sufficient in **most** scenarios. Keep in mind that a live region announcement can sometimes fail to fire and can easily be missed, so it should be reserved for use on non-critical information.
-* Does the Banner contain an action?
-  * If the Banner contains an action, placing focus on the Banner is preferable so that a screen reader user can immediately interact with the action without having to manually locate it.
-* Is there already a live region on the page that can be utilized?
-  * [Dynamic live regions can have some challenges](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/toast-flash-banner/accessible-banner-prototype.md#challenges-with-dynamically-inserted-live-region), so this method requires ample testing.
+Banners used in these scenarios can be made more accessible through either a **focus management** or a **live region announcement** technique:
+
+* **Focus management** would involve moving focus to the newly shown Banner. This is the most reliable way to ensure that a user is aware of the new content. This is the preferred method for critical Banner scenarios (with exceptions).
+* **Live region announcements**: A live region announcement can be used to announce the new content to screen reader users. This method is less reliable than focus management, but may be the preferred method for non-critical information (with exceptions).
+
+Here are some questions to consider when deciding which method to use:
+
+#### How critical is the information?
+
+Critical information (such as an error) should be made as discoverable as possible. Though moving focus to the Banner can be considered more disruptive than a live region announcement, it's more important that a user is able to discover the Banner so they can take an appropriate action. In most critical scenarios, using focus management is the best approach.
+
+On the other hand, for communicating newly shown non-critical information (such as a success), a live region announcement is sufficient in **most** scenarios. A live region announcement can sometimes fail to fire and can easily be missed, so it should be reserved for use on non-critical information where there are no consequences if a user misses it.
+
+#### Where is a user's focus when the banner appears?
+
+If an action triggers updates to the UI resulting in a user's focus getting lost and a new Banner being shown, place focus on this newly shown Banner instead of using a live region announcement.
+
+For example, let's say that a user activates a "Submit" button. Upon doing so, significant portions of the UI (including this button) gets removed and replaced by a success banner. The fact that this is a non-critical banner may lead us to think announcing the banner is sufficient. However, given that the user experiences focus loss as a result of the control they were on being removed from the page, focus management is more appropriate.
+
+This is because focus loss can result in some screen reader users being taken back to the top of the page and be disorienting. This is a [WCAG 2.4.3 Focus Order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html) issue.
+
+#### Does the Banner contain an action?
+
+If the Banner contains an action, placing focus on the newly shown Banner is preferred over a live region announcement so that a screen reader user can immediately interact with the action without having to manually locate it.
+
+#### Is there already a live region on the page that can be utilized?
+
+[Dynamic live regions can have some challenges (GitHub Staff Only)](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/toast-flash-banner/accessible-banner-prototype.md#challenges-with-dynamically-inserted-live-region), so this method requires ample testing.
 
 Please reach out to the accessibility team if you need help determining the best approach for your use case!
 
