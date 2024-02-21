@@ -35,17 +35,17 @@ Banners used in these scenarios can be made more accessible through either a **f
 
 Here are some questions to consider when deciding which method to use:
 
-##### How critical is the information?
+#### How critical is the information?
 
 Critical information (such as an error) should be made as discoverable as possible. Though moving focus to the Banner can be considered more disruptive than a live region announcement, it's more important that a user is able to discover the Banner so they can take an appropriate action. In most critical scenarios, using focus management is the best approach.
 
 On the other hand, for communicating newly shown non-critical information (such as a success), a live region announcement is sufficient in **most** scenarios. A live region announcement can sometimes fail to fire and can easily be missed, so it should be reserved for use on non-critical information where there are no consequences if a user misses it.
 
-##### Does the Banner contain an action?
+#### Does the Banner contain an action?
 
 If the Banner contains an action, placing focus on the newly shown Banner is preferred over a live region announcement so that a screen reader user can immediately interact with the action without having to manually locate it.
 
-##### Is there already a live region on the page that can be utilized?
+#### Is there already a live region on the page that can be utilized?
 
 [Dynamic live regions can have some challenges](https://github.com/github/accessibility/blob/main/docs/coaching-recommendations/toast-flash-banner/accessible-banner-prototype.md#challenges-with-dynamically-inserted-live-region), so this method requires ample testing.
 
