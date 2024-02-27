@@ -28,36 +28,43 @@ Use an action bar to render multiple buttons in a row. Buttons can be split into
 
 ### Buttons
 
-Default to using icon buttons with the `invisible` variant (no border/background).
+Buttons are the only controls allowed in an action bar. Even though a [segmented control](/components/segmented-control) is technically a group of buttons, it does not belong in an action bar because it's used for selecting an option, not triggering an action.
+
+Buttons that open [dialogs](/components/dialog), [action menus](/components/action-menu) or [select panels](/components/select-panels) are acceptable in an action bar becacuse they perform an action: to open a new context.
 
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/378023/193506398-6d6da18a-b70d-4cd4-b6e4-fd472a24934f.png"
+      src="https://github.com/primer/design/assets/2313998/556243b5-ba71-44cd-a0a2-710a6aaa4bf5"
       role="presentation"
       width="456"
     />
-    {/* <!-- TODO: decide if we want to allow a danger button to be mixed into an action bar --> */}
-    <Caption>Only use buttons of the same variant in an action bar, and default to using the invisible variant.</Caption>
+    <Caption>Only use buttons in an action bar.</Caption>
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/378023/193506488-44543352-f513-469e-8783-5d1cc7f44eaf.png"
+      src="https://github.com/primer/design/assets/2313998/44a40b05-d970-4a47-877e-fb8ae5ae54b2"
       role="presentation"
       width="456"
     />
-    <Caption>Don't use other variants or components in an action bar.</Caption>
+    <Caption>Don't use other components in an action bar.</Caption>
   </Dont>
 </DoDontContainer>
 
-Icon buttons are the default, but buttons may also have text labels. All buttons in an action bar should have the same type of content (icon, text, or icon with text).
+Icon buttons are the default, but buttons may also have text labels. All buttons in an action bar should have the same type of content (icon, text label, or text label with icon).
 
-If the buttons use text labels and horizontally overflow the container, the overflow menu will still be triggered by an icon button with an ellipsis icon.
+The button that opens the overflow menu will always be an icon button with a ["kebab" icon](/foundations/icons/kebab-horizontal-16).
+
+<img
+  src="https://github.com/primer/design/assets/2313998/d3ef0af6-034a-4c55-a4ea-c2fb239ddccd"
+  role="presentation"
+  width="456"
+/>
 
 <DoDontContainer>
   <Do>
     <img
-      src="https://github.com/primer/design/assets/2313998/522486fd-7197-497f-9c2b-ee558aec6c74"
+      src="https://github.com/primer/design/assets/2313998/2cc69c4c-d81f-49d7-8ac2-df5b9f191d22"
       role="presentation"
       width="456"
     />
@@ -65,7 +72,7 @@ If the buttons use text labels and horizontally overflow the container, the over
   </Do>
   <Dont>
     <img
-      src="https://github.com/primer/design/assets/2313998/8c53fcad-3f36-40d5-8dea-9ccfcab8b9c2"
+      src="https://github.com/primer/design/assets/2313998/4d5726e7-2ef6-4112-8b23-69c4cf129c26"
       role="presentation"
       width="456"
     />
@@ -98,7 +105,16 @@ Dividers can be added to visually group related buttons.
 
 ### Overflow menu
 
-When the buttons don't fit in the available space, an overflow button ("kebab" icon) is added at the end of the action bar signaling that there are more actions available. Clicking on the overflow button opens a menu with the remaining actions that didn't fit.
+{/* <!-- TODO: determine how/if we want to support hiding items out of order --> */}
+
+When actions are put in the overflow menu, an icon button (["kebab" icon](/foundations/icons/kebab-horizontal-16)) is added at the end of the action bar signaling that there are more actions available. Clicking on the overflow button opens a menu with the remaining actions that didn't fit.
+
+Dividers from the action bar are preserved in the overflow menu.
+
+There are two ways that actions can be pushed into the overflow menu:
+
+- When the buttons don't fit in the available horizontal space
+- By explicitly defining actions that will only appear in the overflow menu
 
 <img
   src="https://user-images.githubusercontent.com/378023/193507064-4efe3f63-7b30-4656-8304-3dea3e3f1e03.png"
@@ -108,7 +124,7 @@ When the buttons don't fit in the available space, an overflow button ("kebab" i
 
 #### Sorting
 
-Buttons that don't fit are added to the top of the menu. Meaning that the last button in the action bar will also be the last button when inside the menu:
+Buttons that are moved to the overflow menu because they don't fit in the available width get added to the top of the menu. Meaning that the last button in the action bar will also be the last button when inside the menu.
 
 <img
   src="https://user-images.githubusercontent.com/378023/188835345-0cfd3376-1658-496f-a78b-f5977aa2198c.png"
@@ -192,6 +208,13 @@ Action bars can have 3 different sizes:
 - Medium (`32px`) (default)
 - Large (`40px`)
 
+### Button variants
+
+Icon buttons should default to the `invisible` (no border/background) variant. Buttons with text labels should default to the `secondary` variant.
+
+You may use the `danger` variant for destructive actions. The `primary` variant should not be used in an action bar because primary page actions are highly unlikely to appear in a collection with other actions.
+
+
 ## Layout
 
 Action bars can be used inline next to other content or also full width taking up the entire space.
@@ -230,13 +253,21 @@ Make sure to add extra spacing around the action bar.
   </Dont>
 </DoDontContainer>
 
+Icon buttons using the `invisible` variant have no space between them. Button variants with a background or a border require space between them so they're not right on top of eachother.
+
+<img
+  src="https://github.com/primer/design/assets/2313998/6888cee3-5d24-4ec5-b141-8d7175a27d62"
+  role="presentation"
+  width="456"
+/>
+
 ## Accessibility
 
 ### Role
 
-An action bar has an ARIA role of [`toolbar`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role).
+An action bar has an ARIA role of [`toolbar`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role) by default. The `toolbar` role only has a single tab stop. Focus is moved within the action bar using the left and right arrow keys, the "Home" key, and the "End" key.
 
-### Keyboard navigation
+### Keyboard navigation for action bars with a role of `toolbar`
 
 | Key                | description                                                                                                                                                                                                                                                                                                                                            |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -247,9 +278,15 @@ An action bar has an ARIA role of [`toolbar`](https://developer.mozilla.org/en-U
 | `End`              | Moves focus to the **last** button.                                                                                                                                                                                                                                                                                                                    |
 | `Enter` or `Space` | Triggers the button **action**.                                                                                                                                                                                                                                                                                                                        |
 
+The `toolbar` role should be overridden if you're using an action bar in a context where the behavior of left arrow, right arrow, "Home", and "End" keys conflict with their behavior in a `toolbar`. For example, as list item actions within a list where focus may be moved between items using arrow, "Home", and "End" keys.
+
+In cases where we don't use the `toolbar` role, no role is applied and each buttons has one tab stop (their default keyboard navigation behavior).
+
 <!-- TODO: Add video -->
 
 ### Touch targets
+
+When the user is on a device with coarse pointer (such as a touch screen), the button target needs to be enlarged so users can easily tap the correct target button.
 
 <Box
   as="figure"
