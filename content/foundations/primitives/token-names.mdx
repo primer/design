@@ -1,0 +1,174 @@
+---
+title: Token names
+description:
+  An explanation of Primer's design token naming convention
+---
+
+## Intro
+
+Primer design tokens are named using a consistent convention to make it easier to understand what they do and how they should be used at a glance.
+
+<img width="960" alt="a design token broken down by property, variant, and scale" src="https://github.com/primer/react/assets/18661030/85ec0655-0426-4a79-9ac0-0bee97e5e9b1" />
+
+## Categories
+
+<img width="960" alt="graphic listing out prefix, namespace, pattern, variant, property, variant, and scale all color coded to match help illustrate the differences between them" src="https://github.com/primer/react/assets/18661030/d89da86b-5b9d-43f2-b745-126fe35ea500" />
+
+This naming convention is broken down into three categories: **base, component/pattern, functional**. Each category is a subset of the over-arching convention.
+
+Across all categories, the [property](#property-required) value is always required. This value specifies exactly how a token is indended to be applied to a UI.
+
+### Base
+
+Base tokens are the lowest level tokens and map directly to a raw value.
+
+<img width="960" alt="a graphic illustrating five words, uniquely colored and displayed left to right in a horizontal direction. Words are prefix, namespace, pattern, variant, property, variant and scale. The pattern and variant words are dimmed to signify their exclusions from this pattern. Followed by color coded tokens, which will be described in the next section." src="https://github.com/primer/react/assets/18661030/3bffcdaf-60f1-4824-b30c-25951f2d5156" />
+
+
+#### Example `base` tokens
+
+```md
+base-size-4
+base-color-green-5
+brand-base-color-lime-5
+base-fontWeight-semibold
+```
+
+### Functional
+
+Functional tokens represent global UI patterns.
+
+<img width="960" alt="a graphic illustrating five words, uniquely colored and displayed left to right in a horizontal direction. Words are prefix, namespace, pattern, variant, property, variant and scale. The namespace, pattern and variant words are dimmed to signify their exclusions from this pattern. Followed by color coded tokens, which will be described in the next section." src="https://github.com/primer/react/assets/18661030/7124ced5-96d1-4479-996a-641579a2cd4c" />
+
+#### Example `functional` tokens
+
+```md
+bgColor-inset
+borderColor-default
+brand-borderWidth-thin
+boxShadow-inset-thick
+```
+
+### Component/pattern
+
+Component/pattern tokens should only be used in component CSS.
+
+<img width="960" alt="a graphic illustrating five words, uniquely colored and displayed left to right in a horizontal direction. Words are prefix, namespace, pattern, variant, property, variant and scale. The namespace word is dimmed to signify its exclusion from this pattern. Followed by color coded tokens, which will be described in the next section." src="https://github.com/primer/react/assets/18661030/d1d77c2f-e8c4-4d38-b295-1231bc82648f" />
+
+
+#### Example `component`/`pattern` tokens
+
+```md
+control-danger-borderColor-rest
+button-primary-bgColor-hover
+brand-overlay-bgColor
+text-codeInline-fontSize
+```
+
+## Convention breakdown
+
+### Prefix
+
+<img width="960" alt="" src="https://github.com/primer/react/assets/18661030/7519380f-7cd2-4304-87b9-5556f4801af8" />
+
+Prefix provides top-level encapsulation of a particular flavor of Primer, such as Primer Brand. It can be used for protected base tokens like Brand color scales, or value overrides for traditional Primer tokens in order to avoid collisions.
+
+`brand`: used for marketing/brand specific tokens.
+
+### Namespace
+
+<img width="960" alt="" src="https://github.com/primer/react/assets/18661030/50899a02-1fac-474c-b99c-426d6853c92c" />
+
+Namespace creates a scope used to identify how a token may be used. For example, `base` tokens are the lowest level and are generally used as a reference for functional tokens (the next step above).
+
+`base`: represents global, constant values. These are the lowest level tokens and map directly to a raw value.
+
+### Pattern
+
+<img width="960" alt="" src="https://github.com/primer/react/assets/18661030/abc16bcd-64e3-43a7-bca6-82a31190acf1" />
+
+Pattern represents a group of design decisions, or a specific Primer component. Whenever possible, aim to use a name that is generic enough to influence related components. For example, the pattern `control` can be used for multiple types of controls like buttons, inputs, or interactive action list items.
+
+For pattern and component names that are multi-word, use camelCase to separate each word.
+
+### Variant
+
+<img width="960" alt="" src="https://github.com/primer/react/assets/18661030/6d105711-c815-488d-997c-dfd639cb8123" />
+
+Variant can be used to either modify the **pattern** or **property**. Only one variant is allowed per token. It typically represents a stylistic variant of a token such as color (danger) or size (small).
+
+
+### Property (required)
+
+<img width="960" alt="" src="https://github.com/primer/react/assets/18661030/87514222-3db7-4e98-bd81-5ce8d40d2529" />
+
+Property is used to represent an item’s style. It usually matches a [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#index), but it can also store other conceptual definitions such as `size`, `minTarget`, etc. Use camelCase for multi-word properties.
+
+### Scale
+
+<img width="960" alt="" src="https://github.com/primer/react/assets/18661030/9a1e8baf-66e2-494c-9ff3-0655d285f145" />
+
+Scale represents ordinals to describe things like state, density, thickness, range, and speed. Scale names strive to follow our [size naming convention standards](https://github.com/github/primer/blob/main/adrs/2022-02-09-size-naming-guidelines.md).
+
+### Token name block delimiters
+
+Individual name blocks for each token should be separated with a single character that is relevant to each Primer framework. For example, use the `-` dash character for CSS variables and `.` dot character for JavaScript.
+
+<DoDontContainer>
+  <Do>
+    <img
+      width="464"
+      alt=""
+      src="https://github.com/primer/react/assets/18661030/3694b514-2bcf-4c62-8dc2-c4bc8a3a83f4"
+    />
+    <Caption>Use dashes to separate words.</Caption>
+  </Do>
+  <Dont>
+    <img
+      width="464"
+      alt=""
+      src="https://github.com/primer/react/assets/18661030/15959269-4ac8-4075-88f4-788b91e6ce20"
+    />
+    <Caption>Don't use other characters to separate words.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Color modifiers
+
+We use the following values to modify the color [variant](#variant):
+
+- `default` - The default color variant for a given token. Example: `fgColor-default`
+- `muted` - The secondary color variant for a given token. Example: `fgColor-muted`
+- `emphasis` - The opposite of "muted", emphasis is a stronger color variant. Example: `bgColor-accent-emphasis`
+
+## Size modifiers
+
+Size modifiers are often found as part of the [scale](#scale) block. The following describes how we name size modifiers for each category.
+
+### General-purpose t-shirt sizes
+
+```md
+xsmall | small | medium | large | xlarge | xxlarge
+```
+
+### Density
+
+Use `normal` as the default size
+
+```md
+condensed | normal | spacious
+```
+
+### Thickness names
+
+Use `thin` as the default size
+
+```md
+thin | thick | thicker
+```
+
+### Viewport ranges names
+
+```md
+narrow | regular | wide
+```
