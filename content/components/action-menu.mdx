@@ -466,6 +466,22 @@ See [focus management](/guides/accessibility/focus-management) for more informat
   </Box>
 </Box>
 
+### Inactive menu items vs disabled menu items
+
+Since inactive items can still be focused and activated (for example, to show a modal with more information about an outage), they should not be conveyed as disabled using `aria-disabled`.
+
+This behavior is consistent with the behavior of inactive buttons. See the [button component accessibility guidelines](/components/button#inactive-buttons-and-aria-disabled) and [inactive button guidelines](/components/button#inactive) for more details.
+
+#### Inactive menu items:
+
+- Can be activated
+- Need to be able to get focus so screen reader users can "read" the message about it being inactive
+
+#### Disabled menu items:
+
+- Do not get focus
+- Cannot be activated
+
 ### Keyboard navigation
 
 #### Trigger button
