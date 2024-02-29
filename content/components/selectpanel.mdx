@@ -8,20 +8,10 @@ description: Select panel is a semantic dialog that allows for complex selection
 import {Box} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
-import {AccessibilityLink} from '~/src/components/accessibility-link'
-
-<Note>
-  This component is currently under development in React and Rails and might not have all its functionality yet.
-  Internally this epic can be tracked <a href="https://github.com/github/primer/issues/2396">here</a>.
-</Note>
 
 ## Overview
 
-The select panel allows you to select one or multiple items from a list, and it can be enhanced with additional controls like a search input to expedite the selection process. It is often used to augment information of a wide variety of items.
-
-For instance, you may encounter a select panel when you need to assign someone to a task or add labels to an issue or pull request. It can also be utilized to select a specific branch in a code repository.
-
-It's important to understand the differences between the select panel and [action menu](/components/action-menu). The primary distinction lies in the fact that an action menu lacks the ability to include additional form controls and automatically closes after making a selection. Therefore, if you require a filterable list or the capability to make multiple selections at once, the select panel is the appropriate choice.
+The select panel allows users to choose one or multiple items from one or more lists and can include search functionality to speed up the selection. It can also be enhanced with additional form controls in the footer. For instance, the select panel is ideal for assigning individuals to tasks, adding labels to issues or pull requests, or switching to specific branches in a code repository.
 
 ## Anatomy
 
@@ -31,31 +21,15 @@ It's important to understand the differences between the select panel and [actio
   src="https://github.com/primer/design/assets/980622/d396ea70-d8a5-4e52-ae3e-7596a3ef39b6"
 />
 
-The select panel is composed of three main areas: a header, a scrollable list, and an optional footer.
+The select panel consists of three main areas:
 
-- **Header:** The header always includes a title and a close button. Additionally, it can have an optional search/filter field to find items quicker. When a selection is made, a "Deselect all" button should also be present visually within the input on the far right.
-- **List (scrollable):** The scrollable list consists of [action list](/components/action-list) items, which can be either single or multi-select options.
-- **Footer:** For multi-select scenarios, the select panel should include a footer that incorporates a "Cancel" and an "Apply" button also refered to as declaritive actions. If any additional controls are required, such as an extra checkbox or button, a footer becomes necessary as well in single selections.
+- **Header**: Always includes a title and a close button. An optional search/filter field can be added for quicker item finding. Once a selection is made, a "Deselect all" button should be visually present.
+- **List (scrollable)**: Comprises [action list](/components/action-list) items, supporting both single and multi-select options.
+- **Footer**: In multi-select scenarios, it includes "Cancel" and "Apply" buttons. If additional controls (like a checkbox or button) are needed, a footer is also required for single selections.
 
 ## Options
 
-The select panel provides flexibility by offering both simple list-based single selection and multi-selection options. Additionally, it can become more sophisticated by incorporating advanced features such as filtering functionality and the inclusion of links.
-
-<img
-  width="960"
-  alt="Two examples of the select panel are shown. The first example is a simple version consisting of a header with a close button, a multi-select list with checkboxes for individual items, and a footer containing cancel and apply buttons. The second example is more complex, featuring a titled 'Switch context' panel with a close button, a search input, and header tabs labeled 'Branches' and 'Tags'. The list below the header allows single selection and closes the select panel upon clicking a branch. The footer contains a link to view all branches."
-  src="https://github.com/github/primer/assets/980622/d6ae4bd9-5252-4aa9-b8d3-cfcb1887e488"
-/>
-
-### Trigger
-
-<img
-  width="960"
-  alt="Various trigger examples are displayed. The first example showcases an icon button with a cog icon. The second example presents a button with the internal label 'Assignees: 2 people'. The third example features a button with the external label 'Assignees' and an internal button label stating '2 people'. Lastly, the image shows an action menu with two items: 'Set labels...' and 'Delete...'."
-  src="https://github.com/primer/design/assets/980622/f2867468-4606-4999-8ea7-21860e50051d"
-/>
-
-Select panels can be activated by either a regular [button](/components/button), [icon button](/components/icon-button) or [action menu item](/components/action-menu). If the button is intended to represent the current selection, it's crucial to have a label associated with it, either internally (within the button) or externally (adjacent to the button).
+The select panel provides both simple list-based single selection and complex multi-selection options, with features like filtering and link inclusion.
 
 ### List (single select)
 
@@ -65,28 +39,27 @@ Select panels can be activated by either a regular [button](/components/button),
   src="https://github.com/primer/design/assets/980622/928a4bb2-c3f8-4620-9e37-42d9b91204c1"
 />
 
-If your selection doesn't trigger a series of events upon submission and doesn't include a checkbox in the footer, you may consider not adding a cancel/save button. In this scenario, when a selection is made, the select panel will instantly close similar to a menu. This behavior is indicated by a checkmark on the selected item.
-For example switching a branch is easily reversible and doesn't pose any risk of sending notifications to other users.
+For single-item selection, if no consequential actions follow, the panel may close immediately, indicated by a checkmark on the selected item. However, when the selection triggers significant actions or the footer has additional elements (like a checkbox), declarative buttons are necessary. In such cases, the behavior is indicated visually by radio buttons, which allows users to confirm their choices, before submitting their selection.
 
-However, if the select panel does cause a series of events upon selection or if the footer includes additional form elements like a checkbox, it becomes necessary to include cancel/save buttons. In such cases, the behavior is indicated visually by radio buttons, which allows users to confirm their choices, before submitting their selections.
-For example setting the wrong assignee on an pull request poses the risk of sending notifications to the wrong user therefore the cancel/save button is crucial.
+<Note>
+
+  For a simple list of pre-defined items without filtering or extra options/actions, consider using an [action menu](/components/action-menu).
+
+</Note>
 
 ### List (multi-select)
 
 <img
   width="960"
   alt="Two examples of a multi-select panel are showcased. The first example features a header labeled 'Set label' with a close button. Below that, there's a checkbox option labeled 'Select all' to quickly select all items. A list of items follows, each with an individual checkbox. Currently, the first item is selected, and the third item shows an indeterminate state on the checkbox, indicating its association with a bulk selection outside this panel. The footer contains an 'Edit label' button, along with cancel and save buttons. The save button is also labeled 'Apply (2)' to indicate the total selection.In the second example, the header has a 'Set label' title with a close button, and there's an additional 'Deselect all' button and a search input field below it. The list of items is similar to the first example, with the first item selected and the third item in an indeterminate state. The footer remains the same with an 'Edit labels' button, along with cancel and apply buttons."
-  src="https://github.com/primer/design/assets/980622/bfaa7eca-9a12-432d-9184-38f024a7cd32"
+  src="https://github.com/primer/design/assets/3369400/2f778a44-c95c-4840-ac7e-96817e83b185"
 />
 
-The multi-select list allows you to choose multiple items from a list and has additional features like **select all** or **indeterminate selections**.
+Use the search feature to manage extensive lists. This approach helps to prevent potential performance issues, particularly since this component does not support virtualization.
 
-The **select all** option at the top of the list allows for quickly deselecting or selecting all values.
-However, when implementing search functionality, this option becomes unavailable.
+The indeterminate selections feature is valuable for bulk actions on lists. For instance, if you have 20 selected items and some of them are tagged with different labels, an indeterminate checkbox (indicated by a horizontal line) appears for labels that are not uniformly applied to all items.
 
-We highly recommend utilizing the search functionality instead of retrieving extensive lists from our API endpoints to enable the select all feature. By doing so, you can avoid potential performance issues, especially considering that this component lacks virtualization capabilities.
-
-The **indeterminate selections** option is useful for performing bulk actions on lists. For example, if you have 20 selected items, but some of them have different labels attached, an indeterminate checkbox (represented by a horizontal line) is shown for labels that are not set on all items.
+For static lists that don’t require search, the ”Select all” option at the top of the list allows for quick selection or deselection of all values.
 
 ### Footer
 
@@ -96,10 +69,7 @@ The **indeterminate selections** option is useful for performing bulk actions on
   src="https://github.com/primer/design/assets/980622/85bcb93b-3d39-4635-ad1b-68243dae6bd9"
 />
 
-The optional footer at the bottom could include a single link, button or
-checkbox to take additional actions.
-
-In case of a multi selection or single selection with a checkbox in the footer we always recommend using a "Cancel" and "Apply" button
+The footer may contain links, buttons, or checkboxes for additional actions. Declarative buttons, such as "Cancel" and "Apply", are essential for multiple selections or single selections with additional elements in the footer.
 
 ### Current selection
 
@@ -109,7 +79,7 @@ In case of a multi selection or single selection with a checkbox in the footer w
   src="https://github.com/primer/design/assets/980622/ab147e61-7088-4113-99b6-740e9bcbfe40"
 />
 
-To provide a summary of the current selection, it is essential to display the selected items at the beginning of the unfiltered list. This behavior should only occur after users clear the search input or close and reopen the select panel. Avoiding the immediate reordering of items after selection is crucial to prevent disorienting and confusing the users.
+To effectively summarize the current selection, it's important to display the selected items at the beginning of the unfiltered list. However, this behavior should occur only after users clear the search input or close and reopen the select panel. It is crucial to avoid the immediate reordering of items after selection to prevent disorienting and confusing users.
 
 ### Error/Warning
 
@@ -119,11 +89,8 @@ To provide a summary of the current selection, it is essential to display the se
   src="https://github.com/primer/design/assets/980622/135d597a-33cd-4ba1-a86b-241a1b5bdfcb"
 />
 
-Sometimes, we encounter situations where things don't work as expected, or we need to inform users about something important. There are various ways to handle these scenarios depending on the situation.
+Error or warning messages are crucial for communicating issues like loading failures or important information to the user.
 
-For instance, if the default values fail to load initially, we display an error placeholder to let the user know that something went wrong.
-
-When the initial values are loaded and the user performs a search for new values, there may be instances where the search fails. In such cases, it is essential to ensure that the user can still make a selection without losing their current selection. Instead, we display an error message at the top of the list, notifying the user about the search failure while preserving their ability to continue with their selection process.
 
 ### Empty state
 
@@ -133,7 +100,7 @@ When the initial values are loaded and the user performs a search for new values
   src="https://github.com/primer/design/assets/980622/57386be3-6e16-4862-b557-d14533b3ef28"
 />
 
-When no results are available, it is essential to offer users an explanation instead of leaving a blank space. There can be various reasons for the absence of results. It could be due to the search or filter input value not matching any available data, or it could be because the user has yet to generate any data to display.
+Provide explanatory messages in cases of no results, whether due to unmatched search/filter inputs or the absence of data.
 
 ### Limited selections
 
@@ -143,13 +110,11 @@ When no results are available, it is essential to offer users an explanation ins
   src="https://github.com/primer/design/assets/980622/9cacdd30-99b3-4571-b37f-3066b7219ab2"
 />
 
-In certain situations, we may need to restrict the number of items a user can select, either due to infrastructure limitations or limitations based on paid features. It is important to inform the user about this restriction before they begin making their selection. The description can be used effectively to communicate this limitation.
-
-When the user reaches the maximum allowed number of selections, we need to display a warning message indicating that they have reached their limit. This can also be an opportunity to provide a link for upgrading their account if the restriction is related to a paid feature. It is worth noting that the warning message is labeled with an `aria-live` attribute, ensuring that users with screen readers receive a notification when the message appears.
+Inform users about any selection limitations beforehand. Upon reaching the maximum selection, display a warning message, potentially with an upgrade link for paid features. The warning message is labeled with an `aria-live` attribute, ensuring that users with screen readers receive a notification when the message appears.
 
 ### Loading
 
-It is important to provide visual cues to the user when certain processes may take longer than expected. Loading states can be utilized at different stages of using this component to communicate this information effectively.
+Loading states should be used to indicate ongoing processes at various stages, enhancing user awareness and interaction understanding.
 
 <img
   width="1668"
@@ -157,16 +122,64 @@ It is important to provide visual cues to the user when certain processes may ta
   src="https://github.com/primer/design/assets/980622/93b6b99c-368b-403c-b604-a1f50920a1ef"
 />
 
-1. **Initial**: Should be used when retrieving the initial data to prevent users from seeing an empty list.
-2. **Initial (skeleton)**: Should be used when retrieving the initial data to prevent users from seeing an empty list.
-3. **Searching/Filtering**: When users perform a search to fetch new items, it is important to maintain their current selections or allow them to continue making selections. In this case, a more minimal loading state should be used to indicate ongoing activity.
-4. **Confirmation**: If your layout does not incorporate optimistic updates or lacks error messaging for failed updates, it is crucial to use a confirmation button as a loading state to clearly communicate the progress of the update.
+1. **Initial**: Used during initial data retrieval to avoid displaying an empty list.
+2. **Initial Skeleton**: Used similarly for initial data retrieval, presenting a skeleton screen instead of an empty list.
+3. **Searching/Filtering**: A minimal loading indicator is used during searches, allowing users to retain or continue their selections.
+4. **Confirmation**: Essential when updates aren't instant or when there's no error messaging for failures, using a confirmation button to indicate update progress.
 
-By employing these loading states, users can have a better understanding of the process and remain informed throughout their interactions with the component.
+## Behavior
 
-## Best practices
+### Opening
 
-### Be predictable
+<img
+  width="960"
+  alt="Various trigger examples are displayed. The first example showcases an icon button with a cog icon. The second example presents a button with the internal label 'Assignees: 2 people'. The third example features a button with the external label 'Assignees' and an internal button label stating '2 people'. Lastly, the image shows an action menu with two items: 'Set labels...' and 'Delete...'."
+  src="https://github.com/primer/design/assets/980622/f2867468-4606-4999-8ea7-21860e50051d"
+/>
+
+Select panels can be activated by regular [buttons](/components/button), [icon buttos](/components/icon-button), or [action menu items](/components/action-menu). Proper labeling is crucial for representing current selections, either internally (within the button) or externally (adjacent to the button). Focus will be placed on the first interactive element within the select panel.
+
+<Note>
+
+  When the select panel is activated through an [action menu](/components/action-menu), it should be displayed as a centered dialog using the `dialog` property.
+
+</Note>
+
+### Closing
+
+To close the select panel, pressing 'Esc', selecting a 'Cancel' option or clicking outside will close the dialog, and return focus to the trigger element without retaining or submitting any user input. Conversely, clicking 'Submit' or pressing 'Enter' while focused in the listbox will submit the user's input.
+
+### Appearance
+
+<img
+  width="1338"
+  alt="Two examples of multi-select panels. The first panel is anchored to a Set labels button. When the button is clicked, the multi-select panel opens adjacent to the button, allowing the user to make selections. The second panel is displayed as a centered dialog. When triggered, it appears at the center of the screen, allowing users to interact with the multi-select options in a modal-like interface."
+  src="https://github.com/primer/design/assets/980622/9fd418af-5050-423a-af8e-93b30571044a"
+/>
+
+The select panel can appear as either an anchored or centered dialog, depending on the trigger source.
+
+### Responsive
+
+On smaller viewports, the select panel adapts to a full-screen or bottom sheet dialog. Enhanced sizes of buttons and list items improve usability on touch devices.
+
+<Note>
+  Ensure any additional action in the footer fits within a 320px viewport.
+</Note>
+
+<img
+  width="960"
+  alt="On a mobile device, a multi-select panel is presented as a full-screen dialog. In the header, the search input is labeled as 'Search.' The first item in the list is annotated as 'Action list item (medium).' The entire list is labeled as role='listbox'. The footer is annotated as 'Declarative action (medium),' signifying that the elements are larger on mobile devices to ensure more comfortable interactions."
+  src="https://github.com/primer/design/assets/980622/ae6d19c2-7bfa-4357-be65-341c0728b9a8"
+/>
+
+See the [Dialog guidelines](https://primer.style/components/dialog) for more details.
+
+## Usage guidelines
+
+### Predictability
+
+Ensure clarity in the multi-selection process by using confirmatory actions. Avoid automatic updates or dialog closure upon selection.
 
 <DoDontContainer>
   <Do>
@@ -190,35 +203,9 @@ By employing these loading states, users can have a better understanding of the 
   </Dont>
 </DoDontContainer>
 
-### Click-to-dismiss behavior
-
-<DoDontContainer>
-  <Do>
-    <img
-      width="464"
-      alt="Mouse cursor indicating a clicking action on the apply button."
-      src="https://github.com/primer/design/assets/980622/abea97f6-9a67-4ed7-bb52-f19e8c570902"
-    />
-    <Caption>
-      Guide users to save or cancel their selections to dismiss select panel to prevent confusion and data loss.
-    </Caption>
-  </Do>
-  <Dont>
-    <img
-      width="464"
-      alt="Mouse cursor indicating a click action outside of the dialog."
-      src="https://github.com/primer/design/assets/980622/758116fc-0d39-4822-97bb-0b670bea7044"
-    />
-    <Caption>
-      Don’t allow a click-outside-to-dismiss behavior for select panel. Users may be used to closing and submitting the
-      information. Doing so would result in a loss of their changes.{' '}
-    </Caption>
-  </Dont>
-</DoDontContainer>
-
 ### Search/Filtering
 
-Including a search or filter input field not only accelerates the selection process for users but also prevents the need to burden the browser or API endpoints with returning extensive lists of items.
+Include a search or filter input for efficiency. Presenting a limited number of items, like frequently used labels, can optimize the selection process.
 
 <DoDontContainer>
   <Do>
@@ -239,7 +226,7 @@ Including a search or filter input field not only accelerates the selection proc
   </Dont>
 </DoDontContainer>
 
-Adopting a smart approach of returning a limited number of items at a time can significantly enhance speed and potentially eliminate the necessity for searching altogether. For instance, instead of presenting the first 20 labels in alphabetical order, providing the most commonly used labels can be more effective. This strategic implementation optimizes the selection process and improves user experience.
+To enhance the performance and user experience, a smart approach involves returning a limited, chosen set of items. For example, displaying the most commonly used labels rather than the first 20 in alphabetical order can speed up the selection process and may even reduce the need for searching.
 
 <DoDontContainer>
   <Do>
@@ -260,9 +247,9 @@ Adopting a smart approach of returning a limited number of items at a time can s
   </Dont>
 </DoDontContainer>
 
-### Items
+### Distinction
 
-Select panels are designed to be lightweight and should not be overloaded with excessive information. For instance, when using a user picker, it is often sufficient to include essential details such as the username, full name, and avatar. Less relevant information, such as the total number of followers or location, can be omitted as it is not as crucial for the selection process.
+Include only essential details to aid in item differentiation. Avoid unnecessary information that doesn't contribute to the selection process.
 
 <DoDontContainer>
   <Do>
@@ -286,7 +273,7 @@ Select panels are designed to be lightweight and should not be overloaded with e
   </Dont>
 </DoDontContainer>
 
-Items accompanied by a checkmark icon, as opposed to radio buttons or checkboxes, indicate that the selection panel will automatically close upon making a choice. Therefore, they cannot be used in conjunction with declarative buttons.
+Items marked with a checkmark icon, unlike those with radio buttons or checkboxes, signal that the selection panel will close automatically after a choice is made.
 
 <DoDontContainer>
   <Do>
@@ -309,7 +296,7 @@ Items accompanied by a checkmark icon, as opposed to radio buttons or checkboxes
   </Dont>
 </DoDontContainer>
 
-When an additional checkbox is added to the footer, declarative buttons are required, and the items should be accompanied by visually resembling radio buttons. Although they are not technically radio buttons in terms of semantics, using visual radio buttons can effectively convey that the selection process is not yet complete even after making a choice.
+Adding a checkbox to the footer requires declarative buttons, and items should feature visual radio buttons. While not actual radio buttons semantically, this design effectively indicates that the selection process continues after a choice is made.
 
 <DoDontContainer>
   <Do>
@@ -341,11 +328,11 @@ When an additional checkbox is added to the footer, declarative buttons are requ
   src="https://github.com/primer/design/assets/980622/5328affe-0c35-4fbf-8f8e-ca3ee95083d4"
 />
 
-The select panel offers multiple methods for clearing data, depending on the context.
+The select panel supports various data clearance methods:
 
-1. For both single and multi-selection modes that include a search/filter input, an [x-circle-fill](/foundations/icons/x-circle-fill-16) icon appears as soon as the input has a value. This enables users to swiftly clear the input value when needed.
-2. In multi-selection mode, when at least one item is selected and search functionality is present, a deselect all [icon button](/components/icon-button) is provided in the header. This button allows users to deselect all items in the list with a single click.
-3. In multi-selection mode without search functionality, the header contains a checkbox that facilitates selecting or deselecting all items in the list in a single click.
+1. In single and multi-selection modes with a search/filter input, an [x-circle-fill](/foundations/icons/x-circle-fill-16) icon for quick clearing.
+2. For multi-selection with search, a 'deselect all' [icon button](/components/icon-button) in the header.
+3. In multi-selection without search, a header checkbox allows for one-click selection or deselection of all items.
 
 <DoDontContainer>
   <Do>
@@ -366,7 +353,7 @@ The select panel offers multiple methods for clearing data, depending on the con
   </Dont>
 </DoDontContainer>
 
-For multi-selections with search functionality, a convenient **deselect all** [icon button](/components/icon-button) becomes available as soon as at least one item is selected.
+In multi-selections with search capabilities, a **deselect all** [icon button](/components/icon-button) is accessible for easy unselection as soon as one item is selected.
 
 <DoDontContainer>
   <Do>
@@ -389,105 +376,7 @@ For multi-selections with search functionality, a convenient **deselect all** [i
   </Dont>
 </DoDontContainer>
 
-### Action menu trigger
-
-When the select panel is activated through an [action menu](/components/action-menu), it should be displayed as a modal dialog. It should never be shown as a submenu.
-
-<DoDontContainer>
-  <Do>
-    <img
-      width="464"
-      alt="An action menu is presented with multiple items. The first item, 'Visible to...', is currently hovered, and it is annotated with 'Open as modal dialog'."
-      src="https://github.com/primer/design/assets/980622/22386756-2612-40dd-aceb-1f765095cf17"
-    />
-    <Caption>When the select panel is triggered by an action menu, it should be presented as a modal dialog.</Caption>
-  </Do>
-  <Dont>
-    <img
-      width="464"
-      alt="A action menu with multiple items and where the first item 'Visible to' has a arrow on the right of the item and opened a multi select panel upon hover."
-      src="https://github.com/primer/design/assets/980622/a71c59d6-ca35-49ac-b082-e72aa4d1a8cd"
-    />
-    <Caption>Avoid displaying the select panel as a non-modal submenu within an action menu.</Caption>
-  </Dont>
-</DoDontContainer>
-
-## Behavior
-
-### Appearance
-
-<img
-  width="1338"
-  alt="Two examples of multi-select panels. The first panel is anchored to a Set labels button. When the button is clicked, the multi-select panel opens adjacent to the button, allowing the user to make selections. The second panel is displayed as a centered dialog. When triggered, it appears at the center of the screen, allowing users to interact with the multi-select options in a modal-like interface."
-  src="https://github.com/primer/design/assets/980622/9fd418af-5050-423a-af8e-93b30571044a"
-/>
-
-The select panel can appear as an anchored dialog or centered dialog.
-
-- **Anchored dialog**: When triggered by a [button](/components/button) or [icon button](/components/icon-button) but never by an [action menu](/components/action-menu).
-- **Centered dialog**: When triggered by a [button](/components/button), [icon button](/components/icon-button) or [action menu](/components/action-menu).
-
-On smaller breakpoints the select panel should always appear as a modal dialog.
-
-### Opening
-
-<img
-  width="960"
-  alt="Mouse cursor hovering over an icon button and a focused icon button with the space and enter keys visually below the icon button."
-  src="https://user-images.githubusercontent.com/40274682/228910118-3d99fd0a-7b14-4e46-af48-f69bf76912e5.png"
-/>
-
-The select panel can be activated through a semantic button, providing mouse users with the ability to click on it, while keyboard users can activate it by pressing the space or enter key.
-
-Additionally, the select panel can be triggered through an action menu. In this scenario, it is important for the action menu to promptly close as soon as the select panel is triggered.
-
-<img
-  width="960"
-  alt="First select panel has focus applied to the search input with a blue 2px border. Second select panel has no visible focus ring as focus is brought to the H1 of the dialog."
-  src="https://github.com/primer/design/assets/980622/fd6a6028-2402-48cb-9d28-693c54f79ac5"
-/>
-
-Focus should be placed on the first interactive item within select panel.
-
-### Closing
-
-<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-  <div>
-    <CustomVideoPlayer
-      width="100%"
-      src="https://user-images.githubusercontent.com/40274682/228390156-dab0b413-3b90-4736-a0e7-8d5d30665c43.mp4"
-    />
-    <Caption>
-      Pressing esc, or selecting “cancel” should close the current dialog and enter focus to the previous trigger. It
-      should not retain or submit any user input.
-    </Caption>
-  </div>
-  <div>
-    <CustomVideoPlayer
-      width="100%"
-      src="https://user-images.githubusercontent.com/40274682/228390297-d6d59818-1d1e-47bb-ac9d-cd1eccc57ba8.mp4"
-    />
-    <Caption>
-      Selecting the submit button or pressing the enter key while focused in the listbox should submit any user input.
-    </Caption>
-  </div>
-</Box>
-
-### Responsive
-
-On smaller viewports, the select panel can be transformed into either a full-screen dialog or a bottom sheet dialog. To ensure usability on touch devices, the confirmation buttons and action list items are also increased to a medium size, ensuring a sufficiently large hit target.
-
-When adding an extra action in the footer, it is important to ensure that it still fits within a 320px viewport.
-
-<img
-  width="960"
-  alt="On a mobile device, a multi-select panel is presented as a full-screen dialog. In the header, the search input is labeled as 'Search.' The first item in the list is annotated as 'Action list item (medium).' The entire list is labeled as role='listbox'. The footer is annotated as 'Declarative action (medium),' signifying that the elements are larger on mobile devices to ensure more comfortable interactions."
-  src="https://github.com/primer/design/assets/980622/ae6d19c2-7bfa-4357-be65-341c0728b9a8"
-/>
-
-See the [Dialog guidelines](https://primer.style/components/dialog) for more details.
-
-## Keyboard navigation
+## Keyboard interactions
 
 ### Activation (Trigger)
 
@@ -524,26 +413,11 @@ See the [Dialog guidelines](https://primer.style/components/dialog) for more det
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box> | Navigate through listbox items. Selection follows focus. |
 
-#### Example behavior
-
-<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-  <div>
-    <CustomVideoPlayer
-      width="100%"
-      src="https://user-images.githubusercontent.com/40274682/228391029-44ab995b-7a04-4b85-825e-dc77f90838dd.mp4"
-    />
-    <Caption>
-      Keyboard interaction with a single-select select panel demonstrating selection following focus with navigation via
-      the ArrowDown key.
-    </Caption>
-  </div>
-</Box>
-
 ## Accessibility
 
-### Known accessibility issues (GitHub staff only)
+For enhanced accessibility, it's important to use explicit saving mechanisms in the select panel. This includes incorporating "Apply" and "Cancel" buttons for both single- and multi-selection scenarios. These buttons provide clear, accessible actions for users to confirm or revoke their selections.
 
- <AccessibilityLink label="SelectPanel"/>
+Automatic saving may be suitable for single selections that do not include additional form controls. In such cases, the selection process is straightforward and does not require further user confirmation, making it accessible and efficient. However, when the selection process involves additional steps or consequences, explicit saving mechanisms are crucial to ensure that all users, including those with accessibility needs, can confidently and accurately manage their selections.
 
 ## Related components
 
