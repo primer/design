@@ -38,8 +38,6 @@
           url: /guides/react/philosophy
         - title: Overriding styles
           url: /guides/react/overriding-styles
-        - title: Server-side rendering
-          url: /guides/react/ssr
         - title: Hooks
           url: /guides/react/hooks
           children:
