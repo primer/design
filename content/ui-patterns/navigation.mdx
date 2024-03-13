@@ -1,0 +1,267 @@
+---
+title: navigation
+description: Navigation plays a crucial role in guiding users through GitHub, helping them understand where they are and where they can go next.
+---
+
+In Primer, navigation encompasses various components and patterns tailored to enhance user experience and streamline task completion.
+
+This documentation provides an overview of navigation design patterns within Primer, offering insights into their implementation and best practices. For more granular guidance, see the individual component pages.
+
+{/* <!-- TODO: come up with a better heading --> */}
+## Basics
+
+Prioritize clarity and simplicity to facilitate seamless user interaction. Here are some fundamental principles:
+
+### Clear user orientation
+
+Users should always have a clear understanding of their location within the application. Intuitive navigational cues minimize ambiguity.
+
+### Streamlined navigation
+
+{/* <!-- TODO: determine if we need to mention that you shouldn't OVER simplify and force the user to hunt down the link they're looking for --> */}
+
+Minimize the number of navigational elements while ensuring that the most essential items are availale. This balance can help prevent users from feeling overwhelmed with too many options, but also ensure that they can easily find what they need.
+
+### Contextual transitions
+
+Strive to maintain a balance between contextual clarity and minimal interruption. While transitions such as page refreshes or showing a dialog are useful for indicating context switches, excessive transitions can lead to unnecessary cognitive load.
+
+{/* <!-- TODO: come up with a better heading --> */}
+## How navigating affects user context
+
+### Entirely new page
+
+This is the default behavior of clicking a link or submitting a form. The URL changes and the requested page loads.
+
+{/* <!-- TODO: ask an engineer to confirm this is technically accurate --> */}
+In GitHub's single-page app architecture, this behavior is emulated without a traditional page reload.
+
+Be mindful of data loss when a user is navigating away from a page where they have unsaved changes. See the [saving]() guidelines for more info.
+
+![Video of navigating to a new page]()
+
+If you're navigating from a parent page to a child page, the child page should have a clear way to navigate back to the parent page. This is often done with [breadcrumbs](/components/breadcrumbs) or a "back" button.
+
+For example, when adding a new Codespace secret, the user is taken to a new page to fill out the secret details. There is a breadcrumb at the top of the page letting them go back to the Codespace settings page.
+
+### Same page, different state
+
+Navigation within the same page, but to a different state, involves URL changes and potential page re-renders or reloads. Strive to avoid full page reloads when feasible to maintain a fast and smooth user experience.
+
+{/* TODO: consider showing pagination re-rendering, then going to a whole new page. describe the interaction near the video like a caption. */}
+
+![Video of paginating a DataTable]()
+
+### New spot on the same page
+
+Navigating to a different section or focusing on a specific element within the same page does not alter the page content. This behavior is commonly used for scrolling to new sections or focusing on input fields.
+
+![Video of clicking file in the PR tree view]()
+
+### Moving into a dialog
+
+Opening a dialog brings the user into a new context, but can feel "lighter" than going to a whole new page. Focus is moved into the dialog, and the user can't interact with the rest of the page without dismissing the dialog.
+
+The URL may or may not change when opening a dialog.
+
+For example:
+- URL change: clicking an issue from a project board opens a preview of the issue page in a side sheet dialog
+- No URL change: clicking the "filter" button on the issues page opens a modal dialog with filter options
+
+## Layout
+
+Layout is used to structure your content in a way that reflects the hierarchy of the navigation within the app. Navigational elements should be laid out in close proximity to the content they affect.
+
+For example, pagination should go directly below the content it paginates.
+
+{/* <!-- TODO: Come up with a better way to say "large navigation". It's more about hierarchy than size. --> */}
+
+### Layouts for navigating in the same context
+
+#### Parent-detail split page layout
+
+A sidebar with a nav list or tree view that affects "main" content. See the [responsive layout guidelines](/foundations/layout#page-types) for more info about this layout pattern.
+
+{/* <!-- TODO: Determine if we want to specify that the parent NavList should remain on the page if I navigate to a sub-child page. --> */}
+
+![Screenshot of a settings page with the sidebar and main areas highlighted]()
+
+#### Tabbed interfaces
+
+Tabbed interfaces enable seamless navigation between different subpages within a unified context. Tabs go directly above the content they affect.
+
+Tabs may be used to switch between:
+- subpages within a larger context
+- content panels within a section of a page
+
+{/* <!-- TODO: come up with a different page to show tab hierarchies --> */}
+![Screenshot of a repo's issue page with the tabs and main areas highlighted as well as 'open' and 'closed' views]()
+
+## Headings and hierarchical page sections
+
+A [page header](/components/page-header) is the title area at the top of the main content region that shows the user where they are. It may also to contain navigational elements like breadcrumbs or a link to go up a level of hierarchy.
+
+Use section headings to show the user where they are in the context of the page. These headings should be styled to reflect their hierarchy within the page. Page section headings should be marked up with the appropriate heading level (`h3`–`h6`).
+
+See our [typographic style options](/primitives/storybook/?path=/story/typography-functional--overview) for heading styles.
+
+![Screenshot of a settings page with multiple nested sections]()
+
+{/* <!--
+TODO: Mention "A header gets a bottom border unless it's followed by a bordered box." somewhere else.
+Maybe https://primer.style/foundations/typography and https://primer.style/components/page-header
+
+<DoDontContainer>
+  <Do>
+    ![Page heading and section heading without bordered content]()
+    <Caption>Default to showing a bottom border below headings</Caption>
+  </Do>
+  <Dont>
+    ![Page heading and section heading with bordered content]()
+    <Caption>Don't show a bottom border below headings that are immediately followed by another border</Caption>
+  </Dont>
+</DoDontContainer>
+--> */}
+
+## Patterns and components
+
+### Global navigation
+
+This is where users can access the most important parts of the app. It's typically a bar that appears at the top of every page.
+
+{/* <!-- TODO: phrase this better --> */}
+A global navigation may have inline links as well as buttons that reveal menus with more links.
+
+There is no Primer component for global navigation. Use the other Primer components to build one that suits your needs.
+
+![Screenshot of GitHub with the global navigation bar highlighted]()
+
+### Nav list
+
+A vertical list of links that can be used to implement a parent-detail navigation pattern. Users can navigate between different child views without leaving the parent page. It's often used in the sidebar of a split page layout.
+
+Activating a nav list item should change the URL.
+
+![Screenshot of a settings page with the nav list highlighted]()
+
+[Nav list component guidelines]()
+
+### Tree view
+
+A tree view isn't semantically a form of navigation: it's for activating an option from a hierarchical list. However, it's often used to implement a parent-detail navigation pattern. It's often used in the sidebar of a split page layout.
+
+Activating a tree view item may or may not change the URL.
+
+![Screenshot of the files changed tab from a PR page with the tree view highlighted]()
+
+[Tree view component guidelines]()
+
+### Tabs
+
+Tabs allow users to switch between related views within a consistent context, enhancing navigation efficiency and organization.
+
+{/* <-- TODO: move this to the UnderlineNav and UnderlinePanels docs
+Use tabs to let users switch between 2 or more related views without leaving their current context. Tabs can switch between large or small panels of content.
+
+Each panel has discrete content, not just different formats to view the same content. -->*/}
+
+Use the [underline nav]() component when activating a tab changes the URL.
+
+Use the [underline panels]() component when activating a tab changes the content in the same page or context without changing the URL.
+
+Activating a tab may or may not change the URL, but you can't mix tabs that change the URL with tabs just switch the visible tab panel.
+
+[Underline nav component guidelines]()
+
+[Underline panel component guidelines]()
+
+![Screenshot of a repo page with the branch switcher open. Main nav tabs and branch switcher tabs are highlighted.]()
+
+### Action menu
+
+An action menu is not semantically a form of navigation: it's for activating an option from a list. However, it may contain some options that open a dialog or change the URL when activated. It's also commonly used to overflow horizontal navigation elements when the container is too narrow to display all the navigation items inline.
+
+Activating an action menu item may or may not change the URL.
+
+[Action menu component guidelines]()
+
+![Screenshot of '+' button in global header]()
+
+### Breadcrumbs
+
+Breadcrumbs show the user where they are using a hierarchical list of links. Going from start to end, each link is one level of hierarchy deeper.
+
+Activating a breadcrumb item should change the URL.
+
+[Breadcrumbs component guidelines]()
+
+![Screenshot of files page breadcrumb]()
+
+### Pagination
+
+Pagination is used to sequentially navigate long collections of content that's been broken into smaller chunks.
+
+Activating a pagination item should change the URL.
+
+[Pagination component guidelines]()
+
+{/*<!-- TODO: figure out how to get to a page where we use this https://github.com/github/github/blob/615e7ce25ea0d23dbfb95d7efd2b80664184b954/ui/packages/actions-metrics/common/components/MetricsTable.tsx#L51 -->*/}
+![TBD]()
+
+### SegmentedControl
+
+While primarily used to make a selection from a short list, segmented controls can be employed as navigation components for filtering, sorting, or viewing content in a different format.
+
+Activating a segmented control option may or may not change the URL when being used as navigation.
+
+[Segmented control component guidelines]()
+
+![A video switching between different ways to view a chart OR filtering content in Insights tab OR code/blame/preview on .md files]()
+
+{/*
+<!-- TODO: determine whether we want to include this section or not
+
+### Inline links
+
+This includes links that look like buttons.
+
+Should we talk about visually hidden links/buttons for skipping content?
+
+![TBD]()
+
+[Link component guidelines]()
+
+[Button component guidelines]()
+
+-->*/}
+
+{/* <!--
+
+TODO: determine if we even need to mention this
+
+### Stepped flow navigation
+
+This isn't common enough on GitHub to have a Primer component or interface guidelines. If we find a need for this in Primer, we'll evaluate the use cases and update our docs.
+
+![TBD]()
+--> */}
+
+## Accessibility
+
+### Skip links
+
+Facilitate efficient navigation for screen reader users by including skip links to bypass dense redundant content and navigate directly to essential sections.
+
+Example for skipping redundant content: there is a skip link near the global navigation that allows users skip over all the global navigation items and go straight to the main content.
+
+Example for skipping dense content: there is a skip link near the header of a data table that allows users to skip over the large amount of content often rendered in a data table.
+
+### Tab order
+
+Users should be able to tab through the navigation elements in a logical order. The tab order should reflect the visual order of the elements.
+
+### Scannable headings
+
+A correct heading structure is critical for enabling users to navigate quickly within a page. Headings are by far the most common navigation technique for screen reader users.
+
+Follow our accessibility [guidelines for headings](/guides/accessibility/headings).
