@@ -18,8 +18,6 @@ Users should always have a clear understanding of their location within the appl
 
 ### Streamlined navigation
 
-{/* <!-- TODO: determine if we need to mention that you shouldn't OVER simplify and force the user to hunt down the link they're looking for --> */}
-
 Minimize the number of navigational elements while ensuring that the most essential items are availale. This balance can help prevent users from feeling overwhelmed with too many options, but also ensure that they can easily find what they need.
 
 ### Contextual transitions
@@ -36,27 +34,39 @@ This is the default behavior of clicking a link or submitting a form. The URL ch
 {/* <!-- TODO: ask an engineer to confirm this is technically accurate --> */}
 In GitHub's single-page app architecture, this behavior is emulated without a traditional page reload.
 
-Be mindful of data loss when a user is navigating away from a page where they have unsaved changes. See the [saving]() guidelines for more info.
-
-![Video of navigating to a new page]()
-
 If you're navigating from a parent page to a child page, the child page should have a clear way to navigate back to the parent page. This is often done with [breadcrumbs](/components/breadcrumbs) or a "back" button.
 
 For example, when adding a new Codespace secret, the user is taken to a new page to fill out the secret details. There is a breadcrumb at the top of the page letting them go back to the Codespace settings page.
+
+Be mindful of data loss when a user is navigating away from a page where they have unsaved changes. See the [saving]() guidelines for more info.
+
+<CustomVideoPlayer
+  width="456"
+  loop
+  src="https://github.com/primer/design/assets/2313998/6d8008b5-bc5a-4f21-ba14-ac57550b2de3"
+/>
 
 ### Same page, different state
 
 Navigation within the same page, but to a different state, involves URL changes and potential page re-renders or reloads. Strive to avoid full page reloads when feasible to maintain a fast and smooth user experience.
 
-{/* TODO: consider showing pagination re-rendering, then going to a whole new page. describe the interaction near the video like a caption. */}
-
-![Video of paginating a DataTable]()
+<CustomVideoPlayer
+  width="456"
+  loop
+  src="https://github.com/primer/design/assets/2313998/bbd4675d-546f-4f7d-9736-8b6419ed54c5"
+/>
 
 ### New spot on the same page
 
 Navigating to a different section or focusing on a specific element within the same page does not alter the page content. This behavior is commonly used for scrolling to new sections or focusing on input fields.
 
-![Video of clicking file in the PR tree view]()
+The URL will change if .
+
+<CustomVideoPlayer
+  width="456"
+  loop
+  src="https://github.com/primer/design/assets/2313998/c4e4672a-11a6-4444-aaa6-f8f2b032f11b"
+/>
 
 ### Moving into a dialog
 
@@ -64,9 +74,11 @@ Opening a dialog brings the user into a new context, but can feel "lighter" than
 
 The URL may or may not change when opening a dialog.
 
-For example:
-- URL change: clicking an issue from a project board opens a preview of the issue page in a side sheet dialog
-- No URL change: clicking the "filter" button on the issues page opens a modal dialog with filter options
+<CustomVideoPlayer
+  width="456"
+  loop
+  src="https://github.com/primer/design/assets/2313998/ec911107-016e-4d64-9d08-c235b19a32cb"
+/>
 
 ## Layout
 
@@ -74,17 +86,19 @@ Layout is used to structure your content in a way that reflects the hierarchy of
 
 For example, pagination should go directly below the content it paginates.
 
-{/* <!-- TODO: Come up with a better way to say "large navigation". It's more about hierarchy than size. --> */}
-
 ### Layouts for navigating in the same context
 
 #### Parent-detail split page layout
 
-A sidebar with a nav list or tree view that affects "main" content. See the [responsive layout guidelines](/foundations/layout#page-types) for more info about this layout pattern.
+A "parent" sidebar with a nav list or tree view that affects "detail" content. The "parent" navigation remains on screen while the user navigates between different "detail" views.
 
-{/* <!-- TODO: Determine if we want to specify that the parent NavList should remain on the page if I navigate to a sub-child page. --> */}
+On narrow viewports, the parent list may be stacked above the detail view or turned into an action menu. See the [responsive layout guidelines](/foundations/layout#page-types) for more info about this layout pattern.
 
-![Screenshot of a settings page with the sidebar and main areas highlighted]()
+<img
+    width="960"
+    alt="Screenshot of a repo's security advisories page with the sidebar and main areas highlighted"
+    src="https://github.com/primer/design/assets/2313998/7d8bafeb-f971-45d2-ac0e-7850d7f81912"
+/>
 
 #### Tabbed interfaces
 
@@ -94,8 +108,12 @@ Tabs may be used to switch between:
 - subpages within a larger context
 - content panels within a section of a page
 
-{/* <!-- TODO: come up with a different page to show tab hierarchies --> */}
-![Screenshot of a repo's issue page with the tabs and main areas highlighted as well as 'open' and 'closed' views]()
+<img
+    width="960"
+    alt="Screenshot of a repo's security advisories page with the tabs and tab panel areas highlighted"
+    src="https://github.com/primer/design/assets/2313998/f7fb7251-f9bf-4d58-b6ec-16b66f3959da"
+/>
+
 
 ## Headings and hierarchical page sections
 
@@ -105,23 +123,11 @@ Use section headings to show the user where they are in the context of the page.
 
 See our [typographic style options](/primitives/storybook/?path=/story/typography-functional--overview) for heading styles.
 
-![Screenshot of a settings page with multiple nested sections]()
-
-{/* <!--
-TODO: Mention "A header gets a bottom border unless it's followed by a bordered box." somewhere else.
-Maybe https://primer.style/foundations/typography and https://primer.style/components/page-header
-
-<DoDontContainer>
-  <Do>
-    ![Page heading and section heading without bordered content]()
-    <Caption>Default to showing a bottom border below headings</Caption>
-  </Do>
-  <Dont>
-    ![Page heading and section heading with bordered content]()
-    <Caption>Don't show a bottom border below headings that are immediately followed by another border</Caption>
-  </Dont>
-</DoDontContainer>
---> */}
+<img
+    width="960"
+    alt="Wireframe of a settings page with multiple nested sections"
+    src="https://github.com/primer/design/assets/2313998/88dedda4-355c-48ba-af14-9c01934dd276"
+/>
 
 ## Patterns and components
 
@@ -134,7 +140,11 @@ A global navigation may have inline links as well as buttons that reveal menus w
 
 There is no Primer component for global navigation. Use the other Primer components to build one that suits your needs.
 
-![Screenshot of GitHub with the global navigation bar highlighted]()
+<img
+    width="456"
+    alt="Screenshot of GitHub with the global navigation bar highlighted"
+    src="https://github.com/primer/design/assets/2313998/c36bedc0-94ba-4e48-bb53-ef57f5a7987f"
+/>
 
 ### Nav list
 
@@ -142,9 +152,13 @@ A vertical list of links that can be used to implement a parent-detail navigatio
 
 Activating a nav list item should change the URL.
 
-![Screenshot of a settings page with the nav list highlighted]()
-
 [Nav list component guidelines]()
+
+<img
+    width="456"
+    alt="A nav list component"
+    src="https://github.com/primer/design/assets/2313998/ce7949ad-d9d7-4f07-a531-73c074ff6b54"
+/>
 
 ### Tree view
 
@@ -152,9 +166,13 @@ A tree view isn't semantically a form of navigation: it's for activating an opti
 
 Activating a tree view item may or may not change the URL.
 
-![Screenshot of the files changed tab from a PR page with the tree view highlighted]()
-
 [Tree view component guidelines]()
+
+<img
+    width="456"
+    alt="A tree view component"
+    src="https://github.com/primer/design/assets/2313998/ac179492-b53e-4211-a61a-0c4605808c64"
+/>
 
 ### Tabs
 
@@ -175,7 +193,11 @@ Activating a tab may or may not change the URL, but you can't mix tabs that chan
 
 [Underline panel component guidelines]()
 
-![Screenshot of a repo page with the branch switcher open. Main nav tabs and branch switcher tabs are highlighted.]()
+<img
+    width="456"
+    alt="An underline nav component"
+    src="https://github.com/primer/design/assets/2313998/557d7d8b-1902-44fc-b1fd-de24b2c6b653"
+/>
 
 ### Action menu
 
@@ -185,7 +207,11 @@ Activating an action menu item may or may not change the URL.
 
 [Action menu component guidelines]()
 
-![Screenshot of '+' button in global header]()
+<img
+    width="456"
+    alt="Screenshot of '+' action menu expanded in global navigation"
+    src="https://github.com/primer/design/assets/2313998/f8efba93-2a4f-43f6-b428-d804b423c737"
+/>
 
 ### Breadcrumbs
 
@@ -195,7 +221,11 @@ Activating a breadcrumb item should change the URL.
 
 [Breadcrumbs component guidelines]()
 
-![Screenshot of files page breadcrumb]()
+<img
+    width="456"
+    alt="Screenshot of files page breadcrumb"
+    src="https://github.com/primer/design/assets/2313998/2a8aa05b-b406-44f8-9f8d-5f621fcad221"
+/>
 
 ### Pagination
 
@@ -205,8 +235,11 @@ Activating a pagination item should change the URL.
 
 [Pagination component guidelines]()
 
-{/*<!-- TODO: figure out how to get to a page where we use this https://github.com/github/github/blob/615e7ce25ea0d23dbfb95d7efd2b80664184b954/ui/packages/actions-metrics/common/components/MetricsTable.tsx#L51 -->*/}
-![TBD]()
+<img
+    width="456"
+    alt="Screenshot of issues page pagination"
+    src="https://github.com/primer/design/assets/2313998/7052c7d9-1e7a-41c1-8854-f85630c92df2"
+/>
 
 ### SegmentedControl
 
@@ -216,35 +249,11 @@ Activating a segmented control option may or may not change the URL when being u
 
 [Segmented control component guidelines]()
 
-![A video switching between different ways to view a chart OR filtering content in Insights tab OR code/blame/preview on .md files]()
-
-{/*
-<!-- TODO: determine whether we want to include this section or not
-
-### Inline links
-
-This includes links that look like buttons.
-
-Should we talk about visually hidden links/buttons for skipping content?
-
-![TBD]()
-
-[Link component guidelines]()
-
-[Button component guidelines]()
-
--->*/}
-
-{/* <!--
-
-TODO: determine if we even need to mention this
-
-### Stepped flow navigation
-
-This isn't common enough on GitHub to have a Primer component or interface guidelines. If we find a need for this in Primer, we'll evaluate the use cases and update our docs.
-
-![TBD]()
---> */}
+<img
+    width="456"
+    alt="Screenshot of code/blame/preview on .md files"
+    src="https://github.com/primer/design/assets/2313998/0b1e308d-a351-4457-8214-d863d8f76635"
+/>
 
 ## Accessibility
 
