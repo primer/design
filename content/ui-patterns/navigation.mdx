@@ -1,15 +1,14 @@
 ---
-title: navigation
-description: Navigation plays a crucial role in guiding users through GitHub, helping them understand where they are and where they can go next.
+title: Navigation
+description: Navigation patterns help users understand where they are and where they can go next.
 ---
+import {Box} from '@primer/react'
 
-{/* TODO: update the layouts for narrow viewports so the images go below their headings */}
+In Primer, navigation encompasses various components and patterns to enhance user experience by streamlining task completion.
 
-In Primer, navigation encompasses various components and patterns tailored to enhance user experience and streamline task completion.
+This documentation provides an overview of navigation design patterns within Primer. For more granular guidance about the components and insights into their implementation, reference their respective guidelines pages.
 
-This documentation provides an overview of navigation design patterns within Primer, offering insights into their implementation and best practices. For more granular guidance, see the individual component pages.
-
-{/* <!-- TODO: come up with a better heading --> */}
+<!-- TODO: come up with a better heading -->
 ## Basics
 
 Prioritize clarity and simplicity to facilitate seamless user interaction. Here are some fundamental principles:
@@ -18,33 +17,29 @@ Prioritize clarity and simplicity to facilitate seamless user interaction. Here 
 
 Users should always have a clear understanding of their location within the application. Intuitive navigational cues minimize ambiguity.
 
-### Streamlined navigation
+### Streamlined choices
 
-Minimize the number of navigational elements while ensuring that the most essential items are availale. This balance can help prevent users from feeling overwhelmed with too many options, but also ensure that they can easily find what they need.
+Minimize the number of navigational elements while ensuring that the most essential items are available. This balance can help prevent users from feeling overwhelmed with too many options, but also ensure that they can easily find what they need.
 
 ### Contextual transitions
 
 Strive to maintain a balance between contextual clarity and minimal interruption. While transitions such as page refreshes or showing a dialog are useful for indicating context switches, excessive transitions can lead to unnecessary cognitive load.
 
-{/* <!-- TODO: come up with a better heading --> */}
+<!-- TODO: come up with a better heading -->
 ## How navigating affects user context
+
+### Entirely new page
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
 
-### Entirely new page
-
 This is the default behavior of clicking a link or submitting a form. The URL changes and the requested page loads.
 
-{/* <!-- TODO: ask an engineer to confirm this is technically accurate --> */}
+<!-- TODO: ask an engineer to confirm this is technically accurate -->
 In GitHub's single-page app architecture, this behavior is emulated without a traditional page reload.
 
 If you're navigating from a parent page to a child page, the child page should have a clear way to navigate back to the parent page. This is often done with [breadcrumbs](/components/breadcrumbs) or a "back" button.
-
-For example, when adding a new Codespace secret, the user is taken to a new page to fill out the secret details. There is a breadcrumb at the top of the page letting them go back to the Codespace settings page.
-
-Be mindful of data loss when a user is navigating away from a page where they have unsaved changes. See the [saving](/ui-patterns/saving) guidelines for more info.
 
 </Box>
 
@@ -56,13 +51,18 @@ Be mindful of data loss when a user is navigating away from a page where they ha
 
 </Box>
 
+For example, when adding a new Codespace secret, the user is taken to a new page to fill out the secret details. There is a breadcrumb at the top of the page letting them go back to the Codespace settings page.
+
+Be mindful of data loss when a user is navigating away from a page where they have unsaved changes. See the [saving](/ui-patterns/saving) guidelines for more info on handling unsaved changes.
+
+
+### Same page, different state
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
 
-### Same page, different state
-
-Navigation within the same page, but to a different state. Strive to avoid full page reloads when feasible to maintain a fast and smooth user experience.
+When users activate a different state of their current page. When using this kind of navigation, strive to avoid full page reloads when feasible. This could help maintain a fast and smooth user experience.
 
 The URL may or may not change.
 
@@ -76,13 +76,14 @@ The URL may or may not change.
 
 </Box>
 
+
+### New spot on the same page
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
 
-### New spot on the same page
-
-Navigating to a different section or focusing on a specific element within the same page does not alter the page content. This behavior is commonly used for scrolling to new sections or focusing on input fields.
+When users navigate to a different section or move focus to a specific element within the same page. The page content is not changed. This behavior is commonly used for scrolling to new sections or focusing on input fields.
 
 The URL should change if the section scrolled to is a page anchor.
 
@@ -96,11 +97,11 @@ The URL should change if the section scrolled to is a page anchor.
 
 </Box>
 
+### Moving into a dialog
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
-
-### Moving into a dialog
 
 Opening a dialog brings the user into a new context, but can feel "lighter" than going to a whole new page. Focus is moved into the dialog, and the user can't interact with the rest of the page without dismissing the dialog.
 
@@ -116,69 +117,20 @@ The URL may or may not change when opening a dialog.
 
 </Box>
 
-## Layout
-
-Layout is used to structure your content in a way that reflects the hierarchy of the navigation within the app. Navigational elements should be laid out in close proximity to the content they affect.
-
-For example, pagination should go directly below the content it paginates.
-
-### Layouts for navigating in the same context
-
-#### Parent-detail split page layout
-
-<img
-    width="960"
-    alt="Screenshot of a repo's security advisories page with the sidebar and main areas highlighted"
-    src="https://github.com/primer/design/assets/2313998/7d8bafeb-f971-45d2-ac0e-7850d7f81912"
-/>
-
-A "parent" sidebar with a nav list or tree view that affects "detail" content. The "parent" navigation remains on screen while the user navigates between different "detail" views.
-
-On narrow viewports, the parent list may be stacked above the detail view or turned into an action menu. See the [responsive layout guidelines](/foundations/layout#page-types) for more info about this layout pattern.
-
-#### Tabbed interfaces
-
-<img
-    width="960"
-    alt="Screenshot of a repo's security advisories page with the tabs and tab panel areas highlighted"
-    src="https://github.com/primer/design/assets/2313998/f7fb7251-f9bf-4d58-b6ec-16b66f3959da"
-/>
-
-Tabbed interfaces enable seamless navigation between different subpages within a unified context. Tabs go directly above the content they affect.
-
-Tabs may be used to switch between:
-- subpages within a larger context
-- content panels within a section of a page
-
-
-## Headings and hierarchical page sections
-
-<img
-    width="960"
-    alt="Wireframe of a settings page with multiple nested sections"
-    src="https://github.com/primer/design/assets/2313998/88dedda4-355c-48ba-af14-9c01934dd276"
-/>
-
-A [page header](/components/page-header) is the title area at the top of the main content region that shows the user where they are. It may also to contain navigational elements like breadcrumbs or a link to go up a level of hierarchy.
-
-Use section headings to show the user where they are in the context of the page. These headings should be styled to reflect their hierarchy within the page. Page section headings should be marked up with the appropriate heading level (`h3`–`h6`).
-
-See our [typographic style options](/primitives/storybook/?path=/story/typography-functional--overview) for heading styles.
-
 ## Patterns and components
+
+### Global navigation
 
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
 
-### Global navigation
-
 This is where users can access the most important parts of the app. It's typically a bar that appears at the top of every page.
 
-{/* <!-- TODO: phrase this better --> */}
+<!-- TODO: phrase this better -->
 A global navigation may have inline links as well as buttons that reveal menus with more links.
 
-There is no Primer component for global navigation. Use the other Primer components to build one that suits your needs.
+There is no Primer component for global navigation. Use the other Primer components to build a global navigation that suits your needs.
 
 </Box>
 
@@ -190,11 +142,12 @@ There is no Primer component for global navigation. Use the other Primer compone
 
 </Box>
 
+
+### Nav list
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
-
-### Nav list
 
 A vertical list of links that can be used to implement a parent-detail navigation pattern. Users can navigate between different child views without leaving the parent page. It's often used in the sidebar of a split page layout.
 
@@ -212,11 +165,12 @@ Activating a nav list item should change the URL.
 
 </Box>
 
+
+### Tree view
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
-
-### Tree view
 
 A tree view isn't semantically a form of navigation: it's for activating an option from a hierarchical list. However, it's often used to implement a parent-detail navigation pattern. It's often used in the sidebar of a split page layout.
 
@@ -234,18 +188,14 @@ Activating a tree view item may or may not change the URL.
 
 </Box>
 
+
+### Tabs
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
 
-### Tabs
-
 Tabs allow users to switch between related views within a consistent context, enhancing navigation efficiency and organization.
-
-{/* <-- TODO: move this to the UnderlineNav and UnderlinePanels docs
-Use tabs to let users switch between 2 or more related views without leaving their current context. Tabs can switch between large or small panels of content.
-
-Each panel has discrete content, not just different formats to view the same content. -->*/}
 
 Use the [underline nav](/components/underline-nav) component when activating a tab changes the URL.
 
@@ -267,13 +217,16 @@ Activating a tab may or may not change the URL, but you can't mix tabs that chan
 
 </Box>
 
+
+### Action menu
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
 
-### Action menu
+An action menu is not semantically a form of navigation: it's for activating an option from a list. However, it may contain some options that open a dialog or change the URL when activated.
 
-An action menu is not semantically a form of navigation: it's for activating an option from a list. However, it may contain some options that open a dialog or change the URL when activated. It's also commonly used to overflow horizontal navigation elements when the container is too narrow to display all the navigation items inline.
+Action menus are also used to overflow horizontal navigation elements (such as tabs) when the container is too narrow to display all options inline.
 
 Activating an action menu item may or may not change the URL.
 
@@ -289,11 +242,12 @@ Activating an action menu item may or may not change the URL.
 
 </Box>
 
+
+### Breadcrumbs
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
-
-### Breadcrumbs
 
 Breadcrumbs show the user where they are using a hierarchical list of links. Going from start to end, each link is one level of hierarchy deeper.
 
@@ -311,11 +265,12 @@ Activating a breadcrumb item should change the URL.
 
 </Box>
 
+
+### Pagination
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
-
-### Pagination
 
 Pagination is used to sequentially navigate long collections of content that's been broken into smaller chunks.
 
@@ -333,15 +288,16 @@ Activating a pagination item should change the URL.
 
 </Box>
 
+
+### Segmented control
+
 <Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
 
 <Box flex={1}>
 
-### SegmentedControl
+While primarily used to make a selection from a short list, segmented controls can be employed as navigation components for **filtering**, **sorting**, or **viewing content in a different format**.
 
-While primarily used to make a selection from a short list, segmented controls can be employed as navigation components for filtering, sorting, or viewing content in a different format.
-
-Activating a segmented control option may or may not change the URL when being used as navigation.
+When being used as navigation, activating a segmented control option may or may not change the URL.
 
 [Segmented control component guidelines](/components/segmented-control)
 
@@ -354,6 +310,51 @@ Activating a segmented control option may or may not change the URL when being u
 />
 
 </Box>
+
+## Layout
+
+Layout is used to structure your content in a way that reflects the hierarchy of the navigation within the app. Navigational elements should be laid out in close proximity to the content they affect.
+
+For example, pagination should go directly below the collection it navigates.
+
+### Layouts for navigating in the same context
+
+#### Parent-detail split page layout
+
+<img
+    width="960"
+    alt="Screenshot of a repo's security advisories page with the sidebar and main areas highlighted"
+    src="https://github.com/primer/design/assets/2313998/7d8bafeb-f971-45d2-ac0e-7850d7f81912"
+/>
+
+A "parent" sidebar with a nav list or tree view that affects "detail" content. The "parent" navigation remains on screen while the user navigates between different "detail" views.
+
+On narrow viewports, the parent list may be stacked above the detail view or turned into an action menu. See the [responsive layout guidelines](/foundations/layout#page-types) for more info.
+
+#### Tabbed interfaces
+
+<img
+    width="960"
+    alt="Screenshot of a repo's security advisories page with the tabs and tab panel areas highlighted"
+    src="https://github.com/primer/design/assets/2313998/f7fb7251-f9bf-4d58-b6ec-16b66f3959da"
+/>
+
+Tabbed interfaces enable seamless navigation between different subpages within a unified context. Tabs go directly above the content they affect.
+
+### Headings and hierarchical page sections
+
+<img
+    width="960"
+    alt="Wireframe of a settings page with multiple nested sections"
+    src="https://github.com/primer/design/assets/2313998/88dedda4-355c-48ba-af14-9c01934dd276"
+/>
+
+A [page header](/components/page-header) is the title area at the top of the main content region that shows the user where they are. It may also to contain navigational elements like breadcrumbs or a link to go up a level of hierarchy.
+
+Use section headings to show the user where they are in the context of the page. These headings should be styled to reflect their hierarchy within the page. Page section headings should be marked up with the appropriate heading level (`h3`–`h6`).
+
+See our [typographic style options](/primitives/storybook/?path=/story/typography-functional--overview) for heading styles.
+
 
 ## Accessibility
 
@@ -374,3 +375,22 @@ Users should be able to tab through the navigation elements in a logical order. 
 A correct heading structure is critical for enabling users to navigate quickly within a page. Headings are by far the most common navigation technique for screen reader users.
 
 Follow our accessibility [guidelines for headings](/guides/accessibility/headings).
+
+
+## Related links
+
+- [Action menu](/components/action-menu)
+- [Breadcrumbs](/components/breadcrumbs)
+- [Link](/components/link)
+- [Pagination](/components/pagination)
+- [Segmented control](/components/segmented-control)
+- [Underline nav](/components/underline-nav)
+- [Underline panels](/components/underline-panels)
+
+
+- [Accessibility - focus management](/guides/accessibility/focus-management)
+- [Accessibility - headings](/guides/accessibility/headings)
+- [Accessibility - links](/guides/accessibility/links)
+- [Responsive layout](/foundations/layout#page-types)
+- [Saving](/patterns/saving)
+
