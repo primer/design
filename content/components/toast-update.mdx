@@ -1,0 +1,88 @@
+---
+title: Toasts and their alternatives
+description: Why we don't use toasts on github.com and their alternative patterns
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text, Box} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+/*This section feels more like an ADR?*/
+## Why no toasts?
+
+Our ultimate goal in notifying users about the status of an action is to allow them to complete their own goals as quickly as possible, whether that's confidence in a successful action or the clear path to correct a failed action.
+
+Toasts have become a quick pattern to reach for in order to display temporary messages to users, often to confirm an action has completed successfull or has failed. However, toasts are not accessible to all users, and they can be disruptive to the user experience or missed entirely. 
+
+### Usability and accessibility concerns with toasts
+WCAG compliant toasts are often missed by users for a variety of reasons: 
+- Ultrawide monitor
+- Looking away from the computer screen for the duration of an auto-dismissing toast
+- Assistive Technology reliability or setting for announcing aria-live components
+- Zoomed in view
+- Zoomed in view requires that focus is brought to a toast in order to be seen by someone using zoom on a screen. This can be distruptive to a user's orentiation of the screen, especially if not critial to their workflow.
+- Toast fatigue (used too often for things that aren't important to a user's workflow)
+
+### Tiny history lesson
+Toasts started in the mobile space, where the intended use cases make more sense than on a desktop. 
+- Some situations have successful interactions that then present an undo option to the action you've just performed, like a sent email message. It's a lot easier to perform an undo action on a desktop with the availability of keyboard shortcuts to undo actions than it is on mobile, whose keyboards are often hidden unless in an active text editor, and don't contain modifier keys. 
+- Before Android coined Toasts, iOS created push notifications whose use case was to notify of non-critical new things in other areas of the product to explore at a user's leisure. 
+- Before Android toasts and iOS push notifications, we were notified "You've got mail" when receiving a new email message from AOL on a desktop computer, which lead to subsequent overuse of dialogs and notifications.
+
+### Our use cases
+GitHub has its own system for notifying our users of new or updated activity to be explored at their leisure in other parts of the product, GitHub notifications. With those use cases covered, we're left with a need to notify users of the status of actions they've taken on a page in the product to help them successfully complete their tasks.
+
+## Alternatives to toasts
+Rather than reach for a toast, we've found that there are better patterns to use in the majority of our use cases.
+
+/*Scenarios*/
+### 1. Successful actions
+Excessive use of successful notification messages can indicate product instability. If we have to really let users know every time something was successful, we're not building a reliable product.
+
+If the change made on the page is visible to the user, we can rely on the user's ability to see the change and know that it was successful. 
+
+For example, if a user activates a toggle control, and the toggle control doesn't flip back to the original postion, a user should be confident that the change has occured with the absense of an error message. Likewise for screen readers, after activating the toggle control the control should read out the current control's state. 
+
+Another example: a user activating the save button on a page. If the save button action does not bring them to the next logical page, either back to the place before they enacted an edit button, closing a dialog that opened for the changes, or taking them to the new thing that was created, our save button should enter a loading state, complete, and return to a rest state. Absense of an error message should indicate that the save was successful.
+
+If the change made on the page is not immediately visible to the user, such that a new item was created but we don't know for sure that a user wants to navigate to the newly created item, users should be notified of the successful action and given the option to navigate to the new item in a banner on the page or dialog. 
+
+### 2. Drag and drop
+Drag and drop is a common pattern being employed across the GitHub product, especially as new experiences move to react. In line with the successful actions section, if a drag and drop has been successfully completed, the change should be visible to the user or announced to the user. 
+
+Failed actions are a bit trickier where consistent UI placement becomes a question. Our goal is to unblock users to complete their tasks. Vague error messages that don't provide a clear path to resolution are not helpful to users no matter their location on the page. "Something went wrong" is clear when the item did not move to the intended location. 
+
+Simple modal dialogs that contain clear error messages with a path to a resolution are a solid pattern to use in cases where a banner is unable to fit in the UI. 
+
+Modal dialogs should not be used when resolving an error is not the main workflow for a user, or it is not critical to the user's workflow. 
+
+/* This is a great example of needing modal dialogs but it's not drag and drop so I don't think it belongs in this section. */
+For example, when trying to stage a commit in VSCODE, if there is not a commit message you are prompted with a new tab and muted comment text on instructions. If this is ignored, and the tab is closed, a toast comes in from the bottom right with the text, "Commit operation was cancelled due to empty commit message." A user unfamiliar with this workflow who opts not to read the paragraph of text instructions may be caught in a loop of trying to stage a commit, closing the tab, and receiving the toast but being completely unaware of its exisitence. A modal dialog might be considered too big of an intruption, but sometimes bigger interuptions are needed to aid users in their tasks. Failures are already intreruptions to a user's workflow, so we're best serving them in unblocking the reason for failure as quickly as possible.
+
+### 3. Bulk editing 
+
+#### Using a SelectPanel to add or remove items
+If we're adding or removing items like assignees or labels from several issues or pull requests at one time, we should be using our selectPanel component that comes with a cancel or confirmation button. The dialog should only close once the action has been confirmed or completed. If there is an error, like a network interuption, the confirmation button might hang in a loading state until the action times out and the user is notified via a banner in the selectPanel dialog before moving on to their next task. 
+
+If a user is allowed to move on before they're aware an action there are a few possible reactions:
+- The user has moved on and the message is vague enough that they don't know when or where the error occured that the message is referring to. 
+- The user has moved on and the message is unique that they know where the error has occured but now they have to backtrack in their workflow to fix a problem that has the potential to distrupt their task flow. 
+
+#### Spreadsheet-style editing
+Memex holds the unique cabaility to act as a spreadsheet in terms of copying cell data and pasting it to surrounding cells by clicking and dragging the bottom right corner of a cell out across the cells they want to change. If the change is successful, the success should be visible to the user and additional confirmation is not needed. If the change is not successful, the lack of change in the additional cells should be apparent visually and announced to the user via assistive technology. If we know the reason, this should be communicated. Ideally, we want this error communicated as closely as possible to the place where the error happened. 
+
+### 4. Initated tasks that take a long time to complete
+If a task is initiated that takes a long time to complete, like a repository import, we should be using a banner to notify the user of the status of the task. The banner should be dismissable once it has completed and if there is an error, it's advisible to include a link to an error log if possible so the user can troubleshoot the issue if we cannot locate it for them.
+
+/* things to use*/
+### 1. Use a banner
+
+#### When to use a banner
+
+### 2. Use a modal dialog
+
+#### When to use a modal dialog
+
+### 3. Use inline validation
