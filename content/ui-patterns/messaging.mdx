@@ -4,28 +4,160 @@ description: Messaging components are used to provide important and relevant inf
 ---
 
 import {Box} from '@primer/react'
+import {InfoIcon, CheckCircleIcon, StopIcon, AlertIcon} from '@primer/octicons-react'
 
-Primer includes three different messaging components:
+Primer includes six different messaging components:
 
-- Toasts
-- [Flash alerts](../components/flash)
-- [Popovers](../components/popover) 
+- Announcement
+- [Banner](../components/flash)
+- [Popover](../components/popover)
+- Inline message
 
-## Messaging types
+## Message types
 
-It's important to consider the context when selecting a component to convey your message. Does the message need to interrupt the user flow? Is this a global message that needs to be shown on every page? Does it require the user to take an action, or is it more of a notice? Most messaging on GitHub falls into one of the following categories:
+Messaging holds differing levels of prominence, which can be used to determine the appropriate component to use. Most messages fall into one of the following categories, from most prominent to least:
 
-**Feedback**: communicates something to the user based on an action they've taken or a change in context
+**System updates**: These types of message originate from GitHub and are not user initiated. A global site wide announcement (outage, missing payment details, critical and blocking) or messaging related to user account/permissions should use the **Announcement** component. System announcements related to a specific product area such as a single sign-on message should use the **Banner** component. System update type messages cannot be dismissed until the issue is resolved, or may be perminent if they are purely informative.
 
-- _Toasts or flash alerts are best suited for this type of messaging._
+(image here)
 
-**Highlights**: bring attention to how and why to engage with a feature
+**Feedback**: Communicates the result of a user action (submitting a form, toggling a setting, etc.) Feedback can be positive, negative, or a warning. Feedback is shown in either a **Banner** or **Inline message**. For forms, an inline message is used for individual field validation which may be combined with a banner if multiple fields have errors. Banners are placed at the top of the page or section they are related to, but still within the body content. Inline messages are placed near the action they are related to.
 
-- _Popovers are best suited for this type of messaging._
+(image here)
 
-**Updates**: inform the user of necessary updates or changes to the product as it relates to them.
+**Awareness**: Communicates information that is relevant to the user but not necessarily related to an action they've taken. This type of message is typically used to provide context or additional information about a feature or product. A **Banner** using the `info` state might be used to suggest an action or helpful tip, while a **Popover** is typically used to announce a new feature.
 
-- _Flash alerts are best suited for this type of messaging._
+(image here)
+
+## Message states
+
+<img
+  width="960"
+  alt="A group of labels showing the proper icon and color combination for each message state"
+  src="https://github.com/primer/css/assets/18661030/41d3a706-9aa3-4f05-8bad-5176f49a7d5d"
+/>
+
+Messaging components combine state with message type to provide the appropriate level of prominence. To determine which component to use for your message, start by identifying the message state.
+
+### Overview
+
+| State | Use case |
+|--------|--------|
+| <Box sx={{color: 'accent.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><InfoIcon /><span>Info</span></Box> | Use to highlight important information that has an influence on the current view or offers an action |
+| <Box sx={{color: 'success.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><CheckCircleIcon /><span>Success</span></Box> | Informs about successfully completing action. |
+| <Box sx={{color: 'attention.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><StopIcon /><span>Warning</span></Box> | Warn users of side-effect of an action they are about to take or if something happens they may not know about which results in a specific state |
+| <Box sx={{color: 'danger.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><AlertIcon /><span>Critical</span></Box> | Inform user about an error that occurs or an action they are about to perform that results in lost access or content |
+
+### Info
+
+Use the `info` state to highlight messages that help users complete a task or that provide additional context.
+
+Examples:
+- upgrade account to access a feature
+- notify that a process is in progress
+- single sign on or other account related notifications
+
+(image of banner in context)
+(image of callout in context)
+
+<img
+  width="960"
+  alt="draft wip"
+  src="https://github.com/primer/design/assets/18661030/1055049e-6db8-41d5-8cf8-e375bd0e8dea"
+/>
+
+### Warning
+
+Use the `warning` state to inform users of a potential issue, an important upcoming change that may impact their experience or a potentially unexpected consequence of an action.
+
+Examples:
+- an account setting will become required soon
+- a [degraded experience](./degraded-experiences) due to connectivity or GitHub availability
+- a non-destructive action with side-effects like costs or access changes is about to take place
+
+(image of banner in context)
+(image of callout in context)
+(image of announcement in context)
+
+### Success
+
+Use the `success` state to notify users that the results of an action were successful if it is not apparent from other parts of the UI.
+
+Examples:
+- saving an account setting if there's no page reload or redirect
+- a background process has successfully completed
+
+(image of banner in context)
+(image of inline message in context)
+
+### Critical
+
+Use the `critical` state to notify users that the results of an action were unsuccessful, or to inform that an action is destructive. This state is typically used for form errors and confirmation dialogs.
+
+Examples:
+- form field is invalid upon submitting
+- a delete or transfer button
+
+<img
+  width="960"
+  alt="draft wip"
+  src="https://github.com/primer/design/assets/18661030/5da2e479-6bc7-46dc-9179-46002412b9f5"
+/>
+
+### Neutral
+
+Reserve the `neutral` state for **inline** system related degraded experiences, or for surfacing account related permission messages.
+
+Examples:
+- a row of a data table could not be loaded
+- an item in a list could not be loaded
+- user does not have permissions to perform an action
+
+See [degraded experiences](./degraded-experiences) for more information.
+
+### Visual treatment
+
+Primer offers five states for messaging components: info, warning, success, unavailable, and critical. Each state has a corresponding icon and color combination to help communicate the message's intent.
+
+Icons sized at 14px and above utilize the outline variant, while smaller icons utilize the filled variant.
+
+## Placement and persistance
+
+Message proximity and persistance also contribute to the prominence of a message.
+
+### Above global navigation
+
+Announcements displayed above the global navigation are reserved for global, site wide issues that require immediate attention. These messages are not dismissable and should only be used for critical issues that impact the entire site.
+
+### Top of body
+
+### Inline
+
+### In a dialog
+
+
+## Dont want to delete this so just moving it down
+
+**System updates**: inform the user of errors or necessary updates or changes to the product as it relates to them.
+_Announcement are best suited for this type of messaging._
+Since annoucements are present on every page, they must only be used for global informations like an error that makes the entire web experience slow or the need to update your authentication method to avoid loosing access to your account.
+
+Annoucements can not be dismissed, so they need to be removed once the cause for the annoucement is removed.
+
+**Feedback**: communicates something to the user based on an action they've taken or caused
+_Banners, toasts or inline messages are best suited for this type of messaging._
+When the action was taken before loading a page and the message is present on page load, a banner should be used.
+If the feedback is caused by an action on the current page, an inline message should be used when possible.
+If the UI does not allow for inline messaging to be used, a toast can be used. Avoid toasts for critical messages, as there are issues with discoverability for some users.
+
+Sometimes complex feedback is shown in a banner instead of an inline message to group mutliple lines together. A common example is a form error summary.
+
+**Highlights**: bring attention to a specific section.
+_Banners and callouts are best suited when highlighting information about a feature or form._
+Banners should be used when highlighting information about important side-effects like incurring costs, permanently deleting content or removing access.
+Callouts are used when providing additional details about an action.
+
+To decide between banner and callout it is important to analyze if the information is a side-effect or expected as part of the action. For example, when creating a `codespace`, the action is the `codespace` being created while the side-effect is the cost. However when upgrading your plan, the costs are an expected part of the purchasing action.
 
 ## Toasts
 
