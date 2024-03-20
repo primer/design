@@ -1,6 +1,6 @@
 ---
 title: Underline nav
-description: The UnderlineNav is used to display navigation.
+description: The UnderlineNav is used to display navigation in a horizontal tabbed format.
 componentId: underline_nav
 reactId: underline_nav
 railsIds:
@@ -8,13 +8,24 @@ railsIds:
 figma: https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=18843-67449&t=XqqSolC6AzRO9nae-11
 ---
 
+import {Box} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 ## Usage
 
-The underline nav is used to provide navigation links to related views for the user's current context. It is typically used as primary navigation at the top of the page or as secondary or tertiary navigation when nested in views with a [nav list](/components/nav-list).
+The underline nav provides navigation links to let users switch between 2 or more related views without leaving their current context.
+
+If you want to use this pattern without any linked items, use the [underline panels](/components/underline-panels) component.
+
+### Best practices
+
+- Each tab panel should have discrete content with a unique URL, not just different formats to view the same content.
+- One of the tabs should be selected by default when the user loads the page.
+- Avoid overwhelming the user with too many tabs. Instead consider a navigation structure like a [nav list](/components/nav-list) that's meant to handle more links.
+- Each view should have enough information so the user can complete their tasks without switching back and forth between tabs.
+- Views should be able to be navigated in any order. This is not a pattern for navigating stepped flows.
 
 ## Anatomy
 
@@ -37,11 +48,53 @@ The underline nav is composed of a list of items. Each item is a link that can b
 
 The title of the view associated with that tab. Keep labels clear, short, and concise.
 
+Do not rely on leading visuals, tooltips, or supplemental descriptions to communicate what the tab represents.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://github.com/primer/design/assets/2313998/b96d853e-3a03-47c7-854b-cd69914f6d80"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use label text that clearly communicates what the tab represents.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://github.com/primer/design/assets/2313998/8d703e04-73f2-4d0c-898d-3a136d193af3"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't rely on supplemental content to communicate what the tab represents.</Caption>
+  </Dont>
+</DoDontContainer>
+
 #### Leading icons
 
 Use an [Octicon](/foundations/icons) to improve the scannability of common items, but only when relevant. When adding leading icons, all items in the navigation should have one.
 
 Make sure that icons used are consistent across views, and that they are not repeated for different navigations across the product.
+
+Label text is required. Leading icons are just a "bonus" affordance and should not be the only way to identify the navigation item.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://github.com/primer/design/assets/2313998/58b54936-37d4-41d6-a263-7ec49993deb0"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Use leading icons as an enhancement.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://github.com/primer/design/assets/2313998/ad989a92-f078-454b-9649-7add73785c92"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't exclude label text.</Caption>
+  </Dont>
+</DoDontContainer>
 
 #### Counters
 
@@ -49,20 +102,81 @@ You may include a counter to indicate the number of related resources contained 
 
 When loading multiple counters asynchronously, wait for all the data to be ready before displaying the counters, so you can avoid multiple layout shifts. Use the counter loading state while waiting for the data.
 
+## Hierarchy
+
+Tabs may be used to switch between content at different levels of hierarchy:
+
+- subpages within a larger context
+- content panels within a section of a page
+
+<Box
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+    <div>
+        <img
+            src="https://github.com/primer/design/assets/2313998/bd6732fc-3e62-4e2e-afc2-d3312a22e8c2"
+            alt="A page with three top-level tabs. Then, a placeholder heading and description followed by more tabs to separate subpage content. Top-level tabs are highlighted."
+            width="456"
+        />
+        <Caption>Subpage tabs</Caption>
+    </div>
+    <div>
+        <img
+            src="https://github.com/primer/design/assets/2313998/314e0800-3dcc-4bb6-91de-7608db202a0c"
+            alt="A page with three top-level tabs. Then, a placeholder heading and description followed by more tabs to separate subpage content. Inner subpage content tabs are highlighted."
+            width="456"
+        />
+        <Caption>Page content tabs</Caption>
+    </div>
+</Box>
+
+Avoid more than 2 levels of tab hierarchy. If you need more than 2 levels of hierarchy, consider:
+
+- rethinking your information architecture
+- removing a layer of hierarchy and putting more content on the page
+- using a [nav list](/components/nav-list) for a level of hierarchy
+
+### Stacking
+
+Don't stack multiple underline navs or underline panels directly on top of eachother to convey hierarchical levels of navigation. Instead, consider using a [nav list](/components/nav-list) for a higher level of hierarchy.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://github.com/primer/design/assets/2313998/3b9c4160-3f9d-4a28-854f-9d50dcce4aaa"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Limit the levels of tab hierarchy</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://github.com/primer/design/assets/2313998/72a9b78d-3227-48ab-a62c-bb44ed4d3be2"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't stack tabs or create deep levels of tab hierarchy</Caption>
+  </Dont>
+</DoDontContainer>
+
 ## Layout
 
 ### Placement
 
-The underline nav has two possible main placements depending on its intended usage:
-
-- As primary navigation: place it at the top of the page. Ensure any secondary and tertiary navigation is nested under the underline nav.
-- As secondary or tertiary navigation: place it above the main content of the page.
-
-In either scenarios, avoid stacking multiple uderline navs to display multiple levels of navigation.
+Underline nav should be placed directly above the content it affects.
 
 ### Alignment
 
 Align the the underline nav to the left and, when possible, make the component span the available width.
+
+The left and right edges of the underline nav should not extend beyond the width of the content it affects.
+
+### Clear beginning and end
+
+It should be clear where the tab-switchable content begins and ends. Use spacing, borders, headings, or other visual cues to make it clear where the tab-switchable content ends.
 
 ### Responsive design
 
