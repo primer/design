@@ -73,7 +73,10 @@ For large areas of loading content, the loading content may be replaced by a vag
 
 Skeleton loaders may be used when we can approximate the visual shape the loaded content will create on the page.
 
-The [tree view](/components/tree-view) and [data table](/components/data-table) components have these states implemented.
+This kind of loading indicator can be rendered using the following components:
+- [Skeleton avatar](/components/skeleton-avatar)
+- [Skeleton text](/components/skeleton-text)
+- [Skeleton bone](/components/skeleton-bone)
 
 </Box>
 
@@ -320,6 +323,31 @@ Loading indicators are visual and need to be accessible to assistive technologie
 
 You may default to a generic label such as "loading", but try to be specific when possible. For example, when a spinner replaces status checks in a pull request, it could have the label "loading status checks".
 
+### Avoiding over-announcing loading states
+
+If you're using multiple loading indicators to convey a cluster of loading content, be mindful about how many announcements will be read aloud to screen reader users.
+
+Since we discourage showing too many loading indicators on the page at once, this problem is most likely to happen when using a [content skeleton](#content-skeleton) loading indicator.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://github.com/primer/design/assets/2313998/70905325-7561-417d-9fcd-2aae7c910bc8"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Have a single loading announcement for a collection of skeleton loaders</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://github.com/primer/design/assets/2313998/52e5ee70-9e14-4fa8-92d6-c03ac64dcddd"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't have a loading announcement for every piece of loading content</Caption>
+  </Dont>
+</DoDontContainer>
+
 ### Conveying status
 
 Communicate when a process has been initiated, when it's in progress, and when it has been completed or if it has failed.
@@ -389,5 +417,8 @@ Animated loading indicators help reassure the user that the system isn't frozen,
 
 - [Graceful degradation](/ui-patterns/degraded-experiences)
 - [Patterns for saving](/ui-patterns/saving)
+- [Progress bar](/components/progress-bar)
+- [Skeleton avatar](/components/skeleton-avatar)
+- [Skeleton bone](/components/skeleton-bone)
+- [Skeleton text](/components/skeleton-text)
 - [Spinner](/components/spinner)
-- [ProgressBar](/components/progress-bar)
