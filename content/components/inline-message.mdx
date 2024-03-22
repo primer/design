@@ -1,0 +1,108 @@
+---
+title: Inline Message
+description: InlineMessage is used to inform the user about the result of an action within the content.
+reactId: 
+railsIds:
+figmaId: inline_message
+---
+
+import {Box} from '@primer/react'
+
+<img
+  width="960"
+  alt="Image displaying each variation of InlineMessage, from top: critical, warning, success, unavailable."
+  src="https://github.com/primer/primitives/assets/813754/f9daa010-532a-42e2-b884-45ee6263e17c"
+/>
+
+
+## Usage
+
+InlineMessages inform users about the result of an action they took. In contrast to a [Banner](./banner) an InlineMessage can be very close the where the action has taken place.
+For example below an input field, next to a button or within a table.
+
+## Anatomy
+<img
+  width="960"
+  alt="Anatomy of an InlineMessage, including the icon and the message"
+  src="https://github.com/primer/primitives/assets/813754/d854b989-ff3b-426b-9eec-0355145e534a"
+/>
+
+## Options
+
+### Variants
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="Critical InlineMessage"
+    src="https://github.com/primer/design/assets/813754/c4190734-b9d2-4978-b14e-6ff0e3716efc"
+  />
+  <Box as="p" mt="0">
+   <h4>Critical</h4>
+    Use critical InlineMessages for errors for example during form validation or when an action failed.
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="Warning InlineMessage"
+    src="https://github.com/primer/design/assets/813754/7bc1679e-812c-41b6-953b-4ef2ffcd9257"
+  />
+  <Box as="p" mt="0">
+   <h4>Warning</h4>
+    Use warning InlineMessages to inform about potential issues or impactful changes. Form example: important settings, possible connectivity concerns.
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="Success InlineMessage"
+    src="https://github.com/primer/design/assets/813754/d3b919f2-4564-43e1-ad31-498d35a09aac"
+  />
+  <Box as="p" mt="0">
+   <h4>Success</h4>
+   Use success InlineMessages to indicate task completion or a successful action. For examples to confirm settings have been saved.
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="Unavailable InlineMessage"
+    src="https://github.com/primer/design/assets/813754/d0fb73bd-d060-444e-b8c5-0aaff2a54cdc"
+  />
+  <Box as="p" mt="0">
+   <h4>Unavailable</h4>
+    Use unavailable InlineMessages to inform users that a specific part of the UI could not be loaded. For example when not being able to retrieve data in a table.
+  </Box>
+</Box>
+
+### Known accessibility issues (GitHub staff only)
+
+ <AccessibilityLink label="InlineMessage"/>
