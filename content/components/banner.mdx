@@ -8,14 +8,251 @@ tags:
   - flash
 ---
 
+import {Box} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 import {AccessibilityLink} from '~/src/components/accessibility-link'
 
-Banner can be used in one of two ways:
+<img
+  width="960"
+  alt="Image displaying each variant of banenr, from top: critical, warning, success, info, upsell."
+  src="https://github.com/primer/primitives/assets/813754/f96b1eda-2413-4fc1-b1a7-3775b0c3b324"
+/>
 
+## Usage
+
+Banner can be used in one of two ways:
 1. To highlight prominent information on a page.
 2. To communicate feedback in response to a user action.
+
+For system wide information, consider using an [announcement](../ui-patterns/messaging#message-types).
+
+## Anatomy
+
+<img
+  width="960"
+  alt="Anatomy of a banner, including the message, title, icon, dismiss button, primary, and secondary action"
+  src="https://github.com/primer/design/assets/813754/defa52f8-49bb-4332-aaa1-872a22a563a9"
+/>
+
+## Options
+
+### Variant
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="critical banner"
+    src="https://github.com/primer/design/assets/813754/8b135c8e-898d-423c-81c4-9dbb4736a4d5"
+  />
+  <Box as="p" mt="0">
+    <h4>Critical</h4>
+    Use critical banners to signal critical errors, system failures, or necessary destructive actions. Examples: form validation error summary, repo deletion confirmations.
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="warning banner"
+    src="https://github.com/primer/design/assets/813754/fc82519b-60e1-45b3-a0de-c5f89108e96e"
+  />
+  <Box as="p" mt="0">
+    <h4>Warning</h4>
+    Use warning banners to alert users about potential issues or impactful changes. For example possible connectivity concerns or hidden items due to active filters.
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="success banner"
+    src="https://github.com/primer/design/assets/813754/fe04a355-d343-4a79-9948-efc64d6de76e"
+  />
+  <Box as="p" mt="0">
+    <h4>Success</h4>
+    Use success banners to indicate task completion or successful actions. For example to confirm saving of settings or successful issue transfer. Only use success messages if the success is not easily apparent in the UI.
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="info banner"
+    src="https://github.com/primer/design/assets/813754/172e3eb4-35ea-4d75-a015-6d00d3ebd914"
+  />
+  <Box as="p" mt="0">
+    <h4>Info</h4>
+    Use info banners to inform about non-critical context and information. For example feature prompts or ongoing processes.
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="upsell banner"
+    src="https://github.com/primer/design/assets/813754/48b37115-c0e0-40c3-83f1-3e831178f175"
+  />
+  <Box as="p" mt="0">
+    <h4>Upsell</h4>
+    Use upsell banners to inform the users about a feature that can be enabled by upgrading their plan.
+  </Box>
+</Box>
+
+### Title
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="banner without title and banner with title"
+    src="https://github.com/primer/design/assets/813754/c5876803-7b5b-486d-b2ec-27fcfdf0c5d8"
+  />
+  <Box as="p" mt="0">
+    <h4>Title</h4>
+    Text
+  </Box>
+</Box>
+
+### Dismissable
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="banners with a dismiss button"
+    src="https://github.com/primer/design/assets/813754/e9863c48-cf3a-472b-a066-0ba139a633ca"
+  />
+  <Box as="p" mt="0">
+    <h4>Dismiss button</h4>
+    Banners with an <i>onDismiss</i> property automatically show a dismiss button.
+  </Box>
+</Box>
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="a critical banner with no actions and one with a single action"
+    src="https://github.com/primer/design/assets/813754/2463e14c-5cb9-4bb4-9e3a-474c60c32da4"
+  />
+  <Box as="p" mt="0">
+    <h4>Critical banner</h4>
+    <p>
+    Critical banner can't be made dismissable. Since they should only be used for errors that need to be resolved, the only way to get rid of a critical banner is to resolve the error. If they are used to warn the user about destructive actions the banner should also not be dismissable.</p>
+    <p>
+    If the error must be resolved on a different page, it is recommended to add an action that directs the user to the page where the error can be resolved.
+    </p>
+  </Box>
+</Box>
+
+### Actions
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="trailing actions on a banner"
+    src="https://github.com/primer/design/assets/813754/b4d2e88e-2f0e-4b29-8f21-13ac8399c943"
+  />
+  <Box as="p" mt="0">
+    <h4>Actions</h4>
+    Text
+  </Box>
+</Box>
+
+### Icon
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="banners with icons, some of which are customized"
+    src="https://github.com/primer/design/assets/813754/dd6d9159-8de7-4f71-b69b-ede15284aeb4"
+  />
+  <Box as="p" mt="0">
+    <h4>Icon</h4>
+    The icon relates to the selected <a href="#variant">variant</a> and can't be disabled. It can only be changed for banners of variant <i>info</i> or <i>upsell</i>.
+  </Box>
+</Box>
+
+## Breakpoints
+<img
+  width="960"
+  alt="Anatomy of a banner, including the message, title, icon, dismiss button, primary, and secondary action"
+  src="https://github.com/primer/design/assets/813754/b1db8982-43ce-4a95-b25a-407020b53440"
+/>
+
+On large screens the layout of the elements within the banner adjust depending on which elements are enabled. On small screensthe banner always uses the stacked layout.
+
+## Layouts
+<img
+  width="960"
+  alt="Layouts depending on which elements are enabled"
+  src="https://github.com/primer/design/assets/813754/fe702f23-de88-47a9-b703-b8b262698a50"
+/>
+Text missing
+
+## Best practices
+Use banners sparingly and only when necessary. Banners can disrupt the user experience and should only be used when and where relevant.
+
+Keep the message concise and direct. Don't use headings or multiple type sizes in banners, rely on the default paragraph size and use the title when appropiate.
+
+Don't show more than one banner at a time. For more information, see this article on [alert fatigue](https://www.nngroup.com/videos/alert-fatigue-user-interfaces/).
 
 ## Accessibility
 
