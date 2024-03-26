@@ -5,7 +5,7 @@ componentId: banner
 railsIds: 
   - Primer::Alpha::Banner
 tags:
-  - flash
+  - flash, alert, notification
 ---
 
 import {Box} from '@primer/react'
@@ -16,7 +16,7 @@ import {AccessibilityLink} from '~/src/components/accessibility-link'
 <img
   width="960"
   alt="Image displaying each variant of banner, from top: critical, warning, success, info, upsell."
-  src="https://github.com/primer/primitives/assets/813754/f96b1eda-2413-4fc1-b1a7-3775b0c3b324"
+  src="https://github.com/primer/primitives/assets/813754/ec62d3e4-a61b-465a-9361-ee7c46d59715"
 />
 
 ## Usage
@@ -26,6 +26,13 @@ Banner can be used in one of two ways:
 2. To communicate feedback in response to a user action.
 
 For system wide information, consider using an [announcement](../ui-patterns/messaging#message-types).
+
+### Best practices
+Use banners sparingly and only when necessary. Banners can disrupt the user experience and should only be used when and where relevant.
+
+Keep the message concise and direct. Don't use headings or multiple type sizes in banners, rely on the default paragraph size and use the title when appropriate.
+
+Don't show more than one banner at a time. For more information, see this article on [alert fatigue](https://www.nngroup.com/videos/alert-fatigue-user-interfaces/).
 
 ## Anatomy
 
@@ -49,7 +56,7 @@ For system wide information, consider using an [announcement](../ui-patterns/mes
   <img
     width="456"
     alt="critical banner"
-    src="https://github.com/primer/design/assets/813754/8b135c8e-898d-423c-81c4-9dbb4736a4d5"
+    src="https://github.com/primer/primitives/assets/813754/9c245a1e-5d59-44bf-8574-aedb06a286b7"
   />
   <Box as="p" mt="0">
     <h4>Critical</h4>
@@ -67,7 +74,7 @@ For system wide information, consider using an [announcement](../ui-patterns/mes
   <img
     width="456"
     alt="warning banner"
-    src="https://github.com/primer/design/assets/813754/fc82519b-60e1-45b3-a0de-c5f89108e96e"
+    src="https://github.com/primer/primitives/assets/813754/afa299a9-4efe-41c4-a8cd-4e166d93e750"
   />
   <Box as="p" mt="0">
     <h4>Warning</h4>
@@ -85,7 +92,7 @@ For system wide information, consider using an [announcement](../ui-patterns/mes
   <img
     width="456"
     alt="success banner"
-    src="https://github.com/primer/design/assets/813754/fe04a355-d343-4a79-9948-efc64d6de76e"
+    src="https://github.com/primer/primitives/assets/813754/5bc8b2b6-f935-4153-809a-00282ec0e1a3"
   />
   <Box as="p" mt="0">
     <h4>Success</h4>
@@ -121,7 +128,7 @@ For system wide information, consider using an [announcement](../ui-patterns/mes
   <img
     width="456"
     alt="upsell banner"
-    src="https://github.com/primer/design/assets/813754/48b37115-c0e0-40c3-83f1-3e831178f175"
+    src="https://github.com/primer/primitives/assets/813754/fca5f277-6baf-491d-96a8-6f23dd18d49a"
   />
   <Box as="p" mt="0">
     <h4>Upsell</h4>
@@ -141,7 +148,7 @@ For system wide information, consider using an [announcement](../ui-patterns/mes
   <img
     width="456"
     alt="banner without title and banner with title"
-    src="https://github.com/primer/design/assets/813754/c5876803-7b5b-486d-b2ec-27fcfdf0c5d8"
+    src="https://github.com/primer/primitives/assets/813754/c5cc31d6-dafc-426d-999b-215f68ca7c28"
   />
   <Box as="p" mt="0">
     <h4>Title</h4>
@@ -161,7 +168,7 @@ For system wide information, consider using an [announcement](../ui-patterns/mes
   <img
     width="456"
     alt="banners with a dismiss button"
-    src="https://github.com/primer/design/assets/813754/e9863c48-cf3a-472b-a066-0ba139a633ca"
+    src="https://github.com/primer/primitives/assets/813754/85c94192-eb1a-4e7c-8fc0-b3c5f31ac251"
   />
   <Box as="p" mt="0">
     <h4>Dismiss button</h4>
@@ -178,7 +185,7 @@ For system wide information, consider using an [announcement](../ui-patterns/mes
   <img
     width="456"
     alt="a critical banner with no actions and one with a single action"
-    src="https://github.com/primer/design/assets/813754/2463e14c-5cb9-4bb4-9e3a-474c60c32da4"
+    src="https://github.com/primer/primitives/assets/813754/a8684eed-5544-4d6d-a1c6-eda1376e95b5"
   />
   <Box as="p" mt="0">
     <h4>Critical banner</h4>
@@ -202,13 +209,13 @@ For system wide information, consider using an [announcement](../ui-patterns/mes
   <img
     width="456"
     alt="trailing actions on a banner"
-    src="https://github.com/primer/design/assets/813754/b4d2e88e-2f0e-4b29-8f21-13ac8399c943"
+    src="https://github.com/primer/primitives/assets/813754/7c57bc61-ee0d-4673-86e9-550b945b117a"
   />
   <Box as="p" mt="0">
     <h4>Actions</h4>
     <p>A maximum of 2 actions can be added to a banner. Whenever possible it is recommended to only add a single action to better direct the users attention.</p>
-    <p>You can choose between adding a primary or secondary action, depending on how much attention you want to draw to the action.</p>
-    <p>If you do need two actions in your banner, one of them must be primary and the other must be secondary. In this case, use the primary action for the recommended action for example, to enable a feature and the secondary one to get more information.</p>
+    <p>For banners with a single action, you can choose between adding a primary or secondary action depending on how much attention you want to draw to the action.</p>
+    <p>For banners with two actions, one of them must be primary and the other must be secondary. In this case, use the primary action for the recommended action. For example, the primary action enables a feature and the secondary action links more information.</p>
   </Box>
 </Box>
 
@@ -224,7 +231,7 @@ For system wide information, consider using an [announcement](../ui-patterns/mes
   <img
     width="456"
     alt="banners with icons, some of which are customized"
-    src="https://github.com/primer/design/assets/813754/dd6d9159-8de7-4f71-b69b-ede15284aeb4"
+    src="https://github.com/primer/primitives/assets/813754/9de199af-6488-4ae3-b4a7-14896f5cb719"
   />
   <Box as="p" mt="0">
     <h4>Icon</h4>
@@ -232,29 +239,29 @@ For system wide information, consider using an [announcement](../ui-patterns/mes
   </Box>
 </Box>
 
-## Breakpoints
-<img
-  width="960"
-  alt="Anatomy of a banner, including the message, title, icon, dismiss button, primary, and secondary action"
-  src="https://github.com/primer/design/assets/813754/b1db8982-43ce-4a95-b25a-407020b53440"
-/>
-
-On large screens the layout of the elements within the banner adjust depending on which elements are enabled. On small screens the banner always uses the stacked layout.
 
 ## Layouts
 <img
   width="960"
   alt="Layouts depending on which elements are enabled"
-  src="https://github.com/primer/design/assets/813754/fe702f23-de88-47a9-b703-b8b262698a50"
+  src="https://github.com/primer/primitives/assets/813754/7aa6c298-3ca1-4e49-a95d-a774fda06a1d"
 />
-Text missing
 
-## Best practices
-Use banners sparingly and only when necessary. Banners can disrupt the user experience and should only be used when and where relevant.
+The internal banner layout changes for large banners depending on its content.
 
-Keep the message concise and direct. Don't use headings or multiple type sizes in banners, rely on the default paragraph size and use the title when appropriate.
+1. Banners with a single line of content have the actions and the dismiss button in the same line to keep them compact.
+2. If you add a title to the banner, the dismiss button will be aligned in the top right corner
+3. Banners with a title but no dismiss button will have the actions aligned to the top right corner
+4. A banner with a title, a dismiss button and one or two actions has the dismiss button aligned to the top right corner and the actions below the content aligned to the left
 
-Don't show more than one banner at a time. For more information, see this article on [alert fatigue](https://www.nngroup.com/videos/alert-fatigue-user-interfaces/).
+### Responsive Design
+<img
+  width="960"
+  alt="Anatomy of a banner, including the message, title, icon, dismiss button, primary, and secondary action"
+  src="https://github.com/primer/primitives/assets/813754/43966e67-d512-46ab-a596-25b774789f81"
+/>
+
+On large screens the layout of the elements within the banner adjust depending on which elements are enabled. On small screens the banner always uses the stacked layout.
 
 ## Accessibility
 
