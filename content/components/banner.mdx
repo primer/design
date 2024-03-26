@@ -151,7 +151,6 @@ Don't show more than one banner at a time. For more information, see this articl
     src="https://github.com/primer/primitives/assets/813754/c5cc31d6-dafc-426d-999b-215f68ca7c28"
   />
   <Box as="p" mt="0">
-    <h4>Title</h4>
     Use a title to consisly present the topic of the banner when the message of the banner is complex and too long to scan.
   </Box>
 </Box>
@@ -171,8 +170,10 @@ Don't show more than one banner at a time. For more information, see this articl
     src="https://github.com/primer/primitives/assets/813754/85c94192-eb1a-4e7c-8fc0-b3c5f31ac251"
   />
   <Box as="p" mt="0">
-    <h4>Dismiss button</h4>
-    Banners with an <i>onDismiss</i> property automatically show a dismiss button.
+  
+  <h4>Dismiss button</h4>
+  Banners with an `onDismiss` property automatically show a dismiss button.
+  
   </Box>
 </Box>
 <Box
@@ -188,11 +189,11 @@ Don't show more than one banner at a time. For more information, see this articl
     src="https://github.com/primer/primitives/assets/813754/a8684eed-5544-4d6d-a1c6-eda1376e95b5"
   />
   <Box as="p" mt="0">
-    <h4>Critical banner</h4>
+    <h4>Exception: Critical banner</h4>
     <p>
-    Critical banner can't be made dismissable. Since they should only be used for errors that need to be resolved, the only way to get rid of a critical banner is to resolve the error. If they are used to warn the user about destructive actions the banner should also not be dismissable.</p>
+    Critical banners can't be dismissable. They are mostly used for errors which need to be resolved. As a result you can only get rid of a critical banner by resolving the error. If used to warn about destructive actions, the banner should also not be dismissable.</p>
     <p>
-    If the error must be resolved on a different page, it is recommended to add an action that directs the user to the page where the error can be resolved.
+    If the error must be resolved on a different page, use an action that directs the user to the page where the error can be resolved.
     </p>
   </Box>
 </Box>
@@ -212,7 +213,6 @@ Don't show more than one banner at a time. For more information, see this articl
     src="https://github.com/primer/primitives/assets/813754/7c57bc61-ee0d-4673-86e9-550b945b117a"
   />
   <Box as="p" mt="0">
-    <h4>Actions</h4>
     <p>A maximum of 2 actions can be added to a banner. Whenever possible it is recommended to only add a single action to better direct the users attention.</p>
     <p>For banners with a single action, you can choose between adding a primary or secondary action depending on how much attention you want to draw to the action.</p>
     <p>For banners with two actions, one of them must be primary and the other must be secondary. In this case, use the primary action for the recommended action. For example, the primary action enables a feature and the secondary action links more information.</p>
@@ -234,8 +234,9 @@ Don't show more than one banner at a time. For more information, see this articl
     src="https://github.com/primer/primitives/assets/813754/9de199af-6488-4ae3-b4a7-14896f5cb719"
   />
   <Box as="p" mt="0">
-    <h4>Icon</h4>
-    The icon relates to the selected <a href="#variant">variant</a> and can't be disabled. It can only be changed for banners of variant <i>info</i> or <i>upsell</i>.
+  
+  The icon relates to the selected <a href="#variant">variant</a> and can't be disabled. It can only be changed for banners of variant `info` or `upsell`.
+  
   </Box>
 </Box>
 
