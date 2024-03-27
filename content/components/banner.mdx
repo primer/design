@@ -58,13 +58,13 @@ Don't show more than one banner at a time. For more information, see this articl
     alt="critical banner"
     src="https://github.com/primer/primitives/assets/813754/9c245a1e-5d59-44bf-8574-aedb06a286b7"
   />
-  <Box as="p" mt="0">
+  <div>
 
 #### Critical
 
 Use critical banners to signal critical errors, system failures, or necessary destructive actions. Examples: form validation error summary, repo deletion confirmations.
 
-  </Box>
+  </div>
 </Box>
 
 <Box
@@ -79,13 +79,13 @@ Use critical banners to signal critical errors, system failures, or necessary de
     alt="warning banner"
     src="https://github.com/primer/primitives/assets/813754/afa299a9-4efe-41c4-a8cd-4e166d93e750"
   />
-  <Box as="p" mt="0">
+  <div>
 
 #### Warning
 
 Use warning banners to alert users about potential issues or impactful changes. For example possible connectivity concerns or hidden items due to active filters.
 
-  </Box>
+  </div>
 </Box>
 
 <Box
@@ -100,13 +100,13 @@ Use warning banners to alert users about potential issues or impactful changes. 
     alt="success banner"
     src="https://github.com/primer/primitives/assets/813754/5bc8b2b6-f935-4153-809a-00282ec0e1a3"
   />
-  <Box as="p" mt="0">
+  <div>
 
 #### Success
 
 Use success banners to indicate task completion or successful actions. For example, to confirm settings have been saved or a successful issue transfer. Only use success messages if the success is not easily apparent in the UI.
 
-  </Box>
+  </div>
 </Box>
 
 <Box
@@ -121,13 +121,13 @@ Use success banners to indicate task completion or successful actions. For examp
     alt="info banner"
     src="https://github.com/primer/design/assets/813754/172e3eb4-35ea-4d75-a015-6d00d3ebd914"
   />
-  <Box as="p" mt="0">
+  <div>
 
 #### Info
 
 Use info banners to inform about non-critical context and information. For example feature prompts or ongoing processes.
 
-  </Box>
+  </div>
 </Box>
 
 <Box
@@ -142,13 +142,13 @@ Use info banners to inform about non-critical context and information. For examp
     alt="upsell banner"
     src="https://github.com/primer/primitives/assets/813754/fca5f277-6baf-491d-96a8-6f23dd18d49a"
   />
-  <Box as="p" mt="0">
+  <div>
 
 #### Upsell
 
 Use upsell banners to inform the users about a feature that can be enabled by upgrading their plan.
 
-  </Box>
+  </div>
 </Box>
 
 ### Title
@@ -184,13 +184,13 @@ Use a title to consisly present the topic of the banner when the message of the 
     alt="banners with a dismiss button"
     src="https://github.com/primer/primitives/assets/813754/85c94192-eb1a-4e7c-8fc0-b3c5f31ac251"
   />
-  <Box as="p" mt="0">
+  <div>
 
 #### Dismiss button
 
 Banners with an `onDismiss` property automatically show a dismiss button.
 
-  </Box>
+  </div>
 </Box>
 <Box
   mb={3}
@@ -204,15 +204,15 @@ Banners with an `onDismiss` property automatically show a dismiss button.
     alt="a critical banner with no actions and one with a single action"
     src="https://github.com/primer/primitives/assets/813754/a8684eed-5544-4d6d-a1c6-eda1376e95b5"
   />
-  <Box as="p" mt="0">
+  <div>
 
 #### Exception: Critical banner
 
-Critical banners can't be dismissable. They are mostly used for errors which need to be resolved. As a result you can only get rid of a critical banner by resolving the error. If used to warn about destructive actions, the banner should also not be dismissable.
+Critical banners can't be dismissable. They are mostly used for errors which need to be resolved. As a result you can only get rid of a critical banner by resolving the error. If used to warn about   destructive actions, the banner should also not be dismissable.
 
 If the error must be resolved on a different page, use an action that directs the user to the page where the error can be resolved.
 
-  </Box>
+  </div>
 </Box>
 
 ### Actions
@@ -229,11 +229,15 @@ If the error must be resolved on a different page, use an action that directs th
     alt="trailing actions on a banner"
     src="https://github.com/primer/primitives/assets/813754/7c57bc61-ee0d-4673-86e9-550b945b117a"
   />
-  <Box as="p" mt="0">
-    <p>A maximum of 2 actions can be added to a banner. Whenever possible it is recommended to only add a single action to better direct the users attention.</p>
-    <p>For banners with a single action, you can choose between adding a primary or secondary action depending on how much attention you want to draw to the action.</p>
-    <p>For banners with two actions, one of them must be primary and the other must be secondary. In this case, use the primary action for the recommended action. For example, the primary action enables a feature and the secondary action links more information.</p>
-  </Box>
+  <div>
+
+A maximum of 2 actions can be added to a banner. Whenever possible it is recommended to only add a single action to better direct the users attention.
+
+For banners with a single action, you can choose between adding a primary or secondary action depending on how much attention you want to draw to the action.
+
+For banners with two actions, one of them must be primary and the other must be secondary. In this case, use the primary action for the recommended action. For example, the primary action enables a feature and the secondary action links more information.
+
+  </div>
 </Box>
 
 ### Icon
