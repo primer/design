@@ -1,23 +1,87 @@
 ---
 title: UnderlinePanels
-description: Use UnderlinePanels to style tabs with an associated panel and an underlined selected state.
+description: The underline panels are used to break related content into tabbed panels.
 railsIds:
 - Primer::Alpha::UnderlinePanels
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
-import {Link, Text} from '@primer/react'
-import {Link as GatsbyLink} from 'gatsby'
+import {Box} from '@primer/react'
 export default ComponentLayout
 import {AccessibilityLink} from '~/src/components/accessibility-link'
 
-<Note variant="warning">
-  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Guidelines for this component are in progress</Text>
-  <Text>Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link></Text>
+<Note>
+
+  The [underline nav](/components/underline-nav) guidelines cover the design guidelines not mentioned here.
+
+  The guidelines on this page only highlight the differences between underline panels and underline nav.
+
 </Note>
 
+## Usage
+
+Underlined panels let users switch between 2 or more related panels of content without changing the URL or leaving their current context.
+
+If you want to use this pattern for tabs that change the URL when activated, use the [underline nav](/components/underline-nav) component instead.
+
+### Best practices
+
+- One of the tabs should be selected by default when the user loads the page.
+- Avoid overwhelming the user with too many tabs. If you have too many tabs, try grouping your content into broader categories or exposing more of the content on the page without requiring the user to click into a tab.
+- Each view should have enough information so the user can complete their tasks without switching back and forth between tabs.
+- Views should be able to be navigated in any order. This is not a pattern for navigating stepped flows.
+
 ## Accessibility
+
+<Box
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+Underline panels are made of the following ARIA roles:
+
+- `tablist`: the container wrapping the tabs
+- `tab`: each individual tab
+- `tabpanel`: the container wrapping the content associated with each tab
+
+The active tab is conveyed to assistive technologies using the `aria-selected` attribute. Each tab is associated with it's corresponding panel using the `aria-controls` attribute.
+
+</div>
+
+<img
+  width="456"
+  role="presentation"
+  src="https://github.com/primer/design/assets/2313998/63c0312a-1e74-4990-b4bf-1795e5f3640d"
+/>
+
+</Box>
+
+### Keyboard navigation
+
+Underline panels' tabs follow the [automatic activation pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/). This means that when a tab receives focus, the tab is activated and the associated panel is displayed.
+
+<!-- TODO: revise this guidance once we change to the manual activation pattern. This was discussed in A11y Office Hours on 02/27/2024: https://github.com/github/accessibility/issues/5623#issuecomment-1967930432 -->
+<!-- Underline panels' tabs follow the [manual activation pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/). This decision was made so users don't unintentionally trigger the side effects of rendering a new tab panel while they're navigating the tab list. For example, activating a new tab could trigger a network request to fetch new content. -->
+
+| Key(s)                                                               | Description                                                                                                                                                                              |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <KeyboardKey>Enter</KeyboardKey> or <KeyboardKey>Space</KeyboardKey> | Activates the focused tab.                                                                                                                                                               |
+| <KeyboardKey>Tab</KeyboardKey>                                       | When focus moves into the tab list, focus goes to the active tab. <br /> When the tab list contains focus, moves focus to the next element in the page tab sequence outside the tablist. |
+| <KeyboardKey>Arrow&nbsp;Left</KeyboardKey>                           | Moves focus to the previous tab. If focus is on the first tab, focus moves to the last tab. <br /> The focused tab is activated.                                                         |
+| <KeyboardKey>Arrow&nbsp;Right</KeyboardKey>                          | Moves focus to the next tab. If focus is on the last tab, focus moves to the first tab. <br /> The focused tab is activated.                                                             |
+| <KeyboardKey>Home</KeyboardKey>                                      | Moves focus to the first tab and activates it.                                                                                                                                           |
+| <KeyboardKey>End</KeyboardKey>                                       | Moves focus to the last tab and activates it.                                                                                                                                            |
 
 ### Known accessibility issues (GitHub staff only)
 
  <AccessibilityLink label="UnderlinePanels"/>
+
+## Related links
+
+- [Segmented control](/components/segmented-control)
+- [Underline panels](/components/underline-panels)
+- [Navigation](/ui-patterns/navigation)

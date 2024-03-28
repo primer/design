@@ -1,5 +1,6 @@
 import React from 'react'
 import CustomVideoPlayer from '../../CustomVideoPlayer'
+import KeyboardKey from '../../KeyboardKey'
 import ImageBox from './components/ImageBox'
 import StorybookEmbed from '../../components/storybook-embed'
 import {ChildPages} from '../../components/child-pages'
@@ -14,4 +15,4 @@ const Table = props => (
   </Box>
 )
 
-export default {table: Table, CustomVideoPlayer, ImageBox, StorybookEmbed, ChildPages}
+export default {table: Table, CustomVideoPlayer, ImageBox, KeyboardKey, StorybookEmbed, ChildPages}
