@@ -1,0 +1,41 @@
+---
+title: Inline autocomplete
+description: Provides inline auto completion suggestions for an input or textarea.
+reactId: inline_autocomplete
+reactStatus: deprecated
+---
+
+import ReactComponentPage from '~/src/components/react-component-page'
+import { graphql } from "gatsby"
+
+export const query = graphql`
+  query InlineAutocompleteDraftQuery($componentId: String! = "inline_autocomplete", $parentPath: String! = "/deprecated-components/inline-autocomplete", $status: String! = "deprecated") {
+    ...ReactComponentInfo
+  }
+`
+
+export default function Layout({data, children}) {
+  return <ReactComponentPage data={data}>{children}</ReactComponentPage>
+}
+
+The `Hidden` component is a utility component that helps hide or show content/components in different viewports.
+
+<Note>Use Hidden only to control behaviour in a responsive manner. It does not take any `sx` props.</Note>
+
+## Examples
+
+### Single viewport value provided
+
+```jsx drafts
+<Hidden when="narrow">
+  <Placeholder height="80px" label="This is not visible in narrow viewport" />
+</Hidden>
+```
+
+### Multiple viewport values provided
+
+```jsx drafts
+<Hidden when={['narrow', 'wide']}>
+  <Placeholder height="80px" label="This is not visible in narrow and wide viewport" />
+</Hidden>
+```
