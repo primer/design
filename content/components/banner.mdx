@@ -30,7 +30,7 @@ For system wide information, consider using an [announcement](../ui-patterns/mes
 ### Best practices
 Use banners sparingly and only when necessary. Banners can disrupt the user experience and should only be used when and where relevant.
 
-Keep the message concise and direct. Don't use headings or multiple type sizes in banners, rely on the default paragraph size and use the title when appropriate.
+Keep the message concise and direct. Don't use heading styling or multiple type sizes in banners, rely on the default paragraph size and use the title when appropriate.
 
 Don't show more than one banner at a time. For more information, see this article on [alert fatigue](https://www.nngroup.com/videos/alert-fatigue-user-interfaces/).
 
@@ -55,7 +55,7 @@ Don't show more than one banner at a time. For more information, see this articl
 >
   <img
     width="456"
-    alt="critical banner"
+    alt="Text within a box that has a light red outline and a lighter red background. There is a vibrant red stop icon with an exclamation point inside that comes before the text within the banner."
     src="https://github.com/primer/primitives/assets/813754/9c245a1e-5d59-44bf-8574-aedb06a286b7"
   />
   <div>
@@ -76,7 +76,7 @@ Use critical banners to signal critical errors, system failures, or necessary de
 >
   <img
     width="456"
-    alt="warning banner"
+    alt="Text within a box that has a yellow outline and a lighter yellow background. There is a dark yellow triangle icon with an exclamation point inside that comes before the text within the banner."
     src="https://github.com/primer/primitives/assets/813754/afa299a9-4efe-41c4-a8cd-4e166d93e750"
   />
   <div>
@@ -97,14 +97,14 @@ Use warning banners to alert users about potential issues or impactful changes. 
 >
   <img
     width="456"
-    alt="success banner"
+    alt="Text within a box that has a green outline and a lighter green background. There is a vibrant green circle icon with a check icon inside the circle that comes before the text within the banner."
     src="https://github.com/primer/primitives/assets/813754/5bc8b2b6-f935-4153-809a-00282ec0e1a3"
   />
   <div>
 
 #### Success
 
-Use success banners to indicate task completion or successful actions. For example, to confirm settings have been saved or a successful issue transfer. Only use success messages if the success is not easily apparent in the UI.
+Use success banners to indicate task completion or successful actions. For example, a successful issue transfer when the user is not brought to the new page. Only use success messages if the success is not easily apparent in the UI.
 
   </div>
 </Box>
@@ -118,7 +118,7 @@ Use success banners to indicate task completion or successful actions. For examp
 >
   <img
     width="456"
-    alt="info banner"
+    alt="Text within a box that has a light blue outline and a lighter blue background. There is a vibrant blue circle icon with the letter i inside that comes before the text within the banner."
     src="https://github.com/primer/design/assets/813754/172e3eb4-35ea-4d75-a015-6d00d3ebd914"
   />
   <div>
@@ -139,7 +139,7 @@ Use info banners to inform about non-critical context and information. For examp
 >
   <img
     width="456"
-    alt="upsell banner"
+    alt="Text within a box that has a light purple outline and a lighter purple background. There is a vibrant purple computer icon that comes before the text within the banner."
     src="https://github.com/primer/primitives/assets/813754/fca5f277-6baf-491d-96a8-6f23dd18d49a"
   />
   <div>
@@ -168,7 +168,9 @@ Use upsell banners to inform the users about a feature that can be enabled by up
 
 Use a title to concisely present the topic of the banner when the message of the banner is complex and too long to scan. 
 
-A title is required and will be used as the accessibility title. However, you can visually hide the title. It is recommended to hide the title if the body of the banner is short and easily scannable.
+A title is required and will be used as a semantic page heading. However, you can visually hide the title. It is recommended to hide the title if the body of the banner is short and easily scannable.
+
+Use the built-in accessibility annotations in the Figma components to define the heading level and text relevant to its context. 
 
 </Box>
 
@@ -190,7 +192,7 @@ A title is required and will be used as the accessibility title. However, you ca
 
 #### Dismiss button
 
-Banners with an `onDismiss` property automatically show a dismiss button. This should be used for banners that inform about something that the user can not solve. For example issues with the organization they are part of or informational banners. When it makes sense, the choice to dismiss the banenr should be stored and the banner should not be shown again.
+Banners with an `onDismiss` property automatically show a dismiss button. This should be used for banners that inform about something that the user can not solve. For example issues with the organization they are part of or informational banners. When it makes sense, the choice to dismiss the banner should be stored and the banner should not be shown again.
 
   </div>
 </Box>
@@ -253,7 +255,7 @@ For banners with two actions, one of them must be primary and the other must be 
 >
   <img
     width="456"
-    alt="banners with icons, some of which are customized"
+    alt="Three banners with leading icons. Success banner has its standard circle and check icon, upsell banner has a custom computer icon, and the info banner has a custom shield icon with a keyhole inside of the lock."
     src="https://github.com/primer/primitives/assets/813754/9de199af-6488-4ae3-b4a7-14896f5cb719"
   />
 
@@ -265,7 +267,7 @@ The icon relates to the selected [variant](#variant) and can't be disabled. It c
 ## Layouts
 <img
   width="960"
-  alt="Layouts depending on which elements are enabled"
+  alt=""
   src="https://github.com/primer/primitives/assets/813754/7aa6c298-3ca1-4e49-a95d-a774fda06a1d"
 />
 
@@ -279,7 +281,7 @@ The internal banner layout changes for large banners depending on its content.
 ### Responsive Design
 <img
   width="960"
-  alt="Anatomy of a banner, including the message, title, icon, dismiss button, primary, and secondary action"
+  alt="One banner at full width, with all of the content in one row, the second banner is shrunk to a smaller width, the icon, wrapped text, and dismiss button all in one row, with the action item in the second row."
   src="https://github.com/primer/primitives/assets/813754/43966e67-d512-46ab-a596-25b774789f81"
 />
 
@@ -288,9 +290,9 @@ On large screens the layout of the elements within the banner adjust depending o
 ### Position
 A banner should always be positioned as close to the section it relates to as possible.
 
-If a banner informs about something that relates to the current page should be placed above the pages headline. However, if the banner is only relevant to a portion of the page place it above the section it relates to.
+If a banner informs about something that relates to the current page, it should be placed above the pages headline. However, if the banner is only relevant to a portion of the page place it above the section it relates to.
 
-In dialogs banners are normally placed above the content jsut below the dialogs header. Since a dialog is normally small it can be compared to a section.
+In dialogs banners are normally placed above the content just below the dialogs header. Since a dialog is normally small it can be compared to a section.
 
 ## Accessibility
 
