@@ -44,6 +44,7 @@ export const query = graphql`
       name
       status
       a11yReviewed
+      importPath
       stories {
         id
         code
@@ -76,8 +77,8 @@ export const query = graphql`
 `
 
 export default function ReactComponentLayout({data}) {
-  const {name, status, a11yReviewed, props: componentProps, subcomponents, stories} = data.reactComponent
-  const importStatement = `import {${name}} from '@primer/react${status === 'draft' ? '/drafts' : ''}'`
+  const {name, status, a11yReviewed, importPath, props: componentProps, subcomponents, stories} = data.reactComponent
+  const importStatement = `import {${name}} from ${importPath}`
 
   const tableOfContents = {
     items: [
