@@ -78,7 +78,7 @@ export const query = graphql`
 
 export default function ReactComponentLayout({data}) {
   const {name, status, a11yReviewed, importPath, props: componentProps, subcomponents, stories} = data.reactComponent
-  const importStatement = `import {${name}} from ${importPath}`
+  const importStatement = `import {${name}} from '${importPath}'`
 
   const tableOfContents = {
     items: [
