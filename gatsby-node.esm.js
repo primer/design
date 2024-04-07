@@ -378,7 +378,6 @@ exports.createPages = async ({actions, graphql}) => {
           name
           status
           a11yReviewed
-          importPath
           stories {
             id
             code
@@ -621,7 +620,6 @@ exports.onPostBuild = async ({graphql}) => {
           name
           status
           a11yReviewed
-          importPath
           stories {
             id
             code
