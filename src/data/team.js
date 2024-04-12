@@ -1,5 +1,17 @@
 const teamContent = [
   {
+    name: 'Josh Farrant',
+    handle: 'joshfarrant',
+    title: 'Senior Software Engineer',
+    cssFeature: 'CSS nesting',
+    questionOne: `In many ways, the creation of [Storybook](https://storybook.js.org/). Version 3 coincided with the start of my second React project and started me thinking about how I might be able to design components once and share them between the two apps, leading to my first basic design system. Over the years I've focused more of my time on design systems, refined my skills, and fallen deeper down the rabbit hole.`,
+    questionTwo: `[Brad Frost](https://bradfrost.com/)'s work on Atomic Design and his vision for a Global Design System have significantly informed how I think about design systems. [Dave Rupert](https://daverupert.com/) has opened my eyes to how much is possible with Web Components, [Bartosz Ciechanowski](https://ciechanow.ski/) showcases exceptional writing and storytelling on the web, and I find continuous inspiration from [Una Kravets](https://una.im/), [Jen Simmons](https://jensimmons.com/), and [Adam Argyle](https://nerdy.dev/), as well as the superior Joshs; [Collinsworth](https://joshcollinsworth.com/) and [Comeau](https://www.joshwcomeau.com/).`,
+    favoriteTools: 'Raycast, Obsidian, TypeScript, Web Components, V60, ZSA Moonlander, OP-1',
+    avatar: 'https://avatars.githubusercontent.com/joshfarrant?s=512',
+    gif: 'https://github.com/joshfarrant/joshfarrant/blob/master/assets/img/jameshoffmann-no.gif?raw=true',
+    alumni: false,
+  },
+  {
     name: 'Jessica Kuo',
     title: 'Primer Systems Designer Intern',
     handle: 'jesskuo4',
@@ -540,18 +552,6 @@ const teamContent = [
     favoriteTools: 'Hyper, Atom, Figma, MDN, and Quip',
     avatar: 'https://user-images.githubusercontent.com/586552/46751001-5c8a0300-cc87-11e8-84bb-9024b03df74f.jpg',
     gif: 'https://user-images.githubusercontent.com/334891/50363219-bab14d00-0538-11e9-9595-48b3c45358ab.gif',
-    alumni: false,
-  },
-  {
-    name: 'Josh Farrant',
-    handle: 'joshfarrant',
-    title: 'Senior Software Engineer',
-    cssFeature: 'CSS nesting',
-    questionOne: `In many ways, the creation of [Storybook](https://storybook.js.org/). Version 3 coincided with the start of my second React project and started me thinking about how I might be able to design components once and share them between the two apps, leading to my first basic design system. Over the years I've focused more of my time on design systems, refined my skills, and fallen deeper down the rabbit hole.`,
-    questionTwo: `[Brad Frost](https://bradfrost.com/)'s work on Atomic Design and his vision for a Global Design System have significantly informed how I think about design systems. [Dave Rupert](https://daverupert.com/) has opened my eyes to how much is possible with Web Components, [Bartosz Ciechanowski](https://ciechanow.ski/) showcases exceptional writing and storytelling on the web, and I find continuous inspiration from [Una Kravets](https://una.im/), [Jen Simmons](https://jensimmons.com/), and [Adam Argyle](https://nerdy.dev/), as well as the superior Joshs; [Collinsworth](https://joshcollinsworth.com/) and [Comeau](https://www.joshwcomeau.com/).`,
-    favoriteTools: 'Raycast, Obsidian, TypeScript, Web Components, V60, ZSA Moonlander, OP-1',
-    avatar: 'https://avatars.githubusercontent.com/joshfarrant?s=512',
-    gif: 'https://github.com/joshfarrant/joshfarrant/blob/master/assets/img/jameshoffmann-no.gif?raw=true',
     alumni: false,
   },
 ]
