@@ -38,8 +38,6 @@
           url: /guides/react/philosophy
         - title: Overriding styles
           url: /guides/react/overriding-styles
-        - title: Server-side rendering
-          url: /guides/react/ssr
         - title: Hooks
           url: /guides/react/hooks
           children:
@@ -188,6 +186,8 @@
       url: /ui-patterns/loading
     - title: Messaging
       url: /ui-patterns/messaging
+    - title: Navigation
+      url: /ui-patterns/navigation
     - title: Progressive disclosure
       url: /ui-patterns/progressive-disclosure
     - title: Saving
