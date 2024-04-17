@@ -126,6 +126,8 @@
           url: /foundations/primitives/size
         - title: Typography
           url: /foundations/primitives/typography
+        - title: Migrating
+          url: /foundations/primitives/migrating
     - title: Responsive
       url: /foundations/responsive
     - title: CSS utilities
