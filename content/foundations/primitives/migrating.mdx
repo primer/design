@@ -15,7 +15,7 @@ description:
 
 [Stacks](https://primer.style/foundations/primitives/size#stack) are boxes containing flow content; typically vertical. These are usually `display: flex` or `grid` or `block`.
 
-##### Internal padding
+##### Stack padding
 
 Use these values for the internal `padding` (including `p`, `px`, `py`, `pr`, etc shorthands) around the edge of the stack.
 
@@ -35,14 +35,14 @@ Use these values for the internal `padding` (including `p`, `px`, `py`, `pr`, et
 `11` | 112px | `--base-size-112`
 `12` | 128px | `--base-size-128`
 
-##### External margin
+##### Stack margin
 
 > [!CAUTION]
 > Prefer not using `margin` since it leaks space outside of components. Try to convert margins to container `padding` and/or flex layout `gap`.
 
 See padding values above; there are no `margin` primitives.
 
-##### Internal content spacing
+##### Stack content spacing
 
 This is typically the CSS `gap` in `flex` (with `flex-direction: column`) or `grid` layouts. Could also be the `margin` between items that have not been updated to flexbox/grid.
 
@@ -69,11 +69,11 @@ This is typically the CSS `gap` in `flex` (with `flex-direction: column`) or `gr
 > [!NOTE]
 > The **size** of the control stack depends on the size of the controls inside of it. For example, a stack containing `<IconButton size="small">` is a `small` stack.
 
-##### Padding / margin
+##### Control stack padding / margin
 
 Use the same padding and margin values as for a vertical Stack.
 
-##### Internal content spacing
+##### Control stack content spacing
 
 The `gap` property in `flex` layouts, or item `margin` in older layouts.
 
@@ -188,13 +188,13 @@ Try to use the one that applies to the type of text you are styling:
 `normal` | `--fontStack-system` or explicitly `--fontStack-sansSerif`
 `mono`  | `--fontStack-monospace`
 
-### Border
+### Borders
 
-### Border color
+#### Border color
 
 See: Colors > Border
 
-### Border width
+#### Border width
 
 Prefer these primitives instead of previously used numbers or plain pixel values:
 
@@ -205,7 +205,7 @@ Prefer these primitives instead of previously used numbers or plain pixel values
 | | 2px | `--borderWidth-thick`
 | | 3px | `--borderWidth-thicker`
 
-### Border radius
+#### Border radius
 
 `sx` keyword | resolved value | primitive
 --- | --- | ---
