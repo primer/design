@@ -33,5 +33,6 @@ module.exports = {
         svgo: false,
       },
     },
+    'gatsby-plugin-react-helmet'
   ],
 }
