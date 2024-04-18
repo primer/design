@@ -36,7 +36,7 @@ Use these values for the internal `padding` (including `p`, `px`, `py`, `pr`, et
 ##### Stack margin
 
 <Note variant="warning">
- Prefer not using `margin` since it leaks space outside of components. Try to convert margins to container `padding` and/or flex layout `gap`.
+ Prefer not using margin since it leaks space outside of components. Try to convert margins to container padding and/or flex layout gap.
 </Note>
 
 See padding values above; there are no `margin` primitives.
@@ -66,7 +66,7 @@ This is typically the CSS `gap` in `flex` (with `flex-direction: column`) or `gr
 [Control stacks](https://primer.style/foundations/primitives/size#controls) are horizontal (inline) rows containing inline interactive items next to each other. For example, a set of buttons or labels. These are usually `display: flex` or `inline-flex` with `flex-direction: row`.
 
 <Note variant="info">
- The size of the control stack depends on the size of the controls inside of it. For example, a stack containing a <code>small</code> icon button is a 'small' stack.
+ The size of the control stack depends on the size of the controls inside of it. For example, a stack containing a 'small' icon button is a 'small' stack.
 </Note>
 
 ##### Control stack padding / margin
@@ -224,7 +224,7 @@ These are typically used for breakpoints, heights and widths.
 </Note>
 
 <Note variant="info">
-  CSS variables cannot be used in `@media` or `@container` query expressions. The plain pixel value must be used instead. Stay tuned for future media query support.
+  CSS variables cannot be used in '@media' or '@container' query expressions. The plain pixel value must be used instead. Stay tuned for future media query support.
 </Note>
 
 `sx` breakpoint keyword | `sx` size keyword | resolved value | primitive
@@ -262,9 +262,9 @@ For values that have no replacement listed, use the raw value or find a replacem
 | $font-weight-semibold | `--base-text-weight-medium` |
 | $font-weight-normal | `--base-text-weight-normal` |
 | $font-weight-light | `--base-text-weight-light` |
-| $lh-condensed-ultra | 1` |
-| $lh-condensed | 1.25` |
-| $lh-default | 1.5` |
+| $lh-condensed-ultra | 1 |
+| $lh-condensed | 1.25 |
+| $lh-default | 1.5 |
 | $body-font | `--fontStack-system` |
 | $mono-font | `--fontStack-monospace` |
 | $body-font-size | `--text-body-size-medium` |
