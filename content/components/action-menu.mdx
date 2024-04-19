@@ -3,7 +3,7 @@ title: Action menu
 reactId: action_menu
 figmaId: action_menu
 railsIds:
-- Primer::Alpha::ActionMenu
+  - Primer::Alpha::ActionMenu
 description: Action menu is composed of action list and overlay patterns used for quick actions and selections.
 tags:
   - dropdown
@@ -18,10 +18,7 @@ import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 import {AccessibilityLink} from '~/src/components/accessibility-link'
 
-<Note>
-  Looking for <a href="/guides/contribute">contributors</a> to add submenus to the React and Rails implementation, as
-  they are currently not available in this component.
-</Note>
+<Note>Submenus are only available in the React implementation.</Note>
 
 ## Usage
 
@@ -165,7 +162,8 @@ The focus should always remain on menu items, and therefore the menu shouldn't i
       src="https://user-images.githubusercontent.com/980622/234083619-40ebf8b6-6194-4e66-a7e8-597ee43f9ed8.png"
     />
     <Caption>
-      Don't add form controls like a filterable input, use <Link href="/components/selectpanel">select panel</Link> instead.
+      Don't add form controls like a filterable input, use <Link href="/components/selectpanel">select panel</Link>{' '}
+      instead.
     </Caption>
   </Dont>
 </DoDontContainer>
@@ -444,6 +442,7 @@ If items in a menu have been affected by a system error such as an outage, they 
 If an action menu contains menu items that are very closely related (for example: the action menu for adding a file to a repo) and we can detect that none of the menu items are available, then put the button that triggers the action menu into an [inactive state](/components/button#inactive).
 
 Inactive action menu items follow the same patterns as inactive action list items except:
+
 - The message explaining why it's unavailable is renderd in the item, not a tooltip. Action menu items don't hide the message in a tooltip because the menu is already hidden until the user opens it.
   - Hiding the message in a tooltip would require the user to do another interaction, and the UI could feel chaotic with so many layers.
 - No [alert icon](/foundations/icons/alert-16) leading visual is necessary since it would be redundant with the error message
@@ -509,7 +508,7 @@ This behavior is consistent with the behavior of inactive buttons. See the [butt
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowDown</Box>  | Cycle through items starting with current item to next item     |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowLeft</Box>  | Closes submenu and sets focus back to the parent item           |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>ArrowRight</Box> | Opens a submenu                                                 |
-| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>      | Triggers the focused item                                       |  
+| <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Enter</Box>      | Triggers the focused item                                       |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Space</Box>      | Triggers the focused item                                       |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Home</Box>       | Move focus to first item                                        |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageUp</Box>     | Move focus to first item                                        |
@@ -519,7 +518,7 @@ This behavior is consistent with the behavior of inactive buttons. See the [butt
 
 ### Known accessibility issues (GitHub staff only)
 
- <AccessibilityLink label="ActionMenu"/>
+<AccessibilityLink label="ActionMenu" />
 
 ## Related components
 
