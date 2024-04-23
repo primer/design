@@ -313,6 +313,8 @@
       url: /components/spinner
     - title: Split page layout
       url: /components/split-page-layout
+    - title: Stack
+      url: /components/stack
     - title: State label
       url: /components/state-label
     - title: Subnav
