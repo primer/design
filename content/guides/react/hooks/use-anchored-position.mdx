@@ -3,6 +3,9 @@ title: Anchored position behavior
 description: Used to calculate the position of a "floating" element that is anchored to another element.
 ---
 
+import JustLayout from '~/src/layouts/just-layout'
+export default JustLayout
+
 The `getAnchoredPosition` behavior and `useAnchoredPosition` hook are used to calculate the position of a "floating" element that is anchored to another DOM element. This is useful for implementing overlay UI, such as dialogs, popovers, tooltips, toasts, and dropdown-style menus.
 
 At a high level, the `getAnchoredPosition` algorithm will attempt to find the most suitable position for the floating element based on the passed-in settings, its containing element, and the size and position of the anchor element. Specifically, the calculated position should try to ensure that the floating element, when positioned at the calculated coordinates, does not overflow or underflow the container's bounding box.

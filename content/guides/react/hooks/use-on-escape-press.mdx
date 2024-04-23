@@ -3,6 +3,9 @@ title: useOnEscapePress
 description: A simple utility Hook that calls a user-provided function when the `Escape` key is pressed.
 ---
 
+import JustLayout from '~/src/layouts/just-layout'
+export default JustLayout
+
 `useOnEscapePress` is a simple utility Hook that calls a user-provided function when the `Escape` key is pressed. The hook sets up `keydown` event listener on `window.document` and executes the user-provided function if these conditions are met:
 
 1. The Escape key was pressed
