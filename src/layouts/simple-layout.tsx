@@ -1,7 +1,7 @@
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
 import PageFooter from '@primer/gatsby-theme-doctocat/src/components/page-footer'
-import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
-import {Box, Heading, Text, Breadcrumbs} from '@primer/react'
+import {Box, Heading, Text, Breadcrumbs, Link} from '@primer/react'
+import {MarkGithubIcon} from '@primer/octicons-react'
 import React from 'react'
 import {withPrefix} from 'gatsby'
 import {BaseLayout} from '../components/base-layout'
@@ -14,7 +14,7 @@ type NavItemData = {
 }
 
 export default function ComponentLayout({pageContext, children, path}) {
-  const {title, description, reactId, railsIds, figmaId, cssId} = pageContext.frontmatter
+  const {title, description, reactId, railsIds, figmaId, cssId, source} = pageContext.frontmatter
 
   const getPageAncestry = (url: string, object: NavItemData[]) => {
     const result: NavItemData[] = []
@@ -83,6 +83,16 @@ export default function ComponentLayout({pageContext, children, path}) {
                 },
               }}
             >
+              {source ? (
+                <Box sx={{mb: 5}}>
+                  <Link href={source} target="_blank">
+                    <Box sx={{display: 'flex', gap: 2, alignItems: 'center'}}>
+                      <MarkGithubIcon />
+                      <Text>Source</Text>
+                    </Box>
+                  </Link>
+                </Box>
+              ) : null}
               {children}
             </Box>
           </Box>
