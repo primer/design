@@ -8,9 +8,9 @@ exports.wrapPageElement = ({element, props}) => {
     <>
       <Helmet>
         <meta name="ha-url" content="https://collector.githubapp.com/primer/collect" />
+        <script src="https://analytics.githubassets.com/hydro-marketing.min.js" />
       </Helmet>
       {element}
-      <script src="https://analytics.githubassets.com/hydro-marketing.min.js" />
     </>
   )
 }
