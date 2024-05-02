@@ -550,25 +550,25 @@ The `ActionMenu` allows the use of `inactive` controls – controls that can sti
 
 ### Integration tests
 
-* The menu items have sufficiently descriptive labels
-* If menu items include icons for their leading or trailing visuals, the purpose of the items is clear even without the icons (as these are only decorative and are not conveyed to screen reader users)
-* When using an `inactive` menu item, provide a descriptive `inactiveText` that explains why the item is inactive
+- The menu items have sufficiently descriptive labels
+- If menu items include icons for their leading or trailing visuals, the purpose of the items is clear even without the icons (as these are only decorative and are not conveyed to screen reader users)
+- When using an `inactive` menu item, provide a descriptive `inactiveText` that explains why the item is inactive
 
 ### Component tests
 
-* The component exposes an appropriate set of `role`, `aria-*` attributes, and overall structure in its rendered output:
-  * the component itself has a `role="menu"`
-  * each item within the menu has a `role="menuitem"`, `role="menuitemcheckbox`, or `role="menuitemradio`
-  * when items are grouped into sections, each section is identified using a container with `role="group`, and the group has an accessible name (either using `aria-label` or referencing an existing element with `aria-labelledby`) that matches the visible section label
-  * selectable items have an `aria-checked` attribute, and correctly reflect their state (`aria-checked="true"` when checked, `aria-checked="false"` when not checked)
-* When a menu is opened, focus moves to the first menu item
-* The correct keyboard interactions have been implemented
-* The menu can be closed using `Esc`
-* When moving keyboard focus away from the menu (using `Tab` / `Shift+Tab`) the menu is closed
-* When a menu item is selected, the menu is closed
-* When the menu is closed, focus is programmatically moved back to the most appropriate element in the page – in general, the trigger element that opened the menu; this does not apply when the menu was closed as a result of a keyboard user explicitly navigating away from the menu (using `Tab` / `Shift+Tab`)
-* When a menu item is `disabled`, the item has `aria-disabled="true"`, but still receives focus
-* When a menu item is `inactive`, the item still receives focus
+- The component exposes an appropriate set of `role`, `aria-*` attributes, and overall structure in its rendered output:
+  - the component itself has a `role="menu"`
+  - each item within the menu has a `role="menuitem"`, `role="menuitemcheckbox`, or `role="menuitemradio`
+  - when items are grouped into sections, each section is identified using a container with `role="group`, and the group has an accessible name (either using `aria-label` or referencing an existing element with `aria-labelledby`) that matches the visible section label
+  - selectable items have an `aria-checked` attribute, and correctly reflect their state (`aria-checked="true"` when checked, `aria-checked="false"` when not checked)
+- When a menu is opened, focus moves to the first menu item
+- The correct keyboard interactions have been implemented
+- The menu can be closed using `Esc`
+- When moving keyboard focus away from the menu (using `Tab` / `Shift+Tab`) the menu is closed
+- When a menu item is selected, the menu is closed
+- When the menu is closed, focus is programmatically moved back to the most appropriate element in the page – in general, the trigger element that opened the menu; this does not apply when the menu was closed as a result of a keyboard user explicitly navigating away from the menu (using `Tab` / `Shift+Tab`)
+- When a menu item is `disabled`, the item has `aria-disabled="true"`, but still receives focus
+- When a menu item is `inactive`, the item still receives focus
 
 Refer to the [W3C ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/) for [menu button](https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/) and [actions menu button](https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/).
 
