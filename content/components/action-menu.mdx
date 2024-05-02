@@ -447,7 +447,25 @@ Inactive action menu items follow the same patterns as inactive action list item
   - Hiding the message in a tooltip would require the user to do another interaction, and the UI could feel chaotic with so many layers.
 - No [alert icon](/foundations/icons/alert-16) leading visual is necessary since it would be redundant with the error message
 
-## Accessibility
+## Accessibility and usability expectations
+
+When an `ActionMenu` is opened, focus moves to the first item in the menu.
+
+Users can move between the different menu items – and, if present, submenus – using cursor keys.
+
+If a keyboard user navigates away from an open `ActionMenu` using `Tab` / `Shift+Tab`, the `ActionMenu` is closed.
+
+An open `ActionMenu` can be closed using `Esc`.
+
+Menu items must have a clear and descriptive label. The label is the visible content of the button and will usually be text. The label should be concise and descriptive of the action that will be performed when the menu item is activated.
+
+When using Octicons for leading and trailing visuals on individual menu items, note that icons don't have any text alternative. They are purely visual, and not conveyed to screen readers. Don't rely on these icons alone to convey meaning – make sure that the text label of the menu item provides sufficient meaning/context on its own.
+
+Every menu item must have a minimum target size of 24×24 CSS pixels. This is to ensure that the button is large enough to be easily activated by users with motor impairments.
+
+The currently focused menu item can be activated using `Space` or `Enter`. When a menu item is activated, the `ActionMenu` is closed, and the relevant functionality is executed. In the case of selectable menu items, the focused item is checked/unchecked, and the `ActionMenu` is closed.
+
+When the `ActionMenu` is closed, focus returns to the most logical location in the page – in general, this is the trigger control that originally opened the `ActionMenu`.
 
 See [focus management](/guides/accessibility/focus-management) for more information.
 
@@ -487,6 +505,14 @@ This behavior is consistent with the behavior of inactive buttons. See the [butt
 - Do not get focus
 - Cannot be activated
 
+## Built-in accessibility features
+
+The component handles all aspects of focus management and keyboard interaction.
+
+The `role` and structure of the `ActionMenu` is correctly conveyed to screen readers – including the state of selectable menu items, and the correct association of grouped items with their group title/label.
+
+Menu items meet the minimum target size requirement.
+
 ### Keyboard navigation
 
 #### Trigger button
@@ -515,6 +541,36 @@ This behavior is consistent with the behavior of inactive buttons. See the [butt
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>End</Box>        | Move focus to last item                                         |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageDown</Box>   | Move focus to last item                                         |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Esc</Box>        | Close menu                                                      |
+
+## Implementation requirements
+
+The `ActionMenu` allows the use of `inactive` controls – controls that can still be focused, and even activated (for instance, to trigger an informative modal dialog informing the user why a particular item is marked as inactive). Currently, this state of a menu item is not conveyed programmatically, meaning that screen readers won't announce that an item is inactive. Make sure to include descriptive `inactiveText` to an `inactive` menu item, to clearly explain the status of the item to all users – and in particular, screen reader users, who won't otherwise be informed of the fact that an item is inactive.
+
+## How to test the component
+
+### Integration tests
+
+* The menu items have sufficiently descriptive labels
+* If menu items include icons for their leading or trailing visuals, the purpose of the items is clear even without the icons (as these are only decorative and are not conveyed to screen reader users)
+* When using an `inactive` menu item, provide a descriptive `inactiveText` that explains why the item is inactive
+
+### Component tests
+
+* The component exposes an appropriate set of `role`, `aria-*` attributes, and overall structure in its rendered output:
+  * the component itself has a `role="menu"`
+  * each item within the menu has a `role="menuitem"`, `role="menuitemcheckbox`, or `role="menuitemradio`
+  * when items are grouped into sections, each section is identified using a container with `role="group`, and the group has an accessible name (either using `aria-label` or referencing an existing element with `aria-labelledby`) that matches the visible section label
+  * selectable items have an `aria-checked` attribute, and correctly reflect their state (`aria-checked="true"` when checked, `aria-checked="false"` when not checked)
+* When a menu is opened, focus moves to the first menu item
+* The correct keyboard interactions have been implemented
+* The menu can be closed using `Esc`
+* When moving keyboard focus away from the menu (using `Tab` / `Shift+Tab`) the menu is closed
+* When a menu item is selected, the menu is closed
+* When the menu is closed, focus is programmatically moved back to the most appropriate element in the page – in general, the trigger element that opened the menu; this does not apply when the menu was closed as a result of a keyboard user explicitly navigating away from the menu (using `Tab` / `Shift+Tab`)
+* When a menu item is `disabled`, the item has `aria-disabled="true"`, but still receives focus
+* When a menu item is `inactive`, the item still receives focus
+
+Refer to the [W3C ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/) for [menu button](https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/) and [actions menu button](https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/).
 
 ### Known accessibility issues (GitHub staff only)
 
