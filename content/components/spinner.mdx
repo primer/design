@@ -70,13 +70,13 @@ Only use it as part of a fully realised solution (including `aria-live` notifica
 
 ### Integration tests
  
-* The component only provides a visual indicator, and passes color contrast. Additional solutions are required (such as the use of `aria-live` notifications in our [loading guidelines](https://primer.style/ui-patterns/loading)) to convey the loading state for screen reader users.
+- The component only provides a visual indicator, and passes color contrast. Additional solutions are required (such as the use of `aria-live` notifications in our [loading guidelines](https://primer.style/ui-patterns/loading)) to convey the loading state for screen reader users.
 
-* If you are using custom colors, verify that the spinner's "spinning" section meets the minimum color contrast requirement of `3:1` against the background it's presented on
+- If you are using custom colors, verify that the spinner's "spinning" section meets the minimum color contrast requirement of `3:1` against the background it's presented on
 
 ### Component tests
 
-* The component renders an `<svg>` element without any text content (as otherwise this would be announced by screen readers)
+- The component renders an `<svg>` element without any text content (as otherwise this would be announced by screen readers)
 ### Known accessibility issues (GitHub staff only)
 
 <AccessibilityLink label="Spinner"/>
