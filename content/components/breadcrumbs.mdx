@@ -93,16 +93,16 @@ In the current React implementation, you need to explicitly mark the last item a
 
 ### Integration tests
 
-* Each breadcrumb link has appropriate and descriptive link text
+- Each breadcrumb link has appropriate and descriptive link text
 
-* For the React implementation, the last breadcrumb item has been explicitly marked as `selected`, to visually and programmatically identify it as a link referring to the current page
+- For the React implementation, the last breadcrumb item has been explicitly marked as `selected`, to visually and programmatically identify it as a link referring to the current page
 
 ### Component tests
 
-* The breadcrumb component is exposed as a navigation landmark with an appropriate name/label
-* The breadcrumb items have an appropriate structure, such as an `<ol>` ordered list
-* For the Rails implementation, the last item link is programmatically identified as a link to the current page using `aria-current="page"`
-* For the React implementation, if a breadcrumb item has been marked as `selected`, the last item link in the rendered output is programmatically identified as a link to the current page using `aria-current="page"`
+- The breadcrumb component is exposed as a navigation landmark with an appropriate name/label
+- The breadcrumb items have an appropriate structure, such as an `<ol>` ordered list
+- For the Rails implementation, the last item link is programmatically identified as a link to the current page using `aria-current="page"`
+- For the React implementation, if a breadcrumb item has been marked as `selected`, the last item link in the rendered output is programmatically identified as a link to the current page using `aria-current="page"`
 
 ### Known accessibility issues (GitHub staff only)
 
