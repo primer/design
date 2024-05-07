@@ -505,13 +505,13 @@ This behavior is consistent with the behavior of inactive buttons. See the [butt
 - Do not get focus
 - Cannot be activated
 
-## Built-in accessibility features
+### Built-in accessibility features
 
 The component handles all aspects of focus management and keyboard interaction.
 
 The `role` and structure of the `ActionMenu` is correctly conveyed to screen readers – including the state of selectable menu items, and the correct association of grouped items with their group title/label.
 
-Menu items meet the minimum target size requirement.
+Menu items meet the minimum target size requirement, 24px × 24px.
 
 ### Keyboard navigation
 
@@ -542,19 +542,19 @@ Menu items meet the minimum target size requirement.
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>PageDown</Box>   | Move focus to last item                                         |
 | <Box as="kbd" backgroundColor="canvas.subtle" borderRadius={1} borderColor="border.default" borderWidth={1} borderStyle="solid" py={1} px={2}>Esc</Box>        | Close menu                                                      |
 
-## Implementation requirements
+### Implementation requirements
 
 The `ActionMenu` allows the use of `inactive` controls – controls that can still be focused, and even activated (for instance, to trigger an informative modal dialog informing the user why a particular item is marked as inactive). Currently, this state of a menu item is not conveyed programmatically, meaning that screen readers won't announce that an item is inactive. Make sure to include descriptive `inactiveText` to an `inactive` menu item, to clearly explain the status of the item to all users – and in particular, screen reader users, who won't otherwise be informed of the fact that an item is inactive.
 
-## How to test the component
+### How to test the component
 
-### Integration tests
+#### Integration tests
 
 - The menu items have sufficiently descriptive labels
 - If menu items include icons for their leading or trailing visuals, the purpose of the items is clear even without the icons (as these are only decorative and are not conveyed to screen reader users)
 - When using an `inactive` menu item, provide a descriptive `inactiveText` that explains why the item is inactive
 
-### Component tests
+#### Component tests
 
 - The component exposes an appropriate set of `role`, `aria-*` attributes, and overall structure in its rendered output:
   - the component itself has a `role="menu"`
