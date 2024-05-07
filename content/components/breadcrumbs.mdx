@@ -60,7 +60,7 @@ Breadcrumbs provide users with a structured set of links to both help them under
 
 The last item in the breadcrumb trail refers to the current page. To convey this visually, the link is styled differently from the preceding links. For screen reader users, this information is conveyed programmatically through the use of the `aria-current` attribute in the rendered output.
 
-The text of each breadcrumb link should match the `<h1>` or the unique part of the `<title>` element that it is linked to. If the breadcrumb link text is not unique, it should be made unique by adding additional context. While this approach should be used in the majority of cases, if the breadcrumb link text is overly verbose, it can be made more concise, as long as it still provides sufficient information to the user. For example, the last item in a breadcrumb trail for a blog post could be the full title of the blog post itself, or (as it is likely long, and arguably redundant) just be generically labelled as "Blog post".
+The text of each breadcrumb link should match the heading element (`h1`–`h6`) or the unique part of the `<title>` element that it is linked to. If the breadcrumb link text is not unique, it should be made unique by adding additional context. While this approach should be used in the majority of cases, if the breadcrumb link text is overly verbose, it can be made more concise, as long as it still provides sufficient information to the user. For example, the last item in a breadcrumb trail for a blog post could be the full title of the blog post itself, or (as it is likely long, and arguably redundant) just be generically labelled as "Blog post".
 
 ## Built-in accessibility features
 
