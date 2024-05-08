@@ -155,7 +155,7 @@ The text input must have a clear, descriptive, and visible label that informs th
 
 If there are additional instructions or requirements for the information the user is expected to enter, these should be provided as a caption underneath the text input.
 
-The input must have an accessible name that is announced by screen readers. Additional instructions or requirements must be easily discoverable by screen reader users - in general, by having them programmatically associated with the input.
+The input must have an associated `<label>` to give it an accessible name that is announced by screen readers. Additional instructions or requirements must be easily discoverable by screen reader users - in general, by having them programmatically associated with the input using `aria-describedby`.
 
 If the text input is in error/invalid, this must be programmatically conveyed, and not solely rely on visual styling (such as a colored border). In addition, the form must show a descriptive error message that provides further information to the user about what the error is, and how to correct it. See [documentation for form validation](https://primer.style/ui-patterns/forms/overview#validation) for further details.
 
