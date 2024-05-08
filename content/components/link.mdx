@@ -60,7 +60,7 @@ You should only use this component for links - controls that navigate to another
 
 #### Integration tests
 
-- The links are indeed used as links, rather than as trigger elements for in-page actions (such as opening modal dialogs)
+- Activating a link changes the URL. It is not intended to be used as a trigger for an action. A `button` is more appropriate for elements that trigger an action when activated.
 - Where `muted` links are used, this visual presentation is not used as the only way to differentiate links or to somehow convey semantic meaning
 - The links have an appropriately descriptive link text; in the case of image links, the images have an appropriate text alternative
 
@@ -71,7 +71,7 @@ You should only use this component for links - controls that navigate to another
 
 ### Implementation requirements
 
-Setting the `muted` property changes the visual presentation of the link to use a more subdued colour. However, this visual change is not conveyed programmatically – so muted links will be announced the same way as regular links by screen readers. Don't rely solely on the `muted` property to distinguish links that serve a different purpose. If links need to be differentiated, make the difference clear in the link text itself. Alternatively, group these links separately and add context, such as a preceding heading or explanatory paragraph.
+Setting the `muted` property changes the visual presentation of the link to use a more subdued color. However, this visual change is not conveyed programmatically – so muted links will be announced the same way as regular links by screen readers. Don't rely solely on the `muted` property to distinguish links that serve a different purpose. If links need to be differentiated, make the difference clear in the link text itself. Alternatively, group these links separately and add context, such as a preceding heading or explanatory paragraph.
 
 Links must have appropriate link text that is sufficiently descriptive – giving users enough information to understand where the link will take them. For links that are wrapped around images, make sure that the images have an appropriate text alternative, as this will act as the link text.
 
