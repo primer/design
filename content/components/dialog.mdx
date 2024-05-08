@@ -461,7 +461,7 @@ This is because some browser and screen reader combinations may ignore the live 
 
 If you need to use a live region while a dialog is active, place the live region within the dialog, rather than outside of it.
 
-## Built-in accessibility features
+### Built-in accessibility features
 
 The Rails version of the component generates a `<dialog>` element with `aria-modal="true"`.
 
@@ -477,18 +477,18 @@ Focus is maintained inside the dialog. The `aria-modal="true"` on the dialog hid
 
 When the dialog is closed, focus is automatically moved back to the last element in the underlying page that had focus - generally, the control the triggered the dialog.
 
-## Implementation requirements
+### Implementation requirements
 
 Make sure to provide a sufficiently descriptive `title` for the modal dialog. The title should concisely describe the contents or purpose of the modal.
 
 In cases where the original trigger element that opened the dialog is not present in the page any more, or where the dialog was not opened as a result of a user action, you will need to explicitly handle which element will receive focus programmatically once the dialog is closed.
 
-### Integration tests
+#### Integration tests
 
 * The modal dialog has a sufficiently descriptive `title`
 * Once the dialog is closed, focus is returned to the most appropriate location in the page
 
-### Component tests
+#### Component tests
 
 * The modal dialog programmatically exposes its role - either using `<dialog>` or `role="dialog"`
 * The modal dialog programmatically conveys that it is modal with `aria-modal="true"`
