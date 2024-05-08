@@ -227,22 +227,22 @@ The accessible name or decision to make it decorative should be included in the 
 
 Unless the icon is purely decorative, it must have a contrast ratio of at least 3:1 against the background color.
 
-## Built-in accessibility features
+### Built-in accessibility features
 
 If the author does not include an `aria-label`, the component is assumed to be decorative, and will automatically be given an `aria-hidden="true"` attribute.
 
 If the author includes an `aria-label`, the component exposes a `role="img"`, and the `aria-label` attribute is passed to the rendered component.
 
-## Implementation requirements
+### Implementation requirements
 
 - If the icon is decorative, omit the `aria-label` attribute.
 - If the icon is used to convey information or meaning, make sure to add an appropriate `aria-label` that provides the text equivalent for the icon.
 
 Authors can choose the color used for the icon, so it is important to ensure that it has a [contrast ratio](https://primer.style/foundations/color/accessibility) of at least 3:1 against the background color. It is recommended to use our [functional foreground colors](https://primer.style/foundations/color#foregrounds).
 
-## How to test the component
+### How to test the component
 
-### Integration tests
+#### Integration tests
 
 - The icon has a contrast ratio of at least 3:1 against the background color.
 
