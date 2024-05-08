@@ -56,26 +56,26 @@ People who have low or colorblind vision may have trouble identifying links that
 
 You should only use this component for links - controls that navigate to another location within the current page, another web page, or point to a downloadable file. Don't use this component for controls that trigger in-page actions, such as opening a modal dialog, expanding/collapsing a disclosure widget, or submitting a form – in all these cases, use more specific components such as [buttons](https://primer.style/components/button).
 
-## How to test links
+### How to test links
 
-### Integration tests
+#### Integration tests
 
 - The links are indeed used as links, rather than as trigger elements for in-page actions (such as opening modal dialogs)
 - Where `muted` links are used, this visual presentation is not used as the only way to differentiate links or to somehow convey semantic meaning
 - The links have an appropriately descriptive link text; in the case of image links, the images have an appropriate text alternative
 
-### Component tests
+#### Component tests
 
 - Links are rendered as standard `<a href="…"> … </a>` links
 - Content passed into the component is output as the link's visible text
 
-## Implementation requirements
+### Implementation requirements
 
 Setting the `muted` property changes the visual presentation of the link to use a more subdued colour. However, this visual change is not conveyed programmatically – so muted links will be announced the same way as regular links by screen readers. Don't rely solely on the `muted` property to distinguish links that serve a different purpose. If links need to be differentiated, make the difference clear in the link text itself. Alternatively, group these links separately and add context, such as a preceding heading or explanatory paragraph.
 
 Links must have appropriate link text that is sufficiently descriptive – giving users enough information to understand where the link will take them. For links that are wrapped around images, make sure that the images have an appropriate text alternative, as this will act as the link text.
 
-### Functionality and purpose
+#### Functionality and purpose
 
 A link's function is to _navigate_ to a different page or new content. If instead a feature on the page is activated, use a `<button>`. [Learn when to use a link or button](https://accessibility-playbook.github.com/link-and-button-guidance).
 
