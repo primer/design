@@ -485,20 +485,20 @@ In cases where the original trigger element that opened the dialog is not presen
 
 #### Integration tests
 
-* The modal dialog has a sufficiently descriptive `title`
-* Once the dialog is closed, focus is returned to the most appropriate location in the page
+- The modal dialog has a sufficiently descriptive `title`
+- Once the dialog is closed, focus is returned to the most appropriate location in the page
 
 #### Component tests
 
-* The modal dialog programmatically exposes its role - either using `<dialog>` or `role="dialog"`
-* The modal dialog programmatically conveys that it is modal with `aria-modal="true"`
-* The `title` of the component is rendered as an `<h1>` heading, that it has an `id` attribute, and that this `id` is referenced from the dialog container itself with `aria-labelledby` to provide an accessible name
-* When the modal dialog is opened, focus is moved into the dialog - generally, to the first focusable control inside the dialog
+- The modal dialog programmatically exposes its role - either using `<dialog>` or `role="dialog"`
+- The modal dialog programmatically conveys that it is modal with `aria-modal="true"`
+- The `title` of the component is rendered as an `<h1>` heading, that it has an `id` attribute, and that this `id` is referenced from the dialog container itself with `aria-labelledby` to provide an accessible name
+- When the modal dialog is opened, focus is moved into the dialog - generally, to the first focusable control inside the dialog
 
-* In the Rails implementation, the control specified by the author with `autofocus` receives focus when the modal dialog is opened
+- In the Rails implementation, the control specified by the author with `autofocus` receives focus when the modal dialog is opened
 
-* Focus remains inside the dialog - using `Tab`/`Shift+Tab` must not result in focus landing in the underlying page
-* When the modal dialog is closed, focus is returned to the last element in the underlying page that was focused at the time the dialog was opened - typically, this will be the trigger element that opened the dialog
+- Focus remains inside the dialog - using `Tab`/`Shift+Tab` must not result in focus landing in the underlying page
+- When the modal dialog is closed, focus is returned to the last element in the underlying page that was focused at the time the dialog was opened - typically, this will be the trigger element that opened the dialog
 
 ### Known accessibility issues (GitHub staff only)
 
