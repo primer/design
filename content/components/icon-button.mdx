@@ -58,31 +58,31 @@ The size variants all meet the minimum target size requirement.
 
 In the Rails implementation, `IconButton` automatically has a visible tooltip that appears when the button is hovered and when it receives keyboard focus. The tooltip visually replicates the accessible name of the button. The tooltip can be hovered when using the mouse, and can be dismissed using `Esc` without needing to move the mouse or focus away from the button.
 
-## Implementation requirements
+### Implementation requirements
 
-### Accessible name
+#### Accessible name
 
 You must provide a sufficiently descriptive `aria-label` for the component.
 
-### Target size
+#### Target size
 
 The button must have a minimum target size of 24×24 CSS pixels. This is to ensure that the button is large enough to be easily activated by users with motor impairments.
 
-### Convey meaning with more than color
+#### Convey meaning with more than color
 
 `IconButton` has different schemes/variants (such as `default`, `danger`, `invisible`), which result in different colors for the icon, background, and borders. These differences are purely visual, so they may be difficult to distinguish for users with impaired color perception. They also won't be perceived by screen reader users. For this reason, you can't rely on the scheme/variant alone to give meaning to your buttons. 
 
 Make sure to differentiate icon buttons through the use of sufficiently different Octicons, rather than their visual presentation.
 
-## How to test the component
+### How to test the component
 
-### Integration tests
+#### Integration tests
 
 - The button has a sufficiently descriptive accessible name
 - The button uses an icon with sufficiently clear meaning that conveys its action
 - If the button uses a schema/variant for a particular presentation, the button does not solely rely on this visual aspect to convey its purpose, or to differentiate it from other buttons
 
-### Component tests
+#### Component tests
 
 - The `aria-label` added to the component is output as the button's `aria-label`
 - Unless the button is `disabled`, it can be focused and activated using the keyboard
