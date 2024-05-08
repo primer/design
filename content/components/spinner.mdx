@@ -46,12 +46,37 @@ The size of the spinner can be adjusted. The **medium** (default) variant works 
 
 </Box>
 
-## Accessibility
+## Accessibility and usability expectations
 
-By default, our spinner component provides a generic loading status announcement for assistive technologies. We recommend that you specify a custom announcement specific to your use-case. For example: "Loading changed files".
+Use the `Spinner` component to provide a visible loading indicator for situations where an asynchronous API call or process may take a moderate amount of time (between 1 and 3 seconds) – see [Adapting to different wait times](https://primer.style/ui-patterns/loading#adapting-to-different-wait-times).
 
-To avoid duplicate announcements when a loading message is already being displayed in context, the component allows engineers to suppress the spinner's default loading announcement.
+## Built-in accessibility features
 
+The component only provides a visual, animated spinner icon. This icon is not exposed to screen readers, as it's an `<svg>` without a `role`, `aria-label`, or any text content.
+
+```html
+<svg height="32px" width="32px" viewBox="0 0 16 16" fill="none" class="Spinner__StyledSpinner…"> … </svg>
+``` 
+ 
+The spinner icon uses the default `currentColor` of its parent container. Unless authors specifically override the default colors, the icon meets minimum color contrast requirements on the canvas default white background.
+
+## Implementation requirements
+ 
+Do not rely solely on the `Spinner` component as a loading indicator, as it currently isn't exposed to screen readers, and has no built-in announcement.
+
+Only use it as part of a fully realised solution (including `aria-live` notifications) for conveying loading/processing states. Refer to the [loading guidelines](https://primer.style/ui-patterns/loading) for more details.
+ 
+## How to test the component
+
+### Integration tests
+ 
+- The component only provides a visual indicator, and passes color contrast. Additional solutions are required (such as the use of `aria-live` notifications in our [loading guidelines](https://primer.style/ui-patterns/loading)) to convey the loading state for screen reader users.
+
+- If you are using custom colors, verify that the spinner's "spinning" section meets the minimum color contrast requirement of `3:1` against the background it's presented on
+
+### Component tests
+
+- The component renders an `<svg>` element without any text content (as otherwise this would be announced by screen readers)
 ### Known accessibility issues (GitHub staff only)
 
 <AccessibilityLink label="Spinner"/>
