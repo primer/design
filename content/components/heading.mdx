@@ -42,7 +42,7 @@ While sighted users rely on visual cues such as font size changes to determine w
 
 Headings allow assistive technology users to quickly navigate around a page. Navigation to text that is not meant to be a heading can be a confusing experience. [Learn more about best heading practices (WAI Headings)](https://www.w3.org/WAI/tutorials/page-structure/headings/).
 
-## Built-in accessibility features
+### Built-in accessibility features
 
 The heading component exposes both the heading role and heading level.
 
@@ -50,20 +50,20 @@ The heading component provides styles with appropriate text sizes to provide a v
 
 The default heading text has sufficient color contrast against a white background.
 
-## Implementation requirements
+### Implementation requirements
 
 When using the component, configure it with the heading level provided in annotated designs or with the appropriate level for the structure of the document and content. It should be noted that the visual design may not always match the annotated heading level, and the annotation should always supersede the visual in the implementation if they differ.
 
-## How to test the component
+### How to test the component
 
-### Integration tests
+#### Integration tests
 
 - The text of the heading is descriptive of the content that follows it.
 - The heading is of the appropriate level for the structure of the document and content.
 - The heading is followed by content related to the heading or a heading of one level deeper.
 - All content that relates to the heading follows it in the document source order, even if it appears visually before the heading.
 
-### Component tests
+#### Component tests
 
 - The component exposes the heading role.
 - The component exposes the heading's level.
