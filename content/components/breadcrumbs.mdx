@@ -54,7 +54,55 @@ By default the breadcrumbs component can show up to 10 items within the chain.
   src="https://github.com/primer/design/assets/2313998/0007110c-0e54-4775-aeac-d8de1dfc916a"
 />
 
-## Accessibility
+## Accessibility and usability expectations
+
+Breadcrumbs provide users with a structured set of links to both help them understand where they are within the context of a site, and to allow them to more easily jump directly to previous sections within the site's structure.
+
+The last item in the breadcrumb trail refers to the current page. To convey this visually, the link is styled differently from the preceding links. For screen reader users, this information is conveyed programmatically through the use of the `aria-current` attribute in the rendered output.
+
+The text of each breadcrumb link should match the heading element (`h1`–`h6`) or the unique part of the `<title>` element that it is linked to. If the breadcrumb link text is not unique, it should be made unique by adding additional context. While this approach should be used in the majority of cases, if the breadcrumb link text is overly verbose, it can be made more concise, as long as it still provides sufficient information to the user. For example, the last item in a breadcrumb trail for a blog post could be the full title of the blog post itself, or (as it is likely long, and arguably redundant) just be generically labelled as "Blog post".
+
+### Built-in accessibility features
+
+This component is rendered as a `<nav>` navigation landmark region, with an accessible name of "Breadcrumbs".
+
+```html
+<nav … aria-label="Breadcrumbs"> … </nav>
+```
+
+This makes the breadcrumb navigation easily discoverable for screen reader users who navigate via page landmarks.
+
+The individual breadcrumb items are rendered as an `<ol>` ordered list, with each item marked up as a link in a separate `<li>` list item.
+
+### Implementation requirements
+
+In the Rails implementation, the link in the last item is automatically given an `aria-current="page"`.
+
+In the current React implementation, you need to explicitly mark the last item as `selected`, which results in `aria-current="page"` being added to the link.
+
+```xml
+<Breadcrumbs>
+  <Breadcrumbs.Item href="…"> … </Breadcrumbs.Item>
+  <Breadcrumbs.Item href="…"> … </Breadcrumbs.Item>
+  …
+  <Breadcrumbs.Item href="…" selected> … </Breadcrumbs.Item>
+</Breadcrumbs>
+```
+
+### How to test the component
+
+#### Integration tests
+
+- Each breadcrumb link has appropriate and descriptive link text
+
+- For the React implementation, the last breadcrumb item has been explicitly marked as `selected`, to visually and programmatically identify it as a link referring to the current page
+
+#### Component tests
+
+- The breadcrumb component is exposed as a navigation landmark with an appropriate name/label
+- The breadcrumb items have an appropriate structure, such as an `<ol>` ordered list
+- For the Rails implementation, the last item link is programmatically identified as a link to the current page using `aria-current="page"`
+- For the React implementation, if a breadcrumb item has been marked as `selected`, the last item link in the rendered output is programmatically identified as a link to the current page using `aria-current="page"`
 
 ### Known accessibility issues (GitHub staff only)
 
