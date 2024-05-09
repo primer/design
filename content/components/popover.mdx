@@ -34,13 +34,32 @@ Use sparingly to avoid cognitive overload. Though they can be used for a variety
 
 Unlike other messaging components, popovers should never include critical information (such as errors) and should always include a dismiss action.
 
-## Accessibility
+## Accessibility and usability expectations
 
 - Popovers should be operable using the keyboard alone, without requiring the use of a mouse or other pointing device.
 
-- Popovers should be announced by screen readers, including their content and role on the page.
-
 - When a popover is opened, focus should be moved to the popover so that keyboard users can interact with it. When the popover is closed, focus should be returned to the element that triggered it. For more on this, see the accessibility guidelines [on focus management](/guides/accessibility/focus-management).
+
+### Built-in accessibility features
+
+Beyond generating a visual container, the component has no built-in accessibility features.
+
+### Implementation requirements
+
+As `Popover` currently lacks an explicit `role`, make sure to add an explicit `role="complementary"` – this will identify the component as a content that is "tangentially" related to its surroundings (the equivalent of an `<aside>` element).
+
+When using the component, make sure that the component follows the element that it relates to. This will ensure that the content of the `Popover` will be read/announced by screen readers immediately after its related element. It will also ensure that any focusable elements inside the `Popover` will logically follow the related element.
+
+Make sure that there is a clear way for a user to dismiss the `Popover` – for instance, if the component is used to provide additional information, include a button (such as a "Got it" control) that dismisses the `Popover`. When the component is closed, move focus back to the element that the `Popover` related to. See the accessibility guidelines on [focus management](https://primer.style/guides/accessibility/focus-management).
+
+### How to test the component
+
+#### Integration tests
+
+- The `Popover` follows its related element in the underlying rendered document structure
+- If the `Popover` contains any focusable controls, these controls logically follow their related element in the overall focus order
+- The `Popover` has been given an appropriate `role`, such as `role="complementary"`
+- There is a way for users to close the `Popover`
 
 ### Known accessibility issues (GitHub staff only)
 
