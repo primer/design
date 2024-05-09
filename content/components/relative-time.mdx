@@ -181,16 +181,6 @@ Weekday names and month names are fully written out by default, but they may be 
 
 Any part of the time can be rendered with or without a leading zero.
 
-## General notes/critique of the component (not part of the documentation material itself)
-
-The component in its current form has accessibility issues for keyboard and screen reader users. One might address these by providing an additional toggle/control, yet that potentially adds a large number of additional tab stops/controls and/or leads to problems when RelativeTime is used inside an already focusable/interactive control. Quick wins include removing the title (that currently only serves mouse users) and instead considering a more general way for users to explicitly say how they'd like timestamps shown on pages. 
-
-Otherwise, we recommend rethinking the component's use. For instance, removing the `title` (that currently only serves mouse users) and instead considering a more general way for users to explicitly say how they'd like timestamps shown on pages.
-
-The documentation states that "A relative date is treated like a `<time>` element. It contains a `title` showing the precise localized date." This may be misunderstood by developers who think that it's actually going to be rendered as a `<time>` element, which is not correct.
-
-While there is no current implementation in user agents/browsers, the idea behind standardising a `<time>` element was that users *may* be able to have the visible date/time in pages automatically adapted to their locale, and/or be able to explicitly present it in a format that suits them best. This has not come to pass (yet?) for the standard `<time>` element, but if it did, `<relative-time>`, being a custom element, wouldn't work this way out of the box (unless it actually used `<time>` itself).
-
 ## Accessibility and usability expectations
 
 This component is intended to show a shorter, more user-friendly relative time (for instance, "3 hours ago", "20 Sept"), with the option for the user to still see the precise localized date/time.
