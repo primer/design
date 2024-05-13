@@ -38,6 +38,10 @@ A prime example of this is an error banner that appears after a form validation,
 
 If the banner communicates non-critical information (e.g. a success banner) that wouldn't block a user if missed, a live region announcement is sufficient.
 
+#### Does the Banner contain an action?
+
+If the Banner contains an action, placing focus on the newly shown Banner may be preferable over a live region announcement especially if the action helps unblock/guide a user within a current flow. This ensures the user can immediately interact with the action without having to manually locate it.
+
 #### Where is a user's focus when the banner appears?
 
 If a user triggers an action that results in the element that they were were on being removed from the DOM, then focus management is required. For example, let's say that a user activates a `Save` button successfully, and the section of the page they were on gets replaced by new content. The removal of the `Save` button from the DOM will result in the user's focus getting lost.
