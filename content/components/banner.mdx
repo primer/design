@@ -44,7 +44,7 @@ If the Banner contains an action, placing focus on the newly shown Banner may be
 
 #### Where is a user's focus when the banner appears?
 
-If a user triggers an action that results in the element that they were were on being removed from the DOM, then focus management is required. For example, let's say that a user activates a `Save` button successfully, and the section of the page they were on gets replaced by new content. The removal of the `Save` button from the DOM will result in the user's focus getting lost.
+If a user triggers an action that results in the element that they were were on being removed from the DOM (that isn't a result of a page navigation), then focus management is required. For example, let's say that a user activates a `Save` button successfully, and the section of the page they were on gets replaced by new content. The removal of the `Save` button from the DOM will result in the user's focus getting lost.
 
 Focus loss is disorienting, especially when some assistive technology users are unexpectedly taken back to the top of the page after performing an action. This is a [WCAG 2.4.3 Focus Order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html) issue.
 
