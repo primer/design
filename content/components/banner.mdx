@@ -5,17 +5,284 @@ componentId: banner
 railsIds: 
   - Primer::Alpha::Banner
 tags:
-  - flash
+  - flash, alert, notification
 ---
 
+import {Box} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 import {AccessibilityLink} from '~/src/components/accessibility-link'
 
-Banner can be used in one of two ways:
+<img
+  width="960"
+  alt="Image displaying each variant of banner, from top: critical, warning, success, info, upsell."
+  src="https://github.com/primer/design/assets/813754/1f221ea9-0a82-4f4f-a8eb-b1d61ef1903d"
+/>
 
+## Usage
+
+Banner can be used in one of two ways:
 1. To highlight prominent information on a page.
 2. To communicate feedback in response to a user action.
+
+For system wide information, consider using an [announcement](../ui-patterns/messaging#message-types).
+
+### Best practices
+Use banners sparingly and only when necessary. Banners can disrupt the user experience and should only be used when and where relevant.
+
+Keep the message concise and direct. Don't use heading styling or multiple type sizes in banners, rely on the default paragraph size and use the title when appropriate.
+
+Don't show more than one banner at a time. For more information, see this article on [alert fatigue](https://www.nngroup.com/videos/alert-fatigue-user-interfaces/).
+
+## Anatomy
+
+<img
+  width="960"
+  alt="Anatomy of a banner, including the message, title, icon, dismiss button, primary, and secondary action"
+  src="https://github.com/primer/design/assets/813754/40ff27e0-8d69-490a-a619-a4956828e77e"
+/>
+
+## Options
+
+### Variant
+
+#### Critical
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+Use critical banners to signal critical errors, system failures, or necessary destructive actions. Examples: form validation error summary, repo deletion confirmations.
+<img
+  width="456"
+  alt="Text within a box that has a light red outline and a lighter red background. There is a vibrant red stop icon with an exclamation point inside that comes before the text within the banner."
+  src="https://github.com/primer/primitives/assets/813754/9c245a1e-5d59-44bf-8574-aedb06a286b7"
+/>
+</Box>
+
+#### Warning
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+Use warning banners to alert users about potential issues or impactful changes. For example possible connectivity concerns or hidden items due to active filters.
+<img
+  width="456"
+  alt="Text within a box that has a yellow outline and a lighter yellow background. There is a dark yellow triangle icon with an exclamation point inside that comes before the text within the banner."
+  src="https://github.com/primer/primitives/assets/813754/afa299a9-4efe-41c4-a8cd-4e166d93e750"
+/>
+</Box>
+
+#### Success
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+Use success banners to indicate task completion or successful actions. For example, a successful issue transfer when the user is not brought to the new page. Only use success messages if the success is not easily apparent in the UI.
+<img
+  width="456"
+  alt="Text within a box that has a green outline and a lighter green background. There is a vibrant green circle icon with a check icon inside the circle that comes before the text within the banner."
+  src="https://github.com/primer/primitives/assets/813754/5bc8b2b6-f935-4153-809a-00282ec0e1a3"
+/>
+</Box>
+
+#### Info
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+Use info banners to inform about non-critical context and information. For example feature prompts or ongoing processes.
+<img
+  width="456"
+  alt="Text within a box that has a light blue outline and a lighter blue background. There is a vibrant blue circle icon with the letter i inside that comes before the text within the banner."
+  src="https://github.com/primer/design/assets/813754/172e3eb4-35ea-4d75-a015-6d00d3ebd914"
+/>
+</Box>
+
+
+#### Upsell
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+
+Use upsell banners to inform the users about a feature that can be enabled by upgrading their plan.
+
+<img
+  width="456"
+  alt="Text within a box that has a light purple outline and a lighter purple background. There is a vibrant purple computer icon that comes before the text within the banner."
+  src="https://github.com/primer/primitives/assets/813754/fca5f277-6baf-491d-96a8-6f23dd18d49a"
+/>
+</Box>
+
+### Title
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <div>
+
+  Use a title to concisely present the topic of the banner when the message of the banner is complex and too long to scan. 
+
+  A title is required and will be used as a semantic page heading. However, you can visually hide the title. It is recommended to hide the title if the body of the banner is short and easily scannable.
+
+  Use the built-in accessibility annotations in the Figma components to define the heading level and text relevant to its context. 
+
+  </div>
+  <img
+    width="456"
+    alt="banner without title and banner with title"
+    src="https://github.com/primer/primitives/assets/813754/c5cc31d6-dafc-426d-999b-215f68ca7c28"
+  />
+</Box>
+
+### Dismissable
+
+#### Dismiss button
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+
+Banners with an `onDismiss` property automatically show a dismiss button. This should be used for banners that inform about something that the user can not solve. For example issues with the organization they are part of or informational banners. When it makes sense, the choice to dismiss the banner should be stored and the banner should not be shown again.
+
+Use the following as a guideline:
+* If you're on a page in which you can do other tasks, and the banner is not blocking / does not have to be addressed, then you should be able to have a close button.
+* If accidental closure of the banner would leave the user confused or missing something critical, it should not have a close button.
+
+<img
+  width="456"
+  alt="banners with a dismiss button"
+  src="https://github.com/primer/primitives/assets/813754/85c94192-eb1a-4e7c-8fc0-b3c5f31ac251"
+/>
+</Box>
+
+#### Exception: Critical banner
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <div>
+
+  Critical banners can't be dismissable. They are mostly used for errors which need to be resolved. As a result you can only get rid of a critical banner by resolving the error. If used to warn about   destructive actions, the banner should also not be dismissable.
+
+  If the error must be resolved on a different page, use an action that directs the user to the page where the error can be resolved.
+
+  </div>
+
+<img
+  width="456"
+  alt="a critical banner with no actions and one with a single action"
+  src="https://github.com/primer/primitives/assets/813754/a8684eed-5544-4d6d-a1c6-eda1376e95b5"
+/>
+
+</Box>
+
+### Actions
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <div>
+
+  A maximum of 2 actions can be added to a banner. Whenever possible it is recommended to only add a single action to better direct the users attention.
+
+  For banners with a single action, you can choose between adding a primary or secondary action depending on how much attention you want to draw to the action.
+
+  For banners with two actions, one of them must be primary and the other must be secondary. In this case, use the primary action for the recommended action. For example, the primary action enables a feature and the secondary action links more information.
+
+  </div>
+  <img
+    width="456"
+    alt="trailing actions on a banner"
+    src="https://github.com/primer/primitives/assets/813754/7c57bc61-ee0d-4673-86e9-550b945b117a"
+  />
+</Box>
+
+### Icon
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+
+The icon relates to the selected [variant](#variant) and can't be disabled. It can only be changed for banners of variant `info` or `upsell`.
+
+  <img
+    width="456"
+    alt="Three banners with leading icons. Success banner has its standard circle and check icon, upsell banner has a custom computer icon, and the info banner has a custom shield icon with a keyhole inside of the lock."
+    src="https://github.com/primer/primitives/assets/813754/9de199af-6488-4ae3-b4a7-14896f5cb719"
+  />
+
+</Box>
+
+
+## Layouts
+<img
+  width="960"
+  alt=""
+  src="https://github.com/primer/primitives/assets/813754/7aa6c298-3ca1-4e49-a95d-a774fda06a1d"
+/>
+
+The internal banner layout changes for large banners depending on its content.
+
+1. Banners with a single line of content have the actions and the dismiss button in the same line to keep them compact.
+2. If you add a title to the banner, the dismiss button will be aligned in the top right corner
+3. Banners with a title but no dismiss button will have the actions aligned to the top right corner
+4. A banner with a title, a dismiss button and one or two actions has the dismiss button aligned to the top right corner and the actions below the content aligned to the left
+
+### Responsive Design
+<img
+  width="960"
+  alt="One banner at full width, with all of the content in one row, the second banner is shrunk to a smaller width, the icon, wrapped text, and dismiss button all in one row, with the action item in the second row."
+  src="https://github.com/primer/primitives/assets/813754/43966e67-d512-46ab-a596-25b774789f81"
+/>
+
+On large screens the layout of the elements within the banner adjust depending on which elements are enabled. On small screens the banner always uses the stacked layout.
+
+### Position
+A banner should always be positioned as close to the section it relates to as possible.
+
+If a banner informs about something that relates to the current page, it should be placed above the pages headline. However, if the banner is only relevant to a portion of the page place it above the section it relates to.
+
+In dialogs banners are normally placed above the content just below the dialogs header. Since a dialog is normally small it can be compared to a section.
 
 ## Accessibility
 
