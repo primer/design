@@ -44,6 +44,7 @@ export const query = graphql`
       name
       status
       a11yReviewed
+      importPath
       stories {
         id
         code
@@ -76,8 +77,12 @@ export const query = graphql`
 `
 
 export default function ReactComponentLayout({data}) {
-  const {name, status, a11yReviewed, props: componentProps, subcomponents, stories} = data.reactComponent
-  const importStatement = `import {${name}} from '@primer/react${status === 'draft' ? '/drafts' : ''}'`
+  const {name, status, a11yReviewed, importPath, props: componentProps, subcomponents, stories} = data.reactComponent
+  // This is a temporary and very hacky fix to make sure TooltipV2 has the correct component name in the import path.
+  // We will remove this once https://github.com/primer/react/pull/4483 is merged and release.
+  let componentName = name
+  if (name === 'TooltipV2') componentName = 'Tooltip'
+  const importStatement = `import {${componentName}} from '${importPath}'`
 
   const tableOfContents = {
     items: [

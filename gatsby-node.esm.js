@@ -245,7 +245,7 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
 
   for (const component of Object.values(content.components)) {
     const newNode = {
-      ...{...component, componentId: component.id},
+      ...{...component, componentId: component.docsId || component.id},
       id: createNodeId(`react-${component.id}`),
       internal: {
         type: 'ReactComponent',
@@ -450,6 +450,7 @@ async function createComponentPages({actions, graphql}) {
       allReactComponent {
         nodes {
           reactId: componentId
+          docsId
           status
         }
       }
