@@ -32,7 +32,6 @@ Strive to maintain a balance between contextual clarity and minimal interruption
 
 This is the default behavior of clicking a link or submitting a form. The URL changes and the requested page loads.
 
-<!-- TODO: ask an engineer to confirm this is technically accurate -->
 In GitHub's single-page app architecture, this behavior is emulated without a traditional page reload.
 
 If you're navigating from a parent page to a child page, the child page should have a clear way to navigate back to the parent page. This is often done with [breadcrumbs](/components/breadcrumbs) or a "back" button.
@@ -303,9 +302,7 @@ For example, pagination should go directly below the collection it navigates.
     src="https://github.com/primer/design/assets/2313998/7d8bafeb-f971-45d2-ac0e-7850d7f81912"
 />
 
-A "parent" sidebar with a nav list or tree view that affects "detail" content. The "parent" navigation remains on screen while the user navigates between different "detail" views.
-
-On narrow viewports, the parent list may be stacked above the detail view or turned into an action menu. See the [responsive layout guidelines](/foundations/layout#page-types) for more info.
+A "parent" sidebar that affects "detail" content. The "parent" navigation remains on screen while the user navigates between different "detail" views.
 
 #### Tabbed interfaces
 
@@ -322,7 +319,7 @@ Tabbed interfaces enable seamless navigation between different subpages within a
 <img
     width="960"
     alt="Wireframe of a settings page with multiple nested sections"
-    src="https://github.com/primer/design/assets/2313998/88dedda4-355c-48ba-af14-9c01934dd276"
+    src="https://github.com/primer/design/assets/2313998/e924678e-1bf6-4317-8953-53d3cd6da3e3"
 />
 
 A [page header](/components/page-header) is the title area at the top of the main content region that shows the user where they are. It may also to contain navigational elements like breadcrumbs or a link to go up a level of hierarchy.
@@ -331,6 +328,166 @@ Use section headings to show the user where they are in the context of the page.
 
 See our [typographic style options](/primitives/storybook/?path=/story/typography-functional--overview) for heading styles.
 
+## Responsive sidebar navigation patterns
+
+On wide viewports, the sidebar is always visible. The way we show sidebar controls on narrow viewports depends on how the sidebar affects the main content area.
+
+### Sidebar as index of links to detail pages
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 2}}>
+
+<Box flex={1}>
+<img
+    alt="Wide repo settings page"
+    src="https://github.com/primer/design/assets/2313998/70299dbf-306d-4791-be02-e14da92e7dd4"
+/>
+<Caption role="presentation" color="fg.subtle">Wide viewports</Caption>
+</Box>
+
+<Box flex={1}>
+<img
+    alt="Index page next to detail page"
+    src="https://github.com/primer/design/assets/2313998/0a36f76d-17aa-4982-b67b-423b1374ec00"
+/>
+<Caption role="presentation" color="fg.subtle">Narrow viewports</Caption>
+</Box>
+
+</Box>
+
+On narrow viewports, the sidebar is not visible if the user is navigated to `/{parent}/{detail-page}`. To see the detail page links, users must go back to `/{parent}`.
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3, my: 4}}>
+
+<Box flex={1}>
+
+If the flow only allows users to go one level deep (for example, `/{parent}/{detail-page}`), show a link to navigate back to the parent route to see the sidebar as an index page.
+
+</Box>
+
+<Box flex={1} sx={{maxWidth: 456}}>
+<img
+    alt="Close-up of header with back arrow"
+    src="https://github.com/primer/design/assets/2313998/25f52e90-5c4f-405f-92ce-341e8d5d6032"
+/>
+</Box>
+
+</Box>
+
+
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3, my: 4}}>
+
+<Box flex={1}>
+
+If the flow allows the user to go deeper than the detail page (for example, `{parent}/{detail-page}/{child-route}`), use a [breadcrumb](/components/breadcrumbs) to allow users to navigate anywhere in the hierarchy. The breadcrumbs may also be visible on wide viewports, but it's not really needed since the user can use the link in the sidebar to go up a level.
+
+</Box>
+
+<Box flex={1} sx={{maxWidth: 456}}>
+<img
+    alt="Close-up of header with breadcrumbs"
+    src="https://github.com/primer/design/assets/2313998/3d203719-dfba-4d3d-9fb5-c4f07598a4c1"
+/>
+</Box>
+
+</Box>
+
+<Box sx={{mb: 6}}>
+
+You can see examples of this pattern implemented using Primer React components in Storybook:
+
+- [PageLayout / Examples / Parent-detail (w/ back arrow)](/react/storybook?path=/story/components-pagelayout-examples--parent-detail)
+- [PageLayout / Examples / Parent-detail (w/ breadcrumbs)](/react/storybook?path=/story/components-pagelayout-examples--parent-detail-breadcrumb)
+
+</Box>
+
+### Sidebar as set of filter options
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{ gap: 3, my: 4}}>
+
+<Box flex={2}>
+<img
+    alt="Wide marketplace redesign page"
+    src="https://github.com/primer/design/assets/2313998/74d3dba1-58c9-4912-bcb0-e5bd095c5899"
+/>
+<Caption role="presentation" color="fg.subtle">Wide viewports</Caption>
+</Box>
+
+<Box flex={1}>
+<img
+    alt="Marketplace page on small screen with action menu open"
+    src="https://github.com/primer/design/assets/2313998/b2d5fbd6-77e5-4d13-8f73-68217aaf907a"
+/>
+<Caption role="presentation" color="fg.subtle">Narrow viewports</Caption>
+</Box>
+
+</Box>
+
+On narrow viewports, the sidebar is hidden and filter options become items in a menu. Putting the menu options in a menu saves screen real estate without removing them from the page.
+
+You can see examples of this pattern implemented using Primer React components in Storybook:
+
+- [PageLayout / Examples / Filters (action menu on narrow)](/react/storybook?path=/story/components-pagelayout-examples--filter-action-menu)
+- [PageLayout / Examples / Filters (bottom sheet on narrow)](/react/storybook?path=/story/components-pagelayout-examples--filter-bottom-sheet)
+- [PageLayout / Examples / Filters w/ 2 levels (bottom sheet on narrow)](/react/storybook?path=/story/components-pagelayout-examples--filter-bottom-sheet)
+
+#### Filter menu
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{ gap: 3, my: 4}}>
+
+<Box flex={1}>
+
+Use an [action menu](/components/action-menu) for most cases, but use a [bottom sheet dialog](/components/dialog#bottom-sheets) if there are too many options to comfortably fit in an action menu. There's no hard guideline on the max number of items for an action menu but you can use 15 as the max if you're unsure.
+
+##### Menu trigger options
+
+By default, add a new button to the main content area header. Activating this button opens the menu of filter options.
+
+</Box>
+
+<img
+    width="456"
+    alt="Marketplace page on small screen with action menu open"
+    src="https://github.com/primer/design/assets/2313998/263cc002-0e1f-4413-bb5b-b760385581a5"
+/>
+
+</Box>
+
+<Box sx={{mb: 6}}>
+
+Alternatively, you may use the content area's heading as a trigger to open the menu of filter options when activated. This pattern is useful for keeping the page header clean by repurposing the heading as a control instead of adding another button to the header. The heading text will be the same as the currently selected filter, so this pattern works when the names of the filters describe the page content.
+
+Since the heading will contain a button, it should be perceivable as an interactive element: it should have styles for interative states (hover, focus, and pressed) and a trailing dropdown triangle to differntiate it from plain text.
+
+</Box>
+
+### Sidebar with a mix of detail page links and filter options
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 2}}>
+
+<Box flex={1}>
+<img
+    alt="Wide search page"
+    src="https://github.com/primer/design/assets/2313998/436586c9-0ef8-434c-80e0-efd4a8b76767"
+/>
+<Caption role="presentation" color="fg.subtle">Wide viewports</Caption>
+</Box>
+
+<Box flex={1}>
+<img
+    alt="Narrow search index page + Narrow search page with bottom sheet open"
+    src="https://github.com/primer/design/assets/2313998/4bd55169-aefb-4b05-bafc-bbebefbd4761"
+/>
+<Caption role="presentation" color="fg.subtle">Narrow viewports</Caption>
+</Box>
+
+</Box>
+
+This pattern is just a combination of the two previous patterns described in this section.
+
+On narrow viewports, the sidebar is hidden. Filter options become items in a menu, and detail page links are moved to a parent "index" view.
+
+You can see an example of this pattern implemented using Primer React components in Storybook: [PageLayout / Examples / Parent-detail + filters (filters as btm sheet on narrow)](?path=/story/components-pagelayout-examples--parent-detail-plus-filters)
 
 ## Accessibility
 
