@@ -25,7 +25,29 @@ Text can be colored using any of the [functional color tokens](../primitives/col
 
 See Primer Primitives [typography](../primitives/typography#styles) for more details about Primer's typography system.
 
-## Accessibility
+## Accessibility and usability expectations
+
+The component provides no semantic information. It's only function is to provide access to color tokens for styling text content.
+
+It is up to the designer / implemented to select the appropriate color token for the text content to ensure that it has sufficient contrast against the background color.
+
+### Built-in accessibility features
+
+None.
+
+### Implementation requirements
+
+When using the component, ensure that the color token used for the text content has sufficient contrast against the background color.
+
+### How to test the component
+
+#### Integration tests
+
+None
+
+#### Component tests
+
+- The text output has sufficient contrast against the background color.
 
 ### Known accessibility issues (GitHub staff only)
 
