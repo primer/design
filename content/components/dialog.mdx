@@ -398,7 +398,21 @@ Full-screen dialogs may be used to present content that needs all the available 
 />
 <Caption>Full-screen Dialog in portrait mode.</Caption>
 
-## Accessibility
+## Accessibility and usability expectations
+
+Modal dialogs must be clearly announced as dialogs by screen readers.
+
+Modal dialogs need to have an accessible name that informs the user of the purpose of the dialog. Generally, this accessible name should be presented visually as the title of the dialog. The title should concisely describe the contents or purpose of the modal.
+
+When a modal dialog is opened, focus must be programmatically moved into the dialog. In most cases, the first focusable control inside the dialog should receive focus.
+
+Once inside the modal dialog, focus must remain in the dialog - users must be prevented from navigating out of the dialog and back into the underlying page.
+
+The underlying page behind the modal dialog must be hidden from screen readers, to avoid users accidentally navigating out of the dialog (for instance, using browse mode or heading navigation).
+
+Dialogs must have a way to be closed by the user. In most cases, this functionality will be provided as an explicit graphical "X" close control, though depending on the purpose of the dialog, users may instead have to activate more specific controls (such as "OK" / "Cancel" buttons).
+
+When a dialog is closed, focus returns to the most logical location in the page – in general, this is the trigger control that originally opened the dialog.
 
 Dialog's title and close button are required to ensure an accessible experience for everyone. Further, keyboard and focus behavior must be considered.
 
@@ -446,6 +460,45 @@ Use extra caution when utilizing a live region that exists outside of the `<Dial
 This is because some browser and screen reader combinations may ignore the live region entirely if it does not already exist within the dialog.
 
 If you need to use a live region while a dialog is active, place the live region within the dialog, rather than outside of it.
+
+### Built-in accessibility features
+
+The Rails version of the component generates a `<dialog>` element with `aria-modal="true"`.
+
+The React version of the component generates a `<div>` element with `role="dialog"` and `aria-modal="true"`.
+
+When provided, the `title` prop for the component is rendered as an `<h1>` heading, and is explicitly referenced by the dialog using `aria-labelledby` to provide an accessible name for the dialog.
+
+By default, the generated dialog includes an "X" graphical close control, which receives focus automatically when the dialog is opened.
+
+In the Rails version of the component, you can use the `autofocus` property on interactive elements in the dialog's content to move the initial focus directly to a specific control. However, you should carefully consider when this approach is necessary – in general, it is best to keep dialogs consistent and let focus go to the "X" close control.
+
+Focus is maintained inside the dialog. The `aria-modal="true"` on the dialog hides the underlying page from screen readers.
+
+When the dialog is closed, focus is automatically moved back to the last element in the underlying page that had focus - generally, the control the triggered the dialog.
+
+### Implementation requirements
+
+Make sure to provide a sufficiently descriptive title for the modal dialog. The title should concisely describe the contents or purpose of the modal.
+
+In cases where the original trigger element that opened the dialog is not present in the page any more, or where the dialog was not opened as a result of a user action, you will need to explicitly handle which element will receive focus programmatically once the dialog is closed.
+
+#### Integration tests
+
+- The modal dialog has a sufficiently descriptive title rendered has a heading rendered as an `<h1>` heading
+- Once the dialog is closed, focus is returned to the most appropriate location in the page
+
+#### Component tests
+
+- The modal dialog programmatically exposes its role - either using `<dialog>` or `role="dialog"`
+- The modal dialog programmatically conveys that it is modal with `aria-modal="true"`
+- The `title` prop of the component is rendered as an `<h1>` heading, that it has an `id` attribute, and that this `id` is referenced from the dialog container itself with `aria-labelledby` to provide an accessible name
+- When the modal dialog is opened, focus is moved into the dialog - generally, to the first focusable control inside the dialog
+
+- In the Rails implementation, the control specified by the author with `autofocus` receives focus when the modal dialog is opened
+
+- Focus remains inside the dialog - using `Tab`/`Shift+Tab` must not result in focus landing in the underlying page
+- When the modal dialog is closed, focus is returned to the last element in the underlying page that was focused at the time the dialog was opened - typically, this will be the trigger element that opened the dialog
 
 ### Known accessibility issues (GitHub staff only)
 
