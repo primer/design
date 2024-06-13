@@ -213,6 +213,8 @@
       url: /components/avatar-pair
     - title: Avatar stack
       url: /components/avatar-stack
+    - title: Banner
+      url: /components/banner
     - title: Blankslate
       url: /components/blankslate
     - title: Border box
@@ -267,6 +269,8 @@
       url: /components/image
     - title: Image crop
       url: /components/image-crop
+    - title: Inline message
+      url: /components/inline-message
     - title: Label
       url: /components/label
     - title: Label group

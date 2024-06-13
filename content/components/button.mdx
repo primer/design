@@ -3,8 +3,8 @@ title: Button
 description: Button is used to initiate actions on a page or form.
 reactId: button
 railsIds:
-- Primer::Beta::Button
-- Primer::ButtonComponent
+  - Primer::Beta::Button
+  - Primer::ButtonComponent
 figmaId: button
 rails: https://primer.style/view-components/components/beta/button
 cssId: button
@@ -23,7 +23,7 @@ import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 ## Usage
 
-Buttons allow users to initiate an action or command when clicked or tapped. The button's label or text description indicates the purpose of the action to the user. At GitHub, buttons are a fundamental building block of our products. Most of the time, we use the "Default" button type, but other types of buttons may be used to indicate something special about the button's hierarchy or functionality.
+Buttons allow users to initiate an action or command when clicked or tapped. The button's label or text description indicates the purpose of the action to the user. At GitHub, buttons are a fundamental building block of our products. Most of the time, we use the `secondary` variant, but other variants of buttons may be used to indicate something special about the button's hierarchy or functionality.
 
 ## Anatomy
 
@@ -284,7 +284,7 @@ If you need to use an inactive button, it's best to have something else on the p
 There are two recommended ways an inactive button should respond to user input:
 
 1. **Show a dialog on click:** When a user tries to activate an inactive the button, open a [dialog](/components/dialog) that explains why the action cannot be completed and give them a path forward if possible. It is required to provide some kind of feedback when a user clicks a button.
-2. **Show a tooltip on hover or focus:** Before a user tries to activate a non-functional control, a [tooltip](/components/tooltip) with additional context may be displayed on hover or focus. It is *not* required to respond to hover and focus.
+2. **Show a tooltip on hover or focus:** Before a user tries to activate a non-functional control, a [tooltip](/components/tooltip) with additional context may be displayed on hover or focus. It is _not_ required to respond to hover and focus.
 
 </Box>
 
@@ -317,11 +317,11 @@ You may use a button loading state if we need to wait for a button's action to b
 
 ## Best practices
 
-### Primary and outline button usage
+### Primary variant
 
-Limit primary button usage. Only use one primary button on the page, whenever possible, to indicate its emphasis relative to other actions. Primary buttons have top priority in visual hierarchy, and using too many of them on a single view dilutes their effectiveness.
+Only use one primary button on a page, whenever possible, to indicate its emphasis relative to other actions.
 
-### Button usage
+### General
 
 <DoDontContainer>
   <Do>
@@ -428,6 +428,39 @@ Limit primary button usage. Only use one primary button on the page, whenever po
   </Dont>
 </DoDontContainer>
 
+### Selections
+
+Buttons are commonly used to show a choice within a [SelectPanel](/components/selectpanel) or [ActionMenu](/components/action-menu). In such instances, they are frequently paired with an internal or external label.
+
+<img
+  src="https://github.com/primer/design/assets/980622/81fce1c8-df1e-4b31-880b-0c947af4f018"
+  role="presentation"
+  alt="Two examples of dropdown buttons are shown. The left one has a label 'Visibility: Everybody' and is marked as 'Internal label'. The right one has an external label 'Visibility' above the button and a internal label 'Everybody', and is marked as 'External Label'."
+/>
+
+When dealing with multiple selections, it's essential to maintain clarity regarding the total selection at all times. We suggest showing the value directly within the button. However, in scenarios where multiple items are selected, transitioning to a format such as `2 selected` is advisable.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://github.com/primer/design/assets/980622/03a67b8b-9546-4f70-a91e-676623b92d87"
+      role="presentation"
+      width="456"
+      alt="Button with label 'Labels: 2 selected'"
+    />
+    <Caption>Use the '2 selected' format when multiple items are selected</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://github.com/primer/design/assets/980622/007b5564-f5ea-48b2-8f80-3935ccf3b5be"
+      role="presentation"
+      width="456"
+      alt="Button with label 'Labels: feature-request,bu...'"
+    />
+    <Caption>Don’t comma seperate multiple selections</Caption>
+  </Dont>
+</DoDontContainer>
+
 ## Accessibility
 
 ### Do not disable buttons
@@ -462,21 +495,25 @@ Read more about [descriptive buttons](/guides/accessibility/descriptive-buttons)
 
 When implementing a "loading" button state, don't remove the button from the DOM or pass the `disabled` attribute. Doing so would make it impossible to tab to the button. If the button was just focused and activated, it would reset focus. Resetting focus would disrupt the keyboard navigation flow, and creates a confusing experience for assistive technologies such as screen readers.
 
-Once the button is activated (and is in a loading state), it get the attribute `aria-disabled="true"`. 
+Once the button is activated (and is in a loading state), it get the attribute `aria-disabled="true"`.
 
 A separate, visually hidden element should be rendered outside of the `<button>` with a message to communicate the loading status. For example, "Saving profile".
 
 </Box>
 
-<CustomVideoPlayer loop autoplay width="350" src="https://github.com/primer/design/assets/2313998/b138567f-3ba8-49ab-9fa1-80a4fe30b034" />
+<CustomVideoPlayer
+  loop
+  autoplay
+  width="350"
+  src="https://github.com/primer/design/assets/2313998/b138567f-3ba8-49ab-9fa1-80a4fe30b034"
+/>
 
 </Box>
 
 This message should be in an ARIA live region, using `aria-live="polite"`. The live region must be present on page load, but the message inside the live region should only be rendered while the button is in a loading state.
 
-If an error prevents process from being completed, focus should be brought to an `<h2>` (or next relevant heading) of the error banner. 
-
+If an error prevents a process from being completed, focus should be brought to the relevant heading in the error banner.
 
 ### Known accessibility issues (GitHub staff only)
 
- <AccessibilityLink label="Button"/>
+<AccessibilityLink label="Button" />
