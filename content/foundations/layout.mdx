@@ -258,6 +258,8 @@ List-detail patterns, such as settings pages, can be split into different pages 
 
 In this behavior, only one of pane or content regions is shown. The user can switch between the two by selecting an item from the list to drill-in into its details, or navigate back using a parent link in the page header.
 
+See the [responsive sidebar navigation patterns](/navigation#responsive-sidebar-navigation-patterns) section of our navigation guidelines for more information.
+
   </Box>
   <Box justifyContent="center">
       <img
@@ -271,6 +273,8 @@ In this behavior, only one of pane or content regions is shown. The user can swi
 
 Panes can be displayed as bottom sheets when they’re used to display auxiliary information, such as metadata, details or actions. Use narrow viewport-specific button triggers to open the pane as a bottom sheet.
 
+If you're using a pane as a sidebar for navigating or filtering, see the [responsive sidebar navigation patterns](/navigation#responsive-sidebar-navigation-patterns) section of our navigation guidelines for more information.
+
   </Box>
   <Box justifyContent="center">
       <img
@@ -283,6 +287,8 @@ Panes can be displayed as bottom sheets when they’re used to display auxiliary
       <Heading as="h3" sx={{fontSize: 3, mb: 2}}>Stack vertically</Heading>
 
 In scenarios where the pane is used to display an overview of the content, it can be stacked vertically on top of the content region. Metadata and auxiliary information can appear stacked below the content region.
+
+Avoid stacking a pane on top of the main content area if the pane has a lot of links. It will push the main content down and force the user to scroll to get to the content. For alternative patterns, see the [responsive sidebar navigation patterns](/navigation#responsive-sidebar-navigation-patterns) section of our navigation guidelines.
 
 Additionally, a small pane summary may appear above the content, with a trigger used to display the full details as a bottom sheet.
 
