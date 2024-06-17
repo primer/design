@@ -287,6 +287,18 @@ When being used for navigation, activating a segmented control option may or may
 
 </Box>
 
+## Choosing a pattern for tabbed navigation
+
+When designing an interface with tabbed navigation, first reach for [underline nav](/components/underline-nav) (when clicking the tab changes the URL) or [underline panels](/components/underline-panels) (when clicking the tab just toggles tab panel visibility).
+
+If these components don't fit your use-case, you may use a [segmented control](/components/segmented-control#to-toggle-content-visibility) where the segments are links or `role="tab"`.
+
+<img
+    width="960"
+    alt="Decision tree for switching views using a tabbed interface. The tree begins with the statement 'I want to switch views using a tabbed interface' and splits into several paths: If the format of the content changes (e.g., changing between 'List' and 'Grid' views), and the selection switches content visibility like tabs, use a SegmentedControl that is a tablist, with each view as its own tab panel. If not, use a SegmentedControl with link segments. If the items are mutually exclusive options that sort content on the page, and the URL changes when you activate an item, use a SegmentedControl with button segments. If not, use a SegmentedControl with link segments. If the items are mutually exclusive options that filter content on the page, and there is an option like 'All' that removes the filter, use UnderlinePanels. If not, and the URL changes when you activate an item, use UnderlinePanels. If not, use UnderlineNav."
+    src="https://github.com/primer/design/assets/2313998/21c827ba-9e08-4267-a7a9-a9ce7a72cd30"
+/>
+
 ## Layout
 
 Layout is used to structure your content in a way that reflects the hierarchy of the navigation within the app. Navigational elements should be laid out in close proximity to the content they affect.
