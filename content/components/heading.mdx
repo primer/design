@@ -50,6 +50,36 @@ The heading component provides styles with appropriate text sizes to provide a v
 
 The default heading text has sufficient color contrast against a white background.
 
+### Handling subheadings, eyebrows, and straplines
+
+Eyebrows are "subheading" treatments, where the heading text's visual treatment includes a word or phrase placed above or below the main heading in a smaller font size.
+
+Eyebrows should be incorporated as part of the heading element, and have their visual styling modified via a `span` element applied to the eyebrow word or phrase. Primer [typography utility styles](/foundations/css-utilities/typography/) can be used to accomplish this.
+
+```html
+<h2>
+  <span class="h4 lh-condensed text-uppercase">
+    Eyebrow
+  </span>
+  Heading
+</h2>
+```
+
+Straplines are short pieces of text that are used to augment and provide additional context or information about the heading. They augment the heading content, but are not necessary for understanding. Because of this, the strapline content is not included in the heading element.
+
+A parent landmark element must be used to communicate the programatic association between the heading and its strapline.
+
+```html
+<header>
+  <h2>
+    Heading
+  </h2>
+  <p>
+    Strapline
+  </p>
+</header>
+```
+
 ### Implementation requirements
 
 When using the component, configure it with the heading level provided in annotated designs or with the appropriate level for the structure of the document and content. It should be noted that the visual design may not always match the annotated heading level, and the annotation should always supersede the visual in the implementation if they differ.
