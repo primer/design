@@ -98,7 +98,6 @@ For more information about viewport ranges and breakpoints, check the [Responsiv
 To provide more space for content on smaller screens, the padding should be adjusted according to the different breakpoints.
 
 The padding is applied directly to the content or pane area, not to its parent container.
-For example when setting the content area to `xlarge`, the width of the content area will have a max-width of 1280px. The 1280px includes the padding, which means that visually, the width of the content area on an `xlarge` breakpoint will only be 1232px.
 
 | Breakpoint | Content | Pane |
 | ---------- | ------- | ---- |
@@ -108,6 +107,8 @@ For example when setting the content area to `xlarge`, the width of the content 
 | `large`    | 16px    | 16px |
 | `xlarge`   | 24px    | 16px |
 | `xxlarge`  | 24px    | 16px |
+
+For example, the content area on an `xlarge` breakpoint will have a max-width of 1280px. The 1280px includes the 24px padding, which means that visually, the max-width of the content area on an xlarge breakpoint will only be 1232px.
 
 ![The GitHub settings page when viewed on a `xlarge` breakpoint with it's padding annotated.](https://github.com/user-attachments/assets/4e47b827-3263-4b4b-a59a-d71d3df1fcd4)
 
