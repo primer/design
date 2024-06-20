@@ -8,54 +8,258 @@ Primer ViewComponents is an implementation of the Primer Design System, using [V
 
 <Note variant="warning">This library is under active pre-1.0 development. Breaking changes are likely in patch releases.</Note>
 
-## Getting started
+## Background
 
-In your `Gemfile`, add:
+In recent years the Rails front-end landscape has become fairly complex. In the past, the mechanism for delivering JavaScript and CSS from a Rails app was the asset pipeline, powered by the sprockets and sprockets-rails gems. The asset pipeline was responsible for compiling, minifying, digesting, and serving assets, making it an all-in-one solution.
 
-```ruby
-gem "primer_view_components"
-```
+In later versions of Rails, the asset pipeline was superceded by Webpack via the webpacker gem. Webpack is highly configurable and capable of handling JavaScript and CSS via plugins. Out of the box, Rails only configures Webpack to handle JavaScript, continuing to rely on the asset pipeline for CSS.
 
-In `config/application.rb`, add **after the application definition**:
+In version 7, the Rails project introduced several new gems: [jsbundling-rails](https://github.com/rails/jsbundling-rails), [cssbundling-rails](https://github.com/rails/cssbundling-rails), and [propshaft](https://github.com/rails/propshaft). Rather than provide the deep integration with the Rails framework their predecessors provided, these gems delegate to command-line tools written in other languages (usually JavaScript) to process JavaScript and CSS. jsbundling-rails supports bun, esbuild, rollup, and webpack as a legacy option. cssbundling-rails supports tailwind, bootstrap, bulma, postcss, and sass. Rails auto-generates entries in package.json for `build` and `build:css` scripts which compile JavaScript and CSS respectively.
 
-```ruby
-require "view_component"
-require "primer/view_components"
-```
+Propshaft is a replacement for the asset pipeline (Sprockets) that offers a reduced set of features suitable for serving static assets that don't require a build step.
 
-### CSS
+## How to use this guide
 
-Load CSS as a JS module into the pipeline. Update `app/assets/config/manifest.js` with:
+This guide is designed to get your Rails app up and running with primer_view_components and offers sub-sections for each of the technologies referenced above. Generally speaking, follow these steps:
 
-```js
-//= link primer_view_components.css
-```
+1. Follow the list of [common steps](#common-steps) below.
+1. Find the sub-section for your app's front-end setup.
+    1. For all-in-one solutions, follow the sub-section for [Sprockets](#sprockets) or [Propshaft](#propshaft).
+    1. Otherwise, follow the sub-sections for your [JavaScript bundler](#javascript-bundlers) and [CSS bundler](#css-bundlers) respectively.
+1. Profit!
 
-Add it in your `application.html.erb` in the `<head>` tag:
+## Common steps
 
-```erb
-<%= stylesheet_link_tag("primer_view_components") %>
-```
+1. Install the primer_view_components gem. You can add it to your Gemfile and run `bundle install` or run `bundle add primer_view_components`.
+1. Install the @primer/view-components, @primer/css, and @primer/primitives JavaScript packages from NPM using yarn (eg. `yarn add @primer/view-components`, etc). If your application doesn't have a package.json, install yarn via `npm install -g yarn`, then run `yarn init`. If you're using Bun, run `bun init` instead.
+1. Add the following lines to the very bottom of config/application.rb:
 
-### JS
+    ```ruby
+    require "view_component"
+    require "primer/view_components"
+    ```
 
-Optionally, to add the JavaScript behaviours, in your `application.html.erb` in the `<head>` tag add:
+## All-in-one solutions
 
-```erb
-<%= javascript_include_tag("primer_view_components") %>
-```
+### Sprockets
 
-Or alternatively, you can install the `@primer/view-components` npm package and in your JavaScript code add:
+Sprockets is a legacy JavaScript and CSS bundler for Rails that's still used in numerous apps.
 
-```js
-import '@primer/view-components'
-```
+1. Add your node_modules/ directory to Sprocket's load path by adding the following line to config/application.rb:
 
-You can also import only the components you need:
+    ```ruby
+    config.assets.paths << Rails.root.join("node_modules")
+    ```
 
-```js
-import '@primer/view-components/tab_container'
-```
+1. If it's not already there, add the following line to the Sprockets manifest at app/assets/config/manifest.js. This ensures Sprockets will precompile all the .js files in the app/javascript/ directory:
+
+    ```javascript
+    //= link_directory ../javascript .js
+    ```
+
+1. Inside app/javascript/application.js (create it if it doesn't exist), require primer_view_component's pre-bundled JavaScript file. Sprockets knows about this file because we added node_modules/ to its load path earlier:
+
+    ```javascript
+    //= require @primer/view-components/app/assets/javascripts/primer_view_components.js
+    ```
+
+1. Add the following lines to app/assets/stylesheets/application.css. These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The full list of supported themes is available [here](/foundations/primitives/getting-started#usage):
+
+    ```css
+    //= require @primer/css/dist/primer.css
+    //= require @primer/view-components/app/assets/styles/primer_view_components.css
+    //= require @primer/primitives/dist/css/primitives.css
+    //= require @primer/primitives/dist/css/functional/themes/light.css
+    //= require @primer/primitives/dist/css/functional/themes/dark.css
+    ```
+
+1. Add the following inside the `<head></head>` tags in app/views/layouts/application.html.erb:
+
+    ```erb
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+    ```
+
+1. Also in app/views/layouts/application.html.erb, add the following attributes to the `<body>` tag. If you chose to bundle different themes, use the names of those themes instead:
+
+    ```html
+    <body data-color-mode="light" data-light-theme="light" data-dark-theme="dark">
+    ```
+
+### Propshaft
+
+Propshaft is an asset pipeline library for Rails that replaces the Sprockets-based asset pipeline introduced in Rails 3.
+
+1. Add your node_modules/ directory to Propshaft's load path by adding the following line to config/application.rb:
+
+    ```ruby
+    config.assets.paths << Rails.root.join("node_modules")
+    ```
+
+1. Add the following inside the `<head></head>` tags in app/views/layouts/application.html.erb. These lines request primer_view_component's JavaScript code, shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also pulling in several color themes named "light" and "dark." The full list of supported themes is available [here](/foundations/primitives/getting-started#usage):
+
+    ```erb
+    <%= stylesheet_link_tag "@primer/css/dist/primer.css", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "@primer/view-components/app/assets/styles/primer_view_components.css", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "@primer/primitives/dist/css/primitives.css", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "@primer/primitives/dist/css/functional/themes/light.css", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "@primer/primitives/dist/css/functional/themes/dark.css", "data-turbo-track": "reload" %>
+
+    <%= javascript_include_tag "@primer/view-components/app/assets/javascripts/primer_view_components.js", "data-turbo-track": "reload" %>
+    ```
+
+1. Also in app/views/layouts/application.html.erb, add the following attributes to the `<body>` tag. If you chose to bundle different themes, use the names of those themes instead:
+
+    ```html
+    <body data-color-mode="light" data-light-theme="light" data-dark-theme="dark">
+    ```
+
+## JavaScript bundlers
+
+Rails 7 supports a number of JavaScript bundlers that all work in a similar fashion. JavaScript packages are installed via yarn, imported into an entrypoint file, and served to the browser.
+
+### Import maps
+
+Unfortunately at the time of this writing (June 2024), it is not possible to use primer_view_components with import maps. A number of primer_view_component's JavaScript dependencies attempt to import paths that the import map isn't expecting (eg. tab-container-element).
+
+### Webpack
+
+While Webpack can bundle both CSS and JavaScript, Rails applications that use the webpacker gem are only equipped to bundle JavaScript by default.
+
+1. Add the following line to app/javascript/application.js:
+
+    ```javascript
+    import "@primer/view-components"
+    ```
+
+1. Modify webpack.config.js by setting the output -> iife option to `false`. This will prevent Webpack from wrapping the bundled code in an Immediately Invoked Function Expression (IIFE), which prevents defining the custom elements primer_view_components needs to work properly:
+
+    ```javascript
+    module.exports = {
+        // ...
+        output: {
+            iife: false
+        }
+        // ...
+    }
+    ```
+
+### esbuild
+
+esbuild is an "extremely fast bundler for the web" and is quickly becoming a popular choice for Rails apps.
+
+1. Add the following line to app/javascript/application.js:
+
+    ```javascript
+    import "@primer/view-components"
+    ```
+
+### Rollup
+
+Rollup is a longstanding JavaScript bundler known for being simpler than other bundlers.
+
+1. Add the following line to app/javascript/application.js:
+
+    ```javascript
+    import "@primer/view-components"
+    ```
+
+1. When Rollup runs, you might see a warning of the form `(!) "this" has been rewritten to "undefined"` printed to the console. The warning can safely be ignored. To prevent it from printing to the console, add an `onwarn` function to the config in rollup.config.js:
+
+    ```javascript
+    export default {
+        // ...
+        onwarn: (warning, warn) => {
+            if (warning.code === "THIS_IS_UNDEFINED") return
+            warn(warning)
+        }
+    }
+    ```
+
+### Vite
+
+Vite is a JavaScript bundler known for its speed. It uses esbuild and Rollup under the hood.
+
+The steps below assume you've installed the vite_rails gem and run the installer.
+
+1. Add the following line to app/frontend/entrypoints/application.js:
+
+    ```javascript
+    import "@primer/view-components"
+    ```
+
+### Bun
+
+Bun is an up-and-coming, fast, all-in-one JavaScript toolkit.
+
+1. Add the following line to app/frontend/entrypoints/application.js:
+
+    ```javascript
+    import "@primer/view-components"
+    ```
+
+## CSS bundlers
+
+Rails 7 supports a number of CSS bundlers that all work in a similar fashion.
+
+### postcss
+
+postcss is "a tool for transforming CSS with JavaScript" and is the de-facto tool for CSS manipulation.
+
+1. Add the following lines to app/assets/stylesheets/application.postcss.css. These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The full list of supported themes is available [here](/foundations/primitives/getting-started#usage):
+
+    ```css
+    @import "@primer/css/dist/primer.css";
+    @import "@primer/view-components/app/assets/styles/primer_view_components.css";
+    @import "@primer/primitives/dist/css/primitives.css";
+    @import "@primer/primitives/dist/css/functional/themes/light.css";
+    @import "@primer/primitives/dist/css/functional/themes/dark.css";
+    ```
+
+1. In app/views/layouts/application.html.erb, add the following attributes to the `<body>` tag. If you chose to bundle different themes, use the names of those themes instead:
+
+    ```html
+    <body data-color-mode="light" data-light-theme="light" data-dark-theme="dark">
+    ```
+
+### sass
+
+According to their website, "Sass is the most mature, stable, and powerful professional grade CSS extension language in the world."
+
+1. Add the following lines to app/assets/stylesheets/application.sass.scss. These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The full list of supported themes is available [here](/foundations/primitives/getting-started#usage):
+
+    ```css
+    @use "@primer/css/dist/primer.css";
+    @use "@primer/view-components/app/assets/styles/primer_view_components.css";
+    @use "@primer/primitives/dist/css/primitives.css";
+    @use "@primer/primitives/dist/css/functional/themes/light.css";
+    @use "@primer/primitives/dist/css/functional/themes/dark.css";
+    ```
+
+1. In app/views/layouts/application.html.erb, add the following attributes to the `<body>` tag. If you chose to bundle different themes, use the names of those themes instead:
+
+    ```html
+    <body data-color-mode="light" data-light-theme="light" data-dark-theme="dark">
+    ```
+
+### Tailwind
+
+Tailwind is a popular, utility-first CSS framework. Since Tailwind uses PostCSS under the hood, it supports the `@import` directive for pulling in other CSS files.
+
+1. Add the following lines _at the top_ of app/assets/stylesheets/application.tailwind.css (it's important they come _before_ any of the lines that begin with `@tailwind`). These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The full list of supported themes is available [here](/foundations/primitives/getting-started#usage):
+
+    ```css
+    @import "@primer/css/dist/primer.css";
+    @import "@primer/view-components/app/assets/styles/primer_view_components.css";
+    @import "@primer/primitives/dist/css/primitives.css";
+    @import "@primer/primitives/dist/css/functional/themes/light.css";
+    @import "@primer/primitives/dist/css/functional/themes/dark.css";
+    ```
+
+1. In app/views/layouts/application.html.erb, add the following attributes to the `<body>` tag. If you chose to bundle different themes, use the names of those themes instead:
+
+    ```html
+    <body data-color-mode="light" data-light-theme="light" data-dark-theme="dark">
+    ```
 
 ## Usage
 
