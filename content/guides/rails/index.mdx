@@ -28,7 +28,6 @@ This guide is designed to get your Rails app up and running with primer_view_com
 1. Find the sub-section for your app's front-end setup.
     1. For all-in-one solutions, follow the sub-section for [Sprockets](#sprockets) or [Propshaft](#propshaft).
     1. Otherwise, follow the sub-sections for your [JavaScript bundler](#javascript-bundlers) and [CSS bundler](#css-bundlers) respectively.
-1. Profit!
 
 ## Common steps
 
@@ -44,8 +43,6 @@ This guide is designed to get your Rails app up and running with primer_view_com
 ## All-in-one solutions
 
 ### Sprockets
-
-Sprockets is a legacy JavaScript and CSS bundler for Rails that's still used in numerous apps.
 
 1. Add your node_modules/ directory to Sprocket's load path by adding the following line to config/application.rb:
 
@@ -88,8 +85,6 @@ Sprockets is a legacy JavaScript and CSS bundler for Rails that's still used in 
     ```
 
 ### Propshaft
-
-Propshaft is an asset pipeline library for Rails that replaces the Sprockets-based asset pipeline introduced in Rails 3.
 
 1. Add your node_modules/ directory to Propshaft's load path by adding the following line to config/application.rb:
 
@@ -147,8 +142,6 @@ While Webpack can bundle both CSS and JavaScript, Rails applications that use th
 
 ### esbuild
 
-esbuild is an "extremely fast bundler for the web" and is quickly becoming a popular choice for Rails apps.
-
 1. Add the following line to app/javascript/application.js:
 
     ```javascript
@@ -156,8 +149,6 @@ esbuild is an "extremely fast bundler for the web" and is quickly becoming a pop
     ```
 
 ### Rollup
-
-Rollup is a longstanding JavaScript bundler known for being simpler than other bundlers.
 
 1. Add the following line to app/javascript/application.js:
 
@@ -178,8 +169,6 @@ Rollup is a longstanding JavaScript bundler known for being simpler than other b
     ```
 
 ### Vite
-
-Vite is a JavaScript bundler known for its speed. It uses esbuild and Rollup under the hood.
 
 The steps below assume you've installed the vite_rails gem and run the installer.
 
@@ -205,8 +194,6 @@ Rails 7 supports a number of CSS bundlers that all work in a similar fashion.
 
 ### postcss
 
-postcss is "a tool for transforming CSS with JavaScript" and is the de-facto tool for CSS manipulation.
-
 1. Add the following lines to app/assets/stylesheets/application.postcss.css. These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The [full list of supported themes](/foundations/primitives/getting-started#usage) is available in the Primer CSS documentation.
 
     ```css
@@ -224,8 +211,6 @@ postcss is "a tool for transforming CSS with JavaScript" and is the de-facto too
     ```
 
 ### sass
-
-According to their website, "Sass is the most mature, stable, and powerful professional grade CSS extension language in the world."
 
 1. Add the following lines to app/assets/stylesheets/application.sass.scss. These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The [full list of supported themes](/foundations/primitives/getting-started#usage) is available in the Primer CSS documentation.
 
@@ -245,7 +230,7 @@ According to their website, "Sass is the most mature, stable, and powerful profe
 
 ### Tailwind
 
-Tailwind is a popular, utility-first CSS framework. Since Tailwind uses PostCSS under the hood, it supports the `@import` directive for pulling in other CSS files.
+Since Tailwind is implemented as a PostCSS plugin under the hood, it supports the `@import` directive for pulling in other CSS files.
 
 1. Add the following lines _at the top_ of app/assets/stylesheets/application.tailwind.css (it's important they come _before_ any of the lines that begin with `@tailwind`). These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The [full list of supported themes](/foundations/primitives/getting-started#usage) is available in the Primer CSS documentation.
 
