@@ -63,7 +63,7 @@ Sprockets is a legacy JavaScript and CSS bundler for Rails that's still used in 
     //= require @primer/view-components/app/assets/javascripts/primer_view_components.js
     ```
 
-1. Add the following lines to app/assets/stylesheets/application.css. These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The full list of supported themes is available [here](/foundations/primitives/getting-started#usage):
+1. Add the following lines to app/assets/stylesheets/application.css. These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The [full list of supported themes](/foundations/primitives/getting-started#usage) is available in the Primer CSS documentation.
 
     ```css
     //= require @primer/css/dist/primer.css
@@ -95,7 +95,7 @@ Propshaft is an asset pipeline library for Rails that replaces the Sprockets-bas
     config.assets.paths << Rails.root.join("node_modules")
     ```
 
-1. Add the following inside the `<head></head>` tags in app/views/layouts/application.html.erb. These lines request primer_view_component's JavaScript code, shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also pulling in several color themes named "light" and "dark." The full list of supported themes is available [here](/foundations/primitives/getting-started#usage):
+1. Add the following inside the `<head></head>` tags in app/views/layouts/application.html.erb. These lines request primer_view_component's JavaScript code, shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also pulling in several color themes named "light" and "dark." The [full list of supported themes](/foundations/primitives/getting-started#usage) is available in the Primer CSS documentation.
 
     ```erb
     <%= stylesheet_link_tag "@primer/css/dist/primer.css", "data-turbo-track": "reload" %>
@@ -205,7 +205,7 @@ Rails 7 supports a number of CSS bundlers that all work in a similar fashion.
 
 postcss is "a tool for transforming CSS with JavaScript" and is the de-facto tool for CSS manipulation.
 
-1. Add the following lines to app/assets/stylesheets/application.postcss.css. These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The full list of supported themes is available [here](/foundations/primitives/getting-started#usage):
+1. Add the following lines to app/assets/stylesheets/application.postcss.css. These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The [full list of supported themes](/foundations/primitives/getting-started#usage) is available in the Primer CSS documentation.
 
     ```css
     @import "@primer/css/dist/primer.css";
@@ -225,7 +225,7 @@ postcss is "a tool for transforming CSS with JavaScript" and is the de-facto too
 
 According to their website, "Sass is the most mature, stable, and powerful professional grade CSS extension language in the world."
 
-1. Add the following lines to app/assets/stylesheets/application.sass.scss. These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The full list of supported themes is available [here](/foundations/primitives/getting-started#usage):
+1. Add the following lines to app/assets/stylesheets/application.sass.scss. These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The [full list of supported themes](/foundations/primitives/getting-started#usage) is available in the Primer CSS documentation.
 
     ```css
     @use "@primer/css/dist/primer.css";
@@ -245,7 +245,7 @@ According to their website, "Sass is the most mature, stable, and powerful profe
 
 Tailwind is a popular, utility-first CSS framework. Since Tailwind uses PostCSS under the hood, it supports the `@import` directive for pulling in other CSS files.
 
-1. Add the following lines _at the top_ of app/assets/stylesheets/application.tailwind.css (it's important they come _before_ any of the lines that begin with `@tailwind`). These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The full list of supported themes is available [here](/foundations/primitives/getting-started#usage):
+1. Add the following lines _at the top_ of app/assets/stylesheets/application.tailwind.css (it's important they come _before_ any of the lines that begin with `@tailwind`). These lines import shared CSS styles from @primer/css, primer_view_component's CSS styles, and a bunch of CSS variables from @primer/primitives. Notice we're also importing several color themes named "light" and "dark." The [full list of supported themes](/foundations/primitives/getting-started#usage) is available in the Primer CSS documentation.
 
     ```css
     @import "@primer/css/dist/primer.css";
