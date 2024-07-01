@@ -8,7 +8,12 @@ import ComponentLayout from '~/src/layouts/component-layout'
 import {Link, Text} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
-import {AccessibilityLink} from '~/src/components/accessibility-link'
+import { AccessibilityLink } from '~/src/components/accessibility-link'
+
+<Note variant="warning">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Usage for this component is not encouraged</Text>
+  <Text>Instead, please see <Link as={GatsbyLink} to="/components/banner">banner</Link>.</Text>
+</Note>
 
 ## Usage
 

@@ -11,10 +11,16 @@ tags:
   - banner
 ---
 
-import {Heading, Link} from '@primer/react'
+import {Heading, Link, Text} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
-import {AccessibilityLink} from '~/src/components/accessibility-link'
+import { AccessibilityLink } from '~/src/components/accessibility-link'
+import { Link as GatsbyLink } from 'gatsby'
+
+<Note variant="warning">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Usage for this component is not encouraged</Text>
+  <Text>Instead, please see <Link as={GatsbyLink} to="/components/banner">banner</Link>.</Text>
+</Note>
 
 <img
   width="960"

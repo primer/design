@@ -1,0 +1,174 @@
+---
+title: Notification messaging
+description: Messaging components are used to provide important and relevant information to the user, including feedback, contextual information, product updates, and more.
+---
+
+import { Box } from '@primer/react'
+import { InfoIcon, CheckCircleIcon, StopIcon, AlertIcon } from '@primer/octicons-react'
+
+Primer messaging components:
+
+- Announcement (not yet available)
+- [Banner](../components/banner)
+- Inline message (coming soon)
+
+## Message types
+
+Messaging holds differing levels of prominence which can be used to determine the appropriate component to use. Most messages fall into one of the following categories, from most prominent to least:
+
+**System updates**: These types of message originate from GitHub and are not user initiated. A global site wide announcement (outage, missing payment details, critical and blocking) or messaging related to user account/permissions should use the **Announcement** component. System announcements related to a specific product area such as a single sign-on message should use the **Banner** component. System update type messages cannot be dismissed until the issue is resolved, or may be perminent if they are purely informative.
+
+**Feedback**: Communicates the result of a user action (submitting a form, toggling a setting, etc.) Feedback can be positive, negative, or a warning. Feedback is shown in either a **Banner** or **Inline message**. For forms, an inline message is used for individual field validation which may be combined with a banner if multiple fields have errors. Banners are placed at the top of the page or section they are related to, but still within the body content. Inline messages are placed near the action they are related to.
+
+**Awareness**: Communicates information that is relevant to the user but not necessarily related to an action they've taken. This type of message is typically used to provide context or additional information about a feature or product. A **Banner** using the `info` state might be used to suggest an action, while an **InlineMessage** might suggest a helpful tip.
+
+## Message states
+
+<img
+  width="960"
+  alt="A group of labels showing the proper icon and color combination for each message state"
+  src="https://github.com/primer/design/assets/18661030/bbcbe8a0-4d7f-47f0-9f20-c6cee406115f"
+/>
+
+### Visual treatment
+
+Primer offers six states for messaging components: info, warning, success, unavailable, critical, and upsell. Each state has a corresponding icon and color combination to help communicate the message's intent.
+
+Icons sized at 12px utilize the filled variant, white 14px and above utilize the outline variant.
+
+<img
+  width="960"
+  alt="An example of an input field with a 12px error message next to two examples of 14px icon usage, which uses an outline icon."
+  src="https://github.com/primer/design/assets/18661030/6ab6f9e9-d7e9-4f75-907f-0e08aec0db3c"
+/>
+
+### Overview
+
+Messaging components combine state with message type to provide the appropriate level of prominence. To determine which component to use for your message, start by identifying the message state.
+
+| State | Use case |
+|--------|--------|
+| <Box sx={{color: 'accent.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><InfoIcon /><span>Info</span></Box> | Highlights important information that has an influence on the current view or offers an action. |
+| <Box sx={{color: 'success.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><CheckCircleIcon /><span>Success</span></Box> | Informs about successfully completing an action. |
+| <Box sx={{color: 'attention.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><StopIcon /><span>Warning</span></Box> | Informs about a potential issue or consequence as the result of an action. |
+| <Box sx={{color: 'danger.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><AlertIcon /><span>Critical</span></Box> | Informs about an error that occured or warns about loss of access or data as a result of an action. |
+| <Box sx={{color: 'done.fg', display: 'flex', alignItems: 'center', gap: '0.5rem'}}><InfoIcon /><span>Upsell</span></Box> | Highlights features that are available for specific account types such as Enterprice. |
+
+### Info
+
+Use the `info` state to highlight messages that help users complete a task or that provide additional context.
+
+Examples:
+- Single sign on or other account related notifications
+- General information about a feature or setting
+
+<img
+  width="960"
+  alt="A single sign on info banner on the GitHub homepage"
+  src="https://github.com/primer/design/assets/18661030/1055049e-6db8-41d5-8cf8-e375bd0e8dea"
+/>
+
+### Warning
+
+Use the `warning` state to inform users of a potential issue, an important upcoming change that may impact their experience or a potentially unexpected consequence of an action.
+
+Examples:
+- An account setting will become required soon
+- A [degraded experience](./degraded-experiences) due to connectivity or GitHub availability
+- A non-destructive action with side-effects like costs or access changes is about to take place
+
+<img
+  width="960"
+  alt="A global warning banner above GitHub's global navigation bar inside a browser window."
+  src="https://github.com/primer/design/assets/18661030/468b73b1-de8b-45e0-b8bb-325516df942e"
+/>
+
+### Success
+
+Use the `success` state to notify users that the results of an action were successful if it is not apparent from other parts of the UI. **Use success messaging sparingly** and rely more on interaction context.
+
+Examples:
+- Saving an account setting if there's no page reload or redirect
+- A background process has successfully completed
+
+### Critical
+
+Use the `critical` state to notify users that an action was unsuccessful, to display form errors, or to inform that an action is destructive.
+
+Examples:
+- Form field is invalid upon submitting
+- A delete or transfer button
+
+<img
+  width="960"
+  alt="A critical error message on an input field within GitHub Issues."
+  src="https://github.com/primer/design/assets/18661030/5da2e479-6bc7-46dc-9179-46002412b9f5"
+/>
+
+### Neutral
+
+Reserve the `neutral` state for **inline** system related degraded experiences, or for surfacing account related permission messages.
+
+Examples:
+- A row of a data table could not be loaded
+- An item in a list could not be loaded
+- User does not have permissions to perform an action
+
+See [degraded experiences](./degraded-experiences) for more information.
+
+### Upsell
+
+Use the `upsell` state to highlight features that could be unlocked if the user upgrades their account.
+
+Examples:
+- Upgrade account to access a feature
+
+<img
+  width="960"
+  alt="An upsell banner inside the rulesets setting page on GitHub explaing that this feature can be used if the user upgrades to an Enterprise account."
+  src="https://github.com/primer/design/assets/18661030/924884b8-4b85-4967-898d-e0c2fcfaf785"
+/>
+
+## Placement
+
+Message proximity contributes to the prominence of a message. Whenever possible, place messages near the action they are related to.
+
+### Above global navigation
+
+Announcements displayed above the global navigation are reserved for site wide issues that require immediate attention. These messages are not dismissable and should only be used for critical issues that impact the entire site.
+
+<img
+  width="960"
+  alt="Highlights a global announcement banner above the GitHub global navigation bar inside a browser window."
+  src="https://github.com/primer/design/assets/18661030/3d843939-5100-424e-a9a4-d663c517432f"
+/>
+
+### Top of body
+
+If messaging pertains to an entire page or section, place it at the top of the body content. This is the most common placement for messaging components. Banners should fill the container width but maintain appropriate spacing between elements and not appear full width or flush under the global nav.
+
+<img
+  width="960"
+  alt="Highlights a banner at the top of the body inside a GitHub issue."
+  src="https://github.com/primer/design/assets/18661030/73a2ace1-e4fe-4255-850d-062c8d75b7a9"
+/>
+
+### Inline
+
+Inline messages are used to provide feedback on a specific action or input field. They should be placed near the action they are related to.
+
+<img
+  width="960"
+  alt="Highlights an inline message next to an input field inside a GitHub issue."
+  src="https://github.com/primer/design/assets/18661030/ea98bf69-1a7a-4061-8fce-2e2be4303b55"
+/>
+
+### Inside a dialog
+
+Banners should be placed below the Dialog header and appear full width within the Dialog content area. Prioritize showing messaging _inside_ the Dialog after an action rather than closing the Dialog and showing a banner within the page.
+
+<img
+  width="960"
+  alt="Highlights a banner inside a dialog showing an error state has occured."
+  src="https://github.com/primer/design/assets/18661030/f4e3a125-94b6-4b12-b9ec-6b881c25f82c"
+/>
