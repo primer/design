@@ -170,12 +170,13 @@ Use upsell banners to inform the users about a feature that can be enabled by up
   sx={{gap: 4}}
 >
 
+<Box>
 Banners with an `onDismiss` property automatically show a dismiss button. This should be used for banners that inform about something that the user can not solve. For example issues with the organization they are part of or informational banners. When it makes sense, the choice to dismiss the banner should be stored and the banner should not be shown again.
 
 Use the following as a guideline:
 * If you're on a page in which you can do other tasks, and the banner is not blocking / does not have to be addressed, then you should be able to have a close button.
 * If accidental closure of the banner would leave the user confused or missing something critical, it should not have a close button.
-
+</Box>
 <img
   width="456"
   alt="banners with a dismiss button"
