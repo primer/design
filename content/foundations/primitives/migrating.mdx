@@ -1,0 +1,323 @@
+---
+title: Migrating to CSS variables
+description:
+  Quick references for migrating from old Primer styling systems to new CSS variable primitives
+---
+
+## Migrating from `sx` props (Primer React)
+
+### Spacing
+
+
+#### Stacks
+
+[Stacks](https://primer.style/foundations/primitives/size#stack) are boxes containing flow content in a vertical or horizontal layout. These are usually `display: flex` or `grid` or `block`.
+
+##### Stack padding
+
+Use these values for the internal `padding` (including `p`, `px`, `py`, `pr`, etc shorthands) around the edge of the stack.
+
+`sx` keyword | resolved value | primitive
+--- | --- | ---
+`0` | 0px | `0`
+`1` | 4px | `--base-size-4`
+`2` | 8px | `--base-size-8`
+`3` | 16px | `--base-size-16`
+`4` | 24px | `--base-size-24`
+`5` | 32px | `--base-size-32`
+`6` | 40px | `--base-size-40`
+`7` | 48px | `--base-size-48`
+`8` | 64px | `--base-size-64`
+`9` | 80px | `--base-size-80`
+`10` | 96px | `--base-size-96`
+`11` | 112px | `--base-size-112`
+`12` | 128px | `--base-size-128`
+
+##### Stack margin
+
+<Note variant="warning">
+ Prefer not using margin since it leaks space outside of components. Try to convert margins to container padding and/or flex layout gap.
+</Note>
+
+See padding values above; there are no `margin` primitives.
+
+##### Stack content spacing
+
+This is typically the CSS `gap` in `flex` (with `flex-direction: column`) or `grid` layouts. Could also be the `margin` between items that have not been updated to flexbox/grid.
+
+`sx` keyword | resolved value | primitive
+--- | --- | ---
+`0` | 0px | `0`
+`1` | 4px | `--base-size-4`
+`2` | 8px | `--stack-gap-condensed`
+`3` | 16px | `--stack-gap-normal`
+`4` | 24px | `--stack-gap-spacious`
+`5` | 32px | `--base-size-32`
+`6` | 40px | `--base-size-40`
+`7` | 48px | `--base-size-48`
+`8` | 64px | `--base-size-64`
+`9` | 80px | `--base-size-80`
+`10` | 96px | `--base-size-96`
+`11` | 112px | `--base-size-112`
+`12` | 128px | `--base-size-128`
+
+#### Control stacks
+
+[Control stacks](https://primer.style/foundations/primitives/size#controls) are horizontal (inline) rows containing inline interactive items next to each other. For example, a set of buttons or labels. These are usually `display: flex` or `inline-flex` with `flex-direction: row`.
+
+<Note variant="info">
+ The size of the control stack depends on the size of the controls inside of it. For example, a stack containing a 'small' icon button is a 'small' stack.
+</Note>
+
+##### Control stack padding / margin
+
+Use the same padding and margin values as for a vertical Stack.
+
+##### Control stack content spacing
+
+The `gap` property in `flex` layouts, or item `margin` in older layouts.
+
+`sx` keyword | resolved value | primitive
+--- | --- | ---
+`0` | 0px | `0`
+`1` | 4px | `--base-size-4`
+`2` | 8px | `--controlStack-small-gap-condensed` <br /> `--controlStack-medium-gap-condensed` <br /> `--controlStack-large-gap-condensed`
+`3` | 16px | `--controlStack-small-gap-spacious` <br /> `--controlStack-medium-gap-spacious` <br /> `--controlStack-large-gap-spacious`
+`4` | 24px | `--base-size-24`
+`5` | 32px | `--base-size-32`
+`6` | 40px | `--base-size-40`
+`7` | 48px | `--base-size-48`
+`8` | 64px | `--base-size-64`
+`9` | 80px | `--base-size-80`
+`10` | 96px | `--base-size-96`
+`11` | 112px | `--base-size-112`
+`12` | 128px | `--base-size-128`
+
+#### Controls
+
+[Controls](https://primer.style/foundations/primitives/size#controls) are `Button`s, `Label`s, etc -- small building block elements.
+
+These values must be resolved on a case-by-case basis because they are different for each size of control, each density level, and for the top/bottom vs the sides. See [the primitives list](https://primer.style/foundations/primitives/size#controls) to find a good value or just use `--base-size` values for now.
+
+### Colors
+
+#### Canvas
+
+`sx` keyword | primitive
+--- | ---
+`canvas.default` | `--bgColor-default`
+`canvas.overlay` | `--overlay-bgColor`
+`canvas.inset` | `--bgColor-inset`
+`canvas.subtle` | `--bgColor-muted`
+
+#### Foreground
+
+`sx` keyword | primitive
+--- | ---
+`fg.default` | `--fgColor-default`
+`fg.muted` | `--fgColor-muted`
+`fg.subtle` | eliminated, use `--fgColor-muted` instead
+`fg.onEmphasis` | `--fgColor-onEmphasis`
+
+#### Border
+
+`sx` keyword | primitive
+--- | ---
+`border.default` | `--borderColor-default`
+`border.muted` | `--borderColor-muted`
+`border.subtle` | eliminated, use `--borderColor-muted` instead
+
+#### Accent
+
+`sx` keyword | primitive
+--- | ---
+`accent.fg` | `--fgColor-accent`
+`accent.emphasis` | `--bgColor-accent-emphasis`
+`accent.muted` | `--borderColor-accent-muted`
+`accent.subtle` | `--bgColor-accent-muted`
+
+#### Success, Attention, Severe, Danger, Open, Closed, Done, Sponsors
+
+`sx` keyword | primitive
+--- | ---
+`{name}.fg` | `--fgColor-{name}`
+`{name}.emphasis` | `--bgColor-{name}-emphasis`
+`{name}.muted` | `--borderColor-{name}-muted`
+`{name}.subtle` | `--bgColor-{name}-muted`
+
+### Fonts
+
+#### Font size
+
+Try to use the one that applies to the type of text you are styling:
+
+##### Titles
+
+`Heading` or similar components.
+
+`sx` keyword | resolved value | primitive
+--- | --- | ---
+`0` | 12px | `--base-size-12`
+`1` | 14px | `--base-size-14`
+`2` | 16px | `--text-title-size-small`
+`3` | 20px | `--text-title-size-medium`
+`4` | 24px | `--base-size-24`
+`5` | 32px | `--text-title-size-large`
+`6` | 40px | `--base-size-40`
+`7` | 48px | `--base-size-48`
+`8` | 56px | `--base-size-56`
+
+##### Body text
+
+`sx` keyword | resolved value | primitive
+--- | --- | ---
+`0` | 12px | `--text-body-size-small`
+`1` | 14px | `--text-body-size-medium`
+`2` | 16px | `--text-body-size-large`
+`3` | 20px | `--base-size-20`
+`4` | 24px | `--base-size-24`
+`5` | 32px | `--base-size-32`
+`6` | 40px | `--base-size-40`
+`7` | 48px | `--base-size-48`
+`8` | 56px | `--base-size-56`
+
+#### Font family
+
+`sx` keyword  | primitive
+--- | ---
+`normal` | `--fontStack-system` or explicitly `--fontStack-sansSerif`
+`mono`  | `--fontStack-monospace`
+
+### Borders
+
+#### Border color
+
+See: [Border colors](#border)
+
+#### Border width
+
+Prefer these primitives instead of previously used numbers or plain pixel values:
+
+`sx` keyword | resolved value | primitive
+--- | --- | ---
+`0` | 0px | `0`
+`1` | 1px | `--borderWidth-thin`
+| | 2px | `--borderWidth-thick`
+| | 3px | `--borderWidth-thicker`
+
+#### Border radius
+
+`sx` keyword | resolved value | primitive
+--- | --- | ---
+`0` | 0px | `0`
+`1` | 3px | `--borderRadius-small`
+`2` | 6px | `--borderRadius-medium`
+| | 12px | `--borderRadius-large`
+`3` | a lot | `--borderRadius-full`
+
+### Sizes and Breakpoints
+
+These are typically used for breakpoints, heights and widths.
+
+<Note variant="info">
+ For overlays (like dialogs), prefer the [new overlay primitives](https://primer.style/foundations/primitives/size#overlay). These sizes are not a 1:1 mapping with the old keywords.
+</Note>
+
+<Note variant="info">
+  CSS variables cannot be used in '@media' or '@container' query expressions. The plain pixel value must be used instead. Stay tuned for future media query support.
+</Note>
+
+`sx` breakpoint keyword | `sx` size keyword | resolved value | primitive
+--- | --- | --- | ---
+ | | | 320px | `--breakpoint-xsmall`
+`0` | `size.small` | 544px | `--breakpoint-small`
+`1` | `size.medium` | 768px | `--breakpoint-medium`
+`2` | `size.large` | 1012px | `--breakpoint-large`
+`3` | `size.xlarge` | 1280px | `--breakpoint-xlarge`
+ | | | 1400px | `--breakpoint-xxlarge`
+
+## Migrating from SCSS Variables
+
+Most legacy SCSS variables from Primer CSS have new CSS variable replacements.
+
+For values that have no replacement listed, use the raw value or find a replacement that is close in value.
+
+| Legacy `scss` variable | New `css` variable |
+| -- | -- |
+| $h00-size-mobile | `--text-display-size` |
+| $h0-size-mobile | `--text-title-size-large` |
+| $h1-size-mobile | 26px `deprecated` |
+| $h2-size-mobile | 22px `deprecated` |
+| $h3-size-mobile | 18px `deprecated` |
+| $h00-size | `--base-size-48` |
+| $h0-size | `--text-display-size` |
+| $h1-size | `--text-title-size-large` |
+| $h2-size | `--base-size-24` |
+| $h3-size | `--text-title-size-medium` |
+| $h4-size | `--text-title-size-small` |
+| $h5-size | `--text-body-size-medium` |
+| $h6-size | `--text-body-size-small` |
+| $font-size-small | `--text-body-size-small` |
+| $font-weight-bold | `--base-text-weight-semibold` |
+| $font-weight-semibold | `--base-text-weight-medium` |
+| $font-weight-normal | `--base-text-weight-normal` |
+| $font-weight-light | `--base-text-weight-light` |
+| $lh-condensed-ultra | 1 |
+| $lh-condensed | 1.25 |
+| $lh-default | 1.5 |
+| $body-font | `--fontStack-system` |
+| $mono-font | `--fontStack-monospace` |
+| $body-font-size | `--text-body-size-medium` |
+| $body-line-height | `--text-body-lineHeight-medium` |
+| $spacer | `--base-size-8` |
+| $spacer-0 | 0 `deprecated` |
+| $spacer-1 | `--base-size-4` |
+| $spacer-2 | `--base-size-8` |
+| $spacer-3 | `--base-size-16` |
+| $spacer-4 | `--base-size-24` |
+| $spacer-5 | `--base-size-32` |
+| $spacer-6 | `--base-size-40` |
+| $spacer-7 | `--base-size-48` |
+| $spacer-8 | `--base-size-64` |
+| $spacer-9 | `--base-size-80` |
+| $spacer-10 | `--base-size-96` |
+| $spacer-11 | `--base-size-112` |
+| $spacer-12 | `--base-size-128` |
+| $em-spacer-1 | 0.0625em `deprecated` |
+| $em-spacer-2 | 0.125em `deprecated`|
+| $em-spacer-3 | 0.25em `deprecated` |
+| $em-spacer-4 | 0.375em `deprecated` |
+| $em-spacer-5 | 0.5em `deprecated` |
+| $em-spacer-6 | 0.75em `deprecated` |
+| $size | `--base-size-16` |
+| $size-0 | 0 `deprecated` |
+| $size-1 | `--base-size-16` |
+| $size-2 | `--base-size-20` |
+| $size-3 | `--base-size-24` |
+| $size-4 | `--base-size-28` |
+| $size-5 | `--base-size-32` |
+| $size-6 | `--base-size-40` |
+| $size-7 | `--base-size-48` |
+| $size-8 | `--base-size-64` |
+| $container-width | 980px `deprecated` |
+| $grid-gutter | 10px `deprecated` |
+| $width-xs | 0 `deprecated` |
+| $width-sm | `--breakpoint-small` |
+| $width-md | `--breakpoint-medium` |
+| $width-lg | `--breakpoint-large` |
+| $width-xl | `--breakpoint-xlarge` |
+| $container-sm | `--breakpoint-small` |
+| $container-md | `--breakpoint-medium` |
+| $container-lg | `--breakpoint-large` |
+| $container-xl | `--breakpoint-xlarge` |
+| $viewport-narrow | `--viewportRange-narrow` |
+| $viewport-regular | `--viewportRange-regular` |
+| $viewport-wide | `--viewportRange-wide` |
+| $border-width | `--borderWidth-thin` |
+| $border-style | solid `deprecated` |
+| $border | `solid var(--borderWidth-thin) var(--borderColor-default)` |
+| $border-rem | `solid var(--borderWidth-thin) var(--borderColor-default)` |
+| $border-radius-1 | `--borderRadius-small` |
+| $border-radius-2 | `--borderRadius-medium` |
+| $border-radius-3 | 8px --borderRadius-medium` |
+| $border-radius | `--borderRadius-small` |

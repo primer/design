@@ -5,7 +5,7 @@ railsIds:
 - Primer::Alpha::ActionList
 figmaId: action_list
 description:
-  Action list is a vertical list of interactive actions or options. It's composed of items presented in a consistent.
+  Action list is a vertical list of interactive actions or options. It's composed of items presented in a consistent,
   single-column format, with room for icons, descriptions, side information, and other rich visuals.
 ---
 
@@ -207,19 +207,42 @@ Action list items can be selected. Single selections are represented with a [`ch
 
 Inactive action list item text still needs to meet an accessible color contrast ratio.
 
+It's required to show a tooltip with context about why the item is inactive. It should be triggered by the alert icon in the leading visual or trailing visual.
+
 If there's a leading visual, replace it with an alert icon.
 
-If there's *not* a leading visual, use an alert icon as the leading visual.
-
-It's required to show a tooltip with context about why the item is inactive. It should be triggered by the leading visual.
-
-Optionally, you may open a dialog when the user clicks the leading visual to show more detailed information about why the item is inactive.
+If there's *not* a leading visual, the alert icon is put in the same position as the trailing visual.
 
 See the [accessibility](#accessibility) section for information on the assistive technology user experience.
 
 </Box>
 
+<Box justifyContent="center">
+    <img
+        width="464"
+        alt="An action list with the first item in a loading state"
+        src="https://github.com/primer/design/assets/2313998/8811ddfa-1874-4a1d-a3ce-af39dd23bc62"
+    />
 </Box>
+<Box sx={{h3: {marginTop: 0}}}>
+
+### Loading items
+
+If an action list item is not yet interactive because the required data is still loading, it may be rendered in a loading state.
+
+The position of the loading icon depends on the same logic as where the alert icon goes in inactive items:
+
+If there's a leading visual, replace it with a loading indicator.
+
+If there's *not* a leading visual, the loading indicator is put in the same position as the trailing visual.
+
+</Box>
+
+</Box>
+
+## Responsive layout
+
+For information on responsive layout of an action list that is used in a sidebar, see the [responsive sidebar navigation patterns](/navigation#responsive-sidebar-navigation-patterns) section of our navigation guidelines for more information.
 
 ## Examples
 
@@ -320,4 +343,4 @@ The tooltip and optional dialog should be triggered by a button element that wra
 
 ### Known accessibility issues (GitHub staff only)
 
- <AccessibilityLink label="ActionList"/>
+<AccessibilityLink label="ActionList"/>

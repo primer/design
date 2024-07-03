@@ -1,0 +1,25 @@
+---
+title: Circle octicon
+description: Use circle octicon to render any Octicon with a circle background. CircleOcticons are most commonly used to represent the status of a pull request in the comment timeline.
+componentId: circle_octicon
+reactId: circle_octicon
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+
+<Note variant="warning">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Guidelines for this component are in progress</Text>
+  Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link>
+</Note>
+
+<br />
+
+## Accessibility
+
+### Known accessibility issues (GitHub staff only)
+
+<AccessibilityLink label="CircleOcticon"/>

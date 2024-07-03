@@ -1,0 +1,144 @@
+---
+title: Action list
+reactId: action_list
+reactStatus: deprecated
+description:
+  Action list is a vertical list of interactive actions or options. It's composed of items presented in a consistent,
+  single-column format, with room for icons, descriptions, side information, and other rich visuals.
+---
+
+import {ComponentPageNav} from '~/src/components/component-page-nav'
+import StatusMenu from '~/src/components/status-menu'
+import {AccessibilityLabel, StatusLabel} from '@primer/gatsby-theme-doctocat'
+import {Label} from '@primer/react'
+import { graphql } from "gatsby"
+
+export const query = graphql`
+  query {
+    primerReactVersion {
+      version
+    }
+    allReactComponent(filter: {componentId: {eq: "action_list"}}) {
+      nodes {
+        status
+      }
+    }
+  }
+`
+
+<Box style={{marginBottom: "24px"}}>
+  <ComponentPageNav
+    basePath="/components/action-list"
+    includeReact={true}
+    includeRails={true}
+    includeFigma={true}
+    current="react"
+  />
+</Box>
+
+<Box style={{display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "25px"}}>
+  <Box style={{display: "flex", gap: "5px"}}>
+    <Label size="large">@primer/react@v{props.data.primerReactVersion.version}</Label>
+    <StatusLabel status="Deprecated" />
+    <AccessibilityLabel a11yReviewed={false} short={false} />
+  </Box>
+  <Box>
+    <StatusMenu currentStatus="deprecated" statuses={[...props.data.allReactComponent.nodes.map((reactComponent) => reactComponent.status), "deprecated"]} parentPath="/components/action-list/react" />
+  </Box>
+</Box>
+
+An `ActionList` is a list of items which can be activated or selected. `ActionList` is the base component for many of our menu-type components, including and `ActionMenu`.
+
+## Deprecation
+
+Use the [new version of ActionList](/components/action-list/react) with composable API, design updates and accessibility fixes.
+
+### Before
+
+```jsx
+<ActionList
+  items={[
+    {text: 'New file'},
+    {text: 'Copy link'},
+    {text: 'Edit file'},
+    ActionList.Divider,
+    {text: 'Delete file', variant: 'danger'},
+  ]}
+/>
+```
+
+### After
+
+```jsx
+<ActionList>
+  <ActionList.Item>New file</ActionList.Item>
+  <ActionList.Item>Copy link</ActionList.Item>
+  <ActionList.Item>Edit file</ActionList.Item>
+  <ActionList.Divider />
+  <ActionList.Item variant="danger">Delete file</ActionList.Item>
+</ActionList>
+```
+
+Or continue using deprecated API:
+
+```js
+import {ActionList} from '@primer/react/deprecated'
+```
+
+## Minimal example
+
+```jsx live deprecated
+<ActionList
+  items={[
+    {text: 'New file'},
+    ActionList.Divider,
+    {text: 'Copy link'},
+    {text: 'Edit file'},
+    {text: 'Delete file', variant: 'danger'},
+  ]}
+/>
+```
+
+## Example with grouped items
+
+```jsx live deprecated
+<ActionList
+  groupMetadata={[
+    {groupId: '0'},
+    {groupId: '1', header: {title: 'Live query', variant: 'subtle'}},
+    {groupId: '2', header: {title: 'Layout', variant: 'subtle'}},
+    {groupId: '3'},
+    {groupId: '4'},
+  ]}
+  items={[
+    {key: '1', leadingVisual: TypographyIcon, text: 'Rename', groupId: '0', trailingVisual: '⌘R'},
+    {key: '2', leadingVisual: VersionsIcon, text: 'Duplicate', groupId: '0'},
+    {key: '3', leadingVisual: SearchIcon, text: 'repo:github/github', groupId: '1'},
+    {
+      key: '4',
+      leadingVisual: NoteIcon,
+      text: 'Table',
+      description: 'Information-dense table optimized for operations across teams',
+      descriptionVariant: 'block',
+      groupId: '2',
+    },
+    {
+      key: '5',
+      leadingVisual: ProjectIcon,
+      text: 'Board',
+      description: 'Kanban-style board focused on visual states',
+      descriptionVariant: 'block',
+      groupId: '2',
+    },
+    {
+      key: '6',
+      leadingVisual: FilterIcon,
+      text: 'Save sort and filters to current view',
+      disabled: true,
+      groupId: '3',
+    },
+    {key: '7', leadingVisual: FilterIcon, text: 'Save sort and filters to new view', groupId: '3'},
+    {key: '8', leadingVisual: GearIcon, text: 'View settings', groupId: '4'},
+  ]}
+/>
+```

@@ -73,11 +73,11 @@ Follow the [GitHub content guidelines](https://github.com/github/brand/blob/main
   - **Don’t:** “Do not use this class”, “We are happy to see you.”
 - Exclamation points are OK, in moderation.
 
-You may also refer to the content style guide for GitHub docs (accessible to GitHub staff only), in specific:
-- [Keyboard shortcuts](https://github.com/github/docs-internal/blob/main/contributing/content-style-guide.md#keyboard-shortcuts)
-- [Procedural steps](https://github.com/github/docs-internal/blob/main/contributing/content-style-guide.md#procedural-steps)
-- [Titles](https://github.com/github/docs-internal/blob/main/contributing/content-style-guide.md#procedural-steps) (of articles)
-- [User interface elements](https://github.com/github/docs-internal/blob/main/contributing/content-style-guide.md#procedural-steps)
+You may also refer to the content style guide for GitHub Docs, in specific:
+- [Keyboard shortcuts](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#keyboard-shortcuts)
+- [Procedural steps](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#procedural-steps)
+- [Titles](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#titles) (of articles)
+- [User interface elements](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#user-interface-elements)
 
 ## Images and other examples
 
@@ -169,6 +169,57 @@ The description appears directly under the title of the component. It may be aut
 #### Related components and patterns
 
 Any components or patterns that you may want to reference as related to this component. This could include components that are similar, or components that are used in conjunction with this component. See [Autocomplete](/components/autocomplete#related-components-and-patterns) as an example.
+
+### Minimum-viable component documentation
+
+One of the strategies to help Primer documentation become self-serve is to accurately represent the breadth of patterns and components we have available through our documentation.
+
+To do this, we are increasing our coverage to include 100% of available-for-use components temporarily in the primer/design repository. Executing on this plan requires us to be practical and concise in terms of the depth of the documentation. In order to ensure we can reach 100% coverage, we're using a "minimum-viable documentation" approach.
+
+Minimum-viable documentation should be:
+
+- Accurate
+- Informative but concise
+- Visible
+
+#### Minimum-viable component documentation structure
+
+Aside from components we deem to be high touch and therefore requiring more in-depth documentation, the majority of components that are missing usage guidelines will be documented with the following minimum requirements:
+
+##### Minimum-viable description
+
+- brief text describing what the component is
+- link to available implementations
+- image, if applicable
+
+##### Minimum-viable usage guidance
+
+- proper usage guides
+- visual examples, such as an image or gif demonstrating what the component is
+
+#### Add more documentation if it's readily available
+
+If more information (than required above) is easily accessible and doesn't require a huge time investment to include, it should be added to to the minimum-viable component documentation. Some examples of this include listing out related components, cross-linking to Accessibility guidelines, and more.
+
+### Tips and tricks
+
+- A great starting off point is to consolidate existing documentation for the component that's already available. Places to look:
+  - Figma ([Primer Web file](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=179%3A3870))
+  - [CSS documentation](https://primer.style/css/)
+  - [React Storybook](https://primer.style/react/storybook/?path=/story/)
+  - [Rails Lookbook](https://primer.style/view-components/lookbook)
+  - [Interface guidelines component documentation](/components)
+  - [Interface guidelines UI pattern documentation](/ui-patterns)
+  - [Interface guidelines Accessibility documentation](/guides/accessibility)
+  - Related components that may have guidelines applicable to your component
+  - Take a look at an existing component that was documented using this approach, such as [Action menu](/components/action-menu)
+
+#### Recommendations for tackling this work quickly and efficiently
+
+- Work in pairs or with a small group. Dedicate 1-2 components per person, with each person in the group responsible for reviewing the others' PRs.
+- Timebox each component to x hour(s) for writing, x hour(s) for reviewing, and x hour(s) for writing revisions.
+- If you feel blocked by a lack of information about the component to write useful documentation, move on to documenting a different component until we can get the context we need.
+
 ## Review process
 
 All pull requests for new and updated guidelines should be reviewed and approved by a member of the Design Infrastructure team. 

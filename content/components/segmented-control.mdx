@@ -17,38 +17,91 @@ import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 ## Anatomy
 
-![A diagram of a segmented control with three buttons. The labeled parts of the segmented control are: the selected third button, the icon in the second button, and the text label in the second button.](https://user-images.githubusercontent.com/2313998/182705417-c0e1dddb-6c6b-4746-9a02-0e3a9eb17017.png)
+![A diagram of a segmented control with three buttons. The labeled parts of the segmented control are: the selected third button, the icon in the second button, and the text label in the second button.](https://github.com/primer/design/assets/2313998/c5bf30c6-d66a-4708-90da-b5bfac3c034b)
 
 ## Usage
 
-A segmented control should only be used to change a value; it's similar to a group of radio inputs.
+### For implicitly saved settings
 
-A segmented control should not be used as a form of navigation: use tabs instead. If your primary use case is to hide or show content, that's a good hint that you should reach for tabs or another navigation pattern instead.
+<Box
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
 
-<DoDontContainer>
-  <Do>
+<Box flex={1}>
+
+The primary purpose of a segmented control is to pick a value from a list of options and immediately apply that selection. It's similar to a group of radio inputs except radio group selections need to be explicitly saved via form submission.
+
+</Box>
+
+<img
+  src="https://github.com/primer/design/assets/2313998/24017512-e1e5-47bb-9fbb-dc2ffb7e9c62"
+  role="presentation"
+  width="456"
+/>
+
+</Box>
+
+For more information about explicit and automatic save patterns, see the [saving pattern guidleines](/ui-patterns/saving).
+
+### To toggle content visibility
+
+<Note>
+
+  The current implementations of our segmented control do not support rendering segments as links (`<a>` tags).
+  Continue to avoid using segmented controls that change the URL until we have a solution for rendering segments as links.
+
+</Note>
+
+Segmented controls may also be used to change how content in a view is rendered. The following use cases are an acceptable use for a segmented control:
+
+- **Sort control**: Activating a segment affects the order of a list of items.
+- **Filter control**: Activating a segment affects the visibility of items in a list, and there is a segment that shows the full list.
+- **Content formatting picker**: Activating a segment changes the formatting of the same content.
+
+<Box
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <div>
     <img
-      src="https://user-images.githubusercontent.com/2313998/200646211-c7dd9308-76f8-46b5-a189-4ff332e3921f.png"
-      role="presentation"
+      src="https://github.com/primer/design/assets/2313998/dbec961f-64b2-4701-8d81-d178dd6ab206"
+      alt="A screenshot of a GitHub discussions list with the segmented segmented control for sorting highlighted. The sort options are 'Oldest', 'Newest', and 'Top'."
       width="456"
     />
-    <Caption>Use tabs for navigation or toggling content visibility.</Caption>
-  </Do>
-  <Dont>
+    <Caption>As a sort control</Caption>
+  </div>
+  <div>
     <img
-      src="https://user-images.githubusercontent.com/2313998/200646212-f17f7da8-276a-4f0e-80eb-d561fe250caf.png"
-      role="presentation"
+      src="https://github.com/primer/design/assets/2313998/6d3ddfc8-f8e9-44ca-ac5f-43cbdaaf8969"
+      alt="A screenshot of the GitHub organization insights page with the segmented control for filtering highlighted. The options are 'All results' and 'Open security advisories'. "
       width="456"
     />
-    <Caption>Don't use a segmented control for navigation or toggling content visibility.</Caption>
-  </Dont>
-</DoDontContainer>
+    <Caption>As a filter control</Caption>
+  </div>
+  <div>
+    <img
+      src="https://github.com/primer/design/assets/2313998/b56ef0a9-45b6-4cb0-9f7e-10921967ae36"
+      alt="A screenshot of the GitHub billing dashboard with a chart showing costs. The segmented control to switch between the chart type is highlighted. The options are 'Line', 'Area', and 'Bar'"
+      width="456"
+    />
+    <Caption>As a content formatting picker</Caption>
+  </div>
+</Box>
+
+If selecting a segment changes the URL, the segments should be rendered as `<a>` tags.
+
+See the [decision tree](/ui-patterns/navigation#choosing-a-pattern-for-tabbed-navigation) for choosing a pattern for tabbed interfaces for more detailed guidance and alternative patterns.
 
 ## Content
 
-### Buttons
+### Segments
 
-A segmented control should have 2–5 choices with text labels, or up to 6 icon-only buttons. Too many choices can be difficult to parse and take up too much horizontal space. If there are more than 5 choices, use another choice selection pattern such as a group of radio inputs or a dropdown menu.
+A segmented control should have 2–5 choices with text labels, or up to 6 icon-only segments. Too many choices can be difficult to parse and take up too much horizontal space. If there are more than 5 choices, use another choice selection pattern such as a group of radio inputs or a dropdown menu.
 
 <DoDontContainer>
   <Do>
@@ -57,7 +110,7 @@ A segmented control should have 2–5 choices with text labels, or up to 6 icon-
       role="presentation"
       width="456"
     />
-    <Caption>Use a segmented control for picking from 5 (6 for icon-only buttons) or fewer options.</Caption>
+    <Caption>Use a segmented control for picking from 5 (6 for icon-only segments) or fewer options.</Caption>
   </Do>
   <Dont>
     <img
@@ -91,7 +144,7 @@ A segmented control should have 2–5 choices with text labels, or up to 6 icon-
   </Dont>
 </DoDontContainer>
 
-### Button icons
+### Segment icons
 
 <Box
   display="flex"
@@ -100,8 +153,7 @@ A segmented control should have 2–5 choices with text labels, or up to 6 icon-
   sx={{gap: 3}}
 >
   <Text as="p" mt="0">
-    An icon can be rendered in a segmented control button as a visual cue to help users understand the choice that
-    button represents.
+    Icons can be rendered in each segment as a visual cue to help users understand their options.
   </Text>
   <img
     src="https://user-images.githubusercontent.com/2313998/182705434-baf679ea-14de-4b62-b83f-f833c1058694.png"
@@ -112,14 +164,14 @@ A segmented control should have 2–5 choices with text labels, or up to 6 icon-
 
 #### Effective visual cues
 
-Be consistent with the way visual cues are used in each button of the segmented control. Use either all icons, all text labels, or all text labels with icons.
+Be consistent with the way visual cues are used in each segment. Use either all icons, all text labels, or all text labels with icons.
 
 Do not change icons to communicate state.
 
 <DoDontContainer>
   <Do>
     <img
-      src="https://user-images.githubusercontent.com/2313998/182705431-fe063f8f-6678-44b7-81a4-9ed3a6968a1e.png"
+      src="https://github.com/primer/design/assets/2313998/4b1bfdea-d222-4a2d-a60f-a6adfb7d33f1"
       role="presentation"
       width="456"
     />
@@ -127,7 +179,7 @@ Do not change icons to communicate state.
   </Do>
   <Dont>
     <img
-      src="https://user-images.githubusercontent.com/2313998/182705433-d5533bac-8f7c-4a9d-8501-a304cdba4619.png"
+      src="https://github.com/primer/design/assets/2313998/777d35a1-37e8-4198-b9a3-d91a72a22de2"
       role="presentation"
       width="456"
     />
@@ -142,7 +194,7 @@ Do not change icons to communicate state.
       role="presentation"
       width="456"
     />
-    <Caption>Keep the visual cues in each button consistent.</Caption>
+    <Caption>Keep the visual cues in each segment consistent.</Caption>
   </Do>
   <Dont>
     <img
@@ -150,11 +202,11 @@ Do not change icons to communicate state.
       role="presentation"
       width="456"
     />
-    <Caption>Don't mix visual cues between buttons.</Caption>
+    <Caption>Don't mix visual cues between segments.</Caption>
   </Dont>
 </DoDontContainer>
 
-#### Icon-only buttons
+#### Icon-only segments
 
 Use icons without a visible text label sparingly, and only with icons that are easily understood by an average GitHub user. When a segment has an icon without a visible text label, the text label should be shown in a tooltip.
 
@@ -177,9 +229,9 @@ Use icons without a visible text label sparingly, and only with icons that are e
   </Dont>
 </DoDontContainer>
 
-### Button label text
+### Segment label text
 
-Segmented control button labels should be nouns or noun phrases that succinctly describe the choice. Button labels may not wrap to multiple lines.
+Segmented control segment labels should be nouns or noun phrases that succinctly describe the choice. Segment labels may not wrap to multiple lines.
 
 <DoDontContainer>
   <Do>
@@ -250,7 +302,6 @@ A segmented control does not require a "Save" button to apply the selection. Whe
 #### Single-column
 
 <Box
-  as="figure"
   display="flex"
   alignItems="flex-start"
   flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'column-reverse', 'row']}
@@ -258,44 +309,43 @@ A segmented control does not require a "Save" button to apply the selection. Whe
   mb={3}
   sx={{gap: 3}}
 >
-  <Box as="figcaption" mt="0">
-    <Text as="h4" fontSize={2} fontWeight="bold" m={0}>
-      Single-column
-    </Text>
-    <Text as="p" mt="0">
-      A single-column layout is the same way form controls (for example, text inputs) are layed out. The single-column
-      layout is useful for preserving horizontal space.
-    </Text>
-  </Box>
+
+  A single-column layout is the same way form controls (for example, text inputs) are layed out. The single-column layout is useful for preserving horizontal space.
+
   <img
-    src="https://user-images.githubusercontent.com/2313998/182710235-f26b3fa2-fac5-47ff-8334-034d62abb021.png"
+    src="https://github.com/primer/design/assets/2313998/397dad08-8ae4-40fb-9b0b-c41208057161"
     role="presentation"
     width="456"
   />
 </Box>
-
-A single-column layout is the same way form controls (for example, text inputs) are layed out. The single-column layout is useful for preserving horizontal space.
 
 #### Two-column
-
-<Box display="flex" mb={3} flexWrap="wrap" sx={{gap: 3}}>
-  <img
-    src="https://user-images.githubusercontent.com/2313998/182705438-d16f8eeb-8809-4d48-9c3c-528b637d7c2c.png"
-    role="presentation"
-    width="456"
-  />
-  <img
-    src="https://user-images.githubusercontent.com/2313998/182705440-b08a9a2c-0782-4468-9d83-1d8a7f8f77a9.png"
-    role="presentation"
-    width="456"
-  />
-</Box>
 
 A two-column layout can be used to:
 
 - Align the control with adjacent elements
 - Conserve vertical space
 - Group related controls in a way that is easy to scan
+
+<Box
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+  <div>
+    <img
+      src="https://github.com/primer/design/assets/2313998/a9a9230c-406f-42dc-9d41-eb160e00c5e7"
+      role="presentation"
+    />
+  </div>
+  <div>
+    <img
+      src="https://github.com/primer/design/assets/2313998/cb9a26c6-ad3b-42ba-b80f-fd921670f8d6"
+      role="presentation"
+    />
+  </div>
+</Box>
 
 ### Fill available width
 
@@ -476,3 +526,11 @@ Unlike radio groups and toolbars, the left and right arrow keys do not change th
 ### Known accessibility issues (GitHub staff only)
 
  <AccessibilityLink label="SegmentedControl"/>
+
+## Related links
+
+- [Radio group](/components/radio-group)
+- [Underline nav](/components/underline-nav)
+- [Underline panels](/components/underline-panels)
+- [Navigation](/ui-patterns/navigation)
+- [Saving](/ui-patterns/saving)

@@ -5,6 +5,10 @@ reactId: nav_list
 railsIds:
 - Primer::Alpha::NavList
 - Primer::Beta::NavList
+tags:
+  - navigation list
+  - menu
+  - sidebar menu
 ---
 
 import ComponentLayout from '~/src/layouts/component-layout'
@@ -138,6 +142,10 @@ The top-level nav list item cannot be a link; it only behaves as a toggle that e
 Sub-items may be used to render nested navigation structures. Up to 4 levels of nesting are supported. If you need to handle a more deeply-nested navigation structure, reconsider the design of your navigation or the information hierarchy.
 
 Do not replace your NavList with a [tree view](/components/tree-view) to support a deeply nested navigation structure. A tree view is never an accessible replacement for navigation, as it serves a different purpose and is not recognized as navigation by assistive technologies.
+
+## Responsive layout
+
+For information on responsive layout of a nav list that is used in a sidebar, see the [responsive sidebar navigation patterns](/navigation#responsive-sidebar-navigation-patterns) section of our navigation guidelines for more information.
 
 ## Accessibility
 

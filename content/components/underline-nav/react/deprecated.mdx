@@ -1,0 +1,82 @@
+---
+title: UnderlineNav
+reactId: underline_nav
+reactStatus: deprecated
+description: Use the UnderlineNav component to style navigation with a minimal underlined selected state, typically used for navigation placed at the top of the page.
+---
+
+import {ComponentPageNav} from '~/src/components/component-page-nav'
+import StatusMenu from '~/src/components/status-menu'
+import {AccessibilityLabel, StatusLabel} from '@primer/gatsby-theme-doctocat'
+import {Label} from '@primer/react'
+import { graphql } from "gatsby"
+
+export const query = graphql`
+  query {
+    primerReactVersion {
+      version
+    }
+    allReactComponent(filter: {componentId: {eq: "underline_nav"}}) {
+      nodes {
+        status
+      }
+    }
+  }
+`
+
+<Box style={{marginBottom: "24px"}}>
+  <ComponentPageNav
+    basePath="/components/underline-nav"
+    includeReact={true}
+    includeRails={true}
+    current="react"
+  />
+</Box>
+
+<Box style={{display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "25px"}}>
+  <Box style={{display: "flex", gap: "5px"}}>
+    <Label size="large">@primer/react@v{props.data.primerReactVersion.version}</Label>
+    <StatusLabel status="Deprecated" />
+    <AccessibilityLabel a11yReviewed={false} short={false} />
+  </Box>
+  <Box>
+    <StatusMenu currentStatus="deprecated" statuses={[...props.data.allReactComponent.nodes.map((reactComponent) => reactComponent.status), "deprecated"]} parentPath="/components/underline-nav/react" />
+  </Box>
+</Box>
+
+## Deprecation
+
+Use [the new version of UnderlineNav](/components/underline-nav/react/latest) with design and accessibility updates.
+
+**Attention:** Make sure to properly label your `UnderlineNav` with an `aria-label` to provide context about the type of navigation contained in `UnderlineNav`.
+
+## Examples
+
+```jsx live
+<UnderlineNav aria-label="Main">
+  <UnderlineNav.Link href="#home" selected>
+    Home
+  </UnderlineNav.Link>
+  <UnderlineNav.Link href="#documentation">Documentation</UnderlineNav.Link>
+  <UnderlineNav.Link href="#support">Support</UnderlineNav.Link>
+</UnderlineNav>
+```
+
+### UnderlineNav
+
+|Name      |Type                                                                                                                        |Default|Description                                                                           |
+|----------|----------------------------------------------------------------------------------------------------------------------------|-------|--------------------------------------------------------------------------------------|
+|Actions   |React.ReactNode                                                                                                             |       |Place another element, such as a button, to the opposite side of the navigation items.|
+|align     |'right'                                                                                                                     |       |Use `right` to have navigation items aligned right.                                   |
+|full      |boolean                                                                                                                     |       |Used to make navigation fill the width of the container.                              |
+|aria-label|string                                                                                                                      |       |Used to set the `aria-label` on the top level `<nav>` element.                        |
+|sx        |[SystemStyleObject](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/styled-system__css/index.d.ts#L407)|       |                                                                                      |
+
+### UnderlineNav.Link
+
+|Name    |Type                                                                                                                        |Default|Description                                                                        |
+|--------|----------------------------------------------------------------------------------------------------------------------------|-------|-----------------------------------------------------------------------------------|
+|as      |[React.ElementType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts#L73)              |'a'    |The underlying element to render — either a HTML element name or a React component.|
+|href    |string                                                                                                                      |       |                                                                                   |
+|selected|boolean                                                                                                                     |       |                                                                                   |
+|sx      |[SystemStyleObject](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/styled-system__css/index.d.ts#L407)|       |                                                                                   |

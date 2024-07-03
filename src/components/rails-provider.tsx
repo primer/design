@@ -2,7 +2,7 @@ import React, {PropsWithChildren} from 'react'
 import { createContext, useContext } from 'react';
 import { graphql, useStaticQuery, withPrefix } from 'gatsby'
 import GithubSlugger from 'github-slugger'
-import { latestStatusFrom } from '../rails-status'
+import { latestStatusFrom } from '../status-utils'
 import {Link} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 

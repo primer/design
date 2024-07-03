@@ -12,13 +12,51 @@
           url: /guides/figma/getting-started
         - title: How to contribute
           url: /guides/figma/contribute
-    - title: Development
-      url: /guides/development
+    - title: Rails
+      url: /guides/rails
       children:
-        - title: React
-          url: /guides/development/react
-        - title: Rails
-          url: /guides/development/rails
+        - title: Getting started
+          url: /guides/rails
+        - title: Migration guides
+          url: /guides/rails/migration-guides
+    - title: React
+      url: /guides/react
+      children:
+        - title: Getting started
+          url: /guides/react
+        - title: Theming
+          url: /guides/react/theming
+        - title: Theme reference
+          url: /guides/react/theme-reference
+        - title: Linting
+          url: /guides/react/linting
+        - title: System props
+          url: /guides/react/system-props
+        - title: Core concepts
+          url: /guides/react/core-concepts
+        - title: Philosophy
+          url: /guides/react/philosophy
+        - title: Overriding styles
+          url: /guides/react/overriding-styles
+        - title: Hooks
+          url: /guides/react/hooks
+          children:
+            - title: useSafeTimeout
+              url: /guides/react/hooks/use-safe-timeout
+            - title: useAnchoredPosition
+              url: /guides/react/hooks/use-anchored-position
+            - title: useFocusTrap
+              url: /guides/react/hooks/use-focus-trap
+            - title: useFocusZone
+              url: /guides/react/hooks/use-focus-zone
+            - title: useOnEscapePress
+              url: /guides/react/hooks/use-on-escape-press
+            - title: useOnOutsideClick
+              url: /guides/react/hooks/use-on-outside-click
+            - title: useOpenAndCloseFocus
+              url: /guides/react/hooks/use-open-and-close-focus
+            - title: useOverlay
+              url: /guides/react/hooks/use-overlay
     - title: Component lifecycle
       url: /guides/component-lifecycle
     - title: Component status
@@ -68,6 +106,28 @@
   children:
     - title: Color
       url: /foundations/color
+      children:
+        - title: Overview
+          url: /foundations/color/overview
+        - title: Base scales
+          url: /foundations/color/base-scales
+        - title: Accessibility
+          url: /foundations/color/accessibility
+    - title: Primitives
+      url: /foundations/primitives
+      children:
+        - title: Getting started
+          url: /foundations/primitives/getting-started
+        - title: Token names
+          url: /foundations/primitives/token-names
+        - title: Color
+          url: /foundations/primitives/color
+        - title: Size
+          url: /foundations/primitives/size
+        - title: Typography
+          url: /foundations/primitives/typography
+        - title: Migrating
+          url: /foundations/primitives/migrating
     - title: Responsive
       url: /foundations/responsive
     - title: CSS utilities
@@ -128,6 +188,8 @@
       url: /ui-patterns/loading
     - title: Messaging
       url: /ui-patterns/messaging
+    - title: Navigation
+      url: /ui-patterns/navigation
     - title: Progressive disclosure
       url: /ui-patterns/progressive-disclosure
     - title: Saving
@@ -151,6 +213,8 @@
       url: /components/avatar-pair
     - title: Avatar stack
       url: /components/avatar-stack
+    - title: Banner
+      url: /components/banner
     - title: Blankslate
       url: /components/blankslate
     - title: Border box
@@ -171,6 +235,8 @@
       url: /components/checkbox-group
     - title: Circle badge
       url: /components/circle-badge
+    - title: Circle octicon
+      url: /components/circle-octicon
     - title: Clipboard copy
       url: /components/clipboard-copy
     - title: Close button
@@ -203,6 +269,8 @@
       url: /components/image
     - title: Image crop
       url: /components/image-crop
+    - title: Inline message
+      url: /components/inline-message
     - title: Label
       url: /components/label
     - title: Label group
@@ -255,6 +323,8 @@
       url: /components/spinner
     - title: Split page layout
       url: /components/split-page-layout
+    - title: Stack
+      url: /components/stack
     - title: State label
       url: /components/state-label
     - title: Subnav
@@ -297,10 +367,16 @@
       url: /deprecated-components/box-overlay
     - title: Dropdown
       url: /deprecated-components/dropdown
+    - title: Filter list
+      url: /deprecated-components/filter-list
+    - title: Filtered search
+      url: /deprecated-components/filtered-search
     - title: Menu
       url: /deprecated-components/menu
     - title: Select menu
       url: /deprecated-components/select-menu
+    - title: Side nav
+      url: /deprecated-components/side-nav
 - title: GitHub staff
   url: /github-staff
   children:

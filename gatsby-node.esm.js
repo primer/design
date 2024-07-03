@@ -3,7 +3,7 @@ import * as fs from 'fs'
 import * as defines from './babel-defines'
 import fetch from 'node-fetch'
 import GithubSlugger from 'github-slugger'
-import { latestStatusFrom } from './src/rails-status'
+import { latestStatusFrom } from './src/status-utils'
 import { Octokit } from '@octokit/rest'
 import JSZip from 'jszip'
 
@@ -245,7 +245,7 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
 
   for (const component of Object.values(content.components)) {
     const newNode = {
-      ...{...component, componentId: component.id},
+      ...{...component, componentId: component.docsId || component.id},
       id: createNodeId(`react-${component.id}`),
       internal: {
         type: 'ReactComponent',
@@ -447,6 +447,13 @@ async function createComponentPages({actions, graphql}) {
           status
         }
       }
+      allReactComponent {
+        nodes {
+          reactId: componentId
+          docsId
+          status
+        }
+      }
     }
   `)
 
@@ -454,16 +461,42 @@ async function createComponentPages({actions, graphql}) {
   const railsComponentLayout = path.resolve(__dirname, 'src/layouts/rails-component-layout.tsx')
   const figmaComponentLayout = path.resolve(__dirname, 'src/layouts/figma-component-layout.tsx')
   const cssComponentLayout = path.resolve(__dirname, 'src/layouts/css-component-layout.tsx')
+  const redirectLayout = path.resolve(__dirname, 'src/layouts/redirect-layout.tsx')
 
   for (const {slug, frontmatter} of data.allMdx.nodes) {
     if (frontmatter.reactId) {
+      const statuses = []
+
+      for (const reactComponent of data.allReactComponent.nodes) {
+        if (reactComponent.reactId === frontmatter.reactId) {
+          statuses.push(reactComponent.status)
+
+          actions.createPage({
+            path: `/${slug}/react/${reactComponent.status}`,
+            component: reactComponentLayout,
+            context: {
+              componentId: frontmatter.reactId,
+              parentPath: `/${slug}`,
+              status: reactComponent.status
+            },
+          })
+        }
+      }
+
+      actions.createPage({
+        path: `/${slug}/react/latest`,
+        component: redirectLayout,
+        context: {
+          location: `/${slug}/react/${latestStatusFrom(statuses)}`
+        }
+      })
+
       actions.createPage({
         path: `/${slug}/react`,
-        component: reactComponentLayout,
+        component: redirectLayout,
         context: {
-          componentId: frontmatter.reactId,
-          parentPath: `/${slug}`,
-        },
+          location: `/${slug}/react/${latestStatusFrom(statuses)}`
+        }
       })
     }
 
@@ -492,11 +525,20 @@ async function createComponentPages({actions, graphql}) {
         })
       })
 
-      actions.createRedirect({
-        fromPath: `/${slug}/rails/latest`,
-        toPath: `/${slug}/rails/${latestStatusFrom(statuses)}`,
-        redirectInBrowser: true,
-        force: true,
+      actions.createPage({
+        path: `/${slug}/rails/latest`,
+        component: redirectLayout,
+        context: {
+          location: `/${slug}/rails/${latestStatusFrom(statuses)}`
+        }
+      })
+
+      actions.createPage({
+        path: `/${slug}/rails`,
+        component: redirectLayout,
+        context: {
+          location: `/${slug}/rails/${latestStatusFrom(statuses)}`
+        }
       })
     }
 
@@ -510,6 +552,7 @@ async function createComponentPages({actions, graphql}) {
         },
       })
     }
+
     if (frontmatter.cssId) {
       actions.createPage({
         path: `/${slug}/css`,

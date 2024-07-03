@@ -1,6 +1,7 @@
 /** Status order: later elements have higher precedence. */
 const statusOrder = [
   'deprecated',
+  'draft',
   'experimental',
   'alpha',
   'beta',
@@ -18,6 +19,16 @@ export const latestStatusFrom = (statuses) => {
       .filter(status => statusOrder.includes(status))
       .sort(compareStatuses)
       .at(-1) || null
+}
+
+/**
+ * Sort a list of statuses based on the order of precedence.
+ *
+ * @param {readonly string[]} statuses list of statuses
+ * @returns {string[]} the given statuses, sorted by precedence
+ */
+export const sortStatuses = (statuses) => {
+  return statuses.sort(compareStatuses)
 }
 
 /**

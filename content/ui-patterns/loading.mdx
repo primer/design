@@ -230,91 +230,6 @@ To avoid information overload and visual noise, consider replacing a series of a
   </Dont>
 </DoDontContainer>
 
-### Navigation
-
-#### Sequential and related groups of navigation items
-
-<img
-  width="960"
-  alt="3 images. 1. Repos and teams loading; 2: Repos and teams both failed; 3: Repos and teams both succeeded"
-  src="https://github.com/primer/design/assets/2313998/ba52e203-a0fa-4a55-a592-f436ffc2fda3"
-/>
-
-If sequential groups or navigation links are unable to load, replace both groups with a single loading indicator and a single error message above the [nav list](components/nav-list).
-
-#### Non-sequential groups of navigation items
-
-<img
-  width="960"
-  alt="3 images. 1. Repos, teams, and organizations loading; 2: Repos and teams both failed; 3: All groups succeeded"
-  src="https://github.com/primer/design/assets/2313998/ee62d85f-b2a8-4766-b42b-3234699d865e"
-/>
-
-<Note>
-  This example is for demonstration purposes only. At the time these guidelines were written, there is no
-  "Organizations" group, and teams and repositories data are loaded via a single controller.
-</Note>
-
-If non-sequential groups of navigation links are in a loading state, preserve the group headings and replace the contents of each group with a single loading indicator. If loading fails, show a single error message above the [nav list](components/nav-list).
-
-#### Individual navigation items
-
-<img
-  width="960"
-  alt="3 images. 1. Some items in right side-sheet are loading; 2: Some items in right side-sheet failed; 3: All items in right side-sheet succeeded"
-  src="https://github.com/primer/design/assets/2313998/3ab14657-8ab3-45e4-b47a-ef9eee76da4b"
-/>
-
-If some links in the right side sheet cannot be loaded, default to showing each [nav list](components/nav-list) item in an inactive state. The users should still be able to hover, click, and focus inactive items, but they don't link to anywhere. Optionally, a tooltip may be displayed explaining that the navigation item is unavailable. An error banner is not necessary for this case.
-
-<Box
-  mb={3}
-  display="flex"
-  alignItems="flex-start"
-  justifyContent="space-between"
-  flexDirection={['column', 'column', 'column', 'column', 'row']}
-  sx={{gap: 3}}
->
-
-<div>
-
-If we don't know specifically which links failed to load (for example, some users will never see the "Your enterprises" link), then hide the links and show a generic error message above the [nav list](components/nav-list).
-
-</div>
-
-<img
-  width="456"
-  alt="Generic error banner with hidden items"
-  src="https://github.com/primer/design/assets/2313998/7fd2f27b-baed-4f98-9039-7061d9a5e205"
-/>
-
-</Box>
-
-<Box
-  mb={3}
-  display="flex"
-  alignItems="flex-start"
-  justifyContent="space-between"
-  flexDirection={['column', 'column', 'column', 'column', 'row']}
-  sx={{gap: 3}}
->
-
-<div>
-
-Default to replacing each loading navigation item with the item in a loading state. If we know what the link's label is, show it. If we don't know what the link's label is, show generic loading text in its place.
-
-It is ok to show sequential navigation items in a loading state to avoid a layout shift. However, sequential *groups* of navigation items should be replaced with a single loading indicator as mentioned in the [previous section](#sequential-and-related-groups-of-navigation-items).
-
-</div>
-
-<img
-  width="456"
-  alt="3 images: 1. Loading unknown labels; 2. Loading known labels; 3. Success"
-  src="https://github.com/primer/design/assets/2313998/e6011246-7ded-430b-9989-c40777583a28"
-/>
-
-</Box>
-
 ## Accessibility
 
 ### Conveying loading indicators
@@ -367,7 +282,7 @@ If the user needs to wait for filtering to complete, a screen reader should anno
 To ensure that assistive technology is informed about the filter update, put the message in an element that has a `role` of `"status"`. The element with `role="status"` must always be rendered, not just when the message should be announced.
 
 Implementations of this pattern can be seen in the following examples:
-- [Lookbook - Autocomplete](https://view-components-storybook.eastus.cloudapp.azure.com/view-components/lookbook/inspect/primer/alpha/auto_complete/playground)
+- [Lookbook - Autocomplete](https://primer.style/view-components/lookbook/inspect/primer/alpha/auto_complete/playground)
 - [Storybook - ActionList](https://primer.style/react/storybook/?path=/story/components-actionlist-examples--async-list-with-spinner)
 
 </div>

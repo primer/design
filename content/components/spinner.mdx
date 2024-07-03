@@ -1,6 +1,6 @@
 ---
 title: Spinner
-description: Use Spinner to let users know that content is being loaded.
+description: Use Spinner to show users that an action is in progress.
 railsIds:
 - Primer::Beta::Spinner
 reactId: spinner
@@ -12,11 +12,77 @@ import {Link as GatsbyLink} from 'gatsby'
 export default ComponentLayout
 import {AccessibilityLink} from '~/src/components/accessibility-link'
 
-<Note variant="warning">
-  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Guidelines for this component are in progress</Text>
-  <Text>Interested in contributing? Review the guidelines for <Link as={GatsbyLink} to="/guides/contribute/documentation#documenting-components">writing component documentation</Link> and open a pull request in our <Link as={GatsbyLink} to="https://github.com/primer/design">documentation repository.</Link></Text>
-</Note>
+## Usage
 
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
+
+<div>
+
+A spinner is an indeterminate loading indicator, meaning it's best for cases where the progress or duration of a process is variable or unknown.
+
+A spinner may be shown on it's own or paired with a loading message. Spinners may be used as a placeholder for loading content, or just as an indicator that some action is being processed.
+
+More detailed guidance about designing for loading states can be found in our [loading guidelines](/ui-patterns/loading).
+
+</div>
+
+<CustomVideoPlayer src="https://github.com/primer/design/assets/2313998/50234598-852a-46fc-be07-72bb6f35691b" width="456" autoplay loop />
+
+</Box>
+
+## Options
+
+<Box display="flex" flexDirection={['column', 'column', 'column', 'column', 'row']} sx={{alignItems: 'flex-start', gap: 3}}>
+
+<div>
+
+### Size
+
+The size of the spinner can be adjusted. The **medium** (default) variant works best for most cases. The **small** variant is optimized for being displayed inline with loading text. The **large** variant works well for replacing entire regions or pages that are still loading.
+
+</div>
+
+<img src="https://github.com/primer/design/assets/2313998/b31c4058-929f-471c-860e-6a8c2c6af21e" width="960" role="presentation" />
+
+</Box>
+
+## Accessibility and usability expectations
+
+Use the `Spinner` component to provide a visible loading indicator for situations where an asynchronous API call or process may take a moderate amount of time (between 1 and 3 seconds) – see [Adapting to different wait times](https://primer.style/ui-patterns/loading#adapting-to-different-wait-times).
+
+## Built-in accessibility features
+
+The component only provides a visual, animated spinner icon. This icon is not exposed to screen readers, as it's an `<svg>` without a `role`, `aria-label`, or any text content.
+
+```html
+<svg height="32px" width="32px" viewBox="0 0 16 16" fill="none" class="Spinner__StyledSpinner…"> … </svg>
+``` 
+ 
+The spinner icon uses the default `currentColor` of its parent container. Unless authors specifically override the default colors, the icon meets minimum color contrast requirements on the canvas default white background.
+
+## Implementation requirements
+ 
+Do not rely solely on the `Spinner` component as a loading indicator, as it currently isn't exposed to screen readers, and has no built-in announcement.
+
+Only use it as part of a fully realised solution (including `aria-live` notifications) for conveying loading/processing states. Refer to the [loading guidelines](https://primer.style/ui-patterns/loading) for more details.
+ 
+## How to test the component
+
+### Integration tests
+ 
+- The component only provides a visual indicator, and passes color contrast. Additional solutions are required (such as the use of `aria-live` notifications in our [loading guidelines](https://primer.style/ui-patterns/loading)) to convey the loading state for screen reader users.
+
+- If you are using custom colors, verify that the spinner's "spinning" section meets the minimum color contrast requirement of `3:1` against the background it's presented on
+
+### Component tests
+
+- The component renders an `<svg>` element without any text content (as otherwise this would be announced by screen readers)
 ### Known accessibility issues (GitHub staff only)
 
- <AccessibilityLink label="Spinner"/>
+<AccessibilityLink label="Spinner"/>
+
+## Related links
+
+- [Loading guidelines](/ui-patterns/loading)
+
+<!-- TODO: link to Skeleton loaders once they're merged -->

@@ -1,12 +1,11 @@
-name: Deploy
+name: Deploy Preview
 
 on:
   pull_request:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -23,7 +22,7 @@ jobs:
           installation-id: ${{ vars.DOTCOM_SHARED_COMPONENTS_APP_INSTALLATION_ID }}
 
       - name: Checkout default branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
@@ -36,7 +35,7 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install dependencies
         run: yarn
@@ -46,14 +45,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.get-dotcom-access-token.outputs.access-token }}
 
-      - name: Archive build output
-        run: "tar --dereference --directory public -cvf artifact.tar ."
-
       - name: Upload artifact
-        uses: actions/upload-artifact@main
+        uses: actions/upload-pages-artifact@v2
         with:
           name: github-pages
-          path: artifact.tar
+          path: public
 
   deploy-preview:
     if: ${{ github.repository == 'primer/design' }}

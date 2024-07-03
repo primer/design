@@ -435,3 +435,81 @@ After a form has been submitted and failed validation, you may switch to inline 
 ## Submission
 
 Forms should follow consistent patterns for [submitting and saving data](/ui-patterns/saving).
+
+## Handling degraded forms
+
+There may be cases where a critical system error prevents forms from being used as intended.
+
+For more information, refer to the [degraded experience](/ui-patterns/degraded-experiences) guidelines for more information on designing a gracefully degraded experience.
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+<div>
+
+### Failed submission
+
+If a form's data cannot be saved, don't remove or disable the form fields or the submit button. Instead, inform the user that the form is in a read-only state and cannot be saved. If they still try and submit the form, show a dialog explaining that the form cannot be saved.
+
+</div>
+
+<img
+  width="456"
+  alt="Populated form that cannot be submitted"
+  src="https://github.com/primer/react/assets/2313998/d0494ff2-dea0-4286-b7d6-f6a3d0f6d1db"
+/>
+
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+### No form data is available
+
+If none of the form data can be read, remove the form entirely and replace it with a message explaining why the form is unavailable.
+
+</div>
+
+<img
+  width="456"
+  alt="An error message in replacing a form"
+  src="https://github.com/primer/design/assets/2313998/c15954b0-f64e-4fae-94f5-1c2d474b1e06"
+/>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+<div>
+
+### Form data is partially available
+
+If only some of the form field data cannot be read, disable the affected fields and show an error message below those fields explaining that the data is unavailable. Disabling the fields adds another hint that something is wrong, and the field data is not actually empty.
+
+</div>
+
+<img
+  width="456"
+  alt="A form with some fields disabled. Disabled fields have error messages."
+  src="https://github.com/primer/design/assets/2313998/a869762c-33f5-4cf9-bd95-d76d776f233c"
+/>
+</Box>

@@ -26,10 +26,10 @@ The elements within page header are rearranged and displayed accordingly dependi
 
 Page header can include a context bar, title bar, description, and contextual navigation (pertaining to the current page).
 
-By default, the [context bar](#context-bar) is visible on narrow viewports only, the [title bar](#title-bar) is visible on all viewports, and the back button and trailing action are visible on regular viewports.
+By default, the [context bar](#context-bar) is visible on narrow viewports only, the [title bar](#title-bar) is visible on all viewports, and the leading action and trailing action are visible on regular viewports.
 
 <img
-  src="https://user-images.githubusercontent.com/586552/221939296-410d3b17-ccbb-48ae-b1cf-c3a8cdcfcaa5.png"
+  src="https://github.com/primer/design/assets/1446503/a17ac8aa-e7e5-45fd-9e03-00bbb7dcff75"
   role="presentation"
   width="993"
   alt="Page header anatomy"
@@ -299,6 +299,40 @@ The title bar can include a static page title, actions, and leading and trailing
 
 ## Accessibility
 
+### Landmark usage
+
+Pageheader allows usage of different HTML landmarks to create a more accessible UI.
+The usage of `header` and `nav` regions are allowed within PageHeader, both with different use cases.
+
+#### PageHeader with `header` landmark
+
+When utilizing landmarks, it's best to ensure that you’re using them correctly. For the header landmark you should follow these guidelines.
+
+- Only utilize `header` if one does not currently exist on the page.
+- Utilize `header` if the `PageHeader` consists of site-oriented content, typically existing at the top of the page.
+- Ensure that when used on `PageHeader`, that the component itself is not within other landmarks, such as `main`.
+
+#### PageHeader with `nav` landmark
+
+Navigation landmarks are best utilized to group links that pertain to navigation of the page.
+You can have multiple navigation landmarks, but it’s important to ensure that each unique navigation element has a unique label attached, either via `aria-label` or `aria-labelledby`.
+You can utilize `PageHeader.Navigation` as a `navigation` landmark through the `as` prop.
+This further extends the accessibility of this component, as it allows users to navigate via landmarks easier.
+It’s important to note that if you utilize a component with an existing `navigation` landmark such as `UnderlineNav` then you should not use `PageHeader.Navigation` as a navigation landmark, as this would be a duplicate.
+
+For navigation, you should follow these guidelines:
+
+- If you have a list or grouping of links within `PageHeader.Navigation`, you should utilize the `nav` type for this element.
+- If you’re already utilizing a component with a navigation landmark (such as `UnderlineNav`), you should not use `PageHeader.Navigation` as a navigation landmark.
+- If more than one `navigation` landmark exists on the page at a given time, you should add a unique label to each one.
+  You can do this by either passing an `aria-label` or `aria-labelledby` attribute to `PageHeader.Navigation`.
+
+### Heading Structure
+
+`PageHeader.Title` renders its content as a heading in the background and most of the time it will have crucial information about the page, so it’s important to ensure that you’re using it in an accessible manner.
+
+`PageHeader.Title` is shipped as an `H2` by default, but only if you do not pass a heading level to it via the `as` prop. You should modify the level of this component if the default heading `H2` does not make sense with the existing heading structure on the page.
+
 ### Known accessibility issues (GitHub staff only)
 
- <AccessibilityLink label="PageHeader"/>
+<AccessibilityLink label="PageHeader" />
