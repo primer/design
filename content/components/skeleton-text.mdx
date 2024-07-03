@@ -5,16 +5,20 @@ reactId: skeleton_text
 figmaId: skeleton_text
 ---
 
+import {Box} from '@primer/react'
+
 <CustomVideoPlayer
   width="960"
   loop
   autoplay
-  src=""
+  src="https://github.com/user-attachments/assets/ca994321-2080-42da-9b85-881cfd61f096"
 />
 
 ## Usage
 
-Skeleton text may be used to improve perceived performance by rendering a rough representation of button label content that is still loading.
+Skeleton text may be used to improve perceived performance by rendering a rough representation of text content that is still loading.
+
+However, it is important to avoid using skeleton text to replace interactive elements that are still loading. Instead, hide interactive elements that are still loading until they are ready to be displayed.
 
 <DoDontContainer>
   <Do>
@@ -71,4 +75,4 @@ Refer to the loading pattern [accessibility guidelines](/ui-patterns/loading#acc
 - [Loading](/ui-patterns/loading)
 - [Typography](/foundations/typography)
 - [Skeleton avatar](/components/skeleton-avatar)
-- [Skeleton bone](/components/skeleton-bone)
+- [Skeleton box](/components/skeleton-box)

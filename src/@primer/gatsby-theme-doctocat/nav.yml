@@ -317,8 +317,8 @@
       url: /components/skeleton-avatar
     - title: Skeleton text
       url: /components/skeleton-text
-    - title: Skeleton bone
-      url: /components/skeleton-bone
+    - title: Skeleton box
+      url: /components/skeleton-box
     - title: Spinner
       url: /components/spinner
     - title: Split page layout
