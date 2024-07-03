@@ -1,0 +1,78 @@
+---
+title: Skeleton text
+description: Use skeleton text to replace lines of text while content is in a loading state.
+reactId: skeleton_text
+figmaId: skeleton_text
+---
+
+import {Box} from '@primer/react'
+
+<CustomVideoPlayer
+  width="960"
+  loop
+  autoplay
+  src="https://github.com/user-attachments/assets/ca994321-2080-42da-9b85-881cfd61f096"
+/>
+
+## Usage
+
+Skeleton text may be used to improve perceived performance by rendering a rough representation of text content that is still loading.
+
+However, it is important to avoid using skeleton text to replace interactive elements that are still loading. Instead, hide interactive elements that are still loading until they are ready to be displayed.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://github.com/primer/design/assets/2313998/cb52d978-fcb5-41b6-a541-3da0bff7b126"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Hide interactive elements that are still loading</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://github.com/primer/design/assets/2313998/5dd54439-9ca5-48e1-8068-859cccd7b882"
+      role="presentation"
+      width="456"
+    />
+    <Caption>Don't use skeleton text to replace the text in interactive elements that are still loading</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Options
+
+### Sizes
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="space-between"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 3}}
+>
+
+Skeleton text sizes are designed to match the font sizes and line heights defined in Primer. See [typographhy docs](/foundations/typography) and [Primitives Primitives](https://primer.style/primitives/storybook/?path=/story/typography-functional--display) for details.
+
+<img
+  src="https://github.com/primer/design/assets/2313998/39b5a0df-fdf3-4e12-9e01-a78d36e749a1"
+  role="presentation"
+  width="456"
+/>
+
+</Box>
+
+## Acccessibility
+
+Refer to the loading pattern [accessibility guidelines](/ui-patterns/loading#accessibility). Specifically, the secion about [avoiding over-announcing loading states](/ui-patterns/loading#avoiding-over-announcing-loading-states).
+
+### Known accessibility issues (GitHub staff only)
+
+<AccessibilityLink label="SkeletonText"/>
+
+## Related links
+
+- [Loading](/ui-patterns/loading)
+- [Typography](/foundations/typography)
+- [Skeleton avatar](/components/skeleton-avatar)
+- [Skeleton box](/components/skeleton-box)

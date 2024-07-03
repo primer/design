@@ -313,6 +313,12 @@
       url: /components/select
     - title: Select panel
       url: /components/selectpanel
+    - title: Skeleton avatar
+      url: /components/skeleton-avatar
+    - title: Skeleton text
+      url: /components/skeleton-text
+    - title: Skeleton box
+      url: /components/skeleton-box
     - title: Spinner
       url: /components/spinner
     - title: Split page layout
