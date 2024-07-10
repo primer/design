@@ -103,9 +103,17 @@ Examples:
 
 Use the `success` state to notify users that the results of an action were successful if it is not apparent from other parts of the UI. **Use success messaging sparingly** and rely more on interaction context.
 
-Examples:
-- Saving an account setting if there's no page reload or redirect
-- A background process has successfully completed
+Examples where a success message is needed:
+
+- Copy button, the copy to clipboard action was successful.
+  ![After clicking the copy icon button, a green checkmark appears to the right of the icon button.](https://github.com/user-attachments/assets/dce45835-2aac-4a5b-8229-e815a324521a)
+- Creating multiple new issues.
+  ![After clicking the Create button, an inline message appears below the Create button that says, Issue #21 created, with Issue #21 being a link.](https://github.com/user-attachments/assets/79770182-b1b2-44c5-a587-88f7ae821b1a)
+
+Examples where a success message is **not** needed:
+
+- Saving the comment edit or title edit of an Issue, where the success is indicated by the return to the updated comment or title in non-edit mode.
+- Creating a single new issue, where a user is brought to the newly created issue page upon successful creation.
 
 ### Unavailable
 
