@@ -19,17 +19,17 @@ export default ComponentLayout
 
 [SCREENSHOT]
 
-For single-item selection, if no significant actions follow, the panel may close immediately, indicated by a checkmark on the selected item. However, when the selection triggers significant actions or the footer has additional elements, the user must intentionally close the panel.
+For single-item selection, the panel closes immediately upon selection. The selected item is indicated by a checkmark. Set the `selectionVariant` prop on `ActionList` to `single`.
 
 ### Multi Selection
 
 [SCREENSHOT]
 
-For multi-item selection, the select panel remains open after each selection, allowing users to choose multiple items before closing the select panel to confirm their choices.
+For multi-item selection, the panel remains open after each selection, allowing users to choose multiple items before closing the panel to confirm their choices. Selections are visually indicated by faux checkboxes. Set the `selectionVariant` prop on `ActionList` to `multiple`.
 
 ### Groups
 
-Items can be grouped to provide additional context or to visually separate them. Each group can have a title.
+Items can be grouped to provide additional context or to visually separate them. Each group can have a title for better organization.
 
 ### Footer
 
@@ -41,7 +41,7 @@ An optional footer at the bottom can include a link or button for additional act
 
 [SCREENSHOT]
 
-Select panels can be activated via a semantic button, which can be a regular button, icon button, or action menu item. If the button represents the current selection, it must have an associated label, either internally (within the button) or externally (adjacent to the button).
+Select panels can be activated via a semantic button, which can be either a regular button or an icon button. If the button represents the current selection, it must have an associated label, either internally (within the button) or externally (adjacent to the button).
 
 ## Import
 
@@ -65,7 +65,13 @@ The select panel consists of three main areas: a header, a scrollable list that 
 
 ## Best Practices
 
-TBD
+### Current Selection
+
+To effectively summarize the current selection, display the selected items at the beginning of the unfiltered list. This behavior should occur when opening the select panel or after users clear the input. Avoid reordering items after selection to prevent disorientation.
+
+### Significant Actions
+
+When the selection triggers significant actions, such as deleting items, use a dialog with declarative buttons instead of the select panel. This ensures users are aware of the consequences of their actions.
 
 ## Behavior
 
