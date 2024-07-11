@@ -1,0 +1,16 @@
+---
+title: Toast
+description: Toasts are used to show live, time-sensitive feedback to users.
+cssId: toast
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+import {Link, Text} from '@primer/react'
+import {Link as GatsbyLink} from 'gatsby'
+export default ComponentLayout
+import { AccessibilityLink } from '~/src/components/accessibility-link'
+
+<Note variant="warning">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>Usage for this component is not encouraged</Text>
+  <Text>Instead, please see <Link as={GatsbyLink} to="/ui-patterns/notification-messaging">notification messaging guidelines</Link>.</Text>
+</Note>

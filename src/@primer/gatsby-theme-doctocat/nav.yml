@@ -186,10 +186,8 @@
       url: /ui-patterns/forms/overview
     - title: Loading
       url: /ui-patterns/loading
-    - title: Messaging
-      url: /ui-patterns/messaging
-    - title: Navigation
-      url: /ui-patterns/navigation
+    - title: Notification messaging
+      url: /ui-patterns/notification-messaging
     - title: Progressive disclosure
       url: /ui-patterns/progressive-disclosure
     - title: Saving
@@ -251,8 +249,6 @@
       url: /components/details
     - title: Dialog
       url: /components/dialog
-    - title: Flash
-      url: /components/flash
     - title: Form control
       url: /components/form-control
     - title: Header
@@ -345,8 +341,6 @@
       url: /components/textarea
     - title: Timeline
       url: /components/timeline
-    - title: Toast
-      url: /components/toast
     - title: Toggle switch
       url: /components/toggle-switch
     - title: Token
@@ -371,12 +365,16 @@
       url: /deprecated-components/filter-list
     - title: Filtered search
       url: /deprecated-components/filtered-search
+    - title: Flash
+      url: /deprecated-components/flash
     - title: Menu
       url: /deprecated-components/menu
     - title: Select menu
       url: /deprecated-components/select-menu
     - title: Side nav
       url: /deprecated-components/side-nav
+    - title: Toast
+      url: /deprecated-components/toast
 - title: GitHub staff
   url: /github-staff
   children:
