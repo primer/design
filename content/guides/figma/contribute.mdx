@@ -185,4 +185,20 @@ When using a component that contains slots within your own design file, create a
 1. Note: Due to certain bugs in Figma, if a `_Slot` is replaced and does not flex, the auto layout properties will need to be manually updated. 
 
 
+## Contribution checkist for component
 
+- [ ] Changes to the component API (props, variants, etc.) are reflected in the documentation sheet
+- [ ] Properties are sorted in sensible order
+- [ ] When adding a component the default variant is used
+- [ ] Changes are [accessible](https://primer.style/design/accessibility/guidelines)
+- [ ] Properties and behavior is as close to code as possible
+- [ ] All layers are named and don't use defaults (e.g. no `Frame 23`)
+
+### Only when adding new components
+
+- [ ] Component name matches the name used for the code component but uses [`PascalCase`](https://techterms.com/definition/pascalcase) (see ["Spelling of component names"](https://github.com/github/primer/blob/main/adrs/2022-02-15-spelling-of-component-names.md#consequences))
+- [ ] Component is added to the [overview page](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=4398%3A2354)
+- [ ] Component is in light mode
+- [ ] Component uses [primitives](https://primer.style/design/foundations/color) by using styles from `Primer Primitives` Figma library
+- [ ] Properties are designed according to [property guidelines](https://github.com/primer/figma/blob/main/docs/authoring-components.md#writing-properties)
+- [ ] The component adheres to the [authoring components guidelines](https://github.com/primer/figma/blob/main/docs/authoring-components.md#authoring-components-in-figma)
