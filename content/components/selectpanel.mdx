@@ -55,11 +55,35 @@ The select panel consists of three main areas: a header, a scrollable list that 
 
 ## Best Practices
 
+### Empty State
+
+[SCREENSHOT]
+
+When no results are available, offer users an explanation instead of leaving a blank space. There can be various reasons for the absence of results. It could be due to the search or filter input value not matching any available data, or it could be because the user has yet to generate any data to display.
+
+### Loading
+
+[SCREENSHOT]
+
+Provide visual cues to users when processes may take longer than expected. Use loading states at different stages to communicate effectively.
+
+1. **Initial**: Use when retrieving initial data to prevent users from seeing an empty list.
+2. **Initial (skeleton)**: Use a skeleton loader when retrieving initial data to prevent users from seeing an empty list.
+3. **Searching/Filtering**: When users search for new items, maintain their current selections and use a minimal loading state to indicate ongoing activity.
+
 ### Current Selection
+
+[SCREENSHOT]
 
 To effectively summarize the current selection, display the selected items at the beginning of the unfiltered list. This behavior should occur when opening the select panel or after users clear the input. Avoid reordering items after selection to prevent disorientation.
 
+### Error/Warning Handling
+
+When things don't work as expected, or users need to be informed about important issues, we handle these scenarios appropriately. If default values fail to load, we display an error placeholder to inform the user. When users search for new values and the search fails, we display an error message above the input.
+
 ### Significant Actions
+
+[SCREENSHOT]
 
 When the selection triggers significant actions, such as deleting items, use a dialog with declarative buttons instead of the select panel. This ensures users are aware of the consequences of their actions.
 
