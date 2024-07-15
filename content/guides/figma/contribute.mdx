@@ -61,3 +61,22 @@ We use this process to make sure no accidental changes get added to the library.
     src={requestDialogImg}
   />
 </ImageBox>
+
+## Authoring components in Figma
+
+### Naming
+
+The name of a component and it's properties should reflected what is present in code whenever possible.
+
+For example, the button component would be named `Button` instead of `btn` which is neither a utility or component name but a prior reference from CSS.
+
+Component names use [PascalCase](https://www.pluralsight.com/blog/software-development/programming-naming-conventions-explained#:~:text=PascalCase%20is%20a%20variable%20naming,%3A%20FirstName%2C%20TotalBalance%2C%20WigsWorn.). For example, the action list component is named `ActionList`. Refer to the ["Spelling of component names" ADR](https://github.com/github/primer/blob/main/adrs/2022-02-15-spelling-of-component-names.md) for more context.
+
+### Layer structure
+
+Every component that is added should have its layers named to reflect what is rendered on that layer. When describing component layer structure, Primer uses a left-to-right direction to reflect start-to-end positioning.
+
+When updating existing components, be careful with adding or removing layers that have children as this will create a breaking change for consumners.
+
+
+
