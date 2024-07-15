@@ -176,14 +176,11 @@ The `_Slot` component is a local component to the Primer Web library and is adde
 
 ![Examples of slot placement](https://user-images.githubusercontent.com/10384315/137150107-fe5ab70d-4235-44a7-bb18-daceca77c1f9.png)
 
-Areas where using this slot workflow is recommended include headers, main content, footers. Slots should be used within a container that has autolayout in order to dynamically fit its parent container¹.
+Areas where using this slot workflow is recommended include headers, main content, footers. Slots should be used within a container that has autolayout in order to dynamically fit its parent container. Due to certain bugs in Figma, if a `_Slot` is replaced and does not flex, the auto layout properties will need to be manually updated.
 
 When using a component that contains slots within your own design file, create a local component that has the specific contents needed and replace the `_Slot` with an instance of the local component. 
 
-![replacing the slot component](https://user-images.githubusercontent.com/10384315/137149864-84a32917-4a33-44a9-8079-b0485edfc537.png)
-
-1. Note: Due to certain bugs in Figma, if a `_Slot` is replaced and does not flex, the auto layout properties will need to be manually updated. 
-
+![replacing the slot component](https://user-images.githubusercontent.com/10384315/137149864-84a32917-4a33-44a9-8079-b0485edfc537.png) 
 
 ## Contribution checkist for component
 
@@ -202,3 +199,8 @@ When using a component that contains slots within your own design file, create a
 - [ ] Component uses [primitives](https://primer.style/design/foundations/color) by using styles from `Primer Primitives` Figma library
 - [ ] Properties are designed according to [property guidelines](https://github.com/primer/figma/blob/main/docs/authoring-components.md#writing-properties)
 - [ ] The component adheres to the [authoring components guidelines](https://github.com/primer/figma/blob/main/docs/authoring-components.md#authoring-components-in-figma)
+
+Internal Figma library | External Figma library | DRI
+--- | --- | ---
+[Primer Web (Internal)](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web) | [Primer Web (External)](https://www.figma.com/community/file/854767373644076713) | [@lukasoppermann](https://github.com/lukasoppermann)
+[Primer Brand (Internal)](https://www.figma.com/file/BJ95AjraesmRCWsKA013GS/Primer-Brand) | | [@danielguillan](https://github.com/danielguillan)
