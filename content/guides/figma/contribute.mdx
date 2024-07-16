@@ -61,3 +61,148 @@ We use this process to make sure no accidental changes get added to the library.
     src={requestDialogImg}
   />
 </ImageBox>
+
+## Authoring components in Figma
+
+### Naming
+
+The name of a component and it's properties should reflected what is present in code whenever possible.
+
+For example, the button component would be named `Button` instead of `btn` which is neither a utility or component name but a prior reference from CSS.
+
+Component names use [PascalCase](https://www.pluralsight.com/blog/software-development/programming-naming-conventions-explained#:~:text=PascalCase%20is%20a%20variable%20naming,%3A%20FirstName%2C%20TotalBalance%2C%20WigsWorn.). For example, the action list component is named `ActionList`. Refer to the ["Spelling of component names" ADR](https://github.com/github/primer/blob/main/adrs/2022-02-15-spelling-of-component-names.md) for more context.
+
+### Layer structure
+
+Every component that is added should have its layers named to reflect what is rendered on that layer. When describing component layer structure, Primer uses a left-to-right direction to reflect start-to-end positioning.
+
+When updating existing components, be careful with adding or removing layers that have children as this will create a breaking change for consumners.
+
+### Groups of layers
+
+For groups of items within a component, be explicit to what is contained within a group.
+
+✅ Do | ❌ Don't
+:--: | :--:
+![Do name your layers to describe what they contain](https://github.com/user-attachments/assets/ae71d268-ecf6-429f-8ff1-6899f658f2af) | ![Don't leave layers named with abstract defaults from Figma such as Frame 403](https://user-images.githubusercontent.com/10384315/168837988-2e5d4343-c439-4319-b498-aff7c3090b92.png)
+
+### Text
+
+Layer names should typically represent the type of textual information it contains. Text layers that will retain overrides when swapping to another instance or variant should be named the same.
+
+![Example of text layers named as title and message](https://user-images.githubusercontent.com/10384315/168841851-63b5a47a-4d43-4cad-bf3b-a76610d951bc.png)
+
+**Layer name examples:** ButtonText, Message, Text
+
+### Actions
+
+Layers that contain actions should have their name describe the action. 
+
+![Example with actions bundled in one layer called Action: Button options](https://github.com/user-attachments/assets/cedeb45d-af0f-43ff-8838-236facb0fff2)
+
+## Variants
+
+In Primer, variants and component properties are used to quickly select different states and/or visual options of a component. 
+
+### Variant properties
+
+When creating a new component, apply variant properties that follow existing parameters as seen in other framework implementations such as [Primer React](https://primer.style/react/). If a parameter exists but cannot be expressed in Figma (e.g. `alt` or `href`) it is not necessary to include it. Variant properties will always appear above component properties in the properties panel and can only be reordered with other variant properties.
+
+![Example: Avatar component in Figma](https://user-images.githubusercontent.com/10384315/131897226-b5253552-f13f-4e85-8226-d6ca2b34d938.png)
+
+### Component properties
+
+Certain visual options can be controlled with Figma's component properties. Apply component properties when controlling the visibility of a layer, swapping between specific instance options, or controlling the content of a text layer. Below is a list of common properties and the types of items they control.
+
+As a reminder, variant properties will always appear above component properties in the properties panel.
+
+| Name | Description | Component property type |
+| :--: | :--: | :--: |
+| leadingVisual? | Show/hide the leading visual which is a the start of the component (left-side) | [Boolean](https://help.figma.com/hc/en-us/articles/5579474826519-Create-and-use-component-properties#h_01G2Q5GA6DEB604H2E5H5C5TA4) |
+| title | Text content for "Title" layer | [Text](https://help.figma.com/hc/en-us/articles/5579474826519-Create-and-use-component-properties#h_01G2Q5G3FV0EQP9RZFZG7GVWEG) |
+| leadingAction | Swap between different interactive options (such as checkbox, checkmark, bullet) | [Instance swap](https://help.figma.com/hc/en-us/articles/5579474826519-Create-and-use-component-properties#h_01G2Q5FYN2ADEDQ3ZSB1KKY8Z0) |
+
+## Writing properties
+
+- When writing properties, either variant or component, write them as they are seen or would be written in code. For example, the prop for an icon or avatar in the action list component is written as `leadingVisual`.
+- When writing variants, keep the property name as its written in code with lower or camelCase and the values in lowercase.
+- When indicating a boolean property add a "?". For example, the property to show/hide the title of a component is written as "title?"
+
+### Examples
+
+| Property name | Values |
+|--------|--------|
+| **label?** | `true` `false` |
+| **state** | `rest` `focus` `hover` |
+| **visual** | `octicon` `avatar` |
+
+### Properties table
+
+The following table includes a list of common properties used within the Figma components in [Primer Web](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=179%3A3870). Please note that not all components will contain all properties contained within this list. Use your best judgement as to which properties should be implemented.
+
+| Category | Description | Included values |
+|--------|--------|--------|
+| `type` | A variation of the component or a specific part | text, single select, multi-select, danger, header, item, footer | 
+| `state` | The state of the component's interactivity | default (rest), hover, selected, disabled | 
+| `size` | Size variations of the component | small, medium, large OR pixel values | 
+| `leading[Accessory]` | The leading visual accessory of a component placed to the **left** of a text label or description | icon, avatar |
+| `trailing[Accessory]` | The trailing visual accessory of a component placed to the **right** of a text label or description | icon, avatar, label, counter |
+| `description` | Descriptive text within a component; can be a toggle (boolean) set of values or a dropdown selection | on/off [boolean], short/long, inline/block |
+|  `selected` | Mark the component as selected; toggle (boolean) the selection marker, typically a check mark | on/off |
+
+## Multiple components vs Multiple variants
+
+Some components may feel connected enough to turn them into a component set in Figma. Within Primer, our main distinction between using variants or adding additional related components is to ask, "Will this change only visual styling or will this also change function/purpose of the component?".
+Another question to consider is how this will effect maintainence of the component.
+
+### Examples of when to use multiple components
+
+- [Alerts](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/?node-id=142%3A597): Banners
+- [Avatars](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/?node-id=179%3A3870): Avatar and AvatarStack
+- [Form select items](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=1143%3A1104)
+
+### Examples of when to use variants
+
+- [Buttons](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/?node-id=136%3A1805)
+- [Outline labels](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=3813%3A3)
+- [Navigation > Header](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=4287%3A7)
+
+## Slots
+
+![_Slot component](https://user-images.githubusercontent.com/10384315/137150003-9d731aac-3c26-4fdb-88d0-468e9e8399bc.png)
+
+
+The `_Slot` component is a local component to the Primer Web library and is added as a placeholder for any customizeable content where the designers have more flexibility.
+
+![Examples of slot placement](https://user-images.githubusercontent.com/10384315/137150107-fe5ab70d-4235-44a7-bb18-daceca77c1f9.png)
+
+Areas where using this slot workflow is recommended include headers, main content, footers. Slots should be used within a container that has autolayout in order to dynamically fit its parent container. Due to certain bugs in Figma, if a `_Slot` is replaced and does not flex, the auto layout properties will need to be manually updated.
+
+When using a component that contains slots within your own design file, create a local component that has the specific contents needed and replace the `_Slot` with an instance of the local component. 
+
+![replacing the slot component](https://user-images.githubusercontent.com/10384315/137149864-84a32917-4a33-44a9-8079-b0485edfc537.png) 
+
+## Contribution checkist for component
+
+- [ ] Changes to the component API (props, variants, etc.) are reflected in the documentation sheet
+- [ ] Properties are sorted in sensible order
+- [ ] When adding a component the default variant is used
+- [ ] Changes are [accessible](https://primer.style/design/accessibility/guidelines)
+- [ ] Properties and behavior is as close to code as possible
+- [ ] All layers are named and don't use defaults (e.g. no `Frame 23`)
+
+### Only when adding new components
+
+- [ ] Component name matches the name used for the code component but uses [`PascalCase`](https://techterms.com/definition/pascalcase) (see ["Spelling of component names"](https://github.com/github/primer/blob/main/adrs/2022-02-15-spelling-of-component-names.md#consequences))
+- [ ] Component is added to the [overview page](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=4398%3A2354)
+- [ ] Component is in light mode
+- [ ] Component uses [primitives](https://primer.style/design/foundations/color) by using styles from `Primer Primitives` Figma library
+- [ ] Properties are designed according to [property guidelines](https://github.com/primer/figma/blob/main/docs/authoring-components.md#writing-properties)
+- [ ] The component adheres to the [authoring components guidelines](https://github.com/primer/figma/blob/main/docs/authoring-components.md#authoring-components-in-figma)
+
+## DRIs
+
+Internal Figma library | External Figma library | DRI
+--- | --- | ---
+[Primer Web (Internal)](https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web) | [Primer Web (External)](https://www.figma.com/community/file/854767373644076713) | [@lukasoppermann](https://github.com/lukasoppermann)
+[Primer Brand (Internal)](https://www.figma.com/file/BJ95AjraesmRCWsKA013GS/Primer-Brand) | | [@danielguillan](https://github.com/danielguillan)
