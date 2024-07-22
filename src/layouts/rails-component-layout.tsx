@@ -1,20 +1,19 @@
 import {AccessibilityLabel, Note, StatusLabel} from '@primer/gatsby-theme-doctocat'
 import GithubSlugger from 'github-slugger'
 import {HEADER_HEIGHT} from '@primer/gatsby-theme-doctocat/src/components/header'
-import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
+import {H2, H3, H4} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
 import Table from '@primer/gatsby-theme-doctocat/src/components/table'
 import TableOfContents from '@primer/gatsby-theme-doctocat/src/components/table-of-contents'
-import {ActionList, ActionMenu, Box, Heading, Label, Link, Text} from '@primer/react'
+import {Box, Heading, Label, Link, Text} from '@primer/react'
 import {sentenceCase} from 'change-case'
-import {graphql, Link as GatsbyLink, navigate} from 'gatsby'
+import {graphql, Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import {BaseLayout} from '../components/base-layout'
 import {ComponentPageNav} from '../components/component-page-nav'
 import {LookbookEmbed} from '../components/lookbook-embed'
 import RailsMarkdown from '../components/rails-markdown'
 import { RailsProvider } from '../components/rails-provider'
-import { sortStatuses } from '../status-utils'
 import StatusMenu from '../components/status-menu'
 
 export const query = graphql`
@@ -81,6 +80,7 @@ export const query = graphql`
           name
           type
         }
+        return_types
       }
 
       previews {
@@ -176,16 +176,55 @@ function RailsComponentMethods({methods}) {
           return (
             <>
               <H3>
-                <InlineCode>{method.name}</InlineCode>
+                <InlineCode>
+                  {method.name}
+                  {methodParameterList(method.parameters)}
+                  {methodReturnTypes(method.return_types)}
+                </InlineCode>
               </H3>
               {/* @ts-ignore */}
               <RailsMarkdown text={method.description} />
-              <RailsPropsTable props={method.parameters} />
+              <RailsComponentMethodParametersTable parameters={method.parameters} />
             </>
           )
         })}
       </>
     )
+  } else {
+    return <></>
+  }
+}
+
+function methodReturnTypes(returnTypes) {
+  if (returnTypes && returnTypes.length > 0) {
+    return ' -> ' + returnTypes.join(' | ')
+  } else {
+    return ''
+  }
+}
+
+function methodParameterList(parameters) {
+  const params = parameters.map(param => {
+    if (param.type) {
+      return `${param.name}: ${param.type}`
+    } else {
+      return param.name
+    }
+  })
+
+  if (parameters.length > 0) {
+    return `(${params.join(', ')})`
+  } else {
+    return ''
+  }
+}
+
+function RailsComponentMethodParametersTable({parameters}) {
+  if (parameters.length > 0) {
+    return <>
+      <H4>Parameters</H4>
+      <RailsPropsTable props={parameters} />
+    </>
   } else {
     return <></>
   }
@@ -231,7 +270,7 @@ function RailsComponent({data, showPreviews}) {
 }
 
 export default function RailsComponentLayout({data}) {
-  const {name, a11y_reviewed, status, previews, slots, is_form_component, accessibility_docs} = data.railsComponent
+  const {name, a11y_reviewed, status, previews, slots, methods, is_form_component, accessibility_docs} = data.railsComponent
   const allRailsComponents = data.allRailsComponent.nodes
 
   const title = data.sitePage?.context.frontmatter.title
@@ -270,6 +309,10 @@ export default function RailsComponentLayout({data}) {
 
   if (slots.length > 0) {
     tableOfContents.items.push({url: '#slots', title: 'Slots'})
+  }
+
+  if (methods.length > 0) {
+    tableOfContents.items.push({url: '#methods', title: 'Methods'})
   }
 
   const slugger = new GithubSlugger()
@@ -405,11 +448,13 @@ function RailsPropsTable({
         <colgroup>
           <col style={{width: '25%'}} />
           <col style={{width: '15%'}} />
+          <col style={{width: '15%'}} />
           <col style={{width: '60%'}} />
         </colgroup>
         <thead>
           <tr>
             <th align="left">Name</th>
+            <th align="left">Type</th>
             <th align="left">Default</th>
             <th align="left">Description</th>
           </tr>
@@ -423,14 +468,31 @@ function RailsPropsTable({
                 </Box>
               </td>
               <td valign="top">
-                {prop.default ? <RailsMarkdown text={prop.default} /> : null}
-              </td>
-              <td>
                 <InlineCode>{prop.type}</InlineCode>
+              </td>
+              <td valign="top">
                 <Box
                   sx={{
                     '&:not(:empty)': {
-                      mt: 2,
+                      mt: 0,
+                    },
+                    color: 'fg.muted',
+                    '& > :first-child': {
+                      mt: 0,
+                    },
+                    '& > :last-child': {
+                      mb: 0,
+                    },
+                  }}
+                >
+                  {prop.default ? <RailsMarkdown text={prop.default} /> : null}
+                </Box>
+              </td>
+              <td>
+                <Box
+                  sx={{
+                    '&:not(:empty)': {
+                      mt: 0,
                     },
                     color: 'fg.muted',
                     '& > :first-child': {
