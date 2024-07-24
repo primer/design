@@ -5,11 +5,19 @@ description:
 ---
 ## Neutral color scales
 
-img: neutral scales
+<img
+  width="960"
+  alt="Two neutral scales stacked on top of each other labeled from 0 to 11. The top scale is the light scale, which starts with white and ends with black. The bottom scale is the dark scale, which starts with black and ends with white."
+  src="https://github.com/user-attachments/assets/3081e29d-6581-401b-91da-c014eee9cf66"
+/>
 
 Primer's neutral scales offer white, black, and 11 shades of gray. There are two versions of the neutral scale: light, and dark. The light and dark scales are inverted respectively, with the light scale starting with white and the dark scale starting with black. By inverting the scales, light and dark themes are able to share many of the same functional color tokens without custom overrides.
 
-img: functional text tokens
+<img
+  width="960"
+  alt="A split view of how muted text colors reference the same base scale color in both light and dark themes."
+  src="https://github.com/user-attachments/assets/160e6384-3c33-4729-a6cf-96adce84f127"
+/>
 
 Each step of the scale serves a purpose, which results in large contrast jumps between the values used for background and text colors. The scales offer a wider range than other Primer color scales to allow for more flexibility in defining different levels of contrast.
 
@@ -17,23 +25,51 @@ Each step of the scale serves a purpose, which results in large contrast jumps b
 
 The first six steps of the neutral scales are typically used for background colors. The two most commonly used background colors are `bgColor-default` and `bgColor-muted`. All contrast values for text and borders are calculated against `bgColor-muted` to ensure proper contrast ratios for both `muted` and `default`.
 
+<img
+  width="960"
+  alt="Two neutral scales stacked on top of each other labelled with background, border, and text to show how the scales are used for different UI elements. In this graphic the background portion is highlighted."
+  src="https://github.com/user-attachments/assets/1a87a17d-ce23-4c1d-8fa0-ae7b2d70aaf2"
+/>
+
 For control components with state, the scale accommodates rest, hover, and active.
+
+<img
+  width="960"
+  alt="A split view showing how neutral scale colors are used for the default button background in both light and dark themes."
+  src="https://github.com/user-attachments/assets/4e9e0287-11ca-44c5-a5f5-9739acf5c70c"
+/>
 
 ### Borders and dividers
 
 Steps six and seven are typically used for borders and dividers in the default light/dark themes. Step 7 is considered the minimum contrast value for interactive control borders against `bgColor-muted`.
 
-graphic showing the border options next to the scale colors
+<img
+  width="960"
+  alt="Two neutral scales stacked on top of each other labelled with background, border, and text to show how the scales are used for different UI elements. In this graphic the border portion is highlighted."
+  src="https://github.com/user-attachments/assets/2f9e121a-3b34-46f2-85dc-52b703583b4e"
+/>
 
 ### Text and icons
 
 Steps eight and nine are typically used for text and icons. Step eight is considered the minimum contrast value for text against steps zero through four, while nine meets the minimum against five and six.
+
+<img
+  width="960"
+  alt="Two neutral scales stacked on top of each other labelled with background, border, and text to show how the scales are used for different UI elements. In this graphic the text portion is highlighted."
+  src="https://github.com/user-attachments/assets/646681aa-8222-4d0d-9087-b0353ba80991"
+/>
 
 ### Adjusting contrast
 
 Contrast levels can be adjusted by moving up or down the scale. For example, the light high contrast theme utilizes steps one through six for backgrounds, nine for borders, and ten to black for text.
 
 For high contrast themes, the goal is to hit a minimum of 7:1 for most text and interactive elements. If a softer background color must be used, make use of borders around elements to increase contrast.
+
+<img
+  width="960"
+  alt="The light color scale is duplicated and labeled to show how its used for UI elements between light and light high contrast themes."
+  src="https://github.com/user-attachments/assets/f6920d63-c949-49ba-ae09-454d96715b53"
+/>
 
 ## All color scales
 
