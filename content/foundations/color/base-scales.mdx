@@ -3,6 +3,37 @@ title: Base scales
 description:
   Primer base color scales makeup the foundation for all UI color considerations.
 ---
+## Neutral color scales
+
+img: neutral scales
+
+Primer's neutral scales offer white, black, and 11 shades of gray. There are two versions of the neutral scale: light, and dark. The light and dark scales are inverted respectively, with the light scale starting with white and the dark scale starting with black. By inverting the scales, light and dark themes are able to share many of the same functional color tokens without custom overrides.
+
+img: functional text tokens
+
+Each step of the scale serves a purpose, which results in large contrast jumps between the values used for background and text colors. The scales offer a wider range than other Primer color scales to allow for more flexibility in defining different levels of contrast.
+
+### Background
+
+The first six steps of the neutral scales are typically used for background colors. The two most commonly used background colors are `bgColor-default` and `bgColor-muted`. All contrast values for text and borders are calculated against `bgColor-muted` to ensure proper contrast ratios for both `muted` and `default`.
+
+For control components with state, the scale accommodates rest, hover, and active.
+
+### Borders and dividers
+
+Steps six and seven are typically used for borders and dividers in the default light/dark themes. Step 7 is considered the minimum contrast value for interactive control borders against `bgColor-muted`.
+
+graphic showing the border options next to the scale colors
+
+### Text and icons
+
+Steps eight and nine are typically used for text and icons. Step eight is considered the minimum contrast value for text against steps zero through four, while nine meets the minimum against five and six.
+
+### Adjusting contrast
+
+Contrast levels can be adjusted by moving up or down the scale. For example, the light high contrast theme utilizes steps one through six for backgrounds, nine for borders, and ten to black for text.
+
+For high contrast themes, the goal is to hit a minimum of 7:1 for most text and interactive elements. If a softer background color must be used, make use of borders around elements to increase contrast.
 
 ## All color scales
 
