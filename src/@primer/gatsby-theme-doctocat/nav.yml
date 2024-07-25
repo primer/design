@@ -186,6 +186,8 @@
       url: /ui-patterns/forms/overview
     - title: Loading
       url: /ui-patterns/loading
+    - title: Navigation
+      url: /ui-patterns/navigation
     - title: Notification messaging
       url: /ui-patterns/notification-messaging
     - title: Progressive disclosure
