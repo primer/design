@@ -9,19 +9,19 @@ import {Box} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 
-![](https://github.com/user-attachments/assets/0105c1cf-dd04-4788-b26a-e64abdc738b6)
+![Interface showing selectable options for events, users, languages, and projects. Events include Announcements, Releases, Sponsors, Stars, and Repositories. User selection shows profiles such as six7, maximedegrve, TheDamianHdez. Language options include C, C#, C++, CoffeeScript, CSS, Dart, DM, Elixir. Project selection shows Proxima issues from multiple tests and other repositories.](https://github.com/user-attachments/assets/b0c1f1cb-0446-4767-9d19-c15b87b53fda)
 
 ## Options
 
 ### Single Selection
 
-![](https://github.com/user-attachments/assets/673b6671-47a8-46ed-9200-dc2a1710f374)
+![Select panel titled Change author with a search bar and a list of names including Jan Six, Maxime De Greve, Damian Hernandez, Joyce Lau, Lee Reilly, Gavin Nelson, Amy Burns, Lerè, Cole Bemis, Lukas Oppermann, and Sophie Shepherd.](https://github.com/user-attachments/assets/673b6671-47a8-46ed-9200-dc2a1710f374)
 
 For single-item selection, the panel closes immediately upon selection. The selected item is indicated by a checkmark. Set the `selectionVariant` prop on `ActionList` to `single`.
 
 ### Multi Selection
 
-![](https://github.com/user-attachments/assets/bcf32736-35c9-42c2-837a-6a62767bbcec)
+![Set labels select panel showing various labels including a11y design (checked), a11y sign-off, accessibility, area: accessibility, at risk, and blocked with a search bar at the top.'](https://github.com/user-attachments/assets/bcf32736-35c9-42c2-837a-6a62767bbcec)
 
 For multi-item selection, the panel remains open after each selection, allowing users to choose multiple items before closing the panel to confirm their choices. Selections are visually indicated by faux checkboxes. Set the `selectionVariant` prop on `ActionList` to `multiple`.
 
@@ -31,19 +31,19 @@ Items can be grouped to provide additional context or to visually separate them.
 
 ### Footer
 
-![](https://github.com/user-attachments/assets/7c1c4ad0-5fae-45fb-b932-006d3dd1aed4)
+![Select panel showing a list of users with checkboxes and names including Gavin Nelson, Amy Burns, Léré, Cole Bemis, Lukas Oppermann, and Sophie Shepherd. Below is an 'Add a new user' button. Adjacent is a labels select panel section with checkboxes for labels 'accessibility', 'at risk', and 'blocked', along with a 'Manage labels' link in the footer.](https://github.com/user-attachments/assets/7c1c4ad0-5fae-45fb-b932-006d3dd1aed4)
 
 An optional footer at the bottom can include a link or button for additional actions.
 
 ### Opening
 
-![](https://github.com/user-attachments/assets/90c9ffa3-302c-4a59-b8d3-5f8f747489bd)
+![Three buttons displayed: a gear icon button labeled 'Icon button', a dropdown button labeled 'Assignees: 2 people' with 'Button (internal label)' below, and another dropdown button labeled 'Assignees' with '2 people' as value and 'Button (external label)' below.](https://github.com/user-attachments/assets/90c9ffa3-302c-4a59-b8d3-5f8f747489bd)
 
 Select panels can be activated via a semantic button, which can be either a regular button or an icon button. If the button represents the current selection, it must have an associated label, either internally (within the button) or externally (adjacent to the button).
 
 ## Anatomy
 
-![](https://github.com/user-attachments/assets/4eaaba98-1fa7-4d7a-a243-0007cd4cc1b4)
+![Label selection select panel with the options a11y design, a11y sign-off, accessibility, area: accessibility, at risk, and blocked, each with corresponding checkboxes. The header, list, input and footer is annotated.](https://github.com/user-attachments/assets/4eaaba98-1fa7-4d7a-a243-0007cd4cc1b4)
 
 The select panel consists of three main areas: a header, a scrollable list that can be filtered, and an optional footer:
 
@@ -55,13 +55,13 @@ The select panel consists of three main areas: a header, a scrollable list that 
 
 ### Empty State
 
-![](https://github.com/user-attachments/assets/7e4568fa-60be-44a3-b968-f2f0b6dcbb94)
+![Screen showing two search panels side by side. The left panel titled 'Set project' with a search bar displaying 'Search' and a message below stating 'You haven't created any projects yet' followed by 'Start your first project to organise your issues.' The right panel titled 'Filter by language' with a search bar containing 'CSA' and a message below stating 'No language found for CSA' followed by 'Adjust your search term to find other languages.' Both panels have no items or matches](https://github.com/user-attachments/assets/7e4568fa-60be-44a3-b968-f2f0b6dcbb94)
 
 When no results are available, offer users an explanation instead of leaving a blank space. There can be various reasons for the absence of results. It could be due to the search or filter input value not matching any available data, or it could be because the user has yet to generate any data to display.
 
 ### Loading
 
-![](https://github.com/user-attachments/assets/bcd1e1d7-ad71-4820-ba8f-487a0462137f)
+![Three stages of an 'Assign people' select panel. The first stage shows an empty search bar with a spinner and 'Fetching people...' text. The second stage displays the same search bar with skeleton loaders. The third stage shows a search for 'six' with a list of users, including avatars and names such as 'Jan Six', 'Manuel Muñoz Solera', and 'Vinicius Depizzol'.](https://github.com/user-attachments/assets/bcd1e1d7-ad71-4820-ba8f-487a0462137f)
 
 Provide visual cues to users when processes may take longer than expected. Use loading states at different stages to communicate effectively.
 
@@ -71,13 +71,13 @@ Provide visual cues to users when processes may take longer than expected. Use l
 
 ### Current Selection
 
-![](https://github.com/user-attachments/assets/12f4dd86-ec9b-4a9e-8246-e92bed87fa00)
+![Three dropdown menus labeled Filter by language. The first menu on the left, labeled Default, shows the default state with C (first) and DM (fourth) selected. The middle menu, labeled After making a selection, shows C (first), C# (second), and DM (fourth) selected. The right menu, labeled When filtering, shows filtering with the search term C, displaying C (first) and C# (second) selected.](https://github.com/user-attachments/assets/12f4dd86-ec9b-4a9e-8246-e92bed87fa00)
 
 To make the current selection clear, display the selected items at the beginning of the list. This behavior should occur when opening the select panel, after users clear the input or when they change the filter value. Avoid reordering items after selection to prevent disorientation.
 
 ### Error/Warning Handling
 
-![](https://github.com/user-attachments/assets/272174b3-7f32-45cc-8ad1-9b063f8d98a4)
+![Two side-by-side author select panels with titles "Default values fail to load" (left) and "Search fails" (right). Left dialog shows "We couldn’t load the authors" with a red warning icon, search bar, placeholder text: "Try again or if the problem persists contact support." Right dialog shows search for "max," listing authors including "six7," "maximedegreve," and others, but an error states "We couldn’t load the authors" with a red warning icon below the title.](https://github.com/user-attachments/assets/272174b3-7f32-45cc-8ad1-9b063f8d98a4)
 
 When things don't work as expected, or users need to be informed about important issues, we handle these scenarios appropriately. If default values fail to load, we display an error placeholder to inform the user. When users search for new values and the search fails, we display an error message above the input.
 
