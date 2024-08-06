@@ -9,21 +9,19 @@ import {Box} from '@primer/react'
 import ComponentLayout from '~/src/layouts/component-layout'
 export default ComponentLayout
 
-<Note>
-  We are actively working on addressing the accessibility issues in this component.
-</Note>
+![](https://github.com/user-attachments/assets/872d14f5-8ba9-4b2b-9a2f-e5df0d6b2424)
 
 ## Options
 
 ### Single Selection
 
-[SCREENSHOT]
+![](https://github.com/user-attachments/assets/673b6671-47a8-46ed-9200-dc2a1710f374)
 
 For single-item selection, the panel closes immediately upon selection. The selected item is indicated by a checkmark. Set the `selectionVariant` prop on `ActionList` to `single`.
 
 ### Multi Selection
 
-[SCREENSHOT]
+![](https://github.com/user-attachments/assets/bcf32736-35c9-42c2-837a-6a62767bbcec)
 
 For multi-item selection, the panel remains open after each selection, allowing users to choose multiple items before closing the panel to confirm their choices. Selections are visually indicated by faux checkboxes. Set the `selectionVariant` prop on `ActionList` to `multiple`.
 
@@ -33,19 +31,19 @@ Items can be grouped to provide additional context or to visually separate them.
 
 ### Footer
 
-[SCREENSHOT]
+![](https://github.com/user-attachments/assets/7c1c4ad0-5fae-45fb-b932-006d3dd1aed4)
 
 An optional footer at the bottom can include a link or button for additional actions.
 
 ### Opening
 
-[SCREENSHOT]
+![](https://github.com/user-attachments/assets/90c9ffa3-302c-4a59-b8d3-5f8f747489bd)
 
 Select panels can be activated via a semantic button, which can be either a regular button or an icon button. If the button represents the current selection, it must have an associated label, either internally (within the button) or externally (adjacent to the button).
 
 ## Anatomy
 
-[SCREENSHOT]
+![](https://github.com/user-attachments/assets/4eaaba98-1fa7-4d7a-a243-0007cd4cc1b4)
 
 The select panel consists of three main areas: a header, a scrollable list that can be filtered, and an optional footer:
 
@@ -57,13 +55,13 @@ The select panel consists of three main areas: a header, a scrollable list that 
 
 ### Empty State
 
-[SCREENSHOT]
+![](https://github.com/user-attachments/assets/7e4568fa-60be-44a3-b968-f2f0b6dcbb94)
 
 When no results are available, offer users an explanation instead of leaving a blank space. There can be various reasons for the absence of results. It could be due to the search or filter input value not matching any available data, or it could be because the user has yet to generate any data to display.
 
 ### Loading
 
-[SCREENSHOT]
+![](https://github.com/user-attachments/assets/bcd1e1d7-ad71-4820-ba8f-487a0462137f)
 
 Provide visual cues to users when processes may take longer than expected. Use loading states at different stages to communicate effectively.
 
@@ -73,11 +71,13 @@ Provide visual cues to users when processes may take longer than expected. Use l
 
 ### Current Selection
 
-[SCREENSHOT]
+![](https://github.com/user-attachments/assets/12f4dd86-ec9b-4a9e-8246-e92bed87fa00)
 
-To effectively summarize the current selection, display the selected items at the beginning of the unfiltered list. This behavior should occur when opening the select panel or after users clear the input. Avoid reordering items after selection to prevent disorientation.
+To make the current selection clear, display the selected items at the beginning of the list. This behavior should occur when opening the select panel, after users clear the input or when they change the filter value. Avoid reordering items after selection to prevent disorientation.
 
 ### Error/Warning Handling
+
+![](https://github.com/user-attachments/assets/272174b3-7f32-45cc-8ad1-9b063f8d98a4)
 
 When things don't work as expected, or users need to be informed about important issues, we handle these scenarios appropriately. If default values fail to load, we display an error placeholder to inform the user. When users search for new values and the search fails, we display an error message above the input.
 
@@ -101,16 +101,16 @@ Closing the select panel applies all changes. It can be closed by clicking the t
 
 ### Keyboard Navigation
 
-| Key              | Description                                                                                                                                   |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>Tab</kbd> | Move focus forward between interactive controls and widgets within the dialog.                                                                |
-| <kbd>Shift + Tab</kbd> | Move focus backward between interactive controls and widgets within the dialog.                                                       |
-| <kbd>Enter</kbd> | Select items in the list or activate buttons or links within the select panel.                                                              |
-| <kbd>Space</kbd> | Type a space in the input or activate buttons or links within the select panel.                                                             |
-| <kbd>ArrowDown</kbd> | Navigate forward through items in the list. If focus is on the last item, `ArrowDown` moves focus to the first item.                    |
-| <kbd>ArrowUp</kbd> | Navigate backward through items in the list. If focus is on the first item, `ArrowUp` moves focus to the last item.                       |
-| <kbd>Home</kbd> | Move focus to the first item in the list.                                                                                                    |
-| <kbd>PageUp</kbd> | Move focus to the first item in the list.                                                                                                  |
-| <kbd>End</kbd> | Move focus to the last item in the list.                                                                                                      |
-| <kbd>PageDown</kbd> | Move focus to the last item in the list.                                                                                                 |
-| <kbd>Esc</kbd> | Apply changes and close the select panel.                                                                                                     |
+| Key           | Description                                                                                                          |
+| ------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `Tab`         | Move focus forward between interactive controls and widgets within the dialog.                                       |
+| `Shift + Tab` | Move focus backward between interactive controls and widgets within the dialog.                                      |
+| `Enter`       | Select items in the list or activate buttons or links within the select panel.                                       |
+| `Space`       | Type a space in the input or activate buttons or links within the select panel.                                      |
+| `ArrowDown`   | Navigate forward through items in the list. If focus is on the last item, `ArrowDown` moves focus to the first item. |
+| `ArrowUp`     | Navigate backward through items in the list. If focus is on the first item, `ArrowUp` moves focus to the last item.  |
+| `Home`        | Move focus to the first item in the list.                                                                            |
+| `PageUp`      | Move focus to the first item in the list.                                                                            |
+| `End`         | Move focus to the last item in the list.                                                                             |
+| `PageDown`    | Move focus to the last item in the list.                                                                             |
+| `Esc`         | Apply changes and close the select panel.                                                                            |
