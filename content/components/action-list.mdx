@@ -58,149 +58,152 @@ An action list can be composed of:
 ## Options
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-    <Box justifyContent="center">
-        <img
-            width="464"
-            alt="Action list sizes"
-            src="https://user-images.githubusercontent.com/293280/125997468-fa064d6b-ace3-4dec-920d-178478d67ba9.png"
-        />
-    </Box>
-    <Box>
-        <Heading sx={{fontSize: 3}}>Sizes</Heading>
-        <Box as="p">Action list items support three different sizes: small, medium, and large. The small size is the default and most common option. Medium sizes work well for relaxed local navigation, while large sizes can support items that need more breathing room.</Box>
-        <Box as="p">Sizes only grow vertically. This behavior keeps the content aligned among items, and retains horizontal space for density.</Box>
-        <Box as="p">On touch devices, the large size is used at all times to ensure usability when tapping.</Box>
-        <Box as="p">Be cautious when mixing different sizes in the same list to avoid inconsistency.</Box>
-    </Box>
-    <Box flexDirection="column" justifyContent="center">
-        <Box>
-            <img
-                width="464"
-                alt=""
-                src="https://user-images.githubusercontent.com/293280/125997571-d8b92b5e-5241-4f33-b223-825335b18f3d.png"
-            />
-            <Caption>Use leading visuals to represent system sections, features, or options.</Caption>
-        </Box>
-        <Box>
-            <img
-                width="464"
-                alt=""
-                src="https://user-images.githubusercontent.com/293280/125997693-e0d9e379-19c1-4382-adbb-2a1882937373.png"
-            />
-            <Caption>Use leading visuals in important menu items.</Caption>
-        </Box>
-        <Box>
-            <img
-                width="464"
-                alt=""
-                src="https://user-images.githubusercontent.com/293280/125998871-9f51e402-2ccf-4e0a-9465-65d4956c630f.png"
-            />
-            <Caption>Use leading visuals to represent content types.</Caption>
-        </Box>
-    </Box>
-    <Box>
-        <Heading sx={{fontSize: 3}}>Leading visual</Heading>
-        <Box as="p">Leading visuals are optional and appear at the start of an item. They can be octicons, avatars, and other custom visuals that fit a small area.</Box>
-        <Box as="p">When listing system sections, features, or options, use leading visuals to improve the items' scannability. In user-generated objects, they can help to indicate the item's content type and status.</Box>
-        <Box as="p">Depending on the context, displaying a leading visual may not be necessary. For example, a list of branches in a select panel may not need repeated icons if the surrounding UI provides enough hints about its content type.</Box>
-    </Box>
-    <Box flexDirection="column" justifyContent="center">
-        <Box>
-            <img
-                width="464"
-                alt=""
-                src="https://user-images.githubusercontent.com/293280/125998961-24f90611-fe5f-4169-8943-eef68a6755a9.png"
-            />
-            <Caption>A right arrow as a trailing visual indicates there are more options to choose after selecting an item.</Caption>
-        </Box>
-        <Box>
-            <img
-                width="464"
-                alt=""
-                src="https://user-images.githubusercontent.com/293280/125999062-bc489a21-cdc6-455a-8363-b7c8c7faeb3a.png"
-            />
-            <Caption>Trailing text with custom styling to indicate diff change.</Caption>
-        </Box>
-    </Box>
-    <Box>
-        <Heading sx={{fontSize: 3}}>Trailing visual and trailing text</Heading>
-        <Box as="p">Trailing visual and trailing text can display auxiliary information. They're placed at the right of the item, and can denote status, keyboard shortcuts, or be used to set expectations about what the action does.</Box>
-        <Box as="p">Note these side visuals don't have dedicated interaction targets.</Box>
-        <Box as="p">
+<div>
+  <img
+    width="464"
+    alt=""
+    src="https://user-images.githubusercontent.com/293280/125997571-d8b92b5e-5241-4f33-b223-825335b18f3d.png"
+  />
+  <Caption>Use leading visuals to represent system sections, features, or options.</Caption>
+
+  <img
+    width="464"
+    alt=""
+    src="https://user-images.githubusercontent.com/293280/125997693-e0d9e379-19c1-4382-adbb-2a1882937373.png"
+  />
+  <Caption>Use leading visuals in important menu items.</Caption>
+
+  <img
+    width="464"
+    alt=""
+    src="https://user-images.githubusercontent.com/293280/125998871-9f51e402-2ccf-4e0a-9465-65d4956c630f.png"
+  />
+  <Caption>Use leading visuals to represent content types.</Caption>
+</div>
+
+<Box sx={{h3: {marginTop: 0}}}>
+
+### Leading visual
+
+Leading visuals are optional and appear at the start of an item. They can be octicons, avatars, and other custom visuals that fit a small area.
+
+When listing system sections, features, or options, use leading visuals to improve the items' scannability. In user-generated objects, they can help to indicate the item's content type and status.
+
+Depending on the context, displaying a leading visual may not be necessary. For example, a list of branches in a select panel may not need repeated icons if the surrounding UI provides enough hints about its content type.
+
+</Box>
+
+<div>
+  <img
+    width="464"
+    alt=""
+    src="https://user-images.githubusercontent.com/293280/125998961-24f90611-fe5f-4169-8943-eef68a6755a9.png"
+  />
+  <Caption>A right arrow as a trailing visual indicates there are more options to choose after selecting an item.</Caption>
+
+  <img
+    width="464"
+    alt=""
+    src="https://user-images.githubusercontent.com/293280/125999062-bc489a21-cdc6-455a-8363-b7c8c7faeb3a.png"
+  />
+  <Caption>Trailing text with custom styling to indicate diff change.</Caption>
+</div>
+
+<Box sx={{h3: {marginTop: 0}}}>
+
+### Trailing visual and trailing text
+
+Trailing visual and trailing text can display auxiliary information. They're placed at the right of the item, and can denote status, keyboard shortcuts, or be used to set expectations about what the action does.
+
+Note these side visuals don't have dedicated interaction targets.
 
 Use an [`arrow-right`](https://primer.style/octicons/arrow-right-16) octicon in menus to indicate the action will open more options, such as in a nested context. Use a [`pencil`](https://primer.style/octicons/pencil-16) octicon to indicate the item is going to be edited after clicking it.
 
-</Box>
-        <Box as="p">Custom trailing elements are supported, such as counters, labels, and other custom visuals that may help identify the item.</Box>
-        <Box as="p">When using a trailing text for displaying keyboard shortcuts, always confirm the characters match with the user's operating system. For example, to indicate a bold action in a Markdown toolbar, use "Ctrl+B" on Linux and Windows, and "⌘B" on Mac. <a href="https://support.apple.com/en-us/HT201236">See reference for Mac keyboard glyphs</a>.</Box>
-    </Box>
-    <Box justifyContent="center">
-        <img
-            width="464"
-            alt="Navigation list with an action button used to rerun a job, visible on hover."
-            src="https://user-images.githubusercontent.com/18661030/193155140-ae9cca41-280b-4cc2-a0c0-1a830b12b5c9.png"
-        />
-    </Box>
-    <Box>
-        <Heading sx={{fontSize: 3}}>Trailing actions</Heading>
-        <Box as="p">Trailing action buttons can be used to present a secondary interaction related to the contents of the main item, such as opening a menu or dialog. They may appear when an item is hovered, and can be keyboard focused individually.</Box>
-    </Box>
-    <Box justifyContent="center">
-        <img
-            width="464"
-            alt="Multi-selection"
-            src="https://user-images.githubusercontent.com/293280/126000062-3fc62e04-670d-4346-b65b-57c2e70ceeb0.png"
-        />
-    </Box>
-    <Box>
-        <Heading sx={{fontSize: 3}}>Item dividers</Heading>
-        <Box as="p">Item dividers allow users to parse heavier amounts of information. They're placed between items and are useful in complex lists, particularly when descriptions or multi-line text is present.</Box>
-        <Box as="p">When considering whether to use item dividers, make sure they truly make the presented information easier to parse, instead of only increasing visual clutter.</Box>
-        <Box as="p">When using item dividers, increasing the action list item size may also help with legibility.</Box>
-    </Box>
-    <Box justifyContent="center">
-        <img
-            width="464"
-            alt="Multi-selection"
-            src="https://user-images.githubusercontent.com/293280/126000062-3fc62e04-670d-4346-b65b-57c2e70ceeb0.png"
-        />
-    </Box>
-    <Box>
-        <Heading sx={{fontSize: 3}}>Selection states</Heading>
-        <Box as="p">
+Custom trailing elements are supported, such as counters, labels, and other custom visuals that may help identify the item.
 
-Action list items can be selected. Single selections are represented with a [`check`](https://primer.style/octicons/check-16) octicon, while multiple selections are represented with a checkbox component. These selection visuals are always placed at the beginning of the item.
+When using a trailing text for displaying keyboard shortcuts, always confirm the characters match with the user's operating system. For example, to indicate a bold action in a Markdown toolbar, use "Ctrl+B" on Linux and Windows, and "⌘B" on Mac. <a href="https://support.apple.com/en-us/HT201236">See reference for Mac keyboard glyphs</a>.
 
 </Box>
-        <Box as="p">When listing selectable items alongside non-selectable items in a menu, use dividers to differentiate between the item types.</Box>
-        <Box as="p">Don't mix different types of selections in the same list.</Box>
-    </Box>
-    <Box justifyContent="center">
-        <img
-            width="464"
-            alt="Action list item in danger variation"
-            src="https://user-images.githubusercontent.com/293280/125999384-b2a322db-8ec3-4a69-a414-10050544813b.png"
-        />
-    </Box>
-    <Box>
-        <Heading sx={{fontSize: 3}}>Danger items</Heading>
-        <Box as="p">An action list item can have a special "danger" style, to be used in cases that require extra attention from the user.</Box>
-        <Box as="p">For destructive or irremediable actions, show a confirmation dialog for extra friction. If the action is not destructive, present the user a way to undo the action instead of asking for confirmation. <a href="https://alistapart.com/article/neveruseawarning/">Never use a warning when you mean undo</a>.</Box>
-        <Box as="p">Place danger items at the end of the list.</Box>
-    </Box>
 
-<Box justifyContent="center">
-    <img
-        width="464"
-        alt="An action list with the first item in an inactive state"
-        src="https://github.com/primer/design/assets/2313998/05c6199a-a0b1-4a11-beda-73203f38cabf"
-    />
-    <img
-        width="464"
-        alt="An action list with the first item in an inactive state. A cursor is hovering the alert icon in the leading visual slot."
-        src="https://github.com/primer/design/assets/2313998/0d44f9fc-b219-43d7-8b81-a5baf93ada77"
-    />
+<img
+  width="464"
+  alt="Navigation list with an action button used to rerun a job, visible on hover."
+  src="https://user-images.githubusercontent.com/18661030/193155140-ae9cca41-280b-4cc2-a0c0-1a830b12b5c9.png"
+/>
+
+<Box sx={{h3: {marginTop: 0}}}>
+
+### Trailing actions
+
+Trailing action buttons can be used to present a secondary interaction related to the contents of the main item, such as opening a menu or dialog. They may appear when an item is hovered, and can be keyboard focused individually.
+
 </Box>
+
+<img
+  width="464"
+  alt="Multi-selection"
+  src="https://user-images.githubusercontent.com/293280/125998871-9f51e402-2ccf-4e0a-9465-65d4956c630f.png"
+/>
+
+<Box sx={{h3: {marginTop: 0}}}>
+
+### Item dividers
+
+Item dividers allow users to parse heavier amounts of information. They're placed between items and are useful in complex lists, particularly when descriptions or multi-line text is present.
+
+When considering whether to use item dividers, make sure they truly make the presented information easier to parse, instead of only increasing visual clutter.
+
+When using item dividers, increasing the action list item size may also help with legibility.
+
+</Box>
+
+<img
+  width="464"
+  alt="Selection"
+  src="https://user-images.githubusercontent.com/293280/125999347-c20e7d85-48ec-4a7e-9ecf-b5a52a033256.png"
+/>
+
+<Box sx={{h3: {marginTop: 0}}}>
+
+### Selection states
+
+Action list items support single select and multi-select. Selections are represented with a [`check`](https://primer.style/octicons/check-16) octicon placed at the beginning of the item.
+
+When listing selectable items alongside non-selectable items in a menu, use dividers to differentiate between the item types.
+
+Don't mix single select and multi-select of selections in the same list.
+
+</Box>
+
+<img
+  width="464"
+  alt="Action list item in danger variation"
+  src="https://user-images.githubusercontent.com/293280/125999384-b2a322db-8ec3-4a69-a414-10050544813b.png"
+/>
+
+<Box sx={{h3: {marginTop: 0}}}>
+### Danger items
+
+An action list item can have a special "danger" style, to be used in cases that require extra attention from the user.
+
+For destructive or irremediable actions, show a confirmation dialog for extra friction. If the action is not destructive, present the user a way to undo the action instead of asking for confirmation. <a href="https://alistapart.com/article/neveruseawarning/">Never use a warning when you mean undo</a>.
+
+Place danger items at the end of the list.
+</Box>
+
+<div>
+<img
+  width="464"
+  alt="An action list with the first item in an inactive state"
+  src="https://github.com/primer/design/assets/2313998/05c6199a-a0b1-4a11-beda-73203f38cabf"
+/>
+<img
+  width="464"
+  alt="An action list with the first item in an inactive state. A cursor is hovering the alert icon in the leading visual slot."
+  src="https://github.com/primer/design/assets/2313998/0d44f9fc-b219-43d7-8b81-a5baf93ada77"
+/>
+</div>
+
 <Box sx={{h3: {marginTop: 0}}}>
 
 ### Inactive items
@@ -217,13 +220,11 @@ See the [accessibility](#accessibility) section for information on the assistive
 
 </Box>
 
-<Box justifyContent="center">
-    <img
-        width="464"
-        alt="An action list with the first item in a loading state"
-        src="https://github.com/primer/design/assets/2313998/8811ddfa-1874-4a1d-a3ce-af39dd23bc62"
-    />
-</Box>
+<img
+  width="464"
+  alt="An action list with the first item in a loading state"
+  src="https://github.com/primer/design/assets/2313998/8811ddfa-1874-4a1d-a3ce-af39dd23bc62"
+/>
 <Box sx={{h3: {marginTop: 0}}}>
 
 ### Loading items
@@ -247,60 +248,54 @@ For information on responsive layout of an action list that is used in a sidebar
 ## Examples
 
 <Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
-    <div>
-        <Link href="/components/action-menu">
-            <img alt="Action menu" src="https://user-images.githubusercontent.com/980622/234046230-8ae1db9b-bcb9-436c-85f3-b55e02e4f2ac.png" />
-        </Link>
-    </div>
-    <div>
-        <Heading sx={{fontSize: 3}}>Action menu</Heading>
-        <Box as="p">
+
+<a href="/components/action-menu">
+<img alt="Action menu" src="https://user-images.githubusercontent.com/980622/234046230-8ae1db9b-bcb9-436c-85f3-b55e02e4f2ac.png" />
+</a>
+
+<Box sx={{h3: {marginTop: 0}}}>
+
+### Action menu
+
 Action menus are a list of items, with each item representing an action, command, or current selection, which can be a single or multi-select.
 
 [Documentation](/components/action-menu)
 
 </Box>
-</div>
 
-<div>
-  <Link href="/components/selectpanel">
-    <img
-      alt="Select panel"
-      src="https://user-images.githubusercontent.com/293280/123876997-4158f900-d8f1-11eb-85cb-461d9bbee0cb.png"
-    />
-  </Link>
-</div>
+<a href="/components/selectpanel">
+<img
+  alt="Select panel"
+  src="https://user-images.githubusercontent.com/293280/123876997-4158f900-d8f1-11eb-85cb-461d9bbee0cb.png"
+/>
+</a>
 
-<div>
-    <Heading sx={{fontSize: 3}}>Select panel</Heading>
- <Box as="p">
+<Box sx={{h3: {marginTop: 0}}}>
+
+### Select panel
+
 Select panels allow manipulating long lists of options, with filtering and other advanced interactions. They can be used for single or multi-selection.
 
 [Documentation](/components/selectpanel)
 
 </Box>
 
-</div>
+<a href="/components/nav-list">
+<img
+  alt="Select panel"
+  src="https://user-images.githubusercontent.com/980622/234065576-c4de31e0-e3e8-455f-bd5d-410a3dc6b9ec.png"
+/>
+</a>
 
-<div>
-  <Link href="/components/nav-list">
-    <img
-      alt="Select panel"
-      src="https://user-images.githubusercontent.com/980622/234065576-c4de31e0-e3e8-455f-bd5d-410a3dc6b9ec.png"
-    />
-  </Link>
-</div>
+<Box sx={{h3: {marginTop: 0}}}>
 
-<div>
-    <Heading sx={{fontSize: 3}}>Nav list</Heading>
- <Box as="p">
+### Nav list
+
 A nav list organizes navigation links for the user's current context and indicates which view they're currently on. It is typically used as a sidebar that changes what is rendered in the main content area.
 
 [Documentation](/components/nav-list)
 
 </Box>
-
-</div>
 
 </Box>
 
