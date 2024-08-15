@@ -4,6 +4,74 @@ description:
   Primer base color scales makeup the foundation for all UI color considerations.
 ---
 
+## Neutral color scales
+
+<img
+  width="960"
+  alt="Two neutral scales stacked on top of each other labeled from 0 to 11. The top scale is the light scale, which starts with white and ends with black. The bottom scale is the dark scale, which starts with black and ends with white."
+  src="https://github.com/user-attachments/assets/34d35d01-3422-465b-bd64-4f7cb2dba0d4"
+/>
+
+Primer's neutral scales offer shades of gray between 0 and 13, including white and black. There are two versions of the neutral scale: light, and dark.
+
+The light and dark scale directions are inverted, with the light scale starting with white and the dark scale starting with black. By inverting the scales, light and dark themes are able to share many of the same functional color tokens without custom overrides.
+
+<img
+  width="960"
+  alt="A split view of how muted text colors reference the same base scale color in both light and dark themes."
+  src="https://github.com/user-attachments/assets/7e0de1f9-619b-4378-b6ea-8842392ddffe"
+/>
+
+### Background
+
+The first six steps of the neutral scales are typically used for background colors. The two most commonly used background colors are `bgColor-default` and `bgColor-muted`. All contrast values for text and borders are calculated against `bgColor-muted` to ensure proper contrast ratios for both `muted` and `default`.
+
+<img
+  width="960"
+  alt="Two neutral scales stacked on top of each other labelled with background, border, and text to show how the scales are used for different UI elements. In this graphic the background portion is highlighted."
+  src="https://github.com/user-attachments/assets/c770498b-50e9-4b28-9e16-d7ae513ba8c1"
+/>
+
+For control components with state, the scale accommodates rest, hover, and active.
+
+<img
+  width="960"
+  alt="A split view showing how neutral scale colors are used for the default button background in both light and dark themes."
+  src="https://github.com/user-attachments/assets/d686e7fa-55c9-4c8c-bc02-720b48153d8d"
+/>
+
+### Borders and dividers
+
+Steps 7 and 8 are typically used for borders and dividers in the default light/dark themes. Step 8 is considered the minimum contrast value for interactive control borders against `bgColor-muted`.
+
+<img
+  width="960"
+  alt="Two neutral scales stacked on top of each other labelled with background, border, and text to show how the scales are used for different UI elements. In this graphic the border portion is highlighted."
+  src="https://github.com/user-attachments/assets/af8c453c-c3ae-4e7c-9833-c23d988b4cac"
+/>
+
+### Text and icons
+
+Steps 9 and 10 are typically used for text and icons. Step 9 is considered the minimum contrast value for text against steps 0 through 4, while 10 meets the minimum against 5 and 6.
+
+<img
+  width="960"
+  alt="Two neutral scales stacked on top of each other labelled with background, border, and text to show how the scales are used for different UI elements. In this graphic the text portion is highlighted."
+  src="https://github.com/user-attachments/assets/dd0f077a-8e83-44e8-a182-8e8e765a864b"
+/>
+
+### Adjusting contrast
+
+Contrast levels can be adjusted by moving up or down the scale. For example, the light high contrast theme utilizes steps 2 through 7 for backgrounds, 10 for borders, and 11 to 13 for text.
+
+For high contrast themes, the goal is to hit a minimum of 7:1 for most text and interactive elements. If a softer background color must be used, make use of borders around elements to increase contrast.
+
+<img
+  width="960"
+  alt="The light color scale is duplicated and labeled to show how its used for UI elements between light and light high contrast themes."
+  src="https://github.com/user-attachments/assets/3f3b24b1-49cf-4b00-af96-dd41dba8a09d"
+/>
+
 ## All color scales
 
 <Note>Base color values should only be used to construct functional and component/pattern design tokens, never used directly in code</Note>
