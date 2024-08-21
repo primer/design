@@ -28,7 +28,7 @@ document.querySelector('select-panel').show();
 
 `SelectMenu`s wrap their `<summary>`/`<details>` elements inside the [`<details-dialog>`](https://github.com/github/details-dialog-element) element to display their items in a modal dialog. `SelectPanel`s have this functionality built in, i.e. there is no need to wrap them in any additional elements.
 
-`SelectPanel`s are anchored to their show buttons. In other words, they appear attached to their show buttons and act  like menus or popovers. However, `SelectPanel`s use the native `<dialog>` element under the hood and therefore exhibit dialog behavior, i.e. they trap focus, prevent page scrolling, etc. `SelectMenu`s by contrast do not trap focus and do not prevent page scrolling.
+`SelectPanel`s are anchored to their show buttons. In other words, they appear attached to their show buttons and act  like menus or popovers. However, `SelectPanel`s use the native `<dialog>` element under the hood and therefore exhibit [dialog behavior](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) -- they trap focus, prevent scrolling content under the dialog, etc. `SelectMenu`s by contrast are not backed by dialogs; they do not trap focus and do not prevent page scrolling.
 
 ### Choosing a fetch strategy
 
