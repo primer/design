@@ -187,15 +187,20 @@ This component is intended to show a shorter, more user-friendly relative time (
 
 ### Built-in accessibility features
 
-The component renders text showing the chosen relative time (for instance, "1 week ago"), with a `title` attribute containing the precise localized date/time . Doing this triggers a native browser tooltip when the component is hovered with the mouse. This means that currently, the component is not accessible to keyboard users, as there is no browser-native mechanism to show `title` tooltips when navigating with a keyboard.
+The component renders text showing the chosen relative time (for instance, "1 week ago"). By default, it renders with a `title` attribute containing the precise localized date/time. Doing this triggers a native browser tooltip when the component is hovered with the mouse. This means that by default, the component is not accessible to keyboard users, as there is no browser-native mechanism to show `title` tooltips when navigating with a keyboard. See the [Implementation requirements](#implementation-requirements) section for guidance on making it accessible.
 
-When using a screen reader, `title` is usually announced as an additional description for specific elements, such as form controls, links, and dialogs. However, as the `<relative-time>` component is a custom and semantically neutral element, screen readers only announce the visible text and ignore the `title` attribute content,  making the precise localized date/time not available to screen reader users.
+When using a screen reader, `title` is usually announced as an additional description for specific elements, such as form controls, links, and dialogs. However, as the `<relative-time>` component is a custom and semantically neutral element, screen readers only announce the visible text and ignore the `title` attribute content, making the precise localized date/time not available to screen reader users by default.
 
 ### Implementation requirements
 
 Due to the current limitations of this component, one should consider alternative ways to expose the precise localized date/time to all users rather than only relying on the component's `title` attribute tooltip alone.
 
 The specific way to achieve this will depend on the context of what you are building. For instance, you could use `<relative-time>` on an initial listing or overview page, but then provide the full localized date/time in a subsequent details view, or in a dialog that shows more information for an individual item. Alternatively, provide a toggle or user setting that allows users to switch all instances of relative time to the full localized date/time display.
+
+General recommended approaches are:
+
+* For interactive elements (such as using a link), use an accessible Primer Tooltip with the `<relative-time>` component to display the full date/time and hide the `title` attribute. See the [React 'Link with tooltip' story](https://primer.style/react/storybook/?path=/story/components-relativetime-examples--link-with-tooltip&globals=colorScheme:light) and the [Rails 'Link with tooltip' preview](https://primer-lookbook.github.com/view-components/lookbook/inspect/primer/beta/relative_time/link_with_tooltip) for implementation examples.
+* For static elements, consider using the full date/time by default and hiding the `title` attribute.
 
 ### How to test the component
 
