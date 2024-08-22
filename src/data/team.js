@@ -1,5 +1,20 @@
 const teamContent = [
   {
+    name: 'Marie Lucca',
+    handle: 'francinelucca',
+    title: 'Software Engineer',
+    questionOne:
+      `I was enticed by the prospect of doing work that is impactful at a company-wide scale and beyond, and the striveness for excellence that performing at such a critical, very low-error-tolerance environment entails. I am always very proud to see the results of my team's and my hard work materialized in beautiful, useful applications deployed worldwide. I also appreciate the opportunity to work very closely with design while still wearing a developer hat.`,
+    questionTwo: `I've had the opportunity to work and be mentored by some truly amazing folks. From managers, technology leaders, software architects, professors turned colleagues, and more. I appreciate every professional I have and will interface with along my journey and take a small piece of them with me wherever I go. 
+    
+    Honorable mentions go to [Sergio Lopez](https://www.linkedin.com/in/sergio-l%C3%B3pez-90725288), the college professor that took me under his wing and beared with me as I broke production more times than I'd be willing to admit, closely followed by [Joe Harvey](https://www.linkedin.com/in/joseph-harvey-ny), who taught me the difference between software development and engineering.`,
+    favoriteTools: 'VSCode, GitHub, TypeScript, React, middle-of-the-day naps, high-speed internet, and, most importantly, a mini can of Coke Zero ',
+    cssFeature: 'calc(<wild-math-equation-here>)',
+    avatar: 'https://avatars.githubusercontent.com/francinelucca?s=512',
+    gif: 'https://raw.githubusercontent.com/francinelucca/francinelucca/assets/dog-in-bed.gif',
+    alumni: false,
+  },
+  {
     name: 'Josh Farrant',
     handle: 'joshfarrant',
     title: 'Senior Software Engineer',
