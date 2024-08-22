@@ -1,0 +1,117 @@
+---
+title: SelectMenu migration
+---
+
+import InlineCode from '@primer/gatsby-theme-doctocat/src/components/inline-code'
+
+The Primer `SelectPanel` component in Primer ViewComponents should be used in place of the `SelectMenu` component from Primer CSS. It provides a number of accessibility improvements over the CSS component, supports multiple data fetching strategies, customizable filtering behavior, and more.
+
+### The show button
+
+`SelectMenu`s are powered by two native elements. The `<details>` element contains the list of menu items while the `<summary>` element typically contains a button that opens the menu.
+
+`SelectPanel`s work in a similar fashion. Rather than a `<summary>` element however, `SelectPanel`s use the `show_button` slot, which renders a Primer button.
+
+```erb
+<%= render(Primer::Alpha::SelectPanel.new) do |panel| %>
+  <% panel.with_show_button { "Click me" } %>
+<% end %>
+```
+
+Panels can also be opened in JavaScript by calling the `show()` method.
+
+```javascript
+document.querySelector('select-panel').show();
+```
+
+### Panels are dialogs
+
+`SelectMenu`s wrap their `<summary>`/`<details>` elements inside the [`<details-dialog>`](https://github.com/github/details-dialog-element) element to display their items in a modal dialog. `SelectPanel`s have this functionality built in, i.e. there is no need to wrap them in any additional elements.
+
+`SelectPanel`s are anchored to their show buttons. In other words, they appear attached to their show buttons and act  like menus or popovers. However, `SelectPanel`s use the native `<dialog>` element under the hood and therefore exhibit [dialog behavior](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) -- they trap focus, prevent scrolling content under the dialog, etc. `SelectMenu`s by contrast are not backed by dialogs; they do not trap focus and do not prevent page scrolling.
+
+### Choosing a fetch strategy
+
+It is common for usages of `SelectMenu` to fetch list items from a remote server using the `<include-fragment>` or `<remote-input>` elements. `SelectPanel`s also use these elements, but do so automatically "under the hood" depending on the configured fetch strategy.
+
+| Element                                                           | Fetch strategy          | Description                                                                                 |
+|-------------------------------------------------------------------|-------------------------|---------------------------------------------------------------------------------------------|
+| `<remote-input>`                                                  | `:remote` (default)     | Items are fetched from the server whenever the user types into the filter input text field. |
+| <span style="white-space: nowrap">`<include-fragment>`</span>     | `:eventually_local`     | Items are fetched once when the panel opens for the first time.                             |
+| <span style="white-space: nowrap">None, i.e. a static list</span> | `:local`                | No remote requests are made.                                                                |
+
+For the `:remote` and `:eventually_local` fetch strategies, items are fetched using the URL provided in the `src:` argument.
+
+```erb
+<%= render(Primer::Alpha::SelectPanel.new(
+  fetch_strategy: :remote, # this is the default, shown here for demo purposes
+  src: probably_some_rails_path_helper
+)) %>
+```
+
+### Rendering list items
+
+When rendering a static list (i.e. using the `:local` fetch strategy), use the `item` slot to define list items. `label:` is the only required argument.
+
+```erb
+<%= render(Primer::Alpha::SelectPanel.new) do |panel| %>
+  <% panel.with_item(label: "My item") %>
+<% end %>
+```
+
+When rendering a dynamic list where items are fetched from a remote server, the `SelectPanel` component expects remote responses to render instances of `Primer::Alpha::SelectPanel::ItemList`. The `ItemList` component is the same component that static `SelectPanel`s use to render list items.
+
+```erb
+<%= render(Primer::Alpha::SelectPanel::ItemList.new) do |list| %>
+  <% list.with_item(label: "My item") %>
+<% end %>
+```
+
+#### HTML fragments
+
+Note that both the `<include-fragment>` and `<remote-input>` elements that `SelectPanel` uses under the hood require that responses have a content type of `text/fragment+html`. See the `SelectPanel` [docs](/components/selectpanel/rails/alpha) for details.
+
+### Choosing a select variant
+
+`SelectPanel`s automatically manage list item state, including which items are checked (or "active" in `SelectPanel` and `ActionList` parlance). Items can be marked as checked by passing `active: true` to the item's constructor.
+
+```erb
+<%= render(Primer::Alpha::SelectPanel.new) do |panel| %>
+  <% panel.with_item(label: "My item", active: true) %>
+<% end %>
+```
+
+In addition to supporting single-select (the default), `SelectPanel`s also support multi-select behavior. Selection behavior can be controlled via the `select_variant:` argument. Options are `:single` (the default) and `:multiple`.
+
+```erb
+<%= render(Primer::Alpha::SelectPanel.new(
+  select_variant: :multiple
+)) %>
+```
+
+<Note>
+When rendering panels and their corresponding dynamic list items, make sure to pass the same <InlineCode>{"select_variant:"}</InlineCode> argument to both <InlineCode>{"SelectPanel.new"}</InlineCode> and <InlineCode>{"SelectPanel::ItemList.new"}</InlineCode>, or you may experience unexpected behavior.
+</Note>
+
+#### Identifying list items
+
+When using the `:remote` fetch strategy in combination with single- or multi-select modes, list items must be uniquely identifiable via the `value:` argument so the component can "remember" which list items the user has selected. This is important because the component needs a mechanism by which it can reconcile items selected in the client and items the server reports as selected. Neglecting to provide `value`s can lead to unexpected selection behavior.
+
+```erb
+<%= render(Primer::Alpha::SelectPanel.new(
+  select_variant: :multiple,
+  fetch_strategy: :remote
+)) do |panel| %>
+  <% panel.with_item(label: "Apples", content_arguments: { data: { value: "apples" } }) %>
+  <% panel.with_item(label: "Bananas", content_arguments: { data: { value: "bananas" } }) %>
+<% end %>
+```
+
+### Loading behavior
+
+The `SelectPanel` component automatically displays `Spinner`s during initial and subsequent remote fetches and announces to screen reader users when requests have succeeded or failed. There is no need to render custom spinners or make custom announcements as must often be done for `SelectMenu`s.
+
+### Where to go next
+
+1. The official [SelectPanel docs](/components/selectpanel/rails/alpha)
+1. Have questions? Hop into the #primer-rails Slack channel.
