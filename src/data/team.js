@@ -49,7 +49,7 @@ const teamContent = [
     questionTwo: `I've learned a ton from my colleagues in the past. Stephen, Kyle, Michael, John, Trevor, and so many others. I'm also a big fan of [Adrian Roselli](https://adrianroselli.com/), [Sara Soueidan](https://www.sarasoueidan.com/), [Marcy Sutton](https://marcysutton.com/), and all the others who helped me gain more insights into accessibility as a whole.`,
     favoriteTools: `VS Code, NVDA, GitHub, CodePen, my notebook`,
     avatar: 'https://avatars.githubusercontent.com/u/26746305?v=4',
-    gif: 'https://camo.githubusercontent.com/8a2ec9a1d7620b431b3ae56cc487bb1d78fe0ed71e9bc8275258c6db84223e57/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f7161765844566a7561475075772f67697068792e676966',
+    gif: 'https://camo.githubusercontent.com/b50b82a588f51b30cada6475a69147bfe63dc52aae964a80e9791490e85eda3e/68747470733a2f2f692e67697068792e636f6d2f35464b4e6a6d385275333237752e676966',
     alumni: false,
   },
   {
