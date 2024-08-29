@@ -39,6 +39,12 @@ Timeline displays items on a connected vertical timeline. It's primarily used to
 
 ## Accessibility
 
+### Timeline breaks
+
+The `Timeline.Break` component allows for content in `Timeline` to be visually seperated. This should be used for decorative purposes only. Since this component is decorative, it is not conveyed to assistive technologies like screen readers.
+
+The content within `Timeline.Item` should clearly communicate the status and state of that item, so that if there is a need to seperate content, the context of the seperation is communicated in `Timeline.Item`.
+
 ### Known accessibility issues (GitHub staff only)
 
  <AccessibilityLink label="Timeline"/>
