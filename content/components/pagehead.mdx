@@ -42,6 +42,17 @@ Pagehead is a heading component for the title and start of a given page section.
 
 ## Accessibility
 
+### Heading usage
+`Pagehead` does not provide a heading by default. Since this component is intended to be used for the title and start of a given page section, it should include a heading (`<h1>-<h6>`) in most cases. 
+
+```xml
+<Pagehead>
+  <Heading as="h2">
+    Heading title for Pagehead
+  </Heading>
+</Pagehead>
+```
+
 ### Known accessibility issues (GitHub staff only)
 
  <AccessibilityLink label="Pagehead"/>
