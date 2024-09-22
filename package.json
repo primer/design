@@ -17,7 +17,7 @@
     "@octokit/auth-app": "^4.0.13",
     "@octokit/rest": "^19.0.13",
     "@primer/component-metadata": "^0.5.1",
-    "@primer/gatsby-theme-doctocat": "^4.7.1",
+    "@primer/gatsby-theme-doctocat": "^5.1.1",
     "@primer/octicons-react": "^17.3.0",
     "@primer/react": "35.5.0",
     "@styled-system/props": "^5.1.5",
