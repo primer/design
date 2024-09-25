@@ -44,6 +44,8 @@ These updates are typically not user-initiated but rather alerts that require th
 
 - They do not typically timeout on their own, but can include a dismiss action for messages that can be closed.
 
+- Don't rely on just color to convey the meaning of the flash alert. You should pair a message with an icon that clearly relates to the selected variant.
+
 ## Options
 
 ### Types
@@ -75,6 +77,10 @@ Banners contain options to add an icon, button, or dismiss button to the content
   alt="Flash with icon, button, and dismiss button."
   src="https://user-images.githubusercontent.com/586552/217706817-8a647058-9ab6-40d9-a5f7-289d67150add.png"
 />
+
+### Icon usage
+
+Icons can help convey what the flash alert is for visually. It should be used alongside a message that further explains what the flash alert is aiming to indicate. You should never rely on just the color of the flash alert to convey a status, as this becomes a [WCAG 1.4.1 Use of Color](https://www.w3.org/TR/WCAG22/#use-of-color) issue.
 
 ## Accessibility
 
