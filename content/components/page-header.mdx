@@ -304,6 +304,17 @@ The title bar can include a static page title, actions, and leading and trailing
 Pageheader allows usage of different HTML landmarks to create a more accessible UI.
 The usage of `header` and `nav` regions are allowed within PageHeader, both with different use cases.
 
+If the `PageHeader` is not contained within a landmark, consider using the `role` prop to indicate one and provide it with an accessible name (perhaps the same as `PageHeader.Title`) via `aria-label`:
+
+```jsx
+<PageHeader role="banner" aria-label="Page Title">
+    <PageHeader.TitleArea>
+      <PageHeader.Title>Page Title</PageHeader.Title>
+    </PageHeader.TitleArea>
+  ...
+</PageHeader>
+```
+
 #### PageHeader with `header` landmark
 
 When utilizing landmarks, it's best to ensure that you’re using them correctly. For the header landmark you should follow these guidelines.
