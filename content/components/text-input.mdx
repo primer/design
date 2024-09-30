@@ -201,8 +201,8 @@ If using this component in a way where the input can be mapped to an `autocomple
 The `<label for="…">` attribute must point to the `id` of the `<input>`
 - If the component is set to `disabled`, the rendered `<input>` includes the `disabled` HTML attribute
 - If the component has a `placeholder` attribute, the rendered `<input>` includes the `placeholder` HTML attribute
-- If the component has a `autocomplete` attribute, the rendered `<input>` includes the `autocomplete` HTML attribute
-- If the component has a `autocomplete` attribute, the correct value is used for the `autocomplete` HTML attribute.
+- If the component has an `autocomplete` attribute, the rendered `<input>` includes the `autocomplete` HTML attribute
+- If the component has an `autocomplete` attribute, the correct value is used for the `autocomplete` HTML attribute.
 - In the Rails implementation, if the component has a `caption`, the caption is rendered as an additional container underneath the `<input>`, and the `<input>` has an `aria-describedby="…"` pointing to the `id` attribute of the container
 - In the Rails implementation, if the component has a `validationMessage`, the message is rendered as an additional container underneath the `<input>`, and the `<input>` has an `aria-describedby="…"` pointing to the `id` attribute of the container
 - In the React implementation, text input fields are composed with the `FormControl` component.
