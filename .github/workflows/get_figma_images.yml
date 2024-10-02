@@ -1,0 +1,48 @@
+name: Get Figma Images
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - labeled
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  findNodeReferences:
+    if: ${{ github.event.label.name == 'update figma images' || github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    env:
+      FilesToScan: '**/*.mdx'
+      ImageUrlFile: figmaImageNodeUrls.json
+      ImageOutputDir: content/images/figma
+      FigmaToken: ${{ secrets.FIGMA_TOKEN }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn
+      - name: Get Figma Images
+        run: node scripts/getFigmaImages.js "${{env.FilesToScan}}" > ${{env.ImageUrlFile}}
+      - name: Log file content
+        run: cat ${{env.ImageUrlFile}}
+      - name: Download images from figma
+        run: npx @primer/figma-images --figmaToken ${{env.FigmaToken}} --nodeURLsFile ${{env.ImageUrlFile}} --outputDir ${{env.ImageOutputDir}}
+      - name: Log output dir content
+        run: ls ${{env.ImageOutputDir}}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: github-actions[bot] Update figma images
+      - uses: actions-ecosystem/action-remove-labels@v1
+        if: always()
+        with:
+          labels: 'update figma images'
