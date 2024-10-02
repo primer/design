@@ -5,12 +5,13 @@
   "scripts": {
     "start": "gatsby develop",
     "clean": "gatsby clean",
-    "build": "gatsby build",
+    "build": "npm run copy:figma-images && gatsby build",
     "serve": "gatsby serve",
-    "build:preview": "gatsby build",
+    "build:preview": "npm run copy:figma-images && gatsby build",
     "now-build": "yarn build",
     "lint": "eslint .",
-    "markdownlint": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!.github\" \"!node_modules\""
+    "markdownlint": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!.github\" \"!node_modules\"",
+    "copy:figma-images": "mkdir -p public/images && cp -r content/images/figma public/images || true"
   },
   "dependencies": {
     "@github/prettier-config": "^0.0.6",
@@ -50,7 +51,9 @@
   },
   "devDependencies": {
     "@github/markdownlint-github": "^0.3.0",
+    "@primer/figma-images": "^0.1.2",
     "esm": "^3.2.25",
+    "fast-glob": "^3.3.2",
     "markdownlint-cli2": "^0.5.1",
     "markdownlint-cli2-formatter-pretty": "^0.0.3",
     "mustache": "^4.2.0",
