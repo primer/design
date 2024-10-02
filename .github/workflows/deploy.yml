@@ -10,6 +10,10 @@ on:
   push:
     branches:
       - main
+  workflow_run:
+    workflows: [Get Figma Images]
+      types:
+        - completed
 
 permissions:
   contents: read

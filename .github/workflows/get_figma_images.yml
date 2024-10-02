@@ -36,7 +36,7 @@ jobs:
       - name: Log file content
         run: cat ${{env.ImageUrlFile}}
       - name: Download images from figma
-        run: npx @primer/figma-images --figmaToken ${{env.FigmaToken}} --nodeURLsFile ${{env.ImageUrlFile}} --outputDir ${{env.ImageOutputDir}}
+        run: npx @primer/figma-images --figmaToken ${{env.FigmaToken}} --nodeURLsFile ${{env.ImageUrlFile}} --outputDir ${{env.ImageOutputDir}} --clean
       - name: Log output dir content
         run: ls ${{env.ImageOutputDir}}
       - uses: stefanzweifel/git-auto-commit-action@v4
