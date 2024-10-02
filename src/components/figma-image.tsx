@@ -10,10 +10,9 @@ type FigmaImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
 
 const cssStyles = {
   width: "100%",
-  maxWidth: "100%",
   margin: "0",
   "& img": {
-    width: '100%'
+    maxWidth: "100%"
   }
 }
 
