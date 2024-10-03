@@ -31,9 +31,9 @@ const findMatches = async (regexPattern, files) => {
 const run = async () => {
   // check for Figma API token before proceeding
   if (!process.env.FIGMA_API_TOKEN) {
-    console.warn(
-      '⚠️ Skipping getting Figma images. Please provide a Figma API token as the FIGMA_API_TOKEN environment variable.',
-    )
+    console.warn('⚠️ No Figma API token provided. Skipping image download from Figma.')
+    console.log('To get a Figma API token, visit https://www.figma.com/developers/api#access-tokens')
+    console.log('Then, add the token to an .env file in the root of the project with: FIGMA_API_TOKEN=your-token-here')
     return
   }
 
