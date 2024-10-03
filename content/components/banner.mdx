@@ -3,7 +3,7 @@ title: Banner
 description: Banner is used to highlight important information.
 componentId: banner
 reactId: banner
-railsIds:
+railsIds: 
   - Primer::Alpha::Banner
 tags:
   - flash, alert, notification
@@ -24,12 +24,10 @@ import {FigmaImage} from '~/src/components/figma-image'
 ## Usage
 
 Banner can be used in one of two ways:
-
 1. To highlight prominent information on a page.
 2. To communicate feedback in response to a user action.
 
 ### Best practices
-
 Use banners sparingly and only when necessary. Banners can disrupt the user experience and should only be used when and where relevant.
 
 Keep the message concise and direct. Don't use heading styling or multiple type sizes in banners, rely on the default paragraph size and use the title when appropriate.
@@ -38,10 +36,10 @@ Don't show more than one banner at a time. For more information, see this articl
 
 ## Anatomy
 
-<FigmaImage
+<img
   width="960"
   alt="Anatomy of a banner, including the message, title, icon, dismiss button, primary, and secondary action"
-  src="https://www.figma.com/design/YlBTqHTbdRwYQt0bfIHvGw/Interface-guidelines?node-id=2825-19588&t=5Kg6u9zn7VW7tsip-4"
+  src="https://github.com/primer/design/assets/813754/40ff27e0-8d69-490a-a619-a4956828e77e"
 />
 
 ## Options
@@ -49,7 +47,6 @@ Don't show more than one banner at a time. For more information, see this articl
 ### Variant
 
 #### Critical
-
 <Box
   mb={3}
   display="flex"
@@ -57,13 +54,12 @@ Don't show more than one banner at a time. For more information, see this articl
   flexDirection={['column', 'column', 'column', 'column', 'row']}
   sx={{gap: 4}}
 >
-  Use critical banners to signal critical errors, system failures, or necessary destructive actions. Examples: form
-  validation error summary, repo deletion confirmations.
-  <img
-    width="456"
-    alt="Text within a box that has a light red outline and a lighter red background. There is a vibrant red stop icon with an exclamation point inside that comes before the text within the banner."
-    src="https://github.com/primer/primitives/assets/813754/9c245a1e-5d59-44bf-8574-aedb06a286b7"
-  />
+Use critical banners to signal critical errors, system failures, or necessary destructive actions. Examples: form validation error summary, repo deletion confirmations.
+<img
+  width="456"
+  alt="Text within a box that has a light red outline and a lighter red background. There is a vibrant red stop icon with an exclamation point inside that comes before the text within the banner."
+  src="https://github.com/primer/primitives/assets/813754/9c245a1e-5d59-44bf-8574-aedb06a286b7"
+/>
 </Box>
 
 #### Warning
@@ -75,13 +71,12 @@ Don't show more than one banner at a time. For more information, see this articl
   flexDirection={['column', 'column', 'column', 'column', 'row']}
   sx={{gap: 4}}
 >
-  Use warning banners to alert users about potential issues or impactful changes. For example possible connectivity
-  concerns or hidden items due to active filters.
-  <img
-    width="456"
-    alt="Text within a box that has a yellow outline and a lighter yellow background. There is a dark yellow triangle icon with an exclamation point inside that comes before the text within the banner."
-    src="https://github.com/primer/primitives/assets/813754/afa299a9-4efe-41c4-a8cd-4e166d93e750"
-  />
+Use warning banners to alert users about potential issues or impactful changes. For example possible connectivity concerns or hidden items due to active filters.
+<img
+  width="456"
+  alt="Text within a box that has a yellow outline and a lighter yellow background. There is a dark yellow triangle icon with an exclamation point inside that comes before the text within the banner."
+  src="https://github.com/primer/primitives/assets/813754/afa299a9-4efe-41c4-a8cd-4e166d93e750"
+/>
 </Box>
 
 #### Success
@@ -93,13 +88,12 @@ Don't show more than one banner at a time. For more information, see this articl
   flexDirection={['column', 'column', 'column', 'column', 'row']}
   sx={{gap: 4}}
 >
-  Use success banners to indicate task completion or successful actions. For example, a successful issue transfer when
-  the user is not brought to the new page. Only use success messages if the success is not easily apparent in the UI.
-  <img
-    width="456"
-    alt="Text within a box that has a green outline and a lighter green background. There is a vibrant green circle icon with a check icon inside the circle that comes before the text within the banner."
-    src="https://github.com/primer/primitives/assets/813754/5bc8b2b6-f935-4153-809a-00282ec0e1a3"
-  />
+Use success banners to indicate task completion or successful actions. For example, a successful issue transfer when the user is not brought to the new page. Only use success messages if the success is not easily apparent in the UI.
+<img
+  width="456"
+  alt="Text within a box that has a green outline and a lighter green background. There is a vibrant green circle icon with a check icon inside the circle that comes before the text within the banner."
+  src="https://github.com/primer/primitives/assets/813754/5bc8b2b6-f935-4153-809a-00282ec0e1a3"
+/>
 </Box>
 
 #### Info
@@ -111,14 +105,14 @@ Don't show more than one banner at a time. For more information, see this articl
   flexDirection={['column', 'column', 'column', 'column', 'row']}
   sx={{gap: 4}}
 >
-  Use info banners to inform about non-critical context and information. For example feature prompts or ongoing
-  processes.
-  <img
-    width="456"
-    alt="Text within a box that has a light blue outline and a lighter blue background. There is a vibrant blue circle icon with the letter i inside that comes before the text within the banner."
-    src="https://github.com/primer/design/assets/813754/172e3eb4-35ea-4d75-a015-6d00d3ebd914"
-  />
+Use info banners to inform about non-critical context and information. For example feature prompts or ongoing processes.
+<img
+  width="456"
+  alt="Text within a box that has a light blue outline and a lighter blue background. There is a vibrant blue circle icon with the letter i inside that comes before the text within the banner."
+  src="https://github.com/primer/design/assets/813754/172e3eb4-35ea-4d75-a015-6d00d3ebd914"
+/>
 </Box>
+
 
 #### Upsell
 
@@ -150,11 +144,11 @@ Use upsell banners to inform the users about a feature that can be enabled by up
 >
   <div>
 
-Use a title to concisely present the topic of the banner when the message of the banner is complex and too long to scan.
+  Use a title to concisely present the topic of the banner when the message of the banner is complex and too long to scan. 
 
-A title is required and will be used as a semantic page heading. However, you can visually hide the title. It is recommended to hide the title if the body of the banner is short and easily scannable.
+  A title is required and will be used as a semantic page heading. However, you can visually hide the title. It is recommended to hide the title if the body of the banner is short and easily scannable.
 
-Use the built-in accessibility annotations in the Figma components to define the heading level and text relevant to its context.
+  Use the built-in accessibility annotations in the Figma components to define the heading level and text relevant to its context. 
 
   </div>
   <img
@@ -183,14 +177,8 @@ Banners with an `onDismiss` property automatically show a dismiss button. This s
 Use the following as a guideline:
 
 <ul>
-  <li>
-    If you're on a page in which you can do other tasks, and the banner is not blocking / does not have to be addressed,
-    then you should be able to have a close button.
-  </li>
-  <li>
-    If accidental closure of the banner would leave the user confused or missing something critical, it should not have
-    a close button.
-  </li>
+  <li>If you're on a page in which you can do other tasks, and the banner is not blocking / does not have to be addressed, then you should be able to have a close button.</li>
+  <li>If accidental closure of the banner would leave the user confused or missing something critical, it should not have a close button.</li>
 </ul>
 
   </div>
@@ -213,9 +201,9 @@ Use the following as a guideline:
 >
   <div>
 
-Critical banners can't be dismissable. They are mostly used for errors which need to be resolved. As a result you can only get rid of a critical banner by resolving the error. If used to warn about destructive actions, the banner should also not be dismissable.
+  Critical banners can't be dismissable. They are mostly used for errors which need to be resolved. As a result you can only get rid of a critical banner by resolving the error. If used to warn about   destructive actions, the banner should also not be dismissable.
 
-If the error must be resolved on a different page, use an action that directs the user to the page where the error can be resolved.
+  If the error must be resolved on a different page, use an action that directs the user to the page where the error can be resolved.
 
   </div>
 
@@ -238,11 +226,11 @@ If the error must be resolved on a different page, use an action that directs th
 >
   <div>
 
-A maximum of 2 actions can be added to a banner. Whenever possible it is recommended to only add a single action to better direct the users attention.
+  A maximum of 2 actions can be added to a banner. Whenever possible it is recommended to only add a single action to better direct the users attention.
 
-For banners with a single action, you can choose between adding a primary or secondary action depending on how much attention you want to draw to the action.
+  For banners with a single action, you can choose between adding a primary or secondary action depending on how much attention you want to draw to the action.
 
-For banners with two actions, one of them must be primary and the other must be secondary. In this case, use the primary action for the recommended action. For example, the primary action enables a feature and the secondary action links more information.
+  For banners with two actions, one of them must be primary and the other must be secondary. In this case, use the primary action for the recommended action. For example, the primary action enables a feature and the secondary action links more information.
 
   </div>
   <img
@@ -264,17 +252,21 @@ For banners with two actions, one of them must be primary and the other must be 
 
 The icon relates to the selected [variant](#variant) and can't be disabled. It can only be changed for banners of variant `info` or `upsell`.
 
-<img
-  width="456"
-  alt="Three banners with leading icons. Success banner has its standard circle and check icon, upsell banner has a custom computer icon, and the info banner has a custom shield icon with a keyhole inside of the lock."
-  src="https://github.com/primer/primitives/assets/813754/9de199af-6488-4ae3-b4a7-14896f5cb719"
-/>
+  <img
+    width="456"
+    alt="Three banners with leading icons. Success banner has its standard circle and check icon, upsell banner has a custom computer icon, and the info banner has a custom shield icon with a keyhole inside of the lock."
+    src="https://github.com/primer/primitives/assets/813754/9de199af-6488-4ae3-b4a7-14896f5cb719"
+  />
 
 </Box>
 
-## Layouts
 
-<img width="960" alt="" src="https://github.com/primer/primitives/assets/813754/7aa6c298-3ca1-4e49-a95d-a774fda06a1d" />
+## Layouts
+<img
+  width="960"
+  alt=""
+  src="https://github.com/primer/primitives/assets/813754/7aa6c298-3ca1-4e49-a95d-a774fda06a1d"
+/>
 
 The internal banner layout changes for large banners depending on its content.
 
@@ -284,7 +276,6 @@ The internal banner layout changes for large banners depending on its content.
 4. A banner with a title, a dismiss button and one or two actions has the dismiss button aligned to the top right corner and the actions below the content aligned to the left
 
 ### Responsive Design
-
 <img
   width="960"
   alt="One banner at full width, with all of the content in one row, the second banner is shrunk to a smaller width, the icon, wrapped text, and dismiss button all in one row, with the action item in the second row."
@@ -294,7 +285,6 @@ The internal banner layout changes for large banners depending on its content.
 On large screens the layout of the elements within the banner adjust depending on which elements are enabled. On small screens the banner always uses the stacked layout.
 
 ### Position
-
 A banner should always be positioned as close to the section it relates to as possible.
 
 If a banner informs about something that relates to the current page, it should be placed above the pages headline. However, if the banner is only relevant to a portion of the page place it above the section it relates to.
@@ -309,8 +299,8 @@ Banners that are used to communicate feedback require extra accessibility consid
 
 Consider using either a **live region announcement** or **focus management** technique:
 
-- **Live region announcements**: can be used to announce the new content to screen reader users. This is the preferred method for non-critical information (**though exceptions apply**, such in scenarios where focus loss needs to be handled).
-- **Focus management**: involves shifting a user's focus directly the new Banner. This method is disruptive when used inappropriately, but is extremely helpful in scenarios where we need to guide the user towards an action.
+* **Live region announcements**: can be used to announce the new content to screen reader users. This is the preferred method for non-critical information (**though exceptions apply**, such in scenarios where focus loss needs to be handled).
+* **Focus management**: involves shifting a user's focus directly the new Banner. This method is disruptive when used inappropriately, but is extremely helpful in scenarios where we need to guide the user towards an action.
 
 Here are some questions to consider when deciding which method to use:
 
@@ -339,7 +329,6 @@ If the Banner appears as part of the new content on the page after a user experi
 Many scenarios are nuanced, and can be tricky to figure out the appropriate path forward for. These benefit from additional feedback from assistive technology users.
 
 If you're unsure about which technique is appropriate for your usecase, please reach out to the Accessibility team who can help find a path forward.
-
 ### Known accessibility issues (GitHub staff only)
 
-<AccessibilityLink label="Banner" />
+ <AccessibilityLink label="Banner"/>
