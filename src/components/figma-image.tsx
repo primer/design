@@ -48,7 +48,7 @@ export const FigmaImage: React.FC<FigmaImageProps> = ({src, caption, ...props}) 
         <StyledOcticon icon={PencilIcon} sx={{mr: 2}} size="small" />
         Edit in Figma
       </StyledLinkButton>
-      <StyledCaption>{caption}</StyledCaption>
+      {caption && <StyledCaption>{caption}</StyledCaption>}
     </StyledFigure>
   )
 }
