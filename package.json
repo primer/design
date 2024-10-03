@@ -21,8 +21,8 @@
     "@primer/gatsby-theme-doctocat": "^4.7.1",
     "@primer/octicons-react": "^17.3.0",
     "@primer/react": "35.5.0",
-    "@styled-system/props": "^5.1.5",
     "@styled-system/prop-types": "5.1.5",
+    "@styled-system/props": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
     "@svgr/webpack": "^6.5.1",
     "@tanstack/react-query": "^4.23.0",
@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@github/markdownlint-github": "^0.3.0",
-    "@primer/figma-images": "^0.1.4",
+    "@primer/figma-images": "^0.1.5",
     "dotenv": "^16.4.5",
     "esm": "^3.2.25",
     "fast-glob": "^3.3.2",
