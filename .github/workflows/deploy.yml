@@ -52,7 +52,7 @@ jobs:
         run: yarn build
         env:
           GITHUB_TOKEN: ${{ steps.get-dotcom-access-token.outputs.access-token }}
-          FIGMA_API_TOKEN: ${{ secrets.FIGMA_API_TOKEN }}
+          FIGMA_API_TOKEN: ${{ secrets.FIGMA_TOKEN }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
