@@ -3,8 +3,8 @@ import * as fs from 'fs'
 import * as defines from './babel-defines'
 import fetch from 'node-fetch'
 import GithubSlugger from 'github-slugger'
-import { latestStatusFrom } from './src/status-utils'
-import { Octokit } from '@octokit/rest'
+import {latestStatusFrom} from './src/status-utils'
+import {Octokit} from '@octokit/rest'
 import JSZip from 'jszip'
 
 exports.onCreateWebpackConfig = ({actions, plugins, getConfig}) => {
@@ -38,8 +38,8 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   await sourceDotcomSharedComponentsData({actions, createNodeId, createContentDigest})
 }
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
+exports.createSchemaCustomization = ({actions}) => {
+  const {createTypes} = actions
   const typeDefs = `
     type SharedComponent implements Node {
       component: String!
@@ -79,13 +79,13 @@ async function sourceDotcomSharedComponentsData({actions, createNodeId, createCo
       fromPath: componentPath,
       toPath: `${sharedComponentsPath}#${name[0].toLowerCase()}`,
       redirectInBrowser: true,
-      force: true
+      force: true,
     })
 
     const searchDoc = {
       title: name,
       path: componentPath,
-      rawBody: name
+      rawBody: name,
     }
 
     const searchNode = {
@@ -93,8 +93,8 @@ async function sourceDotcomSharedComponentsData({actions, createNodeId, createCo
       id: createNodeId(`shared-component-search-doc-${name}`),
       internal: {
         type: 'CustomSearchDoc',
-        contentDigest: createContentDigest(searchDoc)
-      }
+        contentDigest: createContentDigest(searchDoc),
+      },
     }
 
     actions.createNode(searchNode)
@@ -108,7 +108,7 @@ async function getSharedComponentsData() {
   }
 
   const client = new Octokit({
-    auth: process.env.GITHUB_TOKEN
+    auth: process.env.GITHUB_TOKEN,
   })
 
   console.log('Listing dotcom workflow runs...')
@@ -119,7 +119,7 @@ async function getSharedComponentsData() {
     workflow_id: 'preview-pages-build.yml',
     branch: 'master',
     status: 'success',
-    per_page: 1
+    per_page: 1,
   })
 
   if (workflowRuns.data.workflow_runs.length == 0) {
@@ -134,7 +134,7 @@ async function getSharedComponentsData() {
   const artifacts = await client.rest.actions.listWorkflowRunArtifacts({
     owner: 'github',
     repo: 'github',
-    run_id: workflowRunId
+    run_id: workflowRunId,
   })
 
   const artifactId = (() => {
@@ -159,12 +159,12 @@ async function getSharedComponentsData() {
     owner: 'github',
     repo: 'github',
     artifact_id: artifactId,
-    archive_format: 'zip'
+    archive_format: 'zip',
   })
 
   console.log('Extracting artifact...')
 
-  const zip = new JSZip();
+  const zip = new JSZip()
   const zipData = await zip.loadAsync(artifactContents.data)
   const manifestRaw = await zipData.file('recipe_metadata.json').async('string')
   const manifest = JSON.parse(manifestRaw)
@@ -229,7 +229,7 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
   // Save the current version of Primer React to the GraphQL store.
   // This will be the latest version at the time the site is built.
   // If a new version is released, we'll need to rebuild the site.
-  const {version} = await fetch('https://unpkg.com/@primer/react/package.json', {redirect: 'follow'}).then(res =>
+  const {version} = await fetch('https://unpkg.com/@primer/react@rc/package.json', {redirect: 'follow'}).then(res =>
     res.json(),
   )
 
@@ -249,9 +249,9 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
   actions.createNode(newNode)
 
   // Save the Primer React data to the GraphQL store
-  const content = await fetch(`https://unpkg.com/@primer/react/generated/components.json`, {redirect: 'follow'}).then(
-    res => res.json(),
-  )
+  const content = await fetch(`https://unpkg.com/@primer/react@rc/generated/components.json`, {
+    redirect: 'follow',
+  }).then(res => res.json())
 
   for (const component of Object.values(content.components)) {
     const newNode = {
@@ -487,7 +487,7 @@ async function createComponentPages({actions, graphql}) {
             context: {
               componentId: frontmatter.reactId,
               parentPath: `/${slug}`,
-              status: reactComponent.status
+              status: reactComponent.status,
             },
           })
         }
@@ -497,16 +497,16 @@ async function createComponentPages({actions, graphql}) {
         path: `/${slug}/react/latest`,
         component: redirectLayout,
         context: {
-          location: `/${slug}/react/${latestStatusFrom(statuses)}`
-        }
+          location: `/${slug}/react/${latestStatusFrom(statuses)}`,
+        },
       })
 
       actions.createPage({
         path: `/${slug}/react`,
         component: redirectLayout,
         context: {
-          location: `/${slug}/react/${latestStatusFrom(statuses)}`
-        }
+          location: `/${slug}/react/${latestStatusFrom(statuses)}`,
+        },
       })
     }
 
@@ -539,16 +539,16 @@ async function createComponentPages({actions, graphql}) {
         path: `/${slug}/rails/latest`,
         component: redirectLayout,
         context: {
-          location: `/${slug}/rails/${latestStatusFrom(statuses)}`
-        }
+          location: `/${slug}/rails/${latestStatusFrom(statuses)}`,
+        },
       })
 
       actions.createPage({
         path: `/${slug}/rails`,
         component: redirectLayout,
         context: {
-          location: `/${slug}/rails/${latestStatusFrom(statuses)}`
-        }
+          location: `/${slug}/rails/${latestStatusFrom(statuses)}`,
+        },
       })
     }
 
