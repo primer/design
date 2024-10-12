@@ -5,7 +5,7 @@ import {Container} from '@primer/gatsby-theme-doctocat'
 export default function Hero() {
   return (
     <ThemeProvider colorMode="night" nightScheme="dark_dimmed">
-      <Box pt={6}>
+      <Box pt={3}>
         <Container>
           <Box
             sx={{
@@ -20,7 +20,7 @@ export default function Hero() {
           >
             <div>
               <Heading sx={{fontSize: 7, lineHeight: 'condensed', pb: 3, mt: 5}}>Primer Design System</Heading>
-              <Text as="p" sx={{m: 0, fontSize: 3}}>
+              <Text as="p" sx={{m: 0, fontSize: 3, pb: 0}}>
                 Primer is a set of guidelines, principles, and patterns for designing and building UI at GitHub.
               </Text>
             </div>
