@@ -28,6 +28,7 @@ export default function Hero() {
               role="presentation"
               alt="Mona illustration"
               width="250"
+              height="202"
               src="https://github.com/user-attachments/assets/3a52cf63-82b6-4c46-98db-da3d70e4a115"
             />
           </Box>
