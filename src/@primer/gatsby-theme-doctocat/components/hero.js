@@ -5,7 +5,7 @@ import {Container} from '@primer/gatsby-theme-doctocat'
 export default function Hero() {
   return (
     <ThemeProvider colorMode="night" nightScheme="dark_dimmed">
-      <Box pt={3}>
+      <Box>
         <Container>
           <Box
             sx={{
