@@ -3,15 +3,15 @@
   "repository": "primer/design",
   "version": "1.0.0",
   "scripts": {
-    "start": "gatsby develop",
+    "start": "yarn build:figma-images && gatsby develop",
     "clean": "gatsby clean",
-    "build": "npm run copy:figma-images && gatsby build",
+    "build": "yarn build:figma-images && gatsby build",
+    "build:figma-images": "node scripts/buildFigmaImages.mjs",
+    "build:preview": "yarn build:figma-images && gatsby build",
     "serve": "gatsby serve",
-    "build:preview": "npm run copy:figma-images && gatsby build",
     "now-build": "yarn build",
     "lint": "eslint .",
-    "markdownlint": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!.github\" \"!node_modules\"",
-    "copy:figma-images": "mkdir -p public/images && cp -r content/images/figma public/images || true"
+    "markdownlint": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!.github\" \"!node_modules\""
   },
   "dependencies": {
     "@github/prettier-config": "^0.0.6",
@@ -21,8 +21,8 @@
     "@primer/gatsby-theme-doctocat": "^4.7.1",
     "@primer/octicons-react": "^17.3.0",
     "@primer/react": "35.5.0",
-    "@styled-system/props": "^5.1.5",
     "@styled-system/prop-types": "5.1.5",
+    "@styled-system/props": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
     "@svgr/webpack": "^6.5.1",
     "@tanstack/react-query": "^4.23.0",
@@ -51,7 +51,8 @@
   },
   "devDependencies": {
     "@github/markdownlint-github": "^0.3.0",
-    "@primer/figma-images": "^0.1.2",
+    "@primer/figma-images": "^0.1.5",
+    "dotenv": "^16.4.5",
     "esm": "^3.2.25",
     "fast-glob": "^3.3.2",
     "markdownlint-cli2": "^0.5.1",
