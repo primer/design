@@ -9,10 +9,31 @@ source: https://github.com/primer/react
 1. Install `@primer/react` and its peer dependencies:
 
    ```bash
-   npm install @primer/react react react-dom styled-components
+   npm install @primer/react react react-dom styled-components @primer/primitives --save
    ```
 
-2. Wrap the root of your application with `ThemeProvider` and `BaseStyles`:
+2. Import and use `@primer/primitives` in your global CSS file
+
+   ```css
+   @import '@primer/primitives/dist/css/primitives.css';
+   @import '@primer/primitives/dist/css/functional/themes/light.css';
+   @import '@primer/primitives/dist/css/functional/themes/dark.css';
+
+   body {
+     color: var(--fgColor-default);
+     background-color: var(--bgColor-default);
+   }
+   ```
+
+3. Set the `data-color-mode`, `data-light-theme`, and `data-dark-theme` attributes on your `html` element. These will control the color mode and active theme for your application. To learn more about theming, check out our [theming guide](/guides/react/theming)
+
+   ```html
+   <html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark">
+     <!-- ... -->
+   </html>
+   ```
+
+4. Wrap the root of your application with `ThemeProvider` and `BaseStyles`:
 
    ```jsx
    import {ThemeProvider, BaseStyles} from '@primer/react'
@@ -28,7 +49,7 @@ source: https://github.com/primer/react
    }
    ```
 
-3. Import components from `@primer/react` and use them in your application:
+5. Import components from `@primer/react` and use them in your application:
 
    ```jsx
    import {Button} from '@primer/react'
