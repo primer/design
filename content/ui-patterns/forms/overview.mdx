@@ -5,6 +5,7 @@ current_page: overview
 ---
 
 import {Box, Heading} from '@primer/react'
+import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import FormsLayout from '~/src/layouts/forms-layout'
 export default FormsLayout
 
@@ -35,7 +36,82 @@ This guidance applies to situations where all fields are required. The exception
 
 Fields visually marked as required should also be set as required in code. This creates a parity in experience for all users.
 
-An individual checkbox or radio button cannot be marked as required.
+When marking a field as required, opt to mark the [form control](/components/form-control) as required instead of the input contained within it. The [form control](/components/form-control) will ensure that the required state is passed down to the input element.
+
+<DoDontContainer>
+  <Do>
+        <Code classname="language-jsx">{`
+      <FormControl required>
+  <FormControl.Label>
+    Form Input Label
+  </FormControl.Label>
+  <Checkbox />
+</FormControl>
+    `}</Code>
+    <Caption>Set the required field in the form control</Caption>
+  </Do>
+  <Dont>
+    <Code classname="language-jsx">{`
+      <FormControl>
+  <FormControl.Label>
+    Form Input Label
+  </FormControl.Label>
+  <Checkbox required />
+</FormControl>
+    `}</Code>
+    <Caption>Don’t set the required field on the underlying input</Caption>
+  </Dont>
+</DoDontContainer>
+
+An individual radio button cannot be marked as required. You may indicate a required selection within a [radio group](/components/radio-group).
+
+<DoDontContainer>
+  <Do>
+        <Code classname="language-jsx">{`
+       <RadioGroup name="radioGroup" required>
+  <RadioGroup.Label>
+    Radio Group Label
+  </RadioGroup.Label>
+  <FormControl>
+    <Radio value="one" />
+    <FormControl.Label>
+      Choice one
+    </FormControl.Label>
+  </FormControl>
+  <FormControl>
+    <Radio value="two" defaultChecked />
+    <FormControl.Label>
+      Choice two
+    </FormControl.Label>
+  </FormControl>
+</RadioGroup>`}</Code>
+    <Caption>Set the required field in the radio group</Caption>
+  </Do>
+  <Dont>
+    <Code classname="language-jsx">{`
+      <RadioGroup name="radioGroup">
+  <RadioGroup.Label>
+    Radio Group Label
+  </RadioGroup.Label>
+  <FormControl>
+    <Radio value="one" required />
+    <FormControl.Label>
+      Choice one
+    </FormControl.Label>
+  </FormControl>
+  <FormControl>
+    <Radio value="two" defaultChecked />
+    <FormControl.Label>
+      Choice two
+    </FormControl.Label>
+  </FormControl>
+</RadioGroup>
+    `}</Code>
+    <Caption>Don’t set the required field on an individual radio</Caption>
+  </Dont>
+</DoDontContainer>
+
+Individual checkboxes may be marked as required, as well as [checkbox groups](/components/radio-group).
 
 ### Input (required)
 
