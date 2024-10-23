@@ -190,14 +190,27 @@ async function getComponents(railsActions, railsData) {
   }
 
   // Get component status data
-  const reactComponents = await fetch(`https://primer.github.io/react/components.json`)
+  const reactComponents = await fetch(`https://primer.style/components.json`)
     .then(res => res.json())
     .catch(handleError)
 
   const implementations = {
     react: {
       url: 'https://primer.style/react',
-      data: reactComponents,
+      data: (() => {
+        const rcs = []
+
+        reactComponents.components.forEach((rc) => {
+          const reactImplementation = rc.implementations.react
+
+          if (reactImplementation) {
+            const { id, name, status, a11yReviewed} = reactImplementation
+            rcs.push({id, path: `/${name}`, status, a11yReviewed})
+          }
+        })
+
+        return rcs
+      })(),
     },
     viewComponent: {
       url: '',
@@ -232,7 +245,7 @@ async function getComponents(railsActions, railsData) {
   }
 
   const components = {}
-
+  
   for (const [implementation, {url, data}] of Object.entries(implementations)) {
     for (const {id, path, status, a11yReviewed} of data) {
       if (!(id in components)) {
