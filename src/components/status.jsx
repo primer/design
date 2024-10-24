@@ -193,6 +193,7 @@ async function getComponents(railsActions, railsData) {
   const reactComponents = await fetch(`https://primer.github.io/react/components.json`)
     .then(res => res.json())
     .catch(handleError)
+    
 
   const implementations = {
     react: {
