@@ -234,6 +234,9 @@ async function getComponents(railsActions, railsData) {
   const components = {}
 
   for (const [implementation, {url, data}] of Object.entries(implementations)) {
+    if(!data) {
+      continue
+    }
     for (const {id, path, status, a11yReviewed} of data) {
       if (!(id in components)) {
         components[id] = {
