@@ -1,6 +1,7 @@
 import componentMetadata from '@primer/component-metadata'
 import {Box, themeGet, ActionList, ActionMenu, StyledOcticon, ThemeProvider, Spinner} from '@primer/react'
 import {DotFillIcon, AccessibilityInsetIcon, ListUnorderedIcon} from '@primer/octicons-react'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import StatusRows from './status-rows'
@@ -97,9 +98,10 @@ export function StatusTable() {
   const [components, setComponents] = React.useState([])
   const [selectedField, setSelectedField] = React.useState(initialFieldTypes[0])
   const { actions: railsActions, data: railsData } = useRails()
+  const {allReactComponent: reactData} = reactComponents()
 
   React.useEffect(() => {
-    getComponents(railsActions, railsData)
+    getComponents(railsActions, railsData, reactData)
       .then(components => setComponents(components))
       .catch(error => console.error(error))
   }, [])
@@ -184,32 +186,43 @@ export function StatusTable() {
   )
 }
 
-async function getComponents(railsActions, railsData) {
+export function reactComponents() {
+  return useStaticQuery(graphql`
+    query ReactPagesQuery {
+      allReactComponent {
+          nodes {
+            a11yReviewed
+            componentId
+            name
+            status
+          }
+      }
+    }
+  `);
+}
+
+async function getComponents(railsActions, railsData, reactData) {
   const handleError = error => {
     console.error(error)
   }
 
   // Get component status data
-  const reactComponents = await fetch(`https://primer.style/components.json`)
-    .then(res => res.json())
-    .catch(handleError)
+  const {nodes: rcs} = reactData
 
   const implementations = {
     react: {
-      url: 'https://primer.style/react',
+      url: 'https://primer.style/components',
       data: (() => {
-        const rcs = []
+        const components = [];
+        
+        rcs.forEach((component) => {
+          const {a11yReviewed, componentId: id, name, status} = component
+          const url = `/${id.split('_').join('-')}/react/${status}`
 
-        reactComponents.components.forEach((rc) => {
-          const reactImplementation = rc.implementations.react
-
-          if (reactImplementation) {
-            const { id, name, status, a11yReviewed} = reactImplementation
-            rcs.push({id, path: `/${name}`, status, a11yReviewed})
-          }
+          components.push({a11yReviewed, id, name, status, path: url})
         })
 
-        return rcs
+        return components
       })(),
     },
     viewComponent: {
