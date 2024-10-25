@@ -25,6 +25,8 @@ The blankslate component is made up of several elements that work together to in
 
 The graphic can bring delight, preview an interface element, or represent the goal of the feature. Graphics should be placed intentionally and with thought about the intention of the content. Graphics also differ in meaning and appeal to the user, which is why the Blankslate component has multiple variations. These variations are outlined later on this page.
 
+Please note that when a graphic is used to convey meaning or purpose other than purely for decoration, it should be accompanied by a text description for screen readers. For the case of [Octicons](#octicons), this is done by adding an `aria-label` attribute to the element. For example, `<Octicon icon={RepoIcon} aria-label="Repository icon" />`. For other graphics, this implementation is at the consumer's discretion.
+
 ### Primary Text
 
 Use primary text to explain the purpose of the empty state, help users feel comfortable to engage with the content, or begin a feature flow. Primary text should sound welcoming, human, and convey the intention of the feature.
@@ -54,6 +56,8 @@ Empty states have multiple variations that can be used in different contexts.
 [Octicons](https://primer.style/foundations/icons) can be used to represent the feature where the Blankslate is found.
 
 ![Octicon Icon Blankslate](https://github.com/user-attachments/assets/9fd63765-a113-4c2d-ba30-339369797e06)
+
+Remember to add a meaningful text to your Octicon via `aria-label` when pertinent. This text should be supplied when the use of the icon is more than purely for decorative purposes.
 
 ### Code block
 
