@@ -94,11 +94,26 @@ const statusFieldTypes = [
   {type: 'Deprecated', name: 'Deprecated'},
 ]
 
+function getStatusIndex(status) { 
+  return statusFieldTypes.findIndex(({ type }) => type.toLowerCase() === status) 
+}
+
 export function StatusTable() {
   const [components, setComponents] = React.useState([])
   const [selectedField, setSelectedField] = React.useState(initialFieldTypes[0])
   const { actions: railsActions, data: railsData } = useRails()
-  const {allReactComponent: reactData} = reactComponents()
+  const {allReactComponent: reactData} = useStaticQuery(graphql`
+    query ReactPagesQuery {
+      allReactComponent {
+        nodes {
+          a11yReviewed
+          componentId
+          name
+          status
+        }
+      }
+    }
+  `);
 
   React.useEffect(() => {
     getComponents(railsActions, railsData, reactData)
@@ -186,21 +201,6 @@ export function StatusTable() {
   )
 }
 
-export function reactComponents() {
-  return useStaticQuery(graphql`
-    query ReactPagesQuery {
-      allReactComponent {
-          nodes {
-            a11yReviewed
-            componentId
-            name
-            status
-          }
-      }
-    }
-  `);
-}
-
 async function getComponents(railsActions, railsData, reactData) {
   const handleError = error => {
     console.error(error)
@@ -213,16 +213,25 @@ async function getComponents(railsActions, railsData, reactData) {
     react: {
       url: 'https://primer.style/components',
       data: (() => {
-        const components = [];
+        const components = {}
         
         rcs.forEach((component) => {
           const {a11yReviewed, componentId: id, name, status} = component
           const url = `/${id.split('_').join('-')}/react/${status}`
 
-          components.push({a11yReviewed, id, name, status, path: url})
-        })
+          if (components[name]) {
+            // Only display component closest to "stable"
+            const current = getStatusIndex(status)
+            const existing = getStatusIndex(components[name].status)
 
-        return components
+            if (current < existing) {
+              components[name] = {a11yReviewed, id, name, status, path: url}
+            }
+          } else {
+            components[name] = {a11yReviewed, id, name, status, path: url}
+          }
+        })
+        return Object.values(components)
       })(),
     },
     viewComponent: {
