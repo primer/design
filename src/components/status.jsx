@@ -224,12 +224,12 @@ async function getComponents(railsActions, railsData, reactData) {
             const current = getStatusIndex(status)
             const existing = getStatusIndex(components[name].status)
 
-            if (current < existing) {
-              components[name] = {a11yReviewed, id, name, status, path: url}
+            if (current > existing) {
+              return;
             }
-          } else {
-            components[name] = {a11yReviewed, id, name, status, path: url}
           }
+
+          components[name] = {a11yReviewed, id, name, status, path: url}
         })
         return Object.values(components)
       })(),
