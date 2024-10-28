@@ -503,7 +503,7 @@ Read more about [descriptive buttons](/guides/accessibility/descriptive-buttons)
 
 When implementing a "loading" button state, don't remove the button from the DOM or pass the `disabled` attribute. Doing so would make it impossible to tab to the button. If the button was just focused and activated, it would reset focus. Resetting focus would disrupt the keyboard navigation flow, and creates a confusing experience for assistive technologies such as screen readers.
 
-Once the button is activated (and is in a loading state), it get the attribute `aria-disabled="true"`.
+Once the button is activated (and is in a loading state), it should get the attribute `aria-disabled="true"`.
 
 A separate, visually hidden element should be rendered outside of the `<button>` with a message to communicate the loading status. For example, "Saving profile".
 
