@@ -79,7 +79,11 @@ Similarly to buttons, button segments can optionally include an icon and/or a co
 
 ## Accessibility
 
-A button group does not behave like a [toolbar](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role), so assistive technologies still interpret the buttons as unrelated. The grouping is purely visual.
+### As toolbar
+
+By default, a button group does not behave like a [toolbar](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role), so assistive technologies still interpret the buttons as unrelated. The grouping is purely visual. 
+
+If you want to make the button group behave like a toolbar, you can add the `role="toolbar"` prop to the `ButtonGroup` component; this will communicate the appropriate role to assistive technologies. Toolbar keyboard interactions are baked in as well when the toolbar role is supplied.
 
 ### Descriptive buttons
 
