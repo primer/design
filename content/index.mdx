@@ -1,5 +1,5 @@
 ---
-title: Interface guidelines
+title: Primer Design System
 ---
 
 import {HeroLayout} from '@primer/gatsby-theme-doctocat'
@@ -7,52 +7,87 @@ export default HeroLayout
 import {Text, Link, Box, Heading} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 
-<Box mb={6}>
-  <Text as="p" sx={{m: 0, fontSize: 3}}>
-    Primer is a set of guidelines, principles, and patterns for designing and building UI at GitHub. It provides a shared language and standardized approach to delivering cohesive experiences.
+<Box pb={4} display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={4}>
+  <Box>
+    <Heading as="h3" sx={{color: 'fg.default'}}>
+      <Link sx={{fontSize: 4, color: 'fg.default'}} as={GatsbyLink} to="/guides/">
+        Guides
+      </Link>
+    </Heading>
+    <Text as="p" sx={{fontSize: 2, color: 'fg.muted'}}>
+      Standards, guidelines, and tools to getting started with Primer.
+    </Text>
+  </Box>
+  <Box>
+    <Heading as="h3" sx={{color: 'fg.default'}}>
+      <Link sx={{fontSize: 4, color: 'fg.default'}} as={GatsbyLink} to="/foundations/">
+        Foundations
+      </Link>
+    </Heading>
+    <Text as="p" sx={{fontSize: 2, color: 'fg.muted'}}>
+      The fundamental parts of the design system that underpin all GitHub interfaces, such as color and typography.
+    </Text>
+  </Box>
+  <Box>
+    <Heading as="h3" sx={{color: 'fg.default'}}>
+      <Link sx={{fontSize: 4, color: 'fg.default'}} as={GatsbyLink} to="/ui-patterns/">
+        UI patterns
+      </Link>
+    </Heading>
+    <Text as="p" sx={{fontSize: 2, color: 'fg.muted'}}>
+      Design guidelines covering common user workflows.
+    </Text>
+  </Box>
+  <Box>
+    <Heading as="h3" sx={{color: 'fg.default'}}>
+      <Link sx={{fontSize: 4, color: 'fg.default'}} as={GatsbyLink} to="/components/">
+        Components
+      </Link>
+    </Heading>
+    <Text as="p" sx={{fontSize: 2, color: 'fg.muted'}}>
+      Design and usage guidelines for individual Primer components.
+    </Text>
+  </Box>
+  <Box>
+    <Heading as="h3" sx={{ color: 'fg.default'}}>
+      <Link sx={{fontSize: 4, color: 'fg.default'}} as={GatsbyLink} to="/github-staff/">
+        GitHub staff
+      </Link>
+    </Heading>
+    <Text as="p" sx={{fontSize: 2, color: 'fg.muted'}}>
+      Internal documentation for GitHub staff.
+    </Text>
+  </Box>
+  <Box>
+    <Heading as="h3" sx={{color: 'fg.default'}}>
+      <Link sx={{fontSize: 4, color: 'fg.default'}} as={GatsbyLink} to="/native/">
+        Native
+      </Link>
+    </Heading>
+    <Text as="p" sx={{fontSize: 2, color: 'fg.muted'}}>
+      Principles, foundations and usage guidelines for designing for GitHub's native products.
+    </Text>
+  </Box>
+</Box>
+
+<hr />{' '}
+
+<Box pt={3}>
+  <Heading as="h4" sx={{fontSize: 5}}>
+    Open source
+  </Heading>
+  <Text as="p" sx={{fontSize: 2, mt: 3}}>
+    Primer is open-sourced on GitHub.{' '}
+    <Link as={GatsbyLink} to="https://github.com/primer">
+      Contributions and feedback
+    </Link>{' '}
+    are welcome!
+  </Text>
+  <Text as="p" sx={{fontSize: 2}}>
+    <Text sx={{fontWeight: 'bold'}}>Need help?</Text> If you found a bug on this website, please{' '}
+    <Link as={GatsbyLink} to="https://github.com/primer/design/issues/new">
+      open a new issue
+    </Link>{' '}
+    with as much detail as possible.
   </Text>
 </Box>
-
-<Box display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-  <Box>
-    <Heading as="h3" sx={{fontSize: 3}}><Link sx={{fontSize: 3,}} as={GatsbyLink} to="/guides/">Guides</Link></Heading>
-    <Text as="p" sx={{fontSize: 2, color: 'fg.muted'}}>Standards, guidelines, and tools to getting started with Primer.</Text>
-  </Box>
-  <Box>
-    <Heading as="h3" sx={{fontSize: 3}}><Link sx={{fontSize: 3,}} as={GatsbyLink} to="/foundations/">Foundations</Link></Heading>
-    <Text as="p" sx={{fontSize: 2, color: 'fg.muted'}}>The fundamental parts of the design system that underpin all GitHub interfaces, such as color and typography.</Text>
-  </Box>
-  <Box>
-    <Heading as="h3" sx={{fontSize: 3}}><Link sx={{fontSize: 3,}} as={GatsbyLink} to="/ui-patterns/">UI patterns</Link></Heading>
-    <Text as="p" sx={{fontSize: 2, color: 'fg.muted'}}>Design guidelines covering common user workflows.</Text>
-  </Box>
-  <Box>
-    <Heading as="h3" sx={{fontSize: 3}}><Link sx={{fontSize: 3,}} as={GatsbyLink} to="/components/">Components</Link></Heading>
-    <Text as="p" sx={{fontSize: 2, color: 'fg.muted'}}>Design and usage guidelines for individual Primer components.</Text>
-  </Box>
-  <Box>
-    <Heading as="h3" sx={{fontSize: 3}}><Link sx={{fontSize: 3,}} as={GatsbyLink} to="/github-staff/">GitHub staff</Link></Heading>
-    <Text as="p" sx={{fontSize: 2, color: 'fg.muted'}}>Internal documentation for GitHub staff.</Text>
-  </Box>
-  <Box>
-    <Heading as="h3" sx={{fontSize: 3}}><Link sx={{fontSize: 3,}} as={GatsbyLink} to="/native/">Native</Link></Heading>
-    <Text as="p" sx={{fontSize: 2, color: 'fg.muted'}}>Principles, foundations and usage guidelines for designing for GitHub's native products.</Text>
-  </Box>
-</Box>
-
-<hr /> 
-
-<Box mb={7} display="grid" gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
-  <Box>
-    <Heading as="h4" sx={{fontSize: 5}}>Open source</Heading>
-    <Text as="p" sx={{fontSize: 3, mt: 3}}>Primer is open-sourced on GitHub. Contributions and feedback are welcome!</Text>
-    <Link sx={{fontSize: 1, fontWeight: 'bold'}} as={GatsbyLink} to="https://github.com/primer">Contribute on GitHub</Link>
-  </Box>
-  <Box>
-    <Heading as="h4" sx={{fontSize: 5}}>Stay up to date</Heading>
-    <Link sx={{fontSize: 1, display: 'block', mt: 3, mb: 2, fontWeight: 'bold'}} as={GatsbyLink} to="https://twitter.com/githubprimer">Follow us on Twitter</Link>
-    <Link sx={{fontSize: 1, display: 'block',  fontWeight: 'bold'}} as={GatsbyLink} to="https://github.blog/tag/design-systems/">Read the latest on the blog</Link>
-  </Box>
-</Box>
-
-<Text as="p" sx={{fontSize: 2}}><Text sx={{fontWeight: 'bold'}}>Need help?</Text> If you found a bug on this website, please <Link as={GatsbyLink} to="https://github.com/primer/design/issues/new">open a new issue</Link> with as much detail as possible.</Text>
