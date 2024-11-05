@@ -25,7 +25,7 @@ The blankslate component is made up of several elements that work together to in
 
 The graphic can bring delight, preview an interface element, or represent the goal of the feature. Graphics should be placed intentionally and with thought about the intention of the content. Graphics also differ in meaning and appeal to the user, which is why the Blankslate component has multiple variations. These variations are outlined later on this page.
 
-Please note that when a graphic is used to convey meaning or purpose other than purely for decoration, it should be accompanied by a text description for screen readers. For the case of [Octicons](#octicons), this is done by adding an `aria-label` attribute to the element. For example, `<Octicon icon={RepoIcon} aria-label="Repository icon" />`. For other graphics, this implementation is at the consumer's discretion.
+Please note that when a graphic is used to convey meaning or purpose, rather than purely for decoration, this information must also be conveyed to users that may not be able to see it, such as screen reader users. Either make sure that the meaning or purpose is also conveyed in the actual text used inside the component, or add a text alternative to the image itself. In the case of [Octicons](#octicons), this is done by adding an `aria-label` attribute to the element - for example, `<Octicon icon={RepoIcon} aria-label="Repository" />`. For other graphics, this implementation is at the consumer's discretion.
 
 ### Primary Text
 
