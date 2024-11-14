@@ -21,6 +21,13 @@ This repository is evolving as our documentation needs change. See our [contribu
 4. `yarn` to install dependencies
 5. `yarn start` to start the dev server
 
+### Figma API token
+
+To get images downloaded from the Figma API, you'll need to create a `.env` file in the root of the project and add your Figma API token. You can create a new token [here](https://www.figma.com/developers/api#access-tokens).
+
+```sh
+`FIGMA_API_TOKEN=your-token-here`
+``
 
 ## Deployment
 
