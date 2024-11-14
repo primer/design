@@ -38,7 +38,7 @@ Grouping buttons with a button group is better than rendering buttons close toge
 - For most use-cases, only default button types should be used in button groups. In rare cases, primary buttons can be included in button groups but there should only ever be one primary button (if any) in a button group.
 - Avoid grouping too many buttons together. It could be overwhelming to the user.
 - Do not use a button group to indicate a selection. Use a [segmented control](/components/segmented-control) instead.
-- Do not use a button group as a replacement for tab navigation. <!-- TODO: link to TabNav once it's merged -->
+- Do not use a button group as a replacement for [tab navigation](/components/tab-nav).
 - Avoid mixing buttons with text labels with icon-only buttons. However, it is acceptable to group a text-labeled button with an icon-only button with a [down-pointing triangle](https://primer.style/foundations/icons/triangle-down-16) that opens a dropdown menu of actions related to the button.
 - Do not group an [invisible](/components/button#invisible) button with buttons of another variant.
 
@@ -79,7 +79,15 @@ Similarly to buttons, button segments can optionally include an icon and/or a co
 
 ## Accessibility
 
-A button group does not behave like a [toolbar](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role), so assistive technologies still interpret the buttons as unrelated. The grouping is purely visual.
+### As toolbar
+
+By default, a button group does not behave like a [toolbar](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role), so assistive technologies still interpret the buttons as unrelated. The grouping is purely visual. 
+
+If you want to make the button group behave like a toolbar, you can add the `role="toolbar"` prop to the `ButtonGroup` component. This will communicate the appropriate role to assistive technologies.
+
+When `role="toolbar"` is used, individual buttons aren't separately focusable. Instead, only one button receives focus, and users switch between all buttons in the toolbar using the cursor keys. This behavior is baked into the component.
+
+Please note the toolbar keyboard interaction behaviors are currently implemented in Primer React only, and are not available in Primer View Components.
 
 ### Descriptive buttons
 

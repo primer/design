@@ -265,8 +265,6 @@
       url: /components/icon-button
     - title: Image
       url: /components/image
-    - title: Image crop
-      url: /components/image-crop
     - title: Inline message
       url: /components/inline-message
     - title: Label
