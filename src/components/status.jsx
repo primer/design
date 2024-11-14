@@ -1,6 +1,7 @@
 import componentMetadata from '@primer/component-metadata'
 import {Box, themeGet, ActionList, ActionMenu, StyledOcticon, ThemeProvider, Spinner} from '@primer/react'
 import {DotFillIcon, AccessibilityInsetIcon, ListUnorderedIcon} from '@primer/octicons-react'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import StatusRows from './status-rows'
@@ -93,13 +94,29 @@ const statusFieldTypes = [
   {type: 'Deprecated', name: 'Deprecated'},
 ]
 
+function getStatusIndex(status) { 
+  return statusFieldTypes.findIndex(({ type }) => type.toLowerCase() === status) 
+}
+
 export function StatusTable() {
   const [components, setComponents] = React.useState([])
   const [selectedField, setSelectedField] = React.useState(initialFieldTypes[0])
   const { actions: railsActions, data: railsData } = useRails()
+  const {allReactComponent: reactData} = useStaticQuery(graphql`
+    query ReactPagesQuery {
+      allReactComponent {
+        nodes {
+          a11yReviewed
+          componentId
+          name
+          status
+        }
+      }
+    }
+  `);
 
   React.useEffect(() => {
-    getComponents(railsActions, railsData)
+    getComponents(railsActions, railsData, reactData)
       .then(components => setComponents(components))
       .catch(error => console.error(error))
   }, [])
@@ -184,20 +201,38 @@ export function StatusTable() {
   )
 }
 
-async function getComponents(railsActions, railsData) {
+async function getComponents(railsActions, railsData, reactData) {
   const handleError = error => {
     console.error(error)
   }
 
   // Get component status data
-  const reactComponents = await fetch(`https://primer.github.io/react/components.json`)
-    .then(res => res.json())
-    .catch(handleError)
+  const {nodes: rcs} = reactData
 
   const implementations = {
     react: {
-      url: 'https://primer.style/react',
-      data: reactComponents,
+      url: 'https://primer.style/components',
+      data: (() => {
+        const components = {}
+        
+        rcs.forEach((component) => {
+          const {a11yReviewed, componentId: id, name, status} = component
+          const url = `/${id.split('_').join('-')}/react/${status}`
+
+          if (components[name]) {
+            // Only display component closest to "stable"
+            const current = getStatusIndex(status)
+            const existing = getStatusIndex(components[name].status)
+
+            if (current > existing) {
+              return;
+            }
+          }
+
+          components[name] = {a11yReviewed, id, name, status, path: url}
+        })
+        return Object.values(components)
+      })(),
     },
     viewComponent: {
       url: '',
@@ -232,7 +267,6 @@ async function getComponents(railsActions, railsData) {
   }
 
   const components = {}
-
   for (const [implementation, {url, data}] of Object.entries(implementations)) {
     if(!data) {
       continue
