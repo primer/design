@@ -337,6 +337,12 @@ The tooltip and optional dialog should be triggered by a button element that wra
 
 </Box>
 
+### Inline descriptions
+
+All `ActionList.Description` are rendered inline (next to the label) by default. For the cases where the description is too long to fit within one line, the content will wrap to a new line. In some cases, it may be desired to have the description be truncated with an ellipsis. This can be achieved by setting the `truncate` prop on the `ActionList.Description` component. Please note that truncating an inline description is only acceptable if the full, non-truncated text can be seen in a subsequent page or screen. It is at the consumer's discretion to use this feature accessibily.
+
+Please note the `truncate` option is currently implemented in Primer React only, and is not available in Primer View Components, where the `InlineDescription` will wrap by default.
+
 ### Known accessibility issues (GitHub staff only)
 
 <AccessibilityLink label="ActionList"/>
