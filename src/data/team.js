@@ -179,7 +179,8 @@ const teamContent = [
     cssFeature: 'float: left',
     avatar: 'https://avatars.githubusercontent.com/u/118266?v=4',
     gif: 'https://user-images.githubusercontent.com/118266/198547240-c6bbf2cd-3c3f-4d58-8e1e-0336f90fd48c.gif',
-    alumni: false,
+    alumni: true,
+    color: 'orange',
   },
   {
     name: 'Leslie Cohn-Wein',
