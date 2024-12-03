@@ -249,7 +249,7 @@ async function sourcePrimerReactData({actions, createNodeId, createContentDigest
   actions.createNode(newNode)
 
   // Save the Primer React data to the GraphQL store
-  const content = await fetch(`https://unpkg.com/@primer/react@0.0.0-20241203025331/generated/components.json`, {redirect: 'follow'}).then(
+  const content = await fetch(`https://unpkg.com/@primer/react/generated/components.json`, {redirect: 'follow'}).then(
     res => res.json(),
   )
 
