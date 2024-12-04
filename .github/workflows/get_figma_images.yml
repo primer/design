@@ -43,6 +43,6 @@ jobs:
         with:
           commit_message: github-actions[bot] Update figma images
       - uses: actions-ecosystem/action-remove-labels@v1
-        if: always()
+        if: contains(github.event.pull_request.labels.*.name, 'update figma images')
         with:
           labels: 'update figma images'
