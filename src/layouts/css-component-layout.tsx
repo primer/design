@@ -15,6 +15,7 @@ import {ComponentPageNav} from '../components/component-page-nav'
 export const query = graphql`
   query CssComponentPageQuery($parentPath: String!) {
     sitePage(path: {eq: $parentPath}) {
+      id
       path
       context {
         frontmatter {
@@ -36,6 +37,16 @@ export default function CssComponentLayout({data}) {
   const description = data.sitePage?.context.frontmatter.description || ''
   const stories = [{id: `deprecated-${name}--default`}]
 
+  const baseUrl = (() => {
+    const slugMatch = data.sitePage.id.match(/\/components\/(\w+)\//)
+
+    if (slugMatch) {
+      return `/components/${slugMatch[1]}`
+    }
+
+    return data.sitePage.path;
+  })()
+
   return (
     <BaseLayout title={title} description={description}>
       <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
@@ -47,7 +58,7 @@ export default function CssComponentLayout({data}) {
         ) : null}
         <Box sx={{mb: 4}}>
           <ComponentPageNav
-            basePath={data.sitePage.path}
+            basePath={baseUrl}
             includeReact={data.sitePage.context.frontmatter.reactId}
             includeRails={data.sitePage.context.frontmatter.railsIds}
             includeFigma={data.sitePage.context.frontmatter.figmaId}

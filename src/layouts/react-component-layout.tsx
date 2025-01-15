@@ -21,6 +21,7 @@ export const query = graphql`
       version
     }
     sitePage(path: {eq: $parentPath}) {
+      id
       path
       context {
         frontmatter {
@@ -111,6 +112,16 @@ export default function ReactComponentLayout({data}) {
   // this component has a dedicated page for its deprecated version
   if (data.deprecatedMdx?.id !== undefined) statuses.push("deprecated")
 
+  const baseUrl = (() => {
+    const slugMatch = data.sitePage.id.match(/\/components\/(\w+)\//)
+
+    if (slugMatch) {
+      return `/components/${slugMatch[1]}`
+    }
+
+    return data.sitePage.path;
+  })()
+
   return (
     <BaseLayout title={title} description={description}>
       <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
@@ -122,7 +133,7 @@ export default function ReactComponentLayout({data}) {
         ) : null}
         <Box sx={{mb: 4}}>
           <ComponentPageNav
-            basePath={data.sitePage.path}
+            basePath={baseUrl}
             includeReact={data.sitePage.context.frontmatter.reactId}
             includeRails={data.sitePage.context.frontmatter.railsIds}
             includeFigma={data.sitePage.context.frontmatter.figmaId}
@@ -200,7 +211,7 @@ export default function ReactComponentLayout({data}) {
                     },
                   }}
                 >
-                  <StatusMenu currentStatus={status} statuses={statuses} parentPath={`${data.sitePage.path}/react`} />
+                  <StatusMenu currentStatus={status} statuses={statuses} parentPath={`${baseUrl}/react`} />
                 </Box>
               }
             </Box>

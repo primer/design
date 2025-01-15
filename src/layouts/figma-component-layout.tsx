@@ -15,6 +15,7 @@ import FigmaPropertyPreview from '../components/figma-property-preview'
 export const query = graphql`
   query FigmaComponentPageQuery($figmaId: String!, $parentPath: String!) {
     sitePage(path: {eq: $parentPath}) {
+      id
       path
       context {
         frontmatter {
@@ -52,15 +53,6 @@ export const query = graphql`
   }
 `
 
-const sentenceCase = str => {
-  return str
-    ?.toLowerCase()
-    .replace(/([A-Z])/g, ' $1')
-    .replace(/^./, function (str) {
-      return str.toUpperCase()
-    })
-}
-
 const lastUpdated = date => {
   return `Updated ${new Date(date).toLocaleDateString('en-GB', {year: 'numeric', month: 'short', day: 'numeric'})}`
 }
@@ -77,6 +69,16 @@ export default function FigmaComponentLayout({data}) {
     ],
   }
 
+  const baseUrl = (() => {
+    const slugMatch = data.sitePage.id.match(/\/components\/(\w+)\//)
+
+    if (slugMatch) {
+      return `/components/${slugMatch[1]}`
+    }
+
+    return data.sitePage.path;
+  })()
+
   return (
     <BaseLayout title={title} description={description}>
       <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
@@ -88,7 +90,7 @@ export default function FigmaComponentLayout({data}) {
         ) : null}
         <Box sx={{mb: 4}}>
           <ComponentPageNav
-            basePath={data.sitePage.path}
+            basePath={baseUrl}
             includeReact={data.sitePage.context.frontmatter.reactId}
             includeRails={data.sitePage.context.frontmatter.railsIds}
             includeFigma={data.sitePage.context.frontmatter.figmaId}

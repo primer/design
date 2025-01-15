@@ -23,6 +23,7 @@ export const query = graphql`
     }
 
     sitePage(path: {eq: $parentPath}) {
+      id
       path
       context {
         frontmatter {
@@ -351,6 +352,16 @@ export default function RailsComponentLayout({data}) {
     }
   }
 
+  const baseUrl = (() => {
+    const slugMatch = data.sitePage.id.match(/\/components\/(\w+)\//)
+
+    if (slugMatch) {
+      return `/components/${slugMatch[1]}`
+    }
+
+    return data.sitePage.path;
+  })()
+
   return (
     <RailsProvider>
       <BaseLayout title={title} description={description}>
@@ -363,7 +374,7 @@ export default function RailsComponentLayout({data}) {
           ) : null}
           <Box sx={{mb: 4}}>
             <ComponentPageNav
-              basePath={data.sitePage.path}
+              basePath={baseUrl}
               includeReact={reactId}
               includeRails={railsIds}
               includeFigma={figmaId}
@@ -393,7 +404,7 @@ export default function RailsComponentLayout({data}) {
                 <StatusLabel status={sentenceCase(status)} />
                 <AccessibilityLabel a11yReviewed={a11y_reviewed} short={false} />
                 {statuses.length > 1 && <Box sx={{marginLeft: 'auto', marginTop: '-4px'}}>
-                  <StatusMenu currentStatus={status} statuses={statuses} parentPath={`${data.sitePage.path}/rails`} />
+                  <StatusMenu currentStatus={status} statuses={statuses} parentPath={`${baseUrl}/rails`} />
                 </Box>}
               </Box>
 
