@@ -50,7 +50,7 @@ jobs:
           GITHUB_TOKEN: ${{ steps.get-dotcom-access-token.outputs.access-token }}
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
           path: public
@@ -72,6 +72,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
         with:
           preview: true
