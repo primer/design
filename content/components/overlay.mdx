@@ -14,7 +14,10 @@ import {AccessibilityLink} from '~/src/components/accessibility-link'
 
 ## Usage
 
-Overlay is an internal component and is intended to be used as a private API, composing other components. It is not intended to be used on its own. 
+<Note variant="danger">
+  <Text sx={{display: 'block', fontWeight: 'bold', mb: 2}}>⚠️ Usage Warning ⚠️</Text>
+  <Text>Overlay is an internal component and is intended to be used as a private API, composing other components. It is not intended to be used on its own. For a ready-to-use overlay-type component, consider <a href="/components/dialog">Dialog</a>, <a href="/components/selectpanel">Select Panel</a>,  or <a href="/components/dialog">Action Menu</a>.</Text>
+</Note>
 
 The overlay component handles all behaviors needed by overlay UIs as well as the common styles that all overlays should have. Overlay is the internal, or base component for many of our overlay-type components. Overlays use shadows to express elevation.
 
