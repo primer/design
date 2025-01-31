@@ -403,7 +403,7 @@ const teamContent = [
     favoriteTools: 'VS Code, Todoist, Spotify',
     avatar: 'https://user-images.githubusercontent.com/10384315/75709494-9f32ed80-5c77-11ea-86eb-e798fcfcaa5d.jpg',
     gif: 'https://user-images.githubusercontent.com/1940294/75078886-191ee600-54c4-11ea-883c-93e1815e75a6.gif',
-    alumni: false,
+    alumni: true,
   },
   {
     name: 'Aurora Pleguezuelo',
