@@ -5,14 +5,16 @@ description: A utility Hook that focuses an element when a component is first mo
 
 `useOpenAndCloseFocus` is a utility Hook that manages focusing an element when a component is first mounted, and returns focus to an element on the page when that component unmounts.
 
-If no ref is passed to `initialFocusRef` , the hook focuses the first focusable element inside of the container.
+If no ref is passed to `initialFocusRef`, the hook focuses the first focusable element inside of the container.
+
+If `preventFocusOnOpen` prop is passed, then no focus will be applied when component mounts, even if `initialFocusRef` prop is included. Only initial focus is prevented; focus will still be returned to `returnFocusRef` when component unmounts.
 
 ### Usage
 
 ```javascript live noinline
-const Overlay = ({returnFocusRef, initialFocusRef, children}) => {
+const Overlay = ({returnFocusRef, initialFocusRef, preventFocusOnOpen, children}) => {
   const containerRef = React.useRef(null)
-  useOpenAndCloseFocus({containerRef, returnFocusRef, initialFocusRef})
+  useOpenAndCloseFocus({containerRef, returnFocusRef, initialFocusRef, preventFocusOnOpen})
   return (
     <Box height="200px" ref={containerRef}>
       {children}
@@ -30,7 +32,7 @@ function Component() {
         toggle
       </Button>
       {isOpen && (
-        <Overlay returnFocusRef={returnFocusRef} initialFocusRef={initialFocusRef}>
+        <Overlay returnFocusRef={returnFocusRef} initialFocusRef={initialFocusRef} preventFocusOnOpen={true}>
           <Button>Button One</Button>
           <Button ref={initialFocusRef}>Button Two</Button>
         </Overlay>
@@ -44,8 +46,9 @@ render(<Component />)
 
 #### useOpenAndCloseFocus settings
 
-| Name            | Type                           | Default | Description                                                               |
-| :-------------- | :----------------------------- | :-----: | :------------------------------------------------------------------------ |
-| initialFocusRef | `React.RefObject<HTMLElement>` |         | Optional. The element to focus when the container is mounted on the page. |
-| returnFocusRef  | `React.RefObject<HTMLElement>` |         | Required. The element to focus when the container is unmounted.           |
-| containerRef    | `React.RefObject<HTMLElement>` |         | Required. A ref for the containing element.                               |
+| Name               | Type                           | Default | Description                                                               |
+| :----------------- | :----------------------------- | :-----: | :------------------------------------------------------------------------ |
+| initialFocusRef    | `React.RefObject<HTMLElement>` |         | Optional. The element to focus when the container is mounted on the page. |
+| returnFocusRef     | `React.RefObject<HTMLElement>` |         | Required. The element to focus when the container is unmounted.           |
+| containerRef       | `React.RefObject<HTMLElement>` |         | Required. A ref for the containing element.                               |
+| preventFocusOnOpen | `React.RefObject<HTMLElement>` |         | Optional. When true, prevents focus when container is mounted.            |
