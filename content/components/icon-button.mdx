@@ -56,7 +56,7 @@ The selectable variant/scheme colors meet minimum color contrast requirements.
 
 The size variants all meet the minimum target size requirement.
 
-In the Rails implementation, `IconButton` automatically has a visible tooltip that appears when the button is hovered and when it receives keyboard focus. The tooltip visually replicates the accessible name of the button. The tooltip can be hovered when using the mouse, and can be dismissed using `Esc` without needing to move the mouse or focus away from the button.
+`IconButton` automatically has a visible tooltip that appears when the button is hovered and when it receives keyboard focus. The tooltip visually replicates the accessible name of the button. The tooltip can be hovered when using the mouse, and can be dismissed using `Esc` without needing to move the mouse or focus away from the button.
 
 ### Implementation requirements
 
@@ -88,7 +88,7 @@ Make sure to differentiate icon buttons through the use of sufficiently differen
 - Unless the button is `disabled`, it can be focused and activated using the keyboard
 - If the button is set to be `inactive`, it still receives keyboard focus, but it conveys its inactive/disabled state to screen readers with the `aria-disabled="true"` attribute
 - The button has a minimum target size of 24×24 CSS pixels, regardless of content
-- For the Rails implementation, the tooltip for the button can be hovered with the mouse, and the tooltip can be dismissed using `Esc` without needing to move the mouse or focus away from the button
+- The tooltip for the button can be hovered with the mouse, and the tooltip can be dismissed using `Esc` without needing to move the mouse or focus away from the button
 
 ### Known accessibility issues (GitHub staff only)
 
