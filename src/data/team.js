@@ -151,7 +151,7 @@ const teamContent = [
     favoriteTools: 'VS Code, Notion, GitHub, Slack, pen and paper, Hario V60 brewing kit, books',
     avatar: 'https://avatars.githubusercontent.com/u/1446503?v=4',
     gif: 'https://user-images.githubusercontent.com/1446503/194750845-901a2a63-b2b2-46d8-95dd-8ac0cca4efc1.gif',
-    alumni: false,
+    alumni: true,
   },
   {
     name: 'Josep Martins',
@@ -324,7 +324,7 @@ const teamContent = [
     favoriteTools: 'VScode, Ruby, Chrome, iTerm 2',
     avatar: 'https://avatars.githubusercontent.com/u/575280?v=4',
     gif: 'https://user-images.githubusercontent.com/575280/129806447-88b7a872-3d27-4ab3-b7d0-af731293b6d7.gif',
-    alumni: false,
+    alumni: true,
   },
   {
     name: 'Natalya Shelburne',
@@ -560,7 +560,7 @@ const teamContent = [
   {
     name: 'Diana Mounter',
     handle: 'broccolini',
-    title: 'Design Infrastructure Director',
+    title: 'Head of Design',
     cssFeature: 'text-decoration: underline wavy',
     questionOne:
       'I was drawn to design systems for many reasons—the opportunity to improve design and development workflow efficiency; the potential benefits well-design systems can bring to the user experience; I like to bring order to chaos and enjoy working at the intersection of design and code. I also love that there is still so much to learn in the field and really enjoy the passion of the community behind design systems.',
