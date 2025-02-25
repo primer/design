@@ -1,4 +1,4 @@
-import {Text, Box, Heading, ThemeProvider} from '@primer/react'
+import {Text, Box, Heading, ThemeProvider, Link} from '@primer/react'
 import React from 'react'
 import {Container} from '@primer/gatsby-theme-doctocat'
 
@@ -7,6 +7,36 @@ export default function Hero() {
     <ThemeProvider colorMode="night" nightScheme="dark_dimmed">
       <Box pt={3}>
         <Container>
+          {/* Temporary banner before site is decomissioned, it is intended to mirror the Note component that shows up on component pages  */}
+          <Box
+            sx={{
+              backgroundColor: '#ddf4ff', //bgColor-accent-muted
+              borderColor: '#54aeff66', //borderColor-accent-muted
+              borderLeftWidth: '6px',
+              borderLeftStyle: 'solid',
+              borderStyle: 'solid',
+              borderRightWidth: '0',
+              borderTopWidth: '0',
+              borderBottomWidth: 0,
+              padding: 3,
+              borderRadius: 2,
+              marginBottom: 3,
+            }}
+          >
+            <Text sx={{display: 'block'}}>
+              🎉 👀 New look, same Primer!{' '}
+              <Link
+                href="https://primer-docs-preview.github.com"
+                target="_blank"
+                sx={{
+                  color: '#0969da !important',
+                }}
+              >
+                Preview the new docs experience here
+              </Link>{' '}
+              and let us know what you think.
+            </Text>
+          </Box>
           <Box
             sx={{
               display: 'flex',
