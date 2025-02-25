@@ -1,12 +1,22 @@
-import {Text, Box, Heading, ThemeProvider} from '@primer/react'
+import {Text, Box, Heading, ThemeProvider, Link} from '@primer/react'
 import React from 'react'
 import {Container} from '@primer/gatsby-theme-doctocat'
+import {Note} from '@primer/gatsby-theme-doctocat'
 
 export default function Hero() {
   return (
     <ThemeProvider colorMode="night" nightScheme="dark_dimmed">
       <Box pt={3}>
         <Container>
+          <Note>
+            <Text sx={{display: 'block'}}>
+              New look, same Primer!{' '}
+              <Link href="https://primer-docs-preview.github.com" target="_blank">
+                Preview the new docs experience here
+              </Link>{' '}
+              and let us know what you think 👀 🎉
+            </Text>
+          </Note>
           <Box
             sx={{
               display: 'flex',
