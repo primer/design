@@ -10,11 +10,11 @@ export default function Hero() {
         <Container>
           <Note>
             <Text sx={{display: 'block'}}>
-              New look, same Primer!{' '}
+              🎉 👀 New look, same Primer!{' '}
               <Link href="https://primer-docs-preview.github.com" target="_blank">
                 Preview the new docs experience here
               </Link>{' '}
-              and let us know what you think 👀 🎉
+              and let us know what you think.
             </Text>
           </Note>
           <Box

@@ -4,6 +4,7 @@ import Head from '@primer/gatsby-theme-doctocat/src/components/head'
 import Header from '@primer/gatsby-theme-doctocat/src/components/header'
 import Sidebar from '@primer/gatsby-theme-doctocat/src/components/sidebar'
 import {Note} from '@primer/gatsby-theme-doctocat'
+import {LinkExternalIcon} from '@primer/octicons-react'
 
 export function BaseLayout({title, description, children, showSidebar = true}) {
   return (
@@ -20,11 +21,11 @@ export function BaseLayout({title, description, children, showSidebar = true}) {
           <Box sx={{maxWidth: 1200, width: '100%', pt: [4, 5, 6, 7], px: [4, 5, 6, 7], pb: 0, mx: 'auto'}}>
             <Note>
               <Text sx={{display: 'block'}}>
-                New look, same Primer!{' '}
+                🎉 👀 New look, same Primer!{' '}
                 <Link href="https://primer-docs-preview.github.com" target="_blank">
                   Preview the new docs experience here
                 </Link>{' '}
-                and let us know what you think 👀 🎉
+                and let us know what you think.
               </Text>
             </Note>
           </Box>

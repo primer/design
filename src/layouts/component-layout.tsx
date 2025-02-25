@@ -9,8 +9,8 @@ import {ComponentPageNav} from '../components/component-page-nav'
 import navItems from '@primer/gatsby-theme-doctocat/src/nav.yml'
 
 type NavItemData = {
-  title: string,
-  url?: string,
+  title: string
+  url?: string
   children?: NavItemData[]
 }
 
@@ -45,17 +45,23 @@ export default function ComponentLayout({pageContext, children, path}) {
 
   return (
     <BaseLayout title={title} description={description}>
-      <Box sx={{maxWidth: 1200, width: '100%', p: [4, 5, 6, 7], mx: 'auto'}}>
+      <Box sx={{maxWidth: 1200, width: '100%', pb: [4, 5, 6, 7], px: [4, 5, 6, 7], pt: [2, 3, 4, 5], mx: 'auto'}}>
         {breadcrumbData.length > 1 ? (
           <Breadcrumbs sx={{mb: 4}}>
-            {breadcrumbData.map(item => item.url ? (
-              <Breadcrumbs.Item key={item.url} href={withPrefix(item.url)} selected={path === item.url}>
-                {item.title}
-              </Breadcrumbs.Item>
-            ): null).filter(item => item)}
+            {breadcrumbData
+              .map(item =>
+                item.url ? (
+                  <Breadcrumbs.Item key={item.url} href={withPrefix(item.url)} selected={path === item.url}>
+                    {item.title}
+                  </Breadcrumbs.Item>
+                ) : null,
+              )
+              .filter(item => item)}
           </Breadcrumbs>
         ) : null}
-        <Heading as="h1" sx={{fontSize: 7}}>{title}</Heading>
+        <Heading as="h1" sx={{fontSize: 7}}>
+          {title}
+        </Heading>
         {description ? (
           <Text as="p" sx={{fontSize: 3, m: 0, mb: 3, maxWidth: '60ch'}}>
             {description}
