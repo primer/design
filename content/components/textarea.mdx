@@ -47,7 +47,9 @@ For more information about the "valid" and "invalid" states, see the [validation
   src="https://user-images.githubusercontent.com/6905903/274239156-064abae9-6d16-4c1a-b673-ec8f96429ed9.png"
 />
 
-**Label (required):** The input's title. It should be as concise as possible and convey the purpose of the input. The label may be visually hidden in rare cases, but a label must be defined for assistive technologies such as a screen reader.
+**Label (required):** The input's title. It should be as concise as possible and convey the purpose of the input. The label may be visually hidden in rare cases, but a label must be defined for assistive technologies such as a screen reader. If the label is visually hidden, ensure there is an element nearby that serves as a visual label for the input. This guarantees that all users, including those not using assistive technologies, have access to a label.
+If a visual label is provided but not directly linked to the input, the visually hidden label should include the text of the visual label as part of its accessible name.
+
 
 **Required indicator:** Indicates that a value is required. Must be shown for any required field, even if all fields in the form are required.
 When using symbols -e.g., an asterisk (*)- to indicate particular fields are required within a form, consider adding a "Required fields are marked with an asterisk (\*)" message at the top of the form for extra clarity.
