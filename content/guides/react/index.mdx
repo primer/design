@@ -13,10 +13,31 @@ Are you a GitHub employee (Hubber) looking to make a change to primer/react or a
 1. Install `@primer/react` and its peer dependencies:
 
    ```bash
-   npm install @primer/react react react-dom styled-components
+   npm install @primer/react react react-dom styled-components @primer/primitives --save
    ```
 
-2. Wrap the root of your application with `ThemeProvider` and `BaseStyles`:
+2. Import and use `@primer/primitives` in your global CSS file
+
+   ```css
+   @import '@primer/primitives/dist/css/primitives.css';
+   @import '@primer/primitives/dist/css/functional/themes/light.css';
+   @import '@primer/primitives/dist/css/functional/themes/dark.css';
+
+   body {
+     color: var(--fgColor-default);
+     background-color: var(--bgColor-default);
+   }
+   ```
+
+3. Set the `data-color-mode`, `data-light-theme`, and `data-dark-theme` attributes on your `html` element. These will control the color mode and active theme for your application. To learn more about theming, check out our [theming guide](/guides/react/theming)
+
+   ```html
+   <html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark">
+     <!-- ... -->
+   </html>
+   ```
+
+4. Wrap the root of your application with `ThemeProvider` and `BaseStyles`:
 
    ```jsx
    import {ThemeProvider, BaseStyles} from '@primer/react'
@@ -32,7 +53,7 @@ Are you a GitHub employee (Hubber) looking to make a change to primer/react or a
    }
    ```
 
-3. Import components from `@primer/react` and use them in your application:
+5. Import components from `@primer/react` and use them in your application:
 
    ```jsx
    import {Button} from '@primer/react'
@@ -50,31 +71,15 @@ Primer React does not transform code to support older ECMAScript versions (eg. E
 
 Any environment that uses Primer React should have all the necessary polyfills installed to comply with the latest code standards, as Primer React does not ship with them. Additionally, as Primer React does not transform code to support older versions, it may be necessary for projects to transform the code if support for older browsers (such as Edge 18) is needed.
 
-### Minimizing bundle size
-
-Module bundlers that use ECMAScript modules (ESM) will automatically tree-shake Primer React, ensuring that no unused code is included in your final bundle. However, if you're not using ESM, you may be able to drastically reduce the size of your final bundle by importing components individually from the `lib` subfolder:
-
-```javascript
-// using import syntax
-import Box from '@primer/react/lib/Box'
-```
-
-```javascript
-// using require syntax
-const Box = require('@primer/react/lib/Box')
-```
-
-Note that the modules in the `lib` folder are CommonJS-style modules; if you're using ESM and a compatible module bundler, importing files individually from `lib` provides no benefit.
-
 ### Peer dependencies
 
 Primer React ships with a few libraries labeled as peer dependencies. These libraries are commonly already installed in host projects and installing multiple versions can introduce errors.
 
 Primer React requires the following peer dependencies:
 
-- `styled-components` at version 4.0.0 or higher
-- `react` at versions 17.x or higher
-- `react-dom` at versions 17.x or higher
+- `styled-components` at version 5.0.0 or higher
+- `react` at versions 18.x or higher
+- `react-dom` at versions 18.x or higher
 
 ## BaseStyles
 
@@ -137,13 +142,12 @@ Like React, Primer React emits warnings to the JavaScript console under certain 
 
 ## Testing
 
-Testing your application with Primer React is no different than testing your application with any other React library. Depending on your test environment and the testing libraries you use, you may need polyfills. For example, `jest` runs via Node runtime and uses [JSDOM](https://github.com/jsdom/jsdom) as a DOM implementation, meaning you will need to mock some browser APIs. We have [helpers](https://github.com/primer/react/blob/main/src/utils/test-helpers.tsx) that can be used to mock some of these APIs. You can import the helpers in your test setup file like so:
+Testing your application with Primer React is no different than testing your application with any other React library. Depending on your test environment and the testing libraries you use, you may need polyfills. For example, `jest` runs via Node runtime and uses [JSDOM](https://github.com/jsdom/jsdom) as a DOM implementation, meaning you will need to mock some browser APIs. We have [helpers](https://github.com/primer/react/blob/main/packages/react/src/utils/test-helpers.tsx) that can be used to mock some of these APIs. You can import the helpers in your test setup file like so:
 
 ```js
-import '@primer/react/lib-esm/utils/test-helpers' // For ESM
-import '@primer/react/lib/utils/test-helpers' // For CommonJS
+import '@primer/react/test-helpers'
 ```
 
 ## More information
 
-See the [primer/react repository](https://github.com/primer/react/tree/main/docs/content) for more information about how to use and contribute to Primer React. For component-specific documentation, check out the React section in the component's docs (example: [ActionList](/components/action-list/react)).
+See the [primer/react repository](https://github.com/primer/react) for more information about how to use and contribute to Primer React. For component-specific documentation, check out the React section in the component's docs (example: [ActionList](/components/action-list/react)).
