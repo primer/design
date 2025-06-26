@@ -8,7 +8,12 @@ module.exports = {
   },
   pathPrefix: '/design',
   plugins: [
-    '@primer/gatsby-theme-doctocat',
+    {
+      resolve: '@primer/gatsby-theme-doctocat',
+      options: {
+        defaultBranch: 'main',
+      },
+    },
     {
       resolve: 'gatsby-plugin-alias-imports',
       options: {

@@ -2,64 +2,254 @@
 title: Color
 ---
 
-Color plays a critical role in an interface’s usability. It helps the user know which actions to take, and understand hierarchy and relationships between elements.
-Primer’s color system is composed of different color modes, with their own color scale. Colors are named based on the function they perform in the interface.
+<Box sx={{fontSize: 3}} class="lead" as="p">
+  Color is a fundamental piece in the Primer visual language. In this guide you will learn about the principles,
+  patterns, and abstractions that make Primer’s color system.
+</Box>
 
-<img width="960" alt="modes" src="https://user-images.githubusercontent.com/6951037/127494388-77f3132f-67fc-49de-89d6-28730f8d3d27.png" />
+import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link} from '@primer/components'
 
-## Color modes
-GitHub's UI can be rendered in a variety of different color modes. Every element on GitHub’s interface maps to a color in the scale for each color mode.
+## Get started
 
-<img width="960" alt="functional-demo" src="https://user-images.githubusercontent.com/6951037/127494554-07b67dbd-66d3-4d36-8350-5ec837d6d1a5.png" />
+<img width="960" alt="Image showing the two different types of color modes: light mode and dark mode" src="https://user-images.githubusercontent.com/6951037/146927448-cb518377-114a-4ab8-a37e-1eeffc8732c7.png" />
 
-## Foundations
-Foundation variables are the building blocks of all interfaces. Use them to create layouts and content.
+GitHub's UI offers a variety of different color modes. When designing product interfaces, you should design in light mode by default. Every pattern in Primer is built to work across all color modes out of the box.
 
-| Variable | Role |
-| -------- | -------- |
-| `canvas-default`     | Main UI backgrounds. It's used in most components and surfaces.     |
-| ~~`canvas-subtle`~~     | 🟡 Deprecating soon     |
-| `canvas-overlay`     | Surface on elements that are displayed with elevation. For example, dropdowns and popovers.     |
-| `canvas-inset`     | Surface on views where the content is the primary focus. For example, feeds and timelines.     |
-| `border-default`     | Main border to create boundaries. Critical to understanding the interface's hierarchy.    |
-| `border-muted`     | Secondary border to emphasize separation between elements.     |
-| `border-subtle`    | Low opacity border designed to blend with backgrounds like images on avatars or primary buttons.     |
-| `fg-default`    | Provides high readability. Default text and icons, and most foregrounds.      |
-| `fg-muted`    | Provides medium readability. Used to create hierarchy in combination with `fg-default`. Do not use for placeholder or disabled states.      |
-| `fg-subtle`    | Provides low contrast. Used for disabled states — in these cases, it's acceptable that it does not pass general text contrast requirements.      |
-| `fg-on-emphasis`    | Used for text and icons on color backgrounds.     |
+<img
+  width="960"
+  alt="Same component shown in light mode and dark mode color palettes"
+  src="https://user-images.githubusercontent.com/6951037/127494554-07b67dbd-66d3-4d36-8350-5ec837d6d1a5.png"
+/>
 
-## Color roles 
-Color roles are defined by the meaning they convey in the UI. Primer has 8 color roles with 4 variants each. 
+## How to use color for product UI
 
-![Color role anatomy: color role prefix + variant suffix](https://user-images.githubusercontent.com/6951037/126636938-8674c80c-c9cb-425c-b6d5-d1ddcc742fcb.png)
+Primer delivers colors in the form of [variables](https://primer.style/primitives/colors) or design tokens. Color variables are grouped based on their purpose:
 
-### Global roles
+- **Functional:** To convey a meaning or a state. For example, from a functional perspective the color green is used to reinforce positive messaging. In a functional system, green variables are named with the suffix `.success`.
+- **Presentational:** To represent a color. For example, the color steps in the Primer scale are named by color and lightness, such as `scale.blue.5`. These variables don't currently support color modes.
+As the system grows, it will provide more APIs that fit different color needs. Check the [Primer Primitives](https://github.com/primer/primitives/releases/) repository to follow along as we release new variables and systems.
 
-| Prefix | Role |
-| -------- | -------- |
-| `neutral-` | Use to highlight content without any added meaning. |
-| `accent-` | Use to draw attention to interactive elements. |
-| `success-` | Use to expresses the completion or positive outcome of a task. |
-| `attention-` | Use to warn of pending tasks or highlight active content.  |
-| `severe-` | Use when there are more than 3 levels of states, for example in heatmaps. |
-| `danger-` | Use to inform of error or another negative message. |
+### Functional system
 
-### GitHub-specific roles
+The functional system is based on the meaning, or purpose, that colors have in the interface. This system is structured into two groups of variables:
 
-| Prefix | Role |
-| -------- | -------- |
-| `done-` | Completion color for productivity and code review workflows. |
-| `sponsors-` | Color suite for all Sponsors-related content. |
+- **Foundations:** Foregrounds, backgrounds, and borders that make up most of a product interface. Each variable is generated based on visual weight.
 
-### Variants
+<img
+width="960"
+alt="Dark gray, midtone gray and light gray swatches as example of foundational colors"
+src="https://user-images.githubusercontent.com/6951037/146926823-b8489e82-978d-4aed-b186-2dcc70691fc7.png"
+/>
 
-| Suffix | Role |
-| -------- | -------- |
-| `-fg` | Text and icons. |
-| `-emphasis` | High contrast for background and borders. |
-| `-emphasis-plus` | Highest contrast for background and borders. Use only with the `neutral-` prefix. |
-| `-muted` | Medium contrast alpha value, recommended for borders. |
-|`-subtle` | Low contrast solid color, recommended for backgrounds. |
+- **Color roles:** Foregrounds, backgrounds, and borders that highlight affordance or the meaning of elements in the UI.
 
- 
+<img
+  width="1200"
+  alt="Accent: blue, Success: green, Attention: yellow, Danger: red, Severe: orange, Open: green, Closed: red, Done: purple"
+  src="https://user-images.githubusercontent.com/378023/156498624-0e71a46b-9e1d-40c0-9f4a-18e37184b06e.png"
+/>
+
+You should always use Primer's functional color system in your designs to make sure that:
+
+- It supports color modes out of the box
+- It gets all future themes updates "for free"
+- You have an accessible color combination across themes
+
+### Foregrounds
+
+Foreground elements are **text and icons**. You can apply color to them using any of the foreground variables (or `fg` for short).
+
+| Foundations                                                                       | Usage                                                                                                                                |
+| :-------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| ![](https://swatch-sid.vercel.app?mode=light&token=fg.default) `fg.default`         | Primary color for text and icons in any given interface. It should be used for body content, titles and labels.                      |
+| ![](https://swatch-sid.vercel.app?mode=light&token=fg.muted) `fg.muted`           | Use for content that is secondary or that provides additional context but is not critical to understanding the flow of an interface. |
+| ![](https://swatch-sid.vercel.app?mode=light&token=fg.subtle) `fg.subtle`           | Use for placeholder text, icons or decorative foregrounds. |
+| ![](https://swatch-sid.vercel.app?mode=light&token=fg.onEmphasis) `fg.onEmphasis` | On emphasis is the text color designed to combine with `-emphasis` backgrounds for optimal contrast.                                 |
+
+| Color roles                                                                     | Usage                                                               |
+| :------------------------------------------------------------------------------ | :------------------------------------------------------------------ |
+| ![](https://swatch-sid.vercel.app?mode=light&token=accent.fg) `fg.accent`       | Use for interactive text or icons like links or buttons.            |
+| ![](https://swatch-sid.vercel.app?mode=light&token=success.fg) `fg.success`     | Use to emphasize a positive message.                                |
+| ![](https://swatch-sid.vercel.app?mode=light&token=attention.fg) `fg.attention` | Use to highlight text or icons that require the user's attention.   |
+| ![](https://swatch-sid.vercel.app?mode=light&token=danger.fg) `fg.danger`       | Use to emphasize an error or a blocking status. Action is required. |
+| ![](https://swatch-sid.vercel.app?mode=light&token=severe.fg) `fg.severe`       | Use to emphasize a level of severity between attention and danger.  |
+| ![](https://swatch-sid.vercel.app?mode=light&token=open.fg) `fg.open`           | Use to style text that refers to open tasks or workflows.      |
+| ![](https://swatch-sid.vercel.app?mode=light&token=closed.fg) `fg.closed`       | Use to style text that refers to closed tasks or workflows.      |
+| ![](https://swatch-sid.vercel.app?mode=light&token=done.fg) `fg.done`           | Use to style text that refers to completed tasks or workflows.      |
+
+### Backgrounds
+
+Background colors apply to surfaces of components or UI elements, such as pages, boxes, and overlays.
+
+| Foundations     | Usage                                                                                                              |
+| :-------------- | :----------------------------------------------------------------------------------------------------------------- |
+| ![](https://swatch-sid.vercel.app?mode=light&token=neutral.emphasisPlus) `bg.emphasis` | Provides the highest contrast against the default background, such as in tooltips.                                 |
+| ![](https://swatch-sid.vercel.app?mode=light&token=canvas.default) `bg.default`    | Primary background color.                                                                                          |
+| ![](https://swatch-sid.vercel.app?mode=light&token=canvas.subtle) `bg.subtle`     | Provides visual rest and contrast against the default background.                                                  |
+| ![](https://swatch-sid.vercel.app?mode=light&token=canvas.inset) `bg.inset`      | Can be used instead of the default background to create a focal point, such as in conversations or activity feeds. |
+
+
+
+| Color roles                                                    | Usage                                                                          |
+| :------------------------------------------------------------- | :----------------------------------------------------------------------------- |
+| ![](https://swatch-sid.vercel.app?mode=light&token=accent.subtle) `bg.accent`| Use to accentuate interactive areas in the UI like selected elements.          |
+| ![](https://swatch-sid.vercel.app?mode=light&token=success.subtle) `bg.success`                                                   | Use to highlight a positive message.                                           |
+| ![](https://swatch-sid.vercel.app?mode=light&token=attention.subtle) `bg.attention`                                                 | Use to highlight elements that require a user's attention or pending statuses. |
+| ![](https://swatch-sid.vercel.app?mode=light&token=danger.subtle) `bg.danger`                                                    | Use to emphasize an error or a blocking status, where action is required.      |
+| ![](https://swatch-sid.vercel.app?mode=light&token=severe.subtle) `bg.severe`                                                    | Use to emphasize an extra level of severity between attention and danger.      |
+| ![](https://swatch-sid.vercel.app?mode=light&token=open.subtle) `bg.open`                                                      | Use to style text that refers to open tasks or workflows.                 |
+| ![](https://swatch-sid.vercel.app?mode=light&token=closed.subtle) `bg.closed`                                                  | Use to style text that refers to closed tasks or workflows.                 |
+| ![](https://swatch-sid.vercel.app?mode=light&token=done.subtle) `bg.done`                                                      | Use to style text that refers to completed tasks or workflows.                 |
+| ![](https://swatch-sid.vercel.app?mode=light&token=accent.emphasis) `bg.[ANY_OF_ABOVE].emphasis`                                   | Use to highlight the most important item of a view or an interface.            |
+
+### Borders
+
+Borders can be used to group content or to create a visible separation between sections or items. They’re most commonly used on tables, side sections, and cards.
+
+| Foundations      | Usage                                                                                                                                 |
+| :--------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| ![](https://swatch-sid.vercel.app?mode=light&token=border.default) `border.default` | Use to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout. |
+| ![](https://swatch-sid.vercel.app?mode=light&token=border.muted) `border.muted`   | Use for dividers to emphasize the separation between items, columns or sections.                                                      |
+
+| Color roles              | Usage                                                                         |
+| :----------------------- | :---------------------------------------------------------------------------- |
+| ![](https://swatch-sid.vercel.app?mode=light&token=accent.muted) `border.accent`          | Use to accentuate interactive areas in the UI like selected elements.         |
+| ![](https://swatch-sid.vercel.app?mode=light&token=success.muted) `border.success`         | Use to highlight a positive message.                                          |
+| ![](https://swatch-sid.vercel.app?mode=light&token=attention.muted) `border.attention`       | Use to highlight elements that require a users attention or pending statuses. |
+| ![](https://swatch-sid.vercel.app?mode=light&token=danger.muted) `border.danger`          | Use to emphasize an error or a blocking status. Action is required.           |
+| ![](https://swatch-sid.vercel.app?mode=light&token=severe.muted) `border.severe`          | Use to emphasize an extra level of severity between attention and danger.     |
+| ![](https://swatch-sid.vercel.app?mode=light&token=open.muted) `border.open`            | Use to style text that refers to open tasks or workflows.                |
+| ![](https://swatch-sid.vercel.app?mode=light&token=closed.muted) `border.closed`        | Use to style text that refers to closed tasks or workflows.                |
+| ![](https://swatch-sid.vercel.app?mode=light&token=done.muted) `border.done`            | Use to style text that refers to completed tasks or workflows.                |
+| ![](https://swatch-sid.vercel.app?mode=light&token=accent.emphasis) `border.[ROLE].emphasis` | Use to highlight the most important item of a view or an interface.           |
+
+## Functional system in action
+
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <Box>
+    <img
+      width="464"
+      alt="Table component showing the combination of bg.subtle with border.default, and border.muted"
+      src="https://user-images.githubusercontent.com/6951037/145223860-4db73d78-8791-44db-b94d-c7966ce13fab.png"
+    />
+    <Caption>Example of pairing foundation variables: bg.subtle with border.default, and border.muted.</Caption>
+  </Box>
+  <Box>
+    <img
+      width="464"
+      alt="UI demonstration of what bg.inset looks like. It darkens the background of the whole UI"
+      src="https://user-images.githubusercontent.com/6951037/145223862-2ea9027c-1474-47d0-8caf-8ab8d93a841b.png"
+    />
+    <Caption>
+      Thinking in terms of elevation, bg.inset would represent an underground level. It's meant to create a feeling of
+      focus or depth.
+    </Caption>
+  </Box>
+</Grid>
+
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={5}>
+  <Box>
+    <img
+      width="464"
+      alt="Example of a hover style on a list where the background uses bg.accent.emphasis and the text uses fg.onEmphasis."
+      src="https://user-images.githubusercontent.com/6951037/141304060-1e3d5285-f80f-4363-8c07-e5865c6fe073.png"
+    />
+    <Caption>
+      fg.onEmphasis pairs with bg.[ANY_COLOR_ROLE].emphasis variables. This example shows fg.onEmphasis paired with
+      bg.accent.emphasis.
+    </Caption>
+  </Box>
+  <Box>
+    <img
+      width="464"
+      alt="Green success alert with check icon, pairing bg.success, fg.success, and border.success color variables"
+      src="https://user-images.githubusercontent.com/6951037/141304173-5f919074-b5ae-4c0b-b5d2-8a2cd6ea2d03.png"
+    />
+    <Caption>An example of an alert that pairs bg.success, fg.success, and border.success.</Caption>
+  </Box>
+</Grid>
+
+## Combining colors
+
+Not all colors pair well with each other. There are combinations of backgrounds and foregrounds that guarantee compliance with WCAG contrast guidelines and a wide range of hierarchical relationships between elements. Never use color on its own to convey a message or meaning. Pair it with explicit text and icons instead.
+
+
+### Pairing color roles
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/6951037/146400758-3f487fe3-c07a-4b5c-b190-99f81f0efdb2.png"
+      alt=""
+    />
+    <Caption>Pair color role foregrounds with their background counterparts or with bg.default and bg.subtle.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/6951037/146400887-e9340e29-688f-4320-b633-e9f02b93cde5.png"
+      alt=""
+    />
+    <Caption>Never pair emphasis foregrounds with emphasis background.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Color roles and foregrounds
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/6951037/146401147-33bef1f2-a53c-4d06-b20d-3dc32eb1879f.png"
+      alt=""
+    />
+    <Caption>Only use fg.muted with bg.default, bg.subtle, and bg.inset.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/6951037/146401229-60f13aa3-e3c4-4125-8879-829a769c7365.png"
+      alt=""
+    />
+    <Caption>Never use fg.muted on bg.emphasis or any of the color roles backgrounds.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Color roles recipes
+
+<img
+  width="1200"
+  alt="Combination of variables 1: bg.[COLOR-ROLE] + border.[COLOR-ROLE] + fg.[COLOR-ROLE]"
+  src="https://user-images.githubusercontent.com/378023/156498633-d6e47cb1-64b4-46fb-90d6-65a5c4c6a2bc.png"
+/>
+<img
+  width="1200"
+  alt="Combination of variables 2: bg.[COLOR-ROLE] + border.[COLOR-ROLE].emphasis + fg.[COLOR-ROLE]"
+  src="https://user-images.githubusercontent.com/378023/156498642-f86a24b7-53ea-4b1e-ab47-0529587b08ef.png"
+/>
+<img
+  width="1200"
+  alt="Combination of variables 3: bg.default + border.[COLOR-ROLE].emphasis + fg.[COLOR-ROLE]"
+  src="https://user-images.githubusercontent.com/378023/156498649-e81a19bf-c94e-436e-9efc-258a1fd3be57.png"
+/>
+<img
+  width="1200"
+  alt="Combination of variables 4: bg.[COLOR-ROLE] + border.[COLOR-ROLE] + fg.default"
+  src="https://user-images.githubusercontent.com/378023/156498652-b1121c86-a670-4a92-9a8d-9db3c7e0ed9a.png"
+/>
+
+## Color outside the functional system
+
+Primer does not currently provide a presentational or data visualization color system. If you or your team at GitHub are working on a feature that has color needs beyond the functional system, please open an issue in the [github/primer](https://github.com/github/primer/issues) repository (only available to GitHub staff).
+
+## How to use colors in Primer libraries?
+
+Primer colors exist in different formats and are made available throughout the Primer libraries and tools. Not all colors exist everywhere and the naming depends on the Primer library. Below a list to help find the right Primer color documentation that is specific to that role and environment.
+
+| I am                                                   | Documentation                                                                            | Example color usage     |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------------- | ----------------------- |
+| A product **designer** working in **Figma**            | [Primer Primitives](https://www.figma.com/file/B5XPE8IwGPIZDAvN7jqWqx/Primer-Primitives) | `bg/accent`             |
+| An **engineer** using **Primer ViewComponents**        | [color system arguments](https://primer.style/view-components/system-arguments#color)    | `bg: :accent`           |
+| An **engineer** using **Primer React**                 | [sx props](https://primer.style/react/overriding-styles)                                 | `accent.subtle`         |
+| An **engineer** creating **custom UI**                 | [Primer CSS color utilities](https://primer.style/css/utilities/colors)                  | `color-bg-accent`       |
+| A Primer **React maintainer** creating a **component** | [Primer Primitives variables](https://primer.style/primitives/colors)                    | `accent.subtle`         |
+| A Primer **CSS maintainer** creating a **component**   | [Primer Primitives variables](https://primer.style/primitives/colors)                    | `--color-accent-subtle` |
+
+Stuck choosing the right color? Feel free to reach out in the [#primer](https://github.slack.com/archives/CSGAVNZ19) Slack channel.

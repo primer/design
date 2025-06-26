@@ -1,0 +1,160 @@
+---
+title: Autocomplete
+status: Alpha
+---
+
+import {LabelGroup, Label, Box} from '@primer/components'
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+  Autocomplete allows users to quickly filter through a list of options and pick one or more values for a field.
+</Box>
+
+<LabelGroup display="flex" mb={4}>
+  <Label
+    as="a"
+    href="https://primer.style/components/Autocomplete"
+    variant="xl"
+    outline
+    display="flex"
+    style="text-decoration: none;  align-items: center;"
+  >
+    <img
+      width="20"
+      height="20"
+      alt=""
+      src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    React
+  </Label>
+  <Label
+    as="a"
+    href="https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=1927%3A0"
+    variant="xl"
+    outline
+    display="flex"
+    style="text-decoration: none; align-items: center;"
+  >
+    <img
+      width="20"
+      height="20"
+      alt=""
+      src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    Figma
+  </Label>
+  <Label
+    as="a"
+    href="https://primer.style/view-components/components/beta/autocomplete"
+    variant="xl"
+    outline
+    display="flex"
+    style="text-decoration: none; align-items: center;"
+  >
+  <img
+      width="20"
+      height="20"
+      alt=""
+      src="https://user-images.githubusercontent.com/18661030/171468311-184bfd70-128e-4bfc-b482-96d0de49d42a.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    Rails
+  </Label>
+</LabelGroup>
+
+## Overview
+
+The autocomplete component is an enhanced text input that makes it easier to choose one or more values from a long list of options. The list of options is displayed when a user focuses the input.
+
+## Anatomy
+
+Autocomplete is made up of a form input field, label, and overlay of menu options. The label is required but may be visually hidden. Optionally, a leading visual and/or clear button may be displayed.
+
+![autocomplete component diagram with an input label stating pick a branch, empty focused input field with a search icon and clear button, and an overlay menu listing search options](https://user-images.githubusercontent.com/18661030/170589956-7c0f2498-b55c-4013-8c99-ef5bc1844218.png)
+
+## Usage
+
+### Text input
+
+![two side by side autocomplete inputs, one showing a single select filled state, and another showing a multi select filled state with clearable tokens](https://user-images.githubusercontent.com/18661030/170590638-b7868803-6558-4df9-b462-20d00420b9f5.png)
+
+The Autocomplete text input has all the same design functionality and properties as a regular text input including size options, width, leading visual, trailing action, and states. When a single item is selected from the menu, it will display in the input as regular text. If multiple items are selected, they will display as clearable tokens within the input.
+
+### Menu
+
+![two side by side autocomplete inputs focused with open menus. One shows a single select menu, the second shows a multi select menu with checkboxes](https://user-images.githubusercontent.com/18661030/170590641-42b27a3a-799a-4c1e-aaef-774990aed345.png)
+
+The menu is a list of options for the field's value. It appears as a list in a non-modal dialog that the user may select one or more values from. The menu uses Overlay and ActionList designs for size, structure and interaction.
+
+#### Menu item rendering
+
+By default, menu items are rendered as a single line of text. The list in the menu is rendered using the [Action List](/action-list) component, so menu items can be rendered with all of the same options as Action List items.
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="opened autocomplete menu stating: no selectable options"
+    src="https://user-images.githubusercontent.com/18661030/170601327-97307d21-a33c-4a9f-9e2f-ad9e444a161d.png"
+  />
+  <Box as="p" mt="0">
+    If no options are available based on the search term, the menu will display a message that says "No selectable
+    options". A concise, custom message may be used in place of the default.
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="opened autocomplete menu with an add item action"
+    src="https://user-images.githubusercontent.com/18661030/170589959-73608127-771d-4f7e-a78d-11b31433141d.png"
+  />
+  <Box as="p" mt="0">
+    If a user is not limited to a pre-defined list of options, an additional item can be rendered in the menu to select
+    the value that has been typed into the text input.
+  </Box>
+</Box>
+
+<Box
+  mb={3}
+  display="flex"
+  alignItems="flex-start"
+  flexDirection={['column', 'column', 'column', 'column', 'row']}
+  sx={{gap: 4}}
+>
+  <img
+    width="456"
+    alt="opened autocomplete menu with a loading spinner"
+    src="https://user-images.githubusercontent.com/18661030/170589963-ab3e211b-1082-4fdb-928e-eddd2b773ba3.png"
+  />
+  <Box as="p" mt="0">
+    A loading indicator should be displayed while the data for the list of options is being populated. The loading
+    indicator helps the user understand that the list is not empty, it's just not done loading.
+  </Box>
+</Box>
+
+## Sort and filter behavior
+
+### Sorting
+
+The order of the items should be ordered in a way that makes it easy for a user to find a specific value. This could mean items may be ranked by how likely a user is to pick that option (for example, ordering labels by the number of times they've been used in that repository), or it could simply be in alphabetical order.
+
+If multiple values can be selected, the default behavior is to move the selected items to the top of the list after the menu is closed. If this sorting logic is not helpful for your use case, you may override this behavior with a more appropriate sorting logic.
+
+### Filtering
+
+By default, menu items are filtered based on whether or not they match the value of the text input. The default filter is case-insensitive.
+
+Custom filtering logic can be applied if the default filtering behavior does not make sense for your use case. However, it is strongly discouraged to disable filtering entirely.

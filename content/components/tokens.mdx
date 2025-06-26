@@ -1,0 +1,121 @@
+---
+title: Tokens
+status: Alpha
+---
+
+import {LabelGroup, Label, Box} from '@primer/components'
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+    A token is a compact representation of an object, and is typically used to show a collection of related metadata.
+</Box>
+
+<LabelGroup display="block" mb={4}>
+    <Label as="a" href="https://primer.style/components/Token" variant="xl" color="text.success" outline style="text-decoration: none; line-height: 20px;">
+        <img width="20" height="20" alt=" " src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png" style="vertical-align: middle; margin-right: 4px;" />
+        React
+    </Label>
+    {/* TODO: uncomment once React and Figma docs are live
+    <Label as="a" href="https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=1927%3A0" variant="xl" outline style="text-decoration: none; line-height: 20px;">
+        <img width="20" height="20" alt=" " src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png" style="vertical-align: middle; margin-right: 4px;" />
+        Figma
+    </Label>
+    */}
+</LabelGroup>
+
+## Overview
+Tokens almost always appear in a group. A group of tokens may be read-only, or they may be used as a way to input data.
+
+A read-only group of tokens organizes information in a way that helps users quickly scan and understand the view they're on. For example, a list of topics associated with a repository.
+
+Tokens may be used for data input to quickly add and remove items to a list of related attributes. For example, defining a list of GitHub users who can access a private repo.
+
+## Anatomy
+<Box display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 2}}>
+    <img
+        width="456"
+        alt="token anatomy diagram"
+        src="https://user-images.githubusercontent.com/2313998/137778682-ee35f8e0-72de-4a24-b1bd-e4ea02e2ac49.png"
+    />
+    <Box as="ul" mt="0">
+        <Box as="li" mt="0"><strong>Leading visual</strong> (optional): Provides additional context (e.g.: user avatar)</Box>
+        <Box as="li"><strong>Label</strong> (required): Concise text label</Box>
+        <Box as="li"><strong>Remove button</strong> (optional): Removes the token from an editable group of tokens</Box>
+    </Box>
+</Box>
+
+## Interactivity
+Tokens are almost always interactive. When a token is interactive, it will react to cursor hover and keyboard focus.
+
+While tokens may have the same interactivity as a button or a link, a token should not be used as a replacement for a button.
+
+If a token is a link or button _and_ it has a remove button, keyboard focus will only go to the link/button. Keyboard users can remove a token by focusing the link/button and pressing "Backspace" or "Delete". When a screen reader is focused on a removable token, it will read the token's label and tell users to press "Backspace" or "Delete" to remove it.
+
+Examples of interactions:
+- An issue label token that links to a list of issues with that label
+- A user token that shows a profile summary dialog on hover
+
+## Sizing
+
+<Box display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+    <img
+        width="456"
+        alt="tokens rendered at all sizes"
+        src="https://user-images.githubusercontent.com/2313998/137771748-ee4d796a-7bf0-4384-bb75-a239f358ede6.png"
+    />
+    <Box>
+        <Box as="p" mt="0">Different token sizes can be used to maintain visual harmony with the other content on the screen or to maintain a comfortable touch target for interactive tokens.</Box>
+        <Box as="p">Keep visual hierarchy in mind. Large tokens should not visually compete with elements that have a higher priority.</Box>
+        <Box as="p">A group of tokens should not have tokens of different sizes.</Box>
+    </Box>
+</Box>
+
+## Grouping tokens
+<Box display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+    <img
+        width="456"
+        alt="tokens rendered at all sizes"
+        src="https://user-images.githubusercontent.com/2313998/137771744-ee968841-8b5c-437c-83cc-9f693e35e5f0.png"
+    />
+    <Box>
+        <Box as="p" mt="0">A group of tokens should flow like words in a paragraph, not a vertical list. This keeps the group compact to improve scannability.</Box>
+        <Box as="p">Tokens that represent different types of data should not be grouped together.</Box>
+        <Box as="p">Interactive tokens should not be grouped with non-interactive tokens.</Box>
+    </Box>
+</Box>
+
+### Within a text input field
+<Box display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+    <img
+        width="456"
+        alt="tokens rendered at all sizes"
+        src="https://user-images.githubusercontent.com/2313998/137771745-049129e6-5a79-4940-bf1b-633e0c203109.png"
+    />
+    <Box>
+        <Box as="p" mt="0">By default, tokens wrap to the next line and expand the height of the input. This allows users to see many tokens at once.</Box>
+        <Box as="p">To limit how large the input can grow, a maximum height can be defined. After the input grows past that maximum height, it will scroll vertically.</Box>
+    </Box>
+</Box>
+
+<Box display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+    <img
+        width="456"
+        alt="tokens rendered at all sizes"
+        src="https://user-images.githubusercontent.com/2313998/137771747-6ed54c3b-ddc7-42d2-ad55-db702c8d8093.png"
+    />
+    <Box as="p" mt="0">If the input is being used in a spot where the input height cannot grow, tokens can be forced to a single line that scrolls horizontally.</Box>
+</Box>
+
+
+## Tokens as a way to enter information
+<Box display="flex" alignItems="flex-start" flexDirection={["column", "column", "column", "column", "row"]} sx={{gap: 4}}>
+    <img
+        width="456"
+        alt="text input with tokens inside with an autocomplete menu below it"
+        src="https://user-images.githubusercontent.com/2313998/137771742-0d6553f2-1d34-44c2-bfcb-f39c56b5b3d1.png"
+    />
+    <Box>
+        <Box as="p" mt="0">If tokens are being used for data input, it should be obvious that the user is in an edit or creation context.</Box>
+        <Box as="p">Tokens can be added or removed from a group in the way that makes the most sense for your use case. We recommend using an <a href="/autocomplete">autocomplete</a> component to allow users to sort through a list to pick options.</Box>
+        <Box as="p">The remove button is the recommended way for removing a token from a group, but you can hide it if there is a simple alternative that makes more sense for your use case. You can also keep the remove button visible while still providing other ways to remove the button from a group.</Box>
+    </Box>
+</Box>

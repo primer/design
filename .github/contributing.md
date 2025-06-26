@@ -26,4 +26,4 @@ You can write pages in any of the following formats:
 | JavaScript | `.js` | You must `export default` a React component
 
 [MDX]: https://mdxjs.com/
-[primer-markdown]: https://github.com/primer/primer/tree/master/modules/primer-markdown#documentation
+[primer-markdown]: https://primer.style/css/components/markdown

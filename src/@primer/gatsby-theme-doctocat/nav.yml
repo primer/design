@@ -8,7 +8,7 @@
     - title: Content
       url: /foundations/content
 - title: Accessibility
-  url: /accessibility/accessibility-at-github
+  url: /accessibility
   children:
     - title: Accessibility at GitHub
       url: /accessibility/accessibility-at-github
@@ -16,6 +16,26 @@
       url: /accessibility/guidelines
     - title: Tools
       url: /accessibility/tools
+    - title: Alternative text for images
+      url: /accessibility/alternative-text-for-images
+    - title: Assistive technology announcements
+      url: /accessibility/announcements
+    - title: Context menus
+      url: /accessibility/context-menus
+    - title: Describing a button’s purpose
+      url: /accessibility/button-purpose
+    - title: Focus management
+      url: /accessibility/focus-management
+    - title: Headings
+      url: /accessibility/headings
+    - title: Links
+      url: /accessibility/links
+    - title: Semantic HTML
+      url: /accessibility/semantic-html
+    - title: Text resize and respacing
+      url: /accessibility/text-resize-and-respacing
+    - title: Tooltip alternatives
+      url: /accessibility/tooltip-alternatives
 - title: UI patterns
   url: /ui-patterns
   children:
@@ -28,12 +48,20 @@
     - title: Messaging
       url: /ui-patterns/messaging
     - title: Progressive disclosure
-      url: /ui-patterns/progressive-disclosure    
+      url: /ui-patterns/progressive-disclosure
+    - title: Saving
+      url: /ui-patterns/saving
 - title: Components
   url: /components
   children:
     - title: Action list
       url: /components/action-list
+    - title: Autocomplete
+      url: /components/autocomplete
+    - title: Toggle switch
+      url: /components/toggle-switch
+    - title: Tokens
+      url: /components/tokens
 - title: Design tools
   url: /tools
   children:
