@@ -1,0 +1,146 @@
+---
+title: ConfirmationDialog
+description:
+  ConfirmationDialog is a specialized dialog component used to confirm destructive or significant actions before
+  they are executed.
+reactId: confirmation-dialog
+railsIds:
+  - Primer::Alpha::ConfirmationDialog
+figmaId: confirmation-dialog
+rails: https://primer.style/view-components/components/alpha/confirmation-dialog
+tags:
+  - modal
+  - confirmation
+  - destructive
+  - alert
+---
+
+import ComponentLayout from '~/src/layouts/component-layout'
+export default ComponentLayout
+import {AccessibilityLink} from '~/src/components/accessibility-link'
+import {Box} from '@primer/react'
+import {Caption} from '@primer/gatsby-theme-doctocat'
+
+ConfirmationDialog helps prevent users from accidentally performing destructive or irreversible actions by requiring explicit confirmation. It provides a clear, focused interface that interrupts the user's workflow to ensure they understand the consequences of their action.
+
+## Anatomy
+
+<img
+  width="960"
+  alt="Anatomy of a ConfirmationDialog showing header, body content, and action buttons"
+  src=""
+/>
+<Caption>Anatomy of a ConfirmationDialog.</Caption>
+
+### Header region
+
+The **header** region contains the confirmation title and close button. The title should clearly describe the action being confirmed, typically phrased as a question (e.g., "Delete repository?", "Discard changes?").
+
+### Body content
+
+The **body** provides additional context about the action's consequences. This may include:
+- A description of what will happen
+- Warning text about irreversibility
+- Lists of affected items
+- Input fields for confirmation (such as typing a repository name)
+
+### Action buttons
+
+The **action region** contains the primary action button (usually destructive) and a secondary cancel button. The destructive action should use the `danger` variant to clearly indicate its nature.
+
+## Usage
+
+Use ConfirmationDialog when:
+
+- The action is destructive and cannot be easily undone (deleting, removing, etc.)
+- The action has significant consequences that users should be aware of
+- You need to interrupt the user's workflow to ensure intentional action
+- Additional confirmation input is required (typing names, selecting options)
+
+### When not to use
+
+- For non-destructive actions that can be easily undone
+- When the action is clearly reversible
+- For simple confirmations that don't warrant a modal interruption
+- When the context already makes the consequences clear
+
+## Variants
+
+### Basic confirmation
+
+A simple confirmation dialog with descriptive text and action buttons.
+
+```jsx
+<ConfirmationDialog
+  title="Delete repository?"
+  confirmButtonText="Delete"
+  confirmButtonType="danger"
+  onConfirm={handleDelete}
+  onCancel={handleCancel}
+>
+  This action cannot be undone. This will permanently delete the repository
+  and all of its contents.
+</ConfirmationDialog>
+```
+
+### Input confirmation
+
+A confirmation dialog that requires additional input for verification.
+
+```jsx
+<ConfirmationDialog
+  title="Delete repository?"
+  confirmButtonText="Delete"
+  confirmButtonType="danger"
+  onConfirm={handleDelete}
+  onCancel={handleCancel}
+  requireConfirmation
+  confirmationText={repositoryName}
+>
+  This action cannot be undone. This will permanently delete the repository
+  and all of its contents.
+  
+  Please type <strong>{repositoryName}</strong> to confirm.
+</ConfirmationDialog>
+```
+
+## Options
+
+### Size
+
+ConfirmationDialogs support different sizes to accommodate varying amounts of content:
+
+- **Small**: For simple confirmations with minimal text
+- **Medium** (default): For standard confirmations with moderate content
+- **Large**: For confirmations with extensive details or lists
+
+### Confirmation types
+
+- **Basic**: Simple yes/no confirmation
+- **Input verification**: Requires typing specific text to confirm
+- **Multi-step**: Progressive confirmation for highly destructive actions
+
+## Accessibility
+
+<AccessibilityLink label="ConfirmationDialog" />
+
+ConfirmationDialog follows standard dialog accessibility patterns:
+
+- Focuses on the first interactive element when opened
+- Traps focus within the dialog
+- Returns focus to the triggering element when closed
+- Supports keyboard navigation (Tab, Shift+Tab, Escape)
+- Provides appropriate ARIA labels and roles
+
+### Screen reader considerations
+
+- The title should clearly describe the confirmation action
+- Body content should provide sufficient context about consequences
+- Button labels should be descriptive and action-oriented
+- Use `aria-describedby` to associate body content with the dialog
+
+## Related components
+
+- [Dialog](/components/dialog): For general modal content
+- [Banner](/components/banner): For non-modal notifications and warnings
+- [Button](/components/button): For action triggers that may open confirmation dialogs
