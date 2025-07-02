@@ -107,14 +107,14 @@ function DeleteExample() {
   return (
     <>
       <Button onClick={() => setIsOpen(true)}>Delete item</Button>
-      {isOpen && (
+      {isOpen ? (
         <ConfirmationDialog
           title="Delete item?"
           onClose={handleClose}
         >
           This action cannot be undone.
         </ConfirmationDialog>
-      )}
+      ) : null}
     </>
   )
 }
